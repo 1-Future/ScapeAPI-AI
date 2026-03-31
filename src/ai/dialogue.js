@@ -29,16 +29,81 @@ async function sendToDiscord(prompt) {
   return res.ok;
 }
 
-// Poll for bot response (Discord doesn't push — we poll the channel)
-// This requires a bot token to read messages. If no token, use fallback.
-async function pollBotResponse(timeout = 5000) {
-  // Without a bot token to read channel messages, we can't poll.
-  // The Discord bot should be configured to respond via a DIFFERENT webhook
-  // back to our server, or we use the bot's API directly.
-  //
-  // For now: the game server will poll Discord itself (same pattern as MiniScape).
-  // This module just sends the prompt and the game handles the response.
-  return null;
+// ── Discord Polling (reads bot responses back) ───────────────────────────────
+// Same pattern as MiniScape/OpenScape. Polls channel every 3s, routes
+// FUTURE BOT responses back to the player who asked.
+
+const DISCORD_API = 'https://discord.com/api/v10';
+let lastSeenMessageId = null;
+let pendingNpcTalk = null; // { playerId, npcName, sendFn }
+let pollTimer = null;
+
+async function pollDiscordMessages() {
+  const token = config.botToken || process.env.DISCORD_BOT_TOKEN;
+  if (!token || !config.channelId) return;
+
+  try {
+    const url = lastSeenMessageId
+      ? `${DISCORD_API}/channels/${config.channelId}/messages?after=${lastSeenMessageId}&limit=10`
+      : `${DISCORD_API}/channels/${config.channelId}/messages?limit=1`;
+    const res = await fetch(url, {
+      headers: { 'Authorization': `Bot ${token}` }
+    });
+    if (!res.ok) {
+      if (res.status !== 401) console.error(`[discord] Poll error: ${res.status}`);
+      return;
+    }
+    const messages = await res.json();
+    if (!Array.isArray(messages) || messages.length === 0) return;
+
+    messages.reverse(); // oldest first
+
+    // First poll: just record latest ID
+    if (!lastSeenMessageId) {
+      lastSeenMessageId = messages[messages.length - 1].id;
+      console.log('[discord] Polling active');
+      return;
+    }
+
+    for (const msg of messages) {
+      lastSeenMessageId = msg.id;
+      if (msg.webhook_id) continue; // skip our own webhook messages
+
+      const isBot = msg.author.id === config.botUserId;
+      const text = (msg.content || '').trim().slice(0, 500);
+      if (!text) continue;
+
+      if (isBot && pendingNpcTalk) {
+        // Route NPC response back to the player
+        const { sendFn, npcName } = pendingNpcTalk;
+        if (sendFn) sendFn(`${npcName}: "${text}"`);
+        console.log(`[discord] AI response → ${npcName}: ${text.slice(0, 80)}`);
+        pendingNpcTalk = null;
+      }
+    }
+  } catch (e) {
+    console.error('[discord] Poll error:', e.message);
+  }
+}
+
+function startPolling() {
+  if (pollTimer) return;
+  const token = config.botToken || process.env.DISCORD_BOT_TOKEN;
+  if (!token) {
+    console.log('[discord] No bot token — polling disabled. Set botToken in config.json or DISCORD_BOT_TOKEN env var.');
+    return;
+  }
+  console.log('[discord] Starting message polling...');
+  pollDiscordMessages();
+  pollTimer = setInterval(pollDiscordMessages, config.pollInterval || 3000);
+}
+
+function stopPolling() {
+  if (pollTimer) { clearInterval(pollTimer); pollTimer = null; }
+}
+
+function setPendingTalk(npcName, sendFn) {
+  pendingNpcTalk = { npcName, sendFn };
 }
 
 // ── NPC Personality Templates ─────────────────────────────────────────────────
@@ -265,6 +330,9 @@ module.exports = {
   buildPrompt,
   buildExaminePrompt,
   getFallback,
+  setPendingTalk,
+  startPolling,
+  stopPolling,
   NPC_PROFILES,
   PERSONALITIES,
   FALLBACK_DIALOGUES,

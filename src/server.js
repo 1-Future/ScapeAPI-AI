@@ -1215,14 +1215,18 @@ commands.register('talk', { help: 'Talk to an NPC: talk [name] (or just `talk` f
       if (!npc) return `No "${name}" nearby. Type \`npcs\` to see who's around.`;
     }
 
-    // AI dialogue: send to Discord webhook, show fallback immediately
+    // AI dialogue: send to Discord webhook, route response back
     const area = tiles.getArea(p.x, p.y, p.layer);
     const prompt = ai.buildPrompt(npc.defId, npc.name, npc.examine || '', p.name, combatLevel(p), 'Hello', area?.name || `(${p.x},${p.y})`, {});
+
+    // Set up response routing — when bot responds, send it to this player
+    let playerWs; for (const [ws, pl] of players) { if (pl === p) { playerWs = ws; break; } }
+    ai.setPendingTalk(npc.name, (text) => { if (playerWs) sendText(playerWs, text); });
     ai.sendToDiscord(prompt).catch(() => {});
 
-    // Return canned dialogue as immediate response (AI response comes async via bot)
+    // Show canned fallback immediately, AI response arrives async
     const fallback = ai.getFallback(npc.defId);
-    return `${npc.name}: "${npc.dialogue || fallback}"`;
+    return `${npc.name}: "${npc.dialogue || fallback}"\n(AI response incoming...)`;
   }
 });
 
@@ -1243,10 +1247,12 @@ commands.register('sayto', { help: 'Say something to an NPC: sayto [npc] [messag
 
     const area = tiles.getArea(p.x, p.y, p.layer);
     const prompt = ai.buildPrompt(npc.defId, npc.name, npc.examine || '', p.name, combatLevel(p), message, area?.name || `(${p.x},${p.y})`, {});
+
+    let playerWs; for (const [ws, pl] of players) { if (pl === p) { playerWs = ws; break; } }
+    ai.setPendingTalk(npc.name, (text) => { if (playerWs) sendText(playerWs, text); });
     ai.sendToDiscord(prompt).catch(() => {});
 
-    const fallback = ai.getFallback(npc.defId);
-    return `You say to ${npc.name}: "${message}"\n${npc.name}: "${fallback}"\n(AI response incoming via Discord...)`;
+    return `You say to ${npc.name}: "${message}"\n(AI response incoming...)`;
   }
 });
 
@@ -2823,6 +2829,7 @@ setupHttpApi(server, { players, playersByName, commands, sendText, createPlayer,
 
 // Start
 tick.startTicking();
+ai.startPolling(); // Poll Discord for bot responses
 server.listen(PORT, () => {
   console.log(`[server] ScapeAPI+AI running on ws://localhost:${PORT}`);
   console.log(`[server] WebSocket: wscat -c ws://localhost:${PORT}`);
