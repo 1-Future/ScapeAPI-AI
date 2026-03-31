@@ -1225,9 +1225,8 @@ commands.register('talk', { help: 'Talk to an NPC: talk [name] (or just `talk` f
     ai.sendToDiscord(prompt).catch(() => {});
     p._lastTalkNpc = npc.defId; // Remember for /r replies
 
-    // Show canned fallback immediately, AI response arrives async
     const fallback = ai.getFallback(npc.defId);
-    return `${npc.name}: "${npc.dialogue || fallback}"\n(AI response incoming...)`;
+    return `${npc.name}: "${npc.dialogue || fallback}"`;
   }
 });
 

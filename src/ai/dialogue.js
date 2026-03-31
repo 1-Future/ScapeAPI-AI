@@ -9,6 +9,15 @@ const WebSocket = require('ws');
 const fs = require('fs');
 const path = require('path');
 
+// Load .env file manually (no dotenv dependency needed)
+const envPath = path.join(__dirname, '..', '..', '.env');
+if (fs.existsSync(envPath)) {
+  for (const line of fs.readFileSync(envPath, 'utf8').split('\n')) {
+    const match = line.match(/^([^#=]+)=(.*)$/);
+    if (match && !process.env[match[1].trim()]) process.env[match[1].trim()] = match[2].trim();
+  }
+}
+
 const config = JSON.parse(fs.readFileSync(path.join(__dirname, 'config.json'), 'utf8'));
 
 const YELLOW = '\x1b[38;2;254;255;1m';
