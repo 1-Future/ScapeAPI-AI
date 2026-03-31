@@ -67,18 +67,25 @@ async function pollDiscordMessages() {
 
     for (const msg of messages) {
       lastSeenMessageId = msg.id;
-      if (msg.webhook_id) continue; // skip our own webhook messages
 
-      const isBot = msg.author.id === config.botUserId;
       const text = (msg.content || '').trim().slice(0, 500);
       if (!text) continue;
 
+      // Skip our own outgoing webhook messages (the prompts we send)
+      // But don't skip bot responses — those could come via webhook OR bot user
+      const isOurWebhook = msg.webhook_id && msg.author.id !== config.botUserId;
+      if (isOurWebhook) continue;
+
+      // Check if this is from FUTURE BOT (either as bot user or webhook)
+      const isBot = msg.author.id === config.botUserId || msg.author.bot;
+
       if (isBot && pendingNpcTalk) {
-        // Route NPC response back to the player
         const { sendFn, npcName } = pendingNpcTalk;
         if (sendFn) sendFn(`${npcName}: "${text}"`);
         console.log(`[discord] AI response → ${npcName}: ${text.slice(0, 80)}`);
         pendingNpcTalk = null;
+      } else if (isBot) {
+        console.log(`[discord] Bot message (no pending talk): ${text.slice(0, 80)}`);
       }
     }
   } catch (e) {

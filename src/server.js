@@ -1223,6 +1223,7 @@ commands.register('talk', { help: 'Talk to an NPC: talk [name] (or just `talk` f
     let playerWs; for (const [ws, pl] of players) { if (pl === p) { playerWs = ws; break; } }
     ai.setPendingTalk(npc.name, (text) => { if (playerWs) sendText(playerWs, text); });
     ai.sendToDiscord(prompt).catch(() => {});
+    p._lastTalkNpc = npc.defId; // Remember for /r replies
 
     // Show canned fallback immediately, AI response arrives async
     const fallback = ai.getFallback(npc.defId);
@@ -1244,6 +1245,28 @@ commands.register('sayto', { help: 'Say something to an NPC: sayto [npc] [messag
     }
     if (!npc) return `No NPC by that name nearby. Type \`npcs\` to see who's around.`;
     if (!message) return 'What do you want to say?';
+
+    const area = tiles.getArea(p.x, p.y, p.layer);
+    const prompt = ai.buildPrompt(npc.defId, npc.name, npc.examine || '', p.name, combatLevel(p), message, area?.name || `(${p.x},${p.y})`, {});
+
+    let playerWs; for (const [ws, pl] of players) { if (pl === p) { playerWs = ws; break; } }
+    ai.setPendingTalk(npc.name, (text) => { if (playerWs) sendText(playerWs, text); });
+    ai.sendToDiscord(prompt).catch(() => {});
+
+    p._lastTalkNpc = npc.defId; // Remember for /r replies
+    return `You say to ${npc.name}: "${message}"\n(AI response incoming...)`;
+  }
+});
+
+// Quick reply to last NPC talked to
+commands.register('r', { help: 'Reply to last NPC: r [message]', aliases: ['reply'], category: 'World',
+  fn: (p, args) => {
+    if (!p._lastTalkNpc) return 'No recent NPC conversation. Use `talk [npc]` or `sayto [npc] [message]` first.';
+    const message = args.join(' ');
+    if (!message) return 'Usage: r [your message]';
+    const npc = npcs.findNpcByName(p._lastTalkNpc, p.x, p.y, 15, p.layer) ||
+                npcs.getNpcsNear(p.x, p.y, 15, p.layer).find(n => n.defId === p._lastTalkNpc);
+    if (!npc) return `${p._lastTalkNpc} is no longer nearby.`;
 
     const area = tiles.getArea(p.x, p.y, p.layer);
     const prompt = ai.buildPrompt(npc.defId, npc.name, npc.examine || '', p.name, combatLevel(p), message, area?.name || `(${p.x},${p.y})`, {});
