@@ -2474,34 +2474,83 @@ wss.on('connection', (ws) => {
   ws.on('message', (data) => {
     let input = data.toString().trim();
 
-    // /? suffix — AI auto-executes the intent
-    if (input.endsWith('/?') && input.length > 2) {
-      const intent = input.slice(0, -2).trim();
-      if (intent && ollama.isEnabled()) {
-        const p = players.get(ws);
-        if (p) {
-          sendText(ws, `(figuring out: "${intent}"...)`);
-          const area = tiles.getArea(p.x, p.y, p.layer);
-          const autoPrompt = `You are a command translator for a text MMORPG called Scape.
-The player wants to: "${intent}"
-They are at ${area?.name || `(${p.x},${p.y})`}, combat level ${combatLevel(p)}.
+    // /? — context-aware action suggestions
+    if (input === '/?' || input === '?/') {
+      const p = players.get(ws);
+      if (p) {
+        const suggestions = [];
+        const nearNpcs = npcs.getNpcsNear(p.x, p.y, 10, p.layer);
+        const nearObjs = objects.getObjectsNear(p.x, p.y, 5, p.layer).filter(o => !o.depleted);
+        const nearItems = groundItems.filter(i => i.x === p.x && i.y === p.y && i.layer === p.layer);
+        const area = tiles.getArea(p.x, p.y, p.layer);
 
-Available commands: look, n, s, e, w, ne, nw, se, sw, goto [x] [y], attack [npc], chop, mine, fish, cook [item], smelt [bar], smith [item], craft [item], fletch [item], clean [herb], mix [potion], light [logs], eat [item], drink [potion], equip [item], unequip [slot], inv, bank, deposit [item], withdraw [item], shop, buy [slot], sell [item], talk [npc], sayto [npc] [message], r [message], pickpocket [npc], bury [bones], pray, cast [spell], skills, map, nearby, status, help, home, goto [x] [y], flee, stop
+        // Combat targets
+        for (const n of nearNpcs) {
+          if (n.combat > 0 && !n.dead) suggestions.push({ cmd: `attack ${n.name.toLowerCase()}`, desc: `Attack ${n.name} (lvl ${n.combat})` });
+        }
+        // Talkable NPCs
+        for (const n of nearNpcs) {
+          if ((n.dialogue || n.combat === 0) && !n.dead) suggestions.push({ cmd: `talk ${n.name.toLowerCase()}`, desc: `Talk to ${n.name}` });
+        }
+        // Pickpocket
+        for (const n of nearNpcs) {
+          if (n.thieving && !n.dead) suggestions.push({ cmd: `pickpocket ${n.name.toLowerCase()}`, desc: `Pickpocket ${n.name} (lvl ${n.thieving.level} Thieving)` });
+        }
+        // Gatherable objects
+        for (const o of nearObjs) {
+          if (o.skill === 'woodcutting') suggestions.push({ cmd: `chop ${o.name.toLowerCase()}`, desc: `Chop ${o.name}` });
+          else if (o.skill === 'mining') suggestions.push({ cmd: `mine ${o.name.toLowerCase()}`, desc: `Mine ${o.name}` });
+          else if (o.skill === 'fishing') suggestions.push({ cmd: `fish ${o.name.toLowerCase()}`, desc: `Fish at ${o.name}` });
+        }
+        // Interactable objects
+        for (const o of nearObjs) {
+          if (o.name.toLowerCase().includes('bank')) suggestions.push({ cmd: 'bank', desc: 'Open bank' });
+          else if (o.name.toLowerCase().includes('range') || o.name.toLowerCase().includes('cooking')) suggestions.push({ cmd: 'cook', desc: 'Cook food' });
+          else if (o.name.toLowerCase().includes('furnace')) suggestions.push({ cmd: 'smelt', desc: 'Smelt ores' });
+          else if (o.name.toLowerCase().includes('anvil')) suggestions.push({ cmd: 'smith', desc: 'Smith items' });
+          else if (o.name.toLowerCase().includes('altar')) suggestions.push({ cmd: 'pray at altar', desc: 'Pray at altar' });
+        }
+        // Ground items
+        for (const i of nearItems) {
+          suggestions.push({ cmd: `pickup ${i.name.toLowerCase()}`, desc: `Pick up ${i.name} x${i.count}` });
+        }
+        // Navigation
+        if (p.hp < p.maxHp) suggestions.push({ cmd: 'eat', desc: 'Eat food (check inv first)' });
+        if (p.combatTarget) suggestions.push({ cmd: 'flee', desc: 'Stop fighting' });
+        suggestions.push({ cmd: 'map', desc: 'Show map' });
+        suggestions.push({ cmd: 'nearby', desc: 'See what\'s around' });
 
-Respond with ONLY the exact game command to execute. Nothing else. No explanation. Just the command.`;
-          ollama.generate(autoPrompt).then(cmd => {
-            if (cmd) {
-              cmd = cmd.replace(/^[`"']|[`"']$/g, '').trim().split('\n')[0];
-              sendText(ws, `> ${cmd}`);
-              const result = commands.execute(p, cmd);
-              if (result && !result.unknown) sendText(ws, result);
-              else if (result && result.unknown) sendText(ws, `Couldn't figure that out. Try \`help\`.`);
-            }
-          }).catch(() => sendText(ws, 'AI unavailable.'));
+        // Deduplicate and limit
+        const seen = new Set();
+        const unique = suggestions.filter(s => { if (seen.has(s.cmd)) return false; seen.add(s.cmd); return true; }).slice(0, 9);
+
+        if (!unique.length) {
+          sendText(ws, 'Nothing interesting to do here. Try `look` or `nearby`.');
+        } else {
+          p._suggestions = unique;
+          let out = '── What would you like to do? ──\n';
+          unique.forEach((s, i) => { out += `  [${i + 1}] ${s.desc}\n`; });
+          out += '\nType a number to execute, or any command.';
+          sendText(ws, out);
         }
         return;
       }
     }
+
+    // Number selection from /? suggestions
+    const p_check = players.get(ws);
+    if (p_check && p_check._suggestions && /^[1-9]$/.test(input)) {
+      const idx = parseInt(input) - 1;
+      if (idx < p_check._suggestions.length) {
+        const cmd = p_check._suggestions[idx].cmd;
+        p_check._suggestions = null;
+        sendText(ws, `> ${cmd}`);
+        const result = commands.execute(p_check, cmd);
+        if (result && !result.unknown) sendText(ws, result);
+        return;
+      }
+    }
+    if (p_check) p_check._suggestions = null; // Clear on any other input
 
     // If in replay mode, any input advances (Enter/space), "q" stops
     if (activeReplays.has(ws)) {
