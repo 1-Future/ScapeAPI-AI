@@ -280,7 +280,24 @@ function combatTick(currentTick) {
       continue;
     }
 
-    // Attack on cooldown
+    // NPC retaliates independently — runs even when player is on cooldown
+    if (!npc.dead && npc.combat > 0 && currentTick >= npc.nextAttackTick) {
+      npc.target = p.id;
+      npc.nextAttackTick = currentTick + npc.attackSpeed;
+      const npcHit = Math.random() < 0.5;
+      const npcDmg = npcHit ? Math.floor(Math.random() * (npc.maxHit + 1)) : 0;
+      p.hp = Math.max(0, p.hp - npcDmg);
+      if (npcDmg > 0) sendText(ws, `The ${npc.name} hits you for ${npcDmg} damage. HP: ${p.hp}/${p.maxHp}`);
+      if (p.hp <= 0) {
+        sendText(ws, 'Oh dear, you are dead!');
+        p.hp = p.maxHp; p.x = SPAWN_X; p.y = SPAWN_Y; p.layer = 0;
+        p.combatTarget = null; p.busy = false; p.path = [];
+        events.emit('player_death', { player: p, ws, killer: npc });
+        continue;
+      }
+    }
+
+    // Player attack on cooldown — skip player attack but NPC already attacked above
     if (currentTick < p.nextAttackTick) continue;
     p.nextAttackTick = currentTick + combat.getAttackSpeed(p);
 
@@ -388,18 +405,12 @@ function combatTick(currentTick) {
 
     sendText(ws, msg);
 
-    // NPC retaliates
-    if (!npc.dead && npc.combat > 0) {
+    // Boss special mechanics (normal NPC retaliation handled above)
+    if (!npc.dead && npc.combat > 0 && ['king_black_dragon', 'giant_mole', 'dharok', 'verac', 'guthan', 'ahrim', 'karil', 'torag'].includes(npc.defId)) {
       npc.target = p.id;
-      if (currentTick >= npc.nextAttackTick) {
-        npc.nextAttackTick = currentTick + npc.attackSpeed;
-
-        // ── Boss special mechanics ──
-        let npcDmg = 0;
-        let npcHit = false;
-        let bossMsg = '';
-
-        if (npc.defId === 'king_black_dragon') {
+      // Boss attacks handled here with special effects
+      if (false) { // placeholder to keep block structure
+      } else if (npc.defId === 'king_black_dragon') {
           // KBD phases at 170/85/0 HP, dragonfire every 5 ticks
           if (!npc._phase) npc._phase = 1;
           if (npc.hp <= 85 && npc._phase < 3) { npc._phase = 3; bossMsg += ` The KBD enters its final phase!`; }
