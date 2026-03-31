@@ -807,9 +807,34 @@ const COMMAND_EXAMPLES = {
   deaths: { usage: 'deaths', examples: ['deaths'] },
 };
 
+commands.register('?', {
+  help: 'Ask the AI guide a question: ? [question]',
+  aliases: ['ask', 'guide'],
+  category: 'General',
+  fn: (p, args) => {
+    const question = args.join(' ');
+    if (!question) return 'Usage: ? [your question]. Example: ? how do i train woodcutting';
+    if (!ollama.isEnabled()) return 'AI guide is offline. Start Ollama with: ollama serve';
+
+    // Find player's ws for async response
+    let playerWs; for (const [ws2, pl] of players) { if (pl === p) { playerWs = ws2; break; } }
+    const area = tiles.getArea(p.x, p.y, p.layer);
+    const guidePrompt = `You are a helpful guide for a text-based MMORPG called Scape (similar to RuneScape/OSRS).
+The player "${p.name}" (combat level ${combatLevel(p)}, at ${area?.name || `(${p.x},${p.y})`}) asks: "${question}"
+
+Available commands: look, n/s/e/w, goto, attack, chop, mine, fish, cook, smelt, smith, craft, fletch, clean, mix, light, eat, drink, equip, unequip, inv, bank, shop, buy, sell, talk, sayto, r, pickpocket, bury, pray, cast, skills, map, nearby, status, help
+
+Respond helpfully in 1-3 sentences. If they're trying to do something, suggest the right command.`;
+    ollama.generate(guidePrompt).then(text => {
+      if (text && playerWs) sendText(playerWs, `Guide: ${text}`);
+    }).catch(() => {});
+    return '(thinking...)';
+  }
+});
+
 commands.register('help', {
   help: 'Show commands or help for a specific command',
-  aliases: ['?', 'commands'],
+  aliases: ['commands'],
   category: 'General',
   fn: (p, args) => {
     if (args[0]) {
@@ -2712,25 +2737,7 @@ wss.on('connection', (ws) => {
     }
     const result = commands.execute(p, input);
     if (result && result.unknown) {
-      // Not a command — ask Ollama as a game guide
-      if (ollama.isEnabled()) {
-        sendText(ws, '(thinking...)');
-        const area = tiles.getArea(p.x, p.y, p.layer);
-        const guidePrompt = `You are a helpful guide for a text-based MMORPG called Scape (similar to RuneScape/OSRS).
-The player "${p.name}" (combat level ${combatLevel(p)}, at ${area?.name || `(${p.x},${p.y})`}) said: "${result.input}"
-
-This could be a question about the game, casual chat, or they might be trying to do something but don't know the command.
-
-Available commands include: look, n/s/e/w, goto, attack, chop, mine, fish, cook, smelt, smith, craft, fletch, clean, mix, light, eat, drink, equip, unequip, inv, bank, shop, buy, sell, talk, sayto, r, pickpocket, bury, pray, cast, skills, map, nearby, status, help
-
-Respond helpfully in 1-3 sentences. If they're trying to do something, suggest the right command. If they're chatting, chat back briefly.`;
-        ollama.generate(guidePrompt).then(text => {
-          if (text) sendText(ws, `Guide: ${text}`);
-          else sendText(ws, `Unknown command. Type \`help\` for commands.`);
-        }).catch(() => sendText(ws, `Unknown command. Type \`help\` for commands.`));
-      } else {
-        sendText(ws, `Unknown command: "${result.input}". Type \`help\` for commands.`);
-      }
+      sendText(ws, `Unknown command. Type \`help\` for commands, or \`? [question]\` to ask the guide.`);
     } else if (result) {
       sendText(ws, result);
     }
