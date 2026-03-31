@@ -2516,9 +2516,10 @@ function createDefaultContent() {
 }
 
 // ── HTTP + WebSocket Server ───────────────────────────────────────────────────
+const { setupHttpApi, queueEvent } = require('./http-api');
 const server = http.createServer((req, res) => {
   res.writeHead(200, { 'Content-Type': 'text/plain' });
-  res.end('ScapeAPI v0.1.0 — Connect via WebSocket');
+  res.end('ScapeAPI+AI v0.1.0 — WebSocket or HTTP API');
 });
 
 const wss = new WebSocket.Server({ server });
@@ -2817,11 +2818,16 @@ persistence.onSave('clans', () => saveClanData());
 ge.loadGE();
 persistence.startAutoSave();
 
+// HTTP API for Claude Code / external tools
+setupHttpApi(server, { players, playersByName, commands, sendText, createPlayer, combatLevel, getLevel, totalLevel, tick, tiles, npcs, invFreeSlots });
+
 // Start
 tick.startTicking();
 server.listen(PORT, () => {
-  console.log(`[server] ScapeAPI running on ws://localhost:${PORT}`);
-  console.log(`[server] Connect with: wscat -c ws://localhost:${PORT}`);
+  console.log(`[server] ScapeAPI+AI running on ws://localhost:${PORT}`);
+  console.log(`[server] WebSocket: wscat -c ws://localhost:${PORT}`);
+  console.log(`[server] HTTP API: curl -X POST http://localhost:${PORT}/cmd -d '{"player":"Name","command":"look"}'`);
+  console.log(`[server] Claude Code: /scape look`);
 });
 
 // Graceful shutdown
