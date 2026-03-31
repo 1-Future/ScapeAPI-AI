@@ -719,7 +719,7 @@ function worldTick(currentTick) {
         const a = 1 + Math.floor(Math.random() * 10);
         const b = 1 + Math.floor(Math.random() * 10);
         p.pendingEvent = { type: 'quiz', answer: String(a + b), question: `${a}+${b}` };
-        sendText(ws, `A mysterious old man asks: What is ${a}+${b}? Type \`answer ${a + b}\``);
+        sendText(ws, `A mysterious old man asks: What is ${a}+${b}? Type \`answer [number]\``);
       } else if (eventRoll === 2) {
         p.pendingEvent = { type: 'evil_chicken' };
         sendText(ws, 'An evil chicken attacks! Type `flee` or `attack chicken`.');
