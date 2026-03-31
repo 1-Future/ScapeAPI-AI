@@ -30,6 +30,7 @@ const combat = require('./combat/combat');
 
 // AI
 const ai = require('./ai/dialogue');
+const ollama = require('./ai/ollama');
 
 // Data systems
 const items = require('./data/items');
@@ -1238,11 +1239,10 @@ commands.register('sayto', { help: 'Say something to an NPC: sayto [npc] [messag
     if (!message) return 'What do you want to say?';
 
     const area = tiles.getArea(p.x, p.y, p.layer);
-    const prompt = ai.buildPrompt(npc.defId, npc.name, npc.examine || '', p.name, combatLevel(p), message, area?.name || `(${p.x},${p.y})`, {});
+    const prompt = ai.buildSimplePrompt(npc.defId, npc.name, p.name, combatLevel(p), message, area?.name || `(${p.x},${p.y})`);
 
     let playerWs; for (const [ws, pl] of players) { if (pl === p) { playerWs = ws; break; } }
-    ai.setPendingTalk(npc.name, (text) => { if (playerWs) sendText(playerWs, text); });
-    ai.sendToDiscord(prompt).catch(() => {});
+    addNpcPrompt(npc.name, prompt, (text) => { if (playerWs) sendText(playerWs, `${npc.name}: "${text}"`); });
 
     p._lastTalkNpc = npc.defId; // Remember for /r replies
     return `You say to ${npc.name}: "${message}"\n(thinking...)`;
@@ -1260,11 +1260,10 @@ commands.register('r', { help: 'Reply to last NPC: r [message]', aliases: ['repl
     if (!npc) return `${p._lastTalkNpc} is no longer nearby.`;
 
     const area = tiles.getArea(p.x, p.y, p.layer);
-    const prompt = ai.buildPrompt(npc.defId, npc.name, npc.examine || '', p.name, combatLevel(p), message, area?.name || `(${p.x},${p.y})`, {});
+    const prompt = ai.buildSimplePrompt(npc.defId, npc.name, p.name, combatLevel(p), message, area?.name || `(${p.x},${p.y})`);
 
     let playerWs; for (const [ws, pl] of players) { if (pl === p) { playerWs = ws; break; } }
-    ai.setPendingTalk(npc.name, (text) => { if (playerWs) sendText(playerWs, text); });
-    ai.sendToDiscord(prompt).catch(() => {});
+    addNpcPrompt(npc.name, prompt, (text) => { if (playerWs) sendText(playerWs, `${npc.name}: "${text}"`); });
 
     return `You say to ${npc.name}: "${message}"\n(thinking...)`;
   }
@@ -2536,7 +2535,28 @@ function createDefaultContent() {
 }
 
 // ── HTTP + WebSocket Server ───────────────────────────────────────────────────
-const { setupHttpApi, queueEvent } = require('./http-api');
+const { setupHttpApi, queueEvent, addNpcPrompt: _addNpcPrompt } = require('./http-api');
+
+// If Ollama is running, generate responses locally. Otherwise queue for external AI.
+function addNpcPrompt(npcName, prompt, sendFn) {
+  if (ollama.isEnabled()) {
+    // Local AI — generate response directly
+    ollama.generate(prompt).then(text => {
+      if (text) {
+        sendFn(text);
+        console.log(`[ollama] ${npcName}: ${text.slice(0, 80)}`);
+      } else {
+        // Fallback to canned
+        sendFn(ai.getFallback(npcName) || 'Hmm...');
+      }
+    }).catch(() => {
+      sendFn(ai.getFallback(npcName) || 'Hmm...');
+    });
+  } else {
+    // Queue for OpenClaw or external AI
+    _addNpcPrompt(npcName, prompt, sendFn);
+  }
+}
 const server = http.createServer((req, res) => {
   res.writeHead(200, { 'Content-Type': 'text/plain' });
   res.end('ScapeAPI+AI v0.1.0 — WebSocket or HTTP API');
@@ -2843,7 +2863,7 @@ setupHttpApi(server, { players, playersByName, commands, sendText, createPlayer,
 
 // Start
 tick.startTicking();
-ai.startPolling(); // Poll Discord for bot responses
+ollama.checkOllama(); // Check if Ollama is running for local AI
 server.listen(PORT, () => {
   console.log(`[server] ScapeAPI+AI running on ws://localhost:${PORT}`);
   console.log(`[server] WebSocket: wscat -c ws://localhost:${PORT}`);

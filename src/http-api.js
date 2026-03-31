@@ -10,6 +10,18 @@ const pendingResponses = new Map(); // requestId → { resolve, timeout }
 const eventQueues = new Map(); // playerName → [messages]
 const MAX_QUEUE = 100;
 
+// ── NPC dialogue queue (for OpenClaw AI bridge) ────────────────────────────────
+let _npcQueueSeq = 0;
+const _npcQueue = [];           // [{ id, npcName, prompt, addedAt }]
+const _npcCallbacks = new Map(); // id → sendFn
+
+function addNpcPrompt(npcName, prompt, sendFn) {
+  const id = ++_npcQueueSeq;
+  _npcQueue.push({ id, npcName, prompt, addedAt: Date.now() });
+  _npcCallbacks.set(id, sendFn);
+  return id;
+}
+
 function queueEvent(playerName, text) {
   const lower = playerName.toLowerCase();
   if (!eventQueues.has(lower)) eventQueues.set(lower, []);
@@ -105,6 +117,45 @@ function setupHttpApi(server, { players, playersByName, commands, sendText, crea
       return;
     }
 
+    // GET /npc-queue — return next pending NPC prompt (for OpenClaw AI bridge)
+    if (req.method === 'GET' && req.url === '/npc-queue') {
+      const item = _npcQueue[0] || null;
+      res.writeHead(200, { 'Content-Type': 'application/json' });
+      if (item) {
+        res.end(JSON.stringify({ pending: true, id: item.id, npcName: item.npcName, prompt: item.prompt }));
+      } else {
+        res.end(JSON.stringify({ pending: false }));
+      }
+      return;
+    }
+
+    // POST /npc-response — deliver AI response to waiting player
+    if (req.method === 'POST' && req.url === '/npc-response') {
+      let body = '';
+      req.on('data', c => body += c);
+      req.on('end', () => {
+        try {
+          const { id, text } = JSON.parse(body);
+          const idx = _npcQueue.findIndex(i => i.id === id);
+          if (idx >= 0) {
+            const item = _npcQueue.splice(idx, 1)[0];
+            const sendFn = _npcCallbacks.get(item.id);
+            _npcCallbacks.delete(item.id);
+            if (sendFn && text) sendFn(text);
+            res.writeHead(200, { 'Content-Type': 'application/json' });
+            res.end(JSON.stringify({ ok: true, npcName: item.npcName }));
+          } else {
+            res.writeHead(404, { 'Content-Type': 'application/json' });
+            res.end(JSON.stringify({ error: 'No pending prompt with that id' }));
+          }
+        } catch (e) {
+          res.writeHead(400, { 'Content-Type': 'application/json' });
+          res.end(JSON.stringify({ error: e.message }));
+        }
+      });
+      return;
+    }
+
     // GET /world — world info
     if (req.method === 'GET' && req.url === '/world') {
       res.writeHead(200, { 'Content-Type': 'application/json' });
@@ -123,4 +174,4 @@ function setupHttpApi(server, { players, playersByName, commands, sendText, crea
   });
 }
 
-module.exports = { setupHttpApi, queueEvent, drainEvents };
+module.exports = { setupHttpApi, queueEvent, drainEvents, addNpcPrompt };

@@ -229,6 +229,21 @@ const NPC_PROFILES = {
   },
 };
 
+// ── Simple Prompt Builder (used by OpenClaw AI bridge) ───────────────────────
+
+function buildSimplePrompt(npcDefId, npcName, playerName, playerCombat, playerMessage, location) {
+  const profile = NPC_PROFILES[npcDefId] || {};
+  const roleKey = profile.role || 'general';
+  const personality = PERSONALITIES[roleKey] || PERSONALITIES.general;
+  const personalityText = profile.personality || personality.traits;
+  const knowledgeText = profile.knowledge || 'General world knowledge';
+
+  return `You are ${npcName}, a ${personalityText} in ${location}.\n` +
+    `Knowledge: ${knowledgeText}\n` +
+    `${playerName} (combat ${playerCombat}) says: "${playerMessage}"\n` +
+    `Respond in character. Keep it short (1-2 sentences). Never break character.`;
+}
+
 // ── Prompt Builder ────────────────────────────────────────────────────────────
 
 function buildPrompt(npcDefId, npcName, npcExamine, playerName, playerCombat, playerMessage, location, extra = {}) {
@@ -344,6 +359,7 @@ function connectToGame() {
 module.exports = {
   sendToDiscord,
   buildPrompt,
+  buildSimplePrompt,
   buildExaminePrompt,
   getFallback,
   setPendingTalk,
