@@ -2479,48 +2479,44 @@ wss.on('connection', (ws) => {
       const p = players.get(ws);
       if (p) {
         const suggestions = [];
+        const dist = (a, b) => Math.max(Math.abs(a.x - b.x), Math.abs(a.y - b.y));
         const nearNpcs = npcs.getNpcsNear(p.x, p.y, 10, p.layer);
-        const nearObjs = objects.getObjectsNear(p.x, p.y, 5, p.layer).filter(o => !o.depleted);
-        const nearItems = groundItems.filter(i => i.x === p.x && i.y === p.y && i.layer === p.layer);
-        const area = tiles.getArea(p.x, p.y, p.layer);
+        const nearObjs = objects.getObjectsNear(p.x, p.y, 10, p.layer).filter(o => !o.depleted);
+        const nearItems = groundItems.filter(i => Math.abs(i.x - p.x) <= 3 && Math.abs(i.y - p.y) <= 3 && i.layer === p.layer);
 
-        // Combat targets
-        for (const n of nearNpcs) {
-          if (n.combat > 0 && !n.dead) suggestions.push({ cmd: `attack ${n.name.toLowerCase()}`, desc: `Attack ${n.name} (lvl ${n.combat})` });
-        }
-        // Talkable NPCs
-        for (const n of nearNpcs) {
-          if ((n.dialogue || n.combat === 0) && !n.dead) suggestions.push({ cmd: `talk ${n.name.toLowerCase()}`, desc: `Talk to ${n.name}` });
-        }
-        // Pickpocket
-        for (const n of nearNpcs) {
-          if (n.thieving && !n.dead) suggestions.push({ cmd: `pickpocket ${n.name.toLowerCase()}`, desc: `Pickpocket ${n.name} (lvl ${n.thieving.level} Thieving)` });
-        }
-        // Gatherable objects
-        for (const o of nearObjs) {
-          if (o.skill === 'woodcutting') suggestions.push({ cmd: `chop ${o.name.toLowerCase()}`, desc: `Chop ${o.name}` });
-          else if (o.skill === 'mining') suggestions.push({ cmd: `mine ${o.name.toLowerCase()}`, desc: `Mine ${o.name}` });
-          else if (o.skill === 'fishing') suggestions.push({ cmd: `fish ${o.name.toLowerCase()}`, desc: `Fish at ${o.name}` });
-        }
-        // Interactable objects
-        for (const o of nearObjs) {
-          if (o.name.toLowerCase().includes('bank')) suggestions.push({ cmd: 'bank', desc: 'Open bank' });
-          else if (o.name.toLowerCase().includes('range') || o.name.toLowerCase().includes('cooking')) suggestions.push({ cmd: 'cook', desc: 'Cook food' });
-          else if (o.name.toLowerCase().includes('furnace')) suggestions.push({ cmd: 'smelt', desc: 'Smelt ores' });
-          else if (o.name.toLowerCase().includes('anvil')) suggestions.push({ cmd: 'smith', desc: 'Smith items' });
-          else if (o.name.toLowerCase().includes('altar')) suggestions.push({ cmd: 'pray at altar', desc: 'Pray at altar' });
-        }
-        // Ground items
+        // Ground items (distance 0-3, always close)
         for (const i of nearItems) {
-          suggestions.push({ cmd: `pickup ${i.name.toLowerCase()}`, desc: `Pick up ${i.name} x${i.count}` });
+          const d = Math.max(Math.abs(i.x - p.x), Math.abs(i.y - p.y));
+          suggestions.push({ cmd: `pickup ${i.name.toLowerCase()}`, desc: `Pick up ${i.name} x${i.count}`, dist: d });
         }
-        // Navigation
-        if (p.hp < p.maxHp) suggestions.push({ cmd: 'eat', desc: 'Eat food (check inv first)' });
-        if (p.combatTarget) suggestions.push({ cmd: 'flee', desc: 'Stop fighting' });
-        suggestions.push({ cmd: 'map', desc: 'Show map' });
-        suggestions.push({ cmd: 'nearby', desc: 'See what\'s around' });
+        // Flee if in combat (urgent, distance 0)
+        if (p.combatTarget) suggestions.push({ cmd: 'flee', desc: 'Stop fighting', dist: 0 });
+        // Eat if low HP (urgent, distance 0)
+        if (p.hp < p.maxHp) suggestions.push({ cmd: 'eat', desc: 'Eat food', dist: 0 });
+        // NPCs
+        for (const n of nearNpcs) {
+          if (n.dead) continue;
+          const d = dist(p, n);
+          if (n.combat > 0) suggestions.push({ cmd: `attack ${n.name.toLowerCase()}`, desc: `Attack ${n.name} (lvl ${n.combat})`, dist: d });
+          if (n.dialogue || n.combat === 0) suggestions.push({ cmd: `talk ${n.name.toLowerCase()}`, desc: `Talk to ${n.name}`, dist: d });
+          const npcDef = npcs.npcDefs.get(n.defId);
+          if (npcDef?.thieving) suggestions.push({ cmd: `pickpocket ${n.name.toLowerCase()}`, desc: `Pickpocket ${n.name}`, dist: d });
+        }
+        // Objects
+        for (const o of nearObjs) {
+          const d = dist(p, o);
+          if (o.skill === 'woodcutting') suggestions.push({ cmd: `chop ${o.name.toLowerCase()}`, desc: `Chop ${o.name}`, dist: d });
+          else if (o.skill === 'mining') suggestions.push({ cmd: `mine ${o.name.toLowerCase()}`, desc: `Mine ${o.name}`, dist: d });
+          else if (o.skill === 'fishing') suggestions.push({ cmd: `fish ${o.name.toLowerCase()}`, desc: `Fish at ${o.name}`, dist: d });
+          else if (o.name.toLowerCase().includes('bank')) suggestions.push({ cmd: 'bank', desc: 'Open bank', dist: d });
+          else if (o.name.toLowerCase().includes('range') || o.name.toLowerCase().includes('cooking')) suggestions.push({ cmd: 'cook', desc: 'Cook food', dist: d });
+          else if (o.name.toLowerCase().includes('furnace')) suggestions.push({ cmd: 'smelt', desc: 'Smelt ores', dist: d });
+          else if (o.name.toLowerCase().includes('anvil')) suggestions.push({ cmd: 'smith', desc: 'Smith items', dist: d });
+          else if (o.name.toLowerCase().includes('altar')) suggestions.push({ cmd: 'pray at altar', desc: 'Pray at altar', dist: d });
+        }
 
-        // Deduplicate and limit
+        // Sort by distance (closest first), then deduplicate and limit
+        suggestions.sort((a, b) => a.dist - b.dist);
         const seen = new Set();
         const unique = suggestions.filter(s => { if (seen.has(s.cmd)) return false; seen.add(s.cmd); return true; }).slice(0, 9);
 
@@ -2529,7 +2525,7 @@ wss.on('connection', (ws) => {
         } else {
           p._suggestions = unique;
           let out = '── What would you like to do? ──\n';
-          unique.forEach((s, i) => { out += `  [${i + 1}] ${s.desc}\n`; });
+          unique.forEach((s, i) => { out += `  [${i + 1}] ${s.desc}${s.dist > 0 ? ` (${s.dist} tiles)` : ''}\n`; });
           out += '\nType a number to execute, or any command.';
           sendText(ws, out);
         }
