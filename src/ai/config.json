@@ -1,0 +1,8 @@
+{
+  "webhook": "https://discord.com/api/webhooks/1480654483095552123/AsoMuMPfGyKNYma5hh-kYnIaNLm4sLF8Ui3rVewiZf37anEXyw5qU_7I8E8gQkDcDm1E",
+  "botUserId": "1464768627709313044",
+  "pollInterval": 3000,
+  "channelId": "",
+  "fallbackDelay": 5000,
+  "gameUrl": "ws://localhost:2223"
+}
