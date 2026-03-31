@@ -1215,18 +1215,10 @@ commands.register('talk', { help: 'Talk to an NPC: talk [name] (or just `talk` f
       if (!npc) return `No "${name}" nearby. Type \`npcs\` to see who's around.`;
     }
 
-    // AI dialogue: send to Discord webhook, route response back
-    const area = tiles.getArea(p.x, p.y, p.layer);
-    const prompt = ai.buildPrompt(npc.defId, npc.name, npc.examine || '', p.name, combatLevel(p), 'Hello', area?.name || `(${p.x},${p.y})`, {});
-
-    // Set up response routing — when bot responds, send it to this player
-    let playerWs; for (const [ws, pl] of players) { if (pl === p) { playerWs = ws; break; } }
-    ai.setPendingTalk(npc.name, (text) => { if (playerWs) sendText(playerWs, text); });
-    ai.sendToDiscord(prompt).catch(() => {});
-    p._lastTalkNpc = npc.defId; // Remember for /r replies
-
+    // Canned greeting only — no AI call. Use `r` or `sayto` for AI conversation.
+    p._lastTalkNpc = npc.defId;
     const fallback = ai.getFallback(npc.defId);
-    return `${npc.name}: "${npc.dialogue || fallback}"`;
+    return `${npc.name}: "${npc.dialogue || fallback}"\n(Type \`r [message]\` to respond)`;
   }
 });
 
@@ -1253,7 +1245,7 @@ commands.register('sayto', { help: 'Say something to an NPC: sayto [npc] [messag
     ai.sendToDiscord(prompt).catch(() => {});
 
     p._lastTalkNpc = npc.defId; // Remember for /r replies
-    return `You say to ${npc.name}: "${message}"\n(AI response incoming...)`;
+    return `You say to ${npc.name}: "${message}"\n(thinking...)`;
   }
 });
 
@@ -1274,7 +1266,7 @@ commands.register('r', { help: 'Reply to last NPC: r [message]', aliases: ['repl
     ai.setPendingTalk(npc.name, (text) => { if (playerWs) sendText(playerWs, text); });
     ai.sendToDiscord(prompt).catch(() => {});
 
-    return `You say to ${npc.name}: "${message}"\n(AI response incoming...)`;
+    return `You say to ${npc.name}: "${message}"\n(thinking...)`;
   }
 });
 
