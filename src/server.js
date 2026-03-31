@@ -2472,7 +2472,36 @@ wss.on('connection', (ws) => {
   sendText(ws, 'Welcome to Scape! Type `login [name]` to start.');
 
   ws.on('message', (data) => {
-    const input = data.toString().trim();
+    let input = data.toString().trim();
+
+    // /? suffix — AI auto-executes the intent
+    if (input.endsWith('/?') && input.length > 2) {
+      const intent = input.slice(0, -2).trim();
+      if (intent && ollama.isEnabled()) {
+        const p = players.get(ws);
+        if (p) {
+          sendText(ws, `(figuring out: "${intent}"...)`);
+          const area = tiles.getArea(p.x, p.y, p.layer);
+          const autoPrompt = `You are a command translator for a text MMORPG called Scape.
+The player wants to: "${intent}"
+They are at ${area?.name || `(${p.x},${p.y})`}, combat level ${combatLevel(p)}.
+
+Available commands: look, n, s, e, w, ne, nw, se, sw, goto [x] [y], attack [npc], chop, mine, fish, cook [item], smelt [bar], smith [item], craft [item], fletch [item], clean [herb], mix [potion], light [logs], eat [item], drink [potion], equip [item], unequip [slot], inv, bank, deposit [item], withdraw [item], shop, buy [slot], sell [item], talk [npc], sayto [npc] [message], r [message], pickpocket [npc], bury [bones], pray, cast [spell], skills, map, nearby, status, help, home, goto [x] [y], flee, stop
+
+Respond with ONLY the exact game command to execute. Nothing else. No explanation. Just the command.`;
+          ollama.generate(autoPrompt).then(cmd => {
+            if (cmd) {
+              cmd = cmd.replace(/^[`"']|[`"']$/g, '').trim().split('\n')[0];
+              sendText(ws, `> ${cmd}`);
+              const result = commands.execute(p, cmd);
+              if (result && !result.unknown) sendText(ws, result);
+              else if (result && result.unknown) sendText(ws, `Couldn't figure that out. Try \`help\`.`);
+            }
+          }).catch(() => sendText(ws, 'AI unavailable.'));
+        }
+        return;
+      }
+    }
 
     // If in replay mode, any input advances (Enter/space), "q" stops
     if (activeReplays.has(ws)) {
