@@ -33,7 +33,7 @@ function execute(player, input) {
 
   const name = aliases.get(parsed.verb) || parsed.verb;
   const cmd = commands.get(name);
-  if (!cmd) return `Unknown command: ${parsed.verb}. Type \`help\` for commands.`;
+  if (!cmd) return { unknown: true, input: parsed.raw };
   if (cmd.admin && !player.admin) return 'Admin only.';
 
   try {
