@@ -424,6 +424,10 @@ function addMsg(text, type) {
     });
     // Remove leading coord line if it's just "(x, y) — N steps left"
     if (gridLines[0] && /^\(?\d+,\s*\d+\)/.test(gridLines[0].trim())) gridLines.shift();
+    // Remove v column marker line (first line that's just spaces and a v)
+    if (gridLines[0] && /^\s*v\s*$/.test(gridLines[0])) gridLines.shift();
+    // Remove > row marker and leading whitespace prefix
+    gridLines = gridLines.map(line => line.replace(/^\s*>\s*/, '  ').replace(/^\s{1,4}/, ''));
     // Color-code the map characters
     const colorMap = {
       '@': '#ffff00', '!': '#ff4444', '?': '#ff9900', 'P': '#44aaff',
