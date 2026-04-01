@@ -88,11 +88,23 @@
   #legend {
     font-size: 9px;
     color: var(--parchment-dark);
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    letter-spacing: 0.3px;
     flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2px;
+    overflow: hidden;
+  }
+  .lk {
+    display: flex;
+    align-items: center;
+    gap: 1px;
+    padding: 0 3px;
+  }
+  .ls {
+    font-weight: bold;
+    font-size: 10px;
+    width: 10px;
     text-align: center;
   }
   #divider .grip {
@@ -260,7 +272,7 @@
   <div id="divider">
     <button class="zoom-btn" onclick="zoomMap(-1)">-</button>
     <div class="grip"></div>
-    <div id="legend"><span style="color:#fff;font-weight:bold">@</span> You <span style="color:#e44">!</span> NPC <span style="color:#e90">?</span> Obj <span style="color:#4af">P</span> Plyr <span style="color:#888">#</span> Wall <span style="color:#2a2">T</span> Tree <span style="color:#48f">~</span> Water <span style="color:#6a4">.</span> Grass <span style="color:#ca0">=</span> Path <span style="color:#da0">S</span> Sand</div>
+    <div id="legend"><span class="lk"><span class="ls" style="color:#fff">@</span>You</span><span class="lk"><span class="ls" style="color:#e44">!</span>NPC</span><span class="lk"><span class="ls" style="color:#e90">?</span>Obj</span><span class="lk"><span class="ls" style="color:#4af">P</span>Ply</span><span class="lk"><span class="ls" style="color:#888">#</span>Wall</span><span class="lk"><span class="ls" style="color:#2a2">T</span>Tree</span><span class="lk"><span class="ls" style="color:#48f">~</span>Wtr</span><span class="lk"><span class="ls" style="color:#6a4">.</span>Grs</span><span class="lk"><span class="ls" style="color:#ca0">=</span>Path</span><span class="lk"><span class="ls" style="color:#da0">S</span>Sand</span></div>
     <div class="grip"></div>
     <button class="zoom-btn" onclick="zoomMap(1)">+</button>
   </div>
