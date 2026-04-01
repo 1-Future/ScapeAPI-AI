@@ -380,8 +380,8 @@ let userColors = { ...defaultColors };
 try { const s = JSON.parse(localStorage.getItem('scape-colors')); if (s) Object.assign(userColors, s); } catch {}
 
 const legendItems = [
-  ['@','You'],['!','NPC'],['?','Obj'],['P','Ply'],
-  ['#','Wall'],['T','Tree'],['~','Wtr'],['.','Grs'],
+  ['@','You'],['!','NPC'],['?','Object'],['P','Player'],
+  ['#','Wall'],['T','Tree'],['~','Water'],['.','Grass'],
   ['=','Path'],['S','Sand'],
 ];
 
