@@ -154,7 +154,7 @@ function movementTick(currentTick) {
 
     // Show map on each pathfinding step
     if (cmdCtx.generateMap) {
-      sendText(ws, `(${p.x}, ${p.y})${p.path.length ? ` — ${p.path.length} steps left` : ''}\n${cmdCtx.generateMap(p)}`);
+      sendText(ws, `(${p.x}, ${p.y})${p.path.length ? ` — ${p.path.length} steps left` : ''}\n${cmdCtx.generateMap(p, p._mapCols, p._mapRows)}`);
     }
 
     // ── Music system: unlock tracks on area entry ──
@@ -829,7 +829,7 @@ for (const [dir, [dx, dy]] of Object.entries(DIR_MAP)) {
       if (actions.isActive(p)) actions.cancel(p);
       events.emit('player_move', { player: p });
       let msg = `(${p.x}, ${p.y})`;
-      if (cmdCtx.generateMap) msg += '\n' + cmdCtx.generateMap(p);
+      if (cmdCtx.generateMap) msg += '\n' + cmdCtx.generateMap(p, p._mapCols, p._mapRows);
       return msg;
     }
   });

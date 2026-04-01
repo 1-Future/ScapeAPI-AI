@@ -310,7 +310,7 @@
     <button class="qbtn" onclick="send('e')">E</button>
     <button class="qbtn" onclick="send('w')">W</button>
     <button class="qbtn" onclick="send('inv')">Inv</button>
-    <button class="qbtn" onclick="send('map')">Map</button>
+    <button class="qbtn" onclick="sendMapCmd()">Map</button>
     <button class="qbtn" onclick="send('status')">Stats</button>
     <button class="qbtn" onclick="send('look')">Look</button>
   </div>
@@ -546,10 +546,30 @@ function handleLogin(name) {
     if (connected) {
       loggedIn = true;
       ws.send(`login ${playerName}`);
-      setTimeout(() => ws.send('map'), 500);
+      setTimeout(() => sendMapCmd(), 500);
       clearInterval(w);
     }
   }, 100);
+}
+
+function getMapSize() {
+  const center = document.getElementById('map-center');
+  if (!center) return { cols: 15, rows: 15 };
+  const w = center.clientWidth;
+  const h = center.clientHeight;
+  // Estimate how many chars fit — monospace char ~0.6em wide, line ~1.2em tall
+  // Use a reference font size of ~12px for calculation
+  const charW = 7.2; // 12 * 0.6
+  const charH = 14.4; // 12 * 1.2
+  const cols = Math.floor(w / charW);
+  const rows = Math.floor(h / charH);
+  return { cols: Math.max(15, Math.min(80, cols)), rows: Math.max(15, Math.min(50, rows)) };
+}
+
+function sendMapCmd() {
+  if (!ws || !connected) return;
+  const { cols, rows } = getMapSize();
+  ws.send(`map ${cols} ${rows}`);
 }
 
 // Timer

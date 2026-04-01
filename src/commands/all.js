@@ -873,9 +873,10 @@ module.exports = function registerAll(ctx) {
   });
 
   // ── Map Command ───────────────────────────────────────────────────────────
-  function generateMap(p) {
+  function generateMap(p, cols, rows) {
       const T = tiles.T;
-      const RADIUS = 7; // 15x15 grid = radius 7
+      const RX = cols ? Math.floor(cols / 2) : 7;
+      const RY = rows ? Math.floor(rows / 2) : 7;
       const TILE_CHARS = {
         [T.EMPTY]: 'X', [T.GRASS]: '.', [T.WATER]: '~', [T.TREE]: 'T',
         [T.PATH]: '=', [T.ROCK]: '#', [T.SAND]: 'S', [T.WALL]: '#',
@@ -884,35 +885,27 @@ module.exports = function registerAll(ctx) {
         [T.LAVA]: '!', [T.SWAMP]: '%',
       };
 
-      // Build sets of NPC and object positions for quick lookup
+      const RANGE = Math.max(RX, RY);
       const npcPositions = new Map();
-      const nearNpcs = npcs.getNpcsNear(p.x, p.y, RADIUS, p.layer);
+      const nearNpcs = npcs.getNpcsNear(p.x, p.y, RANGE, p.layer);
       for (const n of nearNpcs) npcPositions.set(`${n.x},${n.y}`, n);
 
       const objPositions = new Map();
-      const nearObjs = objects.getObjectsNear(p.x, p.y, RADIUS, p.layer);
+      const nearObjs = objects.getObjectsNear(p.x, p.y, RANGE, p.layer);
       for (const o of nearObjs) if (!o.depleted) objPositions.set(`${o.x},${o.y}`, o);
 
       const playerPositions = new Map();
       for (const [, pl] of players) {
         if (pl !== p && pl.connected && pl.layer === p.layer &&
-            Math.abs(pl.x - p.x) <= RADIUS && Math.abs(pl.y - p.y) <= RADIUS) {
+            Math.abs(pl.x - p.x) <= RANGE && Math.abs(pl.y - p.y) <= RANGE) {
           playerPositions.set(`${pl.x},${pl.y}`, pl);
         }
       }
 
-      let map = '    ';
-      // Column headers
-      for (let dx = -RADIUS; dx <= RADIUS; dx++) {
-        map += (dx === 0) ? 'v' : ' ';
-      }
-      map += '\n';
-
-      for (let dy = -RADIUS; dy <= RADIUS; dy++) {
+      let map = '';
+      for (let dy = -RY; dy <= RY; dy++) {
         const worldY = p.y + dy;
-        map += (dy === 0) ? ' > ' : '   ';
-        map += ' ';
-        for (let dx = -RADIUS; dx <= RADIUS; dx++) {
+        for (let dx = -RX; dx <= RX; dx++) {
           const worldX = p.x + dx;
           const key = `${worldX},${worldY}`;
 
@@ -942,8 +935,14 @@ module.exports = function registerAll(ctx) {
   // Expose for use by movement commands
   ctx.generateMap = generateMap;
 
-  commands.register('map', { help: 'Show ASCII map of surroundings (15x15)', category: 'Navigation',
-    fn: (p) => generateMap(p)
+  commands.register('map', { help: 'Show ASCII map: map [cols] [rows]', category: 'Navigation',
+    fn: (p, args) => {
+      const cols = parseInt(args[0]) || null;
+      const rows = parseInt(args[1]) || null;
+      if (cols) p._mapCols = cols;
+      if (rows) p._mapRows = rows;
+      return generateMap(p, p._mapCols, p._mapRows);
+    }
   });
 
   // ── Nearby Command ────────────────────────────────────────────────────────
