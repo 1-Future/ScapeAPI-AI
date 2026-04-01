@@ -1,5 +1,9 @@
 // ── Combat System (Tier 5) ────────────────────────────────────────────────────
-// OSRS-accurate: accuracy roll, max hit, attack speed, XP distribution
+// OSRS-accurate formulas ported from RuneLite plugin source:
+// - j-cob44/max-hit-calc (MaxHit.java)
+// - Naton1/osrs-pvp-reinforcement-learning (DamageFormulas.java)
+// - LlemonDuck/dps-calculator (MeleeRangedMaxHitComputable.java)
+// - OSRS Wiki: https://oldschool.runescape.wiki/w/Damage_per_second
 
 const player = require('../player/player');
 
