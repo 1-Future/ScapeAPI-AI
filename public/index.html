@@ -64,8 +64,13 @@
     white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
     max-width: 100%; text-align: center;
   }
-  .compass.side { writing-mode: vertical-lr; text-orientation: mixed; }
-  .compass.side .dir-area { writing-mode: horizontal-tb; font-size: 6px; }
+  .compass.side .dir-area {
+    writing-mode: vertical-lr;
+    text-orientation: upright;
+    letter-spacing: -2px;
+    font-size: 7px;
+    max-height: 100%;
+  }
   #compass-nw { grid-column: 1; grid-row: 1; font-size: 10px; color: #666; }
   #compass-n  { grid-column: 2; grid-row: 1; color: #c44; position: relative; }
   #compass-ne { grid-column: 3; grid-row: 1; font-size: 10px; color: #666; }
@@ -301,9 +306,9 @@
     <div id="compass-nw" class="compass">NW</div>
     <div id="compass-n" class="compass"><span id="map-area-top"></span>N<span class="dir-area" id="dir-n"></span></div>
     <div id="compass-ne" class="compass">NE</div>
-    <div id="compass-w" class="compass side">W<span class="dir-area" id="dir-w"></span></div>
+    <div id="compass-w" class="compass side">W<br><span class="dir-area" id="dir-w"></span></div>
     <div id="map-center"><div id="map-content"></div></div>
-    <div id="compass-e" class="compass side">E<span class="dir-area" id="dir-e"></span></div>
+    <div id="compass-e" class="compass side">E<br><span class="dir-area" id="dir-e"></span></div>
     <div id="compass-sw" class="compass">SW</div>
     <div id="compass-s" class="compass">S<span class="dir-area" id="dir-s"></span></div>
     <div id="compass-se" class="compass">SE</div>
