@@ -578,8 +578,9 @@ function sendInput() {
 }
 
 function connect() {
-  const host = location.hostname === 'localhost' || location.hostname === '127.0.0.1'
-    ? `ws://${location.hostname}:2223` : `ws://${location.host}`;
+  const isLocal = location.hostname === 'localhost' || location.hostname === '127.0.0.1';
+  const proto = location.protocol === 'https:' ? 'wss:' : 'ws:';
+  const host = isLocal ? `ws://${location.hostname}:2223` : `${proto}//${location.host}`;
   ws = new WebSocket(host);
   ws.onopen = () => { connected = true; };
   ws.onmessage = (e) => {
