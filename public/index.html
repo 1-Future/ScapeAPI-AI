@@ -393,16 +393,8 @@ function scaleMap() {
 
 // ── ASCII detection ───────────────────────────────────────────────────────
 function isAscii(text) {
-  const lines = text.split('\n');
-  if (lines.length < 5) return false;
+  // Only match actual maps — must have Legend: and @ character
   if (text.includes('Legend:') && text.includes('@')) return true;
-  if (text.includes(' v ') && text.includes(' > ')) return true;
-  const lens = lines.filter(l => l.length > 5).map(l => l.length);
-  if (lens.length >= 5) {
-    const avg = lens.reduce((a,b) => a+b, 0) / lens.length;
-    const similar = lens.filter(l => Math.abs(l - avg) < 5).length;
-    if (similar > lens.length * 0.5) return true;
-  }
   return false;
 }
 
