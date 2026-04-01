@@ -1261,6 +1261,32 @@ commands.register('fish', { help: 'Fish at a spot (repeating)', category: 'Gathe
   fn: (p, args) => gatherWithWalk(p, args.join(' '), 'fishing', 'fish at', 'fishing spot')
 });
 
+// General interact — handles any object action (pick, use, open, etc.)
+commands.register('pick', { help: 'Pick something: pick [object]', aliases: ['use', 'interact'], category: 'Gathering',
+  fn: (p, args) => {
+    const name = args.join(' ') || 'wheat';
+    const obj = objects.findObjectByName(name, p.x, p.y, 5, p.layer);
+    if (!obj) return `No "${name}" nearby.`;
+    if (obj.product) {
+      if (invFreeSlots(p) < 1) return 'Inventory is full.';
+      const itemDef = items.get(obj.product.id);
+      invAdd(p, obj.product.id, obj.product.name, obj.product.count || 1, itemDef?.stackable);
+      if (obj.skill) {
+        const lvl = addXp(p, obj.skill, obj.xp || 1);
+        let msg = `You pick the ${obj.name}. Got: ${obj.product.name}.`;
+        if (obj.xp) msg += ` +${obj.xp} ${obj.skill} XP.`;
+        if (lvl) msg += ` ${obj.skill} level: ${lvl}!`;
+        if (obj.depletionChance && Math.random() < obj.depletionChance) {
+          obj.depleted = true; obj.respawnAt = tick.getTick() + (obj.respawnTicks || 50);
+        }
+        return msg;
+      }
+      return `You pick the ${obj.name}. Got: ${obj.product.name}.`;
+    }
+    return `You interact with the ${obj.name}. Nothing happens.`;
+  }
+});
+
 // ── Game Time (feature 10) ───────────────────────────────────────────────────
 commands.register('time', { help: 'Show in-game time', category: 'General',
   fn: () => {
@@ -2087,7 +2113,7 @@ function createDefaultContent() {
   objects.defineObject('anvil', { name: 'Anvil', examine: 'An anvil for smithing.', actions: ['smith'] });
   objects.defineObject('bank_booth', { name: 'Bank booth', examine: 'A bank booth.', actions: ['bank'] });
   objects.defineObject('spinning_wheel', { name: 'Spinning wheel', examine: 'A spinning wheel.', actions: ['spin'] });
-  objects.defineObject('wheat', { name: 'Wheat', examine: 'A field of wheat.', actions: ['pick'] });
+  objects.defineObject('wheat', { name: 'Wheat', examine: 'A field of wheat.', actions: ['pick'], product: { id: 750, name: 'Grain', count: 1 }, skill: 'farming', xp: 1, depletionChance: 0.3, respawnTicks: 20 });
   objects.defineObject('warning_sign', { name: 'Warning sign', examine: 'DANGER: Wilderness ahead! PvP is enabled beyond this point.' });
   objects.defineObject('agility_log', { name: 'Balancing log', examine: 'A narrow log to balance on.' });
   objects.defineObject('agility_net', { name: 'Obstacle net', examine: 'A net to climb.' });
