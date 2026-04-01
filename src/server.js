@@ -2513,6 +2513,9 @@ wss.on('connection', (ws) => {
           else if (o.name.toLowerCase().includes('furnace')) suggestions.push({ cmd: 'smelt', desc: 'Smelt ores', dist: d });
           else if (o.name.toLowerCase().includes('anvil')) suggestions.push({ cmd: 'smith', desc: 'Smith items', dist: d });
           else if (o.name.toLowerCase().includes('altar')) suggestions.push({ cmd: 'pray at altar', desc: 'Pray at altar', dist: d });
+          else if (o.name.toLowerCase().includes('stair')) suggestions.push({ cmd: 'climbup', desc: `Climb ${o.name}`, dist: d });
+          else if (o.actions && o.actions.length) suggestions.push({ cmd: `actions ${o.name.toLowerCase()}`, desc: `${o.name} [${o.actions.join('/')}]`, dist: d });
+          else suggestions.push({ cmd: `examine ${o.name.toLowerCase()}`, desc: `Examine ${o.name}`, dist: d });
         }
 
         // Sort by distance (closest first), then deduplicate and limit
