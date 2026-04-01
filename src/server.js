@@ -855,6 +855,14 @@ commands.register('pos', { help: 'Show position', aliases: ['coords', 'where'], 
 
 commands.register('look', { help: 'Look around', aliases: ['l'], category: 'Navigation',
   fn: (p) => {
+    // If in Inferno instance, show Inferno-specific look
+    const instancesModule = require('./engine/instances');
+    const inst = instancesModule.getByPlayer(p.id);
+    if (inst && inst.type === 'inferno') {
+      const infernoModule = require('./content/inferno/inferno');
+      return infernoModule.getInfernoLook(inst, p);
+    }
+
     const tile = tiles.getTileName(tiles.tileAt(p.x, p.y, p.layer));
     const area = tiles.getArea(p.x, p.y, p.layer);
     const nearby = npcs.getNpcsNear(p.x, p.y, 5, p.layer);

@@ -77,13 +77,31 @@ module.exports = function registerAll(ctx) {
   };
 
   // ── Eating food (3-tick delay — feature 5) ─────────────────────────────────
+  // ── 3-Track Eating System (OSRS-accurate) ──
+  // Track 1: Food (3 tick cooldown, adds +3 to attack delay)
+  // Track 2: Potion (3 tick cooldown, resets food timer)
+  // Track 3: Combo food (3 tick cooldown, resets food and potion timers)
+  // This enables food + potion + karambwan in the same tick (tick eating)
+  const COMBO_FOODS = new Set(['karambwan', 'cooked karambwan']);
+
   commands.register('eat', { help: 'Eat food to heal: eat [item]', category: 'Items',
     fn: (p, args) => {
       const name = args.join(' ').toLowerCase();
       const currentTick = tick.getTick();
-      if (p.nextEatTick && currentTick < p.nextEatTick) {
-        return `You must wait ${p.nextEatTick - currentTick} ticks before eating again.`;
+      const isCombo = COMBO_FOODS.has(name);
+
+      if (isCombo) {
+        // Combo food track
+        if (p.nextComboEatTick && currentTick < p.nextComboEatTick) {
+          return `You must wait ${p.nextComboEatTick - currentTick} ticks before eating combo food.`;
+        }
+      } else {
+        // Regular food track
+        if (p.nextEatTick && currentTick < p.nextEatTick) {
+          return `You must wait ${p.nextEatTick - currentTick} ticks before eating again.`;
+        }
       }
+
       const slot = p.inventory.findIndex(s => s && s.name.toLowerCase() === name);
       if (slot < 0) return `You don't have "${name}".`;
       const item = p.inventory[slot];
@@ -93,7 +111,17 @@ module.exports = function registerAll(ctx) {
       p.inventory[slot] = item.count > 1 ? { ...item, count: item.count - 1 } : null;
       const healed = Math.min(heal, p.maxHp - p.hp);
       p.hp += healed;
-      p.nextEatTick = currentTick + 3; // 3-tick eat delay
+
+      if (isCombo) {
+        p.nextComboEatTick = currentTick + 3;
+        // Combo resets food and potion timers
+        p.nextEatTick = currentTick;
+        p.nextDrinkTick = currentTick;
+      } else {
+        p.nextEatTick = currentTick + 3;
+        // Food adds +3 to attack delay
+        p.nextAttackTick = Math.max(p.nextAttackTick || 0, currentTick + 3);
+      }
       updateWeight(p);
       return `You eat the ${item.name}. HP: ${p.hp}/${p.maxHp} (+${healed})`;
     }
@@ -813,6 +841,11 @@ module.exports = function registerAll(ctx) {
     fn: (p, args) => {
       const name = args.join(' ').toLowerCase();
       if (!name) return 'Usage: drink [potion name]';
+      const currentTick = tick.getTick();
+      // Potion track cooldown (separate from food)
+      if (p.nextDrinkTick && currentTick < p.nextDrinkTick) {
+        return `You must wait ${p.nextDrinkTick - currentTick} ticks before drinking.`;
+      }
       const slot = p.inventory.findIndex(s => s && s.name.toLowerCase().includes(name));
       if (slot < 0) return `You don't have "${name}".`;
       const item = p.inventory[slot];
@@ -857,6 +890,10 @@ module.exports = function registerAll(ctx) {
       } else {
         msg += ' Nothing interesting happens.';
       }
+
+      // Potion track: 3-tick cooldown, resets food timer
+      p.nextDrinkTick = currentTick + 3;
+      p.nextEatTick = currentTick; // Potion resets food timer
 
       invAdd(p, 325, 'Vial', 1);
       updateWeight(p);
@@ -2899,4 +2936,56 @@ module.exports = function registerAll(ctx) {
       return origClimbFn(p, args, raw);
     };
   }
+
+  // ═══════════════════════════════════════════════════════════════════════════
+  // INFERNO COMMANDS
+  // ═══════════════════════════════════════════════════════════════════════════
+  const inferno = require('../content/inferno/inferno');
+  const instances = require('../engine/instances');
+
+  commands.register('inferno', { help: 'Enter the Inferno: inferno [start|status|leave]', category: 'Combat',
+    fn: (p, args, raw, ws) => {
+      const sub = (args[0] || 'start').toLowerCase();
+
+      if (sub === 'start' || sub === 'enter') {
+        const existing = instances.getByPlayer(p.id);
+        if (existing) return 'You are already in an instance. Use `inferno leave` to exit.';
+        const sendFn = (msg) => sendText(ws, msg);
+        const inst = inferno.startInferno(p, sendFn);
+        return `You enter the Inferno. May the gods be with you.\n${inferno.getInfernoLook(inst, p)}`;
+      }
+
+      if (sub === 'status' || sub === 'wave') {
+        const inst = instances.getByPlayer(p.id);
+        if (!inst || inst.type !== 'inferno') return 'You are not in the Inferno.';
+        return inferno.getInfernoLook(inst, p);
+      }
+
+      if (sub === 'leave' || sub === 'exit') {
+        const inst = instances.getByPlayer(p.id);
+        if (!inst) return 'You are not in an instance.';
+        instances.fail(inst, 'You left the Inferno.');
+        return 'You leave the Inferno.';
+      }
+
+      return 'Usage: inferno [start|status|leave]';
+    }
+  });
+
+  commands.register('wave', { help: 'Show current wave status', category: 'Combat',
+    fn: (p) => {
+      const inst = instances.getByPlayer(p.id);
+      if (!inst) return 'You are not in wave-based content.';
+      const status = instances.getStatus(inst);
+      let msg = `Wave ${status.wave}/${status.totalWaves} — ${status.npcsAlive} mobs alive`;
+      msg += ` — ${Math.floor(status.ticksElapsed * 0.6)}s elapsed`;
+      if (status.npcList.length > 0) {
+        msg += '\n';
+        for (const n of status.npcList) {
+          msg += `  ${n.name} at (${n.x},${n.y}) HP: ${n.hp}/${n.maxHp}\n`;
+        }
+      }
+      return msg.trimEnd();
+    }
+  });
 };

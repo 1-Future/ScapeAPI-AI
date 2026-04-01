@@ -97,9 +97,15 @@ function attackRoll(p, bonusType = 'slash') {
 }
 
 // ── OSRS-accurate NPC defence roll ────────────────────────────────────────────
-// Formula: (defence_level + 9) × (style_defence_bonus + 64)
-// Source: https://oldschool.runescape.wiki/w/Damage_per_second/Melee
+// Melee/Ranged: (defence_level + 9) × (style_defence_bonus + 64)
+// Magic: (9 + magic_level) × (magic_defence_bonus + 64)
+// Source: https://oldschool.runescape.wiki/w/Damage_per_second/Magic
 function npcDefenceRoll(npc, bonusType = 'slash') {
+  if (bonusType === 'magic') {
+    const magicLevel = npc.stats?.magic || 1;
+    const defBonus = npc.stats?.def_magic || 0;
+    return (9 + magicLevel) * (defBonus + 64);
+  }
   const defLevel = npc.stats?.defence || 1;
   const defBonus = npc.stats?.[`def_${bonusType}`] || 0;
   return (defLevel + 9) * (defBonus + 64);
