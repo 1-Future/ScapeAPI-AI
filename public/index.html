@@ -417,6 +417,9 @@ function addMsg(text, type) {
       '*': '#ddf', '%': '#886633', ',': '#77aa55', '>': '#ffff00',
       'v': '#ffff00',
     };
+    // Pad all lines to same width for perfect centering
+    const maxW = Math.max(...gridLines.map(l => l.length));
+    gridLines = gridLines.map(l => l.padEnd(maxW));
     const gridText = gridLines.join('\n');
     let html = '';
     for (const ch of gridText) {
@@ -461,14 +464,36 @@ function addMsg(text, type) {
   while (chatLog.children.length > 200) chatLog.removeChild(chatLog.firstChild);
 }
 
-const SILENT_CMDS = new Set(['n','s','e','w','ne','nw','se','sw','map','look','/?']);
+const SILENT_CMDS = new Set(['map','look','/?']);
+const DIR_CMDS = new Set(['n','s','e','w','ne','nw','se','sw']);
+let lastDir = null, dirCount = 0, dirMsgEl = null;
 
 function send(cmd) {
   if (!ws || !connected) return;
   ws.send(cmd);
-  if (!SILENT_CMDS.has(cmd.toLowerCase())) {
-    addMsg(cmd, 'player');
+  const lower = cmd.toLowerCase();
+
+  if (SILENT_CMDS.has(lower)) return; // no echo at all
+
+  if (DIR_CMDS.has(lower)) {
+    if (lower === lastDir && dirMsgEl && dirMsgEl.parentNode) {
+      dirCount++;
+      dirMsgEl.textContent = `${lower.toUpperCase()}(${dirCount})`;
+    } else {
+      lastDir = lower;
+      dirCount = 1;
+      const div = document.createElement('div');
+      div.className = 'msg player';
+      div.textContent = lower.toUpperCase();
+      chatLog.appendChild(div);
+      chatLog.scrollTop = chatLog.scrollHeight;
+      dirMsgEl = div;
+    }
+    return;
   }
+
+  lastDir = null; dirCount = 0; dirMsgEl = null;
+  addMsg(cmd, 'player');
 }
 
 function sendInput() {
