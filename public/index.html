@@ -54,16 +54,21 @@
     grid-template-columns: 24px 1fr 24px;
     grid-template-rows: 18px 1fr 18px;
   }
-  .compass { font-family: var(--mono); font-size: 14px; font-weight: bold; display: flex; align-items: center; justify-content: center; color: #888; }
+  .compass {
+    font-family: var(--mono); font-size: 14px; font-weight: bold;
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    color: #888; line-height: 1;
+  }
+  .compass .dir-area { font-size: 8px; font-weight: normal; color: #efb366; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 100%; }
   #compass-nw { grid-column: 1; grid-row: 1; font-size: 10px; color: #666; }
-  #compass-n  { grid-column: 2; grid-row: 1; color: #c44; }
+  #compass-n  { grid-column: 2; grid-row: 1; color: #c44; position: relative; }
   #compass-ne { grid-column: 3; grid-row: 1; font-size: 10px; color: #666; }
   #compass-w  { grid-column: 1; grid-row: 2; }
   #compass-e  { grid-column: 3; grid-row: 2; }
   #compass-sw { grid-column: 1; grid-row: 3; font-size: 10px; color: #666; }
   #compass-s  { grid-column: 2; grid-row: 3; }
   #compass-se { grid-column: 3; grid-row: 3; font-size: 10px; color: #666; }
-  #map-area-top { grid-column: 2; grid-row: 1; position: absolute; left: 0; font-size: 11px; color: #efb366; font-family: var(--mono); align-self: center; white-space: nowrap; }
+  #map-area-top { position: absolute; left: 0; font-size: 10px; color: #efb366; font-family: var(--mono); white-space: nowrap; top: 50%; transform: translateY(-50%); }
   #map-center {
     grid-column: 2;
     grid-row: 2;
@@ -288,13 +293,13 @@
   <!-- Map pane -->
   <div id="map-pane" class="empty">
     <div id="compass-nw" class="compass">NW</div>
-    <div id="compass-n" class="compass" style="position:relative"><span id="map-area-top"></span>N</div>
+    <div id="compass-n" class="compass"><span id="map-area-top"></span>N<span class="dir-area" id="dir-n"></span></div>
     <div id="compass-ne" class="compass">NE</div>
-    <div id="compass-w" class="compass">W</div>
+    <div id="compass-w" class="compass">W<span class="dir-area" id="dir-w"></span></div>
     <div id="map-center"><div id="map-content"></div></div>
-    <div id="compass-e" class="compass">E</div>
+    <div id="compass-e" class="compass">E<span class="dir-area" id="dir-e"></span></div>
     <div id="compass-sw" class="compass">SW</div>
-    <div id="compass-s" class="compass">S</div>
+    <div id="compass-s" class="compass">S<span class="dir-area" id="dir-s"></span></div>
     <div id="compass-se" class="compass">SE</div>
   </div>
 
@@ -428,11 +433,20 @@ function addMsg(text, type) {
     // Extract area name
     const areaMatch = text.match(/Area:\s*(.+)/);
     if (areaMatch) document.getElementById('map-area-top').textContent = areaMatch[1];
+    // Parse cardinal direction areas
+    const dirsMatch = text.match(/Dirs: N=([^|]+)\|S=([^|]+)\|E=([^|]+)\|W=(.+)/);
+    if (dirsMatch) {
+      document.getElementById('dir-n').textContent = dirsMatch[1];
+      document.getElementById('dir-s').textContent = dirsMatch[2];
+      document.getElementById('dir-e').textContent = dirsMatch[3];
+      document.getElementById('dir-w').textContent = dirsMatch[4];
+    }
     // Strip legend, area, and coords — keep only the grid
     let gridLines = text.split('\n').filter(line => {
       if (line.includes('Legend:')) return false;
       if (line.includes('~ Water') || line.includes('Grass/Floor')) return false;
       if (line.includes('Area:')) return false;
+      if (line.includes('Dirs:')) return false;
       if (line.trim() === '') return false;
       return true;
     });

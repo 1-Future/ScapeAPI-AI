@@ -929,6 +929,12 @@ module.exports = function registerAll(ctx) {
       map += '\n        ~ Water  . Grass/Floor  = Path  S Sand  D Door  X Unwalkable';
       const area = tiles.getArea(p.x, p.y, p.layer);
       if (area) map += `\nArea: ${area.name}`;
+      // Cardinal direction areas for compass labels
+      const aN = tiles.getArea(p.x, p.y - 10, p.layer);
+      const aS = tiles.getArea(p.x, p.y + 10, p.layer);
+      const aE = tiles.getArea(p.x + 10, p.y, p.layer);
+      const aW = tiles.getArea(p.x - 10, p.y, p.layer);
+      map += `\nDirs: N=${aN?.name||'?'}|S=${aS?.name||'?'}|E=${aE?.name||'?'}|W=${aW?.name||'?'}`;
       return map;
   }
 
