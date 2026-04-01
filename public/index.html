@@ -51,38 +51,46 @@
     min-height: 60px;
     position: relative;
     display: grid;
-    grid-template-columns: 28px 1fr 28px;
-    grid-template-rows: 22px 1fr 22px;
+    grid-template-columns: auto 14px 1fr 14px auto;
+    grid-template-rows: auto 14px 1fr 14px auto;
   }
+  /* Compass directions (inner ring) */
   .compass {
-    font-family: var(--mono); font-size: 13px; font-weight: bold;
-    display: flex; flex-direction: column; align-items: center; justify-content: center;
-    color: #888; line-height: 1; overflow: hidden;
+    font-family: var(--mono); font-size: 12px; font-weight: bold;
+    display: flex; align-items: center; justify-content: center;
+    color: #777;
   }
-  .compass .dir-area {
-    font-size: 7px; font-weight: normal; color: #efb366;
-    white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
-    max-width: 100%; text-align: center;
+  /* Area labels (outer ring) */
+  .area-label {
+    font-family: var(--mono); font-size: 8px; color: #efb366;
+    display: flex; align-items: center; justify-content: center;
+    overflow: hidden; white-space: nowrap; text-overflow: ellipsis;
+    padding: 0 2px;
   }
-  .compass.side .dir-area {
-    writing-mode: vertical-lr;
-    text-orientation: upright;
-    letter-spacing: -2px;
-    font-size: 7px;
-    max-height: 100%;
+  .area-label.side {
+    writing-mode: vertical-lr; text-orientation: upright;
+    letter-spacing: -1px; font-size: 7px; white-space: normal;
   }
-  #compass-nw { grid-column: 1; grid-row: 1; font-size: 10px; color: #666; }
-  #compass-n  { grid-column: 2; grid-row: 1; color: #c44; position: relative; }
-  #compass-ne { grid-column: 3; grid-row: 1; font-size: 10px; color: #666; }
-  #compass-w  { grid-column: 1; grid-row: 2; }
-  #compass-e  { grid-column: 3; grid-row: 2; }
-  #compass-sw { grid-column: 1; grid-row: 3; font-size: 10px; color: #666; }
-  #compass-s  { grid-column: 2; grid-row: 3; }
-  #compass-se { grid-column: 3; grid-row: 3; font-size: 10px; color: #666; }
-  #map-area-top { position: absolute; left: 0; font-size: 10px; color: #efb366; font-family: var(--mono); white-space: nowrap; top: 50%; transform: translateY(-50%); }
+  /* Outer ring: area labels */
+  #area-nw { grid-column: 1; grid-row: 1; font-size: 7px; color: #555; }
+  #area-n  { grid-column: 3; grid-row: 1; }
+  #area-ne { grid-column: 5; grid-row: 1; font-size: 7px; color: #555; }
+  #area-w  { grid-column: 1; grid-row: 3; }
+  #area-e  { grid-column: 5; grid-row: 3; }
+  #area-sw { grid-column: 1; grid-row: 5; font-size: 7px; color: #555; }
+  #area-s  { grid-column: 3; grid-row: 5; }
+  #area-se { grid-column: 5; grid-row: 5; font-size: 7px; color: #555; }
+  #area-here { grid-column: 3; grid-row: 1; position: relative; }
+  #area-here-text { position: absolute; left: 0; font-size: 9px; color: #efb366; font-family: var(--mono); white-space: nowrap; }
+  /* Inner ring: compass directions */
+  #compass-n  { grid-column: 3; grid-row: 2; color: #c44; }
+  #compass-s  { grid-column: 3; grid-row: 4; }
+  #compass-w  { grid-column: 2; grid-row: 3; }
+  #compass-e  { grid-column: 4; grid-row: 3; }
+  /* Map center */
   #map-center {
-    grid-column: 2;
-    grid-row: 2;
+    grid-column: 3;
+    grid-row: 3;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -303,15 +311,21 @@
 <div id="game">
   <!-- Map pane -->
   <div id="map-pane" class="empty">
-    <div id="compass-nw" class="compass">NW</div>
-    <div id="compass-n" class="compass"><span id="map-area-top"></span>N<span class="dir-area" id="dir-n"></span></div>
-    <div id="compass-ne" class="compass">NE</div>
-    <div id="compass-w" class="compass side">W<br><span class="dir-area" id="dir-w"></span></div>
+    <!-- Outer ring: area labels -->
+    <div id="area-nw" class="area-label"></div>
+    <div id="area-n" class="area-label" style="position:relative"><span id="area-here-text"></span></div>
+    <div id="area-ne" class="area-label"></div>
+    <div id="area-w" class="area-label side" id="dir-w"></div>
+    <div id="area-e" class="area-label side" id="dir-e"></div>
+    <div id="area-sw" class="area-label"></div>
+    <div id="area-s" class="area-label" id="dir-s"></div>
+    <div id="area-se" class="area-label"></div>
+    <!-- Inner ring: compass directions -->
+    <div id="compass-n" class="compass">N</div>
+    <div id="compass-w" class="compass">W</div>
     <div id="map-center"><div id="map-content"></div></div>
-    <div id="compass-e" class="compass side">E<br><span class="dir-area" id="dir-e"></span></div>
-    <div id="compass-sw" class="compass">SW</div>
-    <div id="compass-s" class="compass">S<span class="dir-area" id="dir-s"></span></div>
-    <div id="compass-se" class="compass">SE</div>
+    <div id="compass-e" class="compass">E</div>
+    <div id="compass-s" class="compass">S</div>
   </div>
 
   <!-- Draggable divider + legend -->
@@ -446,14 +460,18 @@ function addMsg(text, type) {
     mapPane.classList.remove('empty');
     // Extract area name
     const areaMatch = text.match(/Area:\s*(.+)/);
-    if (areaMatch) document.getElementById('map-area-top').textContent = areaMatch[1];
-    // Parse cardinal direction areas
+    if (areaMatch) {
+      const here = areaMatch[1];
+      const el = document.getElementById('area-here-text');
+      if (el) el.textContent = here;
+    }
     const dirsMatch = text.match(/Dirs: N=([^|]+)\|S=([^|]+)\|E=([^|]+)\|W=(.+)/);
     if (dirsMatch) {
-      document.getElementById('dir-n').textContent = dirsMatch[1];
-      document.getElementById('dir-s').textContent = dirsMatch[2];
-      document.getElementById('dir-e').textContent = dirsMatch[3];
-      document.getElementById('dir-w').textContent = dirsMatch[4];
+      const set = (id, val) => { const el = document.getElementById(id); if (el) el.textContent = val; };
+      set('area-n', dirsMatch[1]);
+      set('area-s', dirsMatch[2]);
+      set('area-e', dirsMatch[3]);
+      set('area-w', dirsMatch[4]);
     }
     // Strip legend, area, and coords — keep only the grid
     let gridLines = text.split('\n').filter(line => {
