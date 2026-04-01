@@ -51,15 +51,21 @@
     min-height: 60px;
     position: relative;
     display: grid;
-    grid-template-columns: 24px 1fr 24px;
-    grid-template-rows: 18px 1fr 18px;
+    grid-template-columns: 28px 1fr 28px;
+    grid-template-rows: 22px 1fr 22px;
   }
   .compass {
-    font-family: var(--mono); font-size: 14px; font-weight: bold;
+    font-family: var(--mono); font-size: 13px; font-weight: bold;
     display: flex; flex-direction: column; align-items: center; justify-content: center;
-    color: #888; line-height: 1;
+    color: #888; line-height: 1; overflow: hidden;
   }
-  .compass .dir-area { font-size: 8px; font-weight: normal; color: #efb366; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 100%; }
+  .compass .dir-area {
+    font-size: 7px; font-weight: normal; color: #efb366;
+    white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+    max-width: 100%; text-align: center;
+  }
+  .compass.side { writing-mode: vertical-lr; text-orientation: mixed; }
+  .compass.side .dir-area { writing-mode: horizontal-tb; font-size: 6px; }
   #compass-nw { grid-column: 1; grid-row: 1; font-size: 10px; color: #666; }
   #compass-n  { grid-column: 2; grid-row: 1; color: #c44; position: relative; }
   #compass-ne { grid-column: 3; grid-row: 1; font-size: 10px; color: #666; }
@@ -295,9 +301,9 @@
     <div id="compass-nw" class="compass">NW</div>
     <div id="compass-n" class="compass"><span id="map-area-top"></span>N<span class="dir-area" id="dir-n"></span></div>
     <div id="compass-ne" class="compass">NE</div>
-    <div id="compass-w" class="compass">W<span class="dir-area" id="dir-w"></span></div>
+    <div id="compass-w" class="compass side">W<span class="dir-area" id="dir-w"></span></div>
     <div id="map-center"><div id="map-content"></div></div>
-    <div id="compass-e" class="compass">E<span class="dir-area" id="dir-e"></span></div>
+    <div id="compass-e" class="compass side">E<span class="dir-area" id="dir-e"></span></div>
     <div id="compass-sw" class="compass">SW</div>
     <div id="compass-s" class="compass">S<span class="dir-area" id="dir-s"></span></div>
     <div id="compass-se" class="compass">SE</div>
@@ -558,12 +564,41 @@ function connect() {
     if (msg.text) {
       if (msg.text.includes('Type `login [name]`')) return;
       if (msg.text.includes('Please login first')) return;
-      // Name taken — show in input bar, reset login state
-      if (msg.text.includes('is taken')) {
-        loggedIn = false;
-        input.placeholder = msg.text + ' Type a new name.';
+      // Name taken / already logged in
+      if (msg.text.includes('is taken') || msg.text.includes('already logged in')) {
+        loggedIn = false; loginStep = 'name'; pendingName = '';
+        input.type = 'text';
+        input.placeholder = msg.text + ' Try another name.';
         input.focus();
         return;
+      }
+      // No account — auto register
+      if (msg.text.includes('No account') && ws._pendingPassword) {
+        ws.send(`register ${pendingName} ${ws._pendingPassword}`);
+        ws._pendingPassword = null;
+        return;
+      }
+      // Account created — now login happens automatically
+      if (msg.text.includes('Account') && msg.text.includes('created')) {
+        addMsg(`Account "${pendingName}" created!`, 'system');
+        // Server falls through to login after register
+      }
+      // Wrong password
+      if (msg.text.includes('Wrong password')) {
+        loggedIn = false; loginStep = 'password';
+        input.type = 'password';
+        input.placeholder = 'Wrong password. Try again.';
+        input.focus();
+        return;
+      }
+      // Successful login — detect by "Logged in as"
+      if (msg.text.includes('Logged in as') && !loggedIn) {
+        loggedIn = true;
+        playerName = pendingName;
+        inputLabel.textContent = playerName + ':';
+        input.placeholder = '';
+        input.type = 'text';
+        setTimeout(() => sendMapCmd(), 500);
       }
       addMsg(msg.text, 'game');
     }
@@ -575,22 +610,44 @@ function connect() {
   };
 }
 
-function handleLogin(name) {
-  playerName = name || `Player${Math.floor(Math.random() * 9999)}`;
-  inputLabel.textContent = playerName + ':';
-  input.placeholder = '';
-  addMsg(playerName, 'player');
-  addMsg('Connecting...', 'system');
-  loginTime = Date.now();
-  connect();
-  const w = setInterval(() => {
-    if (connected) {
-      loggedIn = true;
-      ws.send(`login ${playerName}`);
-      setTimeout(() => sendMapCmd(), 500);
-      clearInterval(w);
+let loginStep = 'name'; // 'name' → 'password' → done
+let pendingName = '';
+
+function handleLogin(val) {
+  if (loginStep === 'name') {
+    pendingName = val.trim();
+    if (pendingName.length < 2 || pendingName.length > 20) {
+      input.placeholder = 'Name must be 2-20 characters.';
+      return;
     }
-  }, 100);
+    addMsg(pendingName, 'player');
+    loginStep = 'password';
+    input.placeholder = 'enter password...';
+    input.type = 'password';
+    // Connect while they type password
+    if (!connected) {
+      addMsg('Connecting...', 'system');
+      loginTime = Date.now();
+      connect();
+    }
+  } else if (loginStep === 'password') {
+    const password = val.trim();
+    if (password.length < 3) {
+      input.placeholder = 'Password must be at least 3 characters.';
+      return;
+    }
+    addMsg('••••••', 'player');
+    input.type = 'text';
+    const w = setInterval(() => {
+      if (connected) {
+        // Try login first, server will tell us if we need to register
+        ws.send(`login ${pendingName} ${password}`);
+        // Store password in case we need to register
+        ws._pendingPassword = password;
+        clearInterval(w);
+      }
+    }, 100);
+  }
 }
 
 function sendMapCmd() {
@@ -665,7 +722,8 @@ const onboardMsgs = [
   'help — all commands',
   '',
   '═══════════════════════════',
-  'Type your name below to begin.',
+  'Type your name, then password.',
+  'New name? Account auto-creates.',
   '═══════════════════════════',
 ];
 for (const line of onboardMsgs) {

@@ -2719,18 +2719,43 @@ wss.on('connection', (ws) => {
     // Must login first
     if (!p) {
       const parsed = commands.parse(input);
-      if (!parsed || parsed.verb !== 'login') {
-        sendText(ws, 'Please login first: login [name]');
+      if (!parsed || (parsed.verb !== 'login' && parsed.verb !== 'register')) {
+        sendText(ws, 'Please type: login [name] [password] or register [name] [password]');
         return;
       }
-      const name = parsed.args[0] || `Player${Math.floor(Math.random() * 9999)}`;
+      const name = parsed.args[0];
+      const password = parsed.args[1];
+      if (!name || !password) {
+        sendText(ws, parsed.verb === 'register'
+          ? 'Usage: register [name] [password]'
+          : 'Usage: login [name] [password]');
+        return;
+      }
+      if (name.length < 2 || name.length > 20) { sendText(ws, 'Name must be 2-20 characters.'); return; }
+      if (password.length < 3) { sendText(ws, 'Password must be at least 3 characters.'); return; }
+
+      const bcrypt = require('bcrypt');
+      const authFile = `auth/${name.toLowerCase()}.json`;
+      const authData = persistence.load(authFile);
+
+      if (parsed.verb === 'register') {
+        if (authData) { sendText(ws, `Account "${name}" already exists. Use: login ${name} [password]`); return; }
+        const hash = bcrypt.hashSync(password, 10);
+        persistence.save(authFile, { name, hash, created: Date.now() });
+        sendText(ws, `Account "${name}" created!`);
+        // Fall through to login
+      } else {
+        // Login
+        if (!authData) { sendText(ws, `No account "${name}". Use: register ${name} [password]`); return; }
+        if (!bcrypt.compareSync(password, authData.hash)) { sendText(ws, 'Wrong password.'); return; }
+      }
+
       const existing = playersByName.get(name.toLowerCase());
       if (existing) {
-        // Allow takeover of HTTP-only sessions or disconnected players
         if (existing.httpOnly || !existing.connected) {
           playersByName.delete(name.toLowerCase());
         } else {
-          sendText(ws, `Name "${name}" is taken. Try another.`);
+          sendText(ws, `"${name}" is already logged in.`);
           return;
         }
       }
