@@ -99,8 +99,14 @@
   .msg.ascii {
     font-size: 10px;
     line-height: 1.15;
-    letter-spacing: 0.3px;
+    letter-spacing: 0px;
     color: #333;
+    white-space: pre;
+    overflow-x: auto;
+    background: rgba(0,0,0,0.05);
+    padding: 4px 6px;
+    border-radius: 3px;
+    border: 1px solid rgba(0,0,0,0.08);
   }
 
   /* Input row */
@@ -437,8 +443,17 @@ let connected = false;
 let loginTime = 0;
 
 function isAscii(text) {
-  if (text.includes('@') && text.includes('Legend:')) return true;
-  if ((text.match(/[.=#~XSTDP!?@>]/g) || []).length > text.length * 0.25 && text.split('\n').length > 5) return true;
+  const lines = text.split('\n');
+  if (lines.length < 5) return false;
+  if (text.includes('Legend:') && text.includes('@')) return true;
+  if (text.includes(' v ') && text.includes(' > ')) return true;
+  // Check if multiple lines have similar length (grid-like)
+  const lens = lines.filter(l => l.length > 5).map(l => l.length);
+  if (lens.length >= 5) {
+    const avg = lens.reduce((a,b) => a+b, 0) / lens.length;
+    const similar = lens.filter(l => Math.abs(l - avg) < 5).length;
+    if (similar > lens.length * 0.5) return true;
+  }
   return false;
 }
 
@@ -446,7 +461,8 @@ function addMsg(text, type) {
   // ASCII maps render inline in chat with special styling
 
   const div = document.createElement('div');
-  div.className = `msg ${type}`;
+  const ascii = type === 'game' && isAscii(text);
+  div.className = `msg ${type}${ascii ? ' ascii' : ''}`;
   div.textContent = text;
   chatLog.appendChild(div);
   chatLog.scrollTop = chatLog.scrollHeight;
