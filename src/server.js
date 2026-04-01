@@ -123,24 +123,75 @@ function findPlayer(name) {
   return playersByName.get(name.toLowerCase());
 }
 
-// ── Auto-show tile contents when stepping on them ─────────────────────────────
-function showTileContents(ws, p) {
-  const items = groundItems.filter(i => i.x === p.x && i.y === p.y && i.layer === p.layer);
-  const obj = objects.getObjectAt(p.x, p.y, p.layer);
-  if (!items.length && !obj) return;
-  let msg = '';
-  if (items.length) {
-    msg += 'On the ground: ' + items.map(i => `${i.name} x${i.count}`).join(', ') + '. Type `pickup [name]`';
+// ── Smart interaction grid — auto-detect surroundings ─────────────────────────
+// 1=NW 2=N 3=NE 4=W 5=E 6=SW 7=S 8=SE
+// Shows best action for each adjacent tile. Examine only if nothing else.
+const GRID_DIRS = [
+  { key: '1', dx: -1, dy: -1, label: 'NW' },
+  { key: '2', dx: 0, dy: -1, label: 'N' },
+  { key: '3', dx: 1, dy: -1, label: 'NE' },
+  { key: '4', dx: -1, dy: 0, label: 'W' },
+  { key: '5', dx: 1, dy: 0, label: 'E' },
+  { key: '6', dx: -1, dy: 1, label: 'SW' },
+  { key: '7', dx: 0, dy: 1, label: 'S' },
+  { key: '8', dx: 1, dy: 1, label: 'SE' },
+];
+
+function getBestAction(x, y, layer, p) {
+  // Ground items first
+  const item = groundItems.find(i => i.x === x && i.y === y && i.layer === layer);
+  if (item) return { cmd: `pickup ${item.name.toLowerCase()}`, desc: `pickup ${item.name}` };
+
+  // NPCs
+  const npc = npcs.getNpcsNear(x, y, 0, layer)[0];
+  if (npc && !npc.dead) {
+    const npcDef = npcs.npcDefs.get(npc.defId);
+    if (npc.combat > 0) return { cmd: `attack ${npc.name.toLowerCase()}`, desc: `attack ${npc.name}` };
+    if (npcDef?.thieving) return { cmd: `pickpocket ${npc.name.toLowerCase()}`, desc: `pickpocket ${npc.name}` };
+    if (npc.dialogue) return { cmd: `talk ${npc.name.toLowerCase()}`, desc: `talk ${npc.name}` };
+    return { cmd: `examine ${npc.name.toLowerCase()}`, desc: `examine ${npc.name}` };
   }
+
+  // Objects
+  const obj = objects.getObjectAt(x, y, layer);
   if (obj && !obj.depleted) {
-    if (msg) msg += '\n';
-    const actions = [];
-    if (obj.skill) actions.push(obj.skill === 'woodcutting' ? 'chop' : obj.skill === 'mining' ? 'mine' : obj.skill === 'fishing' ? 'fish' : 'pick');
-    if (obj.product) actions.push('pick');
-    actions.push('examine');
-    msg += `${obj.name} here. [${[...new Set(actions)].join(' / ')}]`;
+    if (obj.skill === 'woodcutting') return { cmd: `chop ${obj.name.toLowerCase()}`, desc: `chop ${obj.name}` };
+    if (obj.skill === 'mining') return { cmd: `mine ${obj.name.toLowerCase()}`, desc: `mine ${obj.name}` };
+    if (obj.skill === 'fishing') return { cmd: `fish ${obj.name.toLowerCase()}`, desc: `fish ${obj.name}` };
+    if (obj.name.toLowerCase().includes('bank')) return { cmd: 'bank', desc: 'bank' };
+    if (obj.name.toLowerCase().includes('range') || obj.name.toLowerCase().includes('cooking')) return { cmd: 'cook', desc: 'cook' };
+    if (obj.name.toLowerCase().includes('furnace')) return { cmd: 'smelt', desc: 'smelt' };
+    if (obj.name.toLowerCase().includes('anvil')) return { cmd: 'smith', desc: 'smith' };
+    if (obj.name.toLowerCase().includes('altar')) return { cmd: 'pray at altar', desc: 'pray' };
+    if (obj.name.toLowerCase().includes('stair')) return { cmd: 'climbup', desc: 'climb' };
+    if (obj.product) return { cmd: `pick ${obj.name.toLowerCase()}`, desc: `pick ${obj.name}` };
+    return { cmd: `examine ${obj.name.toLowerCase()}`, desc: `examine ${obj.name}` };
   }
-  if (msg) sendText(ws, msg);
+
+  return null;
+}
+
+function showSurroundings(ws, p) {
+  const actions = [];
+  for (const dir of GRID_DIRS) {
+    const tx = p.x + dir.dx, ty = p.y + dir.dy;
+    const action = getBestAction(tx, ty, p.layer, p);
+    if (action) actions.push({ ...dir, ...action });
+  }
+  // Also check current tile for ground items
+  const here = groundItems.filter(i => i.x === p.x && i.y === p.y && i.layer === p.layer);
+  if (here.length) {
+    sendText(ws, `On ground: ${here.map(i => `${i.name} x${i.count}`).join(', ')}. \`pickup [name]\``);
+  }
+  if (actions.length) {
+    p._gridActions = {};
+    let msg = '';
+    for (const a of actions) {
+      msg += `[${a.key}] ${a.desc}\n`;
+      p._gridActions[a.key] = a.cmd;
+    }
+    sendText(ws, msg.trimEnd());
+  }
 }
 
 // ── Movement Tick ─────────────────────────────────────────────────────────────
@@ -177,7 +228,7 @@ function movementTick(currentTick) {
       sendText(ws, `(${p.x}, ${p.y})${p.path.length ? ` — ${p.path.length} steps left` : ''}\n${cmdCtx.generateMap(p)}`);
     }
     // Auto-show items/objects on current tile
-    showTileContents(ws, p);
+    showSurroundings(ws, p);
 
     // ── Music system: unlock tracks on area entry ──
     const moveArea = tiles.getArea(p.x, p.y, p.layer);
@@ -854,7 +905,7 @@ for (const [dir, [dx, dy]] of Object.entries(DIR_MAP)) {
       if (cmdCtx.generateMap) msg += '\n' + cmdCtx.generateMap(p);
       // Show items/objects on tile
       let playerWs; for (const [w, pl] of players) { if (pl === p) { playerWs = w; break; } }
-      if (playerWs) setTimeout(() => showTileContents(playerWs, p), 0);
+      if (playerWs) setTimeout(() => showSurroundings(playerWs, p), 0);
       return msg;
     }
   });
@@ -2619,20 +2670,31 @@ wss.on('connection', (ws) => {
       }
     }
 
-    // Number selection from /? suggestions
+    // Number selection — grid actions (1-8) or /? suggestions (1-9)
     const p_check = players.get(ws);
-    if (p_check && p_check._suggestions && /^[1-9]$/.test(input)) {
-      const idx = parseInt(input) - 1;
-      if (idx < p_check._suggestions.length) {
-        const cmd = p_check._suggestions[idx].cmd;
-        p_check._suggestions = null;
+    if (p_check && /^[1-9]$/.test(input)) {
+      // Grid actions (surrounding interactions)
+      if (p_check._gridActions && p_check._gridActions[input]) {
+        const cmd = p_check._gridActions[input];
         sendText(ws, `> ${cmd}`);
         const result = commands.execute(p_check, cmd);
         if (result && !result.unknown) sendText(ws, result);
         return;
       }
+      // /? suggestions
+      if (p_check._suggestions) {
+        const idx = parseInt(input) - 1;
+        if (idx < p_check._suggestions.length) {
+          const cmd = p_check._suggestions[idx].cmd;
+          p_check._suggestions = null;
+          sendText(ws, `> ${cmd}`);
+          const result = commands.execute(p_check, cmd);
+          if (result && !result.unknown) sendText(ws, result);
+          return;
+        }
+      }
     }
-    if (p_check) p_check._suggestions = null; // Clear on any other input
+    if (p_check) p_check._suggestions = null;
 
     // If in replay mode, any input advances (Enter/space), "q" stops
     if (activeReplays.has(ws)) {
