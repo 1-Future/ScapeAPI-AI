@@ -2229,15 +2229,17 @@ function createDefaultContent() {
   fillArea(102, 81, 106, 84, T.FLOOR);  // Smithy
   fillArea(108, 81, 112, 84, T.FLOOR);  // Kitchen
   fillArea(90, 86, 94, 90, T.FLOOR);    // Herb shop
-  objects.placeObject('bank_booth', 97, 82);
-  objects.placeObject('bank_booth', 98, 82);
-  objects.placeObject('bank_booth', 99, 82);
-  objects.placeObject('range', 109, 82);
-  objects.placeObject('range', 110, 82);
-  objects.placeObject('furnace', 103, 82);
-  objects.placeObject('furnace', 104, 82);
-  objects.placeObject('anvil', 105, 82);
-  objects.placeObject('anvil', 106, 82);
+  // Solid objects — place on WALL tiles so players can't walk through them
+  const solidObjects = [
+    ['bank_booth', 97, 82], ['bank_booth', 98, 82], ['bank_booth', 99, 82],
+    ['range', 109, 82], ['range', 110, 82],
+    ['furnace', 103, 82], ['furnace', 104, 82],
+    ['anvil', 105, 82], ['anvil', 106, 82],
+  ];
+  for (const [id, x, y] of solidObjects) {
+    objects.placeObject(id, x, y);
+    tiles.setTile(x, y, tiles.T.WALL);
+  }
   objects.placeObject('spinning_wheel', 112, 88);
   npcs.spawnNpc('shopkeeper', 98, 88);
   npcs.spawnNpc('weapon_master', 104, 88);
