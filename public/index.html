@@ -134,12 +134,22 @@
     align-items: center;
     gap: 1px;
     padding: 0 3px;
+    cursor: pointer;
+    border-radius: 2px;
+    position: relative;
   }
+  .lk:hover { background: rgba(255,255,255,0.15); }
   .ls {
     font-weight: bold;
     font-size: 10px;
     width: 10px;
     text-align: center;
+  }
+  .lk input[type="color"] {
+    position: absolute;
+    width: 0; height: 0;
+    opacity: 0;
+    pointer-events: none;
   }
   /* Legend gets all the space */
 
@@ -285,7 +295,7 @@
 
   <!-- Draggable divider + legend -->
   <div id="divider">
-    <div id="legend"><span class="lk"><span class="ls" style="color:#e9c46a">@</span>You</span><span class="lk"><span class="ls" style="color:#e76f51">!</span>NPC</span><span class="lk"><span class="ls" style="color:#f4a261">?</span>Obj</span><span class="lk"><span class="ls" style="color:#2a9d8f">P</span>Ply</span><span class="lk"><span class="ls" style="color:#264653">#</span>Wall</span><span class="lk"><span class="ls" style="color:#8ab17d">T</span>Tree</span><span class="lk"><span class="ls" style="color:#287271">~</span>Wtr</span><span class="lk"><span class="ls" style="color:#264653">.</span>Grs</span><span class="lk"><span class="ls" style="color:#efb366">=</span>Path</span><span class="lk"><span class="ls" style="color:#ee8959">S</span>Sand</span></div>
+    <div id="legend"></div>
   </div>
 
   <!-- Chat pane -->
@@ -359,8 +369,40 @@ function doDrag(y) {
 document.addEventListener('mouseup', () => { dragging = false; });
 document.addEventListener('touchend', () => { dragging = false; });
 
-// ── Map scaling — fit ASCII to pane width ─────────────────────────────────
-// Map grid auto-fills via CSS flexbox — no manual scaling needed
+// ── Color customization — click legend to change colors ───────────────────
+const defaultColors = {
+  '@': '#e9c46a', '!': '#e76f51', '?': '#f4a261', 'P': '#2a9d8f',
+  '#': '#ee8959', 'T': '#8ab17d', '~': '#287271', 'S': '#efb366',
+  '=': '#e9c46a', 'D': '#f4a261', 'X': '#264653', 'b': '#2a9d8f',
+  '*': '#efb366', '%': '#287271', ',': '#8ab17d', '.': '#2a9d8f',
+};
+let userColors = { ...defaultColors };
+try { const s = JSON.parse(localStorage.getItem('scape-colors')); if (s) Object.assign(userColors, s); } catch {}
+
+const legendItems = [
+  ['@','You'],['!','NPC'],['?','Obj'],['P','Ply'],
+  ['#','Wall'],['T','Tree'],['~','Wtr'],['.','Grs'],
+  ['=','Path'],['S','Sand'],
+];
+
+function buildLegend() {
+  const legend = document.getElementById('legend');
+  legend.innerHTML = '';
+  for (const [ch, label] of legendItems) {
+    const lk = document.createElement('span');
+    lk.className = 'lk';
+    lk.innerHTML = `<span class="ls" style="color:${userColors[ch]}">${ch}</span>${label}<input type="color" value="${userColors[ch]}">`;
+    lk.addEventListener('click', (e) => { if (e.target.tagName !== 'INPUT') lk.querySelector('input').click(); });
+    lk.querySelector('input').addEventListener('input', (e) => {
+      userColors[ch] = e.target.value;
+      lk.querySelector('.ls').style.color = e.target.value;
+      localStorage.setItem('scape-colors', JSON.stringify(userColors));
+      if (ws && connected) sendMapCmd();
+    });
+    legend.appendChild(lk);
+  }
+}
+buildLegend();
 
 // ── ASCII detection ───────────────────────────────────────────────────────
 function isAscii(text) {
@@ -391,12 +433,7 @@ function addMsg(text, type) {
     if (gridLines[0] && /^\s*v\s*$/.test(gridLines[0])) gridLines.shift();
     // Remove > row marker and leading whitespace prefix
     gridLines = gridLines.map(line => line.replace(/^\s*>\s*/, '  ').replace(/^\s{1,4}/, ''));
-    const colorMap = {
-      '@': '#e9c46a', '!': '#e76f51', '?': '#f4a261', 'P': '#2a9d8f',
-      '#': '#ee8959', 'T': '#8ab17d', '~': '#287271', 'S': '#efb366',
-      '=': '#e9c46a', 'D': '#f4a261', 'X': '#264653', 'b': '#2a9d8f',
-      '*': '#efb366', '%': '#287271', ',': '#8ab17d', '.': '#2a9d8f',
-    };
+    const colorMap = userColors;
     const maxW = Math.max(...gridLines.map(l => l.length));
     let html = '';
     for (const line of gridLines) {
@@ -454,16 +491,18 @@ function send(cmd) {
 
   if (SILENT_CMDS.has(lower)) return; // no echo at all
 
-  if (DIR_CMDS.has(lower)) {
-    if (lower === lastDir && dirMsgEl && dirMsgEl.parentNode) {
+  // Normalize multi-char directions (ss→s, www→w) on client side too
+  const dirNorm = /^[nsew]{1,3}$/i.test(lower) ? lower[0] : lower;
+  if (DIR_CMDS.has(dirNorm)) {
+    if (dirNorm === lastDir && dirMsgEl && dirMsgEl.parentNode) {
       dirCount++;
-      dirMsgEl.textContent = `${lower.toUpperCase()}(${dirCount})`;
+      dirMsgEl.textContent = `> ${dirNorm.toUpperCase()}(${dirCount})`;
     } else {
-      lastDir = lower;
+      lastDir = dirNorm;
       dirCount = 1;
       const div = document.createElement('div');
       div.className = 'msg player';
-      div.textContent = lower.toUpperCase();
+      div.textContent = `> ${dirNorm.toUpperCase()}`;
       chatLog.appendChild(div);
       chatLog.scrollTop = chatLog.scrollHeight;
       dirMsgEl = div;
