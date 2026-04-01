@@ -538,6 +538,7 @@ function handleLogin(name) {
     if (connected) {
       loggedIn = true;
       ws.send(`login ${playerName}`);
+      setTimeout(() => ws.send('map'), 500);
       clearInterval(waitLogin);
     }
   }, 100);
