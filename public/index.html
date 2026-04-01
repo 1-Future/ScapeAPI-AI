@@ -51,13 +51,19 @@
     min-height: 60px;
     position: relative;
     display: grid;
-    grid-template-columns: 20px 1fr 20px;
-    grid-template-rows: 16px 1fr 16px;
+    grid-template-columns: 24px 1fr 24px;
+    grid-template-rows: 18px 1fr 18px;
   }
-  #compass-n { grid-column: 2; grid-row: 1; text-align: center; color: #c44; font-size: 11px; font-weight: bold; font-family: var(--mono); align-self: center; }
-  #compass-s { grid-column: 2; grid-row: 3; text-align: center; color: #888; font-size: 11px; font-family: var(--mono); align-self: center; }
-  #compass-w { grid-column: 1; grid-row: 2; color: #888; font-size: 11px; font-family: var(--mono); text-align: center; justify-self: center; align-self: center; }
-  #compass-e { grid-column: 3; grid-row: 2; color: #888; font-size: 11px; font-family: var(--mono); text-align: center; justify-self: center; align-self: center; }
+  .compass { font-family: var(--mono); font-size: 14px; font-weight: bold; display: flex; align-items: center; justify-content: center; color: #888; }
+  #compass-nw { grid-column: 1; grid-row: 1; font-size: 10px; color: #666; }
+  #compass-n  { grid-column: 2; grid-row: 1; color: #c44; }
+  #compass-ne { grid-column: 3; grid-row: 1; font-size: 10px; color: #666; }
+  #compass-w  { grid-column: 1; grid-row: 2; }
+  #compass-e  { grid-column: 3; grid-row: 2; }
+  #compass-sw { grid-column: 1; grid-row: 3; font-size: 10px; color: #666; }
+  #compass-s  { grid-column: 2; grid-row: 3; }
+  #compass-se { grid-column: 3; grid-row: 3; font-size: 10px; color: #666; }
+  #map-area-top { grid-column: 2; grid-row: 1; position: absolute; left: 0; font-size: 11px; color: #efb366; font-family: var(--mono); align-self: center; white-space: nowrap; }
   #map-center {
     grid-column: 2;
     grid-row: 2;
@@ -98,12 +104,8 @@
   .grid-on .map-cell:last-child { border-right: none; }
   #map-pane.empty { display: flex; align-items: center; justify-content: center; }
   #map-pane.empty::after { content: 'Type your name below to begin.'; color: #333; font-size: 12px; }
-  #map-area {
-    font-size: 11px;
-    color: #555;
-    position: absolute;
-    bottom: 4px;
-    right: 8px;
+  #map-area-old {
+    display: none;
   }
 
   /* ── Drag handle + legend ────────────────────────────────── */
@@ -285,12 +287,15 @@
 <div id="game">
   <!-- Map pane -->
   <div id="map-pane" class="empty">
-    <div id="compass-n">N</div>
-    <div id="compass-w">W</div>
+    <div id="compass-nw" class="compass">NW</div>
+    <div id="compass-n" class="compass" style="position:relative"><span id="map-area-top"></span>N</div>
+    <div id="compass-ne" class="compass">NE</div>
+    <div id="compass-w" class="compass">W</div>
     <div id="map-center"><div id="map-content"></div></div>
-    <div id="compass-e">E</div>
-    <div id="compass-s">S</div>
-    <div id="map-area"></div>
+    <div id="compass-e" class="compass">E</div>
+    <div id="compass-sw" class="compass">SW</div>
+    <div id="compass-s" class="compass">S</div>
+    <div id="compass-se" class="compass">SE</div>
   </div>
 
   <!-- Draggable divider + legend -->
@@ -338,7 +343,7 @@
 <script>
 const mapPane = document.getElementById('map-pane');
 const mapContent = document.getElementById('map-content');
-const mapArea = document.getElementById('map-area');
+// Area name shown in top bar
 const chatLog = document.getElementById('chat-log');
 const input = document.getElementById('input');
 const inputLabel = document.getElementById('input-label');
@@ -422,7 +427,7 @@ function addMsg(text, type) {
     mapPane.classList.remove('empty');
     // Extract area name
     const areaMatch = text.match(/Area:\s*(.+)/);
-    if (areaMatch) mapArea.textContent = areaMatch[1];
+    if (areaMatch) document.getElementById('map-area-top').textContent = areaMatch[1];
     // Strip legend, area, and coords — keep only the grid
     let gridLines = text.split('\n').filter(line => {
       if (line.includes('Legend:')) return false;
