@@ -11,20 +11,34 @@ const STYLES = {
   controlled: { atk: 1.33, str: 1.33, def: 1.33, bonus: 'shared', invisible: 1 },
 };
 
-// Prayer multipliers { prayer_name: { attack, strength, defence } }
+// Prayer multipliers — OSRS-accurate values from wiki
+// Source: https://oldschool.runescape.wiki/w/Damage_per_second/Melee
 const PRAYER_BOOSTS = {
+  // Melee attack
   clarity_of_thought:  { attack: 1.05 },
   improved_reflexes:   { attack: 1.10 },
   incredible_reflexes: { attack: 1.15 },
-  mystic_will:         { attack: 1.05, defence: 1.05 },
+  // Melee strength
   burst_of_strength:   { strength: 1.05 },
   superhuman_strength: { strength: 1.10 },
   ultimate_strength:   { strength: 1.15 },
+  // Melee defence
   thick_skin:          { defence: 1.05 },
   rock_skin:           { defence: 1.10 },
   steel_skin:          { defence: 1.15 },
+  // Combined melee
   chivalry:            { attack: 1.15, strength: 1.18, defence: 1.20 },
   piety:               { attack: 1.20, strength: 1.23, defence: 1.25 },
+  // Ranged
+  sharp_eye:           { ranged: 1.05 },
+  hawk_eye:            { ranged: 1.10 },
+  eagle_eye:           { ranged: 1.15 },
+  rigour:              { ranged: 1.23 },
+  // Magic
+  mystic_will:         { magic: 1.05, defence: 1.05 },
+  mystic_lore:         { magic: 1.10, defence: 1.10 },
+  mystic_might:        { magic: 1.15, defence: 1.15 },
+  augury:              { magic: 1.25, defence: 1.25 },
 };
 
 function getPrayerMultiplier(activePrayers, stat) {
@@ -45,38 +59,52 @@ function getEquipBonus(equipment, stat) {
   return total;
 }
 
-// Effective level = (base_level + potion_boost + style_bonus + 8) × prayer_mult
+// ── OSRS-accurate effective level ──────────────────────────────────────────────
+// Formula: floor((floor((level + potion) × prayer) + style_bonus + 8) × void_bonus)
+// Source: https://oldschool.runescape.wiki/w/Maximum_melee_hit
 function effectiveLevel(p, skill) {
   const style = STYLES[p.attackStyle] || STYLES.accurate;
   const base = player.getLevel(p, skill);
   const potionBoost = (p.boosts && p.boosts[skill] && p.boosts[skill].ticksLeft > 0) ? p.boosts[skill].amount : 0;
-  const styleBonus = style.bonus === skill || style.bonus === 'shared' ? style.invisible : 0;
   const prayerMult = getPrayerMultiplier(p.activePrayers, skill);
-  return Math.floor((base + potionBoost + styleBonus + 8) * prayerMult);
+  // Step 1: (level + potion) × prayer, floor
+  const afterPrayer = Math.floor((base + potionBoost) * prayerMult);
+  // Step 2: + style_bonus + 8
+  const styleBonus = style.bonus === skill || style.bonus === 'shared' ? style.invisible : 0;
+  return afterPrayer + styleBonus + 8;
+  // Step 3: void bonus would multiply here (not implemented yet)
 }
 
-// Max hit (melee) = floor(0.5 + effective_str × (str_bonus + 64) / 640)
+// ── OSRS-accurate max melee hit ───────────────────────────────────────────────
+// Formula: floor(0.5 + effective_str × (str_bonus + 64) / 640)
+// Source: https://oldschool.runescape.wiki/w/Maximum_melee_hit
 function maxHitMelee(p) {
   const effStr = effectiveLevel(p, 'strength');
   const strBonus = getEquipBonus(p.equipment, 'melee_strength');
   return Math.floor(0.5 + effStr * (strBonus + 64) / 640);
 }
 
-// Attack roll = effective_attack × (equipment_bonus + 64)
+// ── OSRS-accurate attack roll ─────────────────────────────────────────────────
+// Formula: effective_attack × (equipment_bonus + 64)
 function attackRoll(p, bonusType = 'slash') {
   const effAtk = effectiveLevel(p, 'attack');
   const equipBonus = getEquipBonus(p.equipment, bonusType);
   return effAtk * (equipBonus + 64);
 }
 
-// Defence roll for NPC
+// ── OSRS-accurate NPC defence roll ────────────────────────────────────────────
+// Formula: (defence_level + 9) × (style_defence_bonus + 64)
+// Source: https://oldschool.runescape.wiki/w/Damage_per_second/Melee
 function npcDefenceRoll(npc, bonusType = 'slash') {
   const defLevel = npc.stats?.defence || 1;
   const defBonus = npc.stats?.[`def_${bonusType}`] || 0;
   return (defLevel + 9) * (defBonus + 64);
 }
 
-// Accuracy: if atk > def, acc = 1 - (def+2)/(2×(atk+1)); else acc = atk/(2×(def+1))
+// ── OSRS-accurate hit chance ──────────────────────────────────────────────────
+// if atk > def: 1 - (def+2) / (2×(atk+1))
+// else: atk / (2×(def+1))
+// Source: https://oldschool.runescape.wiki/w/Damage_per_second/Melee
 function accuracy(atkRoll, defRoll) {
   if (atkRoll > defRoll) {
     return 1 - (defRoll + 2) / (2 * (atkRoll + 1));
@@ -130,10 +158,22 @@ function combatXp(p, damage) {
   return results;
 }
 
-// Attack speed (ticks between attacks). Default unarmed = 4
+// ── OSRS-accurate attack speed ────────────────────────────────────────────────
+// Source: https://oldschool.runescape.wiki/w/Attack_speed
+// Unarmed: 4, Dagger/Scimitar/Mace/Whip: 4, Longsword/Axe/Staff: 5
+// Battleaxe/Warhammer: 6, 2H/Halberd: 7
+// Shortbow: 4 (3 rapid), Longbow/Crossbow: 6 (5 rapid)
 function getAttackSpeed(p) {
   const weapon = p.equipment.weapon;
-  return weapon?.speed || 4;
+  if (!weapon) return 4; // unarmed
+  if (weapon.speed) return weapon.speed; // explicit speed on item
+  // Infer from weapon name
+  const name = weapon.name.toLowerCase();
+  if (name.includes('2h') || name.includes('two-handed') || name.includes('halberd') || name.includes('godsword')) return 7;
+  if (name.includes('battleaxe') || name.includes('warhammer')) return 6;
+  if (name.includes('longsword') || name.includes('staff') || name.includes('axe') || name.includes('pickaxe')) return 5;
+  if (name.includes('longbow') || name.includes('crossbow')) return 6;
+  return 4; // dagger, scimitar, mace, shortbow, claws, whip
 }
 
 // ── Ranged Combat (feature 4) ──────────────────────────────────────────────────
@@ -151,12 +191,17 @@ function hasRangedSetup(p) {
   return true;
 }
 
-// Effective ranged level
+// ── OSRS-accurate effective ranged level ───────────────────────────────────────
+// Formula: floor((floor((level + potion) × prayer) + style_bonus + 8) × void_bonus)
+// Accurate style: +3, Rapid: +0, Longrange: +0
+// Prayer: Sharp Eye 1.05, Hawk Eye 1.10, Eagle Eye 1.15, Rigour 1.23
 function effectiveRangedLevel(p) {
   const base = player.getLevel(p, 'ranged');
   const potionBoost = (p.boosts && p.boosts.ranged && p.boosts.ranged.ticksLeft > 0) ? p.boosts.ranged.amount : 0;
-  const styleBonus = 8; // simplified
-  return Math.floor(base + potionBoost + styleBonus);
+  const prayerMult = getPrayerMultiplier(p.activePrayers, 'ranged');
+  const afterPrayer = Math.floor((base + potionBoost) * prayerMult);
+  // Simplified: no ranged style tracking, just +8
+  return afterPrayer + 8;
 }
 
 // Ranged max hit: floor(0.5 + effective_ranged * (ranged_str + 64) / 640)
