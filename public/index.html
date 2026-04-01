@@ -397,7 +397,11 @@ function buildLegend() {
       userColors[ch] = e.target.value;
       lk.querySelector('.ls').style.color = e.target.value;
       localStorage.setItem('scape-colors', JSON.stringify(userColors));
-      if (ws && connected) sendMapCmd();
+      // Re-color existing map cells without re-requesting
+      document.querySelectorAll('.map-cell').forEach(cell => {
+        const cellCh = cell.textContent.trim();
+        if (cellCh === ch) cell.style.color = e.target.value;
+      });
     });
     legend.appendChild(lk);
   }
