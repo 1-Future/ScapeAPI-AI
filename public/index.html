@@ -72,23 +72,35 @@
     right: 8px;
   }
 
-  /* ── Drag handle ────────────────────────────────────────── */
+  /* ── Drag handle + legend ────────────────────────────────── */
   #divider {
-    height: 8px;
-    background: linear-gradient(180deg, var(--stone-dark), var(--stone-light) 40%, var(--stone-light) 60%, var(--stone-dark));
+    background: linear-gradient(180deg, var(--stone-dark), var(--stone) 30%, var(--stone) 70%, var(--stone-dark));
     cursor: ns-resize;
     flex-shrink: 0;
     display: flex;
     align-items: center;
     justify-content: center;
     touch-action: none;
+    padding: 2px 8px;
+    min-height: 16px;
+    gap: 6px;
   }
-  #divider::after {
-    content: '';
-    width: 40px;
+  #legend {
+    font-size: 9px;
+    color: var(--parchment-dark);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    letter-spacing: 0.3px;
+    flex: 1;
+    text-align: center;
+  }
+  #divider .grip {
+    width: 30px;
     height: 2px;
-    background: rgba(255,255,255,0.15);
+    background: rgba(255,255,255,0.12);
     border-radius: 1px;
+    flex-shrink: 0;
   }
 
   /* ── Chat pane (bottom) ─────────────────────────────────── */
@@ -225,8 +237,12 @@
     <div id="map-area"></div>
   </div>
 
-  <!-- Draggable divider -->
-  <div id="divider"></div>
+  <!-- Draggable divider + legend -->
+  <div id="divider">
+    <div class="grip"></div>
+    <div id="legend">@ You  ! NPC  ? Object  P Player  # Wall  T Tree  ~ Water  . Grass  = Path  S Sand</div>
+    <div class="grip"></div>
+  </div>
 
   <!-- Chat pane -->
   <div id="chat-pane">
@@ -302,23 +318,23 @@ document.addEventListener('touchend', () => { dragging = false; });
 function scaleMap() {
   const text = mapContent.textContent;
   if (!text) return;
-  const lines = text.split('\n');
+  const lines = text.split('\n').filter(l => l.length > 0);
   const maxLen = Math.max(...lines.map(l => l.length));
-  if (maxLen === 0) return;
+  if (maxLen === 0 || lines.length === 0) return;
 
-  const paneWidth = mapPane.clientWidth - 16; // padding
-  const paneHeight = mapPane.clientHeight - 20; // area label
+  const paneWidth = mapPane.clientWidth - 8;
+  const paneHeight = mapPane.clientHeight - 8;
 
-  // Calculate font size to fit width
-  // Each char in monospace is ~0.6em wide
-  const charRatio = 0.6;
-  const fontFromWidth = paneWidth / (maxLen * charRatio);
-  // Also check height
+  // Measure actual char width ratio — Courier New is ~0.6em
+  const charW = 0.602;
   const lineH = 1.2;
+
+  const fontFromWidth = paneWidth / (maxLen * charW);
   const fontFromHeight = paneHeight / (lines.length * lineH);
 
-  const fontSize = Math.min(fontFromWidth, fontFromHeight, 16);
-  mapContent.style.fontSize = Math.max(6, fontSize) + 'px';
+  // Pick the smaller to fit both dimensions, no upper cap
+  const fontSize = Math.min(fontFromWidth, fontFromHeight);
+  mapContent.style.fontSize = Math.max(4, fontSize) + 'px';
 }
 
 // ── ASCII detection ───────────────────────────────────────────────────────
@@ -341,10 +357,20 @@ function addMsg(text, type) {
   // ASCII goes to map pane
   if (type === 'game' && isAscii(text)) {
     mapPane.classList.remove('empty');
-    // Split area name from map
+    // Extract area name
     const areaMatch = text.match(/Area:\s*(.+)/);
     if (areaMatch) mapArea.textContent = areaMatch[1];
-    mapContent.textContent = text;
+    // Strip legend, area, and coords — keep only the grid
+    let gridLines = text.split('\n').filter(line => {
+      if (line.includes('Legend:')) return false;
+      if (line.includes('~ Water') || line.includes('Grass/Floor')) return false;
+      if (line.includes('Area:')) return false;
+      if (line.trim() === '') return false;
+      return true;
+    });
+    // Remove leading coord line if it's just "(x, y) — N steps left"
+    if (gridLines[0] && /^\(?\d+,\s*\d+\)/.test(gridLines[0].trim())) gridLines.shift();
+    mapContent.textContent = gridLines.join('\n');
     scaleMap();
     return;
   }
