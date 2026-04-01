@@ -56,8 +56,8 @@
   }
   #compass-n { grid-column: 2; grid-row: 1; text-align: center; color: #c44; font-size: 11px; font-weight: bold; font-family: var(--mono); align-self: center; }
   #compass-s { grid-column: 2; grid-row: 3; text-align: center; color: #888; font-size: 11px; font-family: var(--mono); align-self: center; }
-  #compass-w { grid-column: 1; grid-row: 2; color: #888; font-size: 11px; font-family: var(--mono); writing-mode: vertical-lr; text-align: center; justify-self: center; align-self: center; }
-  #compass-e { grid-column: 3; grid-row: 2; color: #888; font-size: 11px; font-family: var(--mono); writing-mode: vertical-lr; text-align: center; justify-self: center; align-self: center; }
+  #compass-w { grid-column: 1; grid-row: 2; color: #888; font-size: 11px; font-family: var(--mono); text-align: center; justify-self: center; align-self: center; }
+  #compass-e { grid-column: 3; grid-row: 2; color: #888; font-size: 11px; font-family: var(--mono); text-align: center; justify-self: center; align-self: center; }
   #map-center {
     grid-column: 2;
     grid-row: 2;
@@ -285,11 +285,11 @@
 
   <!-- Draggable divider + legend -->
   <div id="divider">
-    <button class="zoom-btn" onclick="zoomMap(-1)">-</button>
+    <button class="zoom-btn" onclick="zoomLegend(-1)">-</button>
     <div class="grip"></div>
     <div id="legend"><span class="lk"><span class="ls" style="color:#fff">@</span>You</span><span class="lk"><span class="ls" style="color:#e44">!</span>NPC</span><span class="lk"><span class="ls" style="color:#e90">?</span>Obj</span><span class="lk"><span class="ls" style="color:#4af">P</span>Ply</span><span class="lk"><span class="ls" style="color:#888">#</span>Wall</span><span class="lk"><span class="ls" style="color:#2a2">T</span>Tree</span><span class="lk"><span class="ls" style="color:#48f">~</span>Wtr</span><span class="lk"><span class="ls" style="color:#6a4">.</span>Grs</span><span class="lk"><span class="ls" style="color:#ca0">=</span>Path</span><span class="lk"><span class="ls" style="color:#da0">S</span>Sand</span></div>
     <div class="grip"></div>
-    <button class="zoom-btn" onclick="zoomMap(1)">+</button>
+    <button class="zoom-btn" onclick="zoomLegend(1)">+</button>
   </div>
 
   <!-- Chat pane -->
@@ -363,7 +363,12 @@ document.addEventListener('mouseup', () => { dragging = false; });
 document.addEventListener('touchend', () => { dragging = false; });
 
 // ── Map scaling — fit ASCII to pane width ─────────────────────────────────
-let mapZoomOffset = 0;
+let legendSize = 9;
+
+function zoomLegend(dir) {
+  legendSize = Math.max(6, Math.min(16, legendSize + dir));
+  document.getElementById('legend').style.fontSize = legendSize + 'px';
+}
 
 function scaleMap() {
   const text = mapContent.textContent;
@@ -382,14 +387,8 @@ function scaleMap() {
   const fontFromWidth = paneWidth / (maxLen * charW);
   const fontFromHeight = paneHeight / (lines.length * lineH);
 
-  const autoSize = Math.min(fontFromWidth, fontFromHeight);
-  const fontSize = Math.max(4, autoSize + mapZoomOffset);
+  const fontSize = Math.max(4, Math.min(fontFromWidth, fontFromHeight));
   mapContent.style.fontSize = fontSize + 'px';
-}
-
-function zoomMap(dir) {
-  mapZoomOffset += dir * 2;
-  scaleMap();
 }
 
 // ── ASCII detection ───────────────────────────────────────────────────────
