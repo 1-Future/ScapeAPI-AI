@@ -620,8 +620,49 @@ function toggleGrid() {
   document.getElementById('grid-btn').style.color = mc.classList.contains('grid-on') ? 'var(--gold)' : 'var(--gold-dim)';
 }
 
-// Start
-addMsg('Welcome to Scape. Type your name to begin.', 'system');
+// ── First-time onboarding ─────────────────────────────────────────────────
+const onboardMsgs = [
+  '═══════════════════════════',
+  '       WELCOME TO SCAPE',
+  '═══════════════════════════',
+  '',
+  'This is a text-based MMORPG.',
+  'You play by typing commands.',
+  '',
+  '── HOW TO MOVE ──',
+  'Type: n s e w (north/south/east/west)',
+  'Or: ne nw se sw (diagonals)',
+  'The map updates as you move.',
+  '',
+  '── HOW TO INTERACT ──',
+  'Numbers [1-8] appear around you.',
+  'Type a number to interact with',
+  'whatever is in that direction.',
+  '1=NW 2=N 3=NE',
+  '4=W     5=E',
+  '6=SW 7=S 8=SE',
+  '',
+  '── SMART COMMANDS ──',
+  '? [question] — ask the AI guide',
+  '  example: ? how do i fish',
+  '/? — show all nearby options',
+  'talk — talk to nearest NPC',
+  'r [msg] — reply to last NPC (AI)',
+  '',
+  '── BASICS ──',
+  'look — see surroundings',
+  'inv — check inventory',
+  'skills — see your levels',
+  'status — full status',
+  'help — all commands',
+  '',
+  '═══════════════════════════',
+  'Type your name below to begin.',
+  '═══════════════════════════',
+];
+for (const line of onboardMsgs) {
+  addMsg(line, line.includes('══') || line.includes('SCAPE') ? 'system' : 'game');
+}
 input.placeholder = 'enter your name...';
 </script>
 </body>
