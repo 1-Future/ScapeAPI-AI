@@ -671,6 +671,8 @@ for (const line of onboardMsgs) {
   addMsg(line, line.includes('══') || line.includes('SCAPE') ? 'system' : 'game');
 }
 input.placeholder = 'enter your name...';
+// Scroll to top so player sees the welcome first
+setTimeout(() => { chatLog.scrollTop = 0; }, 50);
 </script>
 </body>
 </html>
