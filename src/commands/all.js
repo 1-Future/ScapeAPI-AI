@@ -919,7 +919,23 @@ module.exports = function registerAll(ctx) {
             map += '?';
           } else {
             const tile = tiles.tileAt(worldX, worldY, p.layer);
-            map += TILE_CHARS[tile] || 'X';
+            if (tile === T.PATH || tile === T.BRIDGE) {
+              // Directional path — check adjacent path tiles
+              const pN = tiles.tileAt(worldX, worldY - 1, p.layer) === T.PATH || tiles.tileAt(worldX, worldY - 1, p.layer) === T.BRIDGE;
+              const pS = tiles.tileAt(worldX, worldY + 1, p.layer) === T.PATH || tiles.tileAt(worldX, worldY + 1, p.layer) === T.BRIDGE;
+              const pE = tiles.tileAt(worldX + 1, worldY, p.layer) === T.PATH || tiles.tileAt(worldX + 1, worldY, p.layer) === T.BRIDGE;
+              const pW = tiles.tileAt(worldX - 1, worldY, p.layer) === T.PATH || tiles.tileAt(worldX - 1, worldY, p.layer) === T.BRIDGE;
+              const k = (pN?1:0)|(pS?2:0)|(pE?4:0)|(pW?8:0);
+              const pathChars = {
+                0:'·', 1:'│', 2:'│', 3:'│',
+                4:'─', 5:'╰', 6:'╭', 7:'├',
+                8:'─', 9:'╯', 10:'╮', 11:'┤',
+                12:'─', 13:'┴', 14:'┬', 15:'┼',
+              };
+              map += pathChars[k] || '·';
+            } else {
+              map += TILE_CHARS[tile] || 'X';
+            }
           }
         }
         map += '\n';
