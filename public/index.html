@@ -497,7 +497,7 @@ function connect() {
   ws.onmessage = (e) => {
     const msg = JSON.parse(e.data);
     if (msg.text) {
-      // Show all messages
+      if (msg.text.includes('Type `login [name]`')) return; // suppress server welcome
       addMsg(msg.text, 'game');
     }
   };
@@ -517,21 +517,28 @@ function doLogin() {
 
 // Auto-connect on page load, login via chat input
 function autoConnect() {
-  loginTime = Date.now();
-  connect();
   addMsg('Welcome to Scape. Type your name to begin.', 'system');
   input.placeholder = 'enter your name...';
 }
 
 function handleLogin(name) {
   playerName = name || `Player${Math.floor(Math.random() * 9999)}`;
-  loggedIn = true;
   inputLabel.textContent = playerName + ':';
   input.placeholder = '';
-  ws.send(`login ${playerName}`);
+  addMsg(playerName, 'player');
+  addMsg('Connecting...', 'system');
+  loginTime = Date.now();
+  connect();
+  const waitLogin = setInterval(() => {
+    if (connected) {
+      loggedIn = true;
+      ws.send(`login ${playerName}`);
+      clearInterval(waitLogin);
+    }
+  }, 100);
 }
 
-// Start immediately
+// Start immediately — just show prompt, don't connect yet
 setTimeout(autoConnect, 100);
 
 // Timer
