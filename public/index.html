@@ -230,55 +230,180 @@
     border-left: 1px solid var(--stone-dark);
   }
 
-  /* Login overlay */
+  /* Login overlay — OSRS-inspired stone castle entrance */
   #login-overlay {
     position: fixed; inset: 0;
-    background: #000;
+    z-index: 100;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    z-index: 100;
-    gap: 12px;
+    overflow: hidden;
+    /* Stone wall background */
+    background:
+      repeating-linear-gradient(0deg, rgba(0,0,0,0.03) 0px, transparent 2px, transparent 32px),
+      repeating-linear-gradient(90deg, rgba(0,0,0,0.03) 0px, transparent 2px, transparent 64px),
+      linear-gradient(180deg, #2a2520 0%, #3a352e 30%, #2a2520 60%, #1a1815 100%);
   }
-  #login-overlay h1 {
-    font-size: 32px;
-    color: var(--gold);
-    letter-spacing: 4px;
-    text-shadow: 0 2px 4px rgba(0,0,0,0.8);
+
+  /* Stone pillars */
+  #login-overlay::before, #login-overlay::after {
+    content: '';
+    position: absolute;
+    top: 0; bottom: 0;
+    width: 60px;
+    background:
+      linear-gradient(90deg, #1a1815, #4a4438 20%, #5a5245 50%, #4a4438 80%, #1a1815);
+    box-shadow: inset 2px 0 8px rgba(0,0,0,0.5), inset -2px 0 8px rgba(0,0,0,0.5);
   }
-  #login-overlay .sub {
-    color: #666;
-    font-size: 11px;
-    margin-bottom: 12px;
+  #login-overlay::before { left: 10%; }
+  #login-overlay::after { right: 10%; }
+
+  /* Fire glow behind pillars */
+  .fire-glow {
+    position: absolute;
+    top: 10%;
+    width: 80px; height: 100px;
+    border-radius: 50%;
+    filter: blur(30px);
+    animation: flicker 2s ease-in-out infinite alternate;
   }
-  #login-overlay input {
-    background: var(--parchment);
-    border: 2px solid var(--stone);
-    color: #000;
+  .fire-glow.left { left: 6%; background: rgba(255, 120, 20, 0.4); }
+  .fire-glow.right { right: 6%; background: rgba(255, 120, 20, 0.4); animation-delay: 0.5s; }
+  @keyframes flicker {
+    0% { opacity: 0.6; transform: scale(1); }
+    50% { opacity: 1; transform: scale(1.1); }
+    100% { opacity: 0.7; transform: scale(0.95); }
+  }
+
+  /* Title */
+  #login-title {
+    position: relative;
+    z-index: 10;
+    margin-bottom: 8px;
+  }
+  #login-title h1 {
+    font-size: 48px;
+    color: transparent;
+    letter-spacing: 6px;
+    font-weight: bold;
+    /* Stone text effect */
+    background: linear-gradient(180deg, #8a8070 0%, #6a6055 40%, #5a5245 60%, #4a4438 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    text-shadow: 2px 3px 4px rgba(0,0,0,0.8);
+    filter: drop-shadow(0 2px 1px rgba(0,0,0,0.6));
+  }
+
+  /* Login box — stone panel */
+  #login-box {
+    position: relative;
+    z-index: 10;
+    background:
+      linear-gradient(135deg, rgba(255,255,255,0.03), transparent 50%),
+      linear-gradient(180deg, #4a4438, #3a352e 30%, #35302a 70%, #2a2520);
+    border: 3px solid #1a1815;
+    border-radius: 6px;
+    padding: 24px 40px;
+    min-width: 280px;
+    text-align: center;
+    box-shadow:
+      inset 1px 1px 0 rgba(255,255,255,0.08),
+      inset -1px -1px 0 rgba(0,0,0,0.3),
+      0 8px 32px rgba(0,0,0,0.6);
+  }
+
+  #login-box .welcome {
+    color: #c8b88a;
+    font-size: 14px;
+    margin-bottom: 16px;
+    letter-spacing: 1px;
+  }
+
+  #login-box input {
+    display: block;
+    width: 100%;
+    background: #1a1815;
+    border: 2px solid #555040;
+    color: #c8b88a;
     font-family: var(--mono);
     font-size: 14px;
-    padding: 10px 16px;
-    width: 220px;
+    padding: 10px 12px;
     text-align: center;
     outline: none;
-    box-shadow: inset 2px 2px 0 rgba(0,0,0,0.15);
+    margin-bottom: 12px;
+    box-shadow: inset 2px 2px 4px rgba(0,0,0,0.4);
   }
-  #login-overlay input:focus { border-color: var(--gold); }
-  #login-overlay button {
-    background: linear-gradient(180deg, #5a8a3a, #3a6a2a);
+  #login-box input:focus { border-color: var(--gold); }
+  #login-box input::placeholder { color: #555; }
+
+  #login-box .play-btn {
+    display: block;
+    width: 100%;
+    background: linear-gradient(180deg, #4a4438, #3a352e);
     color: #fff;
-    border: 2px solid #2a4a1a;
+    border: 2px solid #555040;
     font-family: var(--mono);
-    font-size: 14px;
+    font-size: 16px;
     font-weight: bold;
-    padding: 8px 40px;
+    padding: 10px;
     cursor: pointer;
     letter-spacing: 2px;
-    box-shadow: inset 1px 1px 0 rgba(255,255,255,0.2), inset -1px -1px 0 rgba(0,0,0,0.3);
+    box-shadow:
+      inset 1px 1px 0 rgba(255,255,255,0.1),
+      inset -1px -1px 0 rgba(0,0,0,0.3);
+    transition: all 0.15s;
   }
-  #login-overlay button:hover { background: linear-gradient(180deg, #6a9a4a, #4a7a3a); }
-  #login-overlay .domain { position: absolute; bottom: 12px; color: #333; font-size: 9px; letter-spacing: 1px; }
+  #login-box .play-btn:hover {
+    background: linear-gradient(180deg, #5a5448, #4a443e);
+    border-color: var(--gold);
+    color: var(--gold);
+  }
+  #login-box .play-btn:active {
+    box-shadow: inset -1px -1px 0 rgba(255,255,255,0.1), inset 1px 1px 0 rgba(0,0,0,0.3);
+  }
+
+  #login-box .player-name {
+    color: #888;
+    font-size: 11px;
+    margin-top: 8px;
+  }
+
+  /* World selector */
+  #world-badge {
+    position: absolute;
+    bottom: 12px;
+    left: 12px;
+    z-index: 10;
+    background: #111;
+    border: 1px solid #333;
+    padding: 4px 10px;
+    font-size: 10px;
+    color: #aaa;
+    cursor: pointer;
+  }
+  #world-badge:hover { color: #fff; border-color: #555; }
+  #world-badge span { color: var(--gold); }
+
+  /* Domain */
+  .login-domain {
+    position: absolute;
+    bottom: 12px;
+    right: 12px;
+    z-index: 10;
+    color: #333;
+    font-size: 9px;
+    letter-spacing: 1px;
+  }
+
+  /* Fog at bottom */
+  #login-fog {
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 120px;
+    background: linear-gradient(0deg, rgba(20,18,15,0.9), transparent);
+    z-index: 5;
+  }
 
   /* Desktop: side by side */
   @media (min-width: 768px) {
@@ -295,11 +420,17 @@
 <body>
 
 <div id="login-overlay">
-  <h1>SCAPE</h1>
-  <div class="sub">command-based mmorpg</div>
-  <input id="login-name" type="text" placeholder="Enter username" maxlength="20" autocomplete="off" spellcheck="false">
-  <button onclick="doLogin()">PLAY NOW</button>
-  <div class="domain">sc4p3.com</div>
+  <div class="fire-glow left"></div>
+  <div class="fire-glow right"></div>
+  <div id="login-title"><h1>SCAPE</h1></div>
+  <div id="login-box">
+    <div class="welcome">Welcome to Scape</div>
+    <input id="login-name" type="text" placeholder="Enter username" maxlength="20" autocomplete="off" spellcheck="false">
+    <button class="play-btn" onclick="doLogin()">Play Now</button>
+  </div>
+  <div id="login-fog"></div>
+  <div id="world-badge">World <span>1</span><br>Click to switch</div>
+  <div class="login-domain">sc4p3.com</div>
 </div>
 
 <div id="game-container">
