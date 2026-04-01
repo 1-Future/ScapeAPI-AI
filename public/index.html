@@ -557,6 +557,7 @@ function connect() {
     const msg = JSON.parse(e.data);
     if (msg.text) {
       if (msg.text.includes('Type `login [name]`')) return;
+      if (msg.text.includes('Please login first')) return;
       // Name taken — show in input bar, reset login state
       if (msg.text.includes('is taken')) {
         loggedIn = false;

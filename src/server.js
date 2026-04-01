@@ -2724,9 +2724,15 @@ wss.on('connection', (ws) => {
         return;
       }
       const name = parsed.args[0] || `Player${Math.floor(Math.random() * 9999)}`;
-      if (playersByName.has(name.toLowerCase())) {
-        sendText(ws, `Name "${name}" is taken. Try another.`);
-        return;
+      const existing = playersByName.get(name.toLowerCase());
+      if (existing) {
+        // Allow takeover of HTTP-only sessions or disconnected players
+        if (existing.httpOnly || !existing.connected) {
+          playersByName.delete(name.toLowerCase());
+        } else {
+          sendText(ws, `Name "${name}" is taken. Try another.`);
+          return;
+        }
       }
       p = createPlayer(players.size + 1, name);
 
