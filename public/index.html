@@ -69,9 +69,21 @@
   #map-content {
     font-family: var(--mono);
     color: #333;
-    white-space: pre;
-    line-height: 1.2;
-    text-align: center;
+    display: grid;
+    width: 100%;
+    height: 100%;
+  }
+  .map-row {
+    display: flex;
+    width: 100%;
+    flex: 1;
+  }
+  .map-cell {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: normal;
   }
   #map-pane.empty { display: flex; align-items: center; justify-content: center; }
   #map-pane.empty::after { content: 'Type your name below to begin.'; color: #333; font-size: 12px; }
@@ -336,26 +348,7 @@ document.addEventListener('mouseup', () => { dragging = false; });
 document.addEventListener('touchend', () => { dragging = false; });
 
 // ── Map scaling — fit ASCII to pane width ─────────────────────────────────
-function scaleMap() {
-  const text = mapContent.textContent;
-  if (!text) return;
-  const lines = text.split('\n').filter(l => l.length > 0);
-  const maxLen = Math.max(...lines.map(l => l.length));
-  if (maxLen === 0 || lines.length === 0) return;
-
-  const center = document.getElementById('map-center');
-  const paneWidth = center.clientWidth - 4;
-  const paneHeight = center.clientHeight - 4;
-
-  const charW = 0.602;
-  const lineH = 1.2;
-
-  const fontFromWidth = paneWidth / (maxLen * charW);
-  const fontFromHeight = paneHeight / (lines.length * lineH);
-
-  const fontSize = Math.max(4, Math.min(fontFromWidth, fontFromHeight));
-  mapContent.style.fontSize = fontSize + 'px';
-}
+// Map grid auto-fills via CSS flexbox — no manual scaling needed
 
 // ── ASCII detection ───────────────────────────────────────────────────────
 function isAscii(text) {
@@ -386,29 +379,27 @@ function addMsg(text, type) {
     if (gridLines[0] && /^\s*v\s*$/.test(gridLines[0])) gridLines.shift();
     // Remove > row marker and leading whitespace prefix
     gridLines = gridLines.map(line => line.replace(/^\s*>\s*/, '  ').replace(/^\s{1,4}/, ''));
-    // Color-code the map characters
     const colorMap = {
       '@': '#ffff00', '!': '#ff4444', '?': '#ff9900', 'P': '#44aaff',
       '#': '#999', 'T': '#33cc33', '~': '#4488ff', 'S': '#ddaa00',
       '=': '#ccaa00', 'D': '#cc8844', 'X': '#2a2520', 'b': '#33aa33',
-      '*': '#ddf', '%': '#886633', ',': '#77aa55', '>': '#ffff00',
-      'v': '#ffff00',
+      '*': '#ddf', '%': '#886633', ',': '#77aa55',
     };
-    // Pad all lines to same width for perfect centering
     const maxW = Math.max(...gridLines.map(l => l.length));
-    gridLines = gridLines.map(l => l.padEnd(maxW));
-    const gridText = gridLines.join('\n');
     let html = '';
-    for (const ch of gridText) {
-      if (ch === '\n') { html += '\n'; continue; }
-      if (ch === ' ') { html += ' '; continue; }
-      if (ch === '.') { html += '<span style="color:#4a6a3a">.</span>'; continue; }
-      const c = colorMap[ch];
-      if (c) html += `<span style="color:${c};font-weight:${ch === '@' || ch === '>' || ch === 'v' ? 'bold' : 'normal'}">${ch}</span>`;
-      else html += `<span style="color:#555">${ch}</span>`;
+    for (const line of gridLines) {
+      html += '<div class="map-row">';
+      const padded = line.padEnd(maxW);
+      for (const ch of padded) {
+        let color = colorMap[ch] || '#555';
+        if (ch === '.') color = '#4a6a3a';
+        if (ch === ' ') { html += '<div class="map-cell">&nbsp;</div>'; continue; }
+        const bold = ch === '@' ? ';font-weight:bold' : '';
+        html += `<div class="map-cell" style="color:${color}${bold}">${ch}</div>`;
+      }
+      html += '</div>';
     }
     mapContent.innerHTML = html;
-    scaleMap();
     return;
   }
 
@@ -545,8 +536,7 @@ document.addEventListener('keydown', (e) => {
   if (e.key.length === 1 && !e.ctrlKey && !e.metaKey) input.focus();
 });
 
-// Window resize
-window.addEventListener('resize', scaleMap);
+// Map auto-scales via CSS grid
 
 // Start
 addMsg('Welcome to Scape. Type your name to begin.', 'system');
