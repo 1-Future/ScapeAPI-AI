@@ -59,8 +59,8 @@
     color: #333;
     white-space: pre;
     line-height: 1.2;
-    text-align: center;
-    /* Font size set dynamically by JS to fill width */
+    text-align: left;
+    display: inline-block;
   }
   #map-pane.empty { display: flex; align-items: center; justify-content: center; }
   #map-pane.empty::after { content: 'Type your name below to begin.'; color: #333; font-size: 12px; }
@@ -102,6 +102,23 @@
     border-radius: 1px;
     flex-shrink: 0;
   }
+  #divider .zoom-btn {
+    background: none;
+    border: 1px solid rgba(255,255,255,0.15);
+    color: var(--parchment-dark);
+    font-family: var(--mono);
+    font-size: 12px;
+    font-weight: bold;
+    width: 18px; height: 18px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 2px;
+    flex-shrink: 0;
+    padding: 0;
+  }
+  #divider .zoom-btn:hover { background: rgba(255,255,255,0.1); color: #fff; }
 
   /* ── Chat pane (bottom) ─────────────────────────────────── */
   #chat-pane {
@@ -239,9 +256,11 @@
 
   <!-- Draggable divider + legend -->
   <div id="divider">
+    <button class="zoom-btn" onclick="zoomMap(-1)">-</button>
     <div class="grip"></div>
     <div id="legend">@ You  ! NPC  ? Object  P Player  # Wall  T Tree  ~ Water  . Grass  = Path  S Sand</div>
     <div class="grip"></div>
+    <button class="zoom-btn" onclick="zoomMap(1)">+</button>
   </div>
 
   <!-- Chat pane -->
@@ -315,6 +334,8 @@ document.addEventListener('mouseup', () => { dragging = false; });
 document.addEventListener('touchend', () => { dragging = false; });
 
 // ── Map scaling — fit ASCII to pane width ─────────────────────────────────
+let mapZoomOffset = 0;
+
 function scaleMap() {
   const text = mapContent.textContent;
   if (!text) return;
@@ -325,16 +346,20 @@ function scaleMap() {
   const paneWidth = mapPane.clientWidth - 8;
   const paneHeight = mapPane.clientHeight - 8;
 
-  // Measure actual char width ratio — Courier New is ~0.6em
   const charW = 0.602;
   const lineH = 1.2;
 
   const fontFromWidth = paneWidth / (maxLen * charW);
   const fontFromHeight = paneHeight / (lines.length * lineH);
 
-  // Pick the smaller to fit both dimensions, no upper cap
-  const fontSize = Math.min(fontFromWidth, fontFromHeight);
-  mapContent.style.fontSize = Math.max(4, fontSize) + 'px';
+  const autoSize = Math.min(fontFromWidth, fontFromHeight);
+  const fontSize = Math.max(4, autoSize + mapZoomOffset);
+  mapContent.style.fontSize = fontSize + 'px';
+}
+
+function zoomMap(dir) {
+  mapZoomOffset += dir * 2;
+  scaleMap();
 }
 
 // ── ASCII detection ───────────────────────────────────────────────────────
