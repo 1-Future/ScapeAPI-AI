@@ -419,19 +419,7 @@
 </head>
 <body>
 
-<div id="login-overlay">
-  <div class="fire-glow left"></div>
-  <div class="fire-glow right"></div>
-  <div id="login-title"><h1>SCAPE</h1></div>
-  <div id="login-box">
-    <div class="welcome">Welcome to Scape</div>
-    <input id="login-name" type="text" placeholder="Enter username" maxlength="20" autocomplete="off" spellcheck="false">
-    <button class="play-btn" onclick="doLogin()">Play Now</button>
-  </div>
-  <div id="login-fog"></div>
-  <div id="world-badge">World <span>1</span><br>Click to switch</div>
-  <div class="login-domain">sc4p3.com</div>
-</div>
+<!-- No login overlay — login happens inline in chat -->
 
 <div id="game-container">
   <!-- Top: game viewport (map/ascii) -->
@@ -478,8 +466,7 @@
 const chatLog = document.getElementById('chat-log');
 const input = document.getElementById('input');
 const inputLabel = document.getElementById('input-label');
-const loginOverlay = document.getElementById('login-overlay');
-const loginNameEl = document.getElementById('login-name');
+// No login overlay — inline login via chat
 const viewportContent = document.getElementById('viewport-content');
 const timerEl = document.getElementById('timer');
 
@@ -520,8 +507,12 @@ function send(cmd) {
 function sendInput() {
   const val = input.value.trim();
   if (!val) return;
-  send(val);
   input.value = '';
+  if (!loggedIn) {
+    handleLogin(val);
+    return;
+  }
+  send(val);
 }
 
 function connect() {
@@ -538,7 +529,7 @@ function connect() {
   ws.onmessage = (e) => {
     const msg = JSON.parse(e.data);
     if (msg.text) {
-      if (msg.text.includes('Welcome to Scape') && loginOverlay.style.display !== 'none') return;
+      // Show all messages
       addMsg(msg.text, 'game');
     }
   };
@@ -550,19 +541,30 @@ function connect() {
   };
 }
 
+let loggedIn = false;
+
 function doLogin() {
-  playerName = loginNameEl.value.trim() || `Player${Math.floor(Math.random() * 9999)}`;
-  loginOverlay.style.display = 'none';
-  inputLabel.textContent = playerName + ':';
+  // Not used — login happens inline
+}
+
+// Auto-connect on page load, login via chat input
+function autoConnect() {
   loginTime = Date.now();
   connect();
-  const waitLogin = setInterval(() => {
-    if (connected) {
-      ws.send(`login ${playerName}`);
-      clearInterval(waitLogin);
-    }
-  }, 100);
+  addMsg('Welcome to Scape. Type your name to begin.', 'system');
+  input.placeholder = 'enter your name...';
 }
+
+function handleLogin(name) {
+  playerName = name || `Player${Math.floor(Math.random() * 9999)}`;
+  loggedIn = true;
+  inputLabel.textContent = playerName + ':';
+  input.placeholder = '';
+  ws.send(`login ${playerName}`);
+}
+
+// Start immediately
+setTimeout(autoConnect, 100);
 
 // Timer
 setInterval(() => {
@@ -582,10 +584,8 @@ document.querySelectorAll('.tab[data-filter]').forEach(tab => {
   });
 });
 
-loginNameEl.addEventListener('keydown', (e) => { if (e.key === 'Enter') doLogin(); });
 input.addEventListener('keydown', (e) => { if (e.key === 'Enter') sendInput(); });
 document.addEventListener('keydown', (e) => {
-  if (loginOverlay.style.display !== 'none') return;
   if (e.target === input) return;
   if (e.key.length === 1 && !e.ctrlKey && !e.metaKey) input.focus();
 });
