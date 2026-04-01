@@ -44,7 +44,7 @@
 
   /* ── Map pane (top) ─────────────────────────────────────── */
   #map-pane {
-    background: var(--parchment);
+    background: #1a1510;
     overflow: hidden;
     display: flex;
     align-items: center;
@@ -160,7 +160,7 @@
     border: 1px solid var(--stone-dark);
   }
 
-  .msg { padding: 1px 0; font-size: 12px; }
+  .msg { padding: 2px 0; font-size: 13px; line-height: 1.4; }
   .msg.player { color: #00449e; font-weight: bold; }
   .msg.player::before { content: '> '; }
   .msg.system { color: #6a00aa; font-style: italic; }
@@ -411,20 +411,21 @@ function addMsg(text, type) {
     if (gridLines[0] && /^\(?\d+,\s*\d+\)/.test(gridLines[0].trim())) gridLines.shift();
     // Color-code the map characters
     const colorMap = {
-      '@': '#fff', '!': '#e44', '?': '#e90', 'P': '#4af',
-      '#': '#888', 'T': '#2a2', '~': '#48f', 'S': '#da0',
-      '=': '#ca0', 'D': '#a64', 'X': '#444', 'b': '#282',
-      '*': '#ddf', '%': '#562', ',': '#684', '>': '#fff',
-      'v': '#fff',
+      '@': '#ffff00', '!': '#ff4444', '?': '#ff9900', 'P': '#44aaff',
+      '#': '#999', 'T': '#33cc33', '~': '#4488ff', 'S': '#ddaa00',
+      '=': '#ccaa00', 'D': '#cc8844', 'X': '#2a2520', 'b': '#33aa33',
+      '*': '#ddf', '%': '#886633', ',': '#77aa55', '>': '#ffff00',
+      'v': '#ffff00',
     };
     const gridText = gridLines.join('\n');
     let html = '';
     for (const ch of gridText) {
       if (ch === '\n') { html += '\n'; continue; }
-      if (ch === '.') { html += '<span style="color:#5a4a30">.</span>'; continue; }
+      if (ch === ' ') { html += ' '; continue; }
+      if (ch === '.') { html += '<span style="color:#4a6a3a">.</span>'; continue; }
       const c = colorMap[ch];
-      if (c) html += `<span style="color:${c};font-weight:${ch === '@' ? 'bold' : 'normal'}">${ch}</span>`;
-      else html += `<span style="color:#5a4a30">${ch}</span>`;
+      if (c) html += `<span style="color:${c};font-weight:${ch === '@' || ch === '>' || ch === 'v' ? 'bold' : 'normal'}">${ch}</span>`;
+      else html += `<span style="color:#555">${ch}</span>`;
     }
     mapContent.innerHTML = html;
     scaleMap();
