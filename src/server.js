@@ -152,6 +152,11 @@ function movementTick(currentTick) {
     if (actions.isActive(p)) actions.cancel(p);
     events.emit('player_move', { player: p, ws });
 
+    // Show map on each pathfinding step
+    if (cmdCtx.generateMap) {
+      sendText(ws, `(${p.x}, ${p.y})${p.path.length ? ` — ${p.path.length} steps left` : ''}\n${cmdCtx.generateMap(p)}`);
+    }
+
     // ── Music system: unlock tracks on area entry ──
     const moveArea = tiles.getArea(p.x, p.y, p.layer);
     if (moveArea) {
