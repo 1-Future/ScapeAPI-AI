@@ -148,10 +148,12 @@
     border: 1px solid var(--stone-dark);
   }
 
-  .msg { padding: 1px 0; }
-  .msg.player { color: var(--text-player); }
+  .msg { padding: 1px 0; font-size: 12px; }
+  .msg.player { color: #00449e; font-weight: bold; }
   .msg.player::before { content: '> '; }
-  .msg.system { color: var(--text-system); }
+  .msg.system { color: #6a00aa; font-style: italic; }
+  /* Color key words in game messages for scannability */
+  .msg.game { color: #1a1a1a; }
 
   #input-row {
     display: flex;
@@ -258,7 +260,7 @@
   <div id="divider">
     <button class="zoom-btn" onclick="zoomMap(-1)">-</button>
     <div class="grip"></div>
-    <div id="legend">@ You  ! NPC  ? Object  P Player  # Wall  T Tree  ~ Water  . Grass  = Path  S Sand</div>
+    <div id="legend"><span style="color:#fff;font-weight:bold">@</span> You <span style="color:#e44">!</span> NPC <span style="color:#e90">?</span> Obj <span style="color:#4af">P</span> Plyr <span style="color:#888">#</span> Wall <span style="color:#2a2">T</span> Tree <span style="color:#48f">~</span> Water <span style="color:#6a4">.</span> Grass <span style="color:#ca0">=</span> Path <span style="color:#da0">S</span> Sand</div>
     <div class="grip"></div>
     <button class="zoom-btn" onclick="zoomMap(1)">+</button>
   </div>
@@ -395,14 +397,52 @@ function addMsg(text, type) {
     });
     // Remove leading coord line if it's just "(x, y) — N steps left"
     if (gridLines[0] && /^\(?\d+,\s*\d+\)/.test(gridLines[0].trim())) gridLines.shift();
-    mapContent.textContent = gridLines.join('\n');
+    // Color-code the map characters
+    const colorMap = {
+      '@': '#fff', '!': '#e44', '?': '#e90', 'P': '#4af',
+      '#': '#888', 'T': '#2a2', '~': '#48f', 'S': '#da0',
+      '=': '#ca0', 'D': '#a64', 'X': '#444', 'b': '#282',
+      '*': '#ddf', '%': '#562', ',': '#684', '>': '#fff',
+      'v': '#fff',
+    };
+    const gridText = gridLines.join('\n');
+    let html = '';
+    for (const ch of gridText) {
+      if (ch === '\n') { html += '\n'; continue; }
+      if (ch === '.') { html += '<span style="color:#5a4a30">.</span>'; continue; }
+      const c = colorMap[ch];
+      if (c) html += `<span style="color:${c};font-weight:${ch === '@' ? 'bold' : 'normal'}">${ch}</span>`;
+      else html += `<span style="color:#5a4a30">${ch}</span>`;
+    }
+    mapContent.innerHTML = html;
     scaleMap();
     return;
   }
 
   const div = document.createElement('div');
   div.className = `msg ${type}`;
-  div.textContent = text;
+
+  if (type === 'game') {
+    let html = text
+      .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
+      .replace(/(\d+) damage/g, '<span style="color:#b00;font-weight:bold">$1 damage</span>')
+      .replace(/HP: (\d+)\/(\d+)/g, (m, cur, max) => {
+        const ratio = parseInt(cur) / parseInt(max);
+        const c = ratio > 0.5 ? '#060' : ratio > 0.25 ? '#a60' : '#b00';
+        return `HP: <span style="color:${c};font-weight:bold">${cur}/${max}</span>`;
+      })
+      .replace(/\+(\d+[\.\d]*)\s*([A-Za-z]+)\s*XP/g, '<span style="color:#050;font-weight:bold">+$1 $2 XP</span>')
+      .replace(/(Congratulations!.*)/g, '<span style="color:#a70;font-weight:bold">$1</span>')
+      .replace(/(Oh dear, you are dead!)/g, '<span style="color:#b00;font-weight:bold">$1</span>')
+      .replace(/(Achievement unlocked:.*)/g, '<span style="color:#a70;font-weight:bold">$1</span>')
+      .replace(/(You are poisoned!)/g, '<span style="color:#080">$1</span>')
+      .replace(/(Loot: .+)/g, '<span style="color:#964">$1</span>')
+      .replace(/(Music unlocked: .+)/g, '<span style="color:#448">$1</span>')
+      .replace(/(\[\d+\])/g, '<span style="color:#006;font-weight:bold">$1</span>');
+    div.innerHTML = html;
+  } else {
+    div.textContent = text;
+  }
   chatLog.appendChild(div);
   chatLog.scrollTop = chatLog.scrollHeight;
   while (chatLog.children.length > 200) chatLog.removeChild(chatLog.firstChild);
