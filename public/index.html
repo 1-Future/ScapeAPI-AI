@@ -393,9 +393,9 @@ function addMsg(text, type) {
     gridLines = gridLines.map(line => line.replace(/^\s*>\s*/, '  ').replace(/^\s{1,4}/, ''));
     const colorMap = {
       '@': '#e9c46a', '!': '#e76f51', '?': '#f4a261', 'P': '#2a9d8f',
-      '#': '#264653', 'T': '#8ab17d', '~': '#287271', 'S': '#ee8959',
-      '=': '#efb366', 'D': '#f4a261', 'X': '#1a1510', 'b': '#2a9d8f',
-      '*': '#e9c46a', '%': '#264653', ',': '#8ab17d', '.': '#264653',
+      '#': '#ee8959', 'T': '#8ab17d', '~': '#287271', 'S': '#efb366',
+      '=': '#e9c46a', 'D': '#f4a261', 'X': '#264653', 'b': '#2a9d8f',
+      '*': '#efb366', '%': '#287271', ',': '#8ab17d', '.': '#2a9d8f',
     };
     const maxW = Math.max(...gridLines.map(l => l.length));
     let html = '';
