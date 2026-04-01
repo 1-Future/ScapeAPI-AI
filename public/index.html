@@ -46,21 +46,32 @@
   #map-pane {
     background: #1a1510;
     overflow: hidden;
-    display: flex;
-    align-items: center;
-    justify-content: center;
     flex-shrink: 0;
     height: 45%;
     min-height: 60px;
     position: relative;
+    display: grid;
+    grid-template-columns: 20px 1fr 20px;
+    grid-template-rows: 16px 1fr 16px;
+  }
+  #compass-n { grid-column: 2; grid-row: 1; text-align: center; color: #c44; font-size: 11px; font-weight: bold; font-family: var(--mono); align-self: center; }
+  #compass-s { grid-column: 2; grid-row: 3; text-align: center; color: #888; font-size: 11px; font-family: var(--mono); align-self: center; }
+  #compass-w { grid-column: 1; grid-row: 2; color: #888; font-size: 11px; font-family: var(--mono); writing-mode: vertical-lr; text-align: center; justify-self: center; align-self: center; }
+  #compass-e { grid-column: 3; grid-row: 2; color: #888; font-size: 11px; font-family: var(--mono); writing-mode: vertical-lr; text-align: center; justify-self: center; align-self: center; }
+  #map-center {
+    grid-column: 2;
+    grid-row: 2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
   }
   #map-content {
     font-family: var(--mono);
     color: #333;
     white-space: pre;
     line-height: 1.2;
-    text-align: left;
-    display: inline-block;
+    text-align: center;
   }
   #map-pane.empty { display: flex; align-items: center; justify-content: center; }
   #map-pane.empty::after { content: 'Type your name below to begin.'; color: #333; font-size: 12px; }
@@ -264,7 +275,11 @@
 <div id="game">
   <!-- Map pane -->
   <div id="map-pane" class="empty">
-    <div id="map-content"></div>
+    <div id="compass-n">N</div>
+    <div id="compass-w">W</div>
+    <div id="map-center"><div id="map-content"></div></div>
+    <div id="compass-e">E</div>
+    <div id="compass-s">S</div>
     <div id="map-area"></div>
   </div>
 
@@ -357,8 +372,9 @@ function scaleMap() {
   const maxLen = Math.max(...lines.map(l => l.length));
   if (maxLen === 0 || lines.length === 0) return;
 
-  const paneWidth = mapPane.clientWidth - 8;
-  const paneHeight = mapPane.clientHeight - 8;
+  const center = document.getElementById('map-center');
+  const paneWidth = center.clientWidth - 4;
+  const paneHeight = center.clientHeight - 4;
 
   const charW = 0.602;
   const lineH = 1.2;

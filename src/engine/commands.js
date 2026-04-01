@@ -28,9 +28,9 @@ function parse(input) {
 }
 
 function execute(player, input) {
-  // Spam protection: nnn → n, www → w, sss → s (up to 3 repeated chars = 1 input)
+  // Spam protection: nnn→n, www→w, ee→e, wn→w (first char wins, up to 3 repeats)
   const lower = input.trim().toLowerCase();
-  if (/^([nsew])\1{0,2}$/i.test(lower)) input = lower[0];
+  if (/^[nsew]{1,3}$/.test(lower)) input = lower[0];
 
   const parsed = parse(input);
   if (!parsed) return 'Type `help` for commands.';
