@@ -935,14 +935,8 @@ module.exports = function registerAll(ctx) {
   // Expose for use by movement commands
   ctx.generateMap = generateMap;
 
-  commands.register('map', { help: 'Show ASCII map: map [cols] [rows]', category: 'Navigation',
-    fn: (p, args) => {
-      const cols = parseInt(args[0]) || null;
-      const rows = parseInt(args[1]) || null;
-      if (cols) p._mapCols = cols;
-      if (rows) p._mapRows = rows;
-      return generateMap(p, p._mapCols, p._mapRows);
-    }
+  commands.register('map', { help: 'Show ASCII map of surroundings', category: 'Navigation',
+    fn: (p) => generateMap(p)
   });
 
   // ── Nearby Command ────────────────────────────────────────────────────────

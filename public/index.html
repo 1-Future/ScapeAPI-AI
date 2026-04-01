@@ -118,30 +118,7 @@
     width: 10px;
     text-align: center;
   }
-  #divider .grip {
-    width: 30px;
-    height: 2px;
-    background: rgba(255,255,255,0.12);
-    border-radius: 1px;
-    flex-shrink: 0;
-  }
-  #divider .zoom-btn {
-    background: none;
-    border: 1px solid rgba(255,255,255,0.15);
-    color: var(--parchment-dark);
-    font-family: var(--mono);
-    font-size: 12px;
-    font-weight: bold;
-    width: 18px; height: 18px;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 2px;
-    flex-shrink: 0;
-    padding: 0;
-  }
-  #divider .zoom-btn:hover { background: rgba(255,255,255,0.1); color: #fff; }
+  /* Legend gets all the space */
 
   /* ── Chat pane (bottom) ─────────────────────────────────── */
   #chat-pane {
@@ -285,11 +262,7 @@
 
   <!-- Draggable divider + legend -->
   <div id="divider">
-    <button class="zoom-btn" onclick="zoomLegend(-1)">-</button>
-    <div class="grip"></div>
     <div id="legend"><span class="lk"><span class="ls" style="color:#fff">@</span>You</span><span class="lk"><span class="ls" style="color:#e44">!</span>NPC</span><span class="lk"><span class="ls" style="color:#e90">?</span>Obj</span><span class="lk"><span class="ls" style="color:#4af">P</span>Ply</span><span class="lk"><span class="ls" style="color:#888">#</span>Wall</span><span class="lk"><span class="ls" style="color:#2a2">T</span>Tree</span><span class="lk"><span class="ls" style="color:#48f">~</span>Wtr</span><span class="lk"><span class="ls" style="color:#6a4">.</span>Grs</span><span class="lk"><span class="ls" style="color:#ca0">=</span>Path</span><span class="lk"><span class="ls" style="color:#da0">S</span>Sand</span></div>
-    <div class="grip"></div>
-    <button class="zoom-btn" onclick="zoomLegend(1)">+</button>
   </div>
 
   <!-- Chat pane -->
@@ -363,13 +336,6 @@ document.addEventListener('mouseup', () => { dragging = false; });
 document.addEventListener('touchend', () => { dragging = false; });
 
 // ── Map scaling — fit ASCII to pane width ─────────────────────────────────
-let legendSize = 9;
-
-function zoomLegend(dir) {
-  legendSize = Math.max(6, Math.min(16, legendSize + dir));
-  document.getElementById('legend').style.fontSize = legendSize + 'px';
-}
-
 function scaleMap() {
   const text = mapContent.textContent;
   if (!text) return;
@@ -552,29 +518,9 @@ function handleLogin(name) {
   }, 100);
 }
 
-function getMapSize() {
-  const center = document.getElementById('map-center');
-  if (!center) return { cols: 30, rows: 15 };
-  const w = center.clientWidth;
-  const h = center.clientHeight;
-  // Pick a font size that fills well, then calc how many chars fit
-  // Monospace: char width ≈ 0.6 × fontSize, line height ≈ 1.2 × fontSize
-  // Use a target font size based on height (fit ~rows), then calc cols from width
-  const targetFontSize = 12;
-  const charW = targetFontSize * 0.6;
-  const charH = targetFontSize * 1.2;
-  const cols = Math.floor(w / charW);
-  const rows = Math.floor(h / charH);
-  // Make sure we get odd numbers so @ is centered
-  const c = Math.max(15, Math.min(120, cols)) | 1;
-  const r = Math.max(9, Math.min(60, rows)) | 1;
-  return { cols: c, rows: r };
-}
-
 function sendMapCmd() {
   if (!ws || !connected) return;
-  const { cols, rows } = getMapSize();
-  ws.send(`map ${cols} ${rows}`);
+  ws.send('map');
 }
 
 // Timer
