@@ -39,7 +39,7 @@ function spawnNpc(defId, x, y, layer = 0) {
     spawnX: x, spawnY: y,
     hp: def.maxHp,
     target: null,
-    nextAttackTick: 0,
+    nextAttackTick: Infinity, // Set to currentTick + speed on first combat
     dead: false,
     respawnAt: 0,
     aggroTimers: new Map(), // playerId → tick when aggro started (for 10min timeout)
@@ -78,6 +78,7 @@ function npcTick(currentTick) {
         npc.hp = npc.maxHp;
         npc.x = npc.spawnX;
         npc.y = npc.spawnY;
+        npc.nextAttackTick = Infinity;
         npc.target = null;
       }
       continue;

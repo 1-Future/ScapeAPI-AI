@@ -360,7 +360,11 @@ function combatTick(currentTick) {
 
     // NPC retaliates independently — but must be adjacent to hit
     const npcDist = Math.max(Math.abs(p.x - npc.x), Math.abs(p.y - npc.y));
-    if (!npc.dead && npc.combat > 0 && npcDist <= 1 && currentTick >= npc.nextAttackTick) {
+    if (!npc.dead && npc.combat > 0 && npcDist <= 1) {
+      // Initialize attack timer on first combat
+      if (npc.nextAttackTick === Infinity) npc.nextAttackTick = currentTick + npc.attackSpeed;
+      if (currentTick < npc.nextAttackTick) { /* waiting */ }
+      else {
       npc.target = p.id;
       npc.nextAttackTick = currentTick + npc.attackSpeed;
       const npcHit = Math.random() < 0.5;
@@ -374,6 +378,7 @@ function combatTick(currentTick) {
         events.emit('player_death', { player: p, ws, killer: npc });
         continue;
       }
+      } // end else (attack ready)
     }
 
     // Player attack on cooldown — skip player attack but NPC already attacked above
