@@ -461,10 +461,14 @@ function addMsg(text, type) {
   while (chatLog.children.length > 200) chatLog.removeChild(chatLog.firstChild);
 }
 
+const SILENT_CMDS = new Set(['n','s','e','w','ne','nw','se','sw','map','look','/?']);
+
 function send(cmd) {
   if (!ws || !connected) return;
   ws.send(cmd);
-  addMsg(cmd, 'player');
+  if (!SILENT_CMDS.has(cmd.toLowerCase())) {
+    addMsg(cmd, 'player');
+  }
 }
 
 function sendInput() {
