@@ -285,8 +285,9 @@ function combatTick(currentTick) {
       continue;
     }
 
-    // NPC retaliates independently — runs even when player is on cooldown
-    if (!npc.dead && npc.combat > 0 && currentTick >= npc.nextAttackTick) {
+    // NPC retaliates independently — but must be adjacent to hit
+    const npcDist = Math.max(Math.abs(p.x - npc.x), Math.abs(p.y - npc.y));
+    if (!npc.dead && npc.combat > 0 && npcDist <= 1 && currentTick >= npc.nextAttackTick) {
       npc.target = p.id;
       npc.nextAttackTick = currentTick + npc.attackSpeed;
       const npcHit = Math.random() < 0.5;
@@ -563,6 +564,11 @@ function worldTick(currentTick) {
       p.combatTarget = npc.id;
       p.busy = true;
       sendText(ws, `The ${npc.name} attacks you!`);
+      // Auto-retaliate: path to the NPC so we can fight back
+      if (p.autoRetaliate) {
+        const adjPath = pathfinding.findAdjacentPath(p.x, p.y, npc.x, npc.y, p.layer);
+        if (adjPath && adjPath.length > 0) p.path = adjPath;
+      }
       break; // Only one NPC aggros at a time
     }
   }
