@@ -51,8 +51,8 @@
     min-height: 60px;
     position: relative;
     display: grid;
-    grid-template-columns: auto 14px 1fr 14px auto;
-    grid-template-rows: auto 14px 1fr 14px auto;
+    grid-template-columns: auto 16px 1fr 16px auto;
+    grid-template-rows: auto 16px 1fr 16px auto;
   }
   /* Compass directions (inner ring) */
   .compass {
@@ -62,14 +62,15 @@
   }
   /* Area labels (outer ring) */
   .area-label {
-    font-family: var(--mono); font-size: 8px; color: #efb366;
+    font-family: var(--mono); font-size: 11px; color: #efb366;
     display: flex; align-items: center; justify-content: center;
     overflow: hidden; white-space: nowrap; text-overflow: ellipsis;
-    padding: 0 2px;
+    padding: 0 4px;
   }
   .area-label.side {
     writing-mode: vertical-lr; text-orientation: upright;
-    letter-spacing: -1px; font-size: 7px; white-space: normal;
+    letter-spacing: -1px; font-size: 10px; white-space: normal;
+    padding: 4px 0;
   }
   /* Outer ring: area labels */
   #area-nw { grid-column: 1; grid-row: 1; font-size: 7px; color: #555; }
@@ -80,8 +81,7 @@
   #area-sw { grid-column: 1; grid-row: 5; font-size: 7px; color: #555; }
   #area-s  { grid-column: 3; grid-row: 5; }
   #area-se { grid-column: 5; grid-row: 5; font-size: 7px; color: #555; }
-  #area-here { grid-column: 3; grid-row: 1; position: relative; }
-  #area-here-text { position: absolute; left: 0; font-size: 9px; color: #efb366; font-family: var(--mono); white-space: nowrap; }
+  #area-here-text { font-size: 12px; color: #efb366; font-family: var(--mono); white-space: nowrap; }
   /* Inner ring: compass directions */
   #compass-n  { grid-column: 3; grid-row: 2; color: #c44; }
   #compass-s  { grid-column: 3; grid-row: 4; }
@@ -142,11 +142,11 @@
     justify-content: center;
     touch-action: none;
     padding: 2px 8px;
-    min-height: 16px;
+    min-height: 22px;
     gap: 6px;
   }
   #legend {
-    font-size: 9px;
+    font-size: 14px;
     color: var(--parchment-dark);
     flex: 1;
     display: flex;
@@ -167,8 +167,8 @@
   .lk:hover { background: rgba(255,255,255,0.15); }
   .ls {
     font-weight: bold;
-    font-size: 10px;
-    width: 10px;
+    font-size: 16px;
+    width: 16px;
     text-align: center;
   }
   .lk input[type="color"] {

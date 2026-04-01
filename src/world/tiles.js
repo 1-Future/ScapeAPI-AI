@@ -17,7 +17,7 @@ const TILE_NAMES = {};
 for (const [k, v] of Object.entries(T)) TILE_NAMES[v] = k.toLowerCase();
 
 // Walkability
-const UNWALKABLE = new Set([T.WATER, T.TREE, T.ROCK, T.WALL, T.LAVA]);
+const UNWALKABLE = new Set([T.EMPTY, T.WATER, T.TREE, T.ROCK, T.WALL, T.LAVA]);
 
 // Speed modifiers (1.0 = normal)
 const SPEED_MOD = { [T.SAND]: 0.5, [T.SWAMP]: 0.5, [T.PATH]: 1.0, [T.SNOW]: 0.75 };
