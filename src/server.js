@@ -2499,8 +2499,17 @@ function addNpcPrompt(npcName, prompt, sendFn) {
   }
 }
 const server = http.createServer((req, res) => {
+  // Serve web client
+  if (req.url === '/' || req.url === '/index.html') {
+    const htmlPath = require('path').join(__dirname, '..', 'public', 'index.html');
+    if (require('fs').existsSync(htmlPath)) {
+      res.writeHead(200, { 'Content-Type': 'text/html', 'Cache-Control': 'no-cache' });
+      res.end(require('fs').readFileSync(htmlPath));
+      return;
+    }
+  }
   res.writeHead(200, { 'Content-Type': 'text/plain' });
-  res.end('ScapeAPI+AI v0.1.0 — WebSocket or HTTP API');
+  res.end('Scape — ws://localhost:2223 or open in browser');
 });
 
 const wss = new WebSocket.Server({ server });
