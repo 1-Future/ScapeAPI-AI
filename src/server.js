@@ -2506,42 +2506,52 @@ wss.on('connection', (ws) => {
       if (p) {
         const suggestions = [];
         const dist = (a, b) => Math.max(Math.abs(a.x - b.x), Math.abs(a.y - b.y));
+        const dir = (a, b) => {
+          const dx = b.x - a.x, dy = b.y - a.y;
+          if (dx === 0 && dy === 0) return 'here';
+          let d = '';
+          if (dy < 0) d += 'N'; if (dy > 0) d += 'S';
+          if (dx < 0) d += 'W'; if (dx > 0) d += 'E';
+          return d;
+        };
+        const loc = (thing) => { const d = dist(p, thing); return d === 0 ? 'here' : `${d} tiles ${dir(p, thing)}`; };
         const nearNpcs = npcs.getNpcsNear(p.x, p.y, 10, p.layer);
         const nearObjs = objects.getObjectsNear(p.x, p.y, 10, p.layer).filter(o => !o.depleted);
         const nearItems = groundItems.filter(i => Math.abs(i.x - p.x) <= 3 && Math.abs(i.y - p.y) <= 3 && i.layer === p.layer);
 
-        // Ground items (distance 0-3, always close)
+        // Ground items
         for (const i of nearItems) {
           const d = Math.max(Math.abs(i.x - p.x), Math.abs(i.y - p.y));
-          suggestions.push({ cmd: `pickup ${i.name.toLowerCase()}`, desc: `Pick up ${i.name} x${i.count}`, dist: d });
+          suggestions.push({ cmd: `pickup ${i.name.toLowerCase()}`, desc: `pickup(${i.name} x${i.count}, ${d === 0 ? 'here' : loc(i)})`, dist: d });
         }
-        // Flee if in combat (urgent, distance 0)
-        if (p.combatTarget) suggestions.push({ cmd: 'flee', desc: 'Stop fighting', dist: 0 });
-        // Eat if low HP (urgent, distance 0)
-        if (p.hp < p.maxHp) suggestions.push({ cmd: 'eat', desc: 'Eat food', dist: 0 });
+        // Urgent
+        if (p.combatTarget) suggestions.push({ cmd: 'flee', desc: 'flee(stop fighting)', dist: 0 });
+        if (p.hp < p.maxHp) suggestions.push({ cmd: 'eat', desc: `eat(heal, HP ${p.hp}/${p.maxHp})`, dist: 0 });
         // NPCs
         for (const n of nearNpcs) {
           if (n.dead) continue;
           const d = dist(p, n);
-          if (n.combat > 0) suggestions.push({ cmd: `attack ${n.name.toLowerCase()}`, desc: `Attack ${n.name} (lvl ${n.combat})`, dist: d });
-          if (n.dialogue || n.combat === 0) suggestions.push({ cmd: `talk ${n.name.toLowerCase()}`, desc: `Talk to ${n.name}`, dist: d });
+          const l = loc(n);
+          if (n.combat > 0) suggestions.push({ cmd: `attack ${n.name.toLowerCase()}`, desc: `attack(${n.name} lvl ${n.combat}, ${l})`, dist: d });
+          if (n.dialogue || n.combat === 0) suggestions.push({ cmd: `talk ${n.name.toLowerCase()}`, desc: `talk(${n.name}, ${l})`, dist: d });
           const npcDef = npcs.npcDefs.get(n.defId);
-          if (npcDef?.thieving) suggestions.push({ cmd: `pickpocket ${n.name.toLowerCase()}`, desc: `Pickpocket ${n.name}`, dist: d });
+          if (npcDef?.thieving) suggestions.push({ cmd: `pickpocket ${n.name.toLowerCase()}`, desc: `pickpocket(${n.name}, ${l})`, dist: d });
         }
         // Objects
         for (const o of nearObjs) {
           const d = dist(p, o);
-          if (o.skill === 'woodcutting') suggestions.push({ cmd: `chop ${o.name.toLowerCase()}`, desc: `Chop ${o.name}`, dist: d });
-          else if (o.skill === 'mining') suggestions.push({ cmd: `mine ${o.name.toLowerCase()}`, desc: `Mine ${o.name}`, dist: d });
-          else if (o.skill === 'fishing') suggestions.push({ cmd: `fish ${o.name.toLowerCase()}`, desc: `Fish at ${o.name}`, dist: d });
-          else if (o.name.toLowerCase().includes('bank')) suggestions.push({ cmd: 'bank', desc: 'Open bank', dist: d });
-          else if (o.name.toLowerCase().includes('range') || o.name.toLowerCase().includes('cooking')) suggestions.push({ cmd: 'cook', desc: 'Cook food', dist: d });
-          else if (o.name.toLowerCase().includes('furnace')) suggestions.push({ cmd: 'smelt', desc: 'Smelt ores', dist: d });
-          else if (o.name.toLowerCase().includes('anvil')) suggestions.push({ cmd: 'smith', desc: 'Smith items', dist: d });
-          else if (o.name.toLowerCase().includes('altar')) suggestions.push({ cmd: 'pray at altar', desc: 'Pray at altar', dist: d });
-          else if (o.name.toLowerCase().includes('stair')) suggestions.push({ cmd: 'climbup', desc: `Climb ${o.name}`, dist: d });
-          else if (o.actions && o.actions.length) suggestions.push({ cmd: `actions ${o.name.toLowerCase()}`, desc: `${o.name} [${o.actions.join('/')}]`, dist: d });
-          else suggestions.push({ cmd: `examine ${o.name.toLowerCase()}`, desc: `Examine ${o.name}`, dist: d });
+          const l = loc(o);
+          if (o.skill === 'woodcutting') suggestions.push({ cmd: `chop ${o.name.toLowerCase()}`, desc: `chop(${o.name}, ${l})`, dist: d });
+          else if (o.skill === 'mining') suggestions.push({ cmd: `mine ${o.name.toLowerCase()}`, desc: `mine(${o.name}, ${l})`, dist: d });
+          else if (o.skill === 'fishing') suggestions.push({ cmd: `fish ${o.name.toLowerCase()}`, desc: `fish(${o.name}, ${l})`, dist: d });
+          else if (o.name.toLowerCase().includes('bank')) suggestions.push({ cmd: 'bank', desc: `bank(open bank, ${l})`, dist: d });
+          else if (o.name.toLowerCase().includes('range') || o.name.toLowerCase().includes('cooking')) suggestions.push({ cmd: 'cook', desc: `cook(cooking range, ${l})`, dist: d });
+          else if (o.name.toLowerCase().includes('furnace')) suggestions.push({ cmd: 'smelt', desc: `smelt(furnace, ${l})`, dist: d });
+          else if (o.name.toLowerCase().includes('anvil')) suggestions.push({ cmd: 'smith', desc: `smith(anvil, ${l})`, dist: d });
+          else if (o.name.toLowerCase().includes('altar')) suggestions.push({ cmd: 'pray at altar', desc: `pray(altar, ${l})`, dist: d });
+          else if (o.name.toLowerCase().includes('stair')) suggestions.push({ cmd: 'climbup', desc: `climb(${o.name}, ${l})`, dist: d });
+          else if (o.product) suggestions.push({ cmd: `pick ${o.name.toLowerCase()}`, desc: `pick(${o.name}, ${l})`, dist: d });
+          else suggestions.push({ cmd: `examine ${o.name.toLowerCase()}`, desc: `examine(${o.name}, ${l})`, dist: d });
         }
 
         // Sort by distance (closest first), then deduplicate and limit
@@ -2554,7 +2564,7 @@ wss.on('connection', (ws) => {
         } else {
           p._suggestions = unique;
           let out = '── What would you like to do? ──\n';
-          unique.forEach((s, i) => { out += `  [${i + 1}] ${s.desc}${s.dist > 0 ? ` (${s.dist} tiles)` : ''}\n`; });
+          unique.forEach((s, i) => { out += `  [${i + 1}] ${s.desc}\n`; });
           out += '\nType a number to execute, or any command.';
           sendText(ws, out);
         }
