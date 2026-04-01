@@ -285,7 +285,7 @@
 
   <!-- Draggable divider + legend -->
   <div id="divider">
-    <div id="legend"><span class="lk"><span class="ls" style="color:#fff">@</span>You</span><span class="lk"><span class="ls" style="color:#e44">!</span>NPC</span><span class="lk"><span class="ls" style="color:#e90">?</span>Obj</span><span class="lk"><span class="ls" style="color:#4af">P</span>Ply</span><span class="lk"><span class="ls" style="color:#888">#</span>Wall</span><span class="lk"><span class="ls" style="color:#2a2">T</span>Tree</span><span class="lk"><span class="ls" style="color:#48f">~</span>Wtr</span><span class="lk"><span class="ls" style="color:#6a4">.</span>Grs</span><span class="lk"><span class="ls" style="color:#ca0">=</span>Path</span><span class="lk"><span class="ls" style="color:#da0">S</span>Sand</span></div>
+    <div id="legend"><span class="lk"><span class="ls" style="color:#e9c46a">@</span>You</span><span class="lk"><span class="ls" style="color:#e76f51">!</span>NPC</span><span class="lk"><span class="ls" style="color:#f4a261">?</span>Obj</span><span class="lk"><span class="ls" style="color:#2a9d8f">P</span>Ply</span><span class="lk"><span class="ls" style="color:#264653">#</span>Wall</span><span class="lk"><span class="ls" style="color:#8ab17d">T</span>Tree</span><span class="lk"><span class="ls" style="color:#287271">~</span>Wtr</span><span class="lk"><span class="ls" style="color:#264653">.</span>Grs</span><span class="lk"><span class="ls" style="color:#efb366">=</span>Path</span><span class="lk"><span class="ls" style="color:#ee8959">S</span>Sand</span></div>
   </div>
 
   <!-- Chat pane -->
@@ -392,10 +392,10 @@ function addMsg(text, type) {
     // Remove > row marker and leading whitespace prefix
     gridLines = gridLines.map(line => line.replace(/^\s*>\s*/, '  ').replace(/^\s{1,4}/, ''));
     const colorMap = {
-      '@': '#ffff00', '!': '#ff4444', '?': '#ff9900', 'P': '#44aaff',
-      '#': '#999', 'T': '#33cc33', '~': '#4488ff', 'S': '#ddaa00',
-      '=': '#ccaa00', 'D': '#cc8844', 'X': '#2a2520', 'b': '#33aa33',
-      '*': '#ddf', '%': '#886633', ',': '#77aa55',
+      '@': '#e9c46a', '!': '#e76f51', '?': '#f4a261', 'P': '#2a9d8f',
+      '#': '#264653', 'T': '#8ab17d', '~': '#287271', 'S': '#ee8959',
+      '=': '#efb366', 'D': '#f4a261', 'X': '#1a1510', 'b': '#2a9d8f',
+      '*': '#e9c46a', '%': '#264653', ',': '#8ab17d', '.': '#264653',
     };
     const maxW = Math.max(...gridLines.map(l => l.length));
     let html = '';
@@ -403,10 +403,9 @@ function addMsg(text, type) {
       html += '<div class="map-row">';
       const padded = line.padEnd(maxW);
       for (const ch of padded) {
-        let color = colorMap[ch] || '#555';
-        if (ch === '.') color = '#4a6a3a';
         if (ch === ' ') { html += '<div class="map-cell">&nbsp;</div>'; continue; }
-        const bold = ch === '@' ? ';font-weight:bold' : '';
+        const color = colorMap[ch] || '#264653';
+        const bold = ch === '@' ? ';font-weight:bold;font-size:130%' : '';
         html += `<div class="map-cell" style="color:${color}${bold}">${ch}</div>`;
       }
       html += '</div>';
