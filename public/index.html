@@ -71,18 +71,7 @@
       inset -2px -2px 0 rgba(0,0,0,0.3);
   }
 
-  /* Stone column borders */
-  #chatbox::before, #chatbox::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    bottom: 28px;
-    width: 6px;
-    background: linear-gradient(90deg, var(--stone-dark), var(--stone-light), var(--stone-dark));
-    z-index: 2;
-  }
-  #chatbox::before { left: 0; }
-  #chatbox::after { right: 14px; }
+  /* No stone columns — clean full-width parchment */
 
   /* Chat log */
   #chat-log {
