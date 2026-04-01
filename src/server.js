@@ -123,6 +123,26 @@ function findPlayer(name) {
   return playersByName.get(name.toLowerCase());
 }
 
+// ── Auto-show tile contents when stepping on them ─────────────────────────────
+function showTileContents(ws, p) {
+  const items = groundItems.filter(i => i.x === p.x && i.y === p.y && i.layer === p.layer);
+  const obj = objects.getObjectAt(p.x, p.y, p.layer);
+  if (!items.length && !obj) return;
+  let msg = '';
+  if (items.length) {
+    msg += 'On the ground: ' + items.map(i => `${i.name} x${i.count}`).join(', ') + '. Type `pickup [name]`';
+  }
+  if (obj && !obj.depleted) {
+    if (msg) msg += '\n';
+    const actions = [];
+    if (obj.skill) actions.push(obj.skill === 'woodcutting' ? 'chop' : obj.skill === 'mining' ? 'mine' : obj.skill === 'fishing' ? 'fish' : 'pick');
+    if (obj.product) actions.push('pick');
+    actions.push('examine');
+    msg += `${obj.name} here. [${[...new Set(actions)].join(' / ')}]`;
+  }
+  if (msg) sendText(ws, msg);
+}
+
 // ── Movement Tick ─────────────────────────────────────────────────────────────
 function movementTick(currentTick) {
   for (const [ws, p] of players) {
@@ -156,6 +176,8 @@ function movementTick(currentTick) {
     if (cmdCtx.generateMap) {
       sendText(ws, `(${p.x}, ${p.y})${p.path.length ? ` — ${p.path.length} steps left` : ''}\n${cmdCtx.generateMap(p)}`);
     }
+    // Auto-show items/objects on current tile
+    showTileContents(ws, p);
 
     // ── Music system: unlock tracks on area entry ──
     const moveArea = tiles.getArea(p.x, p.y, p.layer);
@@ -830,6 +852,9 @@ for (const [dir, [dx, dy]] of Object.entries(DIR_MAP)) {
       events.emit('player_move', { player: p });
       let msg = `(${p.x}, ${p.y})`;
       if (cmdCtx.generateMap) msg += '\n' + cmdCtx.generateMap(p);
+      // Show items/objects on tile
+      let playerWs; for (const [w, pl] of players) { if (pl === p) { playerWs = w; break; } }
+      if (playerWs) setTimeout(() => showTileContents(playerWs, p), 0);
       return msg;
     }
   });
