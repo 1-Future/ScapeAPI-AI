@@ -53,29 +53,7 @@
     background: #000;
   }
 
-  /* Game viewport (top area — black, for future map/3d) */
-  #viewport {
-    flex: 1;
-    background: #0a0a08;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-bottom: 3px solid var(--stone-dark);
-    position: relative;
-    overflow: hidden;
-  }
-  #viewport-content {
-    font-family: var(--mono);
-    font-size: 11px;
-    color: #888;
-    white-space: pre;
-    line-height: 1.2;
-    letter-spacing: 0.5px;
-    padding: 8px;
-    overflow: auto;
-    width: 100%;
-    height: 100%;
-  }
+  /* No separate viewport — chatbox is fullscreen */
 
   /* Chat panel — the OSRS chatbox */
   #chatbox {
@@ -85,8 +63,7 @@
     border-bottom: none;
     display: flex;
     flex-direction: column;
-    flex-shrink: 0;
-    height: 200px;
+    flex: 1;
     position: relative;
     /* Bevel effect */
     box-shadow:
@@ -408,7 +385,6 @@
   /* Desktop: side by side */
   @media (min-width: 768px) {
     #game-container { max-width: 520px; height: 100dvh; }
-    #chatbox { height: 240px; }
   }
   @media (max-width: 400px) {
     #chat-log { font-size: 11px; }
@@ -422,12 +398,7 @@
 <!-- No login overlay — login happens inline in chat -->
 
 <div id="game-container">
-  <!-- Top: game viewport (map/ascii) -->
-  <div id="viewport">
-    <div id="viewport-content"></div>
-  </div>
-
-  <!-- Bottom: OSRS-style chatbox -->
+  <!-- OSRS-style chatbox — fullscreen -->
   <div id="chatbox">
     <div id="chat-log"></div>
     <div id="input-row">
@@ -468,7 +439,7 @@ const chatLog = document.getElementById('chat-log');
 const input = document.getElementById('input');
 const inputLabel = document.getElementById('input-label');
 // No login overlay — inline login via chat
-const viewportContent = document.getElementById('viewport-content');
+// Maps render inline in chat
 const timerEl = document.getElementById('timer');
 
 let ws = null;
@@ -483,11 +454,7 @@ function isAscii(text) {
 }
 
 function addMsg(text, type) {
-  // If it's a map/ascii, show in viewport instead
-  if (type === 'game' && isAscii(text)) {
-    viewportContent.textContent = text;
-    return;
-  }
+  // ASCII maps render inline in chat with special styling
 
   const div = document.createElement('div');
   div.className = `msg ${type}`;
