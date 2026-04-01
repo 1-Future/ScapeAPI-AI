@@ -554,16 +554,21 @@ function handleLogin(name) {
 
 function getMapSize() {
   const center = document.getElementById('map-center');
-  if (!center) return { cols: 15, rows: 15 };
+  if (!center) return { cols: 30, rows: 15 };
   const w = center.clientWidth;
   const h = center.clientHeight;
-  // Estimate how many chars fit — monospace char ~0.6em wide, line ~1.2em tall
-  // Use a reference font size of ~12px for calculation
-  const charW = 7.2; // 12 * 0.6
-  const charH = 14.4; // 12 * 1.2
+  // Pick a font size that fills well, then calc how many chars fit
+  // Monospace: char width ≈ 0.6 × fontSize, line height ≈ 1.2 × fontSize
+  // Use a target font size based on height (fit ~rows), then calc cols from width
+  const targetFontSize = 12;
+  const charW = targetFontSize * 0.6;
+  const charH = targetFontSize * 1.2;
   const cols = Math.floor(w / charW);
   const rows = Math.floor(h / charH);
-  return { cols: Math.max(15, Math.min(80, cols)), rows: Math.max(15, Math.min(50, rows)) };
+  // Make sure we get odd numbers so @ is centered
+  const c = Math.max(15, Math.min(120, cols)) | 1;
+  const r = Math.max(9, Math.min(60, rows)) | 1;
+  return { cols: c, rows: r };
 }
 
 function sendMapCmd() {
