@@ -557,6 +557,13 @@ function connect() {
     const msg = JSON.parse(e.data);
     if (msg.text) {
       if (msg.text.includes('Type `login [name]`')) return;
+      // Name taken — show in input bar, reset login state
+      if (msg.text.includes('is taken')) {
+        loggedIn = false;
+        input.placeholder = msg.text + ' Type a new name.';
+        input.focus();
+        return;
+      }
       addMsg(msg.text, 'game');
     }
   };
