@@ -90,7 +90,7 @@ function defineBat() {
       if (currentTick < npc.nextAttackTick) return null;
       const dist = projectiles.chebyshevDistance(npc.x, npc.y, npc.size, target.x, target.y, 1);
       if (dist > npc.attackRange) return null;
-      if (!los.npcHasLoS(npc.x, npc.y, npc.size, target.x, target.y, npc.layer, npc.attackRange)) return null;
+      if (!npc.instance && !los.npcHasLoS(npc.x, npc.y, npc.size, target.x, target.y, npc.layer, npc.attackRange)) return null;
 
       npc.nextAttackTick = currentTick + npc.attackSpeed;
       const damage = Math.floor(Math.random() * (npc.maxHit + 1));
@@ -145,7 +145,7 @@ function defineBlob() {
       // Blob scan cycle: scan → wait 3 ticks → attack → repeat
       if (npc.customState.phase === 'idle') {
         // Check LoS before scanning
-        if (!los.npcHasLoS(npc.x, npc.y, npc.size, target.x, target.y, npc.layer, npc.attackRange)) {
+        if (!npc.instance && !los.npcHasLoS(npc.x, npc.y, npc.size, target.x, target.y, npc.layer, npc.attackRange)) {
           npc.ticksWithoutLoS++;
           return;
         }
@@ -223,7 +223,7 @@ function defineBlob() {
     attackSpeed: 4, attackRange: 15, maxHit: 14, size: 1, aggressive: true, attackStyle: 'ranged', respawnTicks: 0,
     onAttack(npc, target, ct) {
       if (ct < npc.nextAttackTick) return null;
-      if (!los.npcHasLoS(npc.x, npc.y, 1, target.x, target.y, npc.layer, 15)) return null;
+      if (!npc.instance && !los.npcHasLoS(npc.x, npc.y, 1, target.x, target.y, npc.layer, 15)) return null;
       npc.nextAttackTick = ct + npc.attackSpeed;
       const dmg = Math.floor(Math.random() * (npc.maxHit + 1));
       projectiles.create({ source: { x: npc.x, y: npc.y, size: 1, id: npc.id }, target: { x: target.x, y: target.y, size: 1, id: target.id }, type: 'ranged', damage: dmg, prayerStyle: 'ranged', checkPrayerOnLand: true });
@@ -243,7 +243,7 @@ function defineBlob() {
     attackSpeed: 4, attackRange: 15, maxHit: 14, size: 1, aggressive: true, attackStyle: 'magic', respawnTicks: 0,
     onAttack(npc, target, ct) {
       if (ct < npc.nextAttackTick) return null;
-      if (!los.npcHasLoS(npc.x, npc.y, 1, target.x, target.y, npc.layer, 15)) return null;
+      if (!npc.instance && !los.npcHasLoS(npc.x, npc.y, 1, target.x, target.y, npc.layer, 15)) return null;
       npc.nextAttackTick = ct + npc.attackSpeed;
       const dmg = Math.floor(Math.random() * (npc.maxHit + 1));
       projectiles.create({ source: { x: npc.x, y: npc.y, size: 1, id: npc.id }, target: { x: target.x, y: target.y, size: 1, id: target.id }, type: 'magic', damage: dmg, prayerStyle: 'magic', checkPrayerOnLand: true });
@@ -282,8 +282,27 @@ function defineMeleer() {
       const target = npc.target;
       if (!target.x && target.x !== 0) return;
 
-      // Track LoS time
-      const hasLoS = los.npcHasLoS(npc.x, npc.y, npc.size, target.x, target.y, npc.layer, 1);
+      // Track LoS time — in instances, check if pillar blocks LoS
+      let hasLoS = true;
+      if (npc.instance) {
+        const ents = entities.getInInstance(npc.instance);
+        for (const e of ents) {
+          if (!e.blocksMovement || e.dead) continue;
+          // Simple: pillar blocks LoS if it's between NPC and target
+          const esz = e.size || 1;
+          const npcCx = npc.x + (npc.size||1)/2, npcCy = npc.y + (npc.size||1)/2;
+          const tCx = target.x, tCy = target.y;
+          const eCx = e.x + esz/2, eCy = e.y + esz/2;
+          // Check if entity center is roughly between NPC and target
+          const minX = Math.min(npcCx, tCx) - 1, maxX = Math.max(npcCx, tCx) + 1;
+          const minY = Math.min(npcCy, tCy) - 1, maxY = Math.max(npcCy, tCy) + 1;
+          if (eCx >= minX && eCx <= maxX && eCy >= minY && eCy <= maxY) {
+            hasLoS = false; break;
+          }
+        }
+      } else {
+        hasLoS = los.npcHasLoS(npc.x, npc.y, npc.size, target.x, target.y, npc.layer, 1);
+      }
       if (hasLoS) {
         npc.ticksWithoutLoS = 0;
       } else {
@@ -296,9 +315,9 @@ function defineMeleer() {
         return;
       }
 
-      // Dig mechanic: after 38+ ticks without LoS, 10% chance to dig (guaranteed at 50)
-      if (!npc.customState.digging && npc.ticksWithoutLoS >= 38) {
-        const shouldDig = npc.ticksWithoutLoS >= 50 || Math.random() < 0.1;
+      // Dig mechanic: after 50 ticks without LoS, dig to player position
+      if (!npc.customState.digging && npc.ticksWithoutLoS >= 50) {
+        const shouldDig = true;
         if (shouldDig) {
           npc.customState.digging = true;
           npc.customState.digTick = currentTick;
@@ -365,7 +384,7 @@ function defineRanger() {
         return { type: 'melee', damage, style: 'crush' };
       }
 
-      if (!los.npcHasLoS(npc.x, npc.y, npc.size, target.x, target.y, npc.layer, npc.attackRange)) return null;
+      if (!npc.instance && !los.npcHasLoS(npc.x, npc.y, npc.size, target.x, target.y, npc.layer, npc.attackRange)) return null;
       npc.nextAttackTick = currentTick + npc.attackSpeed;
       const damage = Math.floor(Math.random() * (npc.maxHit + 1));
       projectiles.create({
@@ -429,7 +448,7 @@ function defineMager() {
         return { type: 'melee', damage, style: 'stab' };
       }
 
-      if (!los.npcHasLoS(npc.x, npc.y, npc.size, target.x, target.y, npc.layer, npc.attackRange)) return null;
+      if (!npc.instance && !los.npcHasLoS(npc.x, npc.y, npc.size, target.x, target.y, npc.layer, npc.attackRange)) return null;
 
       npc.nextAttackTick = currentTick + npc.attackSpeed;
       npc.customState.flickering = false;
@@ -509,27 +528,46 @@ function defineJad() {
     },
     onAttack(npc, target, currentTick) {
       if (currentTick < npc.nextAttackTick) return null;
-      if (!los.npcHasLoS(npc.x, npc.y, npc.size, target.x, target.y, npc.layer, npc.attackRange)) return null;
+      // Skip LoS check in instances (virtual layers have no tile data)
+      if (!npc.instance && !los.npcHasLoS(npc.x, npc.y, npc.size, target.x, target.y, npc.layer, npc.attackRange)) return null;
 
       npc.nextAttackTick = currentTick + npc.attackSpeed;
       npc.customState.attackCount++;
 
-      // Random 50/50 mage or range
-      const isMage = Math.random() < 0.5;
+      const dist = projectiles.chebyshevDistance(npc.x, npc.y, npc.size, target.x, target.y, 1);
+
+      // Jad uses all 3 combat styles: melee if in range, otherwise random mage/range
+      let attackStyle;
+      if (dist <= 1) {
+        // In melee range — can use any of the 3 styles
+        const roll = Math.random();
+        if (roll < 0.33) attackStyle = 'melee';
+        else if (roll < 0.66) attackStyle = 'magic';
+        else attackStyle = 'ranged';
+      } else {
+        // Out of melee range — random mage or range
+        attackStyle = Math.random() < 0.5 ? 'magic' : 'ranged';
+      }
+
       const damage = Math.floor(Math.random() * (npc.maxHit + 1));
+
+      if (attackStyle === 'melee') {
+        // Melee is instant, no projectile
+        return { type: 'melee', damage, prayerStyle: 'melee', attackStyle: 'MELEE' };
+      }
 
       // CRITICAL: Prayer is checked when projectile LANDS (3 tick delay)
       projectiles.create({
         source: { x: npc.x, y: npc.y, size: npc.size, id: npc.id, name: npc.name },
         target: { x: target.x, y: target.y, size: 1, id: target.id },
-        type: isMage ? 'magic' : 'ranged',
+        type: attackStyle === 'magic' ? 'magic' : 'ranged',
         damage,
-        prayerStyle: isMage ? 'magic' : 'ranged',
+        prayerStyle: attackStyle,
         checkPrayerOnLand: true, // Prayer checked at land tick, not attack tick
         delayOverride: 3, // Fixed 3-tick delay
       });
 
-      return { type: isMage ? 'magic' : 'ranged', damage, attackStyle: isMage ? 'MAGE' : 'RANGE' };
+      return { type: attackStyle, damage, attackStyle: attackStyle === 'magic' ? 'MAGE' : 'RANGE' };
     },
   });
 }

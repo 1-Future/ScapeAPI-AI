@@ -181,12 +181,12 @@ define({ id: 337, name: 'Super strength(4)', examine: 'Super strength potion.', 
 // Arrow shafts & arrows
 define({ id: 340, name: 'Arrow shaft', examine: 'Arrow shafts.', stackable: true, value: 1, category: 'fletching', weight: 0 });
 define({ id: 341, name: 'Headless arrow', examine: 'Headless arrows.', stackable: true, value: 2, category: 'fletching', weight: 0 });
-define({ id: 342, name: 'Bronze arrows', examine: 'Bronze arrows.', stackable: true, value: 4, category: 'ammo', weight: 0 });
-define({ id: 343, name: 'Iron arrows', examine: 'Iron arrows.', stackable: true, value: 10, category: 'ammo', weight: 0 });
-define({ id: 344, name: 'Steel arrows', examine: 'Steel arrows.', stackable: true, value: 24, category: 'ammo', weight: 0 });
-define({ id: 345, name: 'Mithril arrows', examine: 'Mithril arrows.', stackable: true, value: 48, category: 'ammo', weight: 0 });
-define({ id: 346, name: 'Adamant arrows', examine: 'Adamant arrows.', stackable: true, value: 96, category: 'ammo', weight: 0 });
-define({ id: 347, name: 'Rune arrows', examine: 'Rune arrows.', stackable: true, value: 240, category: 'ammo', weight: 0 });
+define({ id: 342, name: 'Bronze arrows', examine: 'Bronze arrows.', stackable: true, value: 4, category: 'ammo', equipSlot: 'ammo', weight: 0 });
+define({ id: 343, name: 'Iron arrows', examine: 'Iron arrows.', stackable: true, value: 10, category: 'ammo', equipSlot: 'ammo', weight: 0 });
+define({ id: 344, name: 'Steel arrows', examine: 'Steel arrows.', stackable: true, value: 24, category: 'ammo', equipSlot: 'ammo', weight: 0 });
+define({ id: 345, name: 'Mithril arrows', examine: 'Mithril arrows.', stackable: true, value: 48, category: 'ammo', equipSlot: 'ammo', weight: 0 });
+define({ id: 346, name: 'Adamant arrows', examine: 'Adamant arrows.', stackable: true, value: 96, category: 'ammo', equipSlot: 'ammo', weight: 0 });
+define({ id: 347, name: 'Rune arrows', examine: 'Rune arrows.', stackable: true, value: 240, category: 'ammo', equipSlot: 'ammo', weight: 0 });
 
 // Bows
 define({ id: 350, name: 'Shortbow', examine: 'A shortbow.', value: 20, category: 'ranged', equipSlot: 'weapon', speed: 4, stats: { ranged: 8, ranged_strength: 6 }, weight: 0.9 });
@@ -345,5 +345,40 @@ define({ id: 921, name: 'BH emblem (tier 2)', examine: 'A bounty hunter emblem.'
 
 // ── Slayer helm ──────────────────────────────────────────────────────────────
 define({ id: 925, name: 'Slayer helm', examine: 'A helmet imbued with slayer power.', value: 50000, category: 'armour', equipSlot: 'head', equipReqs: { defence: 20, slayer: 55 }, stats: { def_stab: 30, def_slash: 32, def_crush: 27 }, weight: 2 });
+
+// ── Inferno Loadout Items ────────────────────────────────────────────────────
+
+// Equipment
+define({ id: 1001, name: 'Armadyl helmet', examine: 'A helmet made by Armadyl.', value: 3000000, category: 'armour', equipSlot: 'head', equipReqs: { defence: 70, ranged: 70 }, stats: { ranged: 10, def_stab: 6, def_slash: 8, def_crush: 10, def_magic: -5, def_ranged: 10, prayer: 1 }, weight: 0.5 });
+define({ id: 1002, name: "Ava's assembler", examine: 'An upgraded Ava device.', value: 500000, category: 'armour', equipSlot: 'cape', equipReqs: { ranged: 70 }, stats: { ranged: 20, ranged_strength: 2, prayer: 2 }, weight: 0 });
+define({ id: 1003, name: 'Necklace of anguish', examine: 'A necklace of power.', value: 12000000, category: 'armour', equipSlot: 'neck', equipReqs: {}, stats: { ranged: 15, ranged_strength: 5, prayer: 2 }, weight: 0 });
+define({ id: 1004, name: 'Armadyl crossbow', examine: 'A crossbow blessed by Armadyl.', value: 20000000, category: 'ranged', equipSlot: 'weapon', speed: 5, equipReqs: { ranged: 70 }, stats: { ranged: 100, ranged_strength: 0, prayer: 1 }, weight: 2.7 });
+define({ id: 1005, name: 'Crystal body', examine: 'Crystal-infused body armour.', value: 5000000, category: 'armour', equipSlot: 'body', equipReqs: { defence: 70, ranged: 70 }, stats: { ranged: 15, def_stab: 36, def_slash: 44, def_crush: 48, def_magic: -12, def_ranged: 64, prayer: 3 }, weight: 5 });
+define({ id: 1006, name: 'Crystal shield', examine: 'A powerful crystal shield.', value: 2000000, category: 'armour', equipSlot: 'shield', equipReqs: { defence: 70 }, stats: { def_stab: 51, def_slash: 54, def_crush: 53, def_magic: -2, def_ranged: 80, prayer: 2 }, weight: 2 });
+define({ id: 1007, name: 'Crystal legs', examine: 'Crystal-infused leg armour.', value: 5000000, category: 'armour', equipSlot: 'legs', equipReqs: { defence: 70, ranged: 70 }, stats: { ranged: 8, def_stab: 22, def_slash: 26, def_crush: 30, def_magic: -6, def_ranged: 40, prayer: 2 }, weight: 3 });
+define({ id: 1008, name: 'Barrows gloves', examine: 'Mystical gloves from the Barrows.', value: 130000, category: 'armour', equipSlot: 'hands', equipReqs: { defence: 40 }, stats: { stab: 12, slash: 12, crush: 12, magic: 6, ranged: 12, melee_strength: 12, def_stab: 12, def_slash: 12, def_crush: 12, def_magic: 6, def_ranged: 12 }, weight: 0 });
+define({ id: 1009, name: 'Pegasian boots', examine: 'Boots blessed with the power of flight.', value: 25000000, category: 'armour', equipSlot: 'feet', equipReqs: { ranged: 75, defence: 70 }, stats: { ranged: 12, def_stab: 5, def_slash: 5, def_crush: 5, def_ranged: 5 }, weight: 0.5 });
+define({ id: 1010, name: 'Archers ring (i)', examine: 'An imbued archers ring.', value: 5000000, category: 'armour', equipSlot: 'ring', equipReqs: {}, stats: { ranged: 8 }, weight: 0 });
+define({ id: 1011, name: 'Dragon bolts (e)', examine: 'Enchanted dragon bolts.', value: 500, category: 'ammo', equipSlot: 'ammo', stackable: true, stats: { ranged_strength: 122 }, weight: 0 });
+
+// Inventory switches
+define({ id: 1012, name: 'Toxic blowpipe', examine: 'A deadly blowpipe.', value: 3000000, category: 'ranged', equipSlot: 'weapon', speed: 3, equipReqs: { ranged: 75 }, stats: { ranged: 30, ranged_strength: 40 }, weight: 0.5 });
+define({ id: 1013, name: 'Kodai wand', examine: 'A wand of ancient power.', value: 80000000, category: 'magic', equipSlot: 'weapon', speed: 4, equipReqs: { magic: 75, attack: 75 }, stats: { magic: 28, def_magic: 20, melee_strength: 0 }, weight: 0.5 });
+define({ id: 1014, name: 'Occult necklace', examine: 'A necklace of dark power.', value: 500000, category: 'armour', equipSlot: 'neck', equipReqs: { magic: 70 }, stats: { magic: 12 }, weight: 0 });
+define({ id: 1015, name: "Ahrim's robe top", examine: 'A Barrows magic robe top.', value: 250000, category: 'armour', equipSlot: 'body', equipReqs: { magic: 70, defence: 70 }, stats: { magic: 30, def_stab: 52, def_slash: 37, def_crush: 63, def_magic: 22, def_ranged: 0 }, weight: 4 });
+define({ id: 1016, name: "Ahrim's robe bottom", examine: 'A Barrows magic robe bottom.', value: 250000, category: 'armour', equipSlot: 'legs', equipReqs: { magic: 70, defence: 70 }, stats: { magic: 22, def_stab: 33, def_slash: 25, def_crush: 38, def_magic: 16, def_ranged: 0 }, weight: 3 });
+
+// Potions
+define({ id: 1020, name: 'Saradomin brew(4)', examine: 'A potion of Saradomin.', value: 5000, category: 'potion', weight: 0.3 });
+define({ id: 1021, name: 'Super restore(4)', examine: 'Restores prayer and stats.', value: 8000, category: 'potion', weight: 0.3 });
+define({ id: 1022, name: 'Bastion potion(4)', examine: 'Boosts ranged and defence.', value: 3000, category: 'potion', weight: 0.3 });
+define({ id: 1023, name: 'Stamina potion(4)', examine: 'Reduces run energy drain.', value: 3000, category: 'potion', weight: 0.3 });
+
+// Runes (stackable)
+define({ id: 1030, name: 'Blood rune', examine: 'A blood rune.', value: 400, category: 'rune', stackable: true, weight: 0 });
+define({ id: 1031, name: 'Death rune', examine: 'A death rune.', value: 300, category: 'rune', stackable: true, weight: 0 });
+
+// Add brew/restore/bastion to food/potion heal system
+FOOD_HEAL[1020] = 16; // Sara brew heals 16 per sip
 
 module.exports = { define, get, find, search, items, FOOD_HEAL };

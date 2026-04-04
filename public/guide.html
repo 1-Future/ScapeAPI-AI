@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>Scape — Guide</title>
+<style>
+  :root {
+    --parchment: #c8b88a;
+    --parchment-dark: #b0a070;
+    --stone: #5c5445;
+    --stone-dark: #3a352e;
+    --stone-light: #7a7060;
+    --gold: #ff981f;
+    --gold-dim: #c8842a;
+    --text: #000;
+    --mono: 'Courier New', 'Consolas', monospace;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    background: #000;
+    font-family: var(--mono);
+    min-height: 100dvh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  /* ── Site header ─────────────────────────────────────── */
+  #site-header {
+    display: flex;
+    align-items: center;
+    background: var(--stone-dark);
+    height: 30px;
+    padding: 0 10px;
+    font-family: var(--mono);
+    font-size: 12px;
+    flex-shrink: 0;
+    gap: 0;
+    border-bottom: 1px solid var(--stone);
+    z-index: 100;
+    width: 100%;
+  }
+  #site-header .logo {
+    color: var(--gold);
+    font-weight: bold;
+    font-size: 14px;
+    margin-right: 16px;
+    text-decoration: none;
+    letter-spacing: 2px;
+  }
+  #site-header nav {
+    display: flex;
+    gap: 0;
+    flex: 1;
+  }
+  #site-header nav a {
+    color: #aaa;
+    text-decoration: none;
+    padding: 0 10px;
+    line-height: 30px;
+    transition: color 0.15s;
+  }
+  #site-header nav a:hover { color: #fff; }
+  #site-header nav a.active { color: var(--gold); }
+  #site-header .header-right {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-left: auto;
+  }
+  #site-header .gh-link {
+    color: #aaa;
+    text-decoration: none;
+    font-size: 16px;
+    line-height: 1;
+    transition: color 0.15s;
+  }
+  #site-header .gh-link:hover { color: #fff; }
+
+  /* ── Content ─────────────────────────────────────────── */
+  .content {
+    width: 100%;
+    max-width: 640px;
+    background: var(--parchment);
+    flex: 1;
+    padding: 24px 20px 40px;
+    color: var(--text);
+    overflow-y: auto;
+  }
+
+  h1 {
+    color: var(--stone-dark);
+    font-size: 20px;
+    margin-bottom: 16px;
+    border-bottom: 2px solid var(--parchment-dark);
+    padding-bottom: 6px;
+  }
+
+  h2 {
+    color: var(--stone-dark);
+    font-size: 15px;
+    margin-top: 20px;
+    margin-bottom: 8px;
+  }
+
+  p {
+    font-size: 13px;
+    line-height: 1.6;
+    margin-bottom: 10px;
+  }
+
+  .cmd-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 12px;
+    margin-top: 8px;
+    margin-bottom: 16px;
+  }
+  .cmd-table th {
+    text-align: left;
+    background: var(--parchment-dark);
+    padding: 4px 8px;
+    font-size: 12px;
+    color: var(--stone-dark);
+    border-bottom: 1px solid var(--stone-light);
+  }
+  .cmd-table td {
+    padding: 3px 8px;
+    border-bottom: 1px solid rgba(0,0,0,0.08);
+    vertical-align: top;
+  }
+  .cmd-table td:first-child {
+    color: #00449e;
+    font-weight: bold;
+    white-space: nowrap;
+  }
+
+  code {
+    background: rgba(0,0,0,0.08);
+    padding: 1px 4px;
+    border-radius: 2px;
+    font-size: 12px;
+  }
+</style>
+</head>
+<body>
+<div id="site-header">
+  <a class="logo" href="/">SCAPE</a>
+  <nav>
+    <a href="/">Watch</a>
+    <a href="/play">Play</a>
+    <a href="/guide" class="active">Guide</a>
+    <a href="/about">About</a>
+    <a href="https://discord.gg/rMJsb72PkW" target="_blank">Contribute</a>
+  </nav>
+  <div class="header-right">
+    <a class="gh-link" href="https://github.com/1-Future/ScapeAPI-AI" target="_blank" title="GitHub" aria-label="GitHub">
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
+    </a>
+  </div>
+</div>
+
+<div class="content">
+  <h1>Guide</h1>
+
+  <h2>What is Scape?</h2>
+  <p>A text-based MMORPG engine inspired by Old School RuneScape. Play by typing commands. Built in Node.js with AI-powered NPCs, a full skill system, combat, quests, and a Grand Exchange.</p>
+
+  <h2>How to Play</h2>
+  <p>Connect at <code>sc4p3.com/play</code>. Type your name and password to log in (or create an account automatically). Use commands to explore the world, fight monsters, train skills, and talk to NPCs.</p>
+
+  <h2>The Inferno</h2>
+  <p>69 waves of combat. An AI agent is learning to beat it through reinforcement learning. Watch it train live at <code>sc4p3.com</code> — each episode it gets a little better at prayer switching, eating, and surviving.</p>
+
+  <h2>Commands Quick Reference</h2>
+
+  <table class="cmd-table">
+    <tr><th>Category</th><th>Commands</th></tr>
+    <tr><td>Movement</td><td>n, s, e, w, ne, nw, se, sw</td></tr>
+    <tr><td>Combat</td><td>attack [npc], flee, pray [style], eat, drink</td></tr>
+    <tr><td>Skills</td><td>chop, mine, fish, cook, smith, craft, fletch</td></tr>
+    <tr><td>Social</td><td>say [msg], pm [name] [msg], clan</td></tr>
+    <tr><td>Info</td><td>look, inv, skills, status, help</td></tr>
+    <tr><td>Trade</td><td>ge buy/sell, shop, trade [player]</td></tr>
+    <tr><td>AI</td><td>? [question] — ask the AI guide</td></tr>
+    <tr><td>Smart Menu</td><td>/? — context-aware action suggestions</td></tr>
+    <tr><td>Interact</td><td>[1-8] — interact with nearby things</td></tr>
+  </table>
+</div>
+</body>
+</html>

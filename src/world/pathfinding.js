@@ -6,9 +6,10 @@ const walls = require('./walls');
 
 const MAX_PATH = 200;
 
-function findPath(sx, sy, tx, ty, layer = 0) {
+function findPath(sx, sy, tx, ty, layer = 0, blockedTiles = null) {
   if (sx === tx && sy === ty) return [];
   if (!tiles.isWalkable(tx, ty, layer)) return null;
+  if (blockedTiles && blockedTiles.has(`${tx},${ty}`)) return null;
 
   const open = [{ x: sx, y: sy, g: 0, h: heuristic(sx, sy, tx, ty), parent: null }];
   const closed = new Set();
@@ -42,6 +43,7 @@ function findPath(sx, sy, tx, ty, layer = 0) {
       const key = `${nx},${ny}`;
       if (closed.has(key)) continue;
       if (!tiles.isWalkable(nx, ny, layer)) { closed.add(key); continue; }
+      if (blockedTiles && blockedTiles.has(key)) { closed.add(key); continue; }
       if (walls.isEdgeBlocked(current.x, current.y, nx, ny, layer)) { closed.add(key); continue; }
 
       // Diagonal: also check the two cardinal tiles

@@ -68,7 +68,7 @@ function get(id) { return instances.get(id); }
 
 function getByPlayer(playerId) {
   for (const inst of instances.values()) {
-    if (inst.playerId === playerId && inst.state === 'active') return inst;
+    if (inst.playerId === playerId && (inst.state === 'active' || inst.state === 'complete' || inst.state === 'failed')) return inst;
   }
   return null;
 }

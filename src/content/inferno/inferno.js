@@ -17,15 +17,21 @@ const mobs = require('./mobs');
 mobs.registerAll();
 
 // ── Start an Inferno instance for a player ──
-function startInferno(player, sendFn) {
+function startInferno(player, sendFn, opts = {}) {
+  const startWave = opts.startWave || 1;
+  const endWave = opts.endWave || TOTAL_WAVES;
+  const challenge = opts.challenge || null; // 'wave66', 'jads', 'zuk', 'gauntlet'
+
   // Snapshot player state for restoration
   const snapshot = { x: player.x, y: player.y, layer: player.layer };
 
   const instance = instances.create({
     type: 'inferno',
     playerId: player.id,
-    totalWaves: TOTAL_WAVES,
+    totalWaves: endWave,
     waveDelayTicks: 7,
+    challenge,
+    startHp: player.hp,
     playerSnapshot: snapshot,
 
     setupArena(inst) {
@@ -46,9 +52,11 @@ function startInferno(player, sendFn) {
         walls.setWallEdge(ARENA.maxX + 1, y, walls.EDGE.W, layer);
       }
 
-      // Create pillars
+      // Create pillars (not for jad/zuk — pillars are gone by then)
       inst.pillars = {};
-      for (const [name, pos] of Object.entries(PILLAR_POSITIONS)) {
+      const noPillars = challenge === 'jads' || challenge === 'zuk';
+      if (noPillars) { /* no pillars for late-game challenges */ }
+      else for (const [name, pos] of Object.entries(PILLAR_POSITIONS)) {
         const pillar = entities.create({
           name: `Pillar (${name})`,
           type: 'pillar',
@@ -117,9 +125,14 @@ function startInferno(player, sendFn) {
       for (const defId of spawnList) {
         const pos = positions[posIdx % positions.length];
         posIdx++;
-        const npc = npcs.spawnNpc(defId, pos.x, pos.y, layer, { instance: inst.id });
+        // Clamp spawn position so large NPCs fit within arena
+        const def = npcs.npcDefs.get(defId);
+        const sz = def ? (def.size || 1) : 1;
+        const sx = Math.min(pos.x, ARENA.maxX - sz + 1);
+        const sy = Math.min(pos.y, ARENA.maxY - sz + 1);
+        const npc = npcs.spawnNpc(defId, sx, sy, layer, { instance: inst.id });
         if (npc) {
-          npc.stunned = 1; // 1 tick stun at spawn
+          npc.stunned = 5; // 5 tick stun at spawn — time to see spawns and position
           npc.target = player; // Aggro to player
           if (sendFn) sendFn(`  ${npc.name} spawns at (${pos.x}, ${pos.y})`);
         }
@@ -129,7 +142,7 @@ function startInferno(player, sendFn) {
       const nibPositions = [...NIBBLER_OFFSETS].sort(() => Math.random() - 0.5);
       for (let i = 0; i < nibCount && i < nibPositions.length; i++) {
         const nib = npcs.spawnNpc('jal_nib', nibPositions[i].x, nibPositions[i].y, layer, { instance: inst.id });
-        if (nib) nib.stunned = 1;
+        if (nib) nib.stunned = 5;
       }
 
       // Give dead mob store to magers for resurrection
@@ -149,10 +162,15 @@ function startInferno(player, sendFn) {
     },
 
     onComplete(inst) {
+      const damageTaken = (inst.startHp || 99) - player.hp;
+      inst.damageTaken = damageTaken;
       if (sendFn) {
         const elapsed = inst.tickCount * 0.6;
         const mins = Math.floor(elapsed / 60);
         const secs = Math.floor(elapsed % 60);
+        const grade = damageTaken === 0 ? 'PERFECT' : damageTaken <= 20 ? 'GREAT' : damageTaken <= 50 ? 'GOOD' : 'CLEAR';
+        sendFn(`\nCHALLENGE COMPLETE! ${grade}`);
+        sendFn(`Damage taken: ${damageTaken} | Time: ${mins}m ${secs}s`);
         sendFn(`\n╔══════════════════════════════════════╗`);
         sendFn(`║     INFERNO COMPLETE!                ║`);
         sendFn(`║     Time: ${mins}m ${secs}s (${inst.tickCount} ticks)     ║`);
@@ -175,6 +193,13 @@ function startInferno(player, sendFn) {
       // Process Inferno-specific NPC AI each tick
       const alive = npcs.getNpcsInInstance(inst.id);
       for (const npc of alive) {
+        // Ensure all aggressive mobs target the player and can attack
+        if (!npc.target && npc.aggressive) {
+          npc.target = player;
+          if (npc.nextAttackTick === Infinity) npc.nextAttackTick = currentTick + (npc.stunned || 0);
+        }
+        // Initialize attack timer if needed
+        if (npc.target && npc.nextAttackTick === Infinity) npc.nextAttackTick = currentTick;
         // Run onAttack for mobs that have targets
         if (npc.onAttack && npc.target && !npc.dead && !npc.dying && !npc.stunned) {
           const result = npc.onAttack(npc, npc.target, currentTick);
@@ -248,11 +273,23 @@ function startInferno(player, sendFn) {
 
   // Move player into instance
   player.layer = instance.layer;
-  player.x = 25;
-  player.y = 40;
+  // Named starting tiles (community meta):
+  // xZact tile: 2 south of bat safespot — for waves 1-49
+  // Kelvino tile: 1 east of bat safespot — for waves 50+, fewest exposed spawns
+  // North pillar at (28, 21) size 3. Bat safespot = west edge (27, 22)
+  if (startWave >= 69) {
+    player.x = 25; player.y = 15;  // Zuk: near shield
+  } else {
+    // Center of arena — OSRS default spawn point
+    player.x = Math.floor((ARENA.minX + ARENA.maxX) / 2); // 25
+    player.y = Math.floor((ARENA.minY + ARENA.maxY) / 2); // 28
+  }
   player.instance = instance.id;
 
-  // Start wave 1
+  // Skip to start wave
+  if (startWave > 1) {
+    instance.currentWave = startWave - 1; // startNextWave increments
+  }
   instances.startNextWave(instance);
 
   return instance;
@@ -296,20 +333,27 @@ function spawnZukWave(inst, player, sendFn) {
     sendFn('  ╚═══════════════════════════════════╝');
   }
 
-  // Spawn Zuk at north end of arena (doesn't move)
-  const zuk = npcs.spawnNpc('tzkal_zuk', 18, 5, inst.layer, {
+  // Arena walls flanking Zuk (lava barrier) — InfernoTrainer: x=21 and x=29, y=0-8
+  const layer = inst.layer;
+  for (let y = ARENA.minY; y <= ARENA.minY + 8; y++) {
+    tiles.setTile(21, y, tiles.T.LAVA || tiles.T.WALL, layer);
+    tiles.setTile(29, y, tiles.T.LAVA || tiles.T.WALL, layer);
+  }
+
+  // Spawn Zuk at north end (InfernoTrainer: x=22, y=8)
+  const zuk = npcs.spawnNpc('tzkal_zuk', 22, 8, inst.layer, {
     instance: inst.id,
   });
   if (zuk) {
     zuk.target = player;
   }
 
-  // Spawn shield
+  // Spawn shield (InfernoTrainer: x=23, y=13, moves x=11 to x=35)
   const shield = entities.create({
     name: 'Ancestral Shield',
     type: 'shield',
-    x: 22,
-    y: 14,
+    x: 23,
+    y: 13,
     layer: inst.layer,
     size: 5,
     maxHp: 600,

@@ -193,11 +193,11 @@ function hasRangedSetup(p) {
   const weapon = p.equipment.weapon;
   if (!weapon) return false;
   const wname = weapon.name.toLowerCase();
-  if (!wname.includes('bow')) return false;
+  if (!wname.includes('bow') && !wname.includes('crossbow') && !wname.includes('blowpipe')) return false;
   const ammo = p.equipment.ammo;
   if (!ammo) return false;
   const aname = ammo.name.toLowerCase();
-  if (!aname.includes('arrow')) return false;
+  if (!aname.includes('arrow') && !aname.includes('bolt') && !aname.includes('dart')) return false;
   return true;
 }
 
@@ -288,7 +288,9 @@ const COMBAT_SPELLS = {
 function magicAttackRoll(p) {
   const base = player.getLevel(p, 'magic');
   const potionBoost = (p.boosts && p.boosts.magic && p.boosts.magic.ticksLeft > 0) ? p.boosts.magic.amount : 0;
-  const effMagic = Math.floor(base + potionBoost + 8);
+  const prayerMult = getPrayerMultiplier(p.activePrayers, 'magic');
+  const afterPrayer = Math.floor((base + potionBoost) * prayerMult);
+  const effMagic = afterPrayer + 8;
   const equipBonus = getEquipBonus(p.equipment, 'magic');
   return effMagic * (equipBonus + 64);
 }

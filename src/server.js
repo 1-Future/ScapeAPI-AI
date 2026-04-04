@@ -203,6 +203,7 @@ function movementTick(currentTick) {
     const step = p.path.shift();
     p.x = step.x;
     p.y = step.y;
+    if (p._bankOpen) p._bankOpen = false;
 
     // If running and path still has steps, take a second step
     if (p.running && p.path.length > 0 && p.runEnergy > 0) {
@@ -211,8 +212,9 @@ function movementTick(currentTick) {
       p.y = step2.y;
       // Recalculate weight to ensure accuracy (feature 4)
       calcWeight(p, (id) => items.get(id));
-      // Drain energy: 67 + floor(67 × weight / 64) per tile while running
-      const drain = 67 + Math.floor(67 * Math.max(0, p.weight) / 64);
+      // Drain energy: OSRS formula — floor((67 + weight) * (300 - agility) / 300)
+      const agilityLvl = getLevel(p, 'agility');
+      const drain = Math.floor((67 + Math.max(0, p.weight)) * (300 - agilityLvl) / 300);
       p.runEnergy = Math.max(0, p.runEnergy - drain);
       if (p.runEnergy <= 0) {
         p.running = false;
@@ -255,8 +257,8 @@ function movementTick(currentTick) {
       }
     }
 
-    // Check wilderness entry
-    if (p.y <= 55) {
+    // Check wilderness entry (skip if in instance)
+    if (p.y <= 55 && !p.instance) {
       const wildyLevel = 55 - p.y;
       const wasInWildy = (p._lastWildyCheck || false);
       if (!wasInWildy) {
@@ -286,7 +288,7 @@ function movementTick(currentTick) {
   for (const [ws, p] of players) {
     if (p.path.length === 0 && p.runEnergy < 10000) {
       const agilityLevel = getLevel(p, 'agility');
-      const regen = Math.floor(agilityLevel * 0.45) + 8;
+      const regen = Math.floor(agilityLevel / 6) + 8;
       p.runEnergy = Math.min(10000, p.runEnergy + regen);
     }
   }
@@ -344,16 +346,32 @@ function combatTick(currentTick) {
     const isRanged = combat.hasRangedSetup(p);
     const requiredRange = isRanged ? combat.getRangedRange(p) : 1;
 
-    // Check range
+    // Check range AND line of sight
     const dist = Math.max(Math.abs(p.x - npc.x), Math.abs(p.y - npc.y));
-    if (dist > requiredRange) {
-      // Path to target — for ranged, get within range; for melee, adjacent
+    const los = require('./world/los');
+    const hasLoS = los.playerHasLoS(p.x, p.y, npc.x, npc.y, npc.size || 1, p.layer, requiredRange);
+
+    if (dist > requiredRange || !hasLoS) {
+      // Walk to get in range AND line of sight (OSRS auto-walks on attack click)
+      let blocked = null;
+      if (p.instance) {
+        try {
+          const ents = require('./world/entities').getInInstance(p.instance);
+          blocked = new Set();
+          for (const e of ents) {
+            if (!e.blocksMovement || e.dead) continue;
+            const sz = e.size || 1;
+            for (let oy = 0; oy < sz; oy++) for (let ox = 0; ox < sz; ox++) blocked.add(`${e.x+ox},${e.y+oy}`);
+          }
+        } catch {}
+      }
       if (isRanged) {
-        const path = pathfinding.findPath(p.x, p.y, npc.x, npc.y, p.layer);
+        const path = pathfinding.findPath(p.x, p.y, npc.x, npc.y, p.layer, blocked);
         if (path && path.length > requiredRange) p.path = path.slice(0, -(requiredRange));
+        else if (path && path.length > 0) p.path = path.slice(0, -1);
       } else {
-        const path = pathfinding.findPath(p.x, p.y, npc.x, npc.y, p.layer);
-        if (path && path.length > 1) p.path = path.slice(0, -1); // Walk to adjacent
+        const path = pathfinding.findPath(p.x, p.y, npc.x, npc.y, p.layer, blocked);
+        if (path && path.length > 1) p.path = path.slice(0, -1);
       }
       continue;
     }
@@ -367,8 +385,23 @@ function combatTick(currentTick) {
       else {
       npc.target = p.id;
       npc.nextAttackTick = currentTick + npc.attackSpeed;
-      const npcHit = Math.random() < 0.5;
-      const npcDmg = npcHit ? Math.floor(Math.random() * (npc.maxHit + 1)) : 0;
+      // OSRS-accurate NPC→player accuracy roll
+      const npcAtkLevel = npc.stats?.attack || 1;
+      const npcAtkBonus = npc.stats?.atk_bonus || 0;
+      const npcAtkRoll = (npcAtkLevel + 9) * (npcAtkBonus + 64);
+      const npcStyle = npc.attackStyle || 'slash';
+      const playerDefRoll = combat.effectiveLevel(p, 'defence') * (combat.getEquipBonus(p.equipment, `def_${npcStyle}`) + 64);
+      const npcHitChance = combat.accuracy(npcAtkRoll, playerDefRoll);
+      const npcHit = Math.random() < npcHitChance;
+      let npcDmg = npcHit ? Math.floor(Math.random() * (npc.maxHit + 1)) : 0;
+      // Protection prayers fully block NPC damage (PvM)
+      if (npcDmg > 0 && p.activePrayers && p.activePrayers.size > 0) {
+        const prayerMap = { melee: 'protect_from_melee', ranged: 'protect_from_missiles', magic: 'protect_from_magic' };
+        const needed = prayerMap[npc.attackStyle || 'melee'];
+        if (needed && p.activePrayers.has(needed)) {
+          npcDmg = 0;
+        }
+      }
       p.hp = Math.max(0, p.hp - npcDmg);
       if (npcDmg > 0) sendText(ws, `The ${npc.name} hits you for ${npcDmg} damage. HP: ${p.hp}/${p.maxHp}`);
       if (p.hp <= 0) {
@@ -401,6 +434,7 @@ function combatTick(currentTick) {
     } else {
       result = combat.meleeAttack(p, npc);
     }
+    const hpBefore = npc.hp;
     npc.hp = Math.max(0, npc.hp - result.damage);
 
     let msg = result.hit
@@ -412,7 +446,7 @@ function combatTick(currentTick) {
       npc.respawnAt = currentTick + npc.respawnTicks;
       p.combatTarget = null;
       p.busy = false;
-      msg += ` The ${npc.name} is dead!`;
+      msg += ` The ${npc.name} is dead! (had ${hpBefore} HP)`;
 
       // ── Kill count tracking (feature 6) ──
       if (!p.killCounts) p.killCounts = {};
@@ -911,7 +945,31 @@ for (const [dir, [dx, dy]] of Object.entries(DIR_MAP)) {
       const nx = p.x + dx, ny = p.y + dy;
       if (!tiles.isWalkable(nx, ny, p.layer)) return `Blocked — ${tiles.getTileName(tiles.tileAt(nx, ny, p.layer))} is not walkable.`;
       if (walls.isEdgeBlocked(p.x, p.y, nx, ny, p.layer)) return 'Blocked — there\'s a wall in the way.';
+      // Block walking into entities (pillars)
+      if (p.instance) {
+        try {
+          const ents = require('./world/entities').getInInstance(p.instance);
+          for (const e of ents) {
+            if (!e.blocksMovement || e.dead) continue;
+            const sz = e.size || 1;
+            if (nx >= e.x && nx < e.x + sz && ny >= e.y && ny < e.y + sz) return `Blocked — ${e.name}.`;
+          }
+        } catch {}
+      }
       p.x = nx; p.y = ny;
+      if (p._bankOpen) p._bankOpen = false;
+      // Drain run energy when running via direction commands
+      if (p.running && p.runEnergy > 0) {
+        calcWeight(p, (id) => items.get(id));
+        const agilityLvl = getLevel(p, 'agility');
+        const drn = Math.floor((67 + Math.max(0, p.weight)) * (300 - agilityLvl) / 300);
+        p.runEnergy = Math.max(0, p.runEnergy - drn);
+        if (p.runEnergy <= 0) {
+          p.running = false;
+          let ws; for (const [w, pl] of players) { if (pl === p) { ws = w; break; } }
+          if (ws) sendText(ws, "You're out of run energy.");
+        }
+      }
       if (actions.isActive(p)) actions.cancel(p);
       events.emit('player_move', { player: p });
       let msg = `(${p.x}, ${p.y})`;
@@ -928,7 +986,20 @@ commands.register('goto', { help: 'Walk to coordinates: goto [x] [y]', aliases: 
   fn: (p, args) => {
     const x = parseInt(args[0]), y = parseInt(args[1]);
     if (isNaN(x) || isNaN(y)) return 'Usage: goto [x] [y]';
-    const path = pathfinding.findPath(p.x, p.y, x, y, p.layer);
+    // Build blocked tile set from entities (pillars)
+    let blocked = null;
+    if (p.instance) {
+      try {
+        const ents = require('./world/entities').getInInstance(p.instance);
+        blocked = new Set();
+        for (const e of ents) {
+          if (!e.blocksMovement || e.dead) continue;
+          const sz = e.size || 1;
+          for (let oy = 0; oy < sz; oy++) for (let ox = 0; ox < sz; ox++) blocked.add(`${e.x+ox},${e.y+oy}`);
+        }
+      } catch {}
+    }
+    const path = pathfinding.findPath(p.x, p.y, x, y, p.layer, blocked);
     if (!path) return `No path to (${x}, ${y}).`;
     p.path = path;
     return `Walking to (${x}, ${y}) — ${path.length} tiles.`;
@@ -1026,7 +1097,7 @@ commands.register('attack', { help: 'Attack an NPC or player: attack [name]', al
       }
     }
 
-    const npc = npcs.findNpcByName(name, p.x, p.y, 15, p.layer);
+    const npc = npcs.findNpcByName(name, p.x, p.y, 15, p.layer, p.instance || undefined);
     if (!npc) return `No "${name}" nearby.`;
     if (npc.combat === 0) return `You can't attack the ${npc.name}.`;
     // Auto-walk to adjacent tile if not adjacent
@@ -1162,13 +1233,15 @@ commands.register('equip', { help: 'Equip an item: equip [name]', aliases: ['wea
         if (getLevel(p, skill) < level) return `You need ${skill} level ${level} to equip ${item.name}.`;
       }
     }
-    // Merge item def stats onto the item
-    const equipItem = { id: item.id, name: item.name, count: 1, equipSlot, stats: def?.stats || item.stats || {}, speed: def?.speed || item.speed };
-    p.inventory[slot] = item.count > 1 ? { ...item, count: item.count - 1 } : null;
+    // Merge item def stats onto the item — stackable ammo equips the full stack
+    const isStackableAmmo = equipSlot === 'ammo' && def?.stackable;
+    const equipCount = isStackableAmmo ? item.count : 1;
+    const equipItem = { id: item.id, name: item.name, count: equipCount, equipSlot, stats: def?.stats || item.stats || {}, speed: def?.speed || item.speed };
+    p.inventory[slot] = (!isStackableAmmo && item.count > 1) ? { ...item, count: item.count - 1 } : null;
     const old = p.equipment[equipSlot];
     p.equipment[equipSlot] = equipItem;
     calcWeight(p, (id) => items.get(id));
-    if (old) { invAdd(p, old.id, old.name, 1); calcWeight(p, (id) => items.get(id)); return `Equipped ${item.name} (replaced ${old.name}).`; }
+    if (old) { invAdd(p, old.id, old.name, old.count); calcWeight(p, (id) => items.get(id)); return `Equipped ${item.name} x${equipCount} (replaced ${old.name} x${old.count}).`; }
     return `Equipped ${item.name}.`;
   }
 });
@@ -1276,9 +1349,30 @@ commands.register('r', { help: 'Reply to last NPC: r [message]', aliases: ['repl
 // examine command registered in commands/all.js (includes examine self)
 
 // ── Gathering (tick-based) ─────────────────────────────────────────────────────
+// Tool requirements for gathering skills
+const GATHERING_TOOLS = {
+  woodcutting: { match: (name) => name.includes('axe') && !name.includes('pickaxe'), label: 'an axe' },
+  mining:      { match: (name) => name.includes('pickaxe'), label: 'a pickaxe' },
+  fishing:     { match: (name) => name.includes('fishing') || name.includes('net') || name.includes('harpoon') || name.includes('lobster pot'), label: 'a fishing tool' },
+};
+
+function hasGatheringTool(p, skillName) {
+  const req = GATHERING_TOOLS[skillName];
+  if (!req) return true; // No tool requirement for this skill
+  // Check equipped weapon
+  if (p.equipment.weapon && req.match(p.equipment.weapon.name.toLowerCase())) return true;
+  // Check inventory
+  for (const slot of p.inventory) {
+    if (slot && req.match(slot.name.toLowerCase())) return true;
+  }
+  return false;
+}
+
 function startGathering(p, ws, skillName, verb, obj) {
   if (obj.depleted) return `The ${obj.name} is depleted.`;
   if (getLevel(p, skillName) < obj.levelReq) return `You need ${skillName} level ${obj.levelReq}.`;
+  const toolReq = GATHERING_TOOLS[skillName];
+  if (toolReq && !hasGatheringTool(p, skillName)) return `You need ${toolReq.label} to ${verb}.`;
   if (invFreeSlots(p) < 1) return 'Your inventory is full.';
   if (p.busy) actions.cancel(p);
 
@@ -1707,10 +1801,15 @@ commands.register('stop', { help: 'Stop current action', aliases: ['cancel'], ca
 commands.register('say', { help: 'Public chat: say [message]', aliases: ['chat'], category: 'Social',
   fn: (p, args, raw) => {
     const msg = raw.replace(/^(say|chat)\s+/i, '');
-    broadcast({ t: 'chat', from: p.name, msg });
+    // Broadcast to all players except those who have sender ignored
+    for (const [ws2, pl] of players) {
+      if (pl.ignoreList && pl.ignoreList.includes(p.name.toLowerCase())) continue;
+      send(ws2, { t: 'chat', from: p.name, msg });
+    }
     // Overhead chat: nearby players see the message with player name
     for (const [ws2, pl] of players) {
       if (pl !== p && Math.abs(pl.x - p.x) <= 10 && Math.abs(pl.y - p.y) <= 10 && pl.layer === p.layer) {
+        if (pl.ignoreList && pl.ignoreList.includes(p.name.toLowerCase())) continue;
         sendText(ws2, `[${p.name}]: ${msg}`);
       }
     }
@@ -1723,6 +1822,10 @@ commands.register('pm', { help: 'Private message: pm [player] [message]', aliase
     if (args.length < 2) return 'Usage: pm [player] [message]';
     const target = findPlayer(args[0]);
     if (!target) return `Player "${args[0]}" not found.`;
+    // Check if target has sender ignored — silently drop the message
+    if (target.ignoreList && target.ignoreList.includes(p.name.toLowerCase())) {
+      return `[PM to ${target.name}]: ${args.slice(1).join(' ')}`;
+    }
     const msg = args.slice(1).join(' ');
     // Find target's ws
     for (const [ws, pl] of players) {
@@ -1855,6 +1958,7 @@ commands.register('bank', { help: 'Open bank (near bank booth)', category: 'Item
 commands.register('deposit', { help: 'Deposit item: deposit [item] or deposit all', category: 'Items',
   fn: (p, args) => {
     if (!p._bankOpen) return 'Open the bank first with `bank`.';
+    if (!objects.findObjectByName('bank booth', p.x, p.y, 3, p.layer)) { p._bankOpen = false; return 'You are too far from the bank.'; }
     if (!p.bank) p.bank = [];
     if (args[0] === 'all') {
       let deposited = 0;
@@ -1887,6 +1991,7 @@ commands.register('deposit', { help: 'Deposit item: deposit [item] or deposit al
 commands.register('withdraw', { help: 'Withdraw item: withdraw [item] [count]', category: 'Items',
   fn: (p, args) => {
     if (!p._bankOpen) return 'Open the bank first with `bank`.';
+    if (!objects.findObjectByName('bank booth', p.x, p.y, 3, p.layer)) { p._bankOpen = false; return 'You are too far from the bank.'; }
     if (!p.bank) p.bank = [];
     if (invFreeSlots(p) < 1) return 'Inventory is full.';
     const count = parseInt(args[args.length - 1]);
@@ -2008,6 +2113,172 @@ commands.register('setlevel', { help: 'Set skill level: setlevel [skill] [level]
 
 commands.register('admin', { help: 'Toggle admin mode', category: 'Build',
   fn: (p) => { p.admin = !p.admin; return `Admin: ${p.admin ? 'ON' : 'OFF'}`; }
+});
+
+commands.register('tickrate', { help: 'Set tick rate in ms: tickrate [ms]', category: 'Build', admin: true,
+  fn: (p, args) => {
+    const ms = parseInt(args[0]);
+    if (isNaN(ms) || ms < 1) return 'Usage: tickrate [ms] (e.g., tickrate 1 for max speed)';
+    tick.setTickRate(ms);
+    return `Tick rate set to ${ms}ms.`;
+  }
+});
+
+commands.register('tick', { help: 'Manually advance N ticks: tick [count]', category: 'Build', admin: true,
+  fn: (p, args) => {
+    const count = parseInt(args[0]) || 1;
+    for (let i = 0; i < count; i++) tick.processTick();
+    return `Advanced ${count} tick${count > 1 ? 's' : ''}. Now tick ${tick.getTick()}.`;
+  }
+});
+
+// RL step: execute action + advance ticks + return JSON state — all in one round-trip
+commands.register('rl', { help: 'RL step: rl [action_id] [ticks]', category: 'Build', admin: true,
+  fn: (p, args) => {
+    const actionId = parseInt(args[0]) || 0;
+    const ticks = parseInt(args[1]) || 4;
+
+    // ══ MINIMAL RULES — only universal PvM truth ══
+    // One rule: pray against the highest threat. Everything else RL learns.
+    const inst_pre = require('./engine/instances').getByPlayer(p.id);
+    const npcMod = require('./world/npcs');
+    const alive = inst_pre ? npcMod.getNpcsInInstance(inst_pre.id) : [];
+
+    // Threat-based prayer: score each NPC, pray against highest
+    const ensurePray = (name) => {
+      if (!p.activePrayers.has(name)) commands.execute(p, 'pray ' + name.replace(/_/g, ' '));
+    };
+    let bestThreat = null, bestScore = -1;
+    for (const npc of alive) {
+      if (npc.dead) continue;
+      const dist = Math.max(Math.abs(npc.x - p.x), Math.abs(npc.y - p.y));
+      const style = npc.attackStyle || 'melee';
+      const maxHit = npc.maxHit || 1;
+      let score = 0;
+      if (style === 'magic' || style === 'ranged') score = maxHit * 2 + Math.max(0, 20 - dist) * 3;
+      else if (style === 'melee') score = dist <= 1 ? maxHit : 0;
+      else if (style === 'typeless') score = maxHit * 3;
+      if (score > bestScore) { bestScore = score; bestThreat = npc; }
+    }
+    if (bestThreat) {
+      const style = bestThreat.attackStyle || 'melee';
+      if (style === 'magic') ensurePray('protect_from_magic');
+      else if (style === 'ranged') ensurePray('protect_from_missiles');
+      else if (style === 'melee' && Math.max(Math.abs(bestThreat.x - p.x), Math.abs(bestThreat.y - p.y)) <= 1)
+        ensurePray('protect_from_melee');
+    }
+
+    // Auto-target: if no target, pick nearest alive mob
+    if (!p.combatTarget || !npcMod.getNpc(p.combatTarget) || npcMod.getNpc(p.combatTarget).dead) {
+      const sorted = [...alive].sort((a, b) => {
+        const da = Math.max(Math.abs(a.x - p.x), Math.abs(a.y - p.y));
+        const db = Math.max(Math.abs(b.x - p.x), Math.abs(b.y - p.y));
+        return da - db;
+      });
+      if (sorted[0]) { p.combatTarget = sorted[0].id; p.busy = true; }
+    }
+
+    let effectiveAction = actionId;
+
+    // ── RL learns everything else ──
+    // 0: continue, 1-2: potions, 3-6: move, 7: atk nearest, 8-9: weapon switch
+    const rlActions = {
+      0: null, // continue — let rules play
+      1: () => commands.execute(p, 'drink saradomin brew'),
+      2: () => commands.execute(p, 'drink super restore'),
+      3: () => commands.execute(p, 'n'),
+      4: () => commands.execute(p, 's'),
+      5: () => commands.execute(p, 'e'),
+      6: () => commands.execute(p, 'w'),
+      7: () => { // attack nearest
+        const sorted = [...alive].sort((a, b) => {
+          const da = Math.max(Math.abs(a.x - p.x), Math.abs(a.y - p.y));
+          const db = Math.max(Math.abs(b.x - p.x), Math.abs(b.y - p.y));
+          return da - db;
+        });
+        if (sorted[0]) { p.combatTarget = sorted[0].id; p.busy = true; }
+      },
+      8: () => commands.execute(p, 'equip toxic blowpipe'),
+      9: () => commands.execute(p, 'equip armadyl crossbow'),
+    };
+    if (rlActions[effectiveAction]) rlActions[effectiveAction]();
+
+    // Advance ticks
+    for (let i = 0; i < ticks; i++) tick.processTick();
+
+    // Build state JSON
+    const inst = require('./engine/instances').getByPlayer(p.id);
+    let wave = 0, mobCount = 0, mobTypes = [], dead = false, complete = false, shieldSafe = 0, shieldHp = 0;
+    if (inst && inst.type === 'inferno') {
+      wave = inst.currentWave;
+      if (inst.state === 'failed') dead = true;
+      if (inst.state === 'complete') complete = true;
+      const alive = require('./world/npcs').getNpcsInInstance(inst.id);
+      mobCount = alive.length;
+      for (const npc of alive) {
+        const n = npc.name.split(' ')[0].replace(/[()]/g, '');
+        if (!mobTypes.includes(n)) mobTypes.push(n);
+      }
+      const ents = require('./world/entities').getInInstance(inst.id);
+      const shield = ents.find(e => e.type === 'shield');
+      if (shield) {
+        shieldHp = shield.hp / shield.maxHp;
+        shieldSafe = require('./world/entities').isBehindShield(p.x, p.y, shield) ? 1 : 0;
+      }
+    } else if (!inst) {
+      dead = true; // no instance = died or left
+    }
+
+    const prayMage = p.activePrayers?.has('protect_from_magic') ? 1 : 0;
+    const prayRange = p.activePrayers?.has('protect_from_missiles') ? 1 : 0;
+    const prayMelee = p.activePrayers?.has('protect_from_melee') ? 1 : 0;
+    const prayers = p.activePrayers ? [...p.activePrayers] : [];
+
+    // Generate map for spectator
+    let mapStr = '';
+    if (cmdCtx.generateMap) mapStr = cmdCtx.generateMap(p);
+
+    // Current target name
+    let targetName = '';
+    if (p.combatTarget) {
+      const tgt = require('./world/npcs').getNpc(p.combatTarget);
+      if (tgt && !tgt.dead) targetName = tgt.name;
+    }
+
+    // Full 28-slot inventory for spectator
+    const inv = p.inventory.map(slot => slot ? { n: slot.name, c: slot.count || 1 } : null);
+    let invUsed = inv.filter(s => s).length;
+
+    // Equipped weapon
+    const weapon = p.equipment?.weapon?.name || 'None';
+
+    return mapStr + '\n' + JSON.stringify({
+      hp: p.hp, maxHp: p.maxHp,
+      pp: p.prayerPoints, maxPp: getLevel(p, 'prayer'),
+      wave, mobCount, mobTypes,
+      prayMage, prayRange, prayMelee, prayers,
+      shieldSafe, shieldHp,
+      dead, complete,
+      challenge: inst ? inst.challenge : null,
+      damageTaken: inst ? ((inst.startHp || 99) - p.hp) : 0,
+      tick: tick.getTick(),
+      target: targetName,
+      targetHp: p.combatTarget ? (npcMod.getNpc(p.combatTarget)?.hp || 0) : 0,
+      targetMaxHp: p.combatTarget ? (npcMod.getNpc(p.combatTarget)?.maxHp || 0) : 0,
+      weapon,
+      stats: {
+        atk: getLevel(p, 'attack') + ((p.boosts?.attack?.ticksLeft > 0) ? p.boosts.attack.amount : 0),
+        str: getLevel(p, 'strength') + ((p.boosts?.strength?.ticksLeft > 0) ? p.boosts.strength.amount : 0),
+        def: getLevel(p, 'defence') + ((p.boosts?.defence?.ticksLeft > 0) ? p.boosts.defence.amount : 0),
+        rng: getLevel(p, 'ranged') + ((p.boosts?.ranged?.ticksLeft > 0) ? p.boosts.ranged.amount : 0),
+        mag: getLevel(p, 'magic') + ((p.boosts?.magic?.ticksLeft > 0) ? p.boosts.magic.amount : 0),
+        base: { atk: getLevel(p, 'attack'), str: getLevel(p, 'strength'), def: getLevel(p, 'defence'), rng: getLevel(p, 'ranged'), mag: getLevel(p, 'magic') },
+      },
+      run: Math.round(p.runEnergy / 100),
+      inv,
+      invUsed,
+    });
+  }
 });
 
 commands.register('replays', { help: 'List session recordings', category: 'General',
@@ -2590,15 +2861,184 @@ function addNpcPrompt(npcName, prompt, sendFn) {
   }
 }
 const server = http.createServer((req, res) => {
-  // Serve web client
-  if (req.url === '/' || req.url === '/index.html') {
-    const htmlPath = require('path').join(__dirname, '..', 'public', 'index.html');
+  const publicDir = require('path').join(__dirname, '..', 'public');
+
+  // Helper to serve an HTML file
+  const serveHTML = (filename) => {
+    const htmlPath = require('path').join(publicDir, filename);
     if (require('fs').existsSync(htmlPath)) {
       res.writeHead(200, { 'Content-Type': 'text/html', 'Cache-Control': 'no-cache' });
       res.end(require('fs').readFileSync(htmlPath));
+      return true;
+    }
+    return false;
+  };
+
+  // Main page — spectate (the landing page)
+  if (req.url === '/' || req.url === '/spectate') {
+    if (serveHTML('spectate.html')) return;
+  }
+
+  // Play page
+  if (req.url === '/play') {
+    if (serveHTML('play.html')) return;
+  }
+
+  // Guide page
+  if (req.url === '/guide') {
+    if (serveHTML('guide.html')) return;
+  }
+
+  // About page
+  if (req.url === '/about') {
+    if (serveHTML('about.html')) return;
+  }
+
+  // Backwards compat — index.html still serves the original terminal client
+  if (req.url === '/index.html') {
+    if (serveHTML('index.html')) return;
+  }
+
+  // Viewer count
+  if (!global._spectateViewers) global._spectateViewers = new Map();
+  if (req.url === '/viewers') {
+    // Count viewers active in last 10 seconds
+    const now = Date.now();
+    let count = 0;
+    for (const [ip, ts] of global._spectateViewers) {
+      if (now - ts < 10000) count++;
+      else global._spectateViewers.delete(ip);
+    }
+    res.writeHead(200, { 'Content-Type': 'text/plain', 'Cache-Control': 'no-cache' });
+    res.end(String(count));
+    return;
+  }
+
+  // Serve live.log for spectator
+  if (req.url === '/spectate-data') {
+    // Track viewer
+    const ip = req.headers['x-forwarded-for'] || req.connection.remoteAddress || 'unknown';
+    global._spectateViewers.set(ip, Date.now());
+    // Look for live.log in ScapeTests/inferno-rl/
+    const logPaths = [
+      require('path').join(__dirname, '..', '..', 'ScapeTests', 'inferno-rl', 'live.log'),
+      require('path').join(process.env.HOME || process.env.USERPROFILE || '', 'ScapeTests', 'inferno-rl', 'live.log'),
+    ];
+    for (const logPath of logPaths) {
+      if (require('fs').existsSync(logPath)) {
+        res.writeHead(200, { 'Content-Type': 'text/plain; charset=utf-8', 'Cache-Control': 'no-cache', 'Access-Control-Allow-Origin': '*' });
+        res.end(require('fs').readFileSync(logPath, 'utf-8'));
+        return;
+      }
+    }
+    res.writeHead(200, { 'Content-Type': 'text/plain' });
+    res.end('');
+    return;
+  }
+
+  // Challenge status
+  if (req.url === '/challenges') {
+    const cPath = require('path').join(process.env.HOME || process.env.USERPROFILE || '', 'ScapeTests', 'inferno-rl', 'challenges.json');
+    try {
+      res.writeHead(200, { 'Content-Type': 'application/json', 'Cache-Control': 'no-cache' });
+      res.end(require('fs').readFileSync(cPath, 'utf-8'));
+      return;
+    } catch {}
+    res.writeHead(200, { 'Content-Type': 'application/json' }); res.end('{}'); return;
+  }
+
+  // Save flagged tick ranges
+  if (req.url === '/flag-tick' && req.method === 'POST') {
+    let body = '';
+    req.on('data', c => body += c);
+    req.on('end', () => {
+      try {
+        const flagDir = require('path').join(process.env.HOME || process.env.USERPROFILE || '', 'ScapeTests', 'inferno-rl', 'flags');
+        require('fs').mkdirSync(flagDir, { recursive: true });
+        const name = 'flag_' + Date.now() + '.json';
+        require('fs').writeFileSync(require('path').join(flagDir, name), body);
+        res.writeHead(200); res.end('ok');
+      } catch { res.writeHead(500); res.end('error'); }
+    });
+    return;
+  }
+
+  // Total attempts — session (from challenges.json)
+  if (req.url === '/total-attempts') {
+    const cPath = require('path').join(process.env.HOME || process.env.USERPROFILE || '', 'ScapeTests', 'inferno-rl', 'challenges.json');
+    try {
+      const data = JSON.parse(require('fs').readFileSync(cPath, 'utf-8'));
+      const total = Object.values(data).reduce((sum, c) => sum + (c.attempts || 0), 0);
+      res.writeHead(200, { 'Content-Type': 'text/plain', 'Cache-Control': 'no-cache' });
+      res.end(String(total));
+      return;
+    } catch {}
+    res.writeHead(200, { 'Content-Type': 'text/plain' }); res.end('0'); return;
+  }
+
+  // Lifetime attempts — all-time across all sessions
+  if (req.url === '/lifetime-attempts') {
+    const lPath = require('path').join(process.env.HOME || process.env.USERPROFILE || '', 'ScapeTests', 'inferno-rl', 'lifetime_attempts.txt');
+    try {
+      res.writeHead(200, { 'Content-Type': 'text/plain', 'Cache-Control': 'no-cache' });
+      res.end(require('fs').readFileSync(lPath, 'utf-8').trim());
+      return;
+    } catch {}
+    res.writeHead(200, { 'Content-Type': 'text/plain' }); res.end('0'); return;
+  }
+
+  // Serve saved replay by ID (e.g. /replay/A3X9K2)
+  const replayMatch = req.url.match(/^\/replay\/([A-Z0-9]+)$/);
+  if (replayMatch) {
+    const replayPath = require('path').join(process.env.HOME || process.env.USERPROFILE || '', 'ScapeTests', 'inferno-rl', 'replays', `${replayMatch[1]}.log`);
+    if (require('fs').existsSync(replayPath)) {
+      res.writeHead(200, { 'Content-Type': 'text/plain; charset=utf-8', 'Cache-Control': 'no-cache', 'Access-Control-Allow-Origin': '*' });
+      res.end(require('fs').readFileSync(replayPath, 'utf-8'));
       return;
     }
+    res.writeHead(404, { 'Content-Type': 'text/plain' }); res.end('Replay not found'); return;
   }
+
+  // List saved replays
+  if (req.url === '/replays') {
+    const replayDir = require('path').join(process.env.HOME || process.env.USERPROFILE || '', 'ScapeTests', 'inferno-rl', 'replays');
+    try {
+      const files = require('fs').readdirSync(replayDir).filter(f => f.endsWith('.log')).sort();
+      const ids = files.map(f => f.replace('.log', ''));
+      res.writeHead(200, { 'Content-Type': 'application/json', 'Cache-Control': 'no-cache' });
+      res.end(JSON.stringify(ids));
+      return;
+    } catch {}
+    res.writeHead(200, { 'Content-Type': 'application/json' }); res.end('[]'); return;
+  }
+
+  // List episodes
+  if (req.url === '/episodes') {
+    const epDir = require('path').join(process.env.HOME || process.env.USERPROFILE || '', 'ScapeTests', 'inferno-rl', 'episodes');
+    try {
+      const files = require('fs').readdirSync(epDir).filter(f => f.endsWith('.log')).sort();
+      res.writeHead(200, { 'Content-Type': 'application/json', 'Cache-Control': 'no-cache' });
+      res.end(JSON.stringify(files));
+      return;
+    } catch {}
+    res.writeHead(200, { 'Content-Type': 'application/json' });
+    res.end('[]');
+    return;
+  }
+
+  // Serve specific episode
+  if (req.url.startsWith('/episode/')) {
+    const name = req.url.slice(9).replace(/[^a-zA-Z0-9_.\-]/g, '');
+    const epPath = require('path').join(process.env.HOME || process.env.USERPROFILE || '', 'ScapeTests', 'inferno-rl', 'episodes', name);
+    if (require('fs').existsSync(epPath)) {
+      res.writeHead(200, { 'Content-Type': 'text/plain; charset=utf-8', 'Cache-Control': 'no-cache' });
+      res.end(require('fs').readFileSync(epPath, 'utf-8'));
+      return;
+    }
+    res.writeHead(404); res.end('Not found');
+    return;
+  }
+
   res.writeHead(200, { 'Content-Type': 'text/plain' });
   res.end('Scape — ws://localhost:2223 or open in browser');
 });
@@ -2880,7 +3320,7 @@ wss.on('connection', (ws) => {
         return;
       }
     }
-    const result = commands.execute(p, input);
+    const result = commands.execute(p, input, ws);
     if (result && result.unknown) {
       sendText(ws, `Unknown command. Type \`help\` for commands, or \`? [question]\` to ask the guide.`);
     } else if (result) {

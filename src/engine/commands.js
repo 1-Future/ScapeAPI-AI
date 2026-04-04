@@ -27,7 +27,7 @@ function parse(input) {
   return { verb, args, raw: trimmed };
 }
 
-function execute(player, input) {
+function execute(player, input, ws) {
   // Spam protection: nnn→n, www→w, ee→e, wn→w (first char wins, up to 3 repeats)
   const lower = input.trim().toLowerCase();
   if (/^[nsew]{1,3}$/.test(lower)) input = lower[0];
@@ -41,7 +41,7 @@ function execute(player, input) {
   if (cmd.admin && !player.admin) return 'Admin only.';
 
   try {
-    const result = cmd.fn(player, parsed.args, parsed.raw);
+    const result = cmd.fn(player, parsed.args, parsed.raw, ws);
     return result !== undefined ? String(result) : '';
   } catch (e) {
     return `Error: ${e.message}`;

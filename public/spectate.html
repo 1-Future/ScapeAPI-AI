@@ -1,0 +1,1796 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>Scape</title>
+<style>
+  :root {
+    --parchment: #c8b88a;
+    --parchment-dark: #b0a070;
+    --stone: #5c5445;
+    --stone-dark: #3a352e;
+    --stone-light: #7a7060;
+    --gold: #ff981f;
+    --gold-dim: #c8842a;
+    --text: #000;
+    --text-system: #0000aa;
+    --text-player: #000099;
+    --tab-bg: #3b3024;
+    --tab-active: #5a4a35;
+    --tab-on: #00cc00;
+    --mono: 'Courier New', 'Consolas', monospace;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    background: #000;
+    font-family: var(--mono);
+    height: 100dvh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow: hidden;
+  }
+
+  #game {
+    width: 100%;
+    max-width: 100%;
+    flex: 1;
+    min-height: 0;
+    display: flex;
+    flex-direction: column;
+    background: #000;
+    overflow: hidden;
+  }
+
+  /* ── Map pane (top) ─────────────────────────────────────── */
+  #map-pane {
+    background: #1a1510;
+    overflow: hidden;
+    flex-shrink: 0;
+    height: 45%;
+    min-height: 60px;
+    position: relative;
+    display: grid;
+    grid-template-columns: auto 16px 1fr 16px auto;
+    grid-template-rows: auto 16px 1fr 16px auto;
+  }
+  /* Compass directions (inner ring) */
+  .compass {
+    font-family: var(--mono); font-size: 12px; font-weight: bold;
+    display: flex; align-items: center; justify-content: center;
+    color: #777;
+  }
+  /* Area labels (outer ring) */
+  .area-label {
+    font-family: var(--mono); font-size: 11px; color: #efb366;
+    display: flex; align-items: center; justify-content: center;
+    overflow: hidden; white-space: nowrap; text-overflow: ellipsis;
+    padding: 0 4px;
+  }
+  .area-label.side {
+    writing-mode: vertical-lr; text-orientation: upright;
+    letter-spacing: -1px; font-size: 10px; white-space: normal;
+    padding: 4px 0;
+  }
+  /* Outer ring: area labels */
+  #area-nw { grid-column: 1; grid-row: 1; font-size: 7px; color: #555; }
+  #area-n  { grid-column: 3; grid-row: 1; }
+  #area-ne { grid-column: 5; grid-row: 1; font-size: 7px; color: #555; }
+  #area-w  { grid-column: 1; grid-row: 3; }
+  #area-e  { grid-column: 5; grid-row: 3; }
+  #area-sw { grid-column: 1; grid-row: 5; font-size: 7px; color: #555; }
+  #area-s  { grid-column: 3; grid-row: 5; }
+  #area-se { grid-column: 5; grid-row: 5; font-size: 7px; color: #555; }
+  #area-here-text { font-size: 12px; color: #efb366; font-family: var(--mono); white-space: nowrap; }
+  /* Inner ring: compass directions */
+  #compass-n  { grid-column: 3; grid-row: 2; color: #c44; }
+  #compass-s  { grid-column: 3; grid-row: 4; }
+  #compass-w  { grid-column: 2; grid-row: 3; }
+  #compass-e  { grid-column: 4; grid-row: 3; }
+  /* Map center */
+  #map-center {
+    grid-column: 3;
+    grid-row: 3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+  }
+  #map-content {
+    font-family: var(--mono);
+    color: #333;
+    display: grid;
+    width: 100%;
+    height: 100%;
+  }
+  .map-row {
+    display: block;
+    text-align: center;
+    white-space: nowrap;
+    height: 13px;
+    line-height: 13px;
+  }
+  .map-cell {
+    width: 13px;
+    height: 13px;
+    text-align: center;
+    vertical-align: middle;
+    font-weight: normal;
+    font-size: 11px;
+    line-height: 13px;
+    display: inline-block;
+  }
+  /* Grid lines */
+  .grid-on .map-cell {
+    border: 1px solid rgba(255,255,255,0.06);
+  }
+  .grid-on .map-row:first-child .map-cell { border-top: none; }
+  .grid-on .map-row:last-child .map-cell { border-bottom: none; }
+  .grid-on .map-cell:first-child { border-left: none; }
+  .grid-on .map-cell:last-child { border-right: none; }
+  #map-pane.empty { display: flex; align-items: center; justify-content: center; }
+  #map-pane.empty::after { content: 'Waiting for data...'; color: #333; font-size: 12px; }
+
+  /* ── HUD bar (between map and legend) — 2 lines ─────── */
+  #hud {
+    display: flex;
+    flex-direction: column;
+    background: linear-gradient(180deg, #1a1510, #111);
+    padding: 3px 10px;
+    flex-shrink: 0;
+    font-family: var(--mono);
+    font-size: 11px;
+    border-top: 1px solid var(--stone-dark);
+    border-bottom: 1px solid var(--stone-dark);
+  }
+  .hud-line { display: flex; align-items: center; gap: 12px; min-height: 18px; }
+  #hud .hud-row { display: flex; align-items: center; gap: 4px; }
+  #hud .hud-label { color: #666; font-size: 10px; }
+  #hud .hud-val { font-weight: bold; }
+  .hud-hp { color: #4f4; }
+  .hud-hp.low { color: #ff4; }
+  .hud-hp.critical { color: #f44; }
+  .hud-pp { color: #6af; }
+  .hud-pray { color: #ccc; }
+  .pray-prot { color: #4af; }
+  .pray-off { color: #f44; }
+  .pray-util { color: #4f4; }
+  .hud-wave { color: var(--gold); }
+  .hud-action { color: #ff0; }
+  .hud-mobs { color: #f88; }
+  #hud-bar-hp, #hud-bar-pp { width: 60px; height: 6px; border-radius: 3px; }
+  #hud-bar-hp { background: #300; }
+  #hud-bar-hp .fill { height: 100%; background: #4f4; border-radius: 3px; transition: width 0.3s; }
+  #hud-bar-pp { background: #003; }
+  #hud-bar-target { width: 60px; height: 6px; border-radius: 3px; background: #300; }
+  #hud-bar-target .fill { height: 100%; background: #f44; border-radius: 3px; transition: width 0.3s; }
+  #hud-bar-pp .fill { height: 100%; background: #6af; border-radius: 3px; transition: width 0.3s; }
+  /* Inventory grid — 28 tiny boxes */
+  #inv-strip {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 1px;
+    background: #111;
+    padding: 2px 4px;
+    flex-shrink: 0;
+    font-family: var(--mono);
+    border-bottom: 1px solid var(--stone-dark);
+  }
+  .inv-slot {
+    position: relative;
+    background: #1a1a1a;
+    border: 1px solid #333;
+    height: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #ccc;
+    overflow: hidden;
+    border-radius: 2px;
+  }
+  .inv-slot.empty { background: #0d0d0d; border-color: #1a1a1a; }
+  .inv-slot .fill {
+    position: absolute; bottom: 0; left: 0; right: 0;
+    transition: height 0.3s;
+  }
+  .inv-slot .label {
+    position: relative; z-index: 1;
+    font-weight: bold; font-size: 10px;
+    text-shadow: 0 0 3px #000, 0 0 3px #000, 1px 1px 1px #000;
+  }
+  .inv-slot .count {
+    position: absolute; top: 1px; right: 2px; font-size: 8px;
+    color: #ff0; z-index: 1;
+    text-shadow: 0 0 3px #000, 1px 1px 1px #000;
+  }
+  .inv-slot.gear-ranged { border-color: #00ff00; }
+  .inv-slot.gear-melee { border-color: #ff0000; }
+  .inv-slot.gear-mage { border-color: #0000ff; }
+  #map-area-old {
+    display: none;
+  }
+
+  /* ── Drag handle + legend ────────────────────────────────── */
+  #divider {
+    background: linear-gradient(180deg, var(--stone-dark), var(--stone) 30%, var(--stone) 70%, var(--stone-dark));
+    cursor: ns-resize;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    touch-action: none;
+    padding: 2px 8px;
+    min-height: 22px;
+    gap: 6px;
+  }
+  #legend {
+    font-size: 14px;
+    color: var(--parchment-dark);
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2px;
+    overflow: hidden;
+  }
+  .lk {
+    display: flex;
+    align-items: center;
+    gap: 1px;
+    padding: 0 3px;
+    cursor: pointer;
+    border-radius: 2px;
+    position: relative;
+  }
+  .lk:hover { background: rgba(255,255,255,0.15); }
+  .ls {
+    font-weight: bold;
+    font-size: 16px;
+    width: 16px;
+    text-align: center;
+  }
+  .lk input[type="color"] {
+    position: absolute;
+    width: 0; height: 0;
+    opacity: 0;
+    pointer-events: none;
+  }
+  /* Legend gets all the space */
+
+  /* ── Chat pane (bottom) ─────────────────────────────────── */
+  #chat-pane {
+    flex: 1;
+    background: var(--parchment);
+    display: flex;
+    flex-direction: column;
+    min-height: 80px;
+    overflow: hidden;
+    box-shadow: inset 0 2px 4px rgba(0,0,0,0.15);
+  }
+
+  #chat-log {
+    flex: 1;
+    overflow-y: auto;
+    padding: 4px 10px;
+    font-size: 12px;
+    line-height: 1.5;
+    color: var(--text);
+    scrollbar-width: thin;
+    scrollbar-color: var(--stone) var(--parchment-dark);
+  }
+  #chat-log::-webkit-scrollbar { width: 10px; }
+  #chat-log::-webkit-scrollbar-track { background: var(--parchment-dark); }
+  #chat-log::-webkit-scrollbar-thumb {
+    background: linear-gradient(180deg, var(--stone-light), var(--stone), var(--stone-dark));
+    border: 1px solid var(--stone-dark);
+  }
+
+  .msg { padding: 2px 0; font-size: 14px; line-height: 1.5; }
+  /* Mode + Filter buttons */
+  #mode-toggle {
+    position: absolute; top: 4px; right: 4px; z-index: 10;
+  }
+  /* Debug bar */
+  #debug-bar {
+    display: none;
+    background: linear-gradient(180deg, #1a1510, #111);
+    padding: 3px 8px;
+    gap: 4px;
+    align-items: center;
+    flex-shrink: 0;
+    flex-wrap: wrap;
+    font-family: var(--mono);
+    font-size: 10px;
+    border-top: 1px solid var(--stone-dark);
+  }
+  #debug-bar.show { display: flex; }
+  .db-btn {
+    background: var(--tab-bg); border: 1px solid var(--stone);
+    color: var(--gold-dim); font-family: var(--mono); font-size: 9px;
+    padding: 0; width: 36px; height: 20px; cursor: pointer; border-radius: 2px;
+    display: inline-flex; align-items: center; justify-content: center;
+    box-shadow: inset 1px 1px 0 rgba(255,255,255,0.08), inset -1px -1px 0 rgba(0,0,0,0.2);
+  }
+  .db-btn:hover { color: var(--gold); background: var(--tab-active); }
+  .db-btn.active { color: #4f4; background: var(--tab-active); }
+  .db-sep { width: 1px; height: 14px; background: var(--stone); margin: 0 4px; }
+  #rec-info { color: #888; font-size: 9px; min-width: 40px; }
+  #debug-bar input[type=text] {
+    font-family: var(--mono); font-size: 9px; width: 70px;
+    background: #111; color: #ccc; border: 1px solid var(--stone);
+    padding: 1px 4px; height: 20px; border-radius: 2px;
+  }
+  #debug-bar input[type=number] {
+    font-family: var(--mono); font-size: 9px; width: 40px;
+    background: #111; color: var(--gold); border: 1px solid var(--stone);
+    padding: 1px 3px; height: 20px; border-radius: 2px; text-align: center;
+  }
+  .msg-selected, .cmsg-selected, pre.selected { background: rgba(255,200,0,0.15) !important; border-left: 2px solid var(--gold) !important; }
+  #flag-modal {
+    position: absolute; bottom: 30px; right: 4px; z-index: 100;
+    background: var(--stone-dark); border: 1px solid var(--gold-dim);
+    padding: 8px; border-radius: 4px; font-family: var(--mono); font-size: 10px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.6);
+  }
+  #flag-modal textarea {
+    width: 200px; height: 50px; background: #111; color: #ccc;
+    border: 1px solid var(--stone); font-family: var(--mono); font-size: 10px;
+    padding: 4px; resize: none; border-radius: 2px; margin-bottom: 4px;
+  }
+  #flag-modal button {
+    font-family: var(--mono); font-size: 9px;
+    background: var(--tab-bg); border: 1px solid var(--stone);
+    color: var(--gold-dim); padding: 2px 8px; border-radius: 2px; cursor: pointer; margin-right: 4px;
+  }
+  #flag-modal button:hover { color: var(--gold); background: var(--tab-active); }
+  #filter-wrap { position: absolute; top: 4px; right: 60px; z-index: 10; }
+  #mode-toggle, #filter-btn {
+    font-family: var(--mono); font-size: 9px;
+    background: var(--tab-bg); border: 1px solid var(--stone);
+    color: var(--gold-dim); padding: 2px 8px; border-radius: 2px; cursor: pointer;
+    height: 20px; line-height: 16px; vertical-align: middle;
+    box-shadow: inset 1px 1px 0 rgba(255,255,255,0.08), inset -1px -1px 0 rgba(0,0,0,0.2);
+  }
+  #mode-toggle:hover, #filter-btn:hover { color: var(--gold); background: var(--tab-active); }
+  #filter-menu {
+    display: none; position: absolute; top: 100%; right: 0; margin-top: 2px;
+    background: var(--stone-dark); border: 1px solid var(--stone); border-radius: 3px;
+    padding: 4px 8px; font-family: var(--mono); font-size: 10px; white-space: nowrap;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.5); z-index: 200;
+  }
+  #filter-menu.show { display: block; }
+  #filter-menu label { display: block; color: #aaa; padding: 2px 0; cursor: pointer; }
+  #filter-menu label:hover { color: #fff; }
+  #filter-menu input { margin-right: 4px; accent-color: var(--gold); }
+  .msg .stack-count { color: #888; font-size: 11px; margin-left: 4px; cursor: pointer; }
+  .msg .stack-count:hover { color: var(--gold); }
+  .msg .stack-hidden { display: none; padding-left: 12px; font-size: 12px; color: #555; border-left: 2px solid #ddd; margin: 2px 0; }
+  .msg .stack-hidden.show { display: block; }
+  /* Clean viewer messages */
+  .cmsg { padding: 2px 8px; margin: 1px 0; font-size: 13px; font-family: var(--mono); border-radius: 2px; }
+  .cmsg .tag { font-weight: bold; margin-right: 4px; }
+  .cmsg .cb { color: #888; }
+  .cmsg.kill { color: #900; font-weight: bold; }
+  .cmsg.kill .tag { color: #c00; }
+  .cmsg.wave { color: #a70; font-weight: bold; font-size: 14px; padding: 6px 8px; border-bottom: 1px solid #c8a870; }
+  .cmsg.wave-clear { color: #060; font-weight: bold; }
+  .cmsg.spawn { color: #555; }
+  .cmsg.spawn .tag { color: #777; }
+  .cmsg.damage { color: #900; }
+  .cmsg.damage .tag { color: #c00; }
+  .cmsg.blocked { color: #06a; }
+  .cmsg.blocked .tag { color: #08c; }
+  .cmsg.potion { color: #458; }
+  .cmsg.potion .tag { color: #48a; }
+  .cmsg.hit { color: #040; }
+  .cmsg.hit .tag { color: #060; }
+  .cmsg.death { color: #c00; font-weight: bold; font-size: 16px; padding: 8px; }
+  .cmsg.complete { color: #060; font-weight: bold; font-size: 18px; padding: 8px; }
+  .cmsg.game { color: #333; }
+  .msg.player { color: #00449e; font-weight: bold; }
+  .msg.system { color: #6a00aa; font-style: italic; }
+  /* Color key words in game messages for scannability */
+  .msg.game { color: #1a1a1a; }
+
+  #input-row {
+    display: flex;
+    align-items: center;
+    padding: 2px 10px;
+    background: var(--parchment);
+    border-top: 1px solid var(--parchment-dark);
+  }
+  #input-label {
+    color: var(--text);
+    font-size: 14px;
+    font-weight: bold;
+    margin-right: 4px;
+    white-space: nowrap;
+  }
+  #input {
+    flex: 1;
+    background: transparent;
+    border: none;
+    outline: none;
+    color: var(--text-player);
+    font-family: var(--mono);
+    font-size: 14px;
+    padding: 2px 0;
+  }
+
+  /* ── Playback bar ────────────────────────────────────────── */
+  #playback-bar {
+    display: flex;
+    background: var(--stone-dark);
+    padding: 4px 8px;
+    gap: 4px;
+    align-items: center;
+    flex-shrink: 0;
+    border-top: 1px solid var(--stone);
+  }
+  .pb-btn {
+    background: var(--tab-bg);
+    border: 1px solid var(--stone);
+    color: var(--gold);
+    font-family: var(--mono);
+    font-size: 11px;
+    padding: 0;
+    cursor: pointer;
+    border-radius: 2px;
+    width: 32px;
+    height: 22px;
+    text-align: center;
+    line-height: 22px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: inset 1px 1px 0 rgba(255,255,255,0.08), inset -1px -1px 0 rgba(0,0,0,0.2);
+  }
+  .pb-btn:hover { background: var(--tab-active); }
+  .pb-btn:active { box-shadow: inset -1px -1px 0 rgba(255,255,255,0.08), inset 1px 1px 0 rgba(0,0,0,0.2); }
+  .pb-btn.active { background: var(--tab-active); color: #4f4; }
+  .pb-btn.live { width: auto; padding: 0 8px; font-size: 9px; font-weight: bold; letter-spacing: 1px; }
+
+  /* Challenge status bar */
+  #challenge-bar {
+    display: flex; align-items: center;
+    background: linear-gradient(180deg, #1e1a14, #151210);
+    padding: 3px 10px; gap: 10px;
+    font-family: var(--mono); font-size: 11px;
+    border-bottom: 1px solid var(--stone-dark);
+    cursor: pointer; user-select: none; flex-shrink: 0;
+  }
+  #challenge-bar:hover { background: linear-gradient(180deg, #252015, #1a1510); }
+  .cb-dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
+  .cb-dot.red { background: #c00; }
+  .cb-dot.yellow { background: #ff0; box-shadow: 0 0 4px #ff0; }
+  .cb-dot.green { background: #0c0; }
+  #cb-label { color: var(--gold); font-weight: bold; }
+  #cb-info { color: #888; }
+  #cb-progress { display: flex; gap: 3px; margin-left: auto; }
+  .cb-pip { width: 12px; height: 12px; border-radius: 2px; border: 1px solid #444; }
+  .cb-pip.done { background: #0c0; border-color: #0c0; }
+  .cb-pip.active { background: #440; border-color: #ff0; }
+  .cb-pip.todo { background: #1a1a1a; }
+
+  /* Expandable challenge overview */
+  #challenge-detail {
+    display: none; background: #111; border-bottom: 1px solid var(--stone-dark);
+    padding: 8px 12px; font-family: var(--mono); font-size: 11px;
+  }
+  #challenge-detail.show { display: block; }
+  .cd-row { display: flex; align-items: center; gap: 8px; padding: 4px 0; border-bottom: 1px solid #222; }
+  .cd-row:last-child { border-bottom: none; }
+  .cd-name { color: #ccc; width: 100px; }
+  .cd-dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
+  .cd-attempts { color: #888; }
+  .cd-passes { color: #0c0; }
+  .cd-best { color: var(--gold); }
+  .cd-row.active .cd-name { color: #fff; font-weight: bold; }
+  .cd-row.complete .cd-name { color: #0c0; }
+  .cd-next { color: #888; font-style: italic; padding-top: 4px; }
+
+  /* Live indicator */
+  @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0.2} }
+  #map-overlay {
+    position: absolute; bottom: 0; right: 0; z-index: 20;
+    font-family: var(--mono); font-size: 11px; color: #aaa;
+    background: rgba(0,0,0,0.6); padding: 2px 8px; border-radius: 2px 0 0 0;
+    pointer-events: none;
+  }
+  #map-overlay b { color: var(--gold); }
+  #map-stats {
+    position: absolute; bottom: 0; left: 0; z-index: 20;
+    font-family: var(--mono); font-size: 11px; font-weight: bold;
+    background: rgba(0,0,0,0.6); padding: 2px 8px; border-radius: 2px;
+    pointer-events: none;
+    display: grid;
+    grid-template-columns: repeat(6, 20px);
+    text-align: center;
+  }
+  #map-stats span { color: #4f4; }
+  #map-stats span.buffed { color: #0ff; }
+  #map-stats span.drained { color: #f44; }
+  #map-stats .sh { color: #4f4; font-size: 9px; opacity: 0.7; }
+  #live-indicator {
+    position: absolute; top: 4px; right: 4px; z-index: 20;
+    display: flex; align-items: center; gap: 4px;
+    background: rgba(0,0,0,0.6); padding: 2px 6px; border-radius: 8px;
+    pointer-events: none;
+  }
+  #live-dot {
+    width: 8px; height: 8px; border-radius: 50%;
+    background: #e00; box-shadow: 0 0 4px #f00;
+    animation: blink 1.5s ease-in-out infinite;
+  }
+  #viewer-count {
+    font-family: var(--mono); font-size: 10px; color: #ccc;
+  }
+  #speed-slider { width: 80px; accent-color: var(--gold); cursor: pointer; }
+  #speed-label { color: var(--gold-dim); font-size: 11px; min-width: 35px; text-align: center; }
+  #playback-info { color: var(--parchment-dark); font-size: 11px; flex: 1; text-align: right; }
+  #ep-label { color: var(--gold); font-weight: bold; }
+  #tick-label { color: var(--parchment-dark); }
+  #buffer-bar { flex: 1; height: 4px; background: var(--stone); border-radius: 2px; position: relative; cursor: pointer; min-width: 40px; }
+  #buffer-fill { height: 100%; background: var(--gold-dim); border-radius: 2px; width: 0%; transition: width 0.2s; }
+
+  /* ── Tab bar ────────────────────────────────────────────── */
+  #tabs {
+    display: flex;
+    background: var(--tab-bg);
+    border-top: 2px solid var(--stone-dark);
+    height: 28px;
+    flex-shrink: 0;
+  }
+  .tab {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--mono);
+    font-size: 10px;
+    color: #ccc;
+    cursor: pointer;
+    border-right: 1px solid var(--stone-dark);
+    user-select: none;
+    line-height: 1.1;
+  }
+  .tab:last-child { border-right: none; }
+  .tab:hover { background: rgba(255,255,255,0.05); }
+  .tab.active { color: var(--gold); background: var(--tab-active); }
+  .tab small { color: var(--tab-on); font-size: 8px; }
+  #timer {
+    background: #111;
+    color: #aaa;
+    font-size: 10px;
+    padding: 0 6px;
+    display: flex;
+    align-items: center;
+    border-left: 1px solid var(--stone-dark);
+  }
+
+  @media (min-width: 768px) {
+    #game { max-width: 520px; }
+  }
+  @media (max-width: 600px) {
+    #game { max-width: 100%; }
+
+    /* Map — dynamic cells based on viewport */
+    .map-cell { width: 2.4vw; height: 2.4vw; font-size: 2vw; line-height: 2.4vw; }
+    .map-row { height: 2.4vw; line-height: 2.4vw; }
+    .area-label { display: none; }
+    .compass { display: none; }
+    #map-pane {
+      display: flex; align-items: center; justify-content: center;
+      height: 38vh;
+    }
+    #map-center { display: flex; align-items: center; justify-content: center; }
+
+    /* HUD — dynamic */
+    #hud { padding: 0.5vw 1vw; font-size: 2.6vw; gap: 0; }
+    .hud-line { gap: 1.5vw; min-height: 3.5vw; flex-wrap: nowrap; }
+    .hud-label { font-size: 2.2vw; }
+    .hud-val { font-size: 2.6vw; }
+    #hud-bar-hp, #hud-bar-pp { width: 10vw; height: 1vw; }
+    .hud-action { max-width: 25vw; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+
+    /* Inventory — dynamic grid */
+    #inv-strip { grid-template-columns: repeat(7, 1fr); gap: 0.3vw; padding: 0.3vw; }
+    .inv-slot { height: 5.5vw; }
+    .inv-slot .label { font-size: 2.2vw; }
+    .inv-slot .count { font-size: 1.8vw; }
+
+    /* Map overlays — dynamic */
+    #map-stats { font-size: 2.2vw; padding: 0.5vw 1vw; }
+    #map-stats span { font-size: 2.2vw; }
+    .stat-row { gap: 1vw; }
+    #map-overlay { font-size: 2.4vw; padding: 0.5vw 1.5vw; }
+    #map-attempt { font-size: 2.4vw; padding: 0.5vw 1.5vw; }
+    #live-indicator { padding: 0.3vw 1vw; }
+    #viewer-count { font-size: 2.2vw; }
+    #live-dot { width: 1.5vw; height: 1.5vw; }
+
+    /* Header — dynamic */
+    #site-header { height: 6vw; font-size: 2.6vw; padding: 0 1.5vw; }
+    #site-header .logo { font-size: 3vw; margin-right: 2vw; letter-spacing: 0.3vw; }
+    #site-header nav a { padding: 0 1.5vw; line-height: 6vw; font-size: 2.6vw; }
+    .help-wrap { display: none; }
+
+    /* Chat — dynamic */
+    .cmsg { font-size: 2.8vw; padding: 0.3vw 1vw; }
+    #chat-log { font-size: 2.8vw; padding: 0.5vw 1vw; }
+    .msg { font-size: 2.8vw; }
+
+    /* Playback bar — dynamic */
+    #playback-bar { padding: 0.5vw 1vw; gap: 1vw; }
+    .pb-btn { width: 6vw; height: 4.5vw; font-size: 2.4vw; }
+    .pb-btn.live { width: auto; padding: 0 2vw; font-size: 2vw; }
+    #speed-slider { width: 15vw; }
+    #speed-label { font-size: 2.2vw; min-width: 5vw; }
+    #playback-info { font-size: 2.2vw; }
+    #buffer-bar { min-width: 10vw; }
+
+    /* Legend — dynamic */
+    #divider { padding: 0.3vw 1vw; min-height: 4vw; }
+    #legend { font-size: 2.2vw; gap: 0.5vw; }
+    .lk { padding: 0 0.5vw; }
+    .ls { font-size: 2.6vw; width: 3vw; }
+
+    /* Tabs — dynamic */
+    .tab { font-size: 2.2vw; }
+    .tab small { font-size: 1.6vw; }
+    #timer { font-size: 2.2vw; padding: 0 1vw; }
+
+    /* Filter/Debug buttons */
+    #mode-toggle, #filter-btn { font-size: 2vw; padding: 0.3vw 1.2vw; height: 4vw; }
+    #filter-wrap { right: 12vw; }
+    #filter-menu { font-size: 2.4vw; }
+  }
+  /* ── Site header ─────────────────────────────────────── */
+  #site-header {
+    display: flex;
+    align-items: center;
+    background: var(--stone-dark);
+    height: 30px;
+    padding: 0 10px;
+    font-family: var(--mono);
+    font-size: 12px;
+    flex-shrink: 0;
+    gap: 0;
+    border-bottom: 1px solid var(--stone);
+    z-index: 100;
+    width: 100%;
+  }
+  #site-header .logo {
+    color: var(--gold);
+    font-weight: bold;
+    font-size: 14px;
+    margin-right: 16px;
+    text-decoration: none;
+    letter-spacing: 2px;
+  }
+  #site-header nav {
+    display: flex;
+    gap: 0;
+    flex: 1;
+  }
+  #site-header nav a {
+    color: #aaa;
+    text-decoration: none;
+    padding: 0 10px;
+    line-height: 30px;
+    transition: color 0.15s;
+  }
+  #site-header nav a:hover { color: #fff; }
+  #site-header nav a.active { color: var(--gold); }
+  #site-header .header-right {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-left: auto;
+  }
+  #site-header .gh-link {
+    color: #aaa;
+    text-decoration: none;
+    font-size: 16px;
+    line-height: 1;
+    transition: color 0.15s;
+  }
+  #site-header .gh-link:hover { color: #fff; }
+  .help-wrap {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+  }
+  .help-icon {
+    color: #888;
+    font-size: 13px;
+    cursor: help;
+    width: 18px;
+    height: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #555;
+    border-radius: 50%;
+    line-height: 1;
+    transition: color 0.15s, border-color 0.15s;
+  }
+  .help-icon:hover { color: var(--gold); border-color: var(--gold); }
+  .help-tooltip {
+    display: none;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    margin-top: 6px;
+    background: var(--stone-dark);
+    color: #ccc;
+    font-size: 11px;
+    padding: 8px 10px;
+    border: 1px solid var(--stone);
+    border-radius: 3px;
+    width: 240px;
+    line-height: 1.4;
+    z-index: 200;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+  }
+  .help-wrap:hover .help-tooltip { display: block; }
+</style>
+</head>
+<body>
+<div id="site-header">
+  <a class="logo" href="/">SCAPE</a>
+  <nav>
+    <a href="/" class="active">Watch</a>
+    <a href="/play">Play</a>
+    <a href="/guide">Guide</a>
+    <a href="/about">About</a>
+    <a href="https://discord.gg/rMJsb72PkW" target="_blank">Contribute</a>
+  </nav>
+  <div class="header-right">
+    <div class="help-wrap">
+      <span class="help-icon">?</span>
+      <div class="help-tooltip">You're watching an AI learn to play the Inferno through reinforcement learning. Each episode it gets better.</div>
+    </div>
+    <a class="gh-link" href="https://github.com/1-Future/ScapeAPI-AI" target="_blank" title="GitHub" aria-label="GitHub">
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
+    </a>
+  </div>
+</div>
+<div id="challenge-bar" onclick="document.getElementById('challenge-detail').classList.toggle('show')">
+  <span class="cb-dot yellow" id="cb-dot"></span>
+  <span id="cb-label">Wave 63</span>
+  <span id="cb-info">Attempt 1</span>
+  <div id="cb-progress">
+    <div class="cb-pip active" id="pip-wave35" title="Wave 35"></div>
+    <div class="cb-pip todo" id="pip-wave63" title="Wave 63"></div>
+    <div class="cb-pip todo" id="pip-jads" title="Triple Jads"></div>
+    <div class="cb-pip todo" id="pip-zuk" title="TzKal-Zuk"></div>
+    <div class="cb-pip todo" id="pip-gauntlet" title="Gauntlet"></div>
+  </div>
+</div>
+<div id="challenge-detail">
+  <div class="cd-row active" id="cd-wave35"><span class="cd-dot" style="background:#ff0"></span><span class="cd-name">Wave 35</span><span class="cd-attempts">0 attempts</span><span class="cd-passes">0 passes</span><span class="cd-best"></span></div>
+  <div class="cd-row" id="cd-wave63"><span class="cd-dot" style="background:#c00"></span><span class="cd-name">Wave 63</span><span class="cd-attempts">0 attempts</span><span class="cd-passes">0 passes</span><span class="cd-best"></span></div>
+  <div class="cd-row" id="cd-jads"><span class="cd-dot" style="background:#c00"></span><span class="cd-name">Triple Jads</span><span class="cd-attempts">0 attempts</span><span class="cd-passes">0 passes</span><span class="cd-best"></span></div>
+  <div class="cd-row" id="cd-zuk"><span class="cd-dot" style="background:#c00"></span><span class="cd-name">TzKal-Zuk</span><span class="cd-attempts">0 attempts</span><span class="cd-passes">0 passes</span><span class="cd-best"></span></div>
+  <div class="cd-row" id="cd-gauntlet"><span class="cd-dot" style="background:#c00"></span><span class="cd-name">Gauntlet</span><span class="cd-attempts">0 attempts</span><span class="cd-passes">0 passes</span><span class="cd-best"></span></div>
+  <div class="cd-next" id="cd-next">Next: Triple Jads</div>
+</div>
+<div id="game">
+  <!-- Map pane -->
+  <div id="map-pane" class="empty" style="position:relative">
+    <div id="live-indicator"><div id="live-dot"></div><span id="viewer-count">0</span></div>
+    <div id="map-attempt" style="position:absolute;top:0;left:0;z-index:20;font-family:var(--mono);font-size:11px;color:#aaa;background:rgba(0,0,0,0.6);padding:2px 8px;border-radius:0 0 2px 0;cursor:pointer" title="Click to copy replay ID" onclick="const id=this.dataset.replayId||'';navigator.clipboard.writeText(id);this.querySelector('b').textContent=id+' (copied)';setTimeout(()=>this.querySelector('b').textContent=id,2000)"><b id="attempt-num" style="color:var(--gold)">-</b></div>
+    <div id="map-overlay">Wave <b id="map-wave">-</b>/69 &nbsp; Mobs <b id="map-mobs">-</b></div>
+    <div id="map-stats">
+      <span class="sh">A</span><span class="sh">S</span><span class="sh">D</span><span class="sh">R</span><span class="sh">M</span><span class="sh" style="color:#ff0">Run</span>
+      <span id="s-atk">99</span><span id="s-str">99</span><span id="s-def">99</span><span id="s-rng">99</span><span id="s-mag">99</span><span id="s-run" style="color:#ff0">100</span>
+    </div>
+    <!-- Outer ring: area labels -->
+    <div id="area-nw" class="area-label"></div>
+    <div id="area-n" class="area-label" style="position:relative"><span id="area-here-text"></span></div>
+    <div id="area-ne" class="area-label"></div>
+    <div id="area-w" class="area-label side" id="dir-w"></div>
+    <div id="area-e" class="area-label side" id="dir-e"></div>
+    <div id="area-sw" class="area-label"></div>
+    <div id="area-s" class="area-label" id="dir-s"></div>
+    <div id="area-se" class="area-label"></div>
+    <!-- Inner ring: compass directions -->
+    <div id="compass-n" class="compass">N</div>
+    <div id="compass-w" class="compass">W</div>
+    <div id="map-center"><div id="map-content"></div></div>
+    <div id="compass-e" class="compass">E</div>
+    <div id="compass-s" class="compass">S</div>
+  </div>
+
+  <!-- HUD bar — 2 lines -->
+  <div id="hud">
+    <div class="hud-line">
+      <div class="hud-row"><span class="hud-label">HP</span><span class="hud-val hud-hp" id="hud-hp">99/99</span><div id="hud-bar-hp"><div class="fill" id="hud-hp-fill" style="width:100%"></div></div></div>
+      <div class="hud-row"><span class="hud-label">PP</span><span class="hud-val hud-pp" id="hud-pp">99/99</span><div id="hud-bar-pp"><div class="fill" id="hud-pp-fill" style="width:100%"></div></div></div>
+      <div class="hud-row"><span class="hud-label">Pray</span><span class="hud-val hud-pray" id="hud-pray">None</span></div>
+    </div>
+    <div class="hud-line">
+      <span id="hud-wave" style="display:none">-</span><span id="hud-mobs" style="display:none">-</span>
+      <div class="hud-row"><span class="hud-label">Weapon</span><span class="hud-val" id="hud-weapon" style="color:#aaa">-</span></div>
+      <div class="hud-row"><span class="hud-label">Target</span><span class="hud-val" id="hud-target" style="color:#f44">-</span><span id="hud-target-hp" style="color:#f44;margin-left:4px">-</span><div id="hud-bar-target"><div class="fill" id="hud-target-fill" style="width:0%"></div></div></div>
+      <div class="hud-row"><span class="hud-label">Action</span><span class="hud-val hud-action" id="action-box">...</span></div>
+    </div>
+  </div>
+  <!-- Inventory strip -->
+  <div id="inv-strip"></div>
+
+  <!-- Draggable divider + legend -->
+  <div id="divider">
+    <div id="legend"></div>
+  </div>
+
+  <!-- Chat pane -->
+  <div id="chat-pane" style="position:relative">
+    <button id="mode-toggle" onclick="toggleMode()">DEBUG</button>
+    <div id="filter-wrap">
+      <button id="filter-btn" onclick="document.getElementById('filter-menu').classList.toggle('show')">Filter</button>
+      <div id="filter-menu">
+        <label><input type="checkbox" checked data-f="kill"> Kills</label>
+        <label><input type="checkbox" checked data-f="hit"> My Hits</label>
+        <label><input type="checkbox" checked data-f="damage"> Damage Taken</label>
+        <label><input type="checkbox" checked data-f="blocked"> Prayer Blocks</label>
+        <label><input type="checkbox" checked data-f="potion"> Potions</label>
+        <label><input type="checkbox" checked data-f="spawn"> Spawns</label>
+        <label><input type="checkbox" checked data-f="wave"> Waves</label>
+        <label><input type="checkbox" checked data-f="wave-clear"> Wave Clear</label>
+      </div>
+    </div>
+    <div id="chat-log"></div>
+    <div id="input-row">
+      <span id="input-label"></span>
+      <input id="input" type="text" placeholder="" autocomplete="off" spellcheck="false">
+    </div>
+  </div>
+
+  <!-- Debug bar (above playback, only in debug mode) -->
+  <div id="debug-bar">
+    <button class="db-btn" id="btn-rec" onclick="toggleRecord()">REC</button>
+    <span id="rec-info"></span>
+    <input id="rec-note" type="text" placeholder="note...">
+    <button class="db-btn" onclick="recCopy()">Copy</button>
+    <button class="db-btn" onclick="recSave()">Save</button>
+    <button class="db-btn" onclick="recBoth()">Both</button>
+    <button class="db-btn" onclick="recClear()" style="color:#f44">X</button>
+    <span class="db-sep"></span>
+    <input id="range-start" type="number" placeholder="from" onchange="rangeSelect()">
+    <span style="color:#666">-</span>
+    <input id="range-end" type="number" placeholder="to" onchange="rangeSelect()">
+    <input id="range-note" type="text" placeholder="note...">
+    <button class="db-btn" onclick="rangeCopy()">Copy</button>
+    <button class="db-btn" onclick="rangeSave()">Save</button>
+    <button class="db-btn" onclick="rangeBoth()">Both</button>
+  </div>
+
+  <!-- Playback controls -->
+  <div id="playback-bar">
+    <button class="pb-btn" onclick="stepBack()" title="Back 1 tick">&#8630;</button>
+    <button class="pb-btn" id="btn-play" onclick="togglePlay()" title="Play/Pause">&#9646;&#9646;</button>
+    <button class="pb-btn" onclick="stepForward()" title="Forward 1 tick">&#8631;</button>
+    <button class="pb-btn live" onclick="skipToLatest()" title="Jump to live">LIVE</button>
+    <input type="range" id="speed-slider" min="0" max="6" value="3" oninput="setSpeed(this.value)">
+    <span id="speed-label">1x</span>
+    <div id="buffer-bar" onclick="seekBuffer(event)"><div id="buffer-fill"></div></div>
+    <span id="playback-info">
+      Tick:<b id="hud-tick">0</b>
+      Attempts:<b id="total-label">-</b> | All-time:<b id="lifetime-label">-</b>
+    </span>
+    <span id="ep-label" style="display:none">-</span>
+  </div>
+
+  <!-- Tabs -->
+  <div id="tabs">
+    <div class="tab active" data-filter="all">All</div>
+    <div class="tab" data-filter="game">Game<br><small>On</small></div>
+    <div class="tab" data-filter="public">Public<br><small>On</small></div>
+    <div class="tab" data-filter="private">Private<br><small>On</small></div>
+    <div class="tab" data-filter="channel">Channel<br><small>On</small></div>
+    <div class="tab" data-filter="clan">Clan<br><small>On</small></div>
+    <div class="tab" data-filter="trade">Trade<br><small>On</small></div>
+    <div id="timer">00:00:00</div>
+  </div>
+</div>
+
+<script>
+const mapPane=document.getElementById('map-pane'),mapContent=document.getElementById('map-content'),
+chatLog=document.getElementById('chat-log'),inputLabel=document.getElementById('input-label'),
+inp=document.getElementById('input'),divider=document.getElementById('divider'),
+timerEl=document.getElementById('timer'),game=document.getElementById('game');
+
+inp.disabled=true;inp.placeholder='Spectating RL Agent...';inputLabel.textContent='RL:';
+// quick-bar replaced by playback-bar in HTML
+mapPane.classList.remove('empty');
+
+// Divider drag
+let dg=false,sY=0,sH=0;
+divider.addEventListener('mousedown',e=>{dg=true;sY=e.clientY;sH=mapPane.offsetHeight;e.preventDefault()});
+document.addEventListener('mousemove',e=>{if(dg){mapPane.style.height=Math.max(60,Math.min(game.offsetHeight-120,sH+(e.clientY-sY)))+'px'}});
+document.addEventListener('mouseup',()=>{dg=false});
+
+// Colors
+const dc={
+  '@':'#00ff00','.':'#007832','\u00B7':'#007832','X':'#264653','#':'#ffffff','=':'#646464','S':'#efb366','~':'#005aff','D':'#f4a261',
+  // Inferno mobs
+  'n':'#ff6b6b','b':'#e67e22','o':'#9b59b6','k':'#e74c3c','r':'#3498db','M':'#8e44ad',
+  'J':'#ff0000','Z':'#ff0000','h':'#2ecc71','H':'#27ae60','x':'#2ecc71','j':'#3498db','q':'#e74c3c',
+  'G':'#2ecc71','B':'#3498db',
+  ',':'#ff0000',';':'#00ff00',':':'#0000ff',
+  // Entities
+  'O':'#aaaaff','=':'#ffff00',
+  '?':'#f4a261','P':'#00ffff','T':'#00ff3d','*':'#efb366',',':'#8ab17d',
+};
+let uc={...dc}; // No localStorage override — spectator uses fixed Inferno colors
+
+// Legend — Inferno focused
+const leg=[['@','You'],['n','Nib'],['b','Bat'],['o','Blob'],['G','Blob→Rng'],['B','Blob→Mag'],['k','Melee'],['r','Ranger'],['M','Mager'],['J','Jad'],['Z','Zuk'],['h','Heal'],['O','Pillar'],['=','Shield'],[',','MeleeRng'],[';','RngRng'],[':','MagRng'],['.','Floor']];
+const legend=document.getElementById('legend');legend.innerHTML='';
+for(const[ch,lb]of leg){const s=document.createElement('span');s.className='lk';s.innerHTML='<span class="ls" style="color:'+uc[ch]+'">'+ch+'</span>'+lb;legend.appendChild(s)}
+
+// Map render
+function renderMap(text){
+  const am=text.match(/Area:\s*(.+)/);if(am){const e=document.getElementById('area-here-text');if(e)e.textContent=am[1]}
+  const dm=text.match(/Dirs: N=([^|]+)\|S=([^|]+)\|E=([^|]+)\|W=(.+)/);
+  if(dm){['area-n','area-s','area-e','area-w'].forEach((id,i)=>{const e=document.getElementById(id);if(e)e.textContent=dm[i+1]})}
+  let gl=text.split('\n').filter(l=>!l.includes('Legend:')&&!l.includes('Water')&&!l.includes('Area:')&&!l.includes('Dirs:')&&l.trim());
+  if(gl[0]&&/^\(?\d+/.test(gl[0].trim()))gl.shift();
+  gl=gl.map(l=>l.replace(/^\s{1,4}/,''));
+  const mw=Math.max(...gl.map(l=>l.length));
+  let h='';
+  for(const l of gl){h+='<div class="map-row">';for(const c of l.padEnd(mw)){if(c===' '){h+='<div class="map-cell">&nbsp;</div>';continue}
+  const co=uc[c]||'#264653',b=c==='@'?';font-weight:bold':'';h+='<div class="map-cell" style="color:'+co+b+'">'+c+'</div>'}h+='</div>'}
+  mapContent.innerHTML=h;
+}
+
+// Chat
+// Message category for stacking
+function msgCategory(text){
+  if(text.startsWith('>>>'))return 'agent';
+  if(text.includes('hit')&&text.includes('for'))return text.includes('hits you')?'dmg-in':'dmg-out';
+  if(text.includes('miss'))return text.includes('You miss')?'dmg-out':'dmg-in';
+  if(text.includes('blocked by prayer'))return 'prayer-block';
+  if(text.includes('spawns'))return 'spawn';
+  if(text.includes('Wave')&&text.includes('==='))return 'wave';
+  if(text.includes('EPISODE'))return 'episode';
+  return 'other';
+}
+
+function colorize(text){
+  // Shorten verbose combat messages
+  let t=text
+    .replace(/You deal (\d+) (\w+) Damage to (.+)\./,'You hit $3 for $1 ($2)')
+    .replace(/You hit the (.+) for (\d+) damage\./,'You hit $1 for $2')
+    .replace(/You miss the (.+)\./,'Miss $1')
+    .replace(/(.+)'s (\w+) attack hits you for (\d+)\./,'$1 hits you for $3 ($2)')
+    .replace(/(.+)'s (\w+) attack is blocked by prayer\./,'$1 blocked (prayer)');
+  let h=t.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')
+    // Player hits — green
+    .replace(/(You hit .+ for )(\d+)/g,'<span style="color:#060;font-weight:bold">$1$2</span>')
+    .replace(/(Miss .+)/g,'<span style="color:#666">$1</span>')
+    // Enemy hits — red
+    .replace(/(.+ hits you for )(\d+)/g,'<span style="color:#b00;font-weight:bold">$1$2</span>')
+    // Prayer blocks — blue
+    .replace(/(.+ blocked \(prayer\))/g,'<span style="color:#06a;font-weight:bold">$1</span>')
+    // HP
+    .replace(/HP: (\d+)\/(\d+)/g,(m,c,x)=>{const r=parseInt(c)/parseInt(x),co=r>.5?'#060':r>.25?'#a60':'#b00';return'HP: <span style="color:'+co+';font-weight:bold">'+c+'/'+x+'</span>'})
+    // Waves — gold
+    .replace(/(Wave \d+)/g,'<span style="color:#a70;font-weight:bold">$1</span>')
+    .replace(/(spawns)/g,'<span style="color:#448">$1</span>')
+    // Jad/Zuk style calls — red
+    .replace(/(MAGE|RANGE|MELEE)/g,'<span style="color:#a00;font-weight:bold">$1</span>')
+    .replace(/(COMPLETE)/g,'<span style="color:#060;font-weight:bold;font-size:16px">$1</span>')
+    .replace(/(Zuk|Jad)/g,'<span style="color:#800;font-weight:bold">$1</span>')
+    .replace(/(dead!|is dead)/g,'<span style="color:#b00;font-weight:bold">$1</span>')
+    // Potions/eating
+    .replace(/(You drink .+)/g,'<span style="color:#48a">$1</span>')
+    .replace(/(You eat .+)/g,'<span style="color:#4a4">$1</span>');
+  return h;
+}
+
+function formatAgent(text){
+  const step=text.match(/\[(\d+)\]/);
+  const m=text.match(/Agent:\s*(.+)/);
+  const action=m?m[1]:text;
+  const num=step?step[1]:'?';
+  currentStep=num;
+  return '['+num+'] '+action;
+}
+let currentStep='0';
+
+let lastCat='',lastEl=null,stackCount=0,stackTexts=[];
+let currentTick=0;
+function fmtNum(n){
+  if(n>=1e9)return(n/1e9).toFixed(1)+'B';
+  if(n>=1e6)return(n/1e6).toFixed(1)+'M';
+  if(n>=100e3)return(n/1e3).toFixed(0)+'K';
+  if(n>=10e3)return(n/1e3).toFixed(1)+'K';
+  return n.toLocaleString();
+}
+let viewMode='viewer';
+let recording=false;
+let recStartIdx=-1, recEndIdx=-1; // track by playHead position
+
+function toggleMode(){
+  viewMode=viewMode==='viewer'?'debug':'viewer';
+  document.getElementById('mode-toggle').textContent=viewMode==='viewer'?'DEBUG':'VIEWER';
+  document.getElementById('debug-bar').classList.toggle('show',viewMode==='debug');
+  if(viewMode==='viewer') recClear();
+}
+
+function toggleRecord(){
+  recording=!recording;
+  document.getElementById('btn-rec').classList.toggle('active',recording);
+  document.getElementById('btn-rec').textContent=recording?'REC':'Record';
+  if(recording){
+    // Start recording at current playhead
+    recStartIdx=playHead;
+    recEndIdx=playHead;
+    highlightRange();
+    document.getElementById('rec-controls').style.display='inline';
+    updateRecInfo();
+  }
+}
+
+// Called whenever playback moves (step forward/back) while recording
+function recUpdate(){
+  if(!recording) return;
+  // Expand range to include current position
+  if(playHead<recStartIdx) recStartIdx=playHead;
+  if(playHead>recEndIdx) recEndIdx=playHead;
+  highlightRange();
+  updateRecInfo();
+}
+
+function highlightRange(){
+  // Clear old highlights
+  for(const child of chatLog.children) child.classList.remove('msg-selected','selected');
+  // Highlight lines between recStart and recEnd
+  // Map buffer positions to chat elements — each chat child corresponds roughly to buffer lines
+  // Simpler: just highlight all current chat children (they're from the visible range)
+  let count=0;
+  for(const child of chatLog.children){
+    child.classList.add('msg-selected','selected');
+    count++;
+  }
+}
+
+function updateRecInfo(){
+  const lines=recEndIdx-recStartIdx;
+  document.getElementById('rec-info').textContent='ticks:'+lines;
+}
+
+function getRecordedText(){
+  // Get all lines from buffer between recStart and recEnd
+  let text='';
+  for(let i=recStartIdx;i<=recEndIdx&&i<lineBuffer.length;i++){
+    text+=lineBuffer[i]+'\n';
+  }
+  return text.trim();
+}
+
+function recCopy(){
+  const text=getRecordedText();
+  if(!text) return;
+  const note=document.getElementById('rec-note').value;
+  const output=note?'Note: '+note+'\n\n'+text:text;
+  navigator.clipboard.writeText(output).then(()=>{
+    document.getElementById('rec-info').textContent='Copied!';
+    setTimeout(updateRecInfo,2000);
+  });
+}
+
+function recSave(){
+  const text=getRecordedText();
+  const note=document.getElementById('rec-note').value||'';
+  const flag={
+    timestamp: new Date().toISOString(),
+    tickRange: [recStartIdx, recEndIdx],
+    episode: currentEp,
+    note: note,
+    lines: text,
+  };
+  fetch('/flag-tick',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(flag)})
+    .then(()=>{document.getElementById('rec-info').textContent='Saved!';setTimeout(updateRecInfo,2000)})
+    .catch(()=>{});
+  // Backup in localStorage
+  const flags=JSON.parse(localStorage.getItem('inferno-flags')||'[]');
+  flags.push(flag);
+  localStorage.setItem('inferno-flags',JSON.stringify(flags));
+}
+
+function recBoth(){
+  recCopy();
+  setTimeout(recSave,100);
+}
+
+// Manual tick range input
+function rangeSelect(){
+  const s=parseInt(document.getElementById('range-start').value);
+  const e=parseInt(document.getElementById('range-end').value);
+  if(isNaN(s)||isNaN(e)||s>e) {document.getElementById('range-controls').style.display='none';return}
+  document.getElementById('range-controls').style.display='inline';
+}
+function getRangeText(){
+  const s=parseInt(document.getElementById('range-start').value)||0;
+  const e=parseInt(document.getElementById('range-end').value)||lineBuffer.length;
+  let text='';
+  for(let i=s;i<=e&&i<lineBuffer.length;i++) text+=lineBuffer[i]+'\n';
+  return text.trim();
+}
+function rangeCopy(){
+  const note=document.getElementById('range-note').value;
+  const text=getRangeText();
+  const output=note?'Note: '+note+'\n\n'+text:text;
+  navigator.clipboard.writeText(output);
+}
+function rangeSave(){
+  const text=getRangeText();
+  const s=parseInt(document.getElementById('range-start').value)||0;
+  const e=parseInt(document.getElementById('range-end').value)||0;
+  const note=document.getElementById('range-note').value||'';
+  fetch('/flag-tick',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({
+    timestamp:new Date().toISOString(),tickRange:[s,e],episode:currentEp,note:note,lines:text
+  })});
+}
+function rangeBoth(){rangeCopy();setTimeout(rangeSave,100)}
+
+function recClear(){
+  recording=false;
+  recStartIdx=-1;recEndIdx=-1;
+  document.getElementById('btn-rec').classList.remove('active');
+  document.getElementById('btn-rec').textContent='Record';
+  document.getElementById('rec-controls').style.display='none';
+  for(const child of chatLog.children) child.classList.remove('msg-selected','selected');
+}
+
+function addCleanMsg(html,cls){
+  const cb=document.querySelector('#filter-menu input[data-f="'+cls+'"]');
+  if(cb&&!cb.checked)return;
+  const d=document.createElement('div');
+  d.className='cmsg '+cls;
+  d.innerHTML=html;
+  chatLog.appendChild(d);chatLog.scrollTop=chatLog.scrollHeight;
+  while(chatLog.children.length>200)chatLog.removeChild(chatLog.firstChild);
+}
+
+function addMsg(text,type){
+  if(type==='game'&&text.includes('Legend:')&&text.includes('@')){renderMap(text);return}
+
+  let cat=type==='game'?msgCategory(text):(type==='player'?'agent':type);
+
+  // VIEWER mode: clean, attractive, only meaningful events
+  if(viewMode==='viewer'){
+    // Always skip
+    if(cat==='agent')return;
+    if(text.includes('Achievement'))return;
+    if(text.includes('run energy')||text.includes('Your run'))return;
+    if(text.includes('for 0'))return;
+    if(text.includes('Miss'))return;
+
+    // Kills — show hit with roll vs remaining HP
+    if(text.includes('is dead')||text.includes('dead!')){
+      const hm=text.match(/You hit (?:the )?(.+?) for (\d+)/);
+      const km=text.match(/The (.+?) is dead/)||text.match(/(.+?) is dead/);
+      const hp=text.match(/had (\d+) HP/);
+      const name=km?km[1]:'Enemy';
+      if(hm){
+        const roll=parseInt(hm[2]);
+        const had=hp?parseInt(hp[1]):roll;
+        const overkill=roll>had;
+        const wep=document.getElementById('hud-weapon')?.textContent||'';
+        const atkType=wep.toLowerCase().includes('bow')||wep.toLowerCase().includes('blowpipe')?'Range':wep.toLowerCase().includes('wand')||wep.toLowerCase().includes('staff')?'Mage':'Melee';
+        addCleanMsg('<span class="tag">[Player]</span> hit <span style="color:#c00;font-weight:bold">'+roll+'</span> on '+hm[1]+(overkill?' <span class="cb">('+had+' HP left)</span>':'')+' <span class="cb">'+atkType+'</span>','hit');
+      }
+      addCleanMsg('<span class="tag">[Kill]</span> '+name,'kill');
+      return;
+    }
+    // Wave cleared
+    if(text.includes('cleared')){addCleanMsg('<span class="tag">[Clear]</span> Wave cleared','wave-clear');return}
+    // Wave start
+    if(text.includes('Wave')&&text.includes('===')){
+      const wm=text.match(/Wave (\d+)\/69/);
+      addCleanMsg('Wave '+(wm?wm[1]:'?')+'/69','wave');
+      return;
+    }
+    // Spawns
+    if(text.includes('spawns')){
+      const sm=text.match(/(\S+) spawns at \((\d+),\s*(\d+)\)/)||text.match(/(\S+) spawns/);
+      if(sm)addCleanMsg('<span class="tag">[Spawn]</span> '+sm[1]+(sm[2]?' <span class="cb">('+sm[2]+','+sm[3]+')</span>':''),'spawn');
+      return;
+    }
+    // Damage taken
+    if(text.includes('hits you for')){
+      const dm=text.match(/(.+?)(?:'s \w+ attack | )hits you for (\d+).*?HP: (\d+)\/(\d+)/)||text.match(/(.+) hits you for (\d+)/);
+      if(dm)addCleanMsg('<span class="tag">['+dm[1]+']</span> hit you for <span style="color:#c00;font-weight:bold">'+dm[2]+'</span>'+(dm[3]?' <span class="cb">HP: '+dm[3]+'/'+dm[4]+'</span>':''),'damage');
+      return;
+    }
+    // Prayer blocked
+    if(text.includes('blocked')){
+      const pm=text.match(/(.+) blocked/);
+      if(pm)addCleanMsg('<span class="tag">[Block]</span> '+pm[1]+' <span class="cb">prayer</span>','blocked');
+      return;
+    }
+    // Potions
+    if(text.includes('You drink')){
+      const dm=text.match(/You drink the (.+?)\.\s*(.*)/);
+      if(dm)addCleanMsg('<span class="tag">[Potion]</span> '+dm[1]+(dm[2]?' <span class="cb">'+dm[2]+'</span>':''),'potion');
+      return;
+    }
+    // Player hits
+    if(text.includes('You hit')){
+      const hm=text.match(/You hit (.+) for (\d+)/);
+      const wep=document.getElementById('hud-weapon')?.textContent||'';
+      const atkType=wep.toLowerCase().includes('bow')||wep.toLowerCase().includes('blowpipe')?'Range':wep.toLowerCase().includes('wand')||wep.toLowerCase().includes('staff')?'Mage':'Melee';
+      if(hm)addCleanMsg('<span class="tag">[Player]</span> hit <span style="color:#c00;font-weight:bold">'+hm[2]+'</span> on '+hm[1]+' <span class="cb">'+atkType+'</span>','hit');
+      return;
+    }
+    // Death
+    if(text.includes('died')||text.includes('failed')){addCleanMsg('DEATH','death');return}
+    // Complete
+    if(text.includes('COMPLETE')){addCleanMsg('INFERNO COMPLETE!','complete');return}
+    return;
+  }
+  // Never stack waves, episodes, spawns
+  const noStack=cat==='wave'||cat==='episode'||cat==='spawn';
+  // Stack by tick: same tick groups together, new tick breaks
+  // Game events always break agent stacks
+  if(cat!=='agent'){
+    // Any game event resets agent stack
+    lastCat='';lastEl=null;stackCount=0;stackTexts=[];
+  }
+
+  if(cat===lastCat&&lastEl&&lastEl.parentNode){
+    // Same category — stack it
+    stackCount++;
+    stackTexts.push(text);
+    // Update the visible line to show latest + count
+    const content=type==='game'?colorize(text):formatAgent(text);
+    lastEl.querySelector('.stack-main').textContent=content;
+    let badge=lastEl.querySelector('.stack-count');
+    if(!badge){
+      badge=document.createElement('span');
+      badge.className='stack-count';
+      badge.onclick=function(){
+        const hidden=lastEl.querySelector('.stack-hidden');
+        if(hidden)hidden.classList.toggle('show');
+      };
+      lastEl.querySelector('.stack-main').after(badge);
+    }
+    badge.textContent='('+stackCount+'x)';
+    // Update hidden expandable list
+    let hidden=lastEl.querySelector('.stack-hidden');
+    if(!hidden){
+      hidden=document.createElement('div');
+      hidden.className='stack-hidden';
+      lastEl.appendChild(hidden);
+    }
+    hidden.innerHTML=stackTexts.map(t=>type==='game'?colorize(t):t.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')).join('<br>');
+    chatLog.scrollTop=chatLog.scrollHeight;
+    return;
+  }
+
+  // New category — reset stack
+  lastCat=cat;stackCount=1;stackTexts=[text];
+
+  const d=document.createElement('div');d.className='msg '+type;
+  const main=document.createElement('span');main.className='stack-main';
+  if(type==='game'){
+    main.innerHTML=colorize(text);
+  }else{
+    main.textContent=text;
+  }
+  d.appendChild(main);
+  lastEl=d;
+
+  chatLog.appendChild(d);chatLog.scrollTop=chatLog.scrollHeight;
+  while(chatLog.children.length>300){chatLog.removeChild(chatLog.firstChild);if(lastEl&&!lastEl.parentNode)lastEl=null}
+}
+
+// Timer
+const t0=Date.now();setInterval(()=>{const e=Math.floor((Date.now()-t0)/1000);timerEl.textContent=[Math.floor(e/3600),Math.floor(e%3600/60),e%60].map(v=>String(v).padStart(2,'0')).join(':')},1000);
+
+// Tabs
+document.querySelectorAll('.tab[data-filter]').forEach(t=>t.addEventListener('click',()=>{document.querySelectorAll('.tab').forEach(x=>x.classList.remove('active'));t.classList.add('active')}));
+
+// ── Episode Playback System ──
+const lineBuffer=[];
+let playHead=0;
+let playing=true;
+let speedMultiplier=1;
+const SPEEDS=[0,0.25,0.5,1,2,5,10];
+let mapBuf='',colMap=false;
+let currentEp=0;
+let episodes=[];       // list of episode filenames
+let currentEpIdx=-1;   // which episode we're playing
+let liveMode=false;    // true = polling live.log for current episode
+let lastLiveLen=0;
+
+// Fetch episode list
+async function loadEpisodeList(){
+  try{const r=await fetch('/episodes');if(r.ok)episodes=await r.json()}catch{}
+}
+
+// Load a specific episode file into the buffer
+async function loadEpisode(filename){
+  try{
+    const r=await fetch('/episode/'+filename);
+    if(r.ok){
+      const t=await r.text();
+      lineBuffer.length=0;playHead=0;
+      chatLog.innerHTML='';mapContent.innerHTML='';mapBuf='';colMap=false;
+      for(const l of t.split('\n'))if(l)lineBuffer.push(l);
+      updateBufferBar();
+      return true;
+    }
+  }catch{}
+  return false;
+}
+
+// Load live.log (append mode — each tick appends map+JSON)
+async function pollLive(){
+  try{
+    const r=await fetch('/spectate-data');
+    if(r.ok){
+      const t=await r.text();
+      if(t.length>lastLiveLen){
+        const newLines=t.slice(lastLiveLen).split('\n').filter(l=>l);
+        for(const l of newLines)lineBuffer.push(l);
+        lastLiveLen=t.length;
+        updateBufferBar();
+      } else if(t.length<lastLiveLen){
+        // File was rewritten = new episode started
+        lineBuffer.length=0;playHead=0;lastLiveLen=0;
+        chatLog.innerHTML='';mapContent.innerHTML='';mapBuf='';colMap=false;
+        const newLines=t.split('\n').filter(l=>l);
+        for(const l of newLines)lineBuffer.push(l);
+        lastLiveLen=t.length;
+        updateBufferBar();
+      }
+    }
+  }catch{}
+}
+
+// Go straight to live — no stale episode replay
+async function startPlayback(){
+  liveMode=true;
+  document.getElementById('live-dot').classList.add('on');
+  lastLiveLen=0;
+  addMsg('Connecting to live training...','system');
+  await pollLive();
+  mainLoop();
+}
+
+async function mainLoop(){
+  while(true){
+    // If playing and have lines to render
+    if(playing && speedMultiplier>0 && playHead<lineBuffer.length){
+      let rendered=false;
+      while(playHead<lineBuffer.length){
+        const line=lineBuffer[playHead];
+        if(line.startsWith('>>>')&&rendered)break;
+        if(line.startsWith('>>>'))rendered=true;
+        renderLine(line);
+        playHead++;
+      }
+      updateBufferBar();
+    }
+
+    // If we've reached end of buffer
+    if(playHead>=lineBuffer.length){
+      if(liveMode){
+        // Poll for more live data
+        await pollLive();
+      } else {
+        // Finished a saved episode — switch to live mode for current episode
+        liveMode=true;document.getElementById('live-dot').classList.add('on');
+        lastLiveLen=0;
+        lineBuffer.length=0;playHead=0;
+        chatLog.innerHTML='';mapContent.innerHTML='';mapBuf='';colMap=false;
+        addMsg('Switching to live episode...','system');
+        await pollLive();
+      }
+    }
+
+    const delay=speedMultiplier>0?Math.max(16,600/speedMultiplier):200;
+    await new Promise(r=>setTimeout(r,delay));
+  }
+}
+
+// Playback: render lines from buffer at controlled speed
+let tickAccum=0;
+const BASE_TICK=100; // ms per line at 1x
+
+function playbackLoop(){
+  if(playing && speedMultiplier>0 && playHead<lineBuffer.length){
+    // Render one full tick: everything from current >>> to next >>>
+    // This groups map + combat + status into one visual update
+    let rendered=false;
+    while(playHead<lineBuffer.length){
+      const line=lineBuffer[playHead];
+      // If we hit the NEXT agent action and already rendered one, stop
+      if(line.startsWith('>>>')&&rendered)break;
+      if(line.startsWith('>>>'))rendered=true;
+      renderLine(line);
+      playHead++;
+    }
+    updateBufferBar();
+  }
+  // 600ms per tick at 1x = real OSRS speed
+  const delay=speedMultiplier>0?Math.max(16,600/speedMultiplier):100;
+  setTimeout(playbackLoop,delay);
+}
+
+function isMapLine(line){
+  if(!line||line.length<10)return false;
+  if(line.startsWith('>>>')||line.startsWith('{'))return false;
+  // Must be ONLY map characters — no letters like a-z A-Z that aren't mob/tile chars
+  // Map chars: . @ ! ? # ~ = S D T X P O W n b o k r M J Z h H x j q and spaces
+  if(/[a-efi-lp-wA-IK-LN-QU-Y0-9:(),'"!?]/.test(line.replace(/[.@#~=SDTXPOWnbokrMJZhHxjq\s]/g,'')))return false;
+  const mapChars=/^[.\u00B7@!#~=SDTXPOWnbokrMJZhHxjq\s]+$/;
+  return mapChars.test(line)&&line.length>20;
+}
+
+function updateHud(line){
+  // Parse from JSON state lines
+  if(line.startsWith('{')){
+    try{
+      const s=JSON.parse(line);
+      const hpEl=document.getElementById('hud-hp');
+      hpEl.textContent=s.hp+'/'+s.maxHp;
+      hpEl.className='hud-val hud-hp'+(s.hp<s.maxHp*0.25?' critical':s.hp<s.maxHp*0.5?' low':'');
+      document.getElementById('hud-hp-fill').style.width=(s.hp/s.maxHp*100)+'%';
+      document.getElementById('hud-pp').textContent=s.pp+'/'+s.maxPp;
+      document.getElementById('hud-pp-fill').style.width=(s.pp/s.maxPp*100)+'%';
+      // Prayer display: shield for protection, sword for offensive
+      const protections=[];const offensives=[];
+      if(s.prayers){
+        for(const p of s.prayers){
+          if(p.includes('protect_from_magic'))protections.push('Mage');
+          else if(p.includes('protect_from_missiles'))protections.push('Range');
+          else if(p.includes('protect_from_melee'))protections.push('Melee');
+          else if(p==='rigour')offensives.push('Rigour');
+          else if(p==='augury')offensives.push('Augury');
+          else if(p==='piety')offensives.push('Piety');
+          else if(p==='eagle_eye')offensives.push('Eagle Eye');
+          else if(p==='mystic_might')offensives.push('Mystic Might');
+        }
+      }
+      let prayHtml='';
+      if(protections.length)prayHtml+='<span class="pray-prot">\u{1F6E1}\uFE0F '+protections.join('+')+'</span>';
+      if(offensives.length)prayHtml+=(prayHtml?' ':'')+'<span class="pray-off">\u2694\uFE0F '+offensives.join('+')+'</span>';
+      if(!prayHtml)prayHtml='None';
+      document.getElementById('hud-pray').innerHTML=prayHtml;
+      document.getElementById('hud-wave').textContent=s.wave+'/69';
+      document.getElementById('hud-mobs').textContent=s.mobCount;
+      document.getElementById('map-wave').textContent=s.wave;
+      document.getElementById('map-mobs').textContent=s.mobCount;
+      if(s.tick){document.getElementById('hud-tick').textContent=s.tick;currentTick=s.tick}
+      document.getElementById('ep-label').textContent=currentEp;
+      // Target + weapon
+      if(s.target)document.getElementById('hud-target').textContent=s.target||'-';
+      if(s.targetMaxHp>0){
+        document.getElementById('hud-target-hp').textContent=s.targetHp+'/'+s.targetMaxHp;
+        document.getElementById('hud-target-fill').style.width=(s.targetHp/s.targetMaxHp*100)+'%';
+      }else{
+        document.getElementById('hud-target-hp').textContent='';
+        document.getElementById('hud-target-fill').style.width='0%';
+      }
+      // Combat stats overlay
+      if(s.stats){
+        const ids=['s-atk','s-str','s-def','s-rng','s-mag'];
+        const keys=['atk','str','def','rng','mag'];
+        const headers=document.querySelectorAll('#map-stats .sh');
+        for(let i=0;i<5;i++){
+          const el=document.getElementById(ids[i]);
+          const cur=s.stats[keys[i]];
+          const base=s.stats.base[keys[i]];
+          el.textContent=cur;
+          const cls=cur>base?'buffed':cur<base?'drained':'';
+          el.className=cls;
+          if(headers[i])headers[i].className='sh'+(cls?' '+cls:'');
+        }
+        // Run energy
+        if(s.run!==undefined){
+          const rel=document.getElementById('s-run');
+          rel.textContent=s.run;
+          rel.style.color=s.run>50?'#ff0':s.run>20?'#f80':'#f44';
+        }
+      }
+      if(s.weapon)document.getElementById('hud-weapon').textContent=s.weapon.replace(/\(.*\)/,'').trim();
+      // Inventory grid — 28 slots with fill levels for potions
+      if(s.inv){
+        const strip=document.getElementById('inv-strip');
+        const abbr={
+          'Saradomin brew(4)':['BRW','#c8a030'],
+          'Super restore(4)':['RST','#d45eb8'],
+          'Bastion potion(4)':['BST','#e08030'],
+          'Stamina potion(4)':['STM','#6a4420'],
+          'Prayer potion(4)':['PRA','#3070c0'],
+          'Shark':['SHK','#4a8090'],
+          'Toxic blowpipe':['BP','#00ff00'],
+          'Kodai wand':['KDI','#4444ff'],
+          'Occult necklace':['OCC','#4444ff'],
+          "Ahrim's robe top":['AHT','#4444ff'],
+          "Ahrim's robe bottom":['AHB','#4444ff'],
+          'Blood rune':['BLD','#c04040'],
+          'Death rune':['DTH','#404040'],
+          'Vial':['VIA','#333'],
+          'Rune scimitar':['RSC','#4080b0'],
+        };
+        // Match any dose variant
+        function getAbbr(name){
+          const base=name.replace(/\(\d\)$/,'').trim();
+          const map={
+            'Saradomin brew':['BRW','#c8a030'],
+            'Super restore':['RST','#d45eb8'],
+            'Bastion potion':['BST','#e08030'],
+            'Stamina potion':['STM','#6a4420'],
+            'Prayer potion':['PRA','#3070c0'],
+          };
+          if(map[base])return map[base];
+          return abbr[name]||[name.substring(0,3).toUpperCase(),'#888'];
+        }
+        function getDose(name){
+          const m=name.match(/\((\d)\)$/);
+          return m?parseInt(m[1]):0;
+        }
+        let html='';
+        for(let i=0;i<28;i++){
+          const slot=s.inv[i];
+          if(!slot){
+            html+='<div class="inv-slot empty"></div>';
+            continue;
+          }
+          const info=getAbbr(slot.n);
+          const lbl=info[0];
+          const col=info[1];
+          const dose=getDose(slot.n);
+          const isVial=slot.n==='Vial';
+          // Dose fill: 4=100%, 3=75%, 2=50%, 1=25%, 0/vial=0%
+          const fillPct=dose>0?(dose/4*100):0;
+          const fillHtml=fillPct>0?'<div class="fill" style="height:'+fillPct+'%;background:'+col+';opacity:0.35"></div>':'';
+          const countHtml=slot.c>1?'<span class="count">'+slot.c+'</span>':'';
+          const doseLabel=dose>0?lbl+'('+dose+')':isVial?'VIA':lbl;
+          const borderCol=isVial?'#222':dose>0?col:'#333';
+          const weaponItems=new Set(['Toxic blowpipe','Kodai wand','Armadyl crossbow','Rune scimitar']);
+          const armourItems=new Set(['Occult necklace',"Ahrim's robe top","Ahrim's robe bottom"]);
+          const rangedItems=new Set(['Toxic blowpipe','Armadyl crossbow']);
+          const meleeItems=new Set(['Rune scimitar']);
+          const mageItems=new Set(['Kodai wand','Occult necklace',"Ahrim's robe top","Ahrim's robe bottom"]);
+          // Determine style color
+          let gearCls='';
+          let gearCol=null;
+          if(rangedItems.has(slot.n)){gearCls='gear-ranged';gearCol='#00ff00'}
+          else if(meleeItems.has(slot.n)){gearCls='gear-melee';gearCol='#ff0000'}
+          else if(mageItems.has(slot.n)){gearCls='gear-mage';gearCol='#0000ff'}
+          // Icon: sword for weapon, shield for armour
+          const isWeapon=weaponItems.has(slot.n);
+          const isArmour=armourItems.has(slot.n);
+          const icon=isWeapon?'\u2694':isArmour?'\u{1F6E1}':'';
+          // Fill like potions but with gear color
+          const gearFill=gearCol?'<div class="fill" style="height:100%;background:'+gearCol+';opacity:0.15"></div>':'';
+          const styleAttr=gearCls?'':'style="border-color:'+borderCol+'"';
+          const iconHtml=icon?'<span style="position:absolute;top:0;left:1px;font-size:7px;z-index:1;opacity:0.6">'+icon+'</span>':'';
+          const hasFill=fillPct>0||gearCol;
+          const txtCol=isVial?'#444':hasFill?'#fff':col;
+          html+='<div class="inv-slot '+gearCls+'" '+styleAttr+' title="'+slot.n+(slot.c>1?' x'+slot.c:'')+'">'+gearFill+fillHtml+iconHtml+countHtml+'<span class="label" style="color:'+txtCol+'">'+doseLabel+'</span></div>';
+        }
+        strip.innerHTML=html;
+      }
+    }catch{}
+  }
+  // Parse agent action — make it readable
+  if(line.startsWith('>>>')){
+    const m=line.match(/Agent:\s*(.+)/);
+    if(m){
+      let a=m[1];
+      // Replace generic names with what's actually happening
+      const tgt=document.getElementById('hud-target').textContent;
+      if(a==='atk NEAREST'||a==='atk PRIORITY') a=tgt&&tgt!=='-'?'Attack '+tgt:'Looking for target';
+      if(a==='BREW') a='Drink Sara Brew';
+      if(a==='RESTORE') a='Drink Super Restore';
+      if(a==='BASTION') a='Drink Bastion';
+      if(a==='equip BP') a='Switch to Blowpipe';
+      if(a==='pray Mage') a='Protect from Magic';
+      if(a==='pray Range') a='Protect from Ranged';
+      if(a==='pray Melee') a='Protect from Melee';
+      document.getElementById('action-box').textContent=a;
+    }
+  }
+}
+
+function renderLine(line){
+  if(!line)return;
+  updateHud(line);
+  // Skip raw JSON from chat (but still parsed by HUD above)
+  if(line.startsWith('{'))return;
+  // Track episode
+  const em=line.match(/EPISODE\s*(\d+)/);
+  if(em){currentEp=parseInt(em[1]);document.getElementById('ep-label').textContent=currentEp}
+  const am=line.match(/ATTEMPT\s*(\d+)/);
+  if(am){const n=am[1];document.getElementById('total-label').textContent=fmtNum(parseInt(n))}
+  const idm=line.match(/ID\s+([A-Z0-9]+)/);
+  if(idm){const id=idm[1];document.getElementById('attempt-num').textContent=id;document.getElementById('map-attempt').dataset.replayId=id}
+  // Map collection — detect map lines or Legend/Area/Dirs
+  if(line.includes('Legend:')){
+    colMap=false;mapBuf+=line+'\n';renderMap(mapBuf);
+    // In debug mode, show map in chat too
+    if(viewMode==='debug'){
+      const d=document.createElement('pre');
+      d.style.cssText='font-size:9px;line-height:1;color:#555;margin:2px 0;overflow-x:auto;white-space:pre';
+      d.textContent=mapBuf;
+      chatLog.appendChild(d);chatLog.scrollTop=chatLog.scrollHeight;
+    }
+    mapBuf='';return;
+  }
+  if(line.includes('Area:')||line.includes('Dirs:')){mapBuf+=line+'\n';return}
+  if(isMapLine(line)||colMap){colMap=true;mapBuf+=line+'\n';return}
+  if(/^\(\d+,\s*\d+\)/.test(line.trim())){colMap=true;mapBuf+=line+'\n';return}
+  // Non-map line breaks map collection
+  if(colMap&&mapBuf){colMap=false;mapBuf=''}
+  // Chat
+  // Skip noisy lines from chat (but Legend still triggers map render above)
+  if(line.includes('Grass/Floor')||line.includes('Unwalkable'))return;
+  if(line.startsWith('>>>')){addMsg(line,'player');return}
+  if(line.includes('====')||line.includes('EPISODE')){addMsg(line,'system');return}
+  addMsg(line,'game');
+}
+
+function updateBufferBar(){
+  const pct=lineBuffer.length>0?(playHead/lineBuffer.length*100):0;
+  document.getElementById('buffer-fill').style.width=pct+'%';
+  // progress bar only
+}
+
+// ── Controls ──
+function togglePlay(){
+  playing=!playing;
+  document.getElementById('btn-play').innerHTML=playing?'&#9646;&#9646;':'&#9654;';
+  document.getElementById('btn-play').classList.toggle('active',playing);
+}
+function stepBack(){
+  if(playHead<=0)return;
+  // Go back to the previous >>> marker
+  let target=playHead-1;
+  while(target>0&&!lineBuffer[target].startsWith('>>>'))target--;
+  if(target>0)target--; // one more to include context before the action
+  while(target>0&&!lineBuffer[target].startsWith('>>>'))target--;
+  // Re-render from that point
+  playHead=Math.max(0,target);
+  chatLog.innerHTML='';mapContent.innerHTML='';mapBuf='';colMap=false;
+  const start=Math.max(0,playHead-50);
+  for(let i=start;i<playHead;i++)renderLine(lineBuffer[i]);
+  updateBufferBar();
+  recUpdate();
+}
+function stepForward(){
+  if(playHead<lineBuffer.length){
+    // Step through lines until we hit a >>> (agent action = 1 tick)
+    let stepped=false;
+    while(playHead<lineBuffer.length){
+      renderLine(lineBuffer[playHead]);
+      playHead++;
+      if(lineBuffer[playHead-1].startsWith('>>>')){stepped=true}
+      else if(stepped)break; // stop after rendering the tick's results
+    }
+    updateBufferBar();
+    recUpdate();
+  }
+}
+async function skipToLatest(){
+  // Jump to live mode immediately
+  liveMode=true;document.getElementById('live-dot').classList.add('on');lastLiveLen=0;
+  lineBuffer.length=0;playHead=0;
+  chatLog.innerHTML='';mapContent.innerHTML='';mapBuf='';colMap=false;
+  addMsg('Skipping to live...','system');
+  await pollLive();
+  // Render everything we got
+  while(playHead<lineBuffer.length){renderLine(lineBuffer[playHead]);playHead++}
+  updateBufferBar();
+}
+function setSpeed(val){
+  speedMultiplier=SPEEDS[parseInt(val)];
+  const label=speedMultiplier===0?'||':speedMultiplier+'x';
+  document.getElementById('speed-label').textContent=label;
+  if(speedMultiplier===0){playing=false;document.getElementById('btn-play').innerHTML='&#9654;'}
+  else{playing=true;document.getElementById('btn-play').innerHTML='&#9646;&#9646;'}
+}
+function seekBuffer(e){
+  const bar=document.getElementById('buffer-bar');
+  const pct=e.offsetX/bar.offsetWidth;
+  playHead=Math.floor(pct*lineBuffer.length);
+  // Re-render from seek point: clear chat, replay last 30 lines
+  chatLog.innerHTML='';mapContent.innerHTML='';mapBuf='';colMap=false;
+  const start=Math.max(0,playHead-30);
+  for(let i=start;i<playHead;i++)renderLine(lineBuffer[i]);
+  updateBufferBar();
+}
+
+addMsg('Inferno RL Spectator','system');
+// Poll total attempts counter
+async function pollTotal(){
+  while(true){
+    try{
+      const r=await fetch('/total-attempts');
+      if(r.ok) document.getElementById('total-label').textContent=fmtNum(parseInt(await r.text()));
+      const r2=await fetch('/lifetime-attempts');
+      if(r2.ok) document.getElementById('lifetime-label').textContent=fmtNum(parseInt(await r2.text()));
+    }catch{}
+    await new Promise(r=>setTimeout(r,5000));
+  }
+}
+pollTotal();
+
+// Poll challenge status
+const challengeNames={wave35:'Wave 35 — First Mager',wave63:'Wave 63 — All Mobs',jads:'Triple Jads',zuk:'TzKal-Zuk',gauntlet:'Gauntlet'};
+const challengeOrder=['wave35','wave63','jads','zuk','gauntlet'];
+
+async function pollChallenges(){
+  while(true){
+    try{
+      const r=await fetch('/challenges');
+      if(r.ok){
+        const data=await r.json();
+
+        // Find active challenge (first incomplete)
+        let active='wave35';
+        for(const c of challengeOrder){
+          if((data[c]||{}).status!=='complete'){active=c;break}
+        }
+
+        // Update status bar
+        const ac=data[active]||{};
+        document.getElementById('cb-label').textContent=challengeNames[active];
+        document.getElementById('cb-info').textContent='Attempt '+(ac.attempts||0)+' | '+((ac.passes||0))+' passes';
+        document.getElementById('cb-dot').className='cb-dot '+(ac.status==='complete'?'green':'yellow');
+
+        // Update pips
+        for(const c of challengeOrder){
+          const pip=document.getElementById('pip-'+c);
+          if(!pip)continue;
+          const s=(data[c]||{}).status;
+          pip.className='cb-pip '+(s==='complete'?'done':c===active?'active':'todo');
+        }
+
+        // Update detail panel
+        for(const c of challengeOrder){
+          const row=document.getElementById('cd-'+c);
+          if(!row)continue;
+          const d=data[c]||{};
+          row.className='cd-row'+(c===active?' active':'')+(d.status==='complete'?' complete':'');
+          row.querySelector('.cd-dot').style.background=d.status==='complete'?'#0c0':c===active?'#ff0':'#c00';
+          row.querySelector('.cd-attempts').textContent=(d.attempts||0)+' attempts';
+          row.querySelector('.cd-passes').textContent=(d.passes||0)+' passes'+(d.goodPasses?' ('+d.goodPasses+' good)':'');
+          row.querySelector('.cd-best').textContent=d.bestDamage<999?'best: '+d.bestDamage+' dmg':'';
+        }
+
+        // Next challenge
+        let nextIdx=challengeOrder.indexOf(active)+1;
+        const next=nextIdx<challengeOrder.length?challengeNames[challengeOrder[nextIdx]]:'All complete!';
+        document.getElementById('cd-next').textContent='Next: '+next;
+      }
+    }catch{}
+    await new Promise(r=>setTimeout(r,3000));
+  }
+}
+pollChallenges();
+
+async function pollViewers(){
+  while(true){
+    try{const r=await fetch('/viewers');if(r.ok)document.getElementById('viewer-count').textContent=await r.text()}catch{}
+    await new Promise(r=>setTimeout(r,5000));
+  }
+}
+pollViewers();
+startPlayback();
+</script>
+</body>
+</html>
+

@@ -186,14 +186,35 @@ module.exports = function registerAll(ctx) {
       if (!args[0] || args[0] === 'off') { p.activePrayers.clear(); return 'All prayers off.'; }
       const name = args.join('_').toLowerCase();
       if (p.activePrayers.has(name)) { p.activePrayers.delete(name); return `${name} off.`; }
+
+      // Mutual exclusion: only one protection prayer at a time
+      const protections = ['protect_from_melee', 'protect_from_missiles', 'protect_from_magic'];
+      if (protections.includes(name)) {
+        for (const prot of protections) p.activePrayers.delete(prot);
+      }
+
       p.activePrayers.add(name);
       return `${name} on. Prayer points: ${p.prayerPoints}`;
     }
   });
 
+  // ── Station name mapping (recipe station -> object display name) ───────────
+  const STATION_OBJECT_NAMES = {
+    range: 'Cooking range',
+    furnace: 'Furnace',
+    anvil: 'Anvil',
+    'spinning wheel': 'Spinning wheel',
+  };
+
   // ── Generic tick-based recipe processing ──────────────────────────────────
   function startRecipeAction(p, recipe, skill, verb, extraCheck) {
     if (getLevel(p, skill) < recipe.level) return `You need ${skill.charAt(0).toUpperCase() + skill.slice(1)} level ${recipe.level}.`;
+    // Station proximity check — if recipe requires a station, player must be near it
+    if (recipe.station) {
+      const objName = STATION_OBJECT_NAMES[recipe.station] || recipe.station;
+      const station = objects.findObjectByName(objName, p.x, p.y, 3, p.layer);
+      if (!station) return `You need to be near a ${recipe.station} to ${verb}.`;
+    }
     if (extraCheck) { const err = extraCheck(); if (err) return err; }
     for (const input of recipe.inputs) {
       if (invCount(p, input.id) < input.count) return `You need ${input.count}x ${items.get(input.id)?.name || 'item'}.`;
@@ -402,9 +423,14 @@ module.exports = function registerAll(ctx) {
       const slot = parseInt(args[0]);
       const count = parseInt(args[1]) || 1;
       if (isNaN(slot)) return 'Usage: buy [slot number] [amount]';
+      // Check stock availability before purchase
+      const stockItem = shop.stock[slot];
+      if (!stockItem || stockItem.current < count) return 'Out of stock or invalid slot.';
+      // Check coins BEFORE decrementing stock
+      const price = shops.buyPrice(shop, slot) * count;
+      if (invCount(p, 101) < price) return `You need ${price} coins. You have ${invCount(p, 101)}.`;
       const result = shops.buy(shop, slot, count);
       if (!result) return 'Out of stock or invalid slot.';
-      if (invCount(p, 101) < result.price) return `You need ${result.price} coins. You have ${invCount(p, 101)}.`;
       invRemove(p, 101, result.price);
       const itemDef = items.get(result.itemId);
       invAdd(p, result.itemId, result.name, result.count, itemDef?.stackable);
@@ -852,10 +878,26 @@ module.exports = function registerAll(ctx) {
       const def = items.get(item.id);
       if (!def || def.category !== 'potion') return `You can't drink ${item.name}.`;
 
-      p.inventory[slot] = item.count > 1 ? { ...item, count: item.count - 1 } : null;
+      // Dose system: potion(4) → (3) → (2) → (1) → Vial
+      const doseMatch = item.name.match(/\((\d)\)$/);
+      if (doseMatch) {
+        const dose = parseInt(doseMatch[1]);
+        if (dose > 1) {
+          // Decrement dose
+          const newName = item.name.replace(/\(\d\)$/, `(${dose - 1})`);
+          p.inventory[slot] = { ...item, name: newName };
+        } else {
+          // Last dose → Vial
+          p.inventory[slot] = { id: 325, name: 'Vial', count: 1 };
+        }
+      } else {
+        // Non-dose potion — remove normally
+        p.inventory[slot] = item.count > 1 ? { ...item, count: item.count - 1 } : null;
+      }
       if (!p.boosts) p.boosts = {};
       const potionName = item.name.toLowerCase();
-      let msg = `You drink the ${item.name}.`;
+      const doseNum = doseMatch ? parseInt(doseMatch[1]) : 0;
+      let msg = `You drink the ${item.name}. ${doseNum > 1 ? (doseNum - 1) + ' doses left.' : doseNum === 1 ? 'Empty vial.' : ''}`;
 
       if (potionName.includes('super attack')) {
         const boost = 5 + Math.floor(getLevel(p, 'attack') * 0.15);
@@ -877,6 +919,37 @@ module.exports = function registerAll(ctx) {
         const boost = 3 + Math.floor(getLevel(p, 'defence') * 0.1);
         p.boosts.defence = { amount: boost, ticksLeft: 90 };
         msg += ` Defence boosted by +${boost} for 90 ticks.`;
+      } else if (potionName.includes('saradomin brew')) {
+        // Sara brew: heals 16, boosts defence by 2+20%, lowers atk/str/mage/range by 2+10%
+        const heal = Math.min(16, p.maxHp - p.hp);
+        p.hp += heal;
+        const defBoost = 2 + Math.floor(getLevel(p, 'defence') * 0.20);
+        if (!p.boosts) p.boosts = {};
+        p.boosts.defence = { amount: defBoost, ticksLeft: 90 };
+        // Drain combat stats
+        for (const sk of ['attack', 'strength', 'magic', 'ranged']) {
+          const drain = 2 + Math.floor(getLevel(p, sk) * 0.10);
+          p.boosts[sk] = { amount: -(p.boosts[sk]?.amount > 0 ? Math.max(0, p.boosts[sk].amount - drain) : drain), ticksLeft: 90 };
+        }
+        msg += ` HP +${heal}. Defence boosted. Combat stats drained.`;
+      } else if (potionName.includes('super restore')) {
+        // Super restore: restores prayer by 8+25%, restores all stat drains
+        const restore = Math.floor(8 + getLevel(p, 'prayer') * 0.25);
+        p.prayerPoints = Math.min(getLevel(p, 'prayer'), p.prayerPoints + restore);
+        if (p.boosts) for (const [sk, b] of Object.entries(p.boosts)) { if (b.amount < 0) delete p.boosts[sk]; }
+        msg += ` Prayer +${restore} (${p.prayerPoints}/${getLevel(p, 'prayer')}). Stats restored.`;
+      } else if (potionName.includes('bastion')) {
+        // Bastion: ranged boost + defence boost (like ranging + super def combined)
+        const rngBoost = 4 + Math.floor(getLevel(p, 'ranged') * 0.10);
+        const defBoost = 5 + Math.floor(getLevel(p, 'defence') * 0.15);
+        if (!p.boosts) p.boosts = {};
+        p.boosts.ranged = { amount: rngBoost, ticksLeft: 90 };
+        p.boosts.defence = { amount: defBoost, ticksLeft: 90 };
+        msg += ` Ranged +${rngBoost}, Defence +${defBoost}.`;
+      } else if (potionName.includes('stamina')) {
+        // Stamina: 70% reduced run drain for 200 ticks
+        p.staminaEffect = 200;
+        msg += ' Run energy drain reduced by 70% for 2 minutes.';
       } else if (potionName.includes('prayer')) {
         const restore = Math.floor(7 + getLevel(p, 'prayer') / 4);
         p.prayerPoints = Math.min(getLevel(p, 'prayer'), p.prayerPoints + restore);
@@ -895,7 +968,6 @@ module.exports = function registerAll(ctx) {
       p.nextDrinkTick = currentTick + 3;
       p.nextEatTick = currentTick; // Potion resets food timer
 
-      invAdd(p, 325, 'Vial', 1);
       updateWeight(p);
       return msg;
     }
@@ -912,20 +984,63 @@ module.exports = function registerAll(ctx) {
   // ── Map Command ───────────────────────────────────────────────────────────
   function generateMap(p, cols, rows) {
       const T = tiles.T;
-      const RX = cols ? Math.floor(cols / 2) : 7;
-      const RY = rows ? Math.floor(rows / 2) : 7;
+      // Wider view for Inferno (full arena)
+      const inInferno = !!p.instance;
+      const RX = cols ? Math.floor(cols / 2) : (inInferno ? 15 : 7);
+      const RY = rows ? Math.floor(rows / 2) : (inInferno ? 15 : 7);
       const TILE_CHARS = {
-        [T.EMPTY]: 'X', [T.GRASS]: '.', [T.WATER]: '~', [T.TREE]: 'T',
+        [T.EMPTY]: 'X', [T.GRASS]: '\u00B7', [T.WATER]: '~', [T.TREE]: 'T',
         [T.PATH]: '=', [T.ROCK]: '#', [T.SAND]: 'S', [T.WALL]: '#',
         [T.FLOOR]: '.', [T.DOOR]: 'D', [T.BRIDGE]: '=', [T.FISH_SPOT]: '~',
-        [T.FLOWER]: ',', [T.BUSH]: 'b', [T.DARK_GRASS]: '.', [T.SNOW]: '*',
+        [T.FLOWER]: ',', [T.BUSH]: 'b', [T.DARK_GRASS]: '\u00B7', [T.SNOW]: '*',
         [T.LAVA]: '!', [T.SWAMP]: '%',
       };
 
       const RANGE = Math.max(RX, RY);
       const npcPositions = new Map();
-      const nearNpcs = npcs.getNpcsNear(p.x, p.y, RANGE, p.layer);
-      for (const n of nearNpcs) npcPositions.set(`${n.x},${n.y}`, n);
+      // NPC char by type for Inferno mobs
+      const NPC_CHARS = {
+        'jal_nib': 'n', 'jal_mejrah': 'b', 'jal_ak': 'o', 'jal_imkot': 'k',
+        'jal_xil': 'r', 'jal_zek': 'M', 'jal_tok_jad': 'J', 'tzkal_zuk': 'Z',
+        'yt_hur_kot': 'h', 'jal_mej_jak': 'H',
+        'jal_ak_rek_xil': 'x', 'jal_ak_rek_mej': 'j', 'jal_ak_rek_ket': 'q',
+      };
+      const nearNpcs = npcs.getNpcsNear(p.x, p.y, RANGE, p.layer, p.instance || undefined);
+      for (const n of nearNpcs) {
+        const sz = n.size || 1;
+        const ch = NPC_CHARS[n.defId] || '!';
+        for (let sy = 0; sy < sz; sy++) for (let sx = 0; sx < sz; sx++) {
+          npcPositions.set(`${n.x+sx},${n.y+sy}`, { ...n, mapChar: ch });
+        }
+      }
+
+      // Instance entities (pillars, shield)
+      const entityPositions = new Map();
+      if (p.instance) {
+        try {
+          const entities = require('../world/entities');
+          const ents = entities.getInInstance(p.instance);
+          for (const e of ents) {
+            if (e.dead) continue;
+            const sz = e.size || 1;
+            const ch = e.type === 'pillar' ? 'O' : e.type === 'shield' ? '=' : '*';
+            if (e.type === 'pillar' && sz === 3) {
+              const hpStr = String(e.hp || 0).padStart(3, ' ');
+              for (let sy = 0; sy < 3; sy++) for (let sx = 0; sx < 3; sx++) {
+                if (sy === 1) {
+                  entityPositions.set(`${e.x+sx},${e.y+sy}`, { char: hpStr[sx], name: e.name, hp: e.hp, maxHp: e.maxHp });
+                } else {
+                  entityPositions.set(`${e.x+sx},${e.y+sy}`, { char: 'O', name: e.name, hp: e.hp, maxHp: e.maxHp });
+                }
+              }
+            } else {
+              for (let sy = 0; sy < sz; sy++) for (let sx = 0; sx < sz; sx++) {
+                entityPositions.set(`${e.x+sx},${e.y+sy}`, { char: ch, name: e.name, hp: e.hp, maxHp: e.maxHp });
+              }
+            }
+          }
+        } catch {}
+      }
 
       const objPositions = new Map();
       const nearObjs = objects.getObjectsNear(p.x, p.y, RANGE, p.layer);
@@ -948,10 +1063,12 @@ module.exports = function registerAll(ctx) {
 
           if (dx === 0 && dy === 0) {
             map += '@'; // Player
+          } else if (npcPositions.has(key)) {
+            map += npcPositions.get(key).mapChar || '!';
+          } else if (entityPositions.has(key)) {
+            map += entityPositions.get(key).char;
           } else if (playerPositions.has(key)) {
             map += 'P';
-          } else if (npcPositions.has(key)) {
-            map += '!';
           } else if (objPositions.has(key)) {
             map += '?';
           } else {
@@ -2968,7 +3085,26 @@ module.exports = function registerAll(ctx) {
         return 'You leave the Inferno.';
       }
 
-      return 'Usage: inferno [start|status|leave]';
+      // Challenge modes: inferno challenge [wave66|jads|zuk|gauntlet]
+      if (sub === 'challenge') {
+        const existing = instances.getByPlayer(p.id);
+        if (existing) return 'You are already in an instance. Use `inferno leave` to exit.';
+        const mode = (args[1] || '').toLowerCase();
+        const sendFn = (msg) => sendText(ws, msg);
+        const challenges = {
+          wave35: { startWave: 35, endWave: 35, challenge: 'wave35', label: 'Wave 35 — First Mager' },
+          wave63: { startWave: 63, endWave: 63, challenge: 'wave63', label: 'Wave 63 — Every Mob Type' },
+          jads:   { startWave: 68, endWave: 68, challenge: 'jads', label: 'Wave 68 — Triple Jads' },
+          zuk:    { startWave: 69, endWave: 69, challenge: 'zuk', label: 'Wave 69 — TzKal-Zuk' },
+          gauntlet: { startWave: 63, endWave: 69, challenge: 'gauntlet', label: 'The Gauntlet — Waves 63-69' },
+        };
+        const cfg = challenges[mode];
+        if (!cfg) return 'Challenges: inferno challenge [wave66|jads|zuk|gauntlet]';
+        const inst = inferno.startInferno(p, sendFn, cfg);
+        return `Challenge: ${cfg.label}\n${inferno.getInfernoLook(inst, p)}`;
+      }
+
+      return 'Usage: inferno [start|status|leave|challenge]';
     }
   });
 

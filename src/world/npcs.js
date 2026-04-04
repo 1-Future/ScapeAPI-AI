@@ -107,6 +107,39 @@ function canNpcMoveTo(npc, nx, ny) {
       if (!tiles.isWalkable(nx + ox, ny + oy, npc.layer)) return false;
     }
   }
+  // Block movement into entities (pillars, etc.)
+  if (npc.instance) {
+    try {
+      const entities = require('./entities');
+      const ents = entities.getInInstance(npc.instance);
+      for (const e of ents) {
+        if (!e.blocksMovement || e.dead) continue;
+        const esz = e.size || 1;
+        if (nx + size > e.x && nx < e.x + esz && ny + size > e.y && ny < e.y + esz) return false;
+      }
+    } catch {}
+  }
+  // Soft NPC-to-NPC collision — blocks movement but allows push-through after 3 ticks stuck
+  // This prevents clumping while avoiding gridlock
+  if (!npc._stuckTicks) npc._stuckTicks = 0;
+  let blocked = false;
+  for (const other of npcs.values()) {
+    if (other === npc || other.dead || other.layer !== npc.layer) continue;
+    if (npc.instance !== undefined && other.instance !== npc.instance) continue;
+    const osz = other.size || 1;
+    if (nx + size > other.x && nx < other.x + osz && ny + size > other.y && ny < other.y + osz) {
+      blocked = true;
+      break;
+    }
+  }
+  if (blocked) {
+    npc._stuckTicks++;
+    if (npc._stuckTicks < 3) return false; // block for 3 ticks
+    // After 3 ticks, allow push-through to prevent deadlock
+    npc._stuckTicks = 0;
+  } else {
+    npc._stuckTicks = 0;
+  }
   return true;
 }
 
@@ -127,18 +160,36 @@ function moveNpcTowards(npc, tx, ty) {
 
   if (dx === 0 && dy === 0) return;
 
-  // Try diagonal first
+  // OSRS large NPC movement: when diagonal to target, step cardinally (X first = west bias)
+  // This is the "west lure" mechanic critical for Inferno safespotting
+  if (size >= 2 && dx !== 0 && dy !== 0) {
+    // Large NPCs try X (west/east) first, then Y, then diagonal as last resort
+    if (canNpcMoveTo(npc, npc.x + dx, npc.y)) {
+      npc.x += dx;
+      return;
+    }
+    if (canNpcMoveTo(npc, npc.x, npc.y + dy)) {
+      npc.y += dy;
+      return;
+    }
+    if (canNpcMoveTo(npc, npc.x + dx, npc.y + dy)) {
+      npc.x += dx;
+      npc.y += dy;
+      return;
+    }
+    return; // Stuck
+  }
+
+  // Small NPCs (size 1): try diagonal first
   if (dx !== 0 && dy !== 0) {
     if (canNpcMoveTo(npc, npc.x + dx, npc.y + dy)) {
-      // Corner safespot check: if diagonal move overlaps with target, cancel Y
-      // This allows safespotting around corners
       npc.x += dx;
       npc.y += dy;
       return;
     }
   }
 
-  // Try cardinal directions
+  // Cardinal fallback
   if (dx !== 0 && canNpcMoveTo(npc, npc.x + dx, npc.y)) {
     npc.x += dx;
     return;
@@ -148,14 +199,22 @@ function moveNpcTowards(npc, tx, ty) {
     return;
   }
 
-  // If player is under NPC: random walk (50/50 x or y, 50/50 +1 or -1)
+  // OSRS: when player is under NPC, NPC moves randomly to try to get them out
+  // This prevents exploiting predictable movement patterns
   if (isUnderNpc(tx, ty, npc)) {
-    const axis = Math.random() < 0.5 ? 'x' : 'y';
-    const dir = Math.random() < 0.5 ? 1 : -1;
-    if (axis === 'x' && canNpcMoveTo(npc, npc.x + dir, npc.y)) {
-      npc.x += dir;
-    } else if (canNpcMoveTo(npc, npc.x, npc.y + dir)) {
-      npc.y += dir;
+    // Random direction — not predictable like SW corner rule
+    const dirs = [{dx:1,dy:0},{dx:-1,dy:0},{dx:0,dy:1},{dx:0,dy:-1}];
+    // Shuffle
+    for (let i = dirs.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [dirs[i], dirs[j]] = [dirs[j], dirs[i]];
+    }
+    for (const d of dirs) {
+      if (canNpcMoveTo(npc, npc.x + d.dx, npc.y + d.dy)) {
+        npc.x += d.dx;
+        npc.y += d.dy;
+        break;
+      }
     }
   }
 }
@@ -197,11 +256,21 @@ function npcMovementTick(currentTick) {
     }
 
     if (npc.target) {
-      // Move towards target
-      // target can be { x, y } coordinates or a player/entity reference
+      // Move towards target — but only if not already in attack range
       const tx = typeof npc.target === 'object' && npc.target.x !== undefined ? npc.target.x : npc.target;
       const ty = typeof npc.target === 'object' && npc.target.y !== undefined ? npc.target.y : 0;
-      if (typeof tx === 'number') moveNpcTowards(npc, tx, ty);
+      if (typeof tx === 'number') {
+        const dist = Math.max(Math.abs(npc.x - tx), Math.abs(npc.y - ty));
+        const atkRange = npc.attackRange || 1;
+        // Mobs stop moving once in their attack range
+        if (dist > atkRange) {
+          moveNpcTowards(npc, tx, ty);
+        }
+        // If player is under NPC, still try to move away
+        else if (isUnderNpc(tx, ty, npc)) {
+          moveNpcTowards(npc, tx, ty);
+        }
+      }
     } else {
       // Wander (10% chance per tick if no target)
       if (Math.random() < 0.1) {

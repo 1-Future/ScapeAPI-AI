@@ -125,13 +125,19 @@ function processTick() {
 }
 
 let tickInterval = null;
+let tickRate = TICK_MS;
 function startTicking() {
   if (tickInterval) return;
-  tickInterval = setInterval(processTick, TICK_MS);
-  console.log(`[tick] Running at ${TICK_MS}ms — OSRS-accurate phase order`);
+  tickInterval = setInterval(processTick, tickRate);
+  console.log(`[tick] Running at ${tickRate}ms — OSRS-accurate phase order`);
 }
 function stopTicking() {
   if (tickInterval) { clearInterval(tickInterval); tickInterval = null; }
+}
+function setTickRate(ms) {
+  tickRate = ms;
+  if (tickInterval) { clearInterval(tickInterval); tickInterval = setInterval(processTick, tickRate); }
+  console.log(`[tick] Rate changed to ${tickRate}ms`);
 }
 
 module.exports = {
@@ -139,7 +145,7 @@ module.exports = {
   getTick: () => currentTick,
   schedule, cancelScheduled,
   onTick, offTick,
-  startTicking, stopTicking,
+  startTicking, stopTicking, setTickRate, processTick,
   // New OSRS-accurate API
   registerPhase, unregisterPhase,
   addDelayedAction, cancelDelayedAction,
