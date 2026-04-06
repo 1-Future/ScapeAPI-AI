@@ -256,19 +256,32 @@ function npcMovementTick(currentTick) {
     }
 
     if (npc.target) {
-      // Move towards target — but only if not already in attack range
+      // OSRS movement rule (from InfernoTrainer osrs-sdk):
+      // canMove() = !hasLOS && !frozen && !stunned && !dying
+      // Mobs ONLY move when they do NOT have line of sight to their target.
+      // Once they can see the target (and are in attack range), they plant and attack.
       const tx = typeof npc.target === 'object' && npc.target.x !== undefined ? npc.target.x : npc.target;
       const ty = typeof npc.target === 'object' && npc.target.y !== undefined ? npc.target.y : 0;
       if (typeof tx === 'number') {
-        const dist = Math.max(Math.abs(npc.x - tx), Math.abs(npc.y - ty));
+        const npcSize = npc.size || 1;
         const atkRange = npc.attackRange || 1;
-        // Mobs stop moving once in their attack range
-        if (dist > atkRange) {
-          moveNpcTowards(npc, tx, ty);
-        }
-        // If player is under NPC, still try to move away
-        else if (isUnderNpc(tx, ty, npc)) {
-          moveNpcTowards(npc, tx, ty);
+
+        // Check LoS from NPC to target
+        let hasLoS = false;
+        try {
+          hasLoS = los.npcHasLoS(npc.x, npc.y, npcSize, tx, ty, npc.layer || 0, atkRange);
+        } catch {}
+
+        // canMove: no LoS, not frozen, not stunned, not dying
+        const canMove = !hasLoS && (npc.frozen || 0) <= 0 && (npc.stunned || 0) <= 0 && !npc.dying;
+
+        if (canMove) {
+          // Player under NPC — random cardinal movement
+          if (isUnderNpc(tx, ty, npc)) {
+            moveNpcTowards(npc, tx, ty); // moveNpcTowards handles under-npc random movement
+          } else {
+            moveNpcTowards(npc, tx, ty);
+          }
         }
       }
     } else {

@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Scape — Login</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600;700&display=swap');
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --stone:#0e0e1a;--stone-mid:#151525;--stone-light:#1a1a2e;
+  --parchment:#d4c5a0;--parchment-dim:#9e8e6a;--parchment-dark:#6b5e42;
+  --gold:#b8860b;--gold-bright:#daa520;--gold-dim:#8b6508;
+  --red:#c0392b;--green:#27ae60;
+  --font:'JetBrains Mono',monospace;
+}
+body{background:var(--stone);color:var(--parchment);font-family:var(--font);display:flex;align-items:center;justify-content:center;height:100vh}
+
+/* Site header */
+#site-header{position:fixed;top:0;left:0;right:0;display:flex;align-items:center;background:#3a352e;height:30px;padding:0 10px;font-size:12px;border-bottom:1px solid #5c5445;z-index:100;font-family:'Courier New',monospace}
+#site-header .logo{color:var(--gold-bright);font-weight:bold;font-size:14px;margin-right:16px;text-decoration:none;letter-spacing:2px}
+#site-header nav{display:flex;gap:0;flex:1}
+#site-header nav a{color:#aaa;text-decoration:none;padding:0 10px;line-height:30px;transition:color 0.15s}
+#site-header nav a:hover{color:#fff}
+#site-header nav a.active{color:var(--gold-bright)}
+#site-header .gh-link{color:#aaa;text-decoration:none;font-size:16px;line-height:1;margin-left:auto;transition:color 0.15s}
+#site-header .gh-link:hover{color:#fff}
+
+.login-box{
+  background:var(--stone-mid);border:1px solid var(--gold-dim);border-radius:6px;
+  padding:32px;max-width:340px;width:100%;text-align:center;
+}
+.login-box h1{font-size:1rem;color:var(--gold-bright);letter-spacing:2px;text-transform:uppercase;margin-bottom:4px}
+.login-box .subtitle{font-size:0.75rem;color:var(--parchment-dark);margin-bottom:20px}
+
+.field{margin-bottom:12px;text-align:left}
+.field label{display:block;font-size:0.7rem;color:var(--parchment-dim);text-transform:uppercase;letter-spacing:0.5px;margin-bottom:4px}
+.field input{
+  width:100%;font-family:var(--font);font-size:0.85rem;
+  background:var(--stone);color:var(--parchment);border:1px solid var(--gold-dim);
+  padding:8px 12px;border-radius:4px;outline:none;
+}
+.field input:focus{border-color:var(--gold)}
+
+.btn{
+  width:100%;font-family:var(--font);font-size:0.85rem;font-weight:600;
+  padding:10px 24px;border:none;border-radius:4px;cursor:pointer;
+  background:linear-gradient(180deg,var(--gold),var(--gold-dim));color:var(--stone);
+  letter-spacing:1px;text-transform:uppercase;margin-top:8px;
+}
+.btn:hover{box-shadow:0 0 12px rgba(218,165,32,0.4)}
+.btn:disabled{opacity:0.5;cursor:not-allowed}
+
+.error{color:var(--red);font-size:0.75rem;margin-top:12px;display:none}
+.success{color:var(--green);font-size:0.75rem;margin-top:12px;display:none}
+.hint{font-size:0.7rem;color:var(--parchment-dark);margin-top:16px;line-height:1.4}
+.hint a{color:var(--gold-dim);text-decoration:none}
+.hint a:hover{color:var(--gold)}
+</style>
+</head>
+<body>
+
+<div id="site-header">
+  <a class="logo" href="/">SCAPE</a>
+  <nav>
+    <a href="/">Watch</a>
+    <a href="/play">Play</a>
+    <a href="/guide">Guide</a>
+    <a href="/about">About</a>
+    <a href="/builder">Builder</a>
+  </nav>
+  <a class="gh-link" href="https://github.com/1-Future/ScapeAPI-AI" target="_blank" title="GitHub">
+    <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
+  </a>
+</div>
+
+<div class="login-box">
+  <h1>Login</h1>
+  <div class="subtitle">Use your in-game account</div>
+
+  <form onsubmit="return doLogin()">
+    <div class="field">
+      <label>Username</label>
+      <input type="text" id="name" placeholder="Your character name" autofocus autocomplete="username">
+    </div>
+    <div class="field">
+      <label>Password</label>
+      <input type="password" id="password" placeholder="Password" autocomplete="current-password">
+    </div>
+    <button class="btn" type="submit" id="submit-btn">Login</button>
+  </form>
+
+  <div class="error" id="error"></div>
+  <div class="success" id="success"></div>
+  <div class="hint">Same account as /play. No account? <a href="/play">Register in-game first.</a></div>
+</div>
+
+<script>
+// If already logged in, redirect
+fetch('/api/auth/me').then(r => r.json()).then(d => {
+  if (d.authenticated) {
+    const params = new URLSearchParams(location.search);
+    location.href = params.get('next') || '/boss-builder';
+  }
+});
+
+async function doLogin() {
+  const name = document.getElementById('name').value.trim();
+  const password = document.getElementById('password').value;
+  const errEl = document.getElementById('error');
+  const successEl = document.getElementById('success');
+  const btn = document.getElementById('submit-btn');
+
+  errEl.style.display = 'none';
+  successEl.style.display = 'none';
+
+  if (!name || !password) {
+    errEl.textContent = 'Enter username and password';
+    errEl.style.display = 'block';
+    return false;
+  }
+
+  btn.disabled = true;
+  btn.textContent = 'Logging in...';
+
+  try {
+    const r = await fetch('/api/auth/login', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ name, password }),
+    });
+    const data = await r.json();
+
+    if (!r.ok) {
+      errEl.textContent = data.error || 'Login failed';
+      errEl.style.display = 'block';
+      btn.disabled = false;
+      btn.textContent = 'Login';
+      return false;
+    }
+
+    successEl.textContent = `Welcome, ${data.name} (${data.role})`;
+    successEl.style.display = 'block';
+
+    setTimeout(() => {
+      const params = new URLSearchParams(location.search);
+      location.href = params.get('next') || '/boss-builder';
+    }, 500);
+  } catch (e) {
+    errEl.textContent = 'Connection error';
+    errEl.style.display = 'block';
+    btn.disabled = false;
+    btn.textContent = 'Login';
+  }
+  return false;
+}
+</script>
+
+</body>
+</html>

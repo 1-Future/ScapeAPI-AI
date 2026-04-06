@@ -262,8 +262,11 @@ function getRangedRange(p) {
   const weapon = p.equipment.weapon;
   if (!weapon) return 1;
   const wname = weapon.name.toLowerCase();
-  if (wname.includes('shortbow')) return 7;
   if (wname.includes('longbow')) return 10;
+  if (wname.includes('shortbow')) return 7;
+  if (wname.includes('crossbow')) return 7;
+  if (wname.includes('blowpipe')) return 5;
+  if (wname.includes('dart') || wname.includes('knife') || wname.includes('thrownaxe')) return 4;
   return 7;
 }
 

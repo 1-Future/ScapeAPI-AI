@@ -27,6 +27,9 @@ require('./data/shops');
 require('./data/recipes');
 require('./data/slayer');
 
+// Load all commands (drink, eat, equip, etc.)
+require('./commands/all');
+
 // Load inferno mobs
 require('./content/inferno/mobs').registerAll();
 
@@ -352,6 +355,20 @@ function getSpectateData(p) {
     }
   }
 
+  // Build player attack range overlay — shows what tiles the player can hit from
+  const playerRangeOverlay = new Set();
+  const isRanged = combat.hasRangedSetup(p);
+  const playerRange = isRanged ? (combat.getRangedRange ? combat.getRangedRange(p) : 7) : 1;
+  // Mark edge tiles at exactly playerRange distance from player
+  for (let dy = -playerRange; dy <= playerRange; dy++) {
+    for (let dx = -playerRange; dx <= playerRange; dx++) {
+      const dist = Math.max(Math.abs(dx), Math.abs(dy)); // Chebyshev
+      if (dist === playerRange) {
+        playerRangeOverlay.add(`${p.x + dx},${p.y + dy}`);
+      }
+    }
+  }
+
   // Build ASCII map — full arena bounds, no wasted X tiles
   let map = '';
   for (let worldY = ARENA.minY; worldY <= ARENA.maxY; worldY++) {
@@ -367,6 +384,8 @@ function getSpectateData(p) {
         const style = rangeOverlay.get(key);
         // Melee range = red dot, ranged = green dot, magic = blue dot
         map += style === 'melee' ? ',' : style === 'ranged' ? ';' : ':';
+      } else if (playerRangeOverlay.has(key)) {
+        map += '+'; // Player attack range edge
       } else {
         const tile = tiles.tileAt(worldX, worldY, p.layer);
         map += TILE_CHARS[tile] || 'X';
@@ -457,6 +476,32 @@ function handleCommand(cmd) {
     return { type: 'state', ...getState(currentPlayer) };
   }
 
+  // ── Direct potion drinking (bypasses command system which needs server context) ──
+  function drinkPotion(p, potionName) {
+    const currentTick = tick.getTick();
+    if (p.nextDrinkTick && currentTick < p.nextDrinkTick) return; // Cooldown
+    const slot = p.inventory.findIndex(s => s && s.name.toLowerCase().includes(potionName));
+    if (slot < 0) return;
+    const item = p.inventory[slot];
+    const doseMatch = item.name.match(/\((\d)\)$/);
+    if (!doseMatch) return;
+    const dose = parseInt(doseMatch[1]);
+    // Decrement dose or replace with vial
+    if (dose > 1) {
+      p.inventory[slot] = { ...item, name: item.name.replace(/\(\d\)$/, `(${dose - 1})`) };
+    } else {
+      p.inventory[slot] = { id: 325, name: 'Vial', count: 1 };
+    }
+    // Apply potion effect
+    if (potionName.includes('saradomin brew')) {
+      p.hp = Math.min(p.maxHp, p.hp + 16);
+    } else if (potionName.includes('super restore')) {
+      const restore = Math.floor(8 + 99 * 0.25); // 32 PP at 99 prayer
+      p.prayerPoints = Math.min(99, p.prayerPoints + restore);
+    }
+    p.nextDrinkTick = currentTick + 3; // 3-tick potion cooldown
+  }
+
   if (cmd.type === 'step') {
     const p = currentPlayer;
     if (!p) return { type: 'error', msg: 'no player' };
@@ -485,8 +530,8 @@ function handleCommand(cmd) {
     // Execute RL action
     const rlActions = {
       0: null,
-      1: () => commands.execute(p, 'drink saradomin brew'),
-      2: () => commands.execute(p, 'drink super restore'),
+      1: () => drinkPotion(p, 'saradomin brew'),
+      2: () => drinkPotion(p, 'super restore'),
       3: () => commands.execute(p, 'n'),
       4: () => commands.execute(p, 's'),
       5: () => commands.execute(p, 'e'),

@@ -1,0 +1,1534 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Scape Engine Dashboard</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600;700&display=swap');
+
+*{margin:0;padding:0;box-sizing:border-box}
+
+:root{
+  --stone:#0e0e1a;
+  --stone-mid:#151525;
+  --stone-light:#1a1a2e;
+  --parchment:#d4c5a0;
+  --parchment-dim:#9e8e6a;
+  --parchment-dark:#6b5e42;
+  --gold:#b8860b;
+  --gold-bright:#daa520;
+  --gold-dim:#8b6508;
+  --red:#c0392b;
+  --red-glow:#e74c3c;
+  --green:#27ae60;
+  --green-glow:#2ecc71;
+  --blue:#2980b9;
+  --blue-glow:#3498db;
+  --yellow:#d4a017;
+  --yellow-glow:#f1c40f;
+  --grey:#555;
+  --panel-bg:linear-gradient(135deg, #1a1a2e 0%, #16162a 50%, #121226 100%);
+  --panel-border:1px solid var(--gold-dim);
+  --scroll-bg:linear-gradient(180deg, #2a2518 0%, #1e1a12 100%);
+  --font:'JetBrains Mono', monospace;
+}
+
+html{font-size:13px}
+body{
+  background:var(--stone);
+  color:var(--parchment);
+  font-family:var(--font);
+  min-height:100vh;
+  line-height:1.5;
+}
+
+/* ═══ NOISE TEXTURE OVERLAY ═══ */
+body::before{
+  content:'';
+  position:fixed;
+  inset:0;
+  background:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
+  pointer-events:none;
+  z-index:9999;
+}
+
+/* ═══ HEADER ═══ */
+header{
+  background:linear-gradient(180deg, #1e1a12 0%, #151020 100%);
+  border-bottom:2px solid var(--gold);
+  padding:16px 24px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  position:sticky;
+  top:0;
+  z-index:100;
+  box-shadow:0 4px 20px rgba(0,0,0,0.5);
+}
+
+header h1{
+  font-size:1.4rem;
+  font-weight:600;
+  color:var(--gold-bright);
+  letter-spacing:2px;
+  text-transform:uppercase;
+  text-shadow:0 0 10px rgba(218,165,32,0.3);
+}
+
+.health-indicator{
+  display:flex;
+  align-items:center;
+  gap:8px;
+  font-size:0.85rem;
+  color:var(--parchment-dim);
+}
+
+.health-dot{
+  width:10px;height:10px;
+  border-radius:50%;
+  background:var(--grey);
+  transition:background 0.3s, box-shadow 0.3s;
+}
+.health-dot.ok{
+  background:var(--green);
+  box-shadow:0 0 8px var(--green-glow), 0 0 2px var(--green);
+}
+.health-dot.err{
+  background:var(--red);
+  box-shadow:0 0 8px var(--red-glow), 0 0 2px var(--red);
+}
+
+/* ═══ NAV TABS ═══ */
+nav{
+  display:flex;
+  gap:2px;
+  padding:0 24px;
+  background:var(--stone-mid);
+  border-bottom:1px solid var(--gold-dim);
+}
+
+nav button{
+  font-family:var(--font);
+  font-size:0.85rem;
+  font-weight:500;
+  color:var(--parchment-dim);
+  background:transparent;
+  border:none;
+  padding:12px 20px;
+  cursor:pointer;
+  position:relative;
+  transition:color 0.2s;
+  letter-spacing:1px;
+  text-transform:uppercase;
+}
+nav button:hover{color:var(--parchment)}
+nav button.active{
+  color:var(--gold-bright);
+}
+nav button.active::after{
+  content:'';
+  position:absolute;
+  bottom:0;left:0;right:0;
+  height:2px;
+  background:var(--gold-bright);
+  box-shadow:0 0 8px var(--gold);
+}
+
+/* ═══ MAIN CONTENT ═══ */
+main{
+  max-width:1400px;
+  margin:0 auto;
+  padding:24px;
+}
+
+.tab-panel{display:none}
+.tab-panel.active{display:block}
+
+/* ═══ PANELS (SCROLL PARCHMENT) ═══ */
+.panel{
+  background:var(--panel-bg);
+  border:var(--panel-border);
+  border-radius:4px;
+  margin-bottom:20px;
+  overflow:hidden;
+  box-shadow:0 2px 12px rgba(0,0,0,0.3), inset 0 1px 0 rgba(184,134,11,0.1);
+}
+
+.panel-header{
+  background:linear-gradient(90deg, rgba(184,134,11,0.15) 0%, transparent 100%);
+  border-bottom:1px solid var(--gold-dim);
+  padding:12px 16px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+}
+
+.panel-header h2{
+  font-size:1rem;
+  font-weight:600;
+  color:var(--gold-bright);
+  letter-spacing:1px;
+  text-transform:uppercase;
+}
+
+.panel-body{
+  padding:16px;
+}
+
+/* ═══ FILTER BAR ═══ */
+.filter-bar{
+  display:flex;
+  gap:10px;
+  align-items:center;
+  flex-wrap:wrap;
+}
+
+.filter-bar select, .filter-bar input[type="text"]{
+  font-family:var(--font);
+  font-size:0.85rem;
+  background:var(--stone);
+  color:var(--parchment);
+  border:1px solid var(--gold-dim);
+  padding:6px 10px;
+  border-radius:3px;
+  outline:none;
+}
+.filter-bar select:focus, .filter-bar input:focus{
+  border-color:var(--gold);
+  box-shadow:0 0 4px rgba(184,134,11,0.3);
+}
+
+.filter-bar label{
+  font-size:0.8rem;
+  color:var(--parchment-dim);
+  text-transform:uppercase;
+  letter-spacing:0.5px;
+}
+
+/* ═══ TABLES ═══ */
+table{
+  width:100%;
+  border-collapse:collapse;
+  font-size:0.85rem;
+}
+
+th{
+  text-align:left;
+  padding:10px 12px;
+  font-weight:600;
+  color:var(--gold);
+  border-bottom:2px solid var(--gold-dim);
+  font-size:0.75rem;
+  text-transform:uppercase;
+  letter-spacing:1px;
+  white-space:nowrap;
+}
+
+td{
+  padding:8px 12px;
+  border-bottom:1px solid rgba(184,134,11,0.1);
+  vertical-align:top;
+}
+
+tr:nth-child(even) td{
+  background:rgba(184,134,11,0.03);
+}
+
+tr:hover td{
+  background:rgba(184,134,11,0.08);
+}
+
+tr.expandable{cursor:pointer}
+tr.expandable:hover td:first-child{color:var(--gold-bright)}
+
+tr.detail-row td{
+  background:rgba(30,26,18,0.8);
+  padding:12px 16px 12px 32px;
+  border-bottom:1px solid var(--gold-dim);
+}
+
+tr.detail-row .usage-list{
+  display:flex;
+  flex-wrap:wrap;
+  gap:6px;
+}
+
+.usage-tag{
+  font-size:0.75rem;
+  padding:2px 8px;
+  border-radius:3px;
+  background:rgba(184,134,11,0.15);
+  border:1px solid var(--gold-dim);
+  color:var(--parchment-dim);
+}
+
+/* ═══ STATUS BADGES ═══ */
+.badge{
+  display:inline-block;
+  font-size:0.7rem;
+  font-weight:600;
+  padding:2px 8px;
+  border-radius:10px;
+  text-transform:uppercase;
+  letter-spacing:0.5px;
+  white-space:nowrap;
+}
+
+.badge.not_implemented{
+  background:rgba(192,57,43,0.2);
+  color:var(--red-glow);
+  border:1px solid rgba(192,57,43,0.4);
+}
+.badge.implemented{
+  background:rgba(212,160,23,0.2);
+  color:var(--yellow-glow);
+  border:1px solid rgba(212,160,23,0.4);
+}
+.badge.tested{
+  background:rgba(41,128,185,0.2);
+  color:var(--blue-glow);
+  border:1px solid rgba(41,128,185,0.4);
+}
+.badge.verified{
+  background:rgba(39,174,96,0.2);
+  color:var(--green-glow);
+  border:1px solid rgba(39,174,96,0.4);
+}
+.badge.signed_off{
+  background:rgba(39,174,96,0.35);
+  color:#fff;
+  border:1px solid var(--green);
+  box-shadow:0 0 6px rgba(46,204,113,0.2);
+}
+
+/* ═══ SIGN-OFF CHECKBOX ═══ */
+.signoff-check{
+  width:16px;height:16px;
+  accent-color:var(--gold);
+  cursor:pointer;
+}
+
+/* ═══ STAT CARDS ═══ */
+.stat-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fill, minmax(180px, 1fr));
+  gap:12px;
+  margin-bottom:20px;
+}
+
+.stat-card{
+  background:var(--panel-bg);
+  border:var(--panel-border);
+  border-radius:4px;
+  padding:14px;
+  text-align:center;
+}
+
+.stat-card .stat-value{
+  font-size:1.8rem;
+  font-weight:700;
+  color:var(--gold-bright);
+  text-shadow:0 0 8px rgba(218,165,32,0.2);
+  line-height:1.2;
+}
+
+.stat-card .stat-label{
+  font-size:0.7rem;
+  color:var(--parchment-dim);
+  text-transform:uppercase;
+  letter-spacing:1px;
+  margin-top:4px;
+}
+
+/* ═══ RENDER TIER TOGGLE ═══ */
+.tier-toggle{
+  display:flex;
+  gap:2px;
+  background:var(--stone);
+  border:1px solid var(--gold-dim);
+  border-radius:4px;
+  padding:2px;
+  margin-bottom:16px;
+}
+.tier-btn{
+  font-family:var(--font);
+  font-size:0.75rem;
+  font-weight:600;
+  padding:6px 14px;
+  border:none;
+  border-radius:3px;
+  cursor:pointer;
+  background:transparent;
+  color:var(--parchment-dim);
+  letter-spacing:0.5px;
+  text-transform:uppercase;
+  transition:all 0.15s;
+}
+.tier-btn:hover{color:var(--parchment);background:rgba(184,134,11,0.1)}
+.tier-btn.active{background:var(--gold-dim);color:var(--stone)}
+.tier-btn .tier-count{
+  font-size:0.65rem;
+  font-weight:400;
+  color:var(--parchment-dark);
+  margin-left:4px;
+}
+.tier-btn.active .tier-count{color:var(--stone)}
+
+/* ═══ QUERY CONSOLE ═══ */
+.query-input{
+  font-family:var(--font);
+  font-size:0.9rem;
+  width:100%;
+  min-height:80px;
+  background:var(--stone);
+  color:var(--green-glow);
+  border:1px solid var(--gold-dim);
+  border-radius:3px;
+  padding:12px;
+  resize:vertical;
+  outline:none;
+  line-height:1.5;
+}
+.query-input:focus{
+  border-color:var(--gold);
+  box-shadow:0 0 8px rgba(184,134,11,0.2);
+}
+.query-input::placeholder{
+  color:var(--parchment-dark);
+}
+
+.query-btn{
+  font-family:var(--font);
+  font-size:0.85rem;
+  font-weight:600;
+  padding:8px 20px;
+  background:linear-gradient(180deg, var(--gold) 0%, var(--gold-dim) 100%);
+  color:var(--stone);
+  border:none;
+  border-radius:3px;
+  cursor:pointer;
+  letter-spacing:1px;
+  text-transform:uppercase;
+  margin-top:8px;
+  transition:box-shadow 0.2s;
+}
+.query-btn:hover{
+  box-shadow:0 0 12px rgba(218,165,32,0.4);
+}
+
+.query-status{
+  font-size:0.8rem;
+  color:var(--parchment-dim);
+  margin-top:8px;
+}
+
+.query-results{
+  margin-top:12px;
+  max-height:400px;
+  overflow:auto;
+}
+
+.query-results table{font-size:0.8rem}
+
+/* ═══ SCROLLBAR ═══ */
+::-webkit-scrollbar{width:8px;height:8px}
+::-webkit-scrollbar-track{background:var(--stone)}
+::-webkit-scrollbar-thumb{background:var(--gold-dim);border-radius:4px}
+::-webkit-scrollbar-thumb:hover{background:var(--gold)}
+
+/* ═══ OUTCOME BADGES ═══ */
+.outcome-died{color:var(--red-glow)}
+.outcome-complete{color:var(--green-glow)}
+.outcome-timeout{color:var(--yellow-glow)}
+
+/* ═══ OVERVIEW BARS ═══ */
+.overview-bar{
+  display:flex;
+  height:24px;
+  border-radius:3px;
+  overflow:hidden;
+  border:1px solid var(--gold-dim);
+  margin:8px 0;
+}
+.overview-bar div{
+  height:100%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:0.65rem;
+  font-weight:600;
+  color:var(--stone);
+  min-width:2px;
+  transition:width 0.5s ease;
+}
+.bar-verified{background:var(--green)}
+.bar-tested{background:var(--blue)}
+.bar-implemented{background:var(--yellow)}
+.bar-not_implemented{background:var(--red)}
+.bar-signed_off{background:#1abc9c}
+
+/* ═══ LOADING ═══ */
+.loading{
+  color:var(--parchment-dim);
+  font-style:italic;
+  padding:20px;
+  text-align:center;
+}
+
+/* ═══ RESPONSIVE ═══ */
+@media(max-width:768px){
+  html{font-size:12px}
+  main{padding:12px}
+  .stat-grid{grid-template-columns:repeat(2,1fr)}
+}
+</style>
+</head>
+<body>
+
+<header>
+  <h1>Scape Engine Dashboard</h1>
+  <div class="health-indicator">
+    <div class="health-dot" id="health-dot"></div>
+    <span id="health-text">checking...</span>
+  </div>
+</header>
+
+<nav>
+  <button class="active" onclick="showTab('builder-overview')">Builder</button>
+  <button onclick="showTab('mechanics')">Recipes</button>
+  <button onclick="showTab('recipes')">Ingredients</button>
+  <button onclick="showTab('checklist')">OSRS Capture</button>
+  <button onclick="showTab('training')">Training</button>
+  <button onclick="showTab('rltests')">RL Tests</button>
+  <button onclick="showTab('debug')">Debug Query</button>
+  <button onclick="showTab('users')">Users</button>
+</nav>
+
+<main>
+
+<!-- ═══════════════════════════════════════════════════════════════════ -->
+<!-- TAB: BUILDER OVERVIEW                                              -->
+<!-- ═══════════════════════════════════════════════════════════════════ -->
+<div id="tab-builder-overview" class="tab-panel active">
+  <div class="panel" style="margin-bottom:16px">
+    <h2 style="font-size:1rem;color:var(--gold-bright);margin-bottom:12px">Build Your Own Scape</h2>
+    <p style="font-size:0.8rem;color:var(--parchment-dim);margin-bottom:16px">75 tabs across 4 modes. Click any tab to open it in the builder.</p>
+    <div id="builder-coverage" style="display:grid;grid-template-columns:1fr 1fr;gap:16px"></div>
+  </div>
+</div>
+
+<script>
+(function renderBuilderOverview() {
+  const MODES = {
+    build: {
+      'Combat & Encounters': [{id:'bosses',live:true},{id:'monsters',live:true},{id:'pvp-zones',live:true}],
+      'Items & Economy': [{id:'items',live:true},{id:'equipment',live:true},{id:'shops',live:true},{id:'crafting',live:true}],
+      'Skills & Progression': [{id:'skills',live:true},{id:'achievements',live:true},{id:'collection-log',live:true}],
+      'Quests & Content': [{id:'quests',live:true},{id:'treasure-trails',live:true},{id:'minigames',live:true},{id:'puzzles',live:true},{id:'dailies',live:true},{id:'random-events',live:true},{id:'world-events',live:true},{id:'games-of-chance',live:true}],
+      'World & Environment': [{id:'terrain',live:true},{id:'locations',live:true},{id:'buildings',live:true},{id:'settlements',live:true},{id:'transportation',live:true}],
+      'NPCs & Social': [{id:'npcs',live:true},{id:'pets',live:true},{id:'housing',live:true},{id:'emotes',live:true},{id:'modes',live:true}],
+      'Systems & Logic': [{id:'relationships',live:true},{id:'event-triggers',live:true},{id:'world-states',live:true}],
+    },
+    write: {
+      'Lore & World': [{id:'lore-bible',live:true},{id:'faction-profiles',live:true},{id:'location-flavor',live:true},{id:'books-texts',live:true}],
+      'Characters & Dialogue': [{id:'npc-personas',live:true},{id:'dialogue-trees',live:true},{id:'examine-text',live:true},{id:'quest-writing',live:true}],
+      'Player Experience': [{id:'char-creator',live:true},{id:'tutorial',live:true},{id:'content-rating',live:true},{id:'music-audio',live:true}],
+    },
+    configure: {
+      'Engine & Core': [{id:'engine',live:true},{id:'tick',live:true},{id:'camera',live:true},{id:'animation',live:true},{id:'persistence',live:true},{id:'assets',live:true},{id:'ai',live:true}],
+      'Gameplay': [{id:'combat',live:true},{id:'death',live:true},{id:'economy',live:true},{id:'progression',live:true},{id:'inventory',live:true},{id:'multiplayer',live:true},{id:'minimap',live:true}],
+      'Social & Community': [{id:'account',live:true},{id:'chat',live:true},{id:'social',live:true},{id:'clans',live:true},{id:'moderation',live:true},{id:'monetization',live:true},{id:'bot-policy',live:true}],
+      'Accessibility & Infra': [{id:'accessibility',live:true},{id:'localization',live:true},{id:'security',live:true},{id:'integrations',live:true},{id:'pipeline',live:true}],
+    },
+    reference: {
+      'Catalogs': [{id:'nature',live:true},{id:'structures',live:true},{id:'architecture',live:true}],
+      'Design': [{id:'plugins',live:true},{id:'audit',live:true},{id:'philosophy',live:true}],
+    },
+  };
+
+  const modeColors = {build:'var(--gold)',write:'var(--blue)',configure:'var(--green)',reference:'var(--parchment-dim)'};
+  const modeLabels = {build:'BUILD',write:'WRITE',configure:'CONFIGURE',reference:'REFERENCE'};
+  const container = document.getElementById('builder-coverage');
+  if (!container) return;
+
+  let html = '';
+  for (const [mode, cats] of Object.entries(MODES)) {
+    let totalTabs = 0, liveTabs = 0;
+    for (const tabs of Object.values(cats)) { totalTabs += tabs.length; liveTabs += tabs.filter(t=>t.live).length; }
+    const pct = totalTabs > 0 ? Math.round((liveTabs/totalTabs)*100) : 0;
+
+    html += `<div style="background:var(--stone-mid);border:1px solid var(--gold-dim);border-radius:6px;padding:14px">
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px">
+        <span style="font-size:0.85rem;font-weight:700;color:${modeColors[mode]};letter-spacing:1px">${modeLabels[mode]}</span>
+        <span style="font-size:0.75rem;color:var(--parchment-dim)">${liveTabs}/${totalTabs} live (${pct}%)</span>
+      </div>
+      <div style="height:6px;background:var(--stone);border-radius:3px;margin-bottom:12px;overflow:hidden">
+        <div style="height:100%;width:${pct}%;background:${modeColors[mode]};border-radius:3px;transition:width 0.3s"></div>
+      </div>`;
+
+    for (const [catName, tabs] of Object.entries(cats)) {
+      html += `<div style="margin-bottom:8px">
+        <div style="font-size:0.7rem;color:var(--parchment-dark);margin-bottom:4px;text-transform:uppercase;letter-spacing:0.5px">${catName}</div>
+        <div style="display:flex;flex-wrap:wrap;gap:4px">`;
+      for (const tab of tabs) {
+        const color = tab.live ? modeColors[mode] : 'var(--parchment-dark)';
+        const bg = tab.live ? `${modeColors[mode]}22` : 'transparent';
+        const prefix = mode === 'configure' ? 'cfg-' : mode === 'reference' ? 'ref-' : '';
+        html += `<a href="/builder?mode=${mode}&tab=${prefix}${tab.id}" style="font-size:0.7rem;padding:2px 8px;border:1px solid ${color};border-radius:3px;color:${color};background:${bg};text-decoration:none;transition:all 0.15s" onmouseover="this.style.background='${modeColors[mode]}33'" onmouseout="this.style.background='${bg}'">${tab.id.replace(/-/g,' ')}</a>`;
+      }
+      html += '</div></div>';
+    }
+    html += '</div>';
+  }
+
+  container.innerHTML = html;
+})();
+</script>
+
+<!-- ═══════════════════════════════════════════════════════════════════ -->
+<!-- TAB: MECHANICS REGISTRY                                           -->
+<!-- ═══════════════════════════════════════════════════════════════════ -->
+<div id="tab-mechanics" class="tab-panel">
+
+  <!-- Render Tier Toggle -->
+  <div class="tier-toggle" id="tier-toggle">
+    <button class="tier-btn active" onclick="setTier('')">All<span class="tier-count" id="tier-all-count"></span></button>
+    <button class="tier-btn" onclick="setTier('text')">Text<span class="tier-count" id="tier-text-count"></span></button>
+    <button class="tier-btn" onclick="setTier('2d')">2D<span class="tier-count" id="tier-2d-count"></span></button>
+    <button class="tier-btn" onclick="setTier('3d')">3D<span class="tier-count" id="tier-3d-count"></span></button>
+  </div>
+
+  <!-- Overview -->
+  <div class="panel">
+    <div class="panel-header">
+      <h2>Recipe Coverage</h2>
+      <span id="mech-total" style="font-size:0.8rem;color:var(--parchment-dim)"></span>
+    </div>
+    <div class="panel-body">
+      <div id="overview-bars"></div>
+      <div class="stat-grid" id="overview-stats"></div>
+    </div>
+  </div>
+
+  <!-- Mechanic List -->
+  <div class="panel">
+    <div class="panel-header">
+      <h2>All Recipes</h2>
+      <div class="filter-bar">
+        <label>Category</label>
+        <select id="filter-category" onchange="loadMechanics()">
+          <option value="">All</option>
+        </select>
+        <label>Status</label>
+        <select id="filter-status" onchange="loadMechanics()">
+          <option value="">All</option>
+          <option value="not_implemented">Not Implemented</option>
+          <option value="implemented">Implemented</option>
+          <option value="tested">Tested</option>
+          <option value="verified">Verified</option>
+        </select>
+      </div>
+    </div>
+    <div class="panel-body" style="padding:0">
+      <div style="overflow-x:auto">
+        <table id="mech-table">
+          <thead>
+            <tr>
+              <th>Mechanic</th>
+              <th>Category</th>
+              <th>Status</th>
+              <th>Verified Against</th>
+              <th style="text-align:center">Sign Off</th>
+            </tr>
+          </thead>
+          <tbody id="mech-tbody">
+            <tr><td colspan="5" class="loading">Loading recipes...</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════════════ -->
+<!-- TAB: ATOMS & RECIPES                                              -->
+<!-- ═══════════════════════════════════════════════════════════════════ -->
+<div id="tab-recipes" class="tab-panel">
+  <div class="panel">
+    <div class="panel-header">
+      <h2>Ingredients</h2>
+      <span style="font-size:0.8rem;color:var(--parchment-dim)">The building blocks. Click an ingredient to see which recipes use it.</span>
+    </div>
+    <div class="panel-body" style="padding:0">
+      <div style="overflow-x:auto">
+        <table>
+          <thead>
+            <tr>
+              <th>Ingredient</th>
+              <th style="text-align:center">Used In</th>
+              <th>Recipes</th>
+            </tr>
+          </thead>
+          <tbody id="atoms-tbody">
+            <tr><td colspan="3" class="loading">Loading ingredients...</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <div class="panel" id="recipe-detail" style="display:none">
+    <div class="panel-header">
+      <h2 id="recipe-title">Recipe</h2>
+    </div>
+    <div class="panel-body" style="padding:0">
+      <div style="overflow-x:auto">
+        <table>
+          <thead>
+            <tr>
+              <th>Ingredient</th>
+              <th>Role in this Recipe</th>
+            </tr>
+          </thead>
+          <tbody id="recipe-tbody"></tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════════════ -->
+<!-- TAB: OSRS CAPTURE CHECKLIST                                       -->
+<!-- ═══════════════════════════════════════════════════════════════════ -->
+<div id="tab-checklist" class="tab-panel">
+  <div class="stat-grid" id="checklist-stats"></div>
+  <div class="panel">
+    <div class="panel-header">
+      <h2>OSRS Content Capture Checklist</h2>
+      <div class="filter-bar">
+        <label>Category</label>
+        <select id="cl-filter" onchange="loadChecklist()">
+          <option value="">All</option>
+        </select>
+      </div>
+    </div>
+    <div class="panel-body" style="padding:0">
+      <div style="overflow-x:auto">
+        <table>
+          <thead>
+            <tr>
+              <th style="width:40px;text-align:center">Done</th>
+              <th>Content</th>
+              <th>Category</th>
+              <th>Description</th>
+              <th>Captured</th>
+            </tr>
+          </thead>
+          <tbody id="cl-tbody">
+            <tr><td colspan="5" class="loading">Loading checklist...</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════════════ -->
+<!-- TAB: TRAINING ANALYTICS                                           -->
+<!-- ═══════════════════════════════════════════════════════════════════ -->
+<div id="tab-training" class="tab-panel">
+
+  <div class="stat-grid" id="training-stats"></div>
+
+  <div class="panel">
+    <div class="panel-header">
+      <h2>Recent Episodes</h2>
+      <div class="filter-bar">
+        <label>Show</label>
+        <select id="ep-limit" onchange="loadEpisodes()">
+          <option value="25">25</option>
+          <option value="50" selected>50</option>
+          <option value="100">100</option>
+          <option value="500">500</option>
+        </select>
+      </div>
+    </div>
+    <div class="panel-body" style="padding:0">
+      <div style="overflow-x:auto">
+        <table>
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Replay</th>
+              <th>Outcome</th>
+              <th>Wave</th>
+              <th>Best</th>
+              <th>Damage</th>
+              <th>Ticks</th>
+              <th>Supplies</th>
+              <th>Time</th>
+            </tr>
+          </thead>
+          <tbody id="ep-tbody">
+            <tr><td colspan="9" class="loading">Loading episodes...</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════════════ -->
+<!-- TAB: RL TESTS                                                     -->
+<!-- ═══════════════════════════════════════════════════════════════════ -->
+<div id="tab-rltests" class="tab-panel">
+  <div class="stat-grid" id="rl-stats"></div>
+  <div class="panel">
+    <div class="panel-header">
+      <h2>RL Mechanic Test Results</h2>
+      <div class="filter-bar">
+        <label>Status</label>
+        <select id="rl-filter-status" onchange="loadRLTests()">
+          <option value="">All</option>
+          <option value="passed">Passed</option>
+          <option value="needs_work">Needs Work</option>
+          <option value="error">Error</option>
+        </select>
+        <label>Type</label>
+        <select id="rl-filter-type" onchange="loadRLTests()">
+          <option value="">All</option>
+          <option value="skill">Skill</option>
+          <option value="combat">Combat</option>
+          <option value="quest">Quest</option>
+        </select>
+      </div>
+    </div>
+    <div class="panel-body" style="padding:0">
+      <div style="overflow-x:auto">
+        <table>
+          <thead>
+            <tr>
+              <th>Mechanic</th>
+              <th>Type</th>
+              <th>Status</th>
+              <th>Avg Reward</th>
+              <th>Train Eps</th>
+              <th>Time</th>
+              <th>Tested</th>
+            </tr>
+          </thead>
+          <tbody id="rl-tbody">
+            <tr><td colspan="7" class="loading">Loading test results...</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════════════ -->
+<!-- TAB: DEBUG QUERY                                                  -->
+<!-- ═══════════════════════════════════════════════════════════════════ -->
+<div id="tab-debug" class="tab-panel">
+  <div class="panel">
+    <div class="panel-header">
+      <h2>SQL Query Console</h2>
+    </div>
+    <div class="panel-body">
+      <textarea class="query-input" id="query-input" placeholder="SELECT * FROM mechanics WHERE status = 'verified' ORDER BY name;" spellcheck="false"></textarea>
+      <div style="display:flex;align-items:center;gap:12px">
+        <button class="query-btn" onclick="runQuery()">Execute</button>
+        <span class="query-status" id="query-status"></span>
+      </div>
+      <div class="query-results" id="query-results"></div>
+
+      <div style="margin-top:20px;padding-top:16px;border-top:1px solid var(--gold-dim)">
+        <h3 style="font-size:0.85rem;color:var(--gold);margin-bottom:8px;text-transform:uppercase;letter-spacing:1px">Quick Queries</h3>
+        <div style="display:flex;flex-wrap:wrap;gap:6px">
+          <button class="usage-tag" style="cursor:pointer;background:rgba(184,134,11,0.1)" onclick="quickQuery('SELECT * FROM mechanics ORDER BY category_id, name')">All Recipes</button>
+          <button class="usage-tag" style="cursor:pointer;background:rgba(192,57,43,0.1)" onclick="quickQuery(`SELECT * FROM mechanics WHERE status = 'not_implemented' ORDER BY name`)">Not Implemented</button>
+          <button class="usage-tag" style="cursor:pointer;background:rgba(39,174,96,0.1)" onclick="quickQuery(`SELECT m.name, m.status, array_agg(mu.entity_name) as used_by FROM mechanics m LEFT JOIN mechanic_usages mu ON mu.mechanic_id = m.id GROUP BY m.id ORDER BY m.name`)">Recipes + Usages</button>
+          <button class="usage-tag" style="cursor:pointer;background:rgba(41,128,185,0.1)" onclick="quickQuery('SELECT * FROM mechanic_categories ORDER BY sort_order')">Categories</button>
+          <button class="usage-tag" style="cursor:pointer;background:rgba(184,134,11,0.1)" onclick="quickQuery(`SELECT * FROM training_summary ORDER BY session_start DESC LIMIT 10`)">Training Summary</button>
+          <button class="usage-tag" style="cursor:pointer;background:rgba(184,134,11,0.1)" onclick="quickQuery(`SELECT event_type, COUNT(*) as count FROM tick_events GROUP BY event_type ORDER BY count DESC LIMIT 20`)">Event Types</button>
+          <button class="usage-tag" style="cursor:pointer;background:rgba(184,134,11,0.1)" onclick="quickQuery(`SELECT npc_name, COUNT(DISTINCT episode_id) as episodes, AVG(hp) as avg_hp FROM tick_npcs GROUP BY npc_name ORDER BY episodes DESC`)">NPC Stats</button>
+          <button class="usage-tag" style="cursor:pointer;background:rgba(184,134,11,0.1)" onclick="quickQuery(`SELECT table_name, pg_size_pretty(pg_total_relation_size(quote_ident(table_name))) as size FROM information_schema.tables WHERE table_schema = 'public' ORDER BY pg_total_relation_size(quote_ident(table_name)) DESC`)">Table Sizes</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════════════ -->
+<!-- TAB: USER MANAGEMENT                                              -->
+<!-- ═══════════════════════════════════════════════════════════════════ -->
+<div id="tab-users" class="tab-panel">
+  <div class="panel">
+    <div class="panel-header">
+      <h2>User Management</h2>
+      <span id="user-count" style="font-size:0.8rem;color:var(--parchment-dim)"></span>
+    </div>
+    <div class="panel-body">
+      <div id="current-user" style="margin-bottom:16px;padding:10px;background:var(--stone);border:1px solid var(--gold-dim);border-radius:4px;font-size:0.8rem"></div>
+      <div style="margin-bottom:12px;display:flex;gap:8px;align-items:center;flex-wrap:wrap">
+        <label style="font-size:0.75rem;color:var(--parchment-dim)">Filter role:</label>
+        <select id="user-role-filter" onchange="loadUsers()" style="font-family:var(--font);font-size:0.8rem;background:var(--stone);color:var(--parchment);border:1px solid var(--gold-dim);padding:4px 8px;border-radius:3px">
+          <option value="">All</option>
+          <option value="admin">Admin</option>
+          <option value="builder">Builder</option>
+          <option value="player">Player</option>
+        </select>
+        <input type="text" id="user-search" placeholder="Search users..." oninput="loadUsers()" style="font-family:var(--font);font-size:0.8rem;background:var(--stone);color:var(--parchment);border:1px solid var(--gold-dim);padding:4px 8px;border-radius:3px;flex:1;min-width:150px">
+      </div>
+      <div style="overflow-x:auto">
+        <table id="user-table" style="width:100%;border-collapse:collapse;font-size:0.8rem">
+          <thead>
+            <tr>
+              <th style="text-align:left;padding:8px;color:var(--parchment-dim);border-bottom:1px solid var(--gold-dim)">Name</th>
+              <th style="text-align:left;padding:8px;color:var(--parchment-dim);border-bottom:1px solid var(--gold-dim)">Role</th>
+              <th style="text-align:left;padding:8px;color:var(--parchment-dim);border-bottom:1px solid var(--gold-dim)">Created</th>
+              <th style="text-align:right;padding:8px;color:var(--parchment-dim);border-bottom:1px solid var(--gold-dim)">Actions</th>
+            </tr>
+          </thead>
+          <tbody id="user-tbody"></tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+
+</main>
+
+<script>
+// ═══════════════════════════════════════════════════════════════════════
+// STATE
+// ═══════════════════════════════════════════════════════════════════════
+
+let mechanics = [];
+let expandedRows = new Set();
+let currentTier = ''; // '' = all, 'text', '2d', '3d'
+
+// ═══════════════════════════════════════════════════════════════════════
+// TABS
+// ═══════════════════════════════════════════════════════════════════════
+
+function showTab(name) {
+  document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('nav button').forEach(b => b.classList.remove('active'));
+  document.getElementById('tab-' + name).classList.add('active');
+  event.target.classList.add('active');
+
+  if (name === 'training') loadEpisodes();
+  if (name === 'atoms') loadRecipes();
+  if (name === 'checklist') loadChecklist();
+  if (name === 'rltests') loadRLTests();
+  if (name === 'users') loadUsers();
+}
+
+// ═══════════════════════════════════════════════════════════════════════
+// HEALTH CHECK
+// ═══════════════════════════════════════════════════════════════════════
+
+async function checkHealth() {
+  try {
+    const r = await fetch('/api/health');
+    const data = await r.json();
+    const dot = document.getElementById('health-dot');
+    const text = document.getElementById('health-text');
+    if (data.database === 'connected') {
+      dot.className = 'health-dot ok';
+      text.textContent = 'DB connected';
+    } else {
+      dot.className = 'health-dot err';
+      text.textContent = 'DB disconnected';
+    }
+  } catch {
+    document.getElementById('health-dot').className = 'health-dot err';
+    document.getElementById('health-text').textContent = 'API unreachable';
+  }
+}
+
+// ═══════════════════════════════════════════════════════════════════════
+// MECHANICS
+// ═══════════════════════════════════════════════════════════════════════
+
+function setTier(tier) {
+  currentTier = tier;
+  document.querySelectorAll('.tier-btn').forEach(b => b.classList.remove('active'));
+  event.target.classList.add('active');
+  loadOverview();
+  loadMechanics();
+}
+
+async function loadOverview() {
+  try {
+    const tierParam = currentTier ? `?render_tier=${currentTier}` : '';
+    const r = await fetch('/api/mechanics/overview' + tierParam);
+    const data = await r.json();
+
+    let totalAll = 0, totalVerified = 0, totalTested = 0, totalImpl = 0, totalNot = 0, totalSigned = 0;
+    data.forEach(c => {
+      totalAll += parseInt(c.total);
+      totalVerified += parseInt(c.verified);
+      totalTested += parseInt(c.tested);
+      totalImpl += parseInt(c.implemented);
+      totalNot += parseInt(c.not_implemented);
+      totalSigned += parseInt(c.signed_off);
+    });
+
+    document.getElementById('mech-total').textContent = totalAll + ' recipes' + (currentTier ? ` (${currentTier})` : '');
+
+    // Update tier counts
+    let tText = 0, t2d = 0, t3d = 0;
+    data.forEach(c => { tText += parseInt(c.tier_text||0); t2d += parseInt(c.tier_2d||0); t3d += parseInt(c.tier_3d||0); });
+    if (!currentTier) {
+      document.getElementById('tier-all-count').textContent = totalAll;
+      document.getElementById('tier-text-count').textContent = tText;
+      document.getElementById('tier-2d-count').textContent = t2d;
+      document.getElementById('tier-3d-count').textContent = t3d;
+    }
+
+    // Overview bars per category
+    let barsHtml = '';
+    data.forEach(c => {
+      if (parseInt(c.total) === 0) return;
+      const t = parseInt(c.total);
+      barsHtml += `<div style="margin-bottom:8px">
+        <div style="display:flex;justify-content:space-between;font-size:0.75rem;margin-bottom:2px">
+          <span style="color:var(--gold)">${c.category_name}</span>
+          <span style="color:var(--parchment-dim)">${c.verified}/${t} verified</span>
+        </div>
+        <div class="overview-bar">
+          <div class="bar-verified" style="width:${(c.verified/t*100).toFixed(1)}%">${c.verified > 0 ? c.verified : ''}</div>
+          <div class="bar-tested" style="width:${(c.tested/t*100).toFixed(1)}%">${c.tested > 0 ? c.tested : ''}</div>
+          <div class="bar-implemented" style="width:${(c.implemented/t*100).toFixed(1)}%">${c.implemented > 0 ? c.implemented : ''}</div>
+          <div class="bar-not_implemented" style="width:${(c.not_implemented/t*100).toFixed(1)}%">${c.not_implemented > 0 ? c.not_implemented : ''}</div>
+        </div>
+      </div>`;
+    });
+    document.getElementById('overview-bars').innerHTML = barsHtml;
+
+    // Stat cards
+    document.getElementById('overview-stats').innerHTML = `
+      <div class="stat-card"><div class="stat-value">${totalAll}</div><div class="stat-label">Total Recipes</div></div>
+      <div class="stat-card"><div class="stat-value" style="color:var(--green-glow)">${totalVerified}</div><div class="stat-label">Verified</div></div>
+      <div class="stat-card"><div class="stat-value" style="color:var(--blue-glow)">${totalTested}</div><div class="stat-label">Tested</div></div>
+      <div class="stat-card"><div class="stat-value" style="color:var(--yellow-glow)">${totalImpl}</div><div class="stat-label">Implemented</div></div>
+      <div class="stat-card"><div class="stat-value" style="color:var(--red-glow)">${totalNot}</div><div class="stat-label">Not Implemented</div></div>
+      <div class="stat-card"><div class="stat-value" style="color:#1abc9c">${totalSigned}</div><div class="stat-label">Signed Off</div></div>
+    `;
+
+    // Populate category filter
+    const sel = document.getElementById('filter-category');
+    if (sel.options.length <= 1) {
+      data.forEach(c => {
+        const opt = document.createElement('option');
+        opt.value = c.category_id;
+        opt.textContent = c.category_name;
+        sel.appendChild(opt);
+      });
+    }
+  } catch (err) {
+    console.error('Failed to load overview:', err);
+  }
+}
+
+async function loadMechanics() {
+  try {
+    const category = document.getElementById('filter-category').value;
+    const status = document.getElementById('filter-status').value;
+    let url = '/api/mechanics?';
+    if (category) url += 'category=' + category + '&';
+    if (status) url += 'status=' + status + '&';
+    if (currentTier) url += 'render_tier=' + currentTier + '&';
+
+    const r = await fetch(url);
+    mechanics = await r.json();
+    renderMechanics();
+  } catch (err) {
+    document.getElementById('mech-tbody').innerHTML =
+      `<tr><td colspan="5" style="color:var(--red)">Failed to load: ${err.message}</td></tr>`;
+  }
+}
+
+function renderMechanics() {
+  const tbody = document.getElementById('mech-tbody');
+  if (!mechanics.length) {
+    tbody.innerHTML = '<tr><td colspan="5" class="loading">No recipes found</td></tr>';
+    return;
+  }
+
+  let html = '';
+  mechanics.forEach((m, i) => {
+    const expanded = expandedRows.has(m.id);
+    const usages = Array.isArray(m.usages) ? m.usages : (typeof m.usages === 'string' ? JSON.parse(m.usages) : []);
+
+    html += `<tr class="expandable" onclick="toggleRow('${m.id}')">
+      <td>
+        <span style="color:var(--parchment);font-weight:500">${m.name}</span>
+        <div style="font-size:0.75rem;color:var(--parchment-dark);margin-top:2px">${m.description || ''}</div>
+      </td>
+      <td style="color:var(--parchment-dim)">${m.category_name || m.category_id}</td>
+      <td><span class="badge ${m.status}">${m.status.replace(/_/g,' ')}</span>
+        ${m.render_tier && m.render_tier !== 'text' ? `<span style="font-size:0.6rem;color:var(--parchment-dark);margin-left:4px">${m.render_tier.toUpperCase()}</span>` : ''}
+      </td>
+      <td style="color:var(--parchment-dim);font-size:0.8rem">${m.verified_against || '-'}</td>
+      <td style="text-align:center">
+        <input type="checkbox" class="signoff-check"
+          ${m.signed_off ? 'checked' : ''}
+          onclick="event.stopPropagation();signOff('${m.id}', this.checked)"
+          title="${m.signed_off ? 'Signed off ' + (m.signed_off_at || '') : 'Click to sign off'}">
+      </td>
+    </tr>`;
+
+    if (expanded && usages.length) {
+      html += `<tr class="detail-row"><td colspan="5">
+        <div style="font-size:0.75rem;color:var(--gold);margin-bottom:6px;text-transform:uppercase;letter-spacing:0.5px">Used By</div>
+        <div class="usage-list">
+          ${usages.map(u => `<span class="usage-tag">${u.entity_name}${u.notes ? ' - ' + u.notes : ''}</span>`).join('')}
+        </div>
+        ${m.source_files?.length ? `<div style="margin-top:8px;font-size:0.75rem;color:var(--parchment-dark)">Source: ${m.source_files.join(', ')}</div>` : ''}
+        ${m.notes ? `<div style="margin-top:4px;font-size:0.75rem;color:var(--parchment-dim)">${m.notes}</div>` : ''}
+      </td></tr>`;
+    }
+  });
+
+  tbody.innerHTML = html;
+}
+
+function toggleRow(id) {
+  if (expandedRows.has(id)) expandedRows.delete(id);
+  else expandedRows.add(id);
+  renderMechanics();
+}
+
+async function signOff(mechanicId, checked) {
+  try {
+    await fetch('/api/mechanics/' + mechanicId, {
+      method: 'PUT',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify(checked ? { signed_off: true } : { signed_off: false })
+    });
+    loadMechanics();
+    loadOverview();
+  } catch (err) {
+    console.error('Sign off failed:', err);
+  }
+}
+
+// ═══════════════════════════════════════════════════════════════════════
+// ATOMS & RECIPES
+// ═══════════════════════════════════════════════════════════════════════
+
+async function loadRecipes() {
+  try {
+    const r = await fetch('/api/recipes');
+    const atoms = await r.json();
+
+    let html = '';
+    atoms.forEach(atom => {
+      const features = atom.features || [];
+      html += `<tr class="expandable" onclick="showRecipeForAtom('${atom.atom_id}', '${atom.atom_name}')">
+        <td style="font-weight:500;color:var(--gold-bright)">${atom.atom_name}</td>
+        <td style="text-align:center;font-weight:600;color:var(--parchment)">${atom.used_in}</td>
+        <td style="font-size:0.8rem;color:var(--parchment-dim)">${features.slice(0, 8).join(', ')}${features.length > 8 ? '...' : ''}</td>
+      </tr>`;
+    });
+    document.getElementById('atoms-tbody').innerHTML = html || '<tr><td colspan="3" class="loading">No atoms found</td></tr>';
+  } catch (err) {
+    document.getElementById('atoms-tbody').innerHTML = `<tr><td colspan="3" style="color:var(--red)">Failed: ${err.message}</td></tr>`;
+  }
+}
+
+async function showRecipeForAtom(atomId, atomName) {
+  const panel = document.getElementById('recipe-detail');
+  panel.style.display = 'block';
+  document.getElementById('recipe-title').textContent = 'Recipes using: ' + atomName;
+
+  const r = await fetch('/api/recipes?atom_id=' + encodeURIComponent(atomId));
+  const recipes = await r.json();
+
+  let html = '';
+  recipes.forEach(rec => {
+    html += `<tr class="expandable" onclick="showRecipeForFeature('${rec.mechanic_id}', '${rec.feature_name}')">
+      <td style="font-weight:500;color:var(--parchment)">${rec.feature_name}</td>
+      <td style="font-size:0.8rem;color:var(--parchment-dim)">${rec.notes || ''}</td>
+    </tr>`;
+  });
+  document.getElementById('recipe-tbody').innerHTML = html;
+}
+
+async function showRecipeForFeature(mechId, mechName) {
+  const panel = document.getElementById('recipe-detail');
+  panel.style.display = 'block';
+  document.getElementById('recipe-title').textContent = 'Ingredients for: ' + mechName;
+
+  const r = await fetch('/api/recipes?mechanic_id=' + encodeURIComponent(mechId));
+  const recipes = await r.json();
+
+  let html = '';
+  recipes.forEach(rec => {
+    html += `<tr>
+      <td style="font-weight:500;color:var(--gold-bright)">${rec.atom_name}</td>
+      <td style="font-size:0.8rem;color:var(--parchment-dim)">${rec.notes || ''}</td>
+    </tr>`;
+  });
+  document.getElementById('recipe-tbody').innerHTML = html;
+}
+
+// ═══════════════════════════════════════════════════════════════════════
+// RL TESTS
+// ═══════════════════════════════════════════════════════════════════════
+
+async function loadRLTests() {
+  try {
+    const r = await fetch('/api/mechanic-tests');
+    let results = await r.json();
+
+    // Filters
+    const statusFilter = document.getElementById('rl-filter-status')?.value;
+    const typeFilter = document.getElementById('rl-filter-type')?.value;
+    if (statusFilter) results = results.filter(r => r.status === statusFilter);
+    if (typeFilter) results = results.filter(r => r.env_type === typeFilter);
+
+    // Stats
+    const total = results.length;
+    const passed = results.filter(r => r.status === 'passed').length;
+    const needsWork = results.filter(r => r.status === 'needs_work').length;
+    const errors = results.filter(r => r.status === 'error').length;
+    const avgReward = total > 0 ? (results.reduce((s, r) => s + (r.avg_reward || 0), 0) / total).toFixed(2) : '0';
+
+    document.getElementById('rl-stats').innerHTML = `
+      <div class="stat-card"><div class="stat-value">${total}</div><div class="stat-label">Tested</div></div>
+      <div class="stat-card"><div class="stat-value" style="color:var(--green-glow)">${passed}</div><div class="stat-label">Passed</div></div>
+      <div class="stat-card"><div class="stat-value" style="color:var(--yellow-glow)">${needsWork}</div><div class="stat-label">Needs Work</div></div>
+      <div class="stat-card"><div class="stat-value" style="color:var(--red-glow)">${errors}</div><div class="stat-label">Errors</div></div>
+      <div class="stat-card"><div class="stat-value">${avgReward}</div><div class="stat-label">Avg Reward</div></div>
+      <div class="stat-card"><div class="stat-value">${total > 0 ? Math.round(100 * passed / total) : 0}%</div><div class="stat-label">Pass Rate</div></div>
+    `;
+
+    // Table
+    let html = '';
+    results.sort((a, b) => (a.mechanic_id || '').localeCompare(b.mechanic_id || ''));
+    for (const r of results) {
+      const statusClass = r.status === 'passed' ? 'verified' : r.status === 'error' ? 'not_implemented' : 'implemented';
+      html += `<tr>
+        <td style="font-weight:500;color:var(--parchment)">${r.mechanic_id}</td>
+        <td style="color:var(--parchment-dim)">${r.env_type || '-'}</td>
+        <td><span class="badge ${statusClass}">${r.status}</span></td>
+        <td style="color:${r.avg_reward > 0 ? 'var(--green-glow)' : 'var(--red-glow)'}">${(r.avg_reward || 0).toFixed(2)}</td>
+        <td style="color:var(--parchment-dim)">${r.train_episodes || 0}</td>
+        <td style="color:var(--parchment-dim)">${r.elapsed_seconds || 0}s</td>
+        <td style="font-size:0.75rem;color:var(--parchment-dark)">${r.timestamp || '-'}</td>
+      </tr>`;
+    }
+    document.getElementById('rl-tbody').innerHTML = html || '<tr><td colspan="7" class="loading">No test results yet</td></tr>';
+
+  } catch (err) {
+    document.getElementById('rl-tbody').innerHTML = `<tr><td colspan="7" style="color:var(--red)">Failed: ${err.message}</td></tr>`;
+  }
+}
+
+// ═══════════════════════════════════════════════════════════════════════
+// CHECKLIST
+// ═══════════════════════════════════════════════════════════════════════
+
+async function loadChecklist() {
+  try {
+    const category = document.getElementById('cl-filter')?.value || '';
+    const url = category ? '/api/checklist?category=' + encodeURIComponent(category) : '/api/checklist';
+    const r = await fetch(url);
+    const items = await r.json();
+
+    // Summary
+    const sr = await fetch('/api/checklist/summary');
+    const summary = await sr.json();
+    let totalAll = 0, totalDone = 0;
+    summary.forEach(c => { totalAll += parseInt(c.total); totalDone += parseInt(c.done); });
+
+    document.getElementById('checklist-stats').innerHTML = `
+      <div class="stat-card"><div class="stat-value">${totalAll}</div><div class="stat-label">Total Content</div></div>
+      <div class="stat-card"><div class="stat-value" style="color:var(--green-glow)">${totalDone}</div><div class="stat-label">Captured</div></div>
+      <div class="stat-card"><div class="stat-value" style="color:var(--red-glow)">${totalAll - totalDone}</div><div class="stat-label">Remaining</div></div>
+      <div class="stat-card"><div class="stat-value">${totalAll > 0 ? Math.round(100*totalDone/totalAll) : 0}%</div><div class="stat-label">Coverage</div></div>
+    `;
+
+    // Populate filter
+    const sel = document.getElementById('cl-filter');
+    if (sel.options.length <= 1) {
+      const cats = [...new Set(items.map(i => i.category))];
+      cats.forEach(c => { const o = document.createElement('option'); o.value = c; o.textContent = c; sel.appendChild(o); });
+    }
+
+    // Table
+    let html = '';
+    let lastCat = '';
+    items.forEach(item => {
+      if (item.category !== lastCat) {
+        html += `<tr><td colspan="5" style="background:rgba(184,134,11,0.1);padding:6px 12px;font-weight:600;color:var(--gold);font-size:0.8rem;text-transform:uppercase;letter-spacing:1px">${item.category}</td></tr>`;
+        lastCat = item.category;
+      }
+      html += `<tr>
+        <td style="text-align:center">
+          <input type="checkbox" class="signoff-check" ${item.captured ? 'checked' : ''}
+            onchange="toggleCapture('${item.id}', this.checked)">
+        </td>
+        <td style="color:${item.captured ? 'var(--green-glow)' : 'var(--parchment)'};font-weight:500;${item.captured ? 'text-decoration:line-through;opacity:0.7' : ''}">${item.name}</td>
+        <td style="color:var(--parchment-dim);font-size:0.8rem">${item.category}</td>
+        <td style="color:var(--parchment-dark);font-size:0.8rem">${item.description || ''}</td>
+        <td style="font-size:0.75rem;color:var(--parchment-dark)">${item.captured_at ? new Date(item.captured_at).toLocaleDateString() : '-'}</td>
+      </tr>`;
+    });
+    document.getElementById('cl-tbody').innerHTML = html || '<tr><td colspan="5" class="loading">No items</td></tr>';
+
+  } catch (err) {
+    document.getElementById('cl-tbody').innerHTML = `<tr><td colspan="5" style="color:var(--red)">Failed: ${err.message}</td></tr>`;
+  }
+}
+
+async function toggleCapture(id, checked) {
+  await fetch('/api/checklist/' + encodeURIComponent(id), {
+    method: 'PUT',
+    headers: {'Content-Type': 'application/json'},
+    body: JSON.stringify({ captured: checked })
+  });
+  loadChecklist();
+}
+
+// ═══════════════════════════════════════════════════════════════════════
+// TRAINING
+// ═══════════════════════════════════════════════════════════════════════
+
+async function loadEpisodes() {
+  const limit = document.getElementById('ep-limit')?.value || 50;
+  try {
+    const r = await fetch('/api/training/episodes?limit=' + limit);
+    const episodes = await r.json();
+
+    if (!episodes.length) {
+      document.getElementById('ep-tbody').innerHTML =
+        '<tr><td colspan="9" class="loading">No episodes recorded yet</td></tr>';
+      document.getElementById('training-stats').innerHTML = '';
+      return;
+    }
+
+    // Stats
+    const waves = episodes.map(e => e.max_wave || e.final_wave || 0);
+    const avgWave = (waves.reduce((a,b) => a+b, 0) / waves.length).toFixed(1);
+    const bestWave = Math.max(...waves);
+    const completions = episodes.filter(e => e.outcome === 'complete').length;
+    const deaths = episodes.filter(e => e.outcome === 'died').length;
+    const avgDmg = (episodes.reduce((a,e) => a + (e.damage_taken || 0), 0) / episodes.length).toFixed(0);
+    const avgTicks = (episodes.reduce((a,e) => a + (e.ticks_survived || 0), 0) / episodes.length).toFixed(0);
+
+    document.getElementById('training-stats').innerHTML = `
+      <div class="stat-card"><div class="stat-value">${episodes.length}</div><div class="stat-label">Episodes</div></div>
+      <div class="stat-card"><div class="stat-value">${avgWave}</div><div class="stat-label">Avg Wave</div></div>
+      <div class="stat-card"><div class="stat-value" style="color:var(--gold-bright)">${bestWave}</div><div class="stat-label">Best Wave</div></div>
+      <div class="stat-card"><div class="stat-value" style="color:var(--green-glow)">${completions}</div><div class="stat-label">Completions</div></div>
+      <div class="stat-card"><div class="stat-value" style="color:var(--red-glow)">${deaths}</div><div class="stat-label">Deaths</div></div>
+      <div class="stat-card"><div class="stat-value">${avgDmg}</div><div class="stat-label">Avg Damage</div></div>
+      <div class="stat-card"><div class="stat-value">${avgTicks}</div><div class="stat-label">Avg Ticks</div></div>
+    `;
+
+    // Table
+    let html = '';
+    episodes.forEach((e, i) => {
+      const outcomeClass = e.outcome === 'died' ? 'outcome-died' : e.outcome === 'complete' ? 'outcome-complete' : 'outcome-timeout';
+      const time = e.started_at ? new Date(e.started_at).toLocaleTimeString() : '-';
+      const supplies = e.supplies_used && typeof e.supplies_used === 'object'
+        ? Object.entries(e.supplies_used).map(([k,v]) => `${k}:${v}`).join(' ')
+        : '-';
+      html += `<tr>
+        <td>${e.episode_num || i+1}</td>
+        <td style="font-size:0.8rem;color:var(--parchment-dim)">${e.replay_id || '-'}</td>
+        <td class="${outcomeClass}" style="font-weight:600">${e.outcome || '-'}</td>
+        <td>${e.final_wave || 0}</td>
+        <td style="color:var(--gold)">${e.max_wave || e.final_wave || 0}</td>
+        <td>${e.damage_taken || 0}</td>
+        <td>${e.ticks_survived || 0}</td>
+        <td style="font-size:0.75rem;color:var(--parchment-dim)">${supplies}</td>
+        <td style="font-size:0.75rem;color:var(--parchment-dark)">${time}</td>
+      </tr>`;
+    });
+    document.getElementById('ep-tbody').innerHTML = html;
+
+  } catch (err) {
+    document.getElementById('ep-tbody').innerHTML =
+      `<tr><td colspan="9" style="color:var(--red)">Failed: ${err.message}</td></tr>`;
+  }
+}
+
+// ═══════════════════════════════════════════════════════════════════════
+// DEBUG QUERY
+// ═══════════════════════════════════════════════════════════════════════
+
+async function runQuery() {
+  const sql = document.getElementById('query-input').value.trim();
+  if (!sql) return;
+
+  const status = document.getElementById('query-status');
+  const results = document.getElementById('query-results');
+  status.textContent = 'Executing...';
+  status.style.color = 'var(--parchment-dim)';
+  results.innerHTML = '';
+
+  try {
+    const start = performance.now();
+    const r = await fetch('/api/query', {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify({ sql })
+    });
+    const data = await r.json();
+    const elapsed = (performance.now() - start).toFixed(0);
+
+    if (data.error) {
+      status.textContent = 'Error: ' + data.error;
+      status.style.color = 'var(--red-glow)';
+      return;
+    }
+
+    status.textContent = `${data.rowCount} rows in ${elapsed}ms`;
+    status.style.color = 'var(--green-glow)';
+
+    if (!data.rows?.length) {
+      results.innerHTML = '<div class="loading">No results</div>';
+      return;
+    }
+
+    const fields = data.fields || Object.keys(data.rows[0]);
+    let html = '<table><thead><tr>';
+    fields.forEach(f => html += `<th>${f}</th>`);
+    html += '</tr></thead><tbody>';
+    data.rows.forEach(row => {
+      html += '<tr>';
+      fields.forEach(f => {
+        let val = row[f];
+        if (val === null) val = '<span style="color:var(--parchment-dark)">null</span>';
+        else if (typeof val === 'object') val = `<span style="color:var(--blue-glow)">${JSON.stringify(val)}</span>`;
+        else if (typeof val === 'boolean') val = val ? '<span style="color:var(--green)">true</span>' : '<span style="color:var(--red)">false</span>';
+        html += `<td>${val}</td>`;
+      });
+      html += '</tr>';
+    });
+    html += '</tbody></table>';
+    results.innerHTML = html;
+
+  } catch (err) {
+    status.textContent = 'Error: ' + err.message;
+    status.style.color = 'var(--red-glow)';
+  }
+}
+
+function quickQuery(sql) {
+  document.getElementById('query-input').value = sql;
+  runQuery();
+}
+
+// Ctrl+Enter to execute
+document.addEventListener('keydown', e => {
+  if ((e.ctrlKey || e.metaKey) && e.key === 'Enter') {
+    if (document.getElementById('tab-debug').classList.contains('active')) {
+      runQuery();
+    }
+  }
+});
+
+// ═══════════════════════════════════════════════════════════════════════
+// USER MANAGEMENT
+// ═══════════════════════════════════════════════════════════════════════
+
+let allUsers = [];
+let currentUser = null;
+
+async function loadCurrentUser() {
+  try {
+    const r = await fetch('/api/auth/me');
+    const data = await r.json();
+    if (data.authenticated) {
+      currentUser = data;
+      const el = document.getElementById('current-user');
+      if (el) el.innerHTML = `Logged in as <span style="color:var(--gold);font-weight:600">${data.name}</span> (<span style="color:var(--green)">${data.role}</span>) &mdash; <a href="/logout" style="color:var(--red);text-decoration:none">Logout</a>`;
+    }
+  } catch {}
+}
+
+async function loadUsers() {
+  try {
+    const r = await fetch('/api/auth/users');
+    if (!r.ok) { document.getElementById('user-tbody').innerHTML = '<tr><td colspan="4" style="padding:12px;color:var(--red)">Admin access required</td></tr>'; return; }
+    allUsers = await r.json();
+  } catch { return; }
+
+  const filter = document.getElementById('user-role-filter')?.value || '';
+  const search = (document.getElementById('user-search')?.value || '').toLowerCase();
+
+  let filtered = allUsers;
+  if (filter) filtered = filtered.filter(u => u.role === filter);
+  if (search) filtered = filtered.filter(u => u.name.toLowerCase().includes(search));
+
+  document.getElementById('user-count').textContent = `${filtered.length} / ${allUsers.length} users`;
+
+  const ROLE_COLORS = { admin: 'var(--red)', builder: 'var(--gold)', player: 'var(--parchment-dim)' };
+
+  document.getElementById('user-tbody').innerHTML = filtered.map(u => {
+    const isSelf = currentUser && u.name.toLowerCase() === currentUser.name.toLowerCase();
+    const created = u.created ? new Date(u.created).toLocaleDateString() : '-';
+    const roleColor = ROLE_COLORS[u.role] || 'var(--parchment)';
+
+    return `<tr style="border-bottom:1px solid rgba(184,134,11,0.1)">
+      <td style="padding:8px;font-weight:600">${u.name}${isSelf ? ' <span style="font-size:0.65rem;color:var(--green)">(you)</span>' : ''}</td>
+      <td style="padding:8px"><span style="color:${roleColor};font-weight:600">${u.role}</span></td>
+      <td style="padding:8px;color:var(--parchment-dim)">${created}</td>
+      <td style="padding:8px;text-align:right">
+        ${isSelf ? '' : `
+          <select onchange="changeRole('${u.name.replace(/'/g,"\\'")}', this.value)" style="font-family:var(--font);font-size:0.75rem;background:var(--stone);color:var(--parchment);border:1px solid var(--gold-dim);padding:2px 6px;border-radius:3px">
+            <option value="player" ${u.role==='player'?'selected':''}>Player</option>
+            <option value="builder" ${u.role==='builder'?'selected':''}>Builder</option>
+            <option value="admin" ${u.role==='admin'?'selected':''}>Admin</option>
+          </select>
+          <button onclick="deleteUser('${u.name.replace(/'/g,"\\'")}')" style="font-family:var(--font);font-size:0.65rem;padding:2px 8px;border-radius:3px;cursor:pointer;border:1px solid rgba(192,57,43,0.4);background:transparent;color:var(--red);margin-left:4px" title="Delete user">Del</button>
+        `}
+      </td>
+    </tr>`;
+  }).join('') || '<tr><td colspan="4" style="padding:12px;color:var(--parchment-dark)">No users found</td></tr>';
+}
+
+async function changeRole(name, role) {
+  try {
+    const r = await fetch(`/api/auth/users/${encodeURIComponent(name)}/role`, {
+      method: 'PUT',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ role }),
+    });
+    const data = await r.json();
+    if (!r.ok) { alert(data.error || 'Failed'); loadUsers(); return; }
+    loadUsers();
+  } catch { alert('Connection error'); }
+}
+
+async function deleteUser(name) {
+  if (!confirm(`Delete user "${name}"? This cannot be undone.`)) return;
+  try {
+    const r = await fetch(`/api/auth/users/${encodeURIComponent(name)}`, { method: 'DELETE' });
+    const data = await r.json();
+    if (!r.ok) { alert(data.error || 'Failed'); return; }
+    loadUsers();
+  } catch { alert('Connection error'); }
+}
+
+// ═══════════════════════════════════════════════════════════════════════
+// INIT
+// ═══════════════════════════════════════════════════════════════════════
+
+checkHealth();
+loadOverview();
+loadMechanics();
+loadCurrentUser();
+setInterval(checkHealth, 30000);
+</script>
+
+</body>
+</html>

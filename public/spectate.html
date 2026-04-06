@@ -747,6 +747,7 @@
     <a href="/play">Play</a>
     <a href="/guide">Guide</a>
     <a href="/about">About</a>
+    <a href="/builder">Builder</a>
     <a href="https://discord.gg/rMJsb72PkW" target="_blank">Contribute</a>
   </nav>
   <div class="header-right">
@@ -876,6 +877,7 @@
     <button class="pb-btn" id="btn-play" onclick="togglePlay()" title="Play/Pause">&#9646;&#9646;</button>
     <button class="pb-btn" onclick="stepForward()" title="Forward 1 tick">&#8631;</button>
     <button class="pb-btn live" onclick="skipToLatest()" title="Jump to live">LIVE</button>
+    <button class="pb-btn live" onclick="syncReset()" title="Force resync - clears buffer and refetches" style="color:#ff0;">SYNC</button>
     <input type="range" id="speed-slider" min="0" max="6" value="3" oninput="setSpeed(this.value)">
     <span id="speed-label">1x</span>
     <div id="buffer-bar" onclick="seekBuffer(event)"><div id="buffer-fill"></div></div>
@@ -1694,6 +1696,20 @@ async function skipToLatest(){
   // Render everything we got
   while(playHead<lineBuffer.length){renderLine(lineBuffer[playHead]);playHead++}
   updateBufferBar();
+}
+async function syncReset(){
+  // Hard reset — nuke everything and refetch from scratch
+  liveMode=true;lastLiveLen=0;
+  lineBuffer.length=0;playHead=0;
+  chatLog.innerHTML='';mapContent.innerHTML='';mapBuf='';colMap=false;
+  document.getElementById('live-dot').classList.add('on');
+  addMsg('Sync reset — refetching live data...','system');
+  // Small delay to let any in-flight writes finish
+  await new Promise(r=>setTimeout(r,200));
+  await pollLive();
+  while(playHead<lineBuffer.length){renderLine(lineBuffer[playHead]);playHead++}
+  updateBufferBar();
+  addMsg('Synced. '+lineBuffer.length+' lines loaded.','system');
 }
 function setSpeed(val){
   speedMultiplier=SPEEDS[parseInt(val)];

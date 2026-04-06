@@ -32,6 +32,9 @@ const combat = require('./combat/combat');
 const ai = require('./ai/dialogue');
 const ollama = require('./ai/ollama');
 
+// Auth
+const auth = require('./auth');
+
 // Data systems
 const items = require('./data/items');
 const recipes = require('./data/recipes');
@@ -2860,8 +2863,43 @@ function addNpcPrompt(npcName, prompt, sendFn) {
     _addNpcPrompt(npcName, prompt, sendFn);
   }
 }
-const server = http.createServer((req, res) => {
+const dbApi = require('./db/api');
+
+const server = http.createServer(async (req, res) => {
+  // Auth API endpoints — handle first
+  if (req.url.startsWith('/api/auth/')) {
+    try {
+      const handled = await auth.handleAuthRequest(req, res);
+      if (handled !== false) return;
+    } catch (err) {
+      res.writeHead(500, { 'Content-Type': 'application/json' });
+      res.end(JSON.stringify({ error: err.message }));
+      return;
+    }
+  }
+
+  // Database API endpoints
+  if (req.url.startsWith('/api/')) {
+    try {
+      const handled = await dbApi.handleRequest(req, res);
+      if (handled) return;
+    } catch (err) {
+      res.writeHead(500, { 'Content-Type': 'application/json' });
+      res.end(JSON.stringify({ error: err.message }));
+      return;
+    }
+  }
+
   const publicDir = require('path').join(__dirname, '..', 'public');
+
+  // Session + role helpers
+  const session = auth.getSession(req);
+  const requireRole = (minRole) => {
+    if (auth.hasRole(session, minRole)) return true;
+    res.writeHead(302, { 'Location': '/login?next=' + encodeURIComponent(req.url) });
+    res.end();
+    return false;
+  };
 
   // Helper to serve an HTML file
   const serveHTML = (filename) => {
@@ -2892,6 +2930,43 @@ const server = http.createServer((req, res) => {
   // About page
   if (req.url === '/about') {
     if (serveHTML('about.html')) return;
+  }
+
+  // Login page
+  if (req.url.startsWith('/login')) {
+    if (serveHTML('login.html')) return;
+  }
+
+  // Logout
+  if (req.url === '/logout') {
+    auth.clearSessionCookie(res);
+    res.writeHead(302, { 'Location': '/' });
+    res.end();
+    return;
+  }
+
+  // Dashboard — admin only
+  if (req.url === '/dashboard') {
+    if (!requireRole('admin')) return;
+    if (serveHTML('dashboard.html')) return;
+  }
+
+  // ── Unified Builder — builder+ role required ──
+  if (req.url === '/builder' || req.url.startsWith('/builder?')) {
+    if (!requireRole('builder')) return;
+    if (serveHTML('builder.html')) return;
+  }
+
+  // ── Legacy builders — redirect to unified builder ──
+  const LEGACY_BUILDER_TABS = {
+    '/boss-builder': 'bosses',
+    '/skill-builder': 'skills',
+    '/quest-builder': 'quests',
+  };
+  if (LEGACY_BUILDER_TABS[req.url]) {
+    res.writeHead(302, { Location: `/builder?mode=build&tab=${LEGACY_BUILDER_TABS[req.url]}` });
+    res.end();
+    return;
   }
 
   // Backwards compat — index.html still serves the original terminal client
@@ -3322,7 +3397,19 @@ wss.on('connection', (ws) => {
     }
     const result = commands.execute(p, input, ws);
     if (result && result.unknown) {
-      sendText(ws, `Unknown command. Type \`help\` for commands, or \`? [question]\` to ask the guide.`);
+      // Try atom engine as fallback for extended mechanics
+      try {
+        const atomEngine = require('./atoms/atom-server');
+        const atomResult = atomEngine.handleCommand(p, input);
+        if (atomResult) {
+          if (Array.isArray(atomResult)) atomResult.forEach(msg => sendText(ws, msg));
+          else sendText(ws, atomResult);
+        } else {
+          sendText(ws, `Unknown command. Type \`help\` for commands, or \`? [question]\` to ask the guide.`);
+        }
+      } catch (e) {
+        sendText(ws, `Unknown command. Type \`help\` for commands, or \`? [question]\` to ask the guide.`);
+      }
     } else if (result) {
       sendText(ws, result);
     }

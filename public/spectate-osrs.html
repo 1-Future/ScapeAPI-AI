@@ -1,0 +1,761 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>Scape</title>
+<style>
+  :root {
+    --parchment: #c8b88a;
+    --parchment-dark: #b0a070;
+    --stone: #5c5445;
+    --stone-dark: #3a352e;
+    --stone-light: #7a7060;
+    --gold: #ff981f;
+    --gold-dim: #c8842a;
+    --text: #000;
+    --text-system: #0000aa;
+    --text-player: #000099;
+    --tab-bg: #3b3024;
+    --tab-active: #5a4a35;
+    --tab-on: #00cc00;
+    --mono: 'Courier New', 'Consolas', monospace;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    background: #000;
+    font-family: var(--mono);
+    height: 100dvh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+  }
+
+  #game {
+    width: 100%;
+    max-width: 520px;
+    height: 100dvh;
+    display: flex;
+    flex-direction: column;
+    background: #000;
+  }
+
+  /* ── Map pane (top) ─────────────────────────────────────── */
+  #map-pane {
+    background: #1a1510;
+    overflow: hidden;
+    flex-shrink: 0;
+    height: 45%;
+    min-height: 60px;
+    position: relative;
+    display: grid;
+    grid-template-columns: auto 16px 1fr 16px auto;
+    grid-template-rows: auto 16px 1fr 16px auto;
+  }
+  /* Compass directions (inner ring) */
+  .compass {
+    font-family: var(--mono); font-size: 12px; font-weight: bold;
+    display: flex; align-items: center; justify-content: center;
+    color: #777;
+  }
+  /* Area labels (outer ring) */
+  .area-label {
+    font-family: var(--mono); font-size: 11px; color: #efb366;
+    display: flex; align-items: center; justify-content: center;
+    overflow: hidden; white-space: nowrap; text-overflow: ellipsis;
+    padding: 0 4px;
+  }
+  .area-label.side {
+    writing-mode: vertical-lr; text-orientation: upright;
+    letter-spacing: -1px; font-size: 10px; white-space: normal;
+    padding: 4px 0;
+  }
+  /* Outer ring: area labels */
+  #area-nw { grid-column: 1; grid-row: 1; font-size: 7px; color: #555; }
+  #area-n  { grid-column: 3; grid-row: 1; }
+  #area-ne { grid-column: 5; grid-row: 1; font-size: 7px; color: #555; }
+  #area-w  { grid-column: 1; grid-row: 3; }
+  #area-e  { grid-column: 5; grid-row: 3; }
+  #area-sw { grid-column: 1; grid-row: 5; font-size: 7px; color: #555; }
+  #area-s  { grid-column: 3; grid-row: 5; }
+  #area-se { grid-column: 5; grid-row: 5; font-size: 7px; color: #555; }
+  #area-here-text { font-size: 12px; color: #efb366; font-family: var(--mono); white-space: nowrap; }
+  /* Inner ring: compass directions */
+  #compass-n  { grid-column: 3; grid-row: 2; color: #c44; }
+  #compass-s  { grid-column: 3; grid-row: 4; }
+  #compass-w  { grid-column: 2; grid-row: 3; }
+  #compass-e  { grid-column: 4; grid-row: 3; }
+  /* Map center */
+  #map-center {
+    grid-column: 3;
+    grid-row: 3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+  }
+  #map-content {
+    font-family: var(--mono);
+    color: #333;
+    display: grid;
+    width: 100%;
+    height: 100%;
+  }
+  .map-row {
+    display: flex;
+    width: 100%;
+    flex: 1;
+    min-height: 0;
+  }
+  .map-cell {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: normal;
+    font-size: clamp(10px, 3vw, 24px);
+    min-width: 0;
+  }
+  /* Grid lines */
+  .grid-on .map-cell {
+    border: 1px solid rgba(255,255,255,0.06);
+  }
+  .grid-on .map-row:first-child .map-cell { border-top: none; }
+  .grid-on .map-row:last-child .map-cell { border-bottom: none; }
+  .grid-on .map-cell:first-child { border-left: none; }
+  .grid-on .map-cell:last-child { border-right: none; }
+  #map-pane.empty { display: flex; align-items: center; justify-content: center; }
+  #map-pane.empty::after { content: 'Type your name below to begin.'; color: #333; font-size: 12px; }
+  #map-area-old {
+    display: none;
+  }
+
+  /* ── Drag handle + legend ────────────────────────────────── */
+  #divider {
+    background: linear-gradient(180deg, var(--stone-dark), var(--stone) 30%, var(--stone) 70%, var(--stone-dark));
+    cursor: ns-resize;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    touch-action: none;
+    padding: 2px 8px;
+    min-height: 22px;
+    gap: 6px;
+  }
+  #legend {
+    font-size: 14px;
+    color: var(--parchment-dark);
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2px;
+    overflow: hidden;
+  }
+  .lk {
+    display: flex;
+    align-items: center;
+    gap: 1px;
+    padding: 0 3px;
+    cursor: pointer;
+    border-radius: 2px;
+    position: relative;
+  }
+  .lk:hover { background: rgba(255,255,255,0.15); }
+  .ls {
+    font-weight: bold;
+    font-size: 16px;
+    width: 16px;
+    text-align: center;
+  }
+  .lk input[type="color"] {
+    position: absolute;
+    width: 0; height: 0;
+    opacity: 0;
+    pointer-events: none;
+  }
+  /* Legend gets all the space */
+
+  /* ── Chat pane (bottom) ─────────────────────────────────── */
+  #chat-pane {
+    flex: 1;
+    background: var(--parchment);
+    display: flex;
+    flex-direction: column;
+    min-height: 80px;
+    overflow: hidden;
+    box-shadow: inset 0 2px 4px rgba(0,0,0,0.15);
+  }
+
+  #chat-log {
+    flex: 1;
+    overflow-y: auto;
+    padding: 4px 10px;
+    font-size: 12px;
+    line-height: 1.5;
+    color: var(--text);
+    scrollbar-width: thin;
+    scrollbar-color: var(--stone) var(--parchment-dark);
+  }
+  #chat-log::-webkit-scrollbar { width: 10px; }
+  #chat-log::-webkit-scrollbar-track { background: var(--parchment-dark); }
+  #chat-log::-webkit-scrollbar-thumb {
+    background: linear-gradient(180deg, var(--stone-light), var(--stone), var(--stone-dark));
+    border: 1px solid var(--stone-dark);
+  }
+
+  .msg { padding: 2px 0; font-size: 14px; line-height: 1.5; }
+  .msg.player { color: #00449e; font-weight: bold; }
+  .msg.player::before { content: '> '; }
+  .msg.system { color: #6a00aa; font-style: italic; }
+  /* Color key words in game messages for scannability */
+  .msg.game { color: #1a1a1a; }
+
+  #input-row {
+    display: flex;
+    align-items: center;
+    padding: 2px 10px;
+    background: var(--parchment);
+    border-top: 1px solid var(--parchment-dark);
+  }
+  #input-label {
+    color: var(--text);
+    font-size: 14px;
+    font-weight: bold;
+    margin-right: 4px;
+    white-space: nowrap;
+  }
+  #input {
+    flex: 1;
+    background: transparent;
+    border: none;
+    outline: none;
+    color: var(--text-player);
+    font-family: var(--mono);
+    font-size: 14px;
+    padding: 2px 0;
+  }
+
+  /* ── Quick bar ──────────────────────────────────────────── */
+  #quick-bar {
+    display: flex;
+    background: var(--stone-dark);
+    padding: 3px 4px;
+    gap: 3px;
+    flex-wrap: wrap;
+    flex-shrink: 0;
+  }
+  .qbtn {
+    background: var(--tab-bg);
+    border: 1px solid var(--stone);
+    color: var(--gold-dim);
+    font-family: var(--mono);
+    font-size: 10px;
+    padding: 2px 8px;
+    cursor: pointer;
+    border-radius: 2px;
+    box-shadow: inset 1px 1px 0 rgba(255,255,255,0.08), inset -1px -1px 0 rgba(0,0,0,0.2);
+  }
+  .qbtn:hover { background: var(--tab-active); color: var(--gold); }
+  .qbtn:active { box-shadow: inset -1px -1px 0 rgba(255,255,255,0.08), inset 1px 1px 0 rgba(0,0,0,0.2); }
+
+  /* ── Tab bar ────────────────────────────────────────────── */
+  #tabs {
+    display: flex;
+    background: var(--tab-bg);
+    border-top: 2px solid var(--stone-dark);
+    height: 28px;
+    flex-shrink: 0;
+  }
+  .tab {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--mono);
+    font-size: 10px;
+    color: #ccc;
+    cursor: pointer;
+    border-right: 1px solid var(--stone-dark);
+    user-select: none;
+    line-height: 1.1;
+  }
+  .tab:last-child { border-right: none; }
+  .tab:hover { background: rgba(255,255,255,0.05); }
+  .tab.active { color: var(--gold); background: var(--tab-active); }
+  .tab small { color: var(--tab-on); font-size: 8px; }
+  #timer {
+    background: #111;
+    color: #aaa;
+    font-size: 10px;
+    padding: 0 6px;
+    display: flex;
+    align-items: center;
+    border-left: 1px solid var(--stone-dark);
+  }
+
+  @media (min-width: 768px) {
+    #game { max-width: 520px; }
+  }
+  @media (max-width: 400px) {
+    #chat-log { font-size: 11px; }
+    .qbtn { font-size: 9px; padding: 2px 6px; }
+  }
+</style>
+</head>
+<body>
+<div id="game">
+  <!-- Map pane -->
+  <div id="map-pane" class="empty">
+    <!-- Outer ring: area labels -->
+    <div id="area-nw" class="area-label"></div>
+    <div id="area-n" class="area-label" style="position:relative"><span id="area-here-text"></span></div>
+    <div id="area-ne" class="area-label"></div>
+    <div id="area-w" class="area-label side" id="dir-w"></div>
+    <div id="area-e" class="area-label side" id="dir-e"></div>
+    <div id="area-sw" class="area-label"></div>
+    <div id="area-s" class="area-label" id="dir-s"></div>
+    <div id="area-se" class="area-label"></div>
+    <!-- Inner ring: compass directions -->
+    <div id="compass-n" class="compass">N</div>
+    <div id="compass-w" class="compass">W</div>
+    <div id="map-center"><div id="map-content"></div></div>
+    <div id="compass-e" class="compass">E</div>
+    <div id="compass-s" class="compass">S</div>
+  </div>
+
+  <!-- Draggable divider + legend -->
+  <div id="divider">
+    <div id="legend"></div>
+  </div>
+
+  <!-- Chat pane -->
+  <div id="chat-pane">
+    <div id="chat-log"></div>
+    <div id="input-row">
+      <span id="input-label"></span>
+      <input id="input" type="text" placeholder="" autocomplete="off" spellcheck="false">
+    </div>
+  </div>
+
+  <!-- Quick actions -->
+  <div id="quick-bar">
+    <button class="qbtn" onclick="input.value='? ';input.focus()">?</button>
+    <button class="qbtn" onclick="send('/?')">/?</button>
+    <button class="qbtn" onclick="send('n')">N</button>
+    <button class="qbtn" onclick="send('s')">S</button>
+    <button class="qbtn" onclick="send('e')">E</button>
+    <button class="qbtn" onclick="send('w')">W</button>
+    <button class="qbtn" onclick="send('inv')">Inv</button>
+    <button class="qbtn" onclick="sendMapCmd()">Map</button>
+    <button class="qbtn" onclick="send('status')">Stats</button>
+    <button class="qbtn" onclick="send('look')">Look</button>
+    <button class="qbtn" id="grid-btn" onclick="toggleGrid()">Grid</button>
+  </div>
+
+  <!-- Tabs -->
+  <div id="tabs">
+    <div class="tab active" data-filter="all">All</div>
+    <div class="tab" data-filter="game">Game<br><small>On</small></div>
+    <div class="tab" data-filter="public">Public<br><small>On</small></div>
+    <div class="tab" data-filter="private">Private<br><small>On</small></div>
+    <div class="tab" data-filter="channel">Channel<br><small>On</small></div>
+    <div class="tab" data-filter="clan">Clan<br><small>On</small></div>
+    <div class="tab" data-filter="trade">Trade<br><small>On</small></div>
+    <div id="timer">00:00:00</div>
+  </div>
+</div>
+
+<script>
+const mapPane = document.getElementById('map-pane');
+const mapContent = document.getElementById('map-content');
+// Area name shown in top bar
+const chatLog = document.getElementById('chat-log');
+const input = document.getElementById('input');
+const inputLabel = document.getElementById('input-label');
+const divider = document.getElementById('divider');
+const timerEl = document.getElementById('timer');
+const game = document.getElementById('game');
+
+let ws = null, playerName = '', connected = false, loggedIn = false, loginTime = 0;
+
+// ── Draggable divider ─────────────────────────────────────────────────────
+let dragging = false, startY = 0, startHeight = 0;
+
+divider.addEventListener('mousedown', (e) => { startDrag(e.clientY); e.preventDefault(); });
+divider.addEventListener('touchstart', (e) => { startDrag(e.touches[0].clientY); e.preventDefault(); }, { passive: false });
+
+function startDrag(y) { dragging = true; startY = y; startHeight = mapPane.offsetHeight; }
+
+document.addEventListener('mousemove', (e) => { if (dragging) doDrag(e.clientY); });
+document.addEventListener('touchmove', (e) => { if (dragging) doDrag(e.touches[0].clientY); }, { passive: true });
+
+function doDrag(y) {
+  const delta = y - startY;
+  const newHeight = Math.max(60, Math.min(game.offsetHeight - 120, startHeight + delta));
+  mapPane.style.height = newHeight + 'px';
+  scaleMap();
+}
+
+document.addEventListener('mouseup', () => { dragging = false; });
+document.addEventListener('touchend', () => { dragging = false; });
+
+// ── Color customization — click legend to change colors ───────────────────
+const defaultColors = {
+  '@': '#00ff00', '!': '#ff0000', '?': '#f4a261', 'P': '#00ffff',
+  '#': '#ffffff', 'T': '#00ff3d', '~': '#005aff', 'S': '#efb366',
+  '=': '#646464',
+      '─': '#646464', '│': '#646464', '╭': '#646464', '╮': '#646464',
+      '╰': '#646464', '╯': '#646464', '┼': '#646464', '┬': '#646464',
+      '┴': '#646464', '├': '#646464', '┤': '#646464', 'D': '#f4a261', 'X': '#264653', 'b': '#2a9d8f',
+  '*': '#efb366', '%': '#287271', ',': '#8ab17d', '.': '#007832',
+};
+let userColors = { ...defaultColors };
+try { const s = JSON.parse(localStorage.getItem('scape-colors')); if (s) Object.assign(userColors, s); } catch {}
+
+const legendItems = [
+  ['@','You'],['!','NPC'],['?','Object'],['P','Player'],
+  ['#','Wall'],['T','Tree'],['~','Water'],['.','Grass'],
+  ['=','Path'],['S','Sand'],
+];
+
+function buildLegend() {
+  const legend = document.getElementById('legend');
+  legend.innerHTML = '';
+  for (const [ch, label] of legendItems) {
+    const lk = document.createElement('span');
+    lk.className = 'lk';
+    lk.innerHTML = `<span class="ls" style="color:${userColors[ch]}">${ch}</span>${label}<input type="color" value="${userColors[ch]}">`;
+    lk.addEventListener('click', (e) => { if (e.target.tagName !== 'INPUT') lk.querySelector('input').click(); });
+    lk.querySelector('input').addEventListener('input', (e) => {
+      userColors[ch] = e.target.value;
+      lk.querySelector('.ls').style.color = e.target.value;
+      localStorage.setItem('scape-colors', JSON.stringify(userColors));
+      // Re-color existing map cells without re-requesting
+      document.querySelectorAll('.map-cell').forEach(cell => {
+        const cellCh = cell.textContent.trim();
+        if (cellCh === ch) cell.style.color = e.target.value;
+      });
+    });
+    legend.appendChild(lk);
+  }
+}
+buildLegend();
+
+// ── ASCII detection ───────────────────────────────────────────────────────
+function isAscii(text) {
+  // Only match actual maps — must have Legend: and @ character
+  if (text.includes('Legend:') && text.includes('@')) return true;
+  return false;
+}
+
+// ── Chat messages ─────────────────────────────────────────────────────────
+function addMsg(text, type) {
+  // ASCII goes to map pane
+  if (type === 'game' && isAscii(text)) {
+    mapPane.classList.remove('empty');
+    // Extract area name
+    const areaMatch = text.match(/Area:\s*(.+)/);
+    if (areaMatch) {
+      const here = areaMatch[1];
+      const el = document.getElementById('area-here-text');
+      if (el) el.textContent = here;
+    }
+    const dirsMatch = text.match(/Dirs: N=([^|]+)\|S=([^|]+)\|E=([^|]+)\|W=(.+)/);
+    if (dirsMatch) {
+      const set = (id, val) => { const el = document.getElementById(id); if (el) el.textContent = val; };
+      set('area-n', dirsMatch[1]);
+      set('area-s', dirsMatch[2]);
+      set('area-e', dirsMatch[3]);
+      set('area-w', dirsMatch[4]);
+    }
+    // Strip legend, area, and coords — keep only the grid
+    let gridLines = text.split('\n').filter(line => {
+      if (line.includes('Legend:')) return false;
+      if (line.includes('~ Water') || line.includes('Grass/Floor')) return false;
+      if (line.includes('Area:')) return false;
+      if (line.includes('Dirs:')) return false;
+      if (line.trim() === '') return false;
+      return true;
+    });
+    // Remove leading coord line if it's just "(x, y) — N steps left"
+    if (gridLines[0] && /^\(?\d+,\s*\d+\)/.test(gridLines[0].trim())) gridLines.shift();
+    // Remove v column marker line (first line that's just spaces and a v)
+    if (gridLines[0] && /^\s*v\s*$/.test(gridLines[0])) gridLines.shift();
+    // Remove > row marker and leading whitespace prefix
+    gridLines = gridLines.map(line => line.replace(/^\s*>\s*/, '  ').replace(/^\s{1,4}/, ''));
+    const colorMap = userColors;
+    const maxW = Math.max(...gridLines.map(l => l.length));
+    let html = '';
+    for (const line of gridLines) {
+      html += '<div class="map-row">';
+      const padded = line.padEnd(maxW);
+      for (const ch of padded) {
+        if (ch === ' ') { html += '<div class="map-cell">&nbsp;</div>'; continue; }
+        const color = colorMap[ch] || '#264653';
+        const bold = ch === '@' ? ';font-weight:bold;font-size:130%' : '';
+        html += `<div class="map-cell" style="color:${color}${bold}">${ch}</div>`;
+      }
+      html += '</div>';
+    }
+    mapContent.innerHTML = html;
+    return;
+  }
+
+  const div = document.createElement('div');
+  div.className = `msg ${type}`;
+
+  if (type === 'game') {
+    let html = text
+      .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
+      .replace(/(\d+) damage/g, '<span style="color:#b00;font-weight:bold">$1 damage</span>')
+      .replace(/HP: (\d+)\/(\d+)/g, (m, cur, max) => {
+        const ratio = parseInt(cur) / parseInt(max);
+        const c = ratio > 0.5 ? '#060' : ratio > 0.25 ? '#a60' : '#b00';
+        return `HP: <span style="color:${c};font-weight:bold">${cur}/${max}</span>`;
+      })
+      .replace(/\+(\d+[\.\d]*)\s*([A-Za-z]+)\s*XP/g, '<span style="color:#050;font-weight:bold">+$1 $2 XP</span>')
+      .replace(/(Congratulations!.*)/g, '<span style="color:#a70;font-weight:bold">$1</span>')
+      .replace(/(Oh dear, you are dead!)/g, '<span style="color:#b00;font-weight:bold">$1</span>')
+      .replace(/(Achievement unlocked:.*)/g, '<span style="color:#a70;font-weight:bold">$1</span>')
+      .replace(/(You are poisoned!)/g, '<span style="color:#080">$1</span>')
+      .replace(/(Loot: .+)/g, '<span style="color:#964">$1</span>')
+      .replace(/(Music unlocked: .+)/g, '<span style="color:#448">$1</span>')
+      .replace(/(\[\d+\])/g, '<span style="color:#006;font-weight:bold">$1</span>');
+    div.innerHTML = html;
+  } else {
+    div.textContent = text;
+  }
+  chatLog.appendChild(div);
+  chatLog.scrollTop = chatLog.scrollHeight;
+  while (chatLog.children.length > 200) chatLog.removeChild(chatLog.firstChild);
+}
+
+const SILENT_CMDS = new Set(['map','look','/?']);
+const DIR_CMDS = new Set(['n','s','e','w','ne','nw','se','sw']);
+let lastDir = null, dirCount = 0, dirMsgEl = null;
+
+function send(cmd) {
+  if (!ws || !connected) return;
+  ws.send(cmd);
+  const lower = cmd.toLowerCase();
+
+  if (SILENT_CMDS.has(lower)) return; // no echo at all
+
+  // Normalize multi-char directions (ss→s, www→w) on client side too
+  const dirNorm = /^[nsew]{1,3}$/i.test(lower) ? lower[0] : lower;
+  if (DIR_CMDS.has(dirNorm)) {
+    if (dirNorm === lastDir && dirMsgEl && dirMsgEl.parentNode) {
+      dirCount++;
+      dirMsgEl.textContent = `> ${dirNorm.toUpperCase()}(${dirCount})`;
+    } else {
+      lastDir = dirNorm;
+      dirCount = 1;
+      const div = document.createElement('div');
+      div.className = 'msg player';
+      div.textContent = `> ${dirNorm.toUpperCase()}`;
+      chatLog.appendChild(div);
+      chatLog.scrollTop = chatLog.scrollHeight;
+      dirMsgEl = div;
+    }
+    return;
+  }
+
+  lastDir = null; dirCount = 0; dirMsgEl = null;
+  addMsg(cmd, 'player');
+}
+
+function sendInput() {
+  const val = input.value.trim();
+  if (!val) return;
+  input.value = '';
+  if (!loggedIn) { handleLogin(val); return; }
+  send(val);
+}
+
+function connect() {
+  const isLocal = location.hostname === 'localhost' || location.hostname === '127.0.0.1';
+  const proto = location.protocol === 'https:' ? 'wss:' : 'ws:';
+  const host = isLocal ? `ws://${location.hostname}:2223` : `${proto}//${location.host}`;
+  ws = new WebSocket(host);
+  ws.onopen = () => { connected = true; };
+  ws.onmessage = (e) => {
+    const msg = JSON.parse(e.data);
+    if (msg.text) {
+      if (msg.text.includes('Type `login [name]`')) return;
+      if (msg.text.includes('Please login first')) return;
+      // Name taken / already logged in
+      if (msg.text.includes('is taken') || msg.text.includes('already logged in')) {
+        loggedIn = false; loginStep = 'name'; pendingName = '';
+        input.type = 'text';
+        input.placeholder = msg.text + ' Try another name.';
+        input.focus();
+        return;
+      }
+      // No account — auto register
+      if (msg.text.includes('No account') && ws._pendingPassword) {
+        ws.send(`register ${pendingName} ${ws._pendingPassword}`);
+        ws._pendingPassword = null;
+        return;
+      }
+      // Account created — now login happens automatically
+      if (msg.text.includes('Account') && msg.text.includes('created')) {
+        addMsg(`Account "${pendingName}" created!`, 'system');
+        // Server falls through to login after register
+      }
+      // Wrong password
+      if (msg.text.includes('Wrong password')) {
+        loggedIn = false; loginStep = 'password';
+        input.type = 'password';
+        input.placeholder = 'Wrong password. Try again.';
+        input.focus();
+        return;
+      }
+      // Successful login — detect by "Logged in as"
+      if (msg.text.includes('Logged in as') && !loggedIn) {
+        loggedIn = true;
+        playerName = pendingName;
+        inputLabel.textContent = playerName + ':';
+        input.placeholder = '';
+        input.type = 'text';
+        setTimeout(() => sendMapCmd(), 500);
+      }
+      addMsg(msg.text, 'game');
+    }
+  };
+  ws.onclose = () => {
+    connected = false;
+    addMsg('Connection lost.', 'system');
+    setTimeout(() => location.reload(), 3000);
+  };
+}
+
+let loginStep = 'name'; // 'name' → 'password' → done
+let pendingName = '';
+
+function handleLogin(val) {
+  if (loginStep === 'name') {
+    pendingName = val.trim();
+    if (pendingName.length < 2 || pendingName.length > 20) {
+      input.placeholder = 'Name must be 2-20 characters.';
+      return;
+    }
+    addMsg(pendingName, 'player');
+    loginStep = 'password';
+    input.placeholder = 'enter password...';
+    input.type = 'password';
+    // Connect while they type password
+    if (!connected) {
+      addMsg('Connecting...', 'system');
+      loginTime = Date.now();
+      connect();
+    }
+  } else if (loginStep === 'password') {
+    const password = val.trim();
+    if (password.length < 3) {
+      input.placeholder = 'Password must be at least 3 characters.';
+      return;
+    }
+    addMsg('••••••', 'player');
+    input.type = 'text';
+    const w = setInterval(() => {
+      if (connected) {
+        // Try login first, server will tell us if we need to register
+        ws.send(`login ${pendingName} ${password}`);
+        // Store password in case we need to register
+        ws._pendingPassword = password;
+        clearInterval(w);
+      }
+    }, 100);
+  }
+}
+
+function sendMapCmd() {
+  if (!ws || !connected) return;
+  ws.send('map');
+}
+
+// Timer
+setInterval(() => {
+  if (!loginTime) return;
+  const el = Math.floor((Date.now() - loginTime) / 1000);
+  timerEl.textContent = `${String(Math.floor(el/3600)).padStart(2,'0')}:${String(Math.floor((el%3600)/60)).padStart(2,'0')}:${String(el%60).padStart(2,'0')}`;
+}, 1000);
+
+// Tabs
+document.querySelectorAll('.tab[data-filter]').forEach(tab => {
+  tab.addEventListener('click', () => {
+    document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+    tab.classList.add('active');
+  });
+});
+
+// Input
+input.addEventListener('keydown', (e) => { if (e.key === 'Enter') sendInput(); });
+document.addEventListener('keydown', (e) => {
+  if (e.target === input) return;
+  if (e.key.length === 1 && !e.ctrlKey && !e.metaKey) input.focus();
+});
+
+// Grid toggle
+document.getElementById('map-content').classList.add('grid-on');
+function toggleGrid() {
+  const mc = document.getElementById('map-content');
+  mc.classList.toggle('grid-on');
+  document.getElementById('grid-btn').style.color = mc.classList.contains('grid-on') ? 'var(--gold)' : 'var(--gold-dim)';
+}
+
+// ── First-time onboarding ─────────────────────────────────────────────────
+const onboardMsgs = [
+  '═══════════════════════════',
+  '       WELCOME TO SCAPE',
+  '═══════════════════════════',
+  '',
+  'This is a text-based MMORPG.',
+  'You play by typing commands.',
+  '',
+  '── HOW TO MOVE ──',
+  'Type: n s e w (north/south/east/west)',
+  'Or: ne nw se sw (diagonals)',
+  'The map updates as you move.',
+  '',
+  '── HOW TO INTERACT ──',
+  'Numbers [1-8] appear around you.',
+  'Type a number to interact with',
+  'whatever is in that direction.',
+  '1=NW 2=N 3=NE',
+  '4=W     5=E',
+  '6=SW 7=S 8=SE',
+  '',
+  '── SMART COMMANDS ──',
+  '? [question] — ask the AI guide',
+  '  example: ? how do i fish',
+  '/? — show all nearby options',
+  'talk — talk to nearest NPC',
+  'r [msg] — reply to last NPC (AI)',
+  '',
+  '── BASICS ──',
+  'look — see surroundings',
+  'inv — check inventory',
+  'skills — see your levels',
+  'status — full status',
+  'help — all commands',
+  '',
+  '═══════════════════════════',
+  'Type your name, then password.',
+  'New name? Account auto-creates.',
+  '═══════════════════════════',
+];
+for (const line of onboardMsgs) {
+  addMsg(line, line.includes('══') || line.includes('SCAPE') ? 'system' : 'game');
+}
+input.placeholder = 'enter your name...';
+// Scroll to top so player sees the welcome first
+setTimeout(() => { chatLog.scrollTop = 0; }, 50);
+</script>
+</body>
+</html>

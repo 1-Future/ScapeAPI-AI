@@ -1,0 +1,858 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Scape — Quest Builder</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600;700&display=swap');
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --stone:#0e0e1a;--stone-mid:#151525;--stone-light:#1a1a2e;
+  --parchment:#d4c5a0;--parchment-dim:#9e8e6a;--parchment-dark:#6b5e42;
+  --gold:#b8860b;--gold-bright:#daa520;--gold-dim:#8b6508;
+  --red:#c0392b;--green:#27ae60;--blue:#2980b9;
+  --font:'JetBrains Mono',monospace;
+}
+html{font-size:13px}
+body{background:var(--stone);color:var(--parchment);font-family:var(--font);min-height:100vh}
+
+/* Site header */
+#site-header{display:flex;align-items:center;background:#3a352e;height:30px;padding:0 10px;font-size:12px;flex-shrink:0;border-bottom:1px solid #5c5445;z-index:100;width:100%}
+#site-header .logo{color:var(--gold-bright);font-weight:bold;font-size:14px;margin-right:16px;text-decoration:none;letter-spacing:2px}
+#site-header nav{display:flex;gap:0;flex:1}
+#site-header nav a{color:#aaa;text-decoration:none;padding:0 10px;line-height:30px;transition:color 0.15s}
+#site-header nav a:hover{color:#fff}
+#site-header nav a.active{color:var(--gold-bright)}
+#site-header .gh-link{color:#aaa;text-decoration:none;font-size:16px;line-height:1;margin-left:auto;transition:color 0.15s}
+#site-header .gh-link:hover{color:#fff}
+
+/* Build toolbar */
+#build-bar{display:flex;align-items:center;background:linear-gradient(180deg,#1e1a12,#151020);height:36px;padding:0 12px;border-bottom:2px solid var(--gold);gap:2px}
+#build-bar a{
+  font-family:var(--font);font-size:0.75rem;font-weight:600;color:var(--parchment-dim);
+  text-decoration:none;padding:6px 14px;border-radius:4px 4px 0 0;
+  transition:color 0.15s,background 0.15s;text-transform:uppercase;letter-spacing:0.5px;
+}
+#build-bar a:hover{color:var(--parchment);background:rgba(184,134,11,0.1)}
+#build-bar a.active{color:var(--gold-bright);background:rgba(184,134,11,0.15);border-bottom:2px solid var(--gold-bright);margin-bottom:-2px}
+#build-bar .spacer{flex:1}
+#build-bar .dash-link{font-size:0.7rem;color:var(--parchment-dark);text-decoration:none;padding:4px 10px}
+#build-bar .dash-link:hover{color:var(--gold)}
+
+.builder{display:flex;height:calc(100vh - 66px);overflow:hidden}
+
+/* Palette */
+.palette{width:320px;border-right:1px solid var(--gold-dim);overflow-y:auto;padding:12px;flex-shrink:0}
+.palette h2{font-size:0.85rem;color:var(--gold);text-transform:uppercase;letter-spacing:1px;margin:12px 0 8px;padding-bottom:4px;border-bottom:1px solid var(--gold-dim)}
+.palette h2:first-child{margin-top:0}
+
+.block{
+  background:var(--stone-light);border:1px solid var(--gold-dim);border-radius:4px;
+  padding:8px 10px;margin:4px 0;cursor:grab;font-size:0.8rem;
+  transition:border-color 0.15s,background 0.15s;user-select:none;
+}
+.block:hover{border-color:var(--gold);background:rgba(184,134,11,0.1)}
+.block:active{cursor:grabbing;opacity:0.8}
+.block .block-name{font-weight:600;color:var(--parchment)}
+.block .block-desc{font-size:0.7rem;color:var(--parchment-dark);margin-top:2px}
+.block .block-meta{font-size:0.65rem;color:var(--gold-dim);margin-top:2px}
+
+.palette input{
+  width:100%;font-family:var(--font);font-size:0.85rem;
+  background:var(--stone);color:var(--parchment);border:1px solid var(--gold-dim);
+  padding:8px 10px;border-radius:4px;outline:none;margin-bottom:8px;
+}
+.palette input:focus{border-color:var(--gold)}
+
+.palette select{
+  width:100%;font-family:var(--font);font-size:0.8rem;
+  background:var(--stone);color:var(--parchment);border:1px solid var(--gold-dim);
+  padding:6px 8px;border-radius:4px;outline:none;margin-bottom:8px;
+}
+
+/* Drop zone */
+.dropzone{flex:1;padding:24px;overflow-y:auto}
+
+.quest-name-input{
+  font-family:var(--font);font-size:1.1rem;font-weight:600;
+  background:transparent;color:var(--gold-bright);border:none;border-bottom:1px solid var(--gold-dim);
+  padding:4px 0;margin-bottom:16px;width:100%;outline:none;
+}
+.quest-name-input:focus{border-color:var(--gold)}
+
+/* Builder tabs */
+.builder-tabs{display:flex;gap:2px;margin-bottom:12px}
+.builder-tab{
+  font-family:var(--font);font-size:0.8rem;font-weight:600;padding:8px 16px;
+  border:none;border-radius:4px 4px 0 0;cursor:pointer;
+  background:var(--stone-mid);color:var(--parchment-dim);
+  letter-spacing:0.5px;text-transform:uppercase;
+}
+.builder-tab.active{background:rgba(184,134,11,0.15);color:var(--gold-bright);border-bottom:2px solid var(--gold)}
+.builder-tab:hover{color:var(--parchment)}
+.builder-panel{min-height:200px}
+
+/* Quest meta row */
+.quest-meta{display:flex;gap:12px;margin-bottom:16px;flex-wrap:wrap;align-items:center}
+.quest-meta label{font-size:0.8rem;color:var(--parchment-dim)}
+.quest-meta select,.quest-meta input[type="number"]{
+  font-family:var(--font);font-size:0.8rem;background:var(--stone);
+  color:var(--parchment);border:1px solid var(--gold-dim);padding:4px 8px;border-radius:3px;
+}
+.quest-meta input[type="number"]{width:60px}
+
+/* Steps */
+.step{
+  margin-bottom:16px;border:1px solid var(--gold-dim);border-radius:6px;
+  background:var(--stone-mid);overflow:hidden;
+}
+.step-header{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:8px 12px;background:rgba(184,134,11,0.1);border-bottom:1px solid var(--gold-dim);
+}
+.step-header input{
+  font-family:var(--font);font-size:0.85rem;font-weight:600;
+  background:transparent;color:var(--gold-bright);border:none;outline:none;width:300px;
+}
+.step-header .step-controls{display:flex;gap:6px;align-items:center}
+.step-header .step-controls button{
+  font-family:var(--font);font-size:0.7rem;padding:3px 8px;border-radius:3px;
+  cursor:pointer;border:1px solid var(--gold-dim);background:transparent;color:var(--parchment-dim);
+}
+.step-header .step-controls button:hover{border-color:var(--gold);color:var(--parchment)}
+.step-header .step-controls .remove-step{color:var(--red);border-color:rgba(192,57,43,0.4)}
+.step-header .step-controls .remove-step:hover{border-color:var(--red)}
+
+.step-body{padding:12px;min-height:60px}
+.step-body.dragover{background:rgba(184,134,11,0.05)}
+.step-body.empty::after{
+  content:'Drag blocks here';display:block;text-align:center;
+  color:var(--parchment-dark);font-size:0.8rem;padding:16px 0;
+}
+
+.step-desc{
+  font-size:0.75rem;color:var(--parchment-dim);padding:4px 12px 8px;
+  border-top:1px solid rgba(184,134,11,0.1);
+}
+.step-desc textarea{
+  width:100%;font-family:var(--font);font-size:0.75rem;
+  background:var(--stone);color:var(--parchment);border:1px solid var(--gold-dim);
+  padding:6px 8px;border-radius:3px;resize:vertical;min-height:40px;outline:none;
+}
+.step-desc textarea:focus{border-color:var(--gold)}
+
+.step-type{
+  font-size:0.7rem;color:var(--parchment-dim);padding:4px 12px 8px;
+  border-top:1px solid rgba(184,134,11,0.1);display:flex;gap:8px;align-items:center;
+}
+.step-type select{
+  font-family:var(--font);font-size:0.7rem;background:var(--stone);
+  color:var(--parchment);border:1px solid var(--gold-dim);padding:2px 6px;
+  border-radius:3px;
+}
+
+/* Blocks inside steps */
+.step-body .block{cursor:default;position:relative;padding-right:30px}
+.step-body .block .remove{
+  position:absolute;right:8px;top:50%;transform:translateY(-50%);
+  color:var(--red);cursor:pointer;font-size:1rem;font-weight:bold;
+  opacity:0.5;transition:opacity 0.15s;
+}
+.step-body .block .remove:hover{opacity:1}
+
+/* Requirements tab */
+.req-section{margin-bottom:16px}
+.req-section h3{font-size:0.8rem;color:var(--gold);margin-bottom:8px;text-transform:uppercase;letter-spacing:0.5px}
+.req-row{display:flex;gap:8px;align-items:center;margin-bottom:6px;flex-wrap:wrap}
+.req-row select,.req-row input{
+  font-family:var(--font);font-size:0.75rem;background:var(--stone);
+  color:var(--parchment);border:1px solid var(--gold-dim);padding:4px 8px;border-radius:3px;
+}
+.req-row input{width:60px}
+.req-row .remove-req{
+  color:var(--red);cursor:pointer;font-size:0.9rem;font-weight:bold;opacity:0.5;
+}
+.req-row .remove-req:hover{opacity:1}
+
+/* Rewards tab */
+.reward-row{display:flex;gap:8px;align-items:center;margin-bottom:6px;flex-wrap:wrap}
+.reward-row select,.reward-row input{
+  font-family:var(--font);font-size:0.75rem;background:var(--stone);
+  color:var(--parchment);border:1px solid var(--gold-dim);padding:4px 8px;border-radius:3px;
+}
+.reward-row input[type="number"]{width:80px}
+.reward-row input[type="text"]{width:150px}
+.reward-row .remove-req{
+  color:var(--red);cursor:pointer;font-size:0.9rem;font-weight:bold;opacity:0.5;
+}
+.reward-row .remove-req:hover{opacity:1}
+
+/* Actions */
+.actions{margin-top:16px;display:flex;gap:8px;flex-wrap:wrap}
+.btn{
+  font-family:var(--font);font-size:0.85rem;font-weight:600;
+  padding:8px 16px;border:none;border-radius:4px;cursor:pointer;
+  letter-spacing:0.5px;text-transform:uppercase;
+}
+.btn-gold{background:linear-gradient(180deg,var(--gold),var(--gold-dim));color:var(--stone)}
+.btn-gold:hover{box-shadow:0 0 12px rgba(218,165,32,0.4)}
+.btn-red{background:rgba(192,57,43,0.3);color:var(--red);border:1px solid var(--red)}
+.btn-red:hover{background:rgba(192,57,43,0.5)}
+
+.recipe-stats{
+  margin-top:16px;padding:12px;background:var(--stone-mid);
+  border:1px solid var(--gold-dim);border-radius:4px;font-size:0.8rem;
+}
+.recipe-stats span{color:var(--gold);font-weight:600}
+
+.export-box{
+  margin-top:16px;background:var(--stone);border:1px solid var(--gold-dim);
+  border-radius:4px;padding:12px;display:none;
+}
+.export-box textarea{
+  width:100%;min-height:120px;font-family:var(--font);font-size:0.75rem;
+  background:var(--stone-mid);color:var(--green);border:1px solid var(--gold-dim);
+  border-radius:3px;padding:8px;resize:vertical;
+}
+
+/* Quest list in palette */
+.quest-ref{
+  background:var(--stone-light);border:1px solid rgba(39,174,96,0.3);border-radius:4px;
+  padding:6px 10px;margin:4px 0;cursor:pointer;font-size:0.75rem;
+  transition:border-color 0.15s,background 0.15s;
+}
+.quest-ref:hover{border-color:var(--green);background:rgba(39,174,96,0.08)}
+.quest-ref .qr-name{font-weight:600;color:var(--parchment)}
+.quest-ref .qr-meta{font-size:0.65rem;color:var(--parchment-dark);margin-top:2px}
+
+::-webkit-scrollbar{width:8px}
+::-webkit-scrollbar-track{background:var(--stone)}
+::-webkit-scrollbar-thumb{background:var(--gold-dim);border-radius:4px}
+</style>
+</head>
+<body>
+
+<div id="site-header">
+  <a class="logo" href="/">SCAPE</a>
+  <nav>
+    <a href="/">Watch</a>
+    <a href="/play">Play</a>
+    <a href="/guide">Guide</a>
+    <a href="/about">About</a>
+    <a href="/builder" class="active">Builder</a>
+  </nav>
+  <a class="gh-link" href="https://github.com/1-Future/ScapeAPI-AI" target="_blank" title="GitHub">
+    <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
+  </a>
+</div>
+<div id="build-bar">
+  <a href="/boss-builder">Boss</a>
+  <a href="/skill-builder">Skill</a>
+  <a href="/quest-builder" class="active">Quest</a>
+  <span class="spacer"></span>
+  <a href="/dashboard" class="dash-link">Dashboard</a>
+  <span class="dash-link" id="user-info"></span>
+</div>
+
+<div class="builder">
+  <div class="palette">
+    <input type="text" id="search" placeholder="Search blocks..." oninput="filterBlocks()">
+    <select id="palette-filter" onchange="filterBlocks()">
+      <option value="all">All Categories</option>
+      <option value="dialogue">Dialogue</option>
+      <option value="combat">Combat</option>
+      <option value="item">Items</option>
+      <option value="skill">Skill Checks</option>
+      <option value="puzzle">Puzzles</option>
+      <option value="travel">Travel</option>
+      <option value="cutscene">Cutscenes</option>
+      <option value="objective">Objectives</option>
+    </select>
+    <div id="palette-blocks"></div>
+
+    <h2 style="margin-top:20px">Existing Quests</h2>
+    <div id="quest-list"></div>
+  </div>
+
+  <div class="dropzone">
+    <input class="quest-name-input" id="quest-name" placeholder="Enter quest name..." value="My Custom Quest">
+
+    <div class="quest-meta">
+      <label>Difficulty: <select id="quest-diff">
+        <option value="novice">Novice</option>
+        <option value="intermediate">Intermediate</option>
+        <option value="experienced">Experienced</option>
+        <option value="master">Master</option>
+        <option value="grandmaster">Grandmaster</option>
+      </select></label>
+      <label>Quest Points: <input type="number" id="quest-qp" value="1" min="0" max="10"></label>
+      <label>Members: <select id="quest-members">
+        <option value="true">Yes</option>
+        <option value="false">No (F2P)</option>
+      </select></label>
+      <label>Length: <select id="quest-length">
+        <option value="short">Short</option>
+        <option value="medium" selected>Medium</option>
+        <option value="long">Long</option>
+        <option value="very_long">Very Long</option>
+      </select></label>
+    </div>
+
+    <div class="builder-tabs">
+      <button class="builder-tab active" onclick="showTab('steps')">Steps</button>
+      <button class="builder-tab" onclick="showTab('requirements')">Requirements</button>
+      <button class="builder-tab" onclick="showTab('rewards')">Rewards</button>
+    </div>
+
+    <!-- Steps Tab -->
+    <div id="tab-steps" class="builder-panel">
+      <div id="steps"></div>
+      <div class="actions">
+        <button class="btn btn-gold" onclick="addStep()">+ Add Step</button>
+      </div>
+    </div>
+
+    <!-- Requirements Tab -->
+    <div id="tab-requirements" class="builder-panel" style="display:none">
+      <div class="req-section">
+        <h3>Skill Requirements</h3>
+        <div id="skill-reqs"></div>
+        <button class="btn btn-gold" style="font-size:0.7rem;padding:4px 10px;margin-top:4px" onclick="addSkillReq()">+ Skill Req</button>
+      </div>
+      <div class="req-section">
+        <h3>Quest Requirements</h3>
+        <div id="quest-reqs"></div>
+        <button class="btn btn-gold" style="font-size:0.7rem;padding:4px 10px;margin-top:4px" onclick="addQuestReq()">+ Quest Req</button>
+      </div>
+      <div class="req-section">
+        <h3>Item Requirements</h3>
+        <div id="item-reqs"></div>
+        <button class="btn btn-gold" style="font-size:0.7rem;padding:4px 10px;margin-top:4px" onclick="addItemReq()">+ Item Req</button>
+      </div>
+      <div class="req-section">
+        <h3>Other Requirements</h3>
+        <div id="other-reqs"></div>
+        <button class="btn btn-gold" style="font-size:0.7rem;padding:4px 10px;margin-top:4px" onclick="addOtherReq()">+ Other Req</button>
+      </div>
+    </div>
+
+    <!-- Rewards Tab -->
+    <div id="tab-rewards" class="builder-panel" style="display:none">
+      <div class="req-section">
+        <h3>XP Rewards</h3>
+        <div id="xp-rewards"></div>
+        <button class="btn btn-gold" style="font-size:0.7rem;padding:4px 10px;margin-top:4px" onclick="addXpReward()">+ XP Reward</button>
+      </div>
+      <div class="req-section">
+        <h3>Item Rewards</h3>
+        <div id="item-rewards"></div>
+        <button class="btn btn-gold" style="font-size:0.7rem;padding:4px 10px;margin-top:4px" onclick="addItemReward()">+ Item Reward</button>
+      </div>
+      <div class="req-section">
+        <h3>Unlock Rewards</h3>
+        <div id="unlock-rewards"></div>
+        <button class="btn btn-gold" style="font-size:0.7rem;padding:4px 10px;margin-top:4px" onclick="addUnlockReward()">+ Unlock Reward</button>
+      </div>
+    </div>
+
+    <div class="actions" style="margin-top:12px">
+      <button class="btn btn-gold" onclick="exportQuest()">Export JSON</button>
+      <button class="btn btn-gold" onclick="copyQuest()">Copy</button>
+      <button class="btn btn-red" onclick="clearQuest()">Clear All</button>
+    </div>
+    <div class="recipe-stats" id="stats"></div>
+    <div class="export-box" id="export-box">
+      <textarea id="export-json" readonly></textarea>
+    </div>
+  </div>
+</div>
+
+<script>
+// ── Data ──
+const SKILLS = [
+  'Attack','Strength','Defence','Hitpoints','Ranged','Prayer','Magic',
+  'Runecrafting','Construction','Agility','Herblore','Thieving',
+  'Crafting','Fletching','Slayer','Hunter','Mining','Smithing',
+  'Fishing','Cooking','Firemaking','Woodcutting','Farming'
+];
+
+// Quest step building blocks
+const STEP_BLOCKS = [
+  // Dialogue
+  { id: 'qb-talk-npc',        name: 'Talk to NPC',             cat: 'dialogue', desc: 'Speak to an NPC to advance the quest' },
+  { id: 'qb-dialogue-choice', name: 'Dialogue Choice',         cat: 'dialogue', desc: 'Player picks from multiple dialogue options' },
+  { id: 'qb-dialogue-tree',   name: 'Dialogue Tree',           cat: 'dialogue', desc: 'Multi-branch conversation with conditions' },
+  { id: 'qb-read-book',       name: 'Read Book/Scroll',        cat: 'dialogue', desc: 'Player reads a quest item for lore or clues' },
+  { id: 'qb-receive-info',    name: 'Receive Information',     cat: 'dialogue', desc: 'NPC tells the player key information' },
+
+  // Combat
+  { id: 'qb-kill-monster',    name: 'Kill Monster',            cat: 'combat', desc: 'Defeat a specific monster or group' },
+  { id: 'qb-kill-boss',       name: 'Kill Quest Boss',         cat: 'combat', desc: 'Defeat a unique quest boss encounter' },
+  { id: 'qb-survive-waves',   name: 'Survive Waves',           cat: 'combat', desc: 'Survive multiple waves of enemies' },
+  { id: 'qb-protect-npc',     name: 'Protect NPC',             cat: 'combat', desc: 'Keep an NPC alive during combat' },
+  { id: 'qb-prayer-switch',   name: 'Prayer Switching',        cat: 'combat', desc: 'Must switch prayers to survive boss mechanics' },
+  { id: 'qb-instanced-fight', name: 'Instanced Fight',         cat: 'combat', desc: 'Solo instance boss fight (no outside help)' },
+  { id: 'qb-safe-spot',       name: 'Safe Spot Required',      cat: 'combat', desc: 'Fight requires using a safe spot' },
+
+  // Items
+  { id: 'qb-collect-item',    name: 'Collect Item',            cat: 'item', desc: 'Gather or receive a specific item' },
+  { id: 'qb-deliver-item',    name: 'Deliver Item',            cat: 'item', desc: 'Bring an item to an NPC' },
+  { id: 'qb-use-item',        name: 'Use Item on Object',      cat: 'item', desc: 'Use a quest item on a world object' },
+  { id: 'qb-combine-items',   name: 'Combine Items',           cat: 'item', desc: 'Combine multiple items to create quest item' },
+  { id: 'qb-buy-item',        name: 'Buy Item',                cat: 'item', desc: 'Purchase an item from a shop or NPC' },
+  { id: 'qb-drop-trade',      name: 'Drop/Destroy Item',       cat: 'item', desc: 'Sacrifice or destroy a quest item' },
+  { id: 'qb-equip-item',      name: 'Equip Item',              cat: 'item', desc: 'Wear or wield a specific item' },
+
+  // Skill checks
+  { id: 'qb-skill-check',     name: 'Skill Check',             cat: 'skill', desc: 'Pass a skill level check to proceed' },
+  { id: 'qb-mine-rock',       name: 'Mine Rock',               cat: 'skill', desc: 'Mine a specific rock or mineral' },
+  { id: 'qb-chop-tree',       name: 'Chop Tree',               cat: 'skill', desc: 'Cut a specific tree' },
+  { id: 'qb-fish-spot',       name: 'Fish Spot',               cat: 'skill', desc: 'Catch a specific fish' },
+  { id: 'qb-cook-food',       name: 'Cook Food',               cat: 'skill', desc: 'Cook something for the quest' },
+  { id: 'qb-smith-item',      name: 'Smith Item',              cat: 'skill', desc: 'Smith a quest item at an anvil' },
+  { id: 'qb-craft-item',      name: 'Craft Item',              cat: 'skill', desc: 'Craft a quest item' },
+  { id: 'qb-brew-potion',     name: 'Brew Potion',             cat: 'skill', desc: 'Mix a herblore potion for the quest' },
+  { id: 'qb-agility-obstacle',name: 'Agility Obstacle',        cat: 'skill', desc: 'Navigate an agility shortcut or obstacle' },
+  { id: 'qb-thieve-npc',      name: 'Pickpocket/Steal',        cat: 'skill', desc: 'Steal from an NPC or stall' },
+  { id: 'qb-pray-altar',      name: 'Pray at Altar',           cat: 'skill', desc: 'Pray at a specific altar or shrine' },
+  { id: 'qb-cast-spell',      name: 'Cast Spell',              cat: 'skill', desc: 'Cast a specific spell' },
+  { id: 'qb-fletch-item',     name: 'Fletch Item',             cat: 'skill', desc: 'Fletch a quest item' },
+  { id: 'qb-farm-patch',      name: 'Farm Patch',              cat: 'skill', desc: 'Grow something in a farming patch' },
+
+  // Puzzles
+  { id: 'qb-puzzle-sliding',  name: 'Sliding Puzzle',          cat: 'puzzle', desc: 'Complete a 15-tile sliding puzzle' },
+  { id: 'qb-puzzle-light',    name: 'Light Puzzle',            cat: 'puzzle', desc: 'Solve a light-beam/mirror puzzle' },
+  { id: 'qb-puzzle-maze',     name: 'Maze Navigation',         cat: 'puzzle', desc: 'Navigate through a maze area' },
+  { id: 'qb-puzzle-riddle',   name: 'Riddle/Cipher',           cat: 'puzzle', desc: 'Solve a riddle, cipher, or cryptic clue' },
+  { id: 'qb-puzzle-sequence', name: 'Sequence Puzzle',         cat: 'puzzle', desc: 'Complete a pattern or number sequence' },
+  { id: 'qb-puzzle-lever',    name: 'Lever/Switch Puzzle',     cat: 'puzzle', desc: 'Pull levers or flip switches in correct order' },
+  { id: 'qb-puzzle-color',    name: 'Color Matching',          cat: 'puzzle', desc: 'Match colors or symbols in correct pattern' },
+  { id: 'qb-puzzle-memory',   name: 'Memory Puzzle',           cat: 'puzzle', desc: 'Remember and repeat a sequence' },
+
+  // Travel
+  { id: 'qb-go-location',     name: 'Go to Location',          cat: 'travel', desc: 'Travel to a specific location' },
+  { id: 'qb-enter-dungeon',   name: 'Enter Dungeon',           cat: 'travel', desc: 'Enter a dungeon or cave system' },
+  { id: 'qb-cross-obstacle',  name: 'Cross Obstacle',          cat: 'travel', desc: 'Cross a bridge, gap, or blockage' },
+  { id: 'qb-use-transport',   name: 'Use Transport',           cat: 'travel', desc: 'Take a ship, cart, balloon, or fairy ring' },
+  { id: 'qb-search-area',     name: 'Search Area',             cat: 'travel', desc: 'Search a specific area for clues or items' },
+  { id: 'qb-dig-spot',        name: 'Dig Spot',                cat: 'travel', desc: 'Dig at a specific location with a spade' },
+  { id: 'qb-explore-area',    name: 'Explore Area',            cat: 'travel', desc: 'Explore a new area to reveal the map' },
+
+  // Cutscenes
+  { id: 'qb-cutscene',        name: 'Cutscene',                cat: 'cutscene', desc: 'Play a scripted cutscene sequence' },
+  { id: 'qb-flashback',       name: 'Flashback',               cat: 'cutscene', desc: 'Show a flashback to past events' },
+  { id: 'qb-dream-sequence',  name: 'Dream Sequence',          cat: 'cutscene', desc: 'Enter a dream world with special rules' },
+  { id: 'qb-transformation',  name: 'Transformation',          cat: 'cutscene', desc: 'Player transforms into another form' },
+  { id: 'qb-escort',          name: 'Escort NPC',              cat: 'cutscene', desc: 'Escort an NPC through a dangerous area' },
+
+  // Objectives
+  { id: 'qb-investigate',     name: 'Investigate',             cat: 'objective', desc: 'Investigate clues, tracks, or evidence' },
+  { id: 'qb-eavesdrop',       name: 'Eavesdrop',               cat: 'objective', desc: 'Listen in on a conversation' },
+  { id: 'qb-disguise',        name: 'Use Disguise',            cat: 'objective', desc: 'Wear a disguise to infiltrate' },
+  { id: 'qb-emote',           name: 'Perform Emote',           cat: 'objective', desc: 'Perform a specific emote at a location' },
+  { id: 'qb-prayer-action',   name: 'Pray/Ritual',             cat: 'objective', desc: 'Perform a prayer or ritual action' },
+  { id: 'qb-wait-timer',      name: 'Wait/Timer',              cat: 'objective', desc: 'Wait for a timer or real-time event' },
+  { id: 'qb-choice-branch',   name: 'Story Branch',            cat: 'objective', desc: 'Player makes a choice that affects the quest outcome' },
+  { id: 'qb-multi-objective',name: 'Multi-Objective',           cat: 'objective', desc: 'Complete multiple sub-tasks in any order' },
+];
+
+const CAT_LABELS = {
+  dialogue: 'Dialogue', combat: 'Combat', item: 'Items', skill: 'Skill Checks',
+  puzzle: 'Puzzles', travel: 'Travel', cutscene: 'Cutscenes', objective: 'Objectives'
+};
+
+let allBlocks = STEP_BLOCKS;
+let steps = [];
+let skillReqs = [];
+let questReqs = [];
+let itemReqs = [];
+let otherReqs = [];
+let xpRewards = [];
+let itemRewards = [];
+let unlockRewards = [];
+let existingQuests = [];
+
+// ── Palette ──
+function renderPalette(blocks) {
+  const container = document.getElementById('palette-blocks');
+  let html = '';
+  let lastCat = '';
+  for (const b of blocks) {
+    if (b.cat !== lastCat) {
+      html += `<h2>${CAT_LABELS[b.cat] || b.cat}</h2>`;
+      lastCat = b.cat;
+    }
+    html += `<div class="block" draggable="true" data-id="${b.id}"
+      ondragstart="dragStart(event, '${b.id}', '${b.name.replace(/'/g,"\\'")}')">
+      <div class="block-name">${b.name}</div>
+      <div class="block-desc">${b.desc}</div>
+    </div>`;
+  }
+  container.innerHTML = html || '<div style="color:var(--parchment-dark);padding:20px">No blocks match</div>';
+}
+
+function filterBlocks() {
+  const q = document.getElementById('search').value.toLowerCase();
+  const cat = document.getElementById('palette-filter').value;
+  let filtered = allBlocks;
+  if (cat !== 'all') filtered = filtered.filter(b => b.cat === cat);
+  if (q) filtered = filtered.filter(b => b.name.toLowerCase().includes(q) || b.desc.toLowerCase().includes(q));
+  renderPalette(filtered);
+}
+
+function dragStart(e, id, name) {
+  e.dataTransfer.setData('text/plain', JSON.stringify({id, name}));
+}
+
+// ── Steps ──
+function addStep() {
+  const num = steps.length + 1;
+  steps.push({ name: `Step ${num}`, type: 'action', description: '', blocks: [] });
+  renderSteps();
+}
+
+function removeStep(idx) {
+  steps.splice(idx, 1);
+  renderSteps();
+}
+
+function moveStep(idx, dir) {
+  const ni = idx + dir;
+  if (ni < 0 || ni >= steps.length) return;
+  [steps[idx], steps[ni]] = [steps[ni], steps[idx]];
+  renderSteps();
+}
+
+function addBlockToStep(si, id, name) {
+  const block = allBlocks.find(b => b.id === id);
+  const desc = block?.desc || '';
+  if (steps[si].blocks.some(b => b.id === id)) return;
+  steps[si].blocks.push({ id, name, desc });
+  renderSteps();
+}
+
+function removeBlockFromStep(si, blockId) {
+  steps[si].blocks = steps[si].blocks.filter(b => b.id !== blockId);
+  renderSteps();
+}
+
+function handleStepDrop(e, si) {
+  e.preventDefault();
+  e.currentTarget.classList.remove('dragover');
+  try {
+    const data = JSON.parse(e.dataTransfer.getData('text/plain'));
+    addBlockToStep(si, data.id, data.name);
+  } catch {}
+}
+
+function renderSteps() {
+  const container = document.getElementById('steps');
+  if (steps.length === 0) {
+    container.innerHTML = '<div style="color:var(--parchment-dark);text-align:center;padding:40px;border:2px dashed var(--gold-dim);border-radius:6px">Click "+ Add Step" to start building your quest</div>';
+    updateStats();
+    return;
+  }
+
+  container.innerHTML = steps.map((step, si) => {
+    const blocksHtml = step.blocks.length === 0 ? ''
+      : step.blocks.map(b =>
+        `<div class="block">
+          <div class="block-name">${b.name}</div>
+          <div class="block-desc">${b.desc}</div>
+          <div class="remove" onclick="removeBlockFromStep(${si},'${b.id}')">&times;</div>
+        </div>`
+      ).join('');
+
+    return `<div class="step">
+      <div class="step-header">
+        <input value="${step.name}" onchange="steps[${si}].name=this.value;updateStats()">
+        <div class="step-controls">
+          <button onclick="moveStep(${si},-1)">Up</button>
+          <button onclick="moveStep(${si},1)">Down</button>
+          <button class="remove-step" onclick="removeStep(${si})">Remove</button>
+        </div>
+      </div>
+      <div class="step-body ${step.blocks.length === 0 ? 'empty' : ''}" id="step-drop-${si}"
+        ondragover="event.preventDefault();this.classList.add('dragover')"
+        ondragleave="this.classList.remove('dragover')"
+        ondrop="handleStepDrop(event,${si})">
+        ${blocksHtml}
+      </div>
+      <div class="step-desc">
+        <textarea placeholder="Describe what happens in this step..."
+          onchange="steps[${si}].description=this.value">${step.description}</textarea>
+      </div>
+      <div class="step-type">
+        Type: <select onchange="steps[${si}].type=this.value">
+          <option value="action" ${step.type==='action'?'selected':''}>Action</option>
+          <option value="combat" ${step.type==='combat'?'selected':''}>Combat</option>
+          <option value="dialogue" ${step.type==='dialogue'?'selected':''}>Dialogue</option>
+          <option value="puzzle" ${step.type==='puzzle'?'selected':''}>Puzzle</option>
+          <option value="exploration" ${step.type==='exploration'?'selected':''}>Exploration</option>
+          <option value="cutscene" ${step.type==='cutscene'?'selected':''}>Cutscene</option>
+          <option value="choice" ${step.type==='choice'?'selected':''}>Player Choice</option>
+        </select>
+      </div>
+    </div>`;
+  }).join('');
+  updateStats();
+}
+
+// ── Requirements ──
+function skillSelect(selected) {
+  return SKILLS.map(s => `<option value="${s.toLowerCase()}" ${s.toLowerCase()===selected?'selected':''}>${s}</option>`).join('');
+}
+
+function addSkillReq() {
+  skillReqs.push({ skill: 'attack', level: 1 });
+  renderSkillReqs();
+}
+function removeSkillReq(i) { skillReqs.splice(i, 1); renderSkillReqs(); }
+function renderSkillReqs() {
+  document.getElementById('skill-reqs').innerHTML = skillReqs.map((r, i) =>
+    `<div class="req-row">
+      <select onchange="skillReqs[${i}].skill=this.value">${skillSelect(r.skill)}</select>
+      <input type="number" value="${r.level}" min="1" max="99" onchange="skillReqs[${i}].level=+this.value">
+      <span class="remove-req" onclick="removeSkillReq(${i})">&times;</span>
+    </div>`
+  ).join('');
+}
+
+function addQuestReq() {
+  questReqs.push({ quest: '' });
+  renderQuestReqs();
+}
+function removeQuestReq(i) { questReqs.splice(i, 1); renderQuestReqs(); }
+function renderQuestReqs() {
+  const opts = existingQuests.map(q => `<option value="${q.id}">${q.name}</option>`).join('');
+  document.getElementById('quest-reqs').innerHTML = questReqs.map((r, i) =>
+    `<div class="req-row">
+      <select onchange="questReqs[${i}].quest=this.value" style="width:250px">
+        <option value="">Select quest...</option>${opts}
+      </select>
+      <span class="remove-req" onclick="removeQuestReq(${i})">&times;</span>
+    </div>`
+  ).join('');
+}
+
+function addItemReq() {
+  itemReqs.push({ item: '', qty: 1 });
+  renderItemReqs();
+}
+function removeItemReq(i) { itemReqs.splice(i, 1); renderItemReqs(); }
+function renderItemReqs() {
+  document.getElementById('item-reqs').innerHTML = itemReqs.map((r, i) =>
+    `<div class="req-row">
+      <input type="text" value="${r.item}" placeholder="Item name..." style="width:180px" onchange="itemReqs[${i}].item=this.value">
+      <input type="number" value="${r.qty}" min="1" onchange="itemReqs[${i}].qty=+this.value" style="width:60px">
+      <span class="remove-req" onclick="removeItemReq(${i})">&times;</span>
+    </div>`
+  ).join('');
+}
+
+function addOtherReq() {
+  otherReqs.push({ type: 'quest_points', value: 0 });
+  renderOtherReqs();
+}
+function removeOtherReq(i) { otherReqs.splice(i, 1); renderOtherReqs(); }
+function renderOtherReqs() {
+  document.getElementById('other-reqs').innerHTML = otherReqs.map((r, i) =>
+    `<div class="req-row">
+      <select onchange="otherReqs[${i}].type=this.value">
+        <option value="quest_points" ${r.type==='quest_points'?'selected':''}>Quest Points</option>
+        <option value="combat_level" ${r.type==='combat_level'?'selected':''}>Combat Level</option>
+        <option value="total_level" ${r.type==='total_level'?'selected':''}>Total Level</option>
+        <option value="kudos" ${r.type==='kudos'?'selected':''}>Museum Kudos</option>
+        <option value="favour" ${r.type==='favour'?'selected':''}>House Favour</option>
+      </select>
+      <input type="number" value="${r.value}" min="0" onchange="otherReqs[${i}].value=+this.value">
+      <span class="remove-req" onclick="removeOtherReq(${i})">&times;</span>
+    </div>`
+  ).join('');
+}
+
+// ── Rewards ──
+function addXpReward() {
+  xpRewards.push({ skill: 'attack', xp: 1000 });
+  renderXpRewards();
+}
+function removeXpReward(i) { xpRewards.splice(i, 1); renderXpRewards(); }
+function renderXpRewards() {
+  document.getElementById('xp-rewards').innerHTML = xpRewards.map((r, i) =>
+    `<div class="reward-row">
+      <select onchange="xpRewards[${i}].skill=this.value">${skillSelect(r.skill)}</select>
+      <input type="number" value="${r.xp}" min="1" onchange="xpRewards[${i}].xp=+this.value" placeholder="XP">
+      <span class="remove-req" onclick="removeXpReward(${i})">&times;</span>
+    </div>`
+  ).join('');
+}
+
+function addItemReward() {
+  itemRewards.push({ item: '', qty: 1 });
+  renderItemRewards();
+}
+function removeItemReward(i) { itemRewards.splice(i, 1); renderItemRewards(); }
+function renderItemRewards() {
+  document.getElementById('item-rewards').innerHTML = itemRewards.map((r, i) =>
+    `<div class="reward-row">
+      <input type="text" value="${r.item}" placeholder="Item name..." onchange="itemRewards[${i}].item=this.value">
+      <input type="number" value="${r.qty}" min="1" onchange="itemRewards[${i}].qty=+this.value" style="width:60px">
+      <span class="remove-req" onclick="removeItemReward(${i})">&times;</span>
+    </div>`
+  ).join('');
+}
+
+function addUnlockReward() {
+  unlockRewards.push({ type: 'area', name: '' });
+  renderUnlockRewards();
+}
+function removeUnlockReward(i) { unlockRewards.splice(i, 1); renderUnlockRewards(); }
+function renderUnlockRewards() {
+  document.getElementById('unlock-rewards').innerHTML = unlockRewards.map((r, i) =>
+    `<div class="reward-row">
+      <select onchange="unlockRewards[${i}].type=this.value">
+        <option value="area" ${r.type==='area'?'selected':''}>Area</option>
+        <option value="spell" ${r.type==='spell'?'selected':''}>Spell</option>
+        <option value="prayer" ${r.type==='prayer'?'selected':''}>Prayer</option>
+        <option value="transport" ${r.type==='transport'?'selected':''}>Transport</option>
+        <option value="equipment" ${r.type==='equipment'?'selected':''}>Equipment</option>
+        <option value="shop" ${r.type==='shop'?'selected':''}>Shop</option>
+        <option value="minigame" ${r.type==='minigame'?'selected':''}>Minigame</option>
+        <option value="music" ${r.type==='music'?'selected':''}>Music Track</option>
+        <option value="emote" ${r.type==='emote'?'selected':''}>Emote</option>
+      </select>
+      <input type="text" value="${r.name}" placeholder="Name..." onchange="unlockRewards[${i}].name=this.value">
+      <span class="remove-req" onclick="removeUnlockReward(${i})">&times;</span>
+    </div>`
+  ).join('');
+}
+
+// ── Tabs ──
+function showTab(tab) {
+  document.querySelectorAll('.builder-tab').forEach(b => b.classList.remove('active'));
+  document.querySelectorAll('.builder-panel').forEach(p => p.style.display = 'none');
+  event.target.classList.add('active');
+  document.getElementById('tab-' + tab).style.display = 'block';
+}
+
+// ── Stats ──
+function updateStats() {
+  const totalBlocks = steps.reduce((s, st) => s + st.blocks.length, 0);
+  const qp = document.getElementById('quest-qp').value;
+  const diff = document.getElementById('quest-diff').value;
+  document.getElementById('stats').innerHTML =
+    `Quest: <span>${document.getElementById('quest-name').value || 'Unnamed'}</span> | ` +
+    `<span>${steps.length}</span> steps | <span>${totalBlocks}</span> blocks | ` +
+    `<span>${diff}</span> | <span>${qp}</span> QP | ` +
+    `<span>${skillReqs.length}</span> skill reqs | <span>${xpRewards.length}</span> XP rewards`;
+}
+
+// ── Export ──
+function exportQuest() {
+  const quest = {
+    name: document.getElementById('quest-name').value || 'Custom Quest',
+    difficulty: document.getElementById('quest-diff').value,
+    questPoints: +document.getElementById('quest-qp').value,
+    members: document.getElementById('quest-members').value === 'true',
+    length: document.getElementById('quest-length').value,
+    requirements: {
+      skills: skillReqs.reduce((o, r) => { o[r.skill] = r.level; return o; }, {}),
+      quests: questReqs.map(r => r.quest).filter(Boolean),
+      items: itemReqs.filter(r => r.item).map(r => ({ name: r.item, qty: r.qty })),
+      other: otherReqs.reduce((o, r) => { o[r.type] = r.value; return o; }, {}),
+    },
+    steps: steps.map(s => ({
+      name: s.name,
+      type: s.type,
+      description: s.description,
+      blocks: s.blocks.map(b => b.id),
+      blockNames: s.blocks.map(b => b.name),
+    })),
+    rewards: {
+      xp: xpRewards.reduce((o, r) => { o[r.skill] = r.xp; return o; }, {}),
+      items: itemRewards.filter(r => r.item).map(r => ({ name: r.item, qty: r.qty })),
+      unlocks: unlockRewards.filter(r => r.name).map(r => ({ type: r.type, name: r.name })),
+    },
+    created: new Date().toISOString(),
+  };
+  document.getElementById('export-box').style.display = 'block';
+  document.getElementById('export-json').value = JSON.stringify(quest, null, 2);
+}
+
+function copyQuest() {
+  exportQuest();
+  navigator.clipboard.writeText(document.getElementById('export-json').value);
+  document.getElementById('stats').innerHTML += ' | <span style="color:var(--green)">Copied!</span>';
+}
+
+function clearQuest() {
+  steps = [];
+  skillReqs = []; questReqs = []; itemReqs = []; otherReqs = [];
+  xpRewards = []; itemRewards = []; unlockRewards = [];
+  renderSteps();
+  renderSkillReqs(); renderQuestReqs(); renderItemReqs(); renderOtherReqs();
+  renderXpRewards(); renderItemRewards(); renderUnlockRewards();
+  document.getElementById('export-box').style.display = 'none';
+  addStep();
+}
+
+// ── Load existing quests for reference ──
+async function loadExistingQuests() {
+  try {
+    const r = await fetch('/api/query', {
+      method: 'POST', headers: {'Content-Type':'application/json'},
+      body: JSON.stringify({sql: "SELECT id, name, config FROM mechanics WHERE type = 'quest' ORDER BY name"})
+    });
+    const data = await r.json();
+    if (data.rows) {
+      existingQuests = data.rows.map(r => {
+        let config = {};
+        try { config = typeof r.config === 'string' ? JSON.parse(r.config) : (r.config || {}); } catch {}
+        return { id: r.id, name: r.name, ...config };
+      });
+      renderQuestList();
+    }
+  } catch {}
+}
+
+function renderQuestList() {
+  const container = document.getElementById('quest-list');
+  container.innerHTML = existingQuests.map(q =>
+    `<div class="quest-ref" onclick="loadQuest('${q.id}')">
+      <div class="qr-name">${q.name}</div>
+      <div class="qr-meta">${q.difficulty || '?'} | ${q.questPoints || 0} QP</div>
+    </div>`
+  ).join('');
+}
+
+function loadQuest(id) {
+  const q = existingQuests.find(x => x.id === id);
+  if (!q) return;
+  document.getElementById('quest-name').value = q.name;
+  if (q.difficulty) document.getElementById('quest-diff').value = q.difficulty;
+  if (q.questPoints != null) document.getElementById('quest-qp').value = q.questPoints;
+
+  // Load requirements if present
+  if (q.rewards) {
+    xpRewards = Object.entries(q.rewards).map(([skill, xp]) => ({ skill, xp }));
+    renderXpRewards();
+  }
+
+  updateStats();
+}
+
+// Init
+addStep();
+renderPalette(allBlocks);
+loadExistingQuests();
+
+// Auth info
+fetch('/api/auth/me').then(r=>r.json()).then(d=>{
+  const el=document.getElementById('user-info');
+  if(d.authenticated) el.innerHTML=`${d.name} <a href="/logout" style="color:var(--red);text-decoration:none;margin-left:4px">Logout</a>`;
+});
+</script>
+
+</body>
+</html>

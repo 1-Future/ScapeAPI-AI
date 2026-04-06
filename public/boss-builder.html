@@ -1,0 +1,618 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Scape — Boss Builder</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600;700&display=swap');
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --stone:#0e0e1a;--stone-mid:#151525;--stone-light:#1a1a2e;
+  --parchment:#d4c5a0;--parchment-dim:#9e8e6a;--parchment-dark:#6b5e42;
+  --gold:#b8860b;--gold-bright:#daa520;--gold-dim:#8b6508;
+  --red:#c0392b;--green:#27ae60;--blue:#2980b9;
+  --font:'JetBrains Mono',monospace;
+}
+html{font-size:13px}
+body{background:var(--stone);color:var(--parchment);font-family:var(--font);min-height:100vh}
+
+/* Site header */
+#site-header{display:flex;align-items:center;background:#3a352e;height:30px;padding:0 10px;font-size:12px;flex-shrink:0;border-bottom:1px solid #5c5445;z-index:100;width:100%}
+#site-header .logo{color:var(--gold-bright);font-weight:bold;font-size:14px;margin-right:16px;text-decoration:none;letter-spacing:2px}
+#site-header nav{display:flex;gap:0;flex:1}
+#site-header nav a{color:#aaa;text-decoration:none;padding:0 10px;line-height:30px;transition:color 0.15s}
+#site-header nav a:hover{color:#fff}
+#site-header nav a.active{color:var(--gold-bright)}
+#site-header .gh-link{color:#aaa;text-decoration:none;font-size:16px;line-height:1;margin-left:auto;transition:color 0.15s}
+#site-header .gh-link:hover{color:#fff}
+
+/* Build toolbar */
+#build-bar{display:flex;align-items:center;background:linear-gradient(180deg,#1e1a12,#151020);height:36px;padding:0 12px;border-bottom:2px solid var(--gold);gap:2px}
+#build-bar a{
+  font-family:var(--font);font-size:0.75rem;font-weight:600;color:var(--parchment-dim);
+  text-decoration:none;padding:6px 14px;border-radius:4px 4px 0 0;
+  transition:color 0.15s,background 0.15s;text-transform:uppercase;letter-spacing:0.5px;
+}
+#build-bar a:hover{color:var(--parchment);background:rgba(184,134,11,0.1)}
+#build-bar a.active{color:var(--gold-bright);background:rgba(184,134,11,0.15);border-bottom:2px solid var(--gold-bright);margin-bottom:-2px}
+#build-bar .spacer{flex:1}
+#build-bar .dash-link{font-size:0.7rem;color:var(--parchment-dark);text-decoration:none;padding:4px 10px}
+#build-bar .dash-link:hover{color:var(--gold)}
+
+.builder{display:flex;height:calc(100vh - 66px);overflow:hidden}
+
+/* Palette */
+.palette{width:320px;border-right:1px solid var(--gold-dim);overflow-y:auto;padding:12px;flex-shrink:0}
+.palette h2{font-size:0.85rem;color:var(--gold);text-transform:uppercase;letter-spacing:1px;margin:12px 0 8px;padding-bottom:4px;border-bottom:1px solid var(--gold-dim)}
+.palette h2:first-child{margin-top:0}
+
+.block{
+  background:var(--stone-light);border:1px solid var(--gold-dim);border-radius:4px;
+  padding:8px 10px;margin:4px 0;cursor:grab;font-size:0.8rem;
+  transition:border-color 0.15s,background 0.15s;user-select:none;
+}
+.block:hover{border-color:var(--gold);background:rgba(184,134,11,0.1)}
+.block:active{cursor:grabbing;opacity:0.8}
+.block .block-name{font-weight:600;color:var(--parchment)}
+.block .block-desc{font-size:0.7rem;color:var(--parchment-dark);margin-top:2px}
+
+.palette input{
+  width:100%;font-family:var(--font);font-size:0.85rem;
+  background:var(--stone);color:var(--parchment);border:1px solid var(--gold-dim);
+  padding:8px 10px;border-radius:4px;outline:none;margin-bottom:8px;
+}
+.palette input:focus{border-color:var(--gold)}
+
+/* Drop zone */
+.dropzone{flex:1;padding:24px;overflow-y:auto}
+.dropzone h2{font-size:1rem;color:var(--gold-bright);margin-bottom:4px}
+.dropzone .boss-name-input{
+  font-family:var(--font);font-size:1.1rem;font-weight:600;
+  background:transparent;color:var(--gold-bright);border:none;border-bottom:1px solid var(--gold-dim);
+  padding:4px 0;margin-bottom:16px;width:100%;outline:none;
+}
+.dropzone .boss-name-input:focus{border-color:var(--gold)}
+
+.recipe{
+  min-height:200px;border:2px dashed var(--gold-dim);border-radius:6px;
+  padding:16px;transition:border-color 0.2s,background 0.2s;
+}
+.recipe.dragover{border-color:var(--gold-bright);background:rgba(184,134,11,0.05)}
+.recipe.empty::after{
+  content:'Drag blocks here to build your boss';
+  display:block;text-align:center;color:var(--parchment-dark);
+  font-size:0.85rem;padding:40px 0;
+}
+
+.recipe .block{cursor:default;position:relative;padding-right:30px}
+.recipe .block .remove{
+  position:absolute;right:8px;top:50%;transform:translateY(-50%);
+  color:var(--red);cursor:pointer;font-size:1rem;font-weight:bold;
+  opacity:0.5;transition:opacity 0.15s;
+}
+.recipe .block .remove:hover{opacity:1}
+
+.recipe-stats{
+  margin-top:16px;padding:12px;background:var(--stone-mid);
+  border:1px solid var(--gold-dim);border-radius:4px;font-size:0.8rem;
+}
+.recipe-stats span{color:var(--gold);font-weight:600}
+
+.actions{margin-top:16px;display:flex;gap:8px}
+.btn{
+  font-family:var(--font);font-size:0.85rem;font-weight:600;
+  padding:8px 16px;border:none;border-radius:4px;cursor:pointer;
+  letter-spacing:0.5px;text-transform:uppercase;
+}
+.btn-gold{background:linear-gradient(180deg,var(--gold),var(--gold-dim));color:var(--stone)}
+.btn-gold:hover{box-shadow:0 0 12px rgba(218,165,32,0.4)}
+.btn-red{background:rgba(192,57,43,0.3);color:var(--red);border:1px solid var(--red)}
+.btn-red:hover{background:rgba(192,57,43,0.5)}
+
+/* Export modal */
+.export-box{
+  margin-top:16px;background:var(--stone);border:1px solid var(--gold-dim);
+  border-radius:4px;padding:12px;display:none;
+}
+.export-box textarea{
+  width:100%;min-height:120px;font-family:var(--font);font-size:0.75rem;
+  background:var(--stone-mid);color:var(--green);border:1px solid var(--gold-dim);
+  border-radius:3px;padding:8px;resize:vertical;
+}
+
+/* Builder tabs */
+.builder-tabs{display:flex;gap:2px;margin-bottom:12px}
+.builder-tab{
+  font-family:var(--font);font-size:0.8rem;font-weight:600;padding:8px 16px;
+  border:none;border-radius:4px 4px 0 0;cursor:pointer;
+  background:var(--stone-mid);color:var(--parchment-dim);
+  letter-spacing:0.5px;text-transform:uppercase;
+}
+.builder-tab.active{background:rgba(184,134,11,0.15);color:var(--gold-bright);border-bottom:2px solid var(--gold)}
+.builder-tab:hover{color:var(--parchment)}
+.builder-panel{min-height:200px}
+
+/* Arena */
+.arena-controls{display:flex;gap:12px;align-items:center;margin-bottom:12px;flex-wrap:wrap}
+.arena-controls label{font-size:0.8rem;color:var(--parchment-dim)}
+.arena-controls select{
+  font-family:var(--font);font-size:0.8rem;background:var(--stone);
+  color:var(--parchment);border:1px solid var(--gold-dim);padding:4px 8px;border-radius:3px;
+}
+.arena-grid{
+  display:inline-grid;gap:1px;background:var(--stone);border:2px solid var(--gold-dim);
+  border-radius:4px;padding:1px;cursor:crosshair;user-select:none;
+}
+.arena-cell{
+  width:28px;height:28px;border-radius:2px;transition:background 0.1s;
+  display:flex;align-items:center;justify-content:center;font-size:0.55rem;font-weight:bold;
+  color:rgba(255,255,255,0.4);
+}
+.arena-cell:hover{outline:2px solid var(--gold);outline-offset:-2px}
+.arena-legend{display:flex;gap:10px;margin-top:8px;flex-wrap:wrap}
+.legend-item{display:flex;align-items:center;gap:4px;font-size:0.7rem;color:var(--parchment-dim)}
+.legend-color{width:12px;height:12px;border-radius:2px;border:1px solid rgba(255,255,255,0.1)}
+
+/* Phases */
+.phase{
+  margin-bottom:16px;border:1px solid var(--gold-dim);border-radius:6px;
+  background:var(--stone-mid);overflow:hidden;
+}
+.phase-header{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:8px 12px;background:rgba(184,134,11,0.1);border-bottom:1px solid var(--gold-dim);
+}
+.phase-header input{
+  font-family:var(--font);font-size:0.85rem;font-weight:600;
+  background:transparent;color:var(--gold-bright);border:none;outline:none;width:200px;
+}
+.phase-header .phase-controls{display:flex;gap:6px;align-items:center}
+.phase-header .phase-controls button{
+  font-family:var(--font);font-size:0.7rem;padding:3px 8px;border-radius:3px;
+  cursor:pointer;border:1px solid var(--gold-dim);background:transparent;color:var(--parchment-dim);
+}
+.phase-header .phase-controls button:hover{border-color:var(--gold);color:var(--parchment)}
+.phase-header .phase-controls .remove-phase{color:var(--red);border-color:rgba(192,57,43,0.4)}
+.phase-header .phase-controls .remove-phase:hover{border-color:var(--red)}
+.phase-body{padding:12px;min-height:60px}
+.phase-body.dragover{background:rgba(184,134,11,0.05)}
+.phase-body.empty::after{
+  content:'Drag blocks here';display:block;text-align:center;
+  color:var(--parchment-dark);font-size:0.8rem;padding:16px 0;
+}
+.phase-trigger{
+  font-size:0.7rem;color:var(--parchment-dim);padding:4px 12px 8px;
+  border-top:1px solid rgba(184,134,11,0.1);
+}
+.phase-trigger select{
+  font-family:var(--font);font-size:0.7rem;background:var(--stone);
+  color:var(--parchment);border:1px solid var(--gold-dim);padding:2px 6px;
+  border-radius:3px;margin-left:4px;
+}
+
+::-webkit-scrollbar{width:8px}
+::-webkit-scrollbar-track{background:var(--stone)}
+::-webkit-scrollbar-thumb{background:var(--gold-dim);border-radius:4px}
+</style>
+</head>
+<body>
+
+<div id="site-header">
+  <a class="logo" href="/">SCAPE</a>
+  <nav>
+    <a href="/">Watch</a>
+    <a href="/play">Play</a>
+    <a href="/guide">Guide</a>
+    <a href="/about">About</a>
+    <a href="/builder" class="active">Builder</a>
+  </nav>
+  <a class="gh-link" href="https://github.com/1-Future/ScapeAPI-AI" target="_blank" title="GitHub">
+    <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
+  </a>
+</div>
+<div id="build-bar">
+  <a href="/boss-builder" class="active">Boss</a>
+  <a href="/skill-builder">Skill</a>
+  <a href="/quest-builder">Quest</a>
+  <span class="spacer"></span>
+  <a href="/dashboard" class="dash-link">Dashboard</a>
+  <span class="dash-link" id="user-info"></span>
+</div>
+
+<div class="builder">
+  <div class="palette">
+    <input type="text" id="search" placeholder="Search blocks..." oninput="filterBlocks()">
+    <div id="palette-blocks"></div>
+  </div>
+
+  <div class="dropzone">
+    <input class="boss-name-input" id="boss-name" placeholder="Enter boss name..." value="My Custom Boss">
+
+    <div class="builder-tabs">
+      <button class="builder-tab active" onclick="showBuilderTab('phases')">Phases</button>
+      <button class="builder-tab" onclick="showBuilderTab('arena')">Arena</button>
+    </div>
+
+    <div id="builder-phases" class="builder-panel">
+      <div id="phases"></div>
+      <div class="actions">
+        <button class="btn btn-gold" onclick="addPhase()">+ Add Phase</button>
+      </div>
+    </div>
+
+    <div id="builder-arena" class="builder-panel" style="display:none">
+      <div class="arena-controls">
+        <label>Size: <select id="arena-size" onchange="resizeArena()">
+          <option value="8">8x8</option>
+          <option value="12" selected>12x12</option>
+          <option value="16">16x16</option>
+          <option value="20">20x20</option>
+          <option value="24">24x24</option>
+        </select></label>
+        <label>Paint: <select id="arena-brush">
+          <option value="floor">Floor</option>
+          <option value="wall">Wall</option>
+          <option value="pillar">Pillar</option>
+          <option value="lava">Lava/Acid</option>
+          <option value="water">Water</option>
+          <option value="safe">Safe Spot</option>
+          <option value="spawn_boss">Boss Spawn</option>
+          <option value="spawn_player">Player Spawn</option>
+          <option value="spawn_add">Add Spawn</option>
+          <option value="totem">Totem/Pillar Object</option>
+          <option value="portal">Portal</option>
+        </select></label>
+        <button class="btn btn-gold" style="font-size:0.7rem;padding:4px 10px" onclick="clearArena()">Clear Grid</button>
+      </div>
+      <div class="arena-grid" id="arena-grid"></div>
+      <div class="arena-legend">
+        <span class="legend-item"><span class="legend-color" style="background:#3a352e"></span>Floor</span>
+        <span class="legend-item"><span class="legend-color" style="background:#666"></span>Wall</span>
+        <span class="legend-item"><span class="legend-color" style="background:#8b7355"></span>Pillar</span>
+        <span class="legend-item"><span class="legend-color" style="background:#c0392b"></span>Lava</span>
+        <span class="legend-item"><span class="legend-color" style="background:#2980b9"></span>Water</span>
+        <span class="legend-item"><span class="legend-color" style="background:#27ae60"></span>Safe</span>
+        <span class="legend-item"><span class="legend-color" style="background:#e74c3c"></span>Boss</span>
+        <span class="legend-item"><span class="legend-color" style="background:#3498db"></span>Player</span>
+        <span class="legend-item"><span class="legend-color" style="background:#e67e22"></span>Add</span>
+        <span class="legend-item"><span class="legend-color" style="background:#9b59b6"></span>Totem</span>
+        <span class="legend-item"><span class="legend-color" style="background:#1abc9c"></span>Portal</span>
+      </div>
+    </div>
+
+    <div class="actions" style="margin-top:12px">
+      <button class="btn btn-gold" onclick="exportBoss()">Export JSON</button>
+      <button class="btn btn-gold" onclick="copyBoss()">Copy</button>
+      <button class="btn btn-red" onclick="clearBoss()">Clear All</button>
+    </div>
+    <div class="recipe-stats" id="stats"></div>
+    <div class="export-box" id="export-box">
+      <textarea id="export-json" readonly></textarea>
+    </div>
+  </div>
+</div>
+
+<script>
+let allBlocks = [];
+let phases = []; // [{name, trigger, blocks: [{id,name,desc}]}]
+
+async function loadPalette() {
+  const r = await fetch('/api/mechanics?render_tier=text&status=implemented');
+  const mechs = await r.json();
+  allBlocks = mechs.filter(m => m.id?.startsWith('bp-'));
+
+  if (!allBlocks.length) {
+    // Fallback: load from hardcoded if API doesn't have them yet
+    const r2 = await fetch('/api/query', {
+      method: 'POST', headers: {'Content-Type':'application/json'},
+      body: JSON.stringify({sql: "SELECT id, name, description FROM mechanics WHERE id LIKE 'bp-%' ORDER BY id"})
+    });
+    const data = await r2.json();
+    if (data.rows) allBlocks = data.rows.map(r => ({id: r.id, name: r.name, description: r.description}));
+  }
+
+  renderPalette(allBlocks);
+}
+
+function renderPalette(blocks) {
+  const container = document.getElementById('palette-blocks');
+  let html = '';
+  let lastPrefix = '';
+
+  for (const b of blocks) {
+    // Category is the second segment: bp-{category}-...
+    const category = b.id.replace('bp-','').split('-')[0];
+    if (category !== lastPrefix) {
+      const labels = {
+        proj:'Projectiles',
+        gnd:'Ground',
+        arena:'Arena',
+        spawn:'Spawns',
+        boss:'Boss Powers',
+        debuff:'Debuffs',
+        check:'Checks',
+        team:'Team',
+        loot:'Loot',
+      };
+      const label = labels[category];
+      if (label && label !== labels[lastPrefix]) {
+        html += `<h2>${label}</h2>`;
+      }
+      lastPrefix = category;
+    }
+
+    html += `<div class="block" draggable="true" data-id="${b.id}" data-name="${b.name}"
+      ondragstart="dragStart(event, '${b.id}', '${b.name.replace(/'/g,"\\'")}')">
+      <div class="block-name">${b.name}</div>
+      <div class="block-desc">${b.description || b.config?.desc || ''}</div>
+    </div>`;
+  }
+  container.innerHTML = html || '<div style="color:var(--parchment-dark);padding:20px">Loading palette...</div>';
+}
+
+function filterBlocks() {
+  const q = document.getElementById('search').value.toLowerCase();
+  const filtered = q ? allBlocks.filter(b => b.name.toLowerCase().includes(q) || (b.description||'').toLowerCase().includes(q)) : allBlocks;
+  renderPalette(filtered);
+}
+
+// Drag and drop
+function dragStart(e, id, name) {
+  e.dataTransfer.setData('text/plain', JSON.stringify({id, name}));
+}
+
+function addPhase() {
+  const num = phases.length + 1;
+  phases.push({ name: `Phase ${num}`, trigger: 'hp_threshold', blocks: [] });
+  renderPhases();
+}
+
+function removePhase(idx) {
+  phases.splice(idx, 1);
+  renderPhases();
+}
+
+function movePhase(idx, dir) {
+  const newIdx = idx + dir;
+  if (newIdx < 0 || newIdx >= phases.length) return;
+  [phases[idx], phases[newIdx]] = [phases[newIdx], phases[idx]];
+  renderPhases();
+}
+
+function addBlockToPhase(phaseIdx, id, name) {
+  const block = allBlocks.find(b => b.id === id);
+  const desc = block?.description || block?.config?.desc || '';
+  // Allow same block in different phases
+  if (phases[phaseIdx].blocks.some(b => b.id === id)) return;
+  phases[phaseIdx].blocks.push({ id, name, desc });
+  renderPhases();
+}
+
+function removeBlockFromPhase(phaseIdx, blockId) {
+  phases[phaseIdx].blocks = phases[phaseIdx].blocks.filter(b => b.id !== blockId);
+  renderPhases();
+}
+
+function renderPhases() {
+  const container = document.getElementById('phases');
+  if (phases.length === 0) {
+    container.innerHTML = '<div style="color:var(--parchment-dark);text-align:center;padding:40px;border:2px dashed var(--gold-dim);border-radius:6px">Click "+ Add Phase" to start building your boss</div>';
+    updateStats();
+    return;
+  }
+
+  container.innerHTML = phases.map((phase, pi) => {
+    const blocksHtml = phase.blocks.length === 0
+      ? ''
+      : phase.blocks.map(b =>
+          `<div class="block">
+            <div class="block-name">${b.name}</div>
+            <div class="block-desc">${b.desc}</div>
+            <div class="remove" onclick="removeBlockFromPhase(${pi},'${b.id}')">&times;</div>
+          </div>`
+        ).join('');
+
+    return `<div class="phase">
+      <div class="phase-header">
+        <input value="${phase.name}" onchange="phases[${pi}].name=this.value;updateStats()">
+        <div class="phase-controls">
+          <button onclick="movePhase(${pi},-1)">Up</button>
+          <button onclick="movePhase(${pi},1)">Down</button>
+          <button class="remove-phase" onclick="removePhase(${pi})">Remove</button>
+        </div>
+      </div>
+      <div class="phase-body ${phase.blocks.length === 0 ? 'empty' : ''}" id="phase-drop-${pi}"
+        ondragover="event.preventDefault();this.classList.add('dragover')"
+        ondragleave="this.classList.remove('dragover')"
+        ondrop="handlePhaseDrop(event,${pi})">
+        ${blocksHtml}
+      </div>
+      <div class="phase-trigger">
+        Trigger: <select onchange="phases[${pi}].trigger=this.value">
+          <option value="hp_threshold" ${phase.trigger==='hp_threshold'?'selected':''}>HP Threshold</option>
+          <option value="timer" ${phase.trigger==='timer'?'selected':''}>Timer</option>
+          <option value="mechanic_done" ${phase.trigger==='mechanic_done'?'selected':''}>Mechanic Completed</option>
+          <option value="adds_dead" ${phase.trigger==='adds_dead'?'selected':''}>Adds Dead</option>
+          <option value="totem_charged" ${phase.trigger==='totem_charged'?'selected':''}>Totem Charged</option>
+          <option value="start" ${phase.trigger==='start'?'selected':''}>Fight Start</option>
+          <option value="set_rotation" ${phase.trigger==='set_rotation'?'selected':''}>Set Rotation</option>
+          <option value="random" ${phase.trigger==='random'?'selected':''}>Random</option>
+        </select>
+      </div>
+    </div>`;
+  }).join('');
+
+  updateStats();
+}
+
+function handlePhaseDrop(e, phaseIdx) {
+  e.preventDefault();
+  e.currentTarget.classList.remove('dragover');
+  try {
+    const data = JSON.parse(e.dataTransfer.getData('text/plain'));
+    addBlockToPhase(phaseIdx, data.id, data.name);
+  } catch {}
+}
+
+function updateStats() {
+  const totalBlocks = phases.reduce((s, p) => s + p.blocks.length, 0);
+  document.getElementById('stats').innerHTML =
+    `<span>${phases.length}</span> phases | <span>${totalBlocks}</span> blocks | Boss: <span>${document.getElementById('boss-name').value || 'Unnamed'}</span>`;
+}
+
+function exportBoss() {
+  const boss = {
+    name: document.getElementById('boss-name').value || 'Custom Boss',
+    phases: phases.map(p => ({
+      name: p.name,
+      trigger: p.trigger,
+      blocks: p.blocks.map(b => b.id),
+      blockNames: p.blocks.map(b => b.name),
+    })),
+    created: new Date().toISOString(),
+  };
+  document.getElementById('export-box').style.display = 'block';
+  document.getElementById('export-json').value = JSON.stringify(boss, null, 2);
+}
+
+function copyBoss() {
+  exportBoss();
+  navigator.clipboard.writeText(document.getElementById('export-json').value);
+  document.getElementById('stats').innerHTML += ' | <span style="color:var(--green)">Copied!</span>';
+}
+
+function clearBoss() {
+  phases = [];
+  renderPhases();
+  document.getElementById('export-box').style.display = 'none';
+}
+
+// ── Builder Tabs ──
+function showBuilderTab(tab) {
+  document.querySelectorAll('.builder-tab').forEach(b => b.classList.remove('active'));
+  document.querySelectorAll('.builder-panel').forEach(p => p.style.display = 'none');
+  event.target.classList.add('active');
+  document.getElementById('builder-' + tab).style.display = 'block';
+}
+
+// ── Arena Grid ──
+let arenaSize = 12;
+let arenaData = [];
+let painting = false;
+
+const TILE_COLORS = {
+  floor: '#3a352e', wall: '#666', pillar: '#8b7355', lava: '#c0392b',
+  water: '#2980b9', safe: '#27ae60', spawn_boss: '#e74c3c', spawn_player: '#3498db',
+  spawn_add: '#e67e22', totem: '#9b59b6', portal: '#1abc9c',
+};
+const TILE_LABELS = {
+  spawn_boss: 'B', spawn_player: 'P', spawn_add: 'A', totem: 'T', portal: 'O', pillar: '#',
+};
+
+function initArena() {
+  arenaSize = parseInt(document.getElementById('arena-size').value);
+  arenaData = Array(arenaSize).fill(null).map(() => Array(arenaSize).fill('floor'));
+  renderArena();
+}
+
+function resizeArena() {
+  const newSize = parseInt(document.getElementById('arena-size').value);
+  const newData = Array(newSize).fill(null).map((_, y) =>
+    Array(newSize).fill(null).map((_, x) =>
+      (y < arenaData.length && x < (arenaData[0]?.length || 0)) ? arenaData[y][x] : 'floor'
+    )
+  );
+  arenaSize = newSize;
+  arenaData = newData;
+  renderArena();
+}
+
+function clearArena() {
+  arenaData = Array(arenaSize).fill(null).map(() => Array(arenaSize).fill('floor'));
+  renderArena();
+}
+
+function renderArena() {
+  const grid = document.getElementById('arena-grid');
+  grid.style.gridTemplateColumns = `repeat(${arenaSize}, 28px)`;
+  let html = '';
+  for (let y = 0; y < arenaSize; y++) {
+    for (let x = 0; x < arenaSize; x++) {
+      const tile = arenaData[y][x];
+      const color = TILE_COLORS[tile] || TILE_COLORS.floor;
+      const label = TILE_LABELS[tile] || '';
+      html += `<div class="arena-cell" style="background:${color}"
+        data-x="${x}" data-y="${y}"
+        onmousedown="startPaint(${x},${y})"
+        onmouseover="continuePaint(${x},${y})"
+        onmouseup="stopPaint()">${label}</div>`;
+    }
+  }
+  grid.innerHTML = html;
+}
+
+function startPaint(x, y) {
+  painting = true;
+  paintTile(x, y);
+}
+function continuePaint(x, y) {
+  if (painting) paintTile(x, y);
+}
+function stopPaint() {
+  painting = false;
+}
+document.addEventListener('mouseup', stopPaint);
+
+function paintTile(x, y) {
+  const brush = document.getElementById('arena-brush').value;
+  arenaData[y][x] = brush;
+  const cell = document.querySelector(`.arena-cell[data-x="${x}"][data-y="${y}"]`);
+  if (cell) {
+    cell.style.background = TILE_COLORS[brush] || TILE_COLORS.floor;
+    cell.textContent = TILE_LABELS[brush] || '';
+  }
+}
+
+// ── Override export to include arena ──
+const _origExport = exportBoss;
+exportBoss = function() {
+  const boss = {
+    name: document.getElementById('boss-name').value || 'Custom Boss',
+    arena: { size: arenaSize, tiles: arenaData },
+    phases: phases.map(p => ({
+      name: p.name,
+      trigger: p.trigger,
+      blocks: p.blocks.map(b => b.id),
+      blockNames: p.blocks.map(b => b.name),
+    })),
+    created: new Date().toISOString(),
+  };
+  document.getElementById('export-box').style.display = 'block';
+  document.getElementById('export-json').value = JSON.stringify(boss, null, 2);
+};
+
+// ── Override clear to include arena ──
+const _origClear = clearBoss;
+clearBoss = function() {
+  phases = [];
+  renderPhases();
+  clearArena();
+  document.getElementById('export-box').style.display = 'none';
+  addPhase();
+};
+
+// Init
+addPhase();
+initArena();
+loadPalette();
+
+// Auth info
+fetch('/api/auth/me').then(r=>r.json()).then(d=>{
+  const el=document.getElementById('user-info');
+  if(d.authenticated) el.innerHTML=`${d.name} <a href="/logout" style="color:var(--red);text-decoration:none;margin-left:4px">Logout</a>`;
+});
+</script>
+
+</body>
+</html>

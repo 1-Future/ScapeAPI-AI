@@ -1,0 +1,682 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Scape — Skill Builder</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600;700&display=swap');
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --stone:#0e0e1a;--stone-mid:#151525;--stone-light:#1a1a2e;
+  --parchment:#d4c5a0;--parchment-dim:#9e8e6a;--parchment-dark:#6b5e42;
+  --gold:#b8860b;--gold-bright:#daa520;--gold-dim:#8b6508;
+  --red:#c0392b;--green:#27ae60;--blue:#2980b9;
+  --font:'JetBrains Mono',monospace;
+}
+html{font-size:13px}
+body{background:var(--stone);color:var(--parchment);font-family:var(--font);min-height:100vh}
+
+/* Site header */
+#site-header{display:flex;align-items:center;background:#3a352e;height:30px;padding:0 10px;font-size:12px;flex-shrink:0;border-bottom:1px solid #5c5445;z-index:100;width:100%}
+#site-header .logo{color:var(--gold-bright);font-weight:bold;font-size:14px;margin-right:16px;text-decoration:none;letter-spacing:2px}
+#site-header nav{display:flex;gap:0;flex:1}
+#site-header nav a{color:#aaa;text-decoration:none;padding:0 10px;line-height:30px;transition:color 0.15s}
+#site-header nav a:hover{color:#fff}
+#site-header nav a.active{color:var(--gold-bright)}
+#site-header .gh-link{color:#aaa;text-decoration:none;font-size:16px;line-height:1;margin-left:auto;transition:color 0.15s}
+#site-header .gh-link:hover{color:#fff}
+
+/* Build toolbar */
+#build-bar{display:flex;align-items:center;background:linear-gradient(180deg,#1e1a12,#151020);height:36px;padding:0 12px;border-bottom:2px solid var(--gold);gap:2px}
+#build-bar a{
+  font-family:var(--font);font-size:0.75rem;font-weight:600;color:var(--parchment-dim);
+  text-decoration:none;padding:6px 14px;border-radius:4px 4px 0 0;
+  transition:color 0.15s,background 0.15s;text-transform:uppercase;letter-spacing:0.5px;
+}
+#build-bar a:hover{color:var(--parchment);background:rgba(184,134,11,0.1)}
+#build-bar a.active{color:var(--gold-bright);background:rgba(184,134,11,0.15);border-bottom:2px solid var(--gold-bright);margin-bottom:-2px}
+#build-bar .spacer{flex:1}
+#build-bar .dash-link{font-size:0.7rem;color:var(--parchment-dark);text-decoration:none;padding:4px 10px}
+#build-bar .dash-link:hover{color:var(--gold)}
+
+.builder{display:flex;height:calc(100vh - 66px);overflow:hidden}
+
+/* Palette */
+.palette{width:320px;border-right:1px solid var(--gold-dim);overflow-y:auto;padding:12px;flex-shrink:0}
+.palette h2{font-size:0.85rem;color:var(--gold);text-transform:uppercase;letter-spacing:1px;margin:12px 0 8px;padding-bottom:4px;border-bottom:1px solid var(--gold-dim)}
+.palette h2:first-child{margin-top:0}
+.palette input{
+  width:100%;font-family:var(--font);font-size:0.85rem;
+  background:var(--stone);color:var(--parchment);border:1px solid var(--gold-dim);
+  padding:8px 10px;border-radius:4px;outline:none;margin-bottom:8px;
+}
+.palette input:focus{border-color:var(--gold)}
+
+.block{
+  background:var(--stone-light);border:1px solid var(--gold-dim);border-radius:4px;
+  padding:8px 10px;margin:4px 0;cursor:grab;font-size:0.8rem;
+  transition:border-color 0.15s,background 0.15s;user-select:none;
+}
+.block:hover{border-color:var(--gold);background:rgba(184,134,11,0.1)}
+.block:active{cursor:grabbing;opacity:0.8}
+.block .block-name{font-weight:600;color:var(--parchment)}
+.block .block-desc{font-size:0.7rem;color:var(--parchment-dark);margin-top:2px}
+.block .block-tag{font-size:0.6rem;color:var(--gold-dim);text-transform:uppercase;letter-spacing:0.5px}
+
+/* Main area */
+.dropzone{flex:1;padding:24px;overflow-y:auto}
+
+/* Skill config row */
+.skill-config{
+  display:flex;gap:12px;align-items:flex-end;flex-wrap:wrap;
+  margin-bottom:20px;padding:16px;
+  background:var(--stone-mid);border:1px solid var(--gold-dim);border-radius:6px;
+}
+.field{display:flex;flex-direction:column;gap:4px}
+.field label{font-size:0.7rem;color:var(--parchment-dim);text-transform:uppercase;letter-spacing:0.5px}
+.field input,.field select{
+  font-family:var(--font);font-size:0.85rem;
+  background:var(--stone);color:var(--parchment);border:1px solid var(--gold-dim);
+  padding:6px 10px;border-radius:4px;outline:none;
+}
+.field input:focus,.field select:focus{border-color:var(--gold)}
+.field-wide input{width:260px}
+
+/* Method rows */
+.method{
+  margin-bottom:8px;border:1px solid var(--gold-dim);border-radius:6px;
+  background:var(--stone-mid);overflow:hidden;
+}
+.method-header{
+  display:flex;align-items:center;gap:8px;
+  padding:10px 12px;background:rgba(184,134,11,0.08);
+  border-bottom:1px solid var(--gold-dim);cursor:pointer;
+}
+.method-header:hover{background:rgba(184,134,11,0.12)}
+.method-header .method-num{font-size:0.7rem;color:var(--parchment-dark);font-weight:600;width:24px}
+.method-header .method-name{font-weight:600;color:var(--parchment);flex:1;font-size:0.85rem}
+.method-header .method-lvl{font-size:0.75rem;color:var(--gold);font-weight:600}
+.method-header .method-xp{font-size:0.75rem;color:var(--green);font-weight:600;margin-left:8px}
+.method-header .method-controls{display:flex;gap:4px}
+.method-header .method-controls button{
+  font-family:var(--font);font-size:0.65rem;padding:2px 6px;border-radius:3px;
+  cursor:pointer;border:1px solid var(--gold-dim);background:transparent;color:var(--parchment-dim);
+}
+.method-header .method-controls button:hover{border-color:var(--gold);color:var(--parchment)}
+.method-header .method-controls .remove-method{color:var(--red);border-color:rgba(192,57,43,0.4)}
+.method-header .method-controls .remove-method:hover{border-color:var(--red)}
+
+.method-body{padding:12px;display:none}
+.method-body.open{display:block}
+.method-body .row{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:8px;align-items:flex-end}
+.method-body .row:last-child{margin-bottom:0}
+
+/* Interaction display */
+.interaction-preview{
+  display:flex;align-items:center;gap:8px;padding:10px 12px;
+  background:var(--stone);border:1px solid var(--gold-dim);border-radius:4px;
+  font-size:0.8rem;margin:8px 0;min-height:44px;flex-wrap:wrap;
+}
+.interaction-preview .item-pill{
+  background:rgba(184,134,11,0.15);border:1px solid var(--gold-dim);border-radius:3px;
+  padding:3px 8px;font-weight:600;color:var(--parchment);font-size:0.75rem;
+}
+.interaction-preview .arrow{color:var(--gold);font-weight:bold;font-size:1rem}
+.interaction-preview .on-text{color:var(--parchment-dark);font-size:0.7rem;text-transform:uppercase}
+.interaction-preview .result-pill{
+  background:rgba(39,174,96,0.15);border:1px solid var(--green);border-radius:3px;
+  padding:3px 8px;font-weight:600;color:var(--green);font-size:0.75rem;
+}
+.interaction-preview .xp-pill{
+  background:rgba(218,165,32,0.15);border:1px solid var(--gold);border-radius:3px;
+  padding:3px 8px;font-weight:600;color:var(--gold-bright);font-size:0.75rem;
+}
+
+/* Drop targets within methods */
+.item-drop{
+  min-height:36px;border:1px dashed var(--gold-dim);border-radius:4px;
+  padding:6px 8px;font-size:0.75rem;color:var(--parchment-dark);
+  transition:border-color 0.15s;display:flex;align-items:center;gap:6px;flex-wrap:wrap;
+}
+.item-drop.dragover{border-color:var(--gold-bright);background:rgba(184,134,11,0.05)}
+.item-drop .dropped-item{
+  background:var(--stone-light);border:1px solid var(--gold-dim);border-radius:3px;
+  padding:3px 8px;font-size:0.75rem;font-weight:600;color:var(--parchment);
+  display:flex;align-items:center;gap:4px;
+}
+.item-drop .dropped-item .x{cursor:pointer;color:var(--red);font-weight:bold;opacity:0.5}
+.item-drop .dropped-item .x:hover{opacity:1}
+
+.actions{margin-top:16px;display:flex;gap:8px;flex-wrap:wrap}
+.btn{
+  font-family:var(--font);font-size:0.85rem;font-weight:600;
+  padding:8px 16px;border:none;border-radius:4px;cursor:pointer;
+  letter-spacing:0.5px;text-transform:uppercase;
+}
+.btn-gold{background:linear-gradient(180deg,var(--gold),var(--gold-dim));color:var(--stone)}
+.btn-gold:hover{box-shadow:0 0 12px rgba(218,165,32,0.4)}
+.btn-red{background:rgba(192,57,43,0.3);color:var(--red);border:1px solid var(--red)}
+.btn-red:hover{background:rgba(192,57,43,0.5)}
+
+.recipe-stats{
+  margin-top:16px;padding:12px;background:var(--stone-mid);
+  border:1px solid var(--gold-dim);border-radius:4px;font-size:0.8rem;
+}
+.recipe-stats span{color:var(--gold);font-weight:600}
+
+.export-box{
+  margin-top:16px;background:var(--stone);border:1px solid var(--gold-dim);
+  border-radius:4px;padding:12px;display:none;
+}
+.export-box textarea{
+  width:100%;min-height:200px;font-family:var(--font);font-size:0.75rem;
+  background:var(--stone-mid);color:var(--green);border:1px solid var(--gold-dim);
+  border-radius:3px;padding:8px;resize:vertical;
+}
+
+::-webkit-scrollbar{width:8px}
+::-webkit-scrollbar-track{background:var(--stone)}
+::-webkit-scrollbar-thumb{background:var(--gold-dim);border-radius:4px}
+</style>
+</head>
+<body>
+
+<div id="site-header">
+  <a class="logo" href="/">SCAPE</a>
+  <nav>
+    <a href="/">Watch</a>
+    <a href="/play">Play</a>
+    <a href="/guide">Guide</a>
+    <a href="/about">About</a>
+    <a href="/builder" class="active">Builder</a>
+  </nav>
+  <a class="gh-link" href="https://github.com/1-Future/ScapeAPI-AI" target="_blank" title="GitHub">
+    <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
+  </a>
+</div>
+<div id="build-bar">
+  <a href="/boss-builder">Boss</a>
+  <a href="/skill-builder" class="active">Skill</a>
+  <a href="/quest-builder">Quest</a>
+  <span class="spacer"></span>
+  <a href="/dashboard" class="dash-link">Dashboard</a>
+  <span class="dash-link" id="user-info"></span>
+</div>
+
+<div class="builder">
+  <div class="palette">
+    <input type="text" id="search" placeholder="Search items..." oninput="filterPalette()">
+    <div id="palette-blocks"></div>
+  </div>
+
+  <div class="dropzone">
+    <!-- Skill identity -->
+    <div class="skill-config">
+      <div class="field field-wide">
+        <label>Skill Name</label>
+        <input type="text" id="skill-name" placeholder="e.g. Firemaking" oninput="updateStats()">
+      </div>
+      <div class="field">
+        <label>Type</label>
+        <select id="skill-type" onchange="updateTypeHint()">
+          <option value="gathering">Gathering</option>
+          <option value="processing" selected>Processing</option>
+          <option value="activity">Activity</option>
+        </select>
+      </div>
+      <div class="field">
+        <label>Interaction</label>
+        <select id="skill-interaction">
+          <option value="item-on-item">Item on Item</option>
+          <option value="item-on-object">Item on Object</option>
+          <option value="gather-object">Gather from Object</option>
+          <option value="standalone">Standalone Action</option>
+        </select>
+      </div>
+    </div>
+
+    <div id="type-hint" style="font-size:0.75rem;color:var(--parchment-dark);margin:-12px 0 16px;padding:0 4px">
+      Processing: combine items or use items on objects (cooking, smithing, firemaking)
+    </div>
+
+    <!-- Methods list -->
+    <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:12px">
+      <h2 style="font-size:1rem;color:var(--gold-bright)">Methods</h2>
+      <button class="btn btn-gold" style="font-size:0.7rem;padding:4px 12px" onclick="addMethod()">+ Add Method</button>
+    </div>
+
+    <div id="methods"></div>
+
+    <div class="actions">
+      <button class="btn btn-gold" onclick="exportSkill()">Export JSON</button>
+      <button class="btn btn-gold" onclick="copySkill()">Copy</button>
+      <button class="btn btn-red" onclick="clearAll()">Clear All</button>
+    </div>
+    <div class="recipe-stats" id="stats"></div>
+    <div class="export-box" id="export-box">
+      <textarea id="export-json" readonly></textarea>
+    </div>
+  </div>
+</div>
+
+<script>
+// ── State ──
+let methods = []; // [{name, level, xp, interval, successRate, consumed, tool, object, output, failOutput, successMsg, failMsg, expanded}]
+let paletteItems = [];
+
+// ── Load items + objects from API for the palette ──
+async function loadPalette() {
+  // Load items
+  let items = [];
+  let objects = [];
+
+  try {
+    const r = await fetch('/api/mechanics?type=item');
+    const data = await r.json();
+    if (data.length) items = data.map(m => ({ id: m.id, name: m.name, desc: m.description || '', tag: 'item' }));
+  } catch {}
+
+  try {
+    const r = await fetch('/api/mechanics?type=object');
+    const data = await r.json();
+    if (data.length) objects = data.map(m => ({ id: m.id, name: m.name, desc: m.description || '', tag: 'object' }));
+  } catch {}
+
+  // Hardcoded essentials if API is sparse
+  const essentialItems = [
+    'Logs','Oak logs','Willow logs','Teak logs','Maple logs','Mahogany logs','Yew logs','Magic logs','Redwood logs',
+    'Tinderbox','Knife','Hammer','Chisel','Needle','Thread','Pestle and mortar',
+    'Raw shrimps','Raw trout','Raw salmon','Raw lobster','Raw swordfish','Raw shark',
+    'Copper ore','Tin ore','Iron ore','Coal','Gold ore','Mithril ore','Adamantite ore','Runite ore',
+    'Bronze bar','Iron bar','Steel bar','Gold bar','Mithril bar','Adamantite bar','Runite bar',
+    'Leather','Hard leather','Green dragonhide','Blue dragonhide','Red dragonhide','Black dragonhide',
+    'Clay','Soft clay','Bucket of water','Jug of water','Pot of flour',
+    'Flax','Bow string','Arrow shaft','Feather','Pure essence','Rune essence',
+    'Bones','Big bones','Dragon bones','Superior dragon bones',
+    'Guam leaf','Marrentill','Tarromin','Harralander','Ranarr weed','Toadflax','Irit leaf',
+    'Avantoe','Kwuarm','Snapdragon','Cadantine','Lantadyme','Dwarf weed','Torstol',
+    'Vial of water','Eye of newt','Limpwurt root','Red spiders\' eggs','White berries','Wine of zamorak',
+    'Coins','Ashes','Burnt food',
+  ];
+
+  const essentialObjects = [
+    'Fire','Furnace','Anvil','Range','Stove','Cooking range','Spinning wheel',
+    'Pottery wheel','Kiln','Loom','Crafting table','Workbench',
+    'Altar','Chaos altar','Gilded altar',
+    'Tree','Oak tree','Willow tree','Yew tree','Magic tree','Redwood tree',
+    'Rock','Copper rock','Tin rock','Iron rock','Coal rock','Gold rock','Mithril rock','Adamantite rock','Runite rock',
+    'Fishing spot','Bank booth','Lectern',
+    'Air altar','Water altar','Earth altar','Fire altar','Body altar','Cosmic altar','Nature altar','Law altar','Death altar',
+  ];
+
+  const essentialTools = [
+    'Tinderbox','Knife','Hammer','Chisel','Needle','Pestle and mortar',
+    'Bronze pickaxe','Iron pickaxe','Steel pickaxe','Mithril pickaxe','Adamant pickaxe','Rune pickaxe','Dragon pickaxe',
+    'Bronze axe','Iron axe','Steel axe','Mithril axe','Adamant axe','Rune axe','Dragon axe',
+    'Small fishing net','Fishing rod','Fly fishing rod','Harpoon','Lobster pot',
+    'Saw','Rake','Seed dibber','Spade','Watering can',
+  ];
+
+  // Merge API items with essentials (dedup by name)
+  const seen = new Set(items.map(i => i.name));
+  for (const name of essentialItems) {
+    if (!seen.has(name)) { items.push({ id: name.toLowerCase().replace(/\s+/g,'-').replace(/[^a-z0-9-]/g,''), name, desc: '', tag: 'item' }); seen.add(name); }
+  }
+
+  const seenObj = new Set(objects.map(o => o.name));
+  for (const name of essentialObjects) {
+    if (!seenObj.has(name)) { objects.push({ id: 'obj-'+name.toLowerCase().replace(/\s+/g,'-').replace(/[^a-z0-9-]/g,''), name, desc: '', tag: 'object' }); seenObj.add(name); }
+  }
+
+  const tools = [];
+  const seenTool = new Set();
+  for (const name of essentialTools) {
+    if (!seenTool.has(name)) { tools.push({ id: 'tool-'+name.toLowerCase().replace(/\s+/g,'-').replace(/[^a-z0-9-]/g,''), name, desc: '', tag: 'tool' }); seenTool.add(name); }
+  }
+
+  paletteItems = [...tools, ...items, ...objects];
+  renderPalette(paletteItems);
+}
+
+function renderPalette(items) {
+  const container = document.getElementById('palette-blocks');
+  let html = '';
+  let lastTag = '';
+
+  const tagLabels = { tool: 'Tools (not consumed)', item: 'Items (consumed)', object: 'Objects (interact with)' };
+  const order = ['tool', 'item', 'object'];
+  const sorted = [...items].sort((a,b) => order.indexOf(a.tag) - order.indexOf(b.tag) || a.name.localeCompare(b.name));
+
+  for (const item of sorted) {
+    if (item.tag !== lastTag) {
+      html += `<h2>${tagLabels[item.tag] || item.tag}</h2>`;
+      lastTag = item.tag;
+    }
+    html += `<div class="block" draggable="true"
+      ondragstart="dragPaletteItem(event, '${item.name.replace(/'/g,"\\'")}', '${item.tag}')"
+      data-name="${item.name}" data-tag="${item.tag}">
+      <div class="block-name">${item.name}</div>
+      ${item.desc ? `<div class="block-desc">${item.desc}</div>` : ''}
+      <div class="block-tag">${item.tag}</div>
+    </div>`;
+  }
+  container.innerHTML = html || '<div style="color:var(--parchment-dark);padding:20px">Loading palette...</div>';
+}
+
+function filterPalette() {
+  const q = document.getElementById('search').value.toLowerCase();
+  const filtered = q ? paletteItems.filter(i => i.name.toLowerCase().includes(q) || i.tag.includes(q)) : paletteItems;
+  renderPalette(filtered);
+}
+
+function dragPaletteItem(e, name, tag) {
+  e.dataTransfer.setData('text/plain', JSON.stringify({ name, tag }));
+}
+
+// ── Type hint ──
+function updateTypeHint() {
+  const hints = {
+    gathering: 'Gathering: collect resources from the world (mining, fishing, woodcutting)',
+    processing: 'Processing: combine items or use items on objects (cooking, smithing, firemaking)',
+    activity: 'Activity: perform actions for XP (agility courses, thieving, prayer)',
+  };
+  document.getElementById('type-hint').textContent = hints[document.getElementById('skill-type').value] || '';
+}
+
+// ── Methods ──
+function addMethod() {
+  const skillName = document.getElementById('skill-name').value || 'Skill';
+  const num = methods.length + 1;
+  methods.push({
+    name: `${skillName} Method ${num}`,
+    level: num === 1 ? 1 : Math.min(99, (num - 1) * 10 + 1),
+    xp: num * 20,
+    interval: 4,
+    successRate: 1.0,
+    consumed: [],     // items used up
+    tool: null,       // item required but not consumed
+    object: null,     // world object to interact with
+    output: [],       // items produced on success
+    failOutput: [],   // items produced on fail (e.g. burnt food)
+    successMsg: '',
+    failMsg: '',
+    expanded: true,
+  });
+  renderMethods();
+  updateStats();
+}
+
+function removeMethod(idx) {
+  methods.splice(idx, 1);
+  renderMethods();
+  updateStats();
+}
+
+function moveMethod(idx, dir) {
+  const newIdx = idx + dir;
+  if (newIdx < 0 || newIdx >= methods.length) return;
+  [methods[idx], methods[newIdx]] = [methods[newIdx], methods[idx]];
+  renderMethods();
+}
+
+function toggleMethod(idx) {
+  methods[idx].expanded = !methods[idx].expanded;
+  renderMethods();
+}
+
+function updateMethod(idx, field, value) {
+  if (field === 'level' || field === 'interval') value = Math.max(1, parseInt(value) || 1);
+  if (field === 'xp') value = Math.max(0, parseFloat(value) || 0);
+  if (field === 'successRate') value = Math.max(0, Math.min(1, parseFloat(value) || 0));
+  methods[idx][field] = value;
+  updateStats();
+}
+
+function addItemToMethod(idx, slot, itemName) {
+  const m = methods[idx];
+  if (slot === 'consumed') {
+    if (!m.consumed.includes(itemName)) m.consumed.push(itemName);
+  } else if (slot === 'tool') {
+    m.tool = itemName;
+  } else if (slot === 'object') {
+    m.object = itemName;
+  } else if (slot === 'output') {
+    if (!m.output.includes(itemName)) m.output.push(itemName);
+  } else if (slot === 'failOutput') {
+    if (!m.failOutput.includes(itemName)) m.failOutput.push(itemName);
+  }
+  renderMethods();
+}
+
+function removeItemFromMethod(idx, slot, itemName) {
+  const m = methods[idx];
+  if (slot === 'consumed') m.consumed = m.consumed.filter(i => i !== itemName);
+  else if (slot === 'tool') m.tool = null;
+  else if (slot === 'object') m.object = null;
+  else if (slot === 'output') m.output = m.output.filter(i => i !== itemName);
+  else if (slot === 'failOutput') m.failOutput = m.failOutput.filter(i => i !== itemName);
+  renderMethods();
+}
+
+function handleMethodDrop(e, idx, slot) {
+  e.preventDefault();
+  e.currentTarget.classList.remove('dragover');
+  try {
+    const data = JSON.parse(e.dataTransfer.getData('text/plain'));
+    addItemToMethod(idx, slot, data.name);
+  } catch {}
+}
+
+function renderMethods() {
+  const container = document.getElementById('methods');
+  if (methods.length === 0) {
+    container.innerHTML = '<div style="color:var(--parchment-dark);text-align:center;padding:40px;border:2px dashed var(--gold-dim);border-radius:6px">Click "+ Add Method" to start designing your skill</div>';
+    return;
+  }
+
+  const interaction = document.getElementById('skill-interaction').value;
+
+  container.innerHTML = methods.map((m, i) => {
+    const xpHr = m.interval > 0 ? Math.floor((m.xp * m.successRate * 6000) / m.interval) : 0;
+
+    // Build interaction preview
+    let preview = '';
+    if (interaction === 'item-on-item') {
+      preview = renderPreview(m.tool, m.consumed, null, m.output, m.xp);
+    } else if (interaction === 'item-on-object') {
+      preview = renderPreview(m.tool, m.consumed, m.object, m.output, m.xp);
+    } else if (interaction === 'gather-object') {
+      preview = renderPreview(m.tool, [], m.object, m.output, m.xp);
+    } else {
+      preview = renderPreview(null, m.consumed, null, m.output, m.xp);
+    }
+
+    const itemDrops = (slot, items, placeholder) => {
+      const pills = (Array.isArray(items) ? items : (items ? [items] : [])).map(name =>
+        `<span class="dropped-item">${name} <span class="x" onclick="removeItemFromMethod(${i},'${slot}','${name.replace(/'/g,"\\'")}')">&times;</span></span>`
+      ).join('');
+      return `<div class="item-drop"
+        ondragover="event.preventDefault();this.classList.add('dragover')"
+        ondragleave="this.classList.remove('dragover')"
+        ondrop="handleMethodDrop(event,${i},'${slot}')">
+        ${pills || `<span style="opacity:0.4">${placeholder}</span>`}
+      </div>`;
+    };
+
+    // Which slots to show based on interaction type
+    let slotsHtml = '';
+    if (interaction === 'item-on-item') {
+      slotsHtml = `
+        <div class="row">
+          <div class="field" style="flex:1"><label>Tool (kept)</label>${itemDrops('tool', m.tool, 'Drag tool here (e.g. Tinderbox)')}</div>
+          <div class="field" style="flex:1"><label>Items Consumed</label>${itemDrops('consumed', m.consumed, 'Drag items here (e.g. Logs)')}</div>
+        </div>`;
+    } else if (interaction === 'item-on-object') {
+      slotsHtml = `
+        <div class="row">
+          <div class="field" style="flex:1"><label>Items Consumed</label>${itemDrops('consumed', m.consumed, 'Drag items here')}</div>
+          <div class="field" style="flex:1"><label>Object</label>${itemDrops('object', m.object, 'Drag object here (e.g. Furnace)')}</div>
+        </div>`;
+    } else if (interaction === 'gather-object') {
+      slotsHtml = `
+        <div class="row">
+          <div class="field" style="flex:1"><label>Tool (kept)</label>${itemDrops('tool', m.tool, 'Drag tool here (e.g. Pickaxe)')}</div>
+          <div class="field" style="flex:1"><label>Object</label>${itemDrops('object', m.object, 'Drag object here (e.g. Rock)')}</div>
+        </div>`;
+    } else {
+      slotsHtml = `
+        <div class="row">
+          <div class="field" style="flex:1"><label>Items Consumed</label>${itemDrops('consumed', m.consumed, 'Drag items here (optional)')}</div>
+        </div>`;
+    }
+
+    return `<div class="method">
+      <div class="method-header" onclick="toggleMethod(${i})">
+        <span class="method-num">${i + 1}.</span>
+        <span class="method-name">${m.name}</span>
+        <span class="method-lvl">Lv${m.level}</span>
+        <span class="method-xp">${m.xp}xp (${xpHr.toLocaleString()}/hr)</span>
+        <div class="method-controls">
+          <button onclick="event.stopPropagation();moveMethod(${i},-1)">Up</button>
+          <button onclick="event.stopPropagation();moveMethod(${i},1)">Down</button>
+          <button class="remove-method" onclick="event.stopPropagation();removeMethod(${i})">&times;</button>
+        </div>
+      </div>
+      <div class="method-body ${m.expanded ? 'open' : ''}">
+        <div class="row">
+          <div class="field"><label>Method Name</label><input value="${m.name}" onchange="updateMethod(${i},'name',this.value);renderMethods()"></div>
+          <div class="field"><label>Level Req</label><input type="number" min="1" max="99" value="${m.level}" style="width:70px" onchange="updateMethod(${i},'level',this.value);renderMethods()"></div>
+          <div class="field"><label>XP</label><input type="number" min="0" step="0.1" value="${m.xp}" style="width:80px" onchange="updateMethod(${i},'xp',this.value);renderMethods()"></div>
+          <div class="field"><label>Interval (ticks)</label><input type="number" min="1" value="${m.interval}" style="width:70px" onchange="updateMethod(${i},'interval',this.value)"></div>
+          <div class="field"><label>Success Rate</label><input type="number" min="0" max="1" step="0.05" value="${m.successRate}" style="width:70px" onchange="updateMethod(${i},'successRate',this.value)"></div>
+        </div>
+
+        ${slotsHtml}
+
+        <div class="row">
+          <div class="field" style="flex:1"><label>Output (on success)</label>${itemDrops('output', m.output, 'Drag output items here')}</div>
+          ${m.successRate < 1 ? `<div class="field" style="flex:1"><label>Output (on fail)</label>${itemDrops('failOutput', m.failOutput, 'e.g. Burnt food, Ashes')}</div>` : ''}
+        </div>
+
+        <div class="interaction-preview">${preview}</div>
+
+        <div class="row">
+          <div class="field" style="flex:1"><label>Success Message</label><input value="${m.successMsg}" placeholder="e.g. The fire catches and the logs begin to burn." onchange="updateMethod(${i},'successMsg',this.value)"></div>
+        </div>
+        ${m.successRate < 1 ? `<div class="row">
+          <div class="field" style="flex:1"><label>Fail Message</label><input value="${m.failMsg}" placeholder="e.g. The damp logs refuse to catch." onchange="updateMethod(${i},'failMsg',this.value)"></div>
+        </div>` : ''}
+      </div>
+    </div>`;
+  }).join('');
+}
+
+function renderPreview(tool, consumed, object, output, xp) {
+  let parts = [];
+  if (tool) parts.push(`<span class="item-pill">${tool}</span>`);
+  if (consumed && consumed.length) {
+    if (parts.length) parts.push('<span class="on-text">+</span>');
+    for (const c of consumed) parts.push(`<span class="item-pill">${c}</span>`);
+  }
+  if (object) {
+    parts.push(`<span class="on-text">on</span>`);
+    parts.push(`<span class="item-pill">${object}</span>`);
+  }
+  if ((tool || (consumed && consumed.length) || object) && (output && output.length)) {
+    parts.push(`<span class="arrow">&rarr;</span>`);
+  }
+  if (output && output.length) {
+    for (const o of output) parts.push(`<span class="result-pill">${o}</span>`);
+  }
+  if (xp > 0) {
+    parts.push(`<span class="xp-pill">+${xp} xp</span>`);
+  }
+
+  return parts.length ? parts.join(' ') : '<span style="color:var(--parchment-dark);font-size:0.75rem">Drag items into the slots above to see the interaction</span>';
+}
+
+// ── Stats ──
+function updateStats() {
+  const name = document.getElementById('skill-name').value || 'Unnamed Skill';
+  const type = document.getElementById('skill-type').value;
+  const totalMethods = methods.length;
+  const lvlRange = methods.length ? `${Math.min(...methods.map(m=>m.level))}-${Math.max(...methods.map(m=>m.level))}` : '0';
+  document.getElementById('stats').innerHTML =
+    `Skill: <span>${name}</span> | Type: <span>${type}</span> | <span>${totalMethods}</span> methods | Level range: <span>${lvlRange}</span>`;
+}
+
+// ── Export ──
+function exportSkill() {
+  const skillName = document.getElementById('skill-name').value || 'Custom Skill';
+  const skillId = skillName.toLowerCase().replace(/\s+/g, '-').replace(/[^a-z0-9-]/g, '');
+  const skillType = document.getElementById('skill-type').value;
+  const interaction = document.getElementById('skill-interaction').value;
+
+  const skill = {
+    id: skillId,
+    name: skillName,
+    type: skillType,
+    interaction,
+    methods: methods.map(m => {
+      const def = {
+        id: `${skillId}-${m.name.toLowerCase().replace(/\s+/g,'-').replace(/[^a-z0-9-]/g,'')}`,
+        name: m.name,
+        type: 'skill',
+        requires: {
+          levels: { [skillId]: m.level },
+        },
+        atoms: {
+          periodicAction: {
+            interval: m.interval,
+            successRate: m.successRate,
+          },
+          xpDrop: {
+            skills: { [skillId]: m.xp },
+          },
+        },
+      };
+
+      if (m.tool) def.requires.items = [m.tool];
+      if (m.consumed.length) def.atoms.periodicAction.consumes = m.consumed;
+      if (m.object) def.requires.object = m.object;
+      if (m.output.length) def.atoms.lootDrop = { table: m.output.map(name => ({ name, weight: 1, min: 1, max: 1 })) };
+      if (m.failOutput.length) def.atoms.periodicAction.failLoot = m.failOutput;
+      if (m.successMsg) def.atoms.periodicAction.successMessage = m.successMsg;
+      if (m.failMsg) def.atoms.periodicAction.failMessage = m.failMsg;
+
+      return def;
+    }),
+    created: new Date().toISOString(),
+  };
+
+  document.getElementById('export-box').style.display = 'block';
+  document.getElementById('export-json').value = JSON.stringify(skill, null, 2);
+}
+
+function copySkill() {
+  exportSkill();
+  navigator.clipboard.writeText(document.getElementById('export-json').value);
+  document.getElementById('stats').innerHTML += ' | <span style="color:var(--green)">Copied!</span>';
+}
+
+function clearAll() {
+  methods = [];
+  renderMethods();
+  updateStats();
+  document.getElementById('export-box').style.display = 'none';
+}
+
+// ── Init ──
+updateStats();
+loadPalette();
+
+// Auth info
+fetch('/api/auth/me').then(r=>r.json()).then(d=>{
+  const el=document.getElementById('user-info');
+  if(d.authenticated) el.innerHTML=`${d.name} <a href="/logout" style="color:var(--red);text-decoration:none;margin-left:4px">Logout</a>`;
+});
+</script>
+
+</body>
+</html>

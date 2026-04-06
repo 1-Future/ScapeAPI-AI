@@ -66,16 +66,18 @@ function playerCombatTick(p, currentTick, sendFn) {
   const isRanged = combat.hasRangedSetup(p);
   const requiredRange = isRanged ? (combat.getRangedRange ? combat.getRangedRange(p) : 7) : 1;
 
-  // Check range + LoS
-  const dist = Math.max(Math.abs(p.x - npc.x), Math.abs(p.y - npc.y));
+  // Check range + LoS using closest tile on NPC hitbox (supports multi-tile NPCs)
+  const losModule = require('./world/los');
+  const npcSize = npc.size || 1;
+  const closest = losModule.closestTileOnHitbox(p.x, p.y, npc.x, npc.y, npcSize);
+  const dist = Math.max(Math.abs(p.x - closest.x), Math.abs(p.y - closest.y));
   let hasLoS = true;
   try {
-    const los = require('./world/los');
-    hasLoS = los.playerHasLoS(p.x, p.y, npc.x, npc.y, npc.size || 1, p.layer, requiredRange);
+    hasLoS = losModule.playerHasLoS(p.x, p.y, npc.x, npc.y, npcSize, p.layer, requiredRange);
   } catch {}
 
   if (dist > requiredRange || !hasLoS) {
-    // Walk to target
+    // Walk to closest tile on NPC hitbox, not just NPC anchor
     let blocked = null;
     if (p.instance) {
       try {
@@ -89,7 +91,7 @@ function playerCombatTick(p, currentTick, sendFn) {
         }
       } catch {}
     }
-    const path = pathfinding.findPath(p.x, p.y, npc.x, npc.y, p.layer, blocked);
+    const path = pathfinding.findPath(p.x, p.y, closest.x, closest.y, p.layer, blocked);
     if (path) {
       if (isRanged && path.length > requiredRange) p.path = path.slice(0, -(requiredRange));
       else if (path.length > 1) p.path = path.slice(0, -1);
@@ -97,8 +99,9 @@ function playerCombatTick(p, currentTick, sendFn) {
     return;
   }
 
-  // NPC retaliates if adjacent (melee NPCs)
-  const npcDist = Math.max(Math.abs(p.x - npc.x), Math.abs(p.y - npc.y));
+  // NPC retaliates if in range (accounts for multi-tile NPC)
+  const npcClosest = losModule.closestTileOnHitbox(p.x, p.y, npc.x, npc.y, npcSize);
+  const npcDist = Math.max(Math.abs(p.x - npcClosest.x), Math.abs(p.y - npcClosest.y));
   if (!npc.dead && npc.combat > 0 && npcDist <= (npc.attackRange || 1)) {
     if (npc.nextAttackTick === Infinity) npc.nextAttackTick = currentTick + (npc.attackSpeed || 4);
     if (currentTick >= npc.nextAttackTick) {
@@ -181,10 +184,39 @@ function playerWorldTick(p, currentTick, sendFn) {
     p.hp = Math.min(p.maxHp, p.hp + 1);
   }
 
-  // Prayer drain
-  if (p.activePrayers?.size > 0 && currentTick % 3 === 0) {
-    p.prayerPoints = Math.max(0, p.prayerPoints - p.activePrayers.size);
+  // Prayer drain — OSRS-accurate formula (matches InfernoTrainer osrs-sdk)
+  // Each prayer has a drain rate. Each tick: drainCounter += sum(drainRates).
+  // When drainCounter > prayerDrainResistance (2 * prayerBonus + 60), drain 1 PP.
+  // Reference: https://oldschool.runescape.wiki/w/Prayer#Prayer_drain_mechanics
+  if (p.activePrayers?.size > 0) {
+    const DRAIN_RATES = {
+      'protect_from_magic': 12, 'protect_from_missiles': 12, 'protect_from_melee': 12,
+      'rigour': 24, 'augury': 24, 'piety': 24,
+      'eagle_eye': 12, 'mystic_might': 12, 'steel_skin': 8,
+      'protect_item': 6, 'preserve': 3,
+    };
+    // Calculate prayer bonus from equipment
+    let prayerBonus = 0;
+    if (p.equipment) {
+      for (const slot of Object.values(p.equipment)) {
+        if (slot?.stats?.prayer) prayerBonus += slot.stats.prayer;
+      }
+    }
+    const resistance = 2 * prayerBonus + 60;
+    // Sum drain rates of all active prayers
+    let drainThisTick = 0;
+    for (const prayer of p.activePrayers) {
+      drainThisTick += DRAIN_RATES[prayer] || 6; // Default 6 for unknown prayers
+    }
+    if (!p._prayerDrainCounter) p._prayerDrainCounter = 0;
+    p._prayerDrainCounter += drainThisTick;
+    while (p._prayerDrainCounter >= resistance) {
+      p.prayerPoints--;
+      p._prayerDrainCounter -= resistance;
+    }
     if (p.prayerPoints <= 0) {
+      p.prayerPoints = 0;
+      p._prayerDrainCounter = 0;
       p.activePrayers.clear();
       if (sendFn) sendFn('You have run out of prayer points.');
     }
