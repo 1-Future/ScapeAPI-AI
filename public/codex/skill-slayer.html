@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html><head><meta charset="utf-8"><title>slayer — Aelgard Codex</title>
+<style>
+  body {
+    font-family: ui-monospace, 'Cascadia Code', 'Consolas', monospace;
+    background: #3e3529;
+    color: #e8dcc0;
+    margin: 0;
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  .parchment {
+    background: #e8dcc0;
+    color: #2c1810;
+    padding: 30px 40px;
+    border: 3px solid #8b6f47;
+    border-radius: 4px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.5);
+    margin: 20px 0;
+  }
+  h1 {
+    color: #7a1f1a;
+    border-bottom: 2px solid #8b6f47;
+    padding-bottom: 10px;
+  }
+  h2 { color: #5a3a1a; margin-top: 30px; }
+  h3 { color: #6b4423; }
+  a { color: #7a1f1a; text-decoration: none; border-bottom: 1px dotted #7a1f1a; }
+  a:hover { background: #d4c49c; }
+  nav { margin-bottom: 20px; }
+  nav a { margin-right: 15px; font-weight: bold; }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 15px 0;
+  }
+  th, td {
+    text-align: left;
+    padding: 6px 10px;
+    border-bottom: 1px solid #c4a970;
+  }
+  th { background: #d4c49c; color: #2c1810; }
+  tr:hover { background: #d4c49c; }
+  .tag {
+    display: inline-block;
+    padding: 2px 8px;
+    margin: 2px;
+    border-radius: 3px;
+    font-size: 11px;
+    font-weight: bold;
+  }
+  .tag-region { background: #4a6b8a; color: #fff; }
+  .tag-skill  { background: #5a7f4a; color: #fff; }
+  .tag-trans  { background: #8a1f1a; color: #fff; }
+  .tag-major  { background: #a86a2a; color: #fff; }
+  .tag-minor  { background: #6a6a6a; color: #fff; }
+  .tag-afk    { background: #3a5a2a; color: #fff; }
+  .tag-low    { background: #4a7a3a; color: #fff; }
+  .tag-medium { background: #8a7a2a; color: #fff; }
+  .tag-high   { background: #a85a2a; color: #fff; }
+  .tag-maximum{ background: #8a1f1a; color: #fff; }
+  .tag-obscure{ background: #6a4a2a; color: #fff; font-style: italic; }
+  .stat-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    margin: 15px 0;
+  }
+  .stat-cell {
+    background: #d4c49c;
+    padding: 10px;
+    border-radius: 3px;
+    text-align: center;
+  }
+  .stat-cell .value {
+    font-size: 24px;
+    font-weight: bold;
+    color: #7a1f1a;
+  }
+  .stat-cell .label {
+    font-size: 11px;
+    color: #5a3a1a;
+    text-transform: uppercase;
+  }
+  .description {
+    font-style: italic;
+    color: #5a3a1a;
+    margin: 10px 0;
+    padding: 10px;
+    background: #d4c49c;
+    border-left: 3px solid #8b6f47;
+  }
+  ul.loose li { margin-bottom: 8px; }
+  details {
+    margin: 10px 0;
+    padding: 10px;
+    background: #d4c49c;
+    border-radius: 3px;
+  }
+  summary { cursor: pointer; font-weight: bold; }
+</style>
+</head>
+<body>
+<nav>
+  <a href="index.html">Home</a>
+  <a href="regions.html">Regions</a>
+  <a href="skills.html">Skills</a>
+  <a href="quests.html">Quests</a>
+  <a href="breakpoints.html">Breakpoints</a>
+  <a href="items.html">Items</a>
+</nav>
+<div class="parchment">
+<h1>Slayer</h1>
+<div class="description">8 training methods. 7 breakpoints.</div>
+
+<h2>Breakpoints</h2>
+<ul class="loose"><li><span class="tag tag-minor">level 1</span> <strong>Slayer begins. The skill that makes combat structured. Kill assignments, earn points, unlock new monsters.</strong><br><small>unlocks: Basic slayer assignments</small></li><li><span class="tag tag-major">level 40</span> <strong>Moryskah Slayer Tower access. Aberrants, gargoyles, nechryaels — the mid-game slayer grind core.</strong><br><small>unlocks: Slayer tower methods</small></li><li><span class="tag tag-transformative">level 55</span> <strong>Slayer helm craftable. 16.67% accuracy and damage boost on task. Slayer becomes THE combat training method.</strong><br><small>unlocks: Slayer helm — 16.67% boost on task</small></li><li><span class="tag tag-minor">level 72</span> <strong>Skeletal wyverns. First serious slayer money-maker. Drops are worth millions per task.</strong><br><small>unlocks: Skeletal wyvern tasks</small></li><li><span class="tag tag-major">level 85</span> <strong>Abyssal demons. Drops the Abyssal Whip — the iconic weapon. This is the goal people grind slayer for.</strong><br><small>unlocks: Abyssal demon tasks — whip drops</small></li><li><span class="tag tag-major">level 91</span> <strong>Cerberus. Drops primordial, pegasian, eternal crystals. BiS boots for all 3 combat styles.</strong><br><small>unlocks: Cerberus slayer boss — BiS boot upgrades</small></li><li><span class="tag tag-transformative">level 95</span> <strong>Hydra. Alchemical Hydra drops Hydra claw (Dragon Hunter Lance component). Best slayer gp/hr.</strong><br><small>unlocks: Alchemical Hydra — best slayer gp/hr</small></li></ul><h2>Training Methods</h2><table>
+<tr><th>Method</th><th>Levels</th><th>XP/hr</th><th>Location</th><th>Attention</th><th>Danger</th><th>Cost</th></tr><tr>
+  <td><strong>Turael Tasks (Easy)</strong><br><small>Baby tasks from the easiest master. Low XP but introduces the system.</small></td>
+  <td>1-30</td>
+  <td>5,000</td>
+  <td><span class="tag tag-region">Heartlands</span></td>
+  <td><span class="tag tag-low">low</span></td>
+  <td>none</td>
+  <td>0</td>
+</tr><tr>
+  <td><strong>Wilderness Slayer</strong><br><small>Slayer tasks in the Wilds with bonus drop table. PKers are the real boss.</small></td>
+  <td>1-99</td>
+  <td>30,000</td>
+  <td><span class="tag tag-region">The Wilds</span></td>
+  <td><span class="tag tag-high">high</span></td>
+  <td>extreme</td>
+  <td><strong>+100000</strong></td>
+</tr><tr>
+  <td><strong>Heartlands Novice Slayer</strong><br><small>Novice slayer tasks from the Heartlands lodge. Chickens, rats, cows, goblins. Safe learning.</small></td>
+  <td>1-40</td>
+  <td>16,000</td>
+  <td><span class="tag tag-region">Heartlands</span></td>
+  <td><span class="tag tag-low">low</span></td>
+  <td>low</td>
+  <td>0</td>
+</tr><tr>
+  <td><strong>Konar Tasks (Varied)</strong><br><small>Location-locked tasks. Forces you to explore. Brimstone keys add profit.</small></td>
+  <td>20-80</td>
+  <td>20,000</td>
+  <td><span class="tag tag-region">Heartlands</span></td>
+  <td><span class="tag tag-medium">medium</span></td>
+  <td>medium</td>
+  <td><strong>+30000</strong></td>
+</tr><tr>
+  <td><strong>Moryskah Slayer Tower</strong><br><small>Slayer tower tasks — aberrants, gargoyles, nechryaels, abyssal demons. Best slayer XP/gp in Aelgard.</small></td>
+  <td>40-99</td>
+  <td>55,000</td>
+  <td><span class="tag tag-region">Moryskah</span></td>
+  <td><span class="tag tag-high">high</span></td>
+  <td>high</td>
+  <td>8000</td>
+</tr><tr>
+  <td><strong>Mummy Slayer Tasks</strong><br><small>Mummy tasks — wrappings feed the cross-region prayer wrap recipe.</small></td>
+  <td>40-90</td>
+  <td>48,000</td>
+  <td><span class="tag tag-region">Boneyard Wastes</span></td>
+  <td><span class="tag tag-high">high</span></td>
+  <td>high</td>
+  <td>10000</td>
+</tr><tr>
+  <td><strong>Nieve/Duradel Tasks (Efficient)</strong><br><small>Best XP masters. Skip bad tasks, extend good ones. The efficient grinder path.</small></td>
+  <td>50-99</td>
+  <td>35,000</td>
+  <td><span class="tag tag-region">Veilwood</span></td>
+  <td><span class="tag tag-medium">medium</span></td>
+  <td>medium</td>
+  <td><strong>+50000</strong></td>
+</tr><tr>
+  <td><strong>Boss Slayer Tasks</strong><br><small>Kill bosses as slayer assignments. Lower slayer XP/hr but massive drops.</small></td>
+  <td>75-99</td>
+  <td>25,000</td>
+  <td><span class="tag tag-region">Heartlands</span></td>
+  <td><span class="tag tag-high">high</span></td>
+  <td>high</td>
+  <td><strong>+200000</strong></td>
+</tr></table>
+</div>
+</body></html>

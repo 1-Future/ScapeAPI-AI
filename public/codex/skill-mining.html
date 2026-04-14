@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html><head><meta charset="utf-8"><title>mining — Aelgard Codex</title>
+<style>
+  body {
+    font-family: ui-monospace, 'Cascadia Code', 'Consolas', monospace;
+    background: #3e3529;
+    color: #e8dcc0;
+    margin: 0;
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  .parchment {
+    background: #e8dcc0;
+    color: #2c1810;
+    padding: 30px 40px;
+    border: 3px solid #8b6f47;
+    border-radius: 4px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.5);
+    margin: 20px 0;
+  }
+  h1 {
+    color: #7a1f1a;
+    border-bottom: 2px solid #8b6f47;
+    padding-bottom: 10px;
+  }
+  h2 { color: #5a3a1a; margin-top: 30px; }
+  h3 { color: #6b4423; }
+  a { color: #7a1f1a; text-decoration: none; border-bottom: 1px dotted #7a1f1a; }
+  a:hover { background: #d4c49c; }
+  nav { margin-bottom: 20px; }
+  nav a { margin-right: 15px; font-weight: bold; }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 15px 0;
+  }
+  th, td {
+    text-align: left;
+    padding: 6px 10px;
+    border-bottom: 1px solid #c4a970;
+  }
+  th { background: #d4c49c; color: #2c1810; }
+  tr:hover { background: #d4c49c; }
+  .tag {
+    display: inline-block;
+    padding: 2px 8px;
+    margin: 2px;
+    border-radius: 3px;
+    font-size: 11px;
+    font-weight: bold;
+  }
+  .tag-region { background: #4a6b8a; color: #fff; }
+  .tag-skill  { background: #5a7f4a; color: #fff; }
+  .tag-trans  { background: #8a1f1a; color: #fff; }
+  .tag-major  { background: #a86a2a; color: #fff; }
+  .tag-minor  { background: #6a6a6a; color: #fff; }
+  .tag-afk    { background: #3a5a2a; color: #fff; }
+  .tag-low    { background: #4a7a3a; color: #fff; }
+  .tag-medium { background: #8a7a2a; color: #fff; }
+  .tag-high   { background: #a85a2a; color: #fff; }
+  .tag-maximum{ background: #8a1f1a; color: #fff; }
+  .tag-obscure{ background: #6a4a2a; color: #fff; font-style: italic; }
+  .stat-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    margin: 15px 0;
+  }
+  .stat-cell {
+    background: #d4c49c;
+    padding: 10px;
+    border-radius: 3px;
+    text-align: center;
+  }
+  .stat-cell .value {
+    font-size: 24px;
+    font-weight: bold;
+    color: #7a1f1a;
+  }
+  .stat-cell .label {
+    font-size: 11px;
+    color: #5a3a1a;
+    text-transform: uppercase;
+  }
+  .description {
+    font-style: italic;
+    color: #5a3a1a;
+    margin: 10px 0;
+    padding: 10px;
+    background: #d4c49c;
+    border-left: 3px solid #8b6f47;
+  }
+  ul.loose li { margin-bottom: 8px; }
+  details {
+    margin: 10px 0;
+    padding: 10px;
+    background: #d4c49c;
+    border-radius: 3px;
+  }
+  summary { cursor: pointer; font-weight: bold; }
+</style>
+</head>
+<body>
+<nav>
+  <a href="index.html">Home</a>
+  <a href="regions.html">Regions</a>
+  <a href="skills.html">Skills</a>
+  <a href="quests.html">Quests</a>
+  <a href="breakpoints.html">Breakpoints</a>
+  <a href="items.html">Items</a>
+</nav>
+<div class="parchment">
+<h1>Mining</h1>
+<div class="description">12 training methods. 6 breakpoints.</div>
+
+<h2>Breakpoints</h2>
+<ul class="loose"><li><span class="tag tag-minor">level 15</span> <strong>Iron ore. First ore worth smelting solo. Power-mining iron becomes the go-to training method for years.</strong><br><small>unlocks: Iron ore mining — core training method</small></li><li><span class="tag tag-major">level 30</span> <strong>Coal. The key ingredient for steel, mithril, adamant, and rune bars. Opens the Smithing web.</strong><br><small>unlocks: Coal mining — critical for all mid/high bars</small></li><li><span class="tag tag-minor">level 55</span> <strong>Mithril ore. First &quot;valuable&quot; ore. Mining starts generating real money.</strong><br><small>unlocks: Mithril ore mining</small></li><li><span class="tag tag-minor">level 70</span> <strong>Adamantite ore. Serious mining money. You feel rich for the first time.</strong><br><small>unlocks: Adamantite ore mining</small></li><li><span class="tag tag-major">level 85</span> <strong>Runite ore. The rarest ore. Two rocks in the Wilds, contested 24/7. Mining becomes PvP.</strong><br><small>unlocks: Runite ore mining — rare, valuable, dangerous</small></li><li><span class="tag tag-major">level 92</span> <strong>Crystal endgame mining. Post-mastery mining. Crystal dust feeds all endgame crystal gear.</strong><br><small>unlocks: Crystal mining</small></li></ul><h2>Training Methods</h2><table>
+<tr><th>Method</th><th>Levels</th><th>XP/hr</th><th>Location</th><th>Attention</th><th>Danger</th><th>Cost</th></tr><tr>
+  <td><strong>Copper/Tin Mining</strong><br><small>Starter ores next to a bank. Sell or smelt into bronze. The first pick swing.</small></td>
+  <td>1-15</td>
+  <td>8,000</td>
+  <td><span class="tag tag-region">Heartlands</span></td>
+  <td><span class="tag tag-afk">afk</span></td>
+  <td>none</td>
+  <td><strong>+2000</strong></td>
+</tr><tr>
+  <td><strong>Iron Powermining</strong><br><small>Drop ore as you mine. Fast XP, zero resources. The pure XP method.</small></td>
+  <td>15-99</td>
+  <td>55,000</td>
+  <td><span class="tag tag-region">Heartlands</span></td>
+  <td><span class="tag tag-high">high</span></td>
+  <td>none</td>
+  <td>0</td>
+</tr><tr>
+  <td><strong>Moryskah Silver Mining</strong><br><small>Silver vein + tombstone rubble in the cursed quarry. Moryskah construction material source.</small></td>
+  <td>20-99</td>
+  <td>42,000</td>
+  <td><span class="tag tag-region">Moryskah</span></td>
+  <td><span class="tag tag-low">low</span></td>
+  <td>low</td>
+  <td>0</td>
+</tr><tr>
+  <td><strong>Fossil Island Quarry</strong><br><small>Fossil deposits with iron interspersed. Unique — fossils grant prayer XP per bone.</small></td>
+  <td>20-80</td>
+  <td>48,000</td>
+  <td><span class="tag tag-region">Boneyard Wastes</span></td>
+  <td><span class="tag tag-low">low</span></td>
+  <td>low</td>
+  <td>0</td>
+</tr><tr>
+  <td><strong>Motherlode Mine</strong><br><small>AFK mine paydirt, wash it. Random ore output. Nuggets buy prospector outfit.</small></td>
+  <td>30-99</td>
+  <td>32,000</td>
+  <td><span class="tag tag-region">Sootworks</span></td>
+  <td><span class="tag tag-afk">afk</span></td>
+  <td>none</td>
+  <td><strong>+25000</strong></td>
+</tr><tr>
+  <td><strong>Granite 3-Tick Mining</strong><br><small>Tick-manipulate granite in the desert. Fastest mining XP. Demands perfect rhythm.</small></td>
+  <td>45-99</td>
+  <td>100,000</td>
+  <td><span class="tag tag-region">Glass Desert</span></td>
+  <td><span class="tag tag-maximum">maximum</span></td>
+  <td>low</td>
+  <td>0</td>
+</tr><tr>
+  <td><strong>Heartlands Deep Mines</strong><br><small>Mining Guild deep shafts. Free mithril/adamant ore. No PKers, no competition.</small></td>
+  <td>45-85</td>
+  <td>72,000</td>
+  <td><span class="tag tag-region">Heartlands</span></td>
+  <td><span class="tag tag-low">low</span></td>
+  <td>none</td>
+  <td>0</td>
+</tr><tr>
+  <td><strong>Volcanic Mine</strong><br><small>Team mining in an active volcano. Good XP, unique rewards. Requires coordination.</small></td>
+  <td>50-99</td>
+  <td>75,000</td>
+  <td><span class="tag tag-region">Boneyard Wastes</span></td>
+  <td><span class="tag tag-medium">medium</span></td>
+  <td>medium</td>
+  <td><strong>+15000</strong></td>
+</tr><tr>
+  <td><strong>Crystal Vein Mining</strong><br><small>Mine crystal veins. The only source of crystal shards for all charging.</small></td>
+  <td>70-99</td>
+  <td>75,000</td>
+  <td><span class="tag tag-region">Veilwood</span></td>
+  <td><span class="tag tag-medium">medium</span></td>
+  <td>none</td>
+  <td>3000</td>
+</tr><tr>
+  <td><strong>Wilderness Runite Mining</strong><br><small>Runite spawns in deep Wilds. Extremely profitable per ore but slow and dangerous.</small></td>
+  <td>85-99</td>
+  <td>15,000</td>
+  <td><span class="tag tag-region">The Wilds</span></td>
+  <td><span class="tag tag-high">high</span></td>
+  <td>extreme</td>
+  <td><strong>+200000</strong></td>
+</tr><tr>
+  <td><strong>Runite Shaft Mining</strong><br><small>Mine runite at 85+. Slow but extremely profitable (~300k/hr).</small></td>
+  <td>85-99</td>
+  <td>35,000</td>
+  <td><span class="tag tag-region">Sootworks</span></td>
+  <td><span class="tag tag-low">low</span></td>
+  <td>none</td>
+  <td>0</td>
+</tr><tr>
+  <td><strong>Crystal Endgame Mining</strong><br><small>Endgame crystal mining. Lv 92 mining breakpoint. Feeds all crystal gear maintenance.</small></td>
+  <td>92-99</td>
+  <td>80,000</td>
+  <td><span class="tag tag-region">Glass Desert</span></td>
+  <td><span class="tag tag-medium">medium</span></td>
+  <td>low</td>
+  <td>0</td>
+</tr></table>
+</div>
+</body></html>

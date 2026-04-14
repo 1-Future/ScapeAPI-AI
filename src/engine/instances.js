@@ -65,6 +65,7 @@ function create(opts) {
 }
 
 function get(id) { return instances.get(id); }
+function listAll() { return [...instances.values()]; }
 
 function getByPlayer(playerId) {
   for (const inst of instances.values()) {
@@ -157,7 +158,7 @@ function getStatus(instance) {
 tick.registerPhase('npcTimers', 'instances', instanceTick);
 
 module.exports = {
-  create, get, getByPlayer, destroy, fail,
+  create, get, getByPlayer, listAll, destroy, fail,
   startNextWave, checkWaveClear, getStatus,
   instances,
 };

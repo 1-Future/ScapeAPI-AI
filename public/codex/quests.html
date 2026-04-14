@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html><head><meta charset="utf-8"><title>Quests — Aelgard Codex</title>
+<style>
+  body {
+    font-family: ui-monospace, 'Cascadia Code', 'Consolas', monospace;
+    background: #3e3529;
+    color: #e8dcc0;
+    margin: 0;
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  .parchment {
+    background: #e8dcc0;
+    color: #2c1810;
+    padding: 30px 40px;
+    border: 3px solid #8b6f47;
+    border-radius: 4px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.5);
+    margin: 20px 0;
+  }
+  h1 {
+    color: #7a1f1a;
+    border-bottom: 2px solid #8b6f47;
+    padding-bottom: 10px;
+  }
+  h2 { color: #5a3a1a; margin-top: 30px; }
+  h3 { color: #6b4423; }
+  a { color: #7a1f1a; text-decoration: none; border-bottom: 1px dotted #7a1f1a; }
+  a:hover { background: #d4c49c; }
+  nav { margin-bottom: 20px; }
+  nav a { margin-right: 15px; font-weight: bold; }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 15px 0;
+  }
+  th, td {
+    text-align: left;
+    padding: 6px 10px;
+    border-bottom: 1px solid #c4a970;
+  }
+  th { background: #d4c49c; color: #2c1810; }
+  tr:hover { background: #d4c49c; }
+  .tag {
+    display: inline-block;
+    padding: 2px 8px;
+    margin: 2px;
+    border-radius: 3px;
+    font-size: 11px;
+    font-weight: bold;
+  }
+  .tag-region { background: #4a6b8a; color: #fff; }
+  .tag-skill  { background: #5a7f4a; color: #fff; }
+  .tag-trans  { background: #8a1f1a; color: #fff; }
+  .tag-major  { background: #a86a2a; color: #fff; }
+  .tag-minor  { background: #6a6a6a; color: #fff; }
+  .tag-afk    { background: #3a5a2a; color: #fff; }
+  .tag-low    { background: #4a7a3a; color: #fff; }
+  .tag-medium { background: #8a7a2a; color: #fff; }
+  .tag-high   { background: #a85a2a; color: #fff; }
+  .tag-maximum{ background: #8a1f1a; color: #fff; }
+  .tag-obscure{ background: #6a4a2a; color: #fff; font-style: italic; }
+  .stat-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    margin: 15px 0;
+  }
+  .stat-cell {
+    background: #d4c49c;
+    padding: 10px;
+    border-radius: 3px;
+    text-align: center;
+  }
+  .stat-cell .value {
+    font-size: 24px;
+    font-weight: bold;
+    color: #7a1f1a;
+  }
+  .stat-cell .label {
+    font-size: 11px;
+    color: #5a3a1a;
+    text-transform: uppercase;
+  }
+  .description {
+    font-style: italic;
+    color: #5a3a1a;
+    margin: 10px 0;
+    padding: 10px;
+    background: #d4c49c;
+    border-left: 3px solid #8b6f47;
+  }
+  ul.loose li { margin-bottom: 8px; }
+  details {
+    margin: 10px 0;
+    padding: 10px;
+    background: #d4c49c;
+    border-radius: 3px;
+  }
+  summary { cursor: pointer; font-weight: bold; }
+</style>
+</head>
+<body>
+<nav>
+  <a href="index.html">Home</a>
+  <a href="regions.html">Regions</a>
+  <a href="skills.html">Skills</a>
+  <a href="quests.html">Quests</a>
+  <a href="breakpoints.html">Breakpoints</a>
+  <a href="items.html">Items</a>
+</nav>
+<div class="parchment">
+<h1>Quests of Aelgard</h1>
+<div class="description">69 quests. Every quest unlocks something unique — an area, training method, shop, spellbook, or prestige item.</div>
+<table>
+  <tr><th>Quest</th><th>Unlocks</th></tr><tr>
+  <td><strong>The Runaway Golem</strong><br><small>the_runaway_golem</small></td>
+  <td><span class="tag tag-minor">shortcut</span> Shortcut between Heartlands and Sootworks border mine<br><span class="tag tag-minor">item_equip</span> Golem Repair Manual — used to control golems in later quests</td>
+</tr><tr>
+  <td><strong>The Tide Pool Collector</strong><br><small>the_tide_pool_collector</small></td>
+  <td><span class="tag tag-minor">training_method</span> Tide pool fishing spots — unique early-game fish for cooking XP<br><span class="tag tag-minor">item_equip</span> Tide Pool Net — catches unique fish not available elsewhere</td>
+</tr><tr>
+  <td><strong>Lamplighter&#39;s Apprentice</strong><br><small>lamplighters_apprentice</small></td>
+  <td><span class="tag tag-minor">teleport</span> Moryskah border lantern network — fast travel between border posts<br><span class="tag tag-minor">item_equip</span> Voss&#39;s Tinderbox — 10% faster firemaking, works on blessed wood</td>
+</tr><tr>
+  <td><strong>The Apprentice Trapper</strong><br><small>the_apprentice_trapper</small></td>
+  <td><span class="tag tag-region">area</span> Veilwood canopy hunting grounds — rare chinchompas and moonhawks<br><span class="tag tag-minor">item_equip</span> Canopy Hunting Permit — required to set traps in canopy zone</td>
+</tr><tr>
+  <td><strong>The Stolen Runes</strong><br><small>the_stolen_runes</small></td>
+  <td><span class="tag tag-minor">shop</span> Permanent 10% discount at Heartlands Rune Shop<br><span class="tag tag-minor">item_equip</span> Ruven&#39;s Rune Pouch — holds 3 types of runes in one inventory slot</td>
+</tr><tr>
+  <td><strong>The Fencepost Problem</strong><br><small>the_fencepost_problem</small></td>
+  <td><span class="tag tag-minor">teleport</span> Heartlands ranch as a teleport destination<br><span class="tag tag-minor">item_equip</span> Rancher&#39;s Bell — summons pet cow (cosmetic + farming timer)</td>
+</tr><tr>
+  <td><strong>The Bog Witch&#39;s Errand</strong><br><small>the_bog_witchs_errand</small></td>
+  <td><span class="tag tag-minor">training_method</span> Moryskah herb patch — unique swamp herbs not found elsewhere<br><span class="tag tag-minor">recipe</span> Swamp Salve recipe — potion that provides undead protection</td>
+</tr><tr>
+  <td><strong>Target Practice</strong><br><small>target_practice</small></td>
+  <td><span class="tag tag-minor">training_method</span> Heartlands archery range — daily ranged XP bonus (low attention)<br><span class="tag tag-minor">item_equip</span> Militia Archer&#39;s Badge — +5% ranged accuracy at the range</td>
+</tr><tr>
+  <td><strong>The Boneyard Compass</strong><br><small>the_boneyard_compass</small></td>
+  <td><span class="tag tag-region">area</span> Immunity to Boneyard sandstorm disorientation — access deep dunes<br><span class="tag tag-minor">item_equip</span> Boneyard Compass — navigate desert without water loss</td>
+</tr><tr>
+  <td><strong>The Slayer&#39;s First Mark</strong><br><small>the_slayers_first_mark</small></td>
+  <td><span class="tag tag-minor">npc</span> Novice slayer task assignments from Slayer Apprentice Kael<br><span class="tag tag-minor">training_method</span> Novice slayer tasks — kills give slayer XP, structured combat training</td>
+</tr><tr>
+  <td><strong>The Counterfeit Ring</strong><br><small>the_counterfeit_ring</small></td>
+  <td><span class="tag tag-region">area</span> Saltbrine Smuggler&#39;s Cove — black market with better sell prices<br><span class="tag tag-minor">item_equip</span> Inspector&#39;s Loupe — identify fake items, bonus thieving success</td>
+</tr><tr>
+  <td><strong>Sand and Secrets</strong><br><small>sand_and_secrets</small></td>
+  <td><span class="tag tag-region">area</span> Full access to the Boneyard Wastes region<br><span class="tag tag-minor">training_method</span> Sandstone quarrying — AFK mining method in the desert</td>
+</tr><tr>
+  <td><strong>The Green Thumb</strong><br><small>the_green_thumb</small></td>
+  <td><span class="tag tag-region">area</span> Full access to Veilwood region<br><span class="tag tag-minor">recipe</span> Elven soil restoration potion — prevents crop disease for 1 hour</td>
+</tr><tr>
+  <td><strong>Foundations of the Fallen</strong><br><small>foundations_of_the_fallen</small></td>
+  <td><span class="tag tag-region">area</span> Full access to the Sootworks region<br><span class="tag tag-minor">recipe</span> Sootworks joint technique — 15% bonus construction XP<br><span class="tag tag-region">area</span> Hidden crypt beneath the Chapel of the Last Light</td>
+</tr><tr>
+  <td><strong>The Bog Witch&#39;s Bargain</strong><br><small>the_bog_witchs_bargain</small></td>
+  <td><span class="tag tag-region">area</span> Full access to Moryskah region<br><span class="tag tag-minor">recipe</span> Wolfbane incense — repels werewolves for 10 minutes<br><span class="tag tag-minor">npc</span> Bog Witch available as herblore tutor (unique swamp potions)</td>
+</tr><tr>
+  <td><strong>Pirate King</strong><br><small>pirate_king</small></td>
+  <td><span class="tag tag-region">area</span> Full access to Saltbrine Reach region<br><span class="tag tag-minor">teleport</span> Charter ship network — travel between all coastal areas<br><span class="tag tag-minor">item_equip</span> Captain&#39;s Hook — cosmetic weapon + 5% fishing speed on boats</td>
+</tr><tr>
+  <td><strong>Slayer&#39;s Gauntlet</strong><br><small>slayers_gauntlet</small></td>
+  <td><span class="tag tag-minor">npc</span> Slayer Master Varrek — intermediate+ slayer tasks in Moryskah<br><span class="tag tag-region">area</span> Access to the Moryskah Slayer Tower<br><span class="tag tag-minor">item_equip</span> Enchanted gem — check slayer task remotely</td>
+</tr><tr>
+  <td><strong>Sootworks Rising</strong><br><small>sootworks_rising</small></td>
+  <td><span class="tag tag-region">area</span> Blast Furnace — halves coal for smelting, best smithing XP<br><span class="tag tag-minor">recipe</span> Deep-stone alloy smithing — higher-tier bars with less coal<br><span class="tag tag-minor">training_method</span> Blast Furnace smithing — high attention, high XP, high profit</td>
+</tr><tr>
+  <td><strong>Into the Wilds</strong><br><small>into_the_wilds</small></td>
+  <td><span class="tag tag-minor">training_method</span> Wilderness Agility Course — best XP/hr but in PvP zone<br><span class="tag tag-minor">item_equip</span> Ranger&#39;s Survival Kit — one-click teleport to Wilds border (one use)</td>
+</tr><tr>
+  <td><strong>The Inkweald Door</strong><br><small>the_inkweald_door</small></td>
+  <td><span class="tag tag-region">area</span> Full access to The Inkweald — surreal dream forest<br><span class="tag tag-minor">spellbook</span> Dream Magic — utility spellbook (NPC contact, dream teleport, lucid ward)</td>
+</tr><tr>
+  <td><strong>Desert Treasure</strong><br><small>desert_treasure</small></td>
+  <td><span class="tag tag-minor">spellbook</span> Ancient Magicks spellbook — ice barrage, blood barrage, smoke barrage<br><span class="tag tag-region">area</span> Full Boneyard Pyramid interior access</td>
+</tr><tr>
+  <td><strong>Lunar Diplomacy</strong><br><small>lunar_diplomacy</small></td>
+  <td><span class="tag tag-minor">spellbook</span> Lunar spellbook — cure, vengeance, heal group, NPC contact, humidify<br><span class="tag tag-region">area</span> Lunar Plane — accessible from Inkweald, unique runecrafting</td>
+</tr><tr>
+  <td><strong>Echoes of the Deep</strong><br><small>echoes_of_the_deep</small></td>
+  <td><span class="tag tag-region">area</span> Full access to The Glass Desert — endgame region<br><span class="tag tag-minor">teleport</span> Underground tunnel network connecting Sootworks → Boneyard → Moryskah → Glass Desert<br><span class="tag tag-minor">training_method</span> Crystal mining — highest-tier ore, Glass Desert only</td>
+</tr><tr>
+  <td><strong>Dragon Slayer of Aelgard</strong><br><small>dragon_slayer_aelgard</small></td>
+  <td><span class="tag tag-minor">item_equip</span> Anti-dragon shield — required to fight any dragon without taking massive damage<br><span class="tag tag-minor">recipe</span> Dragonfire shield crafting — BIS shield for dragon encounters<br><span class="tag tag-region">area</span> Deep mines access (metal dragons, runite ore)</td>
+</tr><tr>
+  <td><strong>Blood Rites</strong><br><small>blood_rites</small></td>
+  <td><span class="tag tag-region">area</span> The Barrows — repeatable boss encounter, degradable set equipment<br><span class="tag tag-minor">prayer</span> Protect from Undead prayer — critical for Moryskah content</td>
+</tr><tr>
+  <td><strong>The Last Dragon Part 3</strong><br><small>the_last_dragon_p3</small></td>
+  <td><span class="tag tag-region">area</span> Crystal Caverns — Crystal Wyrm lair, tier 5 endgame boss<br><span class="tag tag-minor">item_equip</span> Can now equip Dragon Hunter Lance — BIS against all dragons</td>
+</tr><tr>
+  <td><strong>Sins of Malachar</strong><br><small>sins_of_malachar</small></td>
+  <td><span class="tag tag-region">area</span> Castle Malachar — Theatre of Blood equivalent raid<br><span class="tag tag-trans">boss</span> Lord Malachar boss fight — drops Scythe of Malachar</td>
+</tr><tr>
+  <td><strong>Monkey Business</strong><br><small>monkey_business</small></td>
+  <td><span class="tag tag-minor">teleport</span> Monkey Talisman — teleport to monkey island<br><span class="tag tag-minor">shop</span> Dragon scimitar shop — BIS melee weapon for the mid game<br><span class="tag tag-minor">item_equip</span> Can now equip dragon scimitar (requires quest completion, not just level)</td>
+</tr><tr>
+  <td><strong>The Last Light of the Old Sun</strong><br><small>the_last_light</small></td>
+  <td><span class="tag tag-region">area</span> New Sun Zone — unlocked only if player chose to forge a new sun<br><span class="tag tag-trans">boss</span> Eclipse Guardian — post-game boss with unique drop table<br><span class="tag tag-minor">prayer</span> Solar Blessing prayer — passive HP regeneration during the day</td>
+</tr><tr>
+  <td><strong>Song of the Elves (Aelgard)</strong><br><small>song_of_the_elves_aelgard</small></td>
+  <td><span class="tag tag-region">area</span> Veilwood Inner Sanctum — crystal-enhanced everything, the best anvil in the game<br><span class="tag tag-minor">training_method</span> Crystal crafting — high-level crafting method with crystal tools<br><span class="tag tag-minor">shop</span> Crystal equipment shop — buyable but expensive crystal gear<br><span class="tag tag-minor">training_method</span> Crystal mining nodes — best mining XP but requires maximum attention</td>
+</tr><tr>
+  <td><strong>Recipe for Disaster — Finale</strong><br><small>rfd_finale</small></td>
+  <td><span class="tag tag-minor">item_equip</span> Barrows Gloves — BIS melee hand slot, the iconic mid-game achievement<br><span class="tag tag-minor">shop</span> Culinaromancer&#39;s Chest — buys food items and gloves at all tiers</td>
+</tr><tr>
+  <td><strong>The Werewolf&#39;s Dilemma</strong><br><small>the_werewolfs_dilemma</small></td>
+  <td><span class="tag tag-minor">npc</span> CURE PATH: Human NPC shopkeeper in werewolf territory (herblore supplies)<br><span class="tag tag-minor">npc</span> EMPOWER PATH: Werewolf combat ally for Moryskah bosses (summonable once/day)</td>
+</tr><tr>
+  <td><strong>The Drifting Market Charter</strong><br><small>drifting_market_charter</small></td>
+  <td><span class="tag tag-region">area</span> The Drifting Market — mobile trade hub, moves between regions weekly<br><span class="tag tag-minor">shop</span> Multi-region specialty shops on one platform</td>
+</tr><tr>
+  <td><strong>The Fight Caves</strong><br><small>fight_caves</small></td>
+  <td><span class="tag tag-minor">item_equip</span> Fire Cape — BIS melee cape until Infernal Cape. The prestige item.<br><span class="tag tag-region">area</span> The Inferno becomes accessible (requires sacrificing Fire Cape to enter)</td>
+</tr><tr>
+  <td><strong>The Infernal Challenge</strong><br><small>infernal_challenge</small></td>
+  <td><span class="tag tag-minor">item_equip</span> Infernal Cape — BIS cape in the entire game. Ultimate prestige.</td>
+</tr><tr>
+  <td><strong>The Barrows Brothers</strong><br><small>barrows_brothers</small></td>
+  <td><span class="tag tag-minor">training_method</span> Barrows runs — repeatable combat for degradable set equipment</td>
+</tr><tr>
+  <td><strong>The Perfect Herb Run</strong><br><small>herb_run_mastery</small></td>
+  <td><span class="tag tag-minor">diary_perk</span> Master Farmer title + permanent 10% herb yield bonus</td>
+</tr><tr>
+  <td><strong>Blade of the Wilds</strong><br><small>wilderness_sword</small></td>
+  <td><span class="tag tag-minor">item_equip</span> Wilderness Blade — BIS in the Wilds only, useless outside. Niche sidegrade.</td>
+</tr><tr>
+  <td><strong>The Blacksmith&#39;s Apprentice</strong><br><small>the_blacksmiths_apprentice</small></td>
+  <td><span class="tag tag-minor">training_method</span> Access to Master Smith Bron&#39;s private anvil — 1 tile from bank + 5% smithing XP<br><span class="tag tag-minor">item_equip</span> Apprentice&#39;s Hammer — lighter, never breaks, works on all tiers up to rune</td>
+</tr><tr>
+  <td><strong>The Missing Deeds</strong><br><small>the_missing_deeds</small></td>
+  <td><span class="tag tag-minor">training_method</span> Access to the Noble Mansion thieving route — 50k thieving XP/hr in safe zone<br><span class="tag tag-minor">shop</span> Black Market fence — sells thieving-exclusive items and buys stolen goods at higher rates</td>
+</tr><tr>
+  <td><strong>The Grain Rot</strong><br><small>the_grain_rot</small></td>
+  <td><span class="tag tag-minor">training_method</span> Teaches 4-field crop rotation — permanent +15% farming yield in Heartlands<br><span class="tag tag-minor">recipe</span> Heartlands super-compost recipe — prevents disease on ALL farming patches</td>
+</tr><tr>
+  <td><strong>The Drowned Miller</strong><br><small>the_drowned_miller</small></td>
+  <td><span class="tag tag-region">area</span> Old Mill — flour processing, haunted farming (ghost-touched crops grant 2x XP)<br><span class="tag tag-minor">recipe</span> Spirit Bread recipe — heals 2x HP, creates slight prayer bonus</td>
+</tr><tr>
+  <td><strong>The Guild Trials</strong><br><small>the_guild_trials</small></td>
+  <td><span class="tag tag-region">area</span> Simultaneous access to all 6 Heartlands guilds (cooking, fishing, crafting, mining, warriors, magic)<br><span class="tag tag-minor">item_equip</span> Guild Medallion — reduces all guild entry requirements by 5 levels</td>
+</tr><tr>
+  <td><strong>The Royal Falconer</strong><br><small>the_royal_falconer</small></td>
+  <td><span class="tag tag-minor">training_method</span> Falconry — unique hunter method. Fast XP + meat drops. ONLY way to catch kebbits without traps.<br><span class="tag tag-minor">item_equip</span> Royal Falcon pet — +10% hunter success rate anywhere in Aelgard</td>
+</tr><tr>
+  <td><strong>The Paper Forge</strong><br><small>the_paper_forge</small></td>
+  <td><span class="tag tag-minor">training_method</span> Papermaking station — turns reeds into paper. Feeds the entire Aelgard scroll economy.<br><span class="tag tag-minor">recipe</span> Scroll crafting base — required for ALL teleport scrolls in every region</td>
+</tr><tr>
+  <td><strong>The Culinaromancer&#39;s Curse</strong><br><small>the_culinaromancers_curse</small></td>
+  <td><span class="tag tag-trans">boss</span> The Evil Chef — Grand Feast prestige boss. 3 phases: Soup, Main, Dessert. Drops Culinaromancer Gloves.<br><span class="tag tag-minor">item_equip</span> Culinaromancer Gloves — BIS melee gloves in early-mid game. Iconic prestige reward.<br><span class="tag tag-region">area</span> The Grand Hall — permanent Heartlands teleport hub with all 6 guild masters</td>
+</tr><tr>
+  <td><strong>Ghosts Ahoy</strong><br><small>ghosts_ahoy</small></td>
+  <td><span class="tag tag-minor">training_method</span> Ectofuntus unlocked — 4x prayer XP for grinding bones<br><span class="tag tag-minor">shop</span> Ecto-token shop — exclusive prayer gear &amp; Moryskah teleport</td>
+</tr><tr>
+  <td><strong>The Haunted Mine</strong><br><small>the_haunted_mine</small></td>
+  <td><span class="tag tag-minor">item_equip</span> Salve Amulet — +16.7% damage + accuracy vs undead. Game-changing for Moryskah PvM.<br><span class="tag tag-region">area</span> Haunted Mine — unique glowing coal that ignores smelting penalties</td>
+</tr><tr>
+  <td><strong>The Shades of Mortton</strong><br><small>the_shades_of_mortton</small></td>
+  <td><span class="tag tag-minor">training_method</span> Shade pyre cremation — prayer + firemaking simultaneously<br><span class="tag tag-region">area</span> Mortton Temple — blessed pyre site, shade minigame</td>
+</tr><tr>
+  <td><strong>The Lycanthropy Cure</strong><br><small>the_lycanthropy_cure</small></td>
+  <td><span class="tag tag-minor">item_equip</span> Silver Sickle — werewolf-slaying weapon, bless water remotely<br><span class="tag tag-minor">npc</span> Father Urhney available as exorcism tutor</td>
+</tr><tr>
+  <td><strong>The Darkness of Hallowvale</strong><br><small>the_darkness_of_hallowvale</small></td>
+  <td><span class="tag tag-region">area</span> Hallowvale — the vampire quarter, late-game Moryskah content<br><span class="tag tag-minor">item_equip</span> Ivandis Flail — vampire-slaying BIS melee</td>
+</tr><tr>
+  <td><strong>The Bog Witch&#39;s Legacy</strong><br><small>the_bog_witchs_legacy</small></td>
+  <td><span class="tag tag-minor">recipe</span> Master bog-brewing — unique potions with undead-resistance bonuses<br><span class="tag tag-minor">item_equip</span> Bog Witch&#39;s pendant — +3% herblore yield</td>
+</tr><tr>
+  <td><strong>The Grave Robber</strong><br><small>the_grave_robber</small></td>
+  <td><span class="tag tag-minor">training_method</span> Crypt robbing — high-tier thieving<br><span class="tag tag-minor">shop</span> Stolen goods fence — sell grave goods for coin</td>
+</tr><tr>
+  <td><strong>The Barrows Brothers Legend</strong><br><small>barrows_brothers_legend</small></td>
+  <td><span class="tag tag-trans">boss</span> Barrows Brothers fight unlocked — 6 bosses, degradable set drops<br><span class="tag tag-region">area</span> Full Barrows tunnel + chest access<br><span class="tag tag-minor">item_equip</span> Amulet of the Damned — enhances all Barrows set effects. Prestige.</td>
+</tr><tr>
+  <td><strong>Pharaoh&#39;s Reckoning</strong><br><small>pharaohs_reckoning</small></td>
+  <td><span class="tag tag-trans">boss</span> Pharaoh Senekhet — Boneyard prestige boss<br><span class="tag tag-minor">item_equip</span> Ankh of Rebirth — one-time revive on death<br><span class="tag tag-region">area</span> Sealed Tomb of Senekhet</td>
+</tr><tr>
+  <td><strong>The Desert Wanderer</strong><br><small>the_desert_wanderer</small></td>
+  <td><span class="tag tag-minor">teleport</span> Desert waystation teleport network<br><span class="tag tag-minor">item_equip</span> Desert Amulet — +3 prayer in Boneyard, sand-walking</td>
+</tr><tr>
+  <td><strong>The Fossil Archaeologist</strong><br><small>the_fossil_archaeologist</small></td>
+  <td><span class="tag tag-minor">training_method</span> Fossil prayer training — 2.5x XP vs bones<br><span class="tag tag-minor">shop</span> Fossil trader — buys fossils, sells archaeology tools</td>
+</tr><tr>
+  <td><strong>The Ancient Tree Ritual</strong><br><small>the_ancient_tree_ritual</small></td>
+  <td><span class="tag tag-minor">training_method</span> Druid altar — 3x prayer XP<br><span class="tag tag-minor">item_equip</span> Druidic robes — +5% herblore yield</td>
+</tr><tr>
+  <td><strong>The Crystal Apprentice</strong><br><small>the_crystal_apprentice</small></td>
+  <td><span class="tag tag-minor">recipe</span> Crystal tool crafting — pickaxe, axe, harpoon<br><span class="tag tag-minor">item_equip</span> Crystal pickaxe — 10% faster mining</td>
+</tr><tr>
+  <td><strong>The Dwarven Pact</strong><br><small>the_dwarven_pact</small></td>
+  <td><span class="tag tag-minor">training_method</span> Clockwork assembly<br><span class="tag tag-minor">item_equip</span> Dwarven helmet — Sootworks-exclusive +10% mining</td>
+</tr><tr>
+  <td><strong>Beneath the Foundry</strong><br><small>beneath_the_foundry</small></td>
+  <td><span class="tag tag-region">area</span> Forgotten workshop — ancient smithing tools<br><span class="tag tag-minor">recipe</span> Dragon metal smithing — endgame tier</td>
+</tr><tr>
+  <td><strong>The Kraken&#39;s Challenge</strong><br><small>the_krakens_challenge</small></td>
+  <td><span class="tag tag-trans">boss</span> Deep Kraken Prime — Saltbrine prestige boss<br><span class="tag tag-minor">item_equip</span> Kraken Tentacle Whip — naval BIS</td>
+</tr><tr>
+  <td><strong>The Ghost Ship</strong><br><small>the_ghost_ship</small></td>
+  <td><span class="tag tag-minor">teleport</span> Ghost ship teleports to all coastal cities<br><span class="tag tag-region">area</span> Ghost Anchorage — unique fishing + ranged content</td>
+</tr><tr>
+  <td><strong>Waking the Dreaming One</strong><br><small>waking_the_dreaming_one</small></td>
+  <td><span class="tag tag-trans">boss</span> The Dreaming One — Inkweald prestige boss<br><span class="tag tag-minor">item_equip</span> Lucid Staff — randomly casts free spells<br><span class="tag tag-minor">item_equip</span> Dream Talisman — switch spellbooks anywhere</td>
+</tr><tr>
+  <td><strong>The Paradox Philosopher</strong><br><small>the_paradox_philosopher</small></td>
+  <td><span class="tag tag-minor">recipe</span> Paradox potion — doubles next skill action<br><span class="tag tag-minor">item_equip</span> Philosopher Robes — daily free magic teleport</td>
+</tr><tr>
+  <td><strong>Slaying the Crystal Wyrm</strong><br><small>slaying_the_crystal_wyrm</small></td>
+  <td><span class="tag tag-trans">boss</span> Crystal Wyrm — endgame prestige boss<br><span class="tag tag-minor">item_equip</span> Crystal Wyrm Scale Cape — BIS prayer-switching cape<br><span class="tag tag-minor">item_equip</span> Dragon Hunter Lance fully assembled</td>
+</tr><tr>
+  <td><strong>The Sun Priest</strong><br><small>the_sun_priest</small></td>
+  <td><span class="tag tag-minor">training_method</span> Sun (wrath) runecrafting<br><span class="tag tag-minor">spellbook</span> Wrath spellbook — post-endgame magic</td>
+</tr><tr>
+  <td><strong>Coronation of the Revenant King</strong><br><small>coronation_of_the_revenant_king</small></td>
+  <td><span class="tag tag-trans">boss</span> Revenant King — Wilds prestige boss<br><span class="tag tag-minor">item_equip</span> Wilderness Crown — BIS in wilds, 20% damage bonus<br><span class="tag tag-minor">item_equip</span> Revenant Ether Mace — vampiric in wilds only</td>
+</tr><tr>
+  <td><strong>The Rogue Chef</strong><br><small>the_rogue_chef</small></td>
+  <td><span class="tag tag-minor">training_method</span> Wilderness tree farming<br><span class="tag tag-minor">recipe</span> Wilderness feast — +2 HP healing on all foods</td>
+</tr></table>
+</div>
+</body></html>

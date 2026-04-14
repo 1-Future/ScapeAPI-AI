@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html><head><meta charset="utf-8"><title>Moryskah — Aelgard Codex</title>
+<style>
+  body {
+    font-family: ui-monospace, 'Cascadia Code', 'Consolas', monospace;
+    background: #3e3529;
+    color: #e8dcc0;
+    margin: 0;
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  .parchment {
+    background: #e8dcc0;
+    color: #2c1810;
+    padding: 30px 40px;
+    border: 3px solid #8b6f47;
+    border-radius: 4px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.5);
+    margin: 20px 0;
+  }
+  h1 {
+    color: #7a1f1a;
+    border-bottom: 2px solid #8b6f47;
+    padding-bottom: 10px;
+  }
+  h2 { color: #5a3a1a; margin-top: 30px; }
+  h3 { color: #6b4423; }
+  a { color: #7a1f1a; text-decoration: none; border-bottom: 1px dotted #7a1f1a; }
+  a:hover { background: #d4c49c; }
+  nav { margin-bottom: 20px; }
+  nav a { margin-right: 15px; font-weight: bold; }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 15px 0;
+  }
+  th, td {
+    text-align: left;
+    padding: 6px 10px;
+    border-bottom: 1px solid #c4a970;
+  }
+  th { background: #d4c49c; color: #2c1810; }
+  tr:hover { background: #d4c49c; }
+  .tag {
+    display: inline-block;
+    padding: 2px 8px;
+    margin: 2px;
+    border-radius: 3px;
+    font-size: 11px;
+    font-weight: bold;
+  }
+  .tag-region { background: #4a6b8a; color: #fff; }
+  .tag-skill  { background: #5a7f4a; color: #fff; }
+  .tag-trans  { background: #8a1f1a; color: #fff; }
+  .tag-major  { background: #a86a2a; color: #fff; }
+  .tag-minor  { background: #6a6a6a; color: #fff; }
+  .tag-afk    { background: #3a5a2a; color: #fff; }
+  .tag-low    { background: #4a7a3a; color: #fff; }
+  .tag-medium { background: #8a7a2a; color: #fff; }
+  .tag-high   { background: #a85a2a; color: #fff; }
+  .tag-maximum{ background: #8a1f1a; color: #fff; }
+  .tag-obscure{ background: #6a4a2a; color: #fff; font-style: italic; }
+  .stat-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    margin: 15px 0;
+  }
+  .stat-cell {
+    background: #d4c49c;
+    padding: 10px;
+    border-radius: 3px;
+    text-align: center;
+  }
+  .stat-cell .value {
+    font-size: 24px;
+    font-weight: bold;
+    color: #7a1f1a;
+  }
+  .stat-cell .label {
+    font-size: 11px;
+    color: #5a3a1a;
+    text-transform: uppercase;
+  }
+  .description {
+    font-style: italic;
+    color: #5a3a1a;
+    margin: 10px 0;
+    padding: 10px;
+    background: #d4c49c;
+    border-left: 3px solid #8b6f47;
+  }
+  ul.loose li { margin-bottom: 8px; }
+  details {
+    margin: 10px 0;
+    padding: 10px;
+    background: #d4c49c;
+    border-radius: 3px;
+  }
+  summary { cursor: pointer; font-weight: bold; }
+</style>
+</head>
+<body>
+<nav>
+  <a href="index.html">Home</a>
+  <a href="regions.html">Regions</a>
+  <a href="skills.html">Skills</a>
+  <a href="quests.html">Quests</a>
+  <a href="breakpoints.html">Breakpoints</a>
+  <a href="items.html">Items</a>
+</nav>
+<div class="parchment">
+<h1>Moryskah</h1>
+<div class="description">Gothic swamp. Vampires, werewolves, Barrows, blood rites.</div>
+
+<div class="stat-grid">
+  <div class="stat-cell"><div class="value">45</div><div class="label">Training Methods</div></div>
+  <div class="stat-cell"><div class="value">4</div><div class="label">Sub-areas</div></div>
+  <div class="stat-cell"><div class="value">4</div><div class="label">Quirky Interactions</div></div>
+  <div class="stat-cell"><div class="value">1</div><div class="label">Prestige Goals</div></div>
+</div>
+<h2>Prestige Goal: The Barrows Brothers Challenge</h2>
+<div class="description">Defeat all 6 Barrows Brothers in a single run. Claim the full set of degradable armor. Lay them to rest permanently.</div>
+<p><strong>Required skills:</strong> <span class="tag tag-skill">attack 75</span> <span class="tag tag-skill">magic 75</span> <span class="tag tag-skill">prayer 43</span> <span class="tag tag-skill">defence 70</span></p>
+<p><strong>Bosses:</strong> dharok, guthan, verac, ahrim, karil, torag</p>
+<p><strong>Unique rewards:</strong> amulet_of_the_damned, all_barrows_sets</p>
+<h2>Sub-areas</h2><ul class="loose"><li><strong>Moryskah</strong> — Gothic horror swamp. Undead, werewolves, vampires. Holy items provide protection. <small>[requires: prayer 20, attack 25, magic 15, quest: the_bog_witchs_bargain]</small></li><li><strong>Moryskah Slayer Tower</strong> — Multi-floor slayer dungeon. Aberrant spectres, gargoyles, nechryaels, abyssal demons. <small>[requires: slayer 10, quest: slayers_gauntlet]</small></li><li><strong>The Barrows</strong> — Six ancient warrior tombs. Repeatable boss encounters. Drops degradable set equipment. <small>[requires: prayer 43, magic 50, quest: blood_rites]</small></li><li><strong>Castle Malachar</strong> — Vampire stronghold. Late-game Moryskah content. Theatre of Blood equivalent raid. <small>[requires: attack 70, prayer 60, agility 50, quest: sins_of_malachar]</small></li></ul><h2>Training Methods (45)</h2>
+<table>
+  <tr><th>Skill</th><th>Method</th><th>Levels</th><th>XP/hr</th><th>Attention</th><th>Danger</th><th>Cost/hr</th></tr>
+  <tr>
+    <td><span class="tag tag-skill">agility</span></td>
+    <td><strong>Canifis Rooftop Course</strong><br><small>Short laps, decent marks of grace. Easy money via graceful set pieces.</small></td>
+    <td>40-60</td>
+    <td>20,000</td>
+    <td><span class="tag tag-low">low</span></td>
+    <td>none</td>
+    <td>0</td>
+  </tr>
+  <tr>
+    <td><span class="tag tag-skill">agility</span></td>
+    <td><strong>Hallowed Sepulchre</strong><br><small>Dodge traps in a crypt. The fastest agility XP by far but demands perfection.</small></td>
+    <td>52-99</td>
+    <td>80,000</td>
+    <td><span class="tag tag-maximum">maximum</span></td>
+    <td>medium</td>
+    <td>0</td>
+  </tr>
+  <tr>
+    <td><span class="tag tag-skill">agility</span></td>
+    <td><strong>Mausoleum Rooftop Course</strong><br><small>Rooftop parkour across the mausoleum district. Gothic-flavored agility training.</small></td>
+    <td>30-80</td>
+    <td>54,000</td>
+    <td><span class="tag tag-medium">medium</span></td>
+    <td>low</td>
+    <td>0</td>
+  </tr>
+  <tr>
+    <td><span class="tag tag-skill">attack</span></td>
+    <td><strong>Vampire Thrall Slaying</strong><br><small>Slay vampire thralls in the crypts. Silver weapons required. Blood vials feed herblore/RC.</small></td>
+    <td>30-70</td>
+    <td>58,000</td>
+    <td><span class="tag tag-medium">medium</span></td>
+    <td>medium</td>
+    <td>3000</td>
+  </tr>
+  <tr>
+    <td><span class="tag tag-skill">attack</span></td>
+    <td><strong>Ghoul Catacomb Combat</strong><br><small>Low-level ghouls in catacombs. Great early Moryskah attack training. Bones feed prayer.</small></td>
+    <td>1-45</td>
+    <td>30,000</td>
+    <td><span class="tag tag-low">low</span></td>
+    <td>low</td>
+    <td>0</td>
+  </tr>
+  <tr>
+    <td><span class="tag tag-skill">attack</span></td>
+    <td><strong>Barrows Brother Grinding</strong><br><small>Repeatable Barrows runs. Highest Moryskah attack XP. Iconic prestige content.</small></td>
+    <td>70-99</td>
+    <td>78,000</td>
+    <td><span class="tag tag-high">high</span></td>
+    <td>high</td>
+    <td>40000</td>
+  </tr>
+  <tr>
+    <td><span class="tag tag-skill">attack</span></td>
+    <td><strong>Vampire Noble Elite Combat</strong><br><small>Elite vampire nobles in Castle Malachar. Endgame Moryskah combat. Vampire-slaying flail required.</small></td>
+    <td>80-99</td>
+    <td>95,000</td>
+    <td><span class="tag tag-high">high</span></td>
+    <td>extreme</td>
+    <td>50000</td>
+  </tr>
+  <tr>
+    <td><span class="tag tag-skill">construction</span></td>
+    <td><strong>Mausoleum Construction</strong><br><small>Build a Moryskah mausoleum POH. Tombstone theming. Features gilded-altar equivalent built of cursed stone.</small></td>
+    <td>30-99</td>
+    <td>320,000</td>
+    <td><span class="tag tag-high">high</span></td>
+    <td>none</td>
+    <td>380000</td>
+  </tr>
+  <tr>
+    <td><span class="tag tag-skill">cooking</span></td>
+    <td><strong>Bog Trout Kitchen</strong><br><small>Cook bog trout at the Bog Witch&#39;s fire. Cooked bog trout heals 8 HP + cures poison.</small></td>
+    <td>15-99</td>
+    <td>130,000</td>
+    <td><span class="tag tag-low">low</span></td>
+    <td>none</td>
+    <td>0</td>
+  </tr>
+  <tr>
+    <td><span class="tag tag-skill">cooking</span></td>
+    <td><strong>[Quirky] Stir the Bog Witchs Cauldron</strong><br><small>Stir the endless cauldron. The stew never finishes cooking.</small></td>
+    <td>1-99</td>
+    <td>600</td>
+    <td><span class="tag tag-medium">medium</span></td>
+    <td>none</td>
+    <td>0</td>
+  </tr>
+  <tr>
+    <td><span class="tag tag-skill">crafting</span></td>
+    <td><strong>Blood-Imbued Crafting</strong><br><small>Craft blood-imbued equipment. Vampiric — heals 1 HP per hit. Unique Moryskah niche.</small></td>
+    <td>50-99</td>
+    <td>88,000</td>
+    <td><span class="tag tag-medium">medium</span></td>
+    <td>none</td>
+    <td>0</td>
+  </tr>
+  <tr>
+    <td><span class="tag tag-skill">crafting</span></td>
+    <td><strong>[Quirky] Make Crypt Rubbings</strong><br><small>Press paper to tombstones and rub with charcoal. Etchings reveal old names.</small></td>
+    <td>1-99</td>
+    <td>600</td>
+    <td><span class="tag tag-medium">medium</span></td>
+    <td>none</td>
+    <td>0</td>
+  </tr>
+  <tr>
+    <td><span class="tag tag-skill">defence</span></td>
+    <td><strong>Chinchompa Defence Stacking</strong><br><small>Chin monkey stacking on long-range. Absurdly fast but costs a fortune per hour.</small></td>
+    <td>45-99</td>
+    <td>120,000</td>
+    <td><span class="tag tag-high">high</span></td>
+    <td>medium</td>
+    <td>350000</td>
+  </tr>
+  <tr>
+    <td><span class="tag tag-skill">defence</span></td>
+    <td><strong>Cursed Knight Defensive</strong><br><small>Cursed knights in the Moryskah ruins. Armor scraps smith into high-tier gothic armor.</small></td>
+    <td>30-75</td>
+    <td>48,000</td>
+    <td><span class="tag tag-medium">medium</span></td>
+    <td>medium</td>
+    <td>0</td>
+  </tr>
+  <tr>
+    <td><span class="tag tag-skill">farming</span></td>
+    <td><strong>Moryskah Blighted Patches</strong><br><small>Grow swamp herbs in the blighted patches. +25% yield vs normal patches.</small></td>
+    <td>20-99</td>
+    <td>48,000</td>
+    <td><span class="tag tag-low">low</span></td>
+    <td>none</td>
+    <td>2000</td>
+  </tr>
+  <tr>
+    <td><span class="tag tag-skill">firemaking</span></td>
+    <td><strong>Shade Cremation</strong><br><small>Burn shade remains on pyres. Keys unlock chests with unique rewards. Profitable.</small></td>
+    <td>1-99</td>
+    <td>80,000</td>
+    <td><span class="tag tag-medium">medium</span></td>
+    <td>low</td>
+    <td><strong>+40000</strong></td>
+  </tr>
+  <tr>
+    <td><span class="tag tag-skill">firemaking</span></td>
+    <td><strong>Pyre Log Burning</strong><br><small>Burn shade pyres. Double-skill (firemaking + prayer). Highest firemaking XP outside of Wintertodt.</small></td>
+    <td>45-99</td>
+    <td>180,000</td>
+    <td><span class="tag tag-medium">medium</span></td>
+    <td>none</td>
+    <td>0</td>
+  </tr>
+  <tr>
+    <td><span class="tag tag-skill">firemaking</span></td>
+    <td><strong>[Quirky] Light the Chapel Candles</strong><br><small>Relight chapel candles as they blow out. Gothic ambiance. Tiny firemaking XP.</small></td>
+    <td>1-99</td>
+    <td>2,200</td>
+    <td><span class="tag tag-medium">medium</span></td>
+    <td>none</td>
+    <td>0</td>
+  </tr>
+  <tr>
+    <td><span class="tag tag-skill">fishing</span></td>
+    <td><strong>Bog Trout Fishing</strong><br><small>Fish the Moryskah bogs. Bog trout cures swamp rot when cooked.</small></td>
+    <td>15-70</td>
+    <td>38,000</td>
+    <td><span class="tag tag-afk">afk</span></td>
+    <td>none</td>
+    <td>0</td>
+  </tr>
+  <tr>
+    <td><span class="tag tag-skill">fishing</span></td>
+    <td><strong>Sacred Eel Fishing</strong><br><small>Sacred eel from blessed pools. Scales used in crafting — demand cross-region.</small></td>
+    <td>55-99</td>
+    <td>72,000</td>
+    <td><span class="tag tag-afk">afk</span></td>
+    <td>none</td>
+    <td>0</td>
+  </tr>
+  <tr>
+    <td><span class="tag tag-skill">fletching</span></td>
+    <td><strong>Cursed Bow Fletching</strong><br><small>Fletch cursed bows from swamp willow. Unique — cursed bows do +10% damage vs undead.</small></td>
+    <td>40-99</td>
+    <td>85,000</td>
+    <td><span class="tag tag-low">low</span></td>
+    <td>none</td>
+    <td>0</td>
+  </tr>
+  <tr>
+    <td><span class="tag tag-skill">herblore</span></td>
+    <td><strong>Bog Witch&#39;s Apprentice</strong><br><small>Brew with the Bog Witch. Unique swamp potions with undead-resistance bonuses.</small></td>
+    <td>15-85</td>
+    <td>75,000</td>
+    <td><span class="tag tag-medium">medium</span></td>
+    <td>none</td>
+    <td>0</td>
+  </tr>
+  <tr>
+    <td><span class="tag tag-skill">hitpoints</span></td>
+    <td><strong>Raid Boss HP</strong><br><small>Raid bosses demand maximum focus. HP XP is a byproduct of the real challenge.</small></td>
+    <td>75-99</td>
+    <td>45,000</td>
+    <td><span class="tag tag-maximum">maximum</span></td>
+    <td>high</td>
+    <td>50000</td>
+  </tr>
+  <tr>
+    <td><span class="tag tag-skill">hitpoints</span></td>
+    <td><strong>Banshee Screaming Tower</strong><br><small>AFK banshees while they scream at you. Passive HP. Requires earmuffs.</small></td>
+    <td>20-70</td>
+    <td>14,000</td>
+    <td><span class="tag tag-afk">afk</span></td>
+    <td>low</td>
+    <td>0</td>
+  </tr>
+  <tr>
+    <td><span class="tag tag-skill">hunter</span></td>
+    <td><strong>Bat Netting</strong><br><small>Catch Moryskah bats. Bat wings feed Super Restore potions — CRITICAL cross-region export.</small></td>
+    <td>20-70</td>
+    <td>48,000</td>
+    <td><span class="tag tag-low">low</span></td>
+    <td>low</td>
+    <td>0</td>
+  </tr>
+  <tr>
+    <td><span class="tag tag-skill">hunter</span></td>
+    <td><strong>[Quirky] Feed the Bat Colony</strong><br><small>Toss scraps to the cave bats. They know you now.</small></td>
+    <td>1-99</td>
+    <td>1,200</td>
+    <td><span class="tag tag-medium">medium</span></td>
+    <td>none</td>
+    <td>0</td>
+  </tr>
+  <tr>
+    <td><span class="tag tag-skill">magic</span></td>
+    <td><strong>Burst/Barrage Stacking</strong><br><small>AoE spells on stacked undead. Fastest magic XP. Burns through runes fast.</small></td>
+    <td>50-99</td>
+    <td>250,000</td>
+    <td><span class="tag tag-high">high</span></td>
+    <td>medium</td>
+    <td>500000</td>
+  </tr>
+  <tr>
+    <td><span class="tag tag-skill">magic</span></td>
+    <td><strong>Aberrant Spectre Magic</strong><br><small>Magic training on aberrant spectres. Herb drop table makes it profitable.</small></td>
+    <td>60-99</td>
+    <td>82,000</td>
+    <td><span class="tag tag-high">high</span></td>
+    <td>medium</td>
+    <td>25000</td>
+  </tr>
+  <tr>
+    <td><span class="tag tag-skill">magic</span></td>
+    <td><strong>[Quirky] Listen to Crypt Whispers</strong><br><small>Press your ear to crypt walls. The dead whisper magic knowledge. Tiny magic XP per whisper.</small></td>
+    <td>1-99</td>
+    <td>2,000</td>
+    <td><span class="tag tag-low">low</span></td>
+    <td>none</td>
+    <td>0</td>
+  </tr>
+  <tr>
+    <td><span class="tag tag-skill">mining</span></td>
+    <td><strong>Moryskah Silver Mining</strong><br><small>Silver vein + tombstone rubble in the cursed quarry. Moryskah construction material source.</small></td>
+    <td>20-99</td>
+    <td>42,000</td>
+    <td><span class="tag tag-low">low</span></td>
+    <td>low</td>
+    <td>0</td>
+  </tr>
+  <tr>
+    <td><span class="tag tag-skill">prayer</span></td>
+    <td><strong>Ectofuntus Worship</strong><br><small>Grind bones, worship. Better XP per bone than gilded but slower per hour. Earns tokens.</small></td>
+    <td>1-99</td>
+    <td>100,000</td>
+    <td><span class="tag tag-high">high</span></td>
+    <td>none</td>
+    <td>300000</td>
+  </tr>
+  <tr>
+    <td><span class="tag tag-skill">prayer</span></td>
+    <td><strong>Ectofuntus Worship</strong><br><small>Grind bones + mix with ectoplasm = 4x prayer XP. Moryskah-unique. THE flagship prayer method.</small></td>
+    <td>1-99</td>
+    <td>180,000</td>
+    <td><span class="tag tag-high">high</span></td>
+    <td>none</td>
+    <td>0</td>
+  </tr>
+  <tr>
+    <td><span class="tag tag-skill">prayer</span></td>
+    <td><strong>Shade Pyre Cremation</strong><br><small>Cremate shades on pyre logs. Double-skill XP (prayer + firemaking). Gothic-flavored sustain.</small></td>
+    <td>30-99</td>
+    <td>95,000</td>
+    <td><span class="tag tag-medium">medium</span></td>
+    <td>none</td>
+    <td>8000</td>
+  </tr>
+  <tr>
+    <td><span class="tag tag-skill">prayer</span></td>
+    <td><strong>[Quirky] Practice Exorcism Chant</strong><br><small>Recite the ancient exorcism phrases. Nothing happens. Probably.</small></td>
+    <td>1-99</td>
+    <td>900</td>
+    <td><span class="tag tag-medium">medium</span></td>
+    <td>none</td>
+    <td>0</td>
+  </tr>
+  <tr>
+    <td><span class="tag tag-skill">ranged</span></td>
+    <td><strong>Chinchompa Stacking</strong><br><small>AoE chinchompas on stacked monkeys. The fastest ranged XP in the game. Extremely expensive.</small></td>
+    <td>45-99</td>
+    <td>350,000</td>
+    <td><span class="tag tag-high">high</span></td>
+    <td>medium</td>
+    <td>800000</td>
+  </tr>
+  <tr>
+    <td><span class="tag tag-skill">ranged</span></td>
+    <td><strong>Shade Shooting</strong><br><small>Pick off shades with silver bolts. Remains feed the pyre-prayer path.</small></td>
+    <td>40-99</td>
+    <td>75,000</td>
+    <td><span class="tag tag-medium">medium</span></td>
+    <td>low</td>
+    <td>15000</td>
+  </tr>
+  <tr>
+    <td><span class="tag tag-skill">runecrafting</span></td>
+    <td><strong>Daeyalt Essence RC</strong><br><small>Mine daeyalt first (AFK), then craft for 50% bonus XP. Split attention over two sessions.</small></td>
+    <td>1-99</td>
+    <td>45,000</td>
+    <td><span class="tag tag-medium">medium</span></td>
+    <td>none</td>
+    <td><strong>+50000</strong></td>
+  </tr>
+  <tr>
+    <td><span class="tag tag-skill">runecrafting</span></td>
+    <td><strong>Moryskah Blood Altar</strong><br><small>Blood runes at the Moryskah altar. THE blood rune source. Cross-region demand (Scythe/Sang charges).</small></td>
+    <td>77-99</td>
+    <td>48,000</td>
+    <td><span class="tag tag-low">low</span></td>
+    <td>none</td>
+    <td>0</td>
+  </tr>
+  <tr>
+    <td><span class="tag tag-skill">slayer</span></td>
+    <td><strong>Moryskah Slayer Tower</strong><br><small>Slayer tower tasks — aberrants, gargoyles, nechryaels, abyssal demons. Best slayer XP/gp in Aelgard.</small></td>
+    <td>40-99</td>
+    <td>55,000</td>
+    <td><span class="tag tag-high">high</span></td>
+    <td>high</td>
+    <td>8000</td>
+  </tr>
+  <tr>
+    <td><span class="tag tag-skill">smithing</span></td>
+    <td><strong>Silver-Tipped Forge</strong><br><small>Silver-tipped weapons at the Moryskah forge. Werewolf-slaying BIS.</small></td>
+    <td>40-99</td>
+    <td>95,000</td>
+    <td><span class="tag tag-medium">medium</span></td>
+    <td>none</td>
+    <td>0</td>
+  </tr>
+  <tr>
+    <td><span class="tag tag-skill">strength</span></td>
+    <td><strong>Crypt Raider Strength</strong><br><small>Aggressive style in the cursed crypts. Tombstone rubble feeds construction.</small></td>
+    <td>20-80</td>
+    <td>62,000</td>
+    <td><span class="tag tag-medium">medium</span></td>
+    <td>medium</td>
+    <td>0</td>
+  </tr>
+  <tr>
+    <td><span class="tag tag-skill">strength</span></td>
+    <td><strong>[Quirky] Dig Graves for the Sexton</strong><br><small>Dig fresh graves for the sexton. Strength XP per shovelful. Occasionally uncover forgotten bones.</small></td>
+    <td>1-99</td>
+    <td>1,500</td>
+    <td><span class="tag tag-high">high</span></td>
+    <td>none</td>
+    <td>0</td>
+  </tr>
+  <tr>
+    <td><span class="tag tag-skill">thieving</span></td>
+    <td><strong>Crypt Robbing</strong><br><small>Rob Moryskah crypts. Coin stacks + occasional jeweled grave goods. Risky — mummy guardians wake.</small></td>
+    <td>25-80</td>
+    <td>52,000</td>
+    <td><span class="tag tag-medium">medium</span></td>
+    <td>medium</td>
+    <td>0</td>
+  </tr>
+  <tr>
+    <td><span class="tag tag-skill">woodcutting</span></td>
+    <td><strong>Sulliuscep Chopping</strong><br><small>Run between mushroom spawns in the swamp. Good XP, fossils, moderate attention.</small></td>
+    <td>65-99</td>
+    <td>80,000</td>
+    <td><span class="tag tag-medium">medium</span></td>
+    <td>low</td>
+    <td><strong>+20000</strong></td>
+  </tr>
+  <tr>
+    <td><span class="tag tag-skill">woodcutting</span></td>
+    <td><strong>Blighted Forest WC</strong><br><small>Chop blighted trees. Unique log types. Cursed pyre logs feed the prayer path.</small></td>
+    <td>30-99</td>
+    <td>58,000</td>
+    <td><span class="tag tag-afk">afk</span></td>
+    <td>low</td>
+    <td>0</td>
+  </tr></table><h2>Quirky Interactions (4)</h2>
+<div class="description">Ambient world objects that grant tiny XP. Discoverable, flavorful, mathematically terrible — but sometimes a lifeline.</div>
+<ul class="loose"><li><strong>Stir the Bog Witchs Cauldron</strong> [cooking] — 0.5 xp/click. <em>The Bog Witch hums while you stir. &quot;Faster, slower, faster. Never stop.&quot;</em></li><li><strong>Make Crypt Rubbings</strong> [crafting] — 0.4 xp/click. <em>Some of the names feel familiar somehow. You havent been here before.</em></li><li><strong>Practice Exorcism Chant</strong> [prayer] — 1 xp/click. <em>The chapel grows slightly darker each time. Probably just your eyes.</em></li><li><strong>Feed the Bat Colony</strong> [hunter] — 0.8 xp/click. <em>The bats no longer swarm you. Progress.</em></li></ul>
+</div>
+</body></html>

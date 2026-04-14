@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html><head><meta charset="utf-8"><title>construction — Aelgard Codex</title>
+<style>
+  body {
+    font-family: ui-monospace, 'Cascadia Code', 'Consolas', monospace;
+    background: #3e3529;
+    color: #e8dcc0;
+    margin: 0;
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  .parchment {
+    background: #e8dcc0;
+    color: #2c1810;
+    padding: 30px 40px;
+    border: 3px solid #8b6f47;
+    border-radius: 4px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.5);
+    margin: 20px 0;
+  }
+  h1 {
+    color: #7a1f1a;
+    border-bottom: 2px solid #8b6f47;
+    padding-bottom: 10px;
+  }
+  h2 { color: #5a3a1a; margin-top: 30px; }
+  h3 { color: #6b4423; }
+  a { color: #7a1f1a; text-decoration: none; border-bottom: 1px dotted #7a1f1a; }
+  a:hover { background: #d4c49c; }
+  nav { margin-bottom: 20px; }
+  nav a { margin-right: 15px; font-weight: bold; }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 15px 0;
+  }
+  th, td {
+    text-align: left;
+    padding: 6px 10px;
+    border-bottom: 1px solid #c4a970;
+  }
+  th { background: #d4c49c; color: #2c1810; }
+  tr:hover { background: #d4c49c; }
+  .tag {
+    display: inline-block;
+    padding: 2px 8px;
+    margin: 2px;
+    border-radius: 3px;
+    font-size: 11px;
+    font-weight: bold;
+  }
+  .tag-region { background: #4a6b8a; color: #fff; }
+  .tag-skill  { background: #5a7f4a; color: #fff; }
+  .tag-trans  { background: #8a1f1a; color: #fff; }
+  .tag-major  { background: #a86a2a; color: #fff; }
+  .tag-minor  { background: #6a6a6a; color: #fff; }
+  .tag-afk    { background: #3a5a2a; color: #fff; }
+  .tag-low    { background: #4a7a3a; color: #fff; }
+  .tag-medium { background: #8a7a2a; color: #fff; }
+  .tag-high   { background: #a85a2a; color: #fff; }
+  .tag-maximum{ background: #8a1f1a; color: #fff; }
+  .tag-obscure{ background: #6a4a2a; color: #fff; font-style: italic; }
+  .stat-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    margin: 15px 0;
+  }
+  .stat-cell {
+    background: #d4c49c;
+    padding: 10px;
+    border-radius: 3px;
+    text-align: center;
+  }
+  .stat-cell .value {
+    font-size: 24px;
+    font-weight: bold;
+    color: #7a1f1a;
+  }
+  .stat-cell .label {
+    font-size: 11px;
+    color: #5a3a1a;
+    text-transform: uppercase;
+  }
+  .description {
+    font-style: italic;
+    color: #5a3a1a;
+    margin: 10px 0;
+    padding: 10px;
+    background: #d4c49c;
+    border-left: 3px solid #8b6f47;
+  }
+  ul.loose li { margin-bottom: 8px; }
+  details {
+    margin: 10px 0;
+    padding: 10px;
+    background: #d4c49c;
+    border-radius: 3px;
+  }
+  summary { cursor: pointer; font-weight: bold; }
+</style>
+</head>
+<body>
+<nav>
+  <a href="index.html">Home</a>
+  <a href="regions.html">Regions</a>
+  <a href="skills.html">Skills</a>
+  <a href="quests.html">Quests</a>
+  <a href="breakpoints.html">Breakpoints</a>
+  <a href="items.html">Items</a>
+</nav>
+<div class="parchment">
+<h1>Construction</h1>
+<div class="description">9 training methods. 5 breakpoints.</div>
+
+<h2>Breakpoints</h2>
+<ul class="loose"><li><span class="tag tag-minor">level 20</span> <strong>First house rooms. You have a HOUSE. It is empty and sad but it is yours.</strong><br><small>unlocks: Build basic house rooms</small></li><li><span class="tag tag-major">level 50</span> <strong>Portals in your house. Teleport to major cities from your own home.</strong><br><small>unlocks: Portal rooms — free teleports</small></li><li><span class="tag tag-transformative">level 67</span> <strong>Gilded altar with two incense burners. 3.5x prayer XP. The reason most people train construction.</strong><br><small>unlocks: Gilded altar — 3.5x prayer XP on bones</small></li><li><span class="tag tag-major">level 82</span> <strong>Jewellery box (ornate). All teleport jewelry in one interface. Never carry jewelry again.</strong><br><small>unlocks: Ornate jewellery box — every teleport, one click</small></li><li><span class="tag tag-transformative">level 83</span> <strong>Rejuvenation pool (ornate). Restore HP, prayer, stats, special attack, run energy. Between every trip.</strong><br><small>unlocks: Ornate rejuvenation pool — full restore between trips</small></li></ul><h2>Training Methods</h2><table>
+<tr><th>Method</th><th>Levels</th><th>XP/hr</th><th>Location</th><th>Attention</th><th>Danger</th><th>Cost</th></tr><tr>
+  <td><strong>Crude Wooden Chairs</strong><br><small>Build, remove, repeat. The introductory grind. Cheap planks.</small></td>
+  <td>1-19</td>
+  <td>20,000</td>
+  <td><span class="tag tag-region">Heartlands</span></td>
+  <td><span class="tag tag-medium">medium</span></td>
+  <td>none</td>
+  <td>5000</td>
+</tr><tr>
+  <td><strong>Carpenter Apprentice Work</strong><br><small>Help local carpenters build houses. Slow XP but no house needed.</small></td>
+  <td>1-30</td>
+  <td>16,000</td>
+  <td><span class="tag tag-region">Heartlands</span></td>
+  <td><span class="tag tag-low">low</span></td>
+  <td>none</td>
+  <td>5000</td>
+</tr><tr>
+  <td><strong>Sawmill Contracts</strong><br><small>Fill NPC construction orders for profit. Slower XP but actually makes money.</small></td>
+  <td>20-70</td>
+  <td>80,000</td>
+  <td><span class="tag tag-region">Sootworks</span></td>
+  <td><span class="tag tag-low">low</span></td>
+  <td>none</td>
+  <td><strong>+100000</strong></td>
+</tr><tr>
+  <td><strong>Wilderness Fortifications</strong><br><small>Build fortifications at Wilds outposts. Cheaper materials but PKers patrol the area.</small></td>
+  <td>30-99</td>
+  <td>500,000</td>
+  <td><span class="tag tag-region">The Wilds</span></td>
+  <td><span class="tag tag-high">high</span></td>
+  <td>high</td>
+  <td>100000</td>
+</tr><tr>
+  <td><strong>Mausoleum Construction</strong><br><small>Build a Moryskah mausoleum POH. Tombstone theming. Features gilded-altar equivalent built of cursed stone.</small></td>
+  <td>30-99</td>
+  <td>320,000</td>
+  <td><span class="tag tag-region">Moryskah</span></td>
+  <td><span class="tag tag-high">high</span></td>
+  <td>none</td>
+  <td>380000</td>
+</tr><tr>
+  <td><strong>Oak Larders</strong><br><small>Butler brings planks, build larder, remove. Fast but expensive. Requires focus.</small></td>
+  <td>33-74</td>
+  <td>300,000</td>
+  <td><span class="tag tag-region">Heartlands</span></td>
+  <td><span class="tag tag-high">high</span></td>
+  <td>none</td>
+  <td>200000</td>
+</tr><tr>
+  <td><strong>Dwarven Workshop</strong><br><small>Dwarven master craftsmanship training. Only region with this method.</small></td>
+  <td>50-99</td>
+  <td>380,000</td>
+  <td><span class="tag tag-region">Sootworks</span></td>
+  <td><span class="tag tag-high">high</span></td>
+  <td>none</td>
+  <td>450000</td>
+</tr><tr>
+  <td><strong>Mahogany Tables</strong><br><small>The fastest construction XP. Mahogany planks are brutal on the wallet.</small></td>
+  <td>52-99</td>
+  <td>700,000</td>
+  <td><span class="tag tag-region">Heartlands</span></td>
+  <td><span class="tag tag-high">high</span></td>
+  <td>none</td>
+  <td>1200000</td>
+</tr><tr>
+  <td><strong>Teak Garden Benches</strong><br><small>Cheaper than mahogany tables but slower. The budget high-level option.</small></td>
+  <td>66-99</td>
+  <td>450,000</td>
+  <td><span class="tag tag-region">Heartlands</span></td>
+  <td><span class="tag tag-medium">medium</span></td>
+  <td>none</td>
+  <td>400000</td>
+</tr></table>
+</div>
+</body></html>

@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html><head><meta charset="utf-8"><title>strength — Aelgard Codex</title>
+<style>
+  body {
+    font-family: ui-monospace, 'Cascadia Code', 'Consolas', monospace;
+    background: #3e3529;
+    color: #e8dcc0;
+    margin: 0;
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  .parchment {
+    background: #e8dcc0;
+    color: #2c1810;
+    padding: 30px 40px;
+    border: 3px solid #8b6f47;
+    border-radius: 4px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.5);
+    margin: 20px 0;
+  }
+  h1 {
+    color: #7a1f1a;
+    border-bottom: 2px solid #8b6f47;
+    padding-bottom: 10px;
+  }
+  h2 { color: #5a3a1a; margin-top: 30px; }
+  h3 { color: #6b4423; }
+  a { color: #7a1f1a; text-decoration: none; border-bottom: 1px dotted #7a1f1a; }
+  a:hover { background: #d4c49c; }
+  nav { margin-bottom: 20px; }
+  nav a { margin-right: 15px; font-weight: bold; }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 15px 0;
+  }
+  th, td {
+    text-align: left;
+    padding: 6px 10px;
+    border-bottom: 1px solid #c4a970;
+  }
+  th { background: #d4c49c; color: #2c1810; }
+  tr:hover { background: #d4c49c; }
+  .tag {
+    display: inline-block;
+    padding: 2px 8px;
+    margin: 2px;
+    border-radius: 3px;
+    font-size: 11px;
+    font-weight: bold;
+  }
+  .tag-region { background: #4a6b8a; color: #fff; }
+  .tag-skill  { background: #5a7f4a; color: #fff; }
+  .tag-trans  { background: #8a1f1a; color: #fff; }
+  .tag-major  { background: #a86a2a; color: #fff; }
+  .tag-minor  { background: #6a6a6a; color: #fff; }
+  .tag-afk    { background: #3a5a2a; color: #fff; }
+  .tag-low    { background: #4a7a3a; color: #fff; }
+  .tag-medium { background: #8a7a2a; color: #fff; }
+  .tag-high   { background: #a85a2a; color: #fff; }
+  .tag-maximum{ background: #8a1f1a; color: #fff; }
+  .tag-obscure{ background: #6a4a2a; color: #fff; font-style: italic; }
+  .stat-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    margin: 15px 0;
+  }
+  .stat-cell {
+    background: #d4c49c;
+    padding: 10px;
+    border-radius: 3px;
+    text-align: center;
+  }
+  .stat-cell .value {
+    font-size: 24px;
+    font-weight: bold;
+    color: #7a1f1a;
+  }
+  .stat-cell .label {
+    font-size: 11px;
+    color: #5a3a1a;
+    text-transform: uppercase;
+  }
+  .description {
+    font-style: italic;
+    color: #5a3a1a;
+    margin: 10px 0;
+    padding: 10px;
+    background: #d4c49c;
+    border-left: 3px solid #8b6f47;
+  }
+  ul.loose li { margin-bottom: 8px; }
+  details {
+    margin: 10px 0;
+    padding: 10px;
+    background: #d4c49c;
+    border-radius: 3px;
+  }
+  summary { cursor: pointer; font-weight: bold; }
+</style>
+</head>
+<body>
+<nav>
+  <a href="index.html">Home</a>
+  <a href="regions.html">Regions</a>
+  <a href="skills.html">Skills</a>
+  <a href="quests.html">Quests</a>
+  <a href="breakpoints.html">Breakpoints</a>
+  <a href="items.html">Items</a>
+</nav>
+<div class="parchment">
+<h1>Strength</h1>
+<div class="description">14 training methods. 4 breakpoints.</div>
+
+<h2>Breakpoints</h2>
+<ul class="loose"><li><span class="tag tag-minor">level 10</span> <strong>Max hits visibly increase. First taste of &quot;I am getting stronger.&quot;</strong><br><small>unlocks: Controlled style becomes viable</small></li><li><span class="tag tag-minor">level 50</span> <strong>Granite maul special attack threshold. PvP becomes accessible.</strong><br><small>unlocks: Granite maul equippable (50 str + 50 att)</small></li><li><span class="tag tag-major">level 70</span> <strong>Dharok&#39;s full set. At low HP, you can hit 60+ with the greataxe. Changes how you think about HP.</strong><br><small>unlocks: Full Dharok&#39;s: damage scales inversely with HP</small></li><li><span class="tag tag-major">level 99</span> <strong>Max melee strength. The grind that defines RS. Strength cape gives +4 invisible boost.</strong><br><small>unlocks: Strength skillcape</small></li></ul><h2>Training Methods</h2><table>
+<tr><th>Method</th><th>Levels</th><th>XP/hr</th><th>Location</th><th>Attention</th><th>Danger</th><th>Cost</th></tr><tr>
+  <td><strong>Sand Crab Strength</strong><br><small>AFK crabs on aggressive style. Pure XP, zero engagement, zero profit.</small></td>
+  <td>1-60</td>
+  <td>28,000</td>
+  <td><span class="tag tag-region">Saltbrine Reach</span></td>
+  <td><span class="tag tag-afk">afk</span></td>
+  <td>none</td>
+  <td>0</td>
+</tr><tr>
+  <td><strong>[Quirky] Haul the Well Bucket</strong><br><small>Haul a heavy bucket up the village well. Tiny strength XP per lift. Produces water.</small></td>
+  <td>1-99</td>
+  <td>2,000</td>
+  <td><span class="tag tag-region">Heartlands</span></td>
+  <td><span class="tag tag-high">high</span></td>
+  <td>none</td>
+  <td>0</td>
+</tr><tr>
+  <td><strong>[Quirky] Ring the Church Bell</strong><br><small>Pull the church bell rope. Heavy work. The priest tolerates it for a few hours a day.</small></td>
+  <td>1-99</td>
+  <td>2,500</td>
+  <td><span class="tag tag-region">Heartlands</span></td>
+  <td><span class="tag tag-high">high</span></td>
+  <td>none</td>
+  <td>0</td>
+</tr><tr>
+  <td><strong>[Quirky] Dig Graves for the Sexton</strong><br><small>Dig fresh graves for the sexton. Strength XP per shovelful. Occasionally uncover forgotten bones.</small></td>
+  <td>1-99</td>
+  <td>1,500</td>
+  <td><span class="tag tag-region">Moryskah</span></td>
+  <td><span class="tag tag-high">high</span></td>
+  <td>none</td>
+  <td>0</td>
+</tr><tr>
+  <td><strong>[Quirky] Shovel the Sand Drifts</strong><br><small>Shovel endless sand drifts. Occasionally uncovers buried trinkets.</small></td>
+  <td>1-99</td>
+  <td>1,800</td>
+  <td><span class="tag tag-region">Boneyard Wastes</span></td>
+  <td><span class="tag tag-high">high</span></td>
+  <td>none</td>
+  <td>0</td>
+</tr><tr>
+  <td><strong>[Quirky] The Village Pump</strong><br><small>Pump handle at the village well. Each pump gives the slightest strength XP.</small></td>
+  <td>1-99</td>
+  <td>720</td>
+  <td><span class="tag tag-region">Heartlands</span></td>
+  <td><span class="tag tag-high">high</span></td>
+  <td>none</td>
+  <td>0</td>
+</tr><tr>
+  <td><strong>[Quirky] Pull the Pressure Lever</strong><br><small>Pull the massive pressure-release lever. Heavy. Unsatisfying.</small></td>
+  <td>1-99</td>
+  <td>1,400</td>
+  <td><span class="tag tag-region">Sootworks</span></td>
+  <td><span class="tag tag-high">high</span></td>
+  <td>none</td>
+  <td>0</td>
+</tr><tr>
+  <td><strong>Hill Giant Bashing</strong><br><small>Big bone drops fund prayer training. A classic early grind with real output. The resource advantage over crabs.</small></td>
+  <td>10-40</td>
+  <td>18,000</td>
+  <td><span class="tag tag-region">Heartlands</span></td>
+  <td><span class="tag tag-low">low</span></td>
+  <td>low</td>
+  <td><strong>+15000</strong></td>
+</tr><tr>
+  <td><strong>Crypt Raider Strength</strong><br><small>Aggressive style in the cursed crypts. Tombstone rubble feeds construction.</small></td>
+  <td>20-80</td>
+  <td>62,000</td>
+  <td><span class="tag tag-region">Moryskah</span></td>
+  <td><span class="tag tag-medium">medium</span></td>
+  <td>medium</td>
+  <td>0</td>
+</tr><tr>
+  <td><strong>Moss Giant Smashing</strong><br><small>Moss giants in the glades. Safe, profitable, feeds prayer via big bones.</small></td>
+  <td>30-75</td>
+  <td>58,000</td>
+  <td><span class="tag tag-region">Veilwood</span></td>
+  <td><span class="tag tag-low">low</span></td>
+  <td>medium</td>
+  <td>0</td>
+</tr><tr>
+  <td><strong>Barbarian Assault (Attacker)</strong><br><small>Team minigame with role-based combat. High engagement, unique rewards, free.</small></td>
+  <td>40-99</td>
+  <td>50,000</td>
+  <td><span class="tag tag-region">Heartlands</span></td>
+  <td><span class="tag tag-high">high</span></td>
+  <td>medium</td>
+  <td>0</td>
+</tr><tr>
+  <td><strong>Obsidian Sword Training</strong><br><small>Full obsidian with berserker necklace. Semi-AFK training at NMZ or crabs.</small></td>
+  <td>60-99</td>
+  <td>80,000</td>
+  <td><span class="tag tag-region">Heartlands</span></td>
+  <td><span class="tag tag-low">low</span></td>
+  <td>low</td>
+  <td>15000</td>
+</tr><tr>
+  <td><strong>Wilderness Boss Grinding</strong><br><small>Wilderness bosses hit hard and PKers lurk. Huge profit justifies extreme risk.</small></td>
+  <td>70-99</td>
+  <td>60,000</td>
+  <td><span class="tag tag-region">The Wilds</span></td>
+  <td><span class="tag tag-high">high</span></td>
+  <td>extreme</td>
+  <td><strong>+120000</strong></td>
+</tr><tr>
+  <td><strong>Wilderness Boss Hunting</strong><br><small>Callisto / Venenatis / Vetion. Wilderness bosses. Extreme risk — PKers hunt you while you hunt bosses.</small></td>
+  <td>80-99</td>
+  <td>85,000</td>
+  <td><span class="tag tag-region">The Wilds</span></td>
+  <td><span class="tag tag-high">high</span></td>
+  <td>extreme</td>
+  <td>100000</td>
+</tr></table>
+</div>
+</body></html>

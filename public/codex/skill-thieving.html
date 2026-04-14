@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html><head><meta charset="utf-8"><title>thieving — Aelgard Codex</title>
+<style>
+  body {
+    font-family: ui-monospace, 'Cascadia Code', 'Consolas', monospace;
+    background: #3e3529;
+    color: #e8dcc0;
+    margin: 0;
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  .parchment {
+    background: #e8dcc0;
+    color: #2c1810;
+    padding: 30px 40px;
+    border: 3px solid #8b6f47;
+    border-radius: 4px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.5);
+    margin: 20px 0;
+  }
+  h1 {
+    color: #7a1f1a;
+    border-bottom: 2px solid #8b6f47;
+    padding-bottom: 10px;
+  }
+  h2 { color: #5a3a1a; margin-top: 30px; }
+  h3 { color: #6b4423; }
+  a { color: #7a1f1a; text-decoration: none; border-bottom: 1px dotted #7a1f1a; }
+  a:hover { background: #d4c49c; }
+  nav { margin-bottom: 20px; }
+  nav a { margin-right: 15px; font-weight: bold; }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 15px 0;
+  }
+  th, td {
+    text-align: left;
+    padding: 6px 10px;
+    border-bottom: 1px solid #c4a970;
+  }
+  th { background: #d4c49c; color: #2c1810; }
+  tr:hover { background: #d4c49c; }
+  .tag {
+    display: inline-block;
+    padding: 2px 8px;
+    margin: 2px;
+    border-radius: 3px;
+    font-size: 11px;
+    font-weight: bold;
+  }
+  .tag-region { background: #4a6b8a; color: #fff; }
+  .tag-skill  { background: #5a7f4a; color: #fff; }
+  .tag-trans  { background: #8a1f1a; color: #fff; }
+  .tag-major  { background: #a86a2a; color: #fff; }
+  .tag-minor  { background: #6a6a6a; color: #fff; }
+  .tag-afk    { background: #3a5a2a; color: #fff; }
+  .tag-low    { background: #4a7a3a; color: #fff; }
+  .tag-medium { background: #8a7a2a; color: #fff; }
+  .tag-high   { background: #a85a2a; color: #fff; }
+  .tag-maximum{ background: #8a1f1a; color: #fff; }
+  .tag-obscure{ background: #6a4a2a; color: #fff; font-style: italic; }
+  .stat-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    margin: 15px 0;
+  }
+  .stat-cell {
+    background: #d4c49c;
+    padding: 10px;
+    border-radius: 3px;
+    text-align: center;
+  }
+  .stat-cell .value {
+    font-size: 24px;
+    font-weight: bold;
+    color: #7a1f1a;
+  }
+  .stat-cell .label {
+    font-size: 11px;
+    color: #5a3a1a;
+    text-transform: uppercase;
+  }
+  .description {
+    font-style: italic;
+    color: #5a3a1a;
+    margin: 10px 0;
+    padding: 10px;
+    background: #d4c49c;
+    border-left: 3px solid #8b6f47;
+  }
+  ul.loose li { margin-bottom: 8px; }
+  details {
+    margin: 10px 0;
+    padding: 10px;
+    background: #d4c49c;
+    border-radius: 3px;
+  }
+  summary { cursor: pointer; font-weight: bold; }
+</style>
+</head>
+<body>
+<nav>
+  <a href="index.html">Home</a>
+  <a href="regions.html">Regions</a>
+  <a href="skills.html">Skills</a>
+  <a href="quests.html">Quests</a>
+  <a href="breakpoints.html">Breakpoints</a>
+  <a href="items.html">Items</a>
+</nav>
+<div class="parchment">
+<h1>Thieving</h1>
+<div class="description">11 training methods. 3 breakpoints.</div>
+
+<h2>Breakpoints</h2>
+<ul class="loose"><li><span class="tag tag-minor">level 28</span> <strong>Fruit stalls. Good XP, zero attention. Your first real AFK skilling method.</strong><br><small>unlocks: Fruit stall thieving — AFK</small></li><li><span class="tag tag-minor">level 55</span> <strong>Blackjacking. The highest thieving XP/hr in the game. Requires insane clicking.</strong><br><small>unlocks: Blackjacking — best XP but maximum attention</small></li><li><span class="tag tag-major">level 91</span> <strong>Master farmers become very profitable. Rare herb seeds every few pickpockets.</strong><br><small>unlocks: Master farmer pickpocketing — herb seed source</small></li></ul><h2>Training Methods</h2><table>
+<tr><th>Method</th><th>Levels</th><th>XP/hr</th><th>Location</th><th>Attention</th><th>Danger</th><th>Cost</th></tr><tr>
+  <td><strong>Man Pickpocketing</strong><br><small>Pickpocket men for coins. Pathetic profit, but it is a start.</small></td>
+  <td>1-20</td>
+  <td>10,000</td>
+  <td><span class="tag tag-region">Heartlands</span></td>
+  <td><span class="tag tag-low">low</span></td>
+  <td>none</td>
+  <td><strong>+3000</strong></td>
+</tr><tr>
+  <td><strong>Heartlands Market Pickpocketing</strong><br><small>Pickpocket marketgoers. Getting caught = small fine, no real danger.</small></td>
+  <td>1-45</td>
+  <td>22,000</td>
+  <td><span class="tag tag-region">Heartlands</span></td>
+  <td><span class="tag tag-low">low</span></td>
+  <td>low</td>
+  <td>0</td>
+</tr><tr>
+  <td><strong>[Quirky] Sift the Dig Site Sand</strong><br><small>Sift sand for tiny artifacts. Most are worthless but you learn stealth.</small></td>
+  <td>1-99</td>
+  <td>1,440</td>
+  <td><span class="tag tag-region">Boneyard Wastes</span></td>
+  <td><span class="tag tag-medium">medium</span></td>
+  <td>none</td>
+  <td>0</td>
+</tr><tr>
+  <td><strong>Fruit Stall Theft</strong><br><small>Spam-click a stall. Completely braindead. Fruit is nearly worthless.</small></td>
+  <td>25-50</td>
+  <td>35,000</td>
+  <td><span class="tag tag-region">Heartlands</span></td>
+  <td><span class="tag tag-afk">afk</span></td>
+  <td>none</td>
+  <td>0</td>
+</tr><tr>
+  <td><strong>Crypt Robbing</strong><br><small>Rob Moryskah crypts. Coin stacks + occasional jeweled grave goods. Risky — mummy guardians wake.</small></td>
+  <td>25-80</td>
+  <td>52,000</td>
+  <td><span class="tag tag-region">Moryskah</span></td>
+  <td><span class="tag tag-medium">medium</span></td>
+  <td>medium</td>
+  <td>0</td>
+</tr><tr>
+  <td><strong>Pyramid Plunder</strong><br><small>Loot pyramid chambers. Massive thieving XP. Rare drop: Pharaoh&#39;s Sceptre teleport.</small></td>
+  <td>30-99</td>
+  <td>175,000</td>
+  <td><span class="tag tag-region">Boneyard Wastes</span></td>
+  <td><span class="tag tag-high">high</span></td>
+  <td>medium</td>
+  <td>8000</td>
+</tr><tr>
+  <td><strong>Pearl Diving</strong><br><small>Dive for pearls. Unique thieving method. Pearls feed jewelry economy.</small></td>
+  <td>40-90</td>
+  <td>72,000</td>
+  <td><span class="tag tag-region">Saltbrine Reach</span></td>
+  <td><span class="tag tag-medium">medium</span></td>
+  <td>medium</td>
+  <td>2000</td>
+</tr><tr>
+  <td><strong>Blackjacking</strong><br><small>Knock out, pickpocket, repeat. Fastest thieving XP. Demands perfect timing.</small></td>
+  <td>45-99</td>
+  <td>240,000</td>
+  <td><span class="tag tag-region">Boneyard Wastes</span></td>
+  <td><span class="tag tag-maximum">maximum</span></td>
+  <td>none</td>
+  <td><strong>+150000</strong></td>
+</tr><tr>
+  <td><strong>Ardougne Knight Pickpocket</strong><br><small>Trap a knight, click repeatedly. Semi-AFK with coin pouches. The relaxed money maker.</small></td>
+  <td>55-99</td>
+  <td>120,000</td>
+  <td><span class="tag tag-region">Heartlands</span></td>
+  <td><span class="tag tag-low">low</span></td>
+  <td>low</td>
+  <td><strong>+60000</strong></td>
+</tr><tr>
+  <td><strong>Paradox Pickpocketing</strong><br><small>Pickpocket the paradox rabbits. They sometimes rob you back.</small></td>
+  <td>60-99</td>
+  <td>95,000</td>
+  <td><span class="tag tag-region">Inkweald</span></td>
+  <td><span class="tag tag-high">high</span></td>
+  <td>low</td>
+  <td>0</td>
+</tr><tr>
+  <td><strong>Rogues Castle Chests</strong><br><small>Loot chests in deep Wilderness. Best thieving gp/hr but PKers camp the castle.</small></td>
+  <td>84-99</td>
+  <td>100,000</td>
+  <td><span class="tag tag-region">The Wilds</span></td>
+  <td><span class="tag tag-high">high</span></td>
+  <td>extreme</td>
+  <td><strong>+300000</strong></td>
+</tr></table>
+</div>
+</body></html>

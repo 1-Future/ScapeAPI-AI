@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html><head><meta charset="utf-8"><title>fishing — Aelgard Codex</title>
+<style>
+  body {
+    font-family: ui-monospace, 'Cascadia Code', 'Consolas', monospace;
+    background: #3e3529;
+    color: #e8dcc0;
+    margin: 0;
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  .parchment {
+    background: #e8dcc0;
+    color: #2c1810;
+    padding: 30px 40px;
+    border: 3px solid #8b6f47;
+    border-radius: 4px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.5);
+    margin: 20px 0;
+  }
+  h1 {
+    color: #7a1f1a;
+    border-bottom: 2px solid #8b6f47;
+    padding-bottom: 10px;
+  }
+  h2 { color: #5a3a1a; margin-top: 30px; }
+  h3 { color: #6b4423; }
+  a { color: #7a1f1a; text-decoration: none; border-bottom: 1px dotted #7a1f1a; }
+  a:hover { background: #d4c49c; }
+  nav { margin-bottom: 20px; }
+  nav a { margin-right: 15px; font-weight: bold; }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 15px 0;
+  }
+  th, td {
+    text-align: left;
+    padding: 6px 10px;
+    border-bottom: 1px solid #c4a970;
+  }
+  th { background: #d4c49c; color: #2c1810; }
+  tr:hover { background: #d4c49c; }
+  .tag {
+    display: inline-block;
+    padding: 2px 8px;
+    margin: 2px;
+    border-radius: 3px;
+    font-size: 11px;
+    font-weight: bold;
+  }
+  .tag-region { background: #4a6b8a; color: #fff; }
+  .tag-skill  { background: #5a7f4a; color: #fff; }
+  .tag-trans  { background: #8a1f1a; color: #fff; }
+  .tag-major  { background: #a86a2a; color: #fff; }
+  .tag-minor  { background: #6a6a6a; color: #fff; }
+  .tag-afk    { background: #3a5a2a; color: #fff; }
+  .tag-low    { background: #4a7a3a; color: #fff; }
+  .tag-medium { background: #8a7a2a; color: #fff; }
+  .tag-high   { background: #a85a2a; color: #fff; }
+  .tag-maximum{ background: #8a1f1a; color: #fff; }
+  .tag-obscure{ background: #6a4a2a; color: #fff; font-style: italic; }
+  .stat-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    margin: 15px 0;
+  }
+  .stat-cell {
+    background: #d4c49c;
+    padding: 10px;
+    border-radius: 3px;
+    text-align: center;
+  }
+  .stat-cell .value {
+    font-size: 24px;
+    font-weight: bold;
+    color: #7a1f1a;
+  }
+  .stat-cell .label {
+    font-size: 11px;
+    color: #5a3a1a;
+    text-transform: uppercase;
+  }
+  .description {
+    font-style: italic;
+    color: #5a3a1a;
+    margin: 10px 0;
+    padding: 10px;
+    background: #d4c49c;
+    border-left: 3px solid #8b6f47;
+  }
+  ul.loose li { margin-bottom: 8px; }
+  details {
+    margin: 10px 0;
+    padding: 10px;
+    background: #d4c49c;
+    border-radius: 3px;
+  }
+  summary { cursor: pointer; font-weight: bold; }
+</style>
+</head>
+<body>
+<nav>
+  <a href="index.html">Home</a>
+  <a href="regions.html">Regions</a>
+  <a href="skills.html">Skills</a>
+  <a href="quests.html">Quests</a>
+  <a href="breakpoints.html">Breakpoints</a>
+  <a href="items.html">Items</a>
+</nav>
+<div class="parchment">
+<h1>Fishing</h1>
+<div class="description">13 training methods. 6 breakpoints.</div>
+
+<h2>Breakpoints</h2>
+<ul class="loose"><li><span class="tag tag-minor">level 20</span> <strong>Fly fishing (trout/salmon). Active but fast. The best early training method for any gathering skill.</strong><br><small>unlocks: Fly fishing — trout and salmon</small></li><li><span class="tag tag-minor">level 40</span> <strong>Lobsters. First fish that heals well in combat. You can now sustain through real fights.</strong><br><small>unlocks: Lobster cage fishing</small></li><li><span class="tag tag-major">level 62</span> <strong>Monkfish. Heals 16. The efficient PvM food. Balance of cost and healing.</strong><br><small>unlocks: Monkfish net fishing (requires quest)</small></li><li><span class="tag tag-major">level 76</span> <strong>Sharks. Heals 20. The iconic endgame food. &quot;Bank full of sharks&quot; means you are ready for anything.</strong><br><small>unlocks: Shark harpoon fishing</small></li><li><span class="tag tag-major">level 82</span> <strong>Anglerfish. Heals above max HP. The only food that overheals. Endgame PvM and PvP staple.</strong><br><small>unlocks: Anglerfish fishing (requires quest)</small></li><li><span class="tag tag-major">level 82</span> <strong>Anglerfish fishing. Overheal food that pushes past max HP. Essential for endgame bossing.</strong><br><small>unlocks: Anglerfish access</small></li></ul><h2>Training Methods</h2><table>
+<tr><th>Method</th><th>Levels</th><th>XP/hr</th><th>Location</th><th>Attention</th><th>Danger</th><th>Cost</th></tr><tr>
+  <td><strong>Shrimp Netting</strong><br><small>Net shrimp on the coast. The classic start. Nearly free and fully AFK.</small></td>
+  <td>1-20</td>
+  <td>8,000</td>
+  <td><span class="tag tag-region">Heartlands</span></td>
+  <td><span class="tag tag-afk">afk</span></td>
+  <td>none</td>
+  <td><strong>+2000</strong></td>
+</tr><tr>
+  <td><strong>Heartlands River Fishing</strong><br><small>Fly-fish the Heartlands river. Produces the core food supply for most of Aelgard.</small></td>
+  <td>1-50</td>
+  <td>35,000</td>
+  <td><span class="tag tag-region">Heartlands</span></td>
+  <td><span class="tag tag-afk">afk</span></td>
+  <td>none</td>
+  <td>0</td>
+</tr><tr>
+  <td><strong>Bog Trout Fishing</strong><br><small>Fish the Moryskah bogs. Bog trout cures swamp rot when cooked.</small></td>
+  <td>15-70</td>
+  <td>38,000</td>
+  <td><span class="tag tag-region">Moryskah</span></td>
+  <td><span class="tag tag-afk">afk</span></td>
+  <td>none</td>
+  <td>0</td>
+</tr><tr>
+  <td><strong>Oasis Fishing</strong><br><small>Fish the hidden desert oases. Mirage carp heals 10 HP + +5% ranged damage for 5min.</small></td>
+  <td>25-80</td>
+  <td>55,000</td>
+  <td><span class="tag tag-region">Boneyard Wastes</span></td>
+  <td><span class="tag tag-afk">afk</span></td>
+  <td>none</td>
+  <td>0</td>
+</tr><tr>
+  <td><strong>Tempoross (Fishing Boss)</strong><br><small>Skilling boss. Cook, fish, douse fires, dodge waves. Unique rewards plus raw fish output.</small></td>
+  <td>35-99</td>
+  <td>50,000</td>
+  <td><span class="tag tag-region">Saltbrine Reach</span></td>
+  <td><span class="tag tag-medium">medium</span></td>
+  <td>medium</td>
+  <td>0</td>
+</tr><tr>
+  <td><strong>Barbarian Fishing</strong><br><small>Drop fish, gain fishing + agility + strength XP. The efficient 3-skill method.</small></td>
+  <td>48-99</td>
+  <td>65,000</td>
+  <td><span class="tag tag-region">Heartlands</span></td>
+  <td><span class="tag tag-medium">medium</span></td>
+  <td>none</td>
+  <td>0</td>
+</tr><tr>
+  <td><strong>Sacred Eel Fishing</strong><br><small>Sacred eel from blessed pools. Scales used in crafting — demand cross-region.</small></td>
+  <td>55-99</td>
+  <td>72,000</td>
+  <td><span class="tag tag-region">Moryskah</span></td>
+  <td><span class="tag tag-afk">afk</span></td>
+  <td>none</td>
+  <td>0</td>
+</tr><tr>
+  <td><strong>Monkfish Fishing</strong><br><small>Relaxed fishing with decent profit. Bank is close. The chill money maker.</small></td>
+  <td>62-99</td>
+  <td>35,000</td>
+  <td><span class="tag tag-region">Saltbrine Reach</span></td>
+  <td><span class="tag tag-low">low</span></td>
+  <td>none</td>
+  <td><strong>+60000</strong></td>
+</tr><tr>
+  <td><strong>Heartlands Fishing Guild</strong><br><small>Fishing Guild harpoon area. Best pure-fishing method for sharks.</small></td>
+  <td>68-99</td>
+  <td>85,000</td>
+  <td><span class="tag tag-region">Heartlands</span></td>
+  <td><span class="tag tag-low">low</span></td>
+  <td>none</td>
+  <td>0</td>
+</tr><tr>
+  <td><strong>Saltbrine Fishing Guild</strong><br><small>Saltbrine coastal fishing. Sharks + swordfish. Primary cross-region food export.</small></td>
+  <td>68-99</td>
+  <td>88,000</td>
+  <td><span class="tag tag-region">Saltbrine Reach</span></td>
+  <td><span class="tag tag-low">low</span></td>
+  <td>none</td>
+  <td>0</td>
+</tr><tr>
+  <td><strong>Anglerfish Deep-Water</strong><br><small>Anglerfish — overheals past max HP. Essential for endgame PvM.</small></td>
+  <td>82-99</td>
+  <td>55,000</td>
+  <td><span class="tag tag-region">Saltbrine Reach</span></td>
+  <td><span class="tag tag-afk">afk</span></td>
+  <td>none</td>
+  <td>0</td>
+</tr><tr>
+  <td><strong>Dark Crab Fishing (Wilds)</strong><br><small>Best food fish, Wilds-only spot. Extremely profitable. PKer magnet.</small></td>
+  <td>85-99</td>
+  <td>40,000</td>
+  <td><span class="tag tag-region">The Wilds</span></td>
+  <td><span class="tag tag-high">high</span></td>
+  <td>extreme</td>
+  <td><strong>+150000</strong></td>
+</tr><tr>
+  <td><strong>Dark Crab Pirate Coast</strong><br><small>Dark crabs = premium food (heals 22). Wilderness-only. Extreme PKer threat.</small></td>
+  <td>85-99</td>
+  <td>45,000</td>
+  <td><span class="tag tag-region">The Wilds</span></td>
+  <td><span class="tag tag-medium">medium</span></td>
+  <td>extreme</td>
+  <td>0</td>
+</tr></table>
+</div>
+</body></html>

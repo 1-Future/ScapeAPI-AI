@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html><head><meta charset="utf-8"><title>prayer — Aelgard Codex</title>
+<style>
+  body {
+    font-family: ui-monospace, 'Cascadia Code', 'Consolas', monospace;
+    background: #3e3529;
+    color: #e8dcc0;
+    margin: 0;
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  .parchment {
+    background: #e8dcc0;
+    color: #2c1810;
+    padding: 30px 40px;
+    border: 3px solid #8b6f47;
+    border-radius: 4px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.5);
+    margin: 20px 0;
+  }
+  h1 {
+    color: #7a1f1a;
+    border-bottom: 2px solid #8b6f47;
+    padding-bottom: 10px;
+  }
+  h2 { color: #5a3a1a; margin-top: 30px; }
+  h3 { color: #6b4423; }
+  a { color: #7a1f1a; text-decoration: none; border-bottom: 1px dotted #7a1f1a; }
+  a:hover { background: #d4c49c; }
+  nav { margin-bottom: 20px; }
+  nav a { margin-right: 15px; font-weight: bold; }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 15px 0;
+  }
+  th, td {
+    text-align: left;
+    padding: 6px 10px;
+    border-bottom: 1px solid #c4a970;
+  }
+  th { background: #d4c49c; color: #2c1810; }
+  tr:hover { background: #d4c49c; }
+  .tag {
+    display: inline-block;
+    padding: 2px 8px;
+    margin: 2px;
+    border-radius: 3px;
+    font-size: 11px;
+    font-weight: bold;
+  }
+  .tag-region { background: #4a6b8a; color: #fff; }
+  .tag-skill  { background: #5a7f4a; color: #fff; }
+  .tag-trans  { background: #8a1f1a; color: #fff; }
+  .tag-major  { background: #a86a2a; color: #fff; }
+  .tag-minor  { background: #6a6a6a; color: #fff; }
+  .tag-afk    { background: #3a5a2a; color: #fff; }
+  .tag-low    { background: #4a7a3a; color: #fff; }
+  .tag-medium { background: #8a7a2a; color: #fff; }
+  .tag-high   { background: #a85a2a; color: #fff; }
+  .tag-maximum{ background: #8a1f1a; color: #fff; }
+  .tag-obscure{ background: #6a4a2a; color: #fff; font-style: italic; }
+  .stat-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    margin: 15px 0;
+  }
+  .stat-cell {
+    background: #d4c49c;
+    padding: 10px;
+    border-radius: 3px;
+    text-align: center;
+  }
+  .stat-cell .value {
+    font-size: 24px;
+    font-weight: bold;
+    color: #7a1f1a;
+  }
+  .stat-cell .label {
+    font-size: 11px;
+    color: #5a3a1a;
+    text-transform: uppercase;
+  }
+  .description {
+    font-style: italic;
+    color: #5a3a1a;
+    margin: 10px 0;
+    padding: 10px;
+    background: #d4c49c;
+    border-left: 3px solid #8b6f47;
+  }
+  ul.loose li { margin-bottom: 8px; }
+  details {
+    margin: 10px 0;
+    padding: 10px;
+    background: #d4c49c;
+    border-radius: 3px;
+  }
+  summary { cursor: pointer; font-weight: bold; }
+</style>
+</head>
+<body>
+<nav>
+  <a href="index.html">Home</a>
+  <a href="regions.html">Regions</a>
+  <a href="skills.html">Skills</a>
+  <a href="quests.html">Quests</a>
+  <a href="breakpoints.html">Breakpoints</a>
+  <a href="items.html">Items</a>
+</nav>
+<div class="parchment">
+<h1>Prayer</h1>
+<div class="description">17 training methods. 8 breakpoints.</div>
+
+<h2>Breakpoints</h2>
+<ul class="loose"><li><span class="tag tag-minor">level 1</span> <strong>Chaos Altar is accessible at ANY prayer level. 7x XP. THE wilderness economy of prayer training.</strong><br><small>unlocks: Chaos altar</small></li><li><span class="tag tag-minor">level 13</span> <strong>Protect Item. You keep one more item on death. PvP and PvM risk calculation changes.</strong><br><small>unlocks: Protect Item prayer</small></li><li><span class="tag tag-major">level 37</span> <strong>Protect from Magic. The first protection prayer. Mages in PvP can no longer freeze-kill you.</strong><br><small>unlocks: Protect from Magic prayer</small></li><li><span class="tag tag-transformative">level 43</span> <strong>All three protection prayers. This is THE breakpoint. Bosses that were impossible become farmable. The game permanently changes.</strong><br><small>unlocks: Protect from Melee prayer · Protect from Missiles prayer</small></li><li><span class="tag tag-minor">level 60</span> <strong>Chivalry. 15% attack, 18% strength, 15% defence boost. Massive DPS increase if you can sustain the drain.</strong><br><small>unlocks: Chivalry prayer (requires quest)</small></li><li><span class="tag tag-transformative">level 70</span> <strong>Piety. 20% attack, 23% strength, 25% defence boost. THE endgame melee prayer. All serious PvMers need this.</strong><br><small>unlocks: Piety prayer (requires quest)</small></li><li><span class="tag tag-major">level 74</span> <strong>Rigour. 20% ranged accuracy, 23% ranged strength, 25% defence. The ranged equivalent of Piety.</strong><br><small>unlocks: Rigour prayer (requires drop + quest)</small></li><li><span class="tag tag-major">level 77</span> <strong>Augury. 25% magic accuracy, 25% defence. The magic equivalent of Piety.</strong><br><small>unlocks: Augury prayer (requires drop + quest)</small></li></ul><h2>Training Methods</h2><table>
+<tr><th>Method</th><th>Levels</th><th>XP/hr</th><th>Location</th><th>Attention</th><th>Danger</th><th>Cost</th></tr><tr>
+  <td><strong>Regular Bones at Altar</strong><br><small>Buy bones, use on altar. The cheapest entry into prayer. Repetitive but safe.</small></td>
+  <td>1-30</td>
+  <td>15,000</td>
+  <td><span class="tag tag-region">Heartlands</span></td>
+  <td><span class="tag tag-low">low</span></td>
+  <td>none</td>
+  <td>10000</td>
+</tr><tr>
+  <td><strong>Ectofuntus Worship</strong><br><small>Grind bones, worship. Better XP per bone than gilded but slower per hour. Earns tokens.</small></td>
+  <td>1-99</td>
+  <td>100,000</td>
+  <td><span class="tag tag-region">Moryskah</span></td>
+  <td><span class="tag tag-high">high</span></td>
+  <td>none</td>
+  <td>300000</td>
+</tr><tr>
+  <td><strong>Chaos Altar (Wilderness)</strong><br><small>50% chance bones are saved. Best XP/gp in the game. Bring one inventory at a time.</small></td>
+  <td>1-99</td>
+  <td>350,000</td>
+  <td><span class="tag tag-region">The Wilds</span></td>
+  <td><span class="tag tag-maximum">maximum</span></td>
+  <td>extreme</td>
+  <td>700000</td>
+</tr><tr>
+  <td><strong>Ectofuntus Worship</strong><br><small>Grind bones + mix with ectoplasm = 4x prayer XP. Moryskah-unique. THE flagship prayer method.</small></td>
+  <td>1-99</td>
+  <td>180,000</td>
+  <td><span class="tag tag-region">Moryskah</span></td>
+  <td><span class="tag tag-high">high</span></td>
+  <td>none</td>
+  <td>0</td>
+</tr><tr>
+  <td><strong>Fossil Prayer Offering</strong><br><small>Unique Boneyard prayer path. Fossils grant 2.5x the XP of regular bones.</small></td>
+  <td>1-99</td>
+  <td>85,000</td>
+  <td><span class="tag tag-region">Boneyard Wastes</span></td>
+  <td><span class="tag tag-low">low</span></td>
+  <td>none</td>
+  <td>0</td>
+</tr><tr>
+  <td><strong>Druid Altar Offerings</strong><br><small>Offer bones at the Druid Altar. 3x prayer XP boost vs regular bones.</small></td>
+  <td>1-99</td>
+  <td>120,000</td>
+  <td><span class="tag tag-region">Veilwood</span></td>
+  <td><span class="tag tag-low">low</span></td>
+  <td>none</td>
+  <td>0</td>
+</tr><tr>
+  <td><strong>Chaos Altar Prayer</strong><br><small>Chaos Altar gives 7x prayer XP. Highest in the game. PKers patrol the altar — you WILL be attacked.</small></td>
+  <td>1-99</td>
+  <td>380,000</td>
+  <td><span class="tag tag-region">The Wilds</span></td>
+  <td><span class="tag tag-maximum">maximum</span></td>
+  <td>extreme</td>
+  <td>0</td>
+</tr><tr>
+  <td><strong>[Quirky] Polish the Altar</strong><br><small>Rub the altar with a cloth. Monks appreciate the dedication.</small></td>
+  <td>1-99</td>
+  <td>600</td>
+  <td><span class="tag tag-region">Heartlands</span></td>
+  <td><span class="tag tag-medium">medium</span></td>
+  <td>none</td>
+  <td>0</td>
+</tr><tr>
+  <td><strong>[Quirky] Chant with the Druids</strong><br><small>Join the druids low chant. Repeat the syllables they teach you.</small></td>
+  <td>1-99</td>
+  <td>960</td>
+  <td><span class="tag tag-region">Veilwood</span></td>
+  <td><span class="tag tag-medium">medium</span></td>
+  <td>none</td>
+  <td>0</td>
+</tr><tr>
+  <td><strong>[Quirky] Practice Exorcism Chant</strong><br><small>Recite the ancient exorcism phrases. Nothing happens. Probably.</small></td>
+  <td>1-99</td>
+  <td>900</td>
+  <td><span class="tag tag-region">Moryskah</span></td>
+  <td><span class="tag tag-medium">medium</span></td>
+  <td>none</td>
+  <td>0</td>
+</tr><tr>
+  <td><strong>[Quirky] Gaze into the Mirror Pool</strong><br><small>Look into your reflection. It looks back slightly wrong.</small></td>
+  <td>1-99</td>
+  <td>560</td>
+  <td><span class="tag tag-region">Inkweald</span></td>
+  <td><span class="tag tag-medium">medium</span></td>
+  <td>none</td>
+  <td>0</td>
+</tr><tr>
+  <td><strong>[Quirky] Polish the Sun Prisms</strong><br><small>Polish the great prisms. They redirect sunlight for the shrine.</small></td>
+  <td>1-99</td>
+  <td>900</td>
+  <td><span class="tag tag-region">Glass Desert</span></td>
+  <td><span class="tag tag-medium">medium</span></td>
+  <td>none</td>
+  <td>0</td>
+</tr><tr>
+  <td><strong>[Quirky] Place a Revenant Ward</strong><br><small>Stake a holy ward into the ground. Slight prayer XP per ward.</small></td>
+  <td>1-99</td>
+  <td>720</td>
+  <td><span class="tag tag-region">The Wilds</span></td>
+  <td><span class="tag tag-medium">medium</span></td>
+  <td>extreme</td>
+  <td>0</td>
+</tr><tr>
+  <td><strong>Ensouled Head Reanimation</strong><br><small>Reanimate heads and kill them for prayer XP. Cheaper than bones, needs magic levels.</small></td>
+  <td>20-99</td>
+  <td>60,000</td>
+  <td><span class="tag tag-region">Inkweald</span></td>
+  <td><span class="tag tag-medium">medium</span></td>
+  <td>low</td>
+  <td>150000</td>
+</tr><tr>
+  <td><strong>Dragon Bones on Gilded Altar</strong><br><small>Gilded altar gives 350% XP. Fast but drains the bank. The money method.</small></td>
+  <td>30-99</td>
+  <td>300,000</td>
+  <td><span class="tag tag-region">Heartlands</span></td>
+  <td><span class="tag tag-medium">medium</span></td>
+  <td>none</td>
+  <td>1500000</td>
+</tr><tr>
+  <td><strong>Shade Pyre Cremation</strong><br><small>Cremate shades on pyre logs. Double-skill XP (prayer + firemaking). Gothic-flavored sustain.</small></td>
+  <td>30-99</td>
+  <td>95,000</td>
+  <td><span class="tag tag-region">Moryskah</span></td>
+  <td><span class="tag tag-medium">medium</span></td>
+  <td>none</td>
+  <td>8000</td>
+</tr><tr>
+  <td><strong>Mirror Pond Meditation</strong><br><small>Meditate at the Mirror Pond. Your reflection grants prayer insight. Obscure method.</small></td>
+  <td>50-99</td>
+  <td>95,000</td>
+  <td><span class="tag tag-region">Inkweald</span></td>
+  <td><span class="tag tag-low">low</span></td>
+  <td>none</td>
+  <td>0</td>
+</tr></table>
+</div>
+</body></html>

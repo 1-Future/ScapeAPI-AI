@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html><head><meta charset="utf-8"><title>fletching — Aelgard Codex</title>
+<style>
+  body {
+    font-family: ui-monospace, 'Cascadia Code', 'Consolas', monospace;
+    background: #3e3529;
+    color: #e8dcc0;
+    margin: 0;
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  .parchment {
+    background: #e8dcc0;
+    color: #2c1810;
+    padding: 30px 40px;
+    border: 3px solid #8b6f47;
+    border-radius: 4px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.5);
+    margin: 20px 0;
+  }
+  h1 {
+    color: #7a1f1a;
+    border-bottom: 2px solid #8b6f47;
+    padding-bottom: 10px;
+  }
+  h2 { color: #5a3a1a; margin-top: 30px; }
+  h3 { color: #6b4423; }
+  a { color: #7a1f1a; text-decoration: none; border-bottom: 1px dotted #7a1f1a; }
+  a:hover { background: #d4c49c; }
+  nav { margin-bottom: 20px; }
+  nav a { margin-right: 15px; font-weight: bold; }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 15px 0;
+  }
+  th, td {
+    text-align: left;
+    padding: 6px 10px;
+    border-bottom: 1px solid #c4a970;
+  }
+  th { background: #d4c49c; color: #2c1810; }
+  tr:hover { background: #d4c49c; }
+  .tag {
+    display: inline-block;
+    padding: 2px 8px;
+    margin: 2px;
+    border-radius: 3px;
+    font-size: 11px;
+    font-weight: bold;
+  }
+  .tag-region { background: #4a6b8a; color: #fff; }
+  .tag-skill  { background: #5a7f4a; color: #fff; }
+  .tag-trans  { background: #8a1f1a; color: #fff; }
+  .tag-major  { background: #a86a2a; color: #fff; }
+  .tag-minor  { background: #6a6a6a; color: #fff; }
+  .tag-afk    { background: #3a5a2a; color: #fff; }
+  .tag-low    { background: #4a7a3a; color: #fff; }
+  .tag-medium { background: #8a7a2a; color: #fff; }
+  .tag-high   { background: #a85a2a; color: #fff; }
+  .tag-maximum{ background: #8a1f1a; color: #fff; }
+  .tag-obscure{ background: #6a4a2a; color: #fff; font-style: italic; }
+  .stat-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    margin: 15px 0;
+  }
+  .stat-cell {
+    background: #d4c49c;
+    padding: 10px;
+    border-radius: 3px;
+    text-align: center;
+  }
+  .stat-cell .value {
+    font-size: 24px;
+    font-weight: bold;
+    color: #7a1f1a;
+  }
+  .stat-cell .label {
+    font-size: 11px;
+    color: #5a3a1a;
+    text-transform: uppercase;
+  }
+  .description {
+    font-style: italic;
+    color: #5a3a1a;
+    margin: 10px 0;
+    padding: 10px;
+    background: #d4c49c;
+    border-left: 3px solid #8b6f47;
+  }
+  ul.loose li { margin-bottom: 8px; }
+  details {
+    margin: 10px 0;
+    padding: 10px;
+    background: #d4c49c;
+    border-radius: 3px;
+  }
+  summary { cursor: pointer; font-weight: bold; }
+</style>
+</head>
+<body>
+<nav>
+  <a href="index.html">Home</a>
+  <a href="regions.html">Regions</a>
+  <a href="skills.html">Skills</a>
+  <a href="quests.html">Quests</a>
+  <a href="breakpoints.html">Breakpoints</a>
+  <a href="items.html">Items</a>
+</nav>
+<div class="parchment">
+<h1>Fletching</h1>
+<div class="description">9 training methods. 5 breakpoints.</div>
+
+<h2>Breakpoints</h2>
+<ul class="loose"><li><span class="tag tag-minor">level 1</span> <strong>Arrow shafts. 15 per log. Your first batch processing — logs become ammunition.</strong><br><small>unlocks: Fletch arrow shafts</small></li><li><span class="tag tag-minor">level 50</span> <strong>Maple shortbow. The efficient fletching training tier. Cut, string, repeat.</strong><br><small>unlocks: Fletch maple shortbows (u)</small></li><li><span class="tag tag-major">level 70</span> <strong>Yew longbow. THE classic high-alch item. Yew logs -&gt; yew longbow (u) -&gt; string -&gt; alch = profit.</strong><br><small>unlocks: Yew longbow — the alch economy workhorse</small></li><li><span class="tag tag-major">level 72</span> <strong>Crystal bow fletching. ONLY source of crystal bows in Aelgard. Endgame ranged weapon start.</strong><br><small>unlocks: Crystal fletching</small></li><li><span class="tag tag-minor">level 85</span> <strong>Magic longbow. Highest fletching product. Magic logs -&gt; magic longbow -&gt; alch for max gold.</strong><br><small>unlocks: Magic longbow — highest alch value bow</small></li></ul><h2>Training Methods</h2><table>
+<tr><th>Method</th><th>Levels</th><th>XP/hr</th><th>Location</th><th>Attention</th><th>Danger</th><th>Cost</th></tr><tr>
+  <td><strong>Arrow Shaft Cutting</strong><br><small>Cut logs into arrow shafts. AFK, profitable, brain-dead. Great while watching TV.</small></td>
+  <td>1-20</td>
+  <td>15,000</td>
+  <td><span class="tag tag-region">Heartlands</span></td>
+  <td><span class="tag tag-afk">afk</span></td>
+  <td>none</td>
+  <td><strong>+5000</strong></td>
+</tr><tr>
+  <td><strong>Novice Arrow Fletching</strong><br><small>Fletch basic arrows for the Heartlands militia. Low XP but produces ammo.</small></td>
+  <td>1-30</td>
+  <td>20,000</td>
+  <td><span class="tag tag-region">Heartlands</span></td>
+  <td><span class="tag tag-afk">afk</span></td>
+  <td>none</td>
+  <td>0</td>
+</tr><tr>
+  <td><strong>Bowstring Spinning</strong><br><small>Spin flax into bowstring on the spinning wheel. Produces THE key fletching input.</small></td>
+  <td>10-50</td>
+  <td>45,000</td>
+  <td><span class="tag tag-region">Heartlands</span></td>
+  <td><span class="tag tag-afk">afk</span></td>
+  <td>none</td>
+  <td>0</td>
+</tr><tr>
+  <td><strong>Wilderness Javelin Crafting</strong><br><small>Wilds-only javelin wood. Good XP and profit but you are a sitting target.</small></td>
+  <td>35-99</td>
+  <td>200,000</td>
+  <td><span class="tag tag-region">The Wilds</span></td>
+  <td><span class="tag tag-high">high</span></td>
+  <td>high</td>
+  <td><strong>+50000</strong></td>
+</tr><tr>
+  <td><strong>Cursed Bow Fletching</strong><br><small>Fletch cursed bows from swamp willow. Unique — cursed bows do +10% damage vs undead.</small></td>
+  <td>40-99</td>
+  <td>85,000</td>
+  <td><span class="tag tag-region">Moryskah</span></td>
+  <td><span class="tag tag-low">low</span></td>
+  <td>none</td>
+  <td>0</td>
+</tr><tr>
+  <td><strong>Broad Bolt Fletching</strong><br><small>Attach broad tips to bolts. Insanely fast XP AND profit. Requires slayer unlock.</small></td>
+  <td>55-99</td>
+  <td>500,000</td>
+  <td><span class="tag tag-region">Heartlands</span></td>
+  <td><span class="tag tag-low">low</span></td>
+  <td>none</td>
+  <td><strong>+30000</strong></td>
+</tr><tr>
+  <td><strong>Yew Longbow Stringing</strong><br><small>String yew longbows. Fast, low attention. Slight loss per bow.</small></td>
+  <td>70-99</td>
+  <td>120,000</td>
+  <td><span class="tag tag-region">Heartlands</span></td>
+  <td><span class="tag tag-low">low</span></td>
+  <td>none</td>
+  <td>40000</td>
+</tr><tr>
+  <td><strong>Crystal Bow Fletching</strong><br><small>Craft crystal bows — endgame fletching. Requires elven rituals.</small></td>
+  <td>72-99</td>
+  <td>110,000</td>
+  <td><span class="tag tag-region">Veilwood</span></td>
+  <td><span class="tag tag-low">low</span></td>
+  <td>none</td>
+  <td>0</td>
+</tr><tr>
+  <td><strong>Dragon Dart Tips</strong><br><small>Fastest fletching XP in the game. Dragon dart tips cost a fortune.</small></td>
+  <td>95-99</td>
+  <td>1,000,000</td>
+  <td><span class="tag tag-region">Heartlands</span></td>
+  <td><span class="tag tag-medium">medium</span></td>
+  <td>none</td>
+  <td>2000000</td>
+</tr></table>
+</div>
+</body></html>

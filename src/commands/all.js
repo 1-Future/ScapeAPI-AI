@@ -3108,6 +3108,50 @@ module.exports = function registerAll(ctx) {
     }
   });
 
+  // ═══════════════════════════════════════════════════════════════════════════
+  // CRYSTAL WYRM BOSS COMMAND
+  // ═══════════════════════════════════════════════════════════════════════════
+  const crystalWyrm = require('../content/crystal_wyrm/crystal_wyrm');
+
+  commands.register('wyrm', { help: 'Fight the Crystal Wyrm: wyrm [start|status|leave]', aliases: ['crystal'], category: 'Combat',
+    fn: (p, args, raw, ws) => {
+      const sub = (args[0] || 'start').toLowerCase();
+
+      if (sub === 'start' || sub === 'enter' || sub === 'fight') {
+        const existing = instances.getByPlayer(p.id);
+        if (existing) return 'You are already in an instance. Use `wyrm leave` to exit.';
+        const sendFn = ws ? (msg) => sendText(ws, msg) : () => {};
+        crystalWyrm.startCrystalWyrm(p, sendFn);
+        return 'You descend into the Crystal Heart Chamber...';
+      }
+
+      if (sub === 'status') {
+        const inst = instances.getByPlayer(p.id);
+        if (!inst || inst.type !== 'crystal_wyrm') return 'You are not fighting the Crystal Wyrm.';
+        const status = instances.getStatus(inst);
+        let msg = `Crystal Wyrm — ${status.npcsAlive} mobs alive`;
+        msg += ` — ${Math.floor(status.ticksElapsed * 0.6)}s elapsed`;
+        if (status.npcList.length > 0) {
+          msg += '\n';
+          for (const n of status.npcList) {
+            const phaseTxt = n.name === 'Crystal Wyrm' ? ` [Phase ${n.customState?.phase || 1}]` : '';
+            msg += `  ${n.name}${phaseTxt} at (${n.x},${n.y}) HP: ${n.hp}/${n.maxHp}\n`;
+          }
+        }
+        return msg.trimEnd();
+      }
+
+      if (sub === 'leave' || sub === 'exit') {
+        const inst = instances.getByPlayer(p.id);
+        if (!inst) return 'You are not in an instance.';
+        instances.fail(inst, 'You fled from the Crystal Wyrm.');
+        return 'You escape the Crystal Heart Chamber.';
+      }
+
+      return 'Usage: wyrm [start|status|leave]';
+    }
+  });
+
   commands.register('wave', { help: 'Show current wave status', category: 'Combat',
     fn: (p) => {
       const inst = instances.getByPlayer(p.id);

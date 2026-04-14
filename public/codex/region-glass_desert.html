@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html><head><meta charset="utf-8"><title>Glass Desert — Aelgard Codex</title>
+<style>
+  body {
+    font-family: ui-monospace, 'Cascadia Code', 'Consolas', monospace;
+    background: #3e3529;
+    color: #e8dcc0;
+    margin: 0;
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  .parchment {
+    background: #e8dcc0;
+    color: #2c1810;
+    padding: 30px 40px;
+    border: 3px solid #8b6f47;
+    border-radius: 4px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.5);
+    margin: 20px 0;
+  }
+  h1 {
+    color: #7a1f1a;
+    border-bottom: 2px solid #8b6f47;
+    padding-bottom: 10px;
+  }
+  h2 { color: #5a3a1a; margin-top: 30px; }
+  h3 { color: #6b4423; }
+  a { color: #7a1f1a; text-decoration: none; border-bottom: 1px dotted #7a1f1a; }
+  a:hover { background: #d4c49c; }
+  nav { margin-bottom: 20px; }
+  nav a { margin-right: 15px; font-weight: bold; }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 15px 0;
+  }
+  th, td {
+    text-align: left;
+    padding: 6px 10px;
+    border-bottom: 1px solid #c4a970;
+  }
+  th { background: #d4c49c; color: #2c1810; }
+  tr:hover { background: #d4c49c; }
+  .tag {
+    display: inline-block;
+    padding: 2px 8px;
+    margin: 2px;
+    border-radius: 3px;
+    font-size: 11px;
+    font-weight: bold;
+  }
+  .tag-region { background: #4a6b8a; color: #fff; }
+  .tag-skill  { background: #5a7f4a; color: #fff; }
+  .tag-trans  { background: #8a1f1a; color: #fff; }
+  .tag-major  { background: #a86a2a; color: #fff; }
+  .tag-minor  { background: #6a6a6a; color: #fff; }
+  .tag-afk    { background: #3a5a2a; color: #fff; }
+  .tag-low    { background: #4a7a3a; color: #fff; }
+  .tag-medium { background: #8a7a2a; color: #fff; }
+  .tag-high   { background: #a85a2a; color: #fff; }
+  .tag-maximum{ background: #8a1f1a; color: #fff; }
+  .tag-obscure{ background: #6a4a2a; color: #fff; font-style: italic; }
+  .stat-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    margin: 15px 0;
+  }
+  .stat-cell {
+    background: #d4c49c;
+    padding: 10px;
+    border-radius: 3px;
+    text-align: center;
+  }
+  .stat-cell .value {
+    font-size: 24px;
+    font-weight: bold;
+    color: #7a1f1a;
+  }
+  .stat-cell .label {
+    font-size: 11px;
+    color: #5a3a1a;
+    text-transform: uppercase;
+  }
+  .description {
+    font-style: italic;
+    color: #5a3a1a;
+    margin: 10px 0;
+    padding: 10px;
+    background: #d4c49c;
+    border-left: 3px solid #8b6f47;
+  }
+  ul.loose li { margin-bottom: 8px; }
+  details {
+    margin: 10px 0;
+    padding: 10px;
+    background: #d4c49c;
+    border-radius: 3px;
+  }
+  summary { cursor: pointer; font-weight: bold; }
+</style>
+</head>
+<body>
+<nav>
+  <a href="index.html">Home</a>
+  <a href="regions.html">Regions</a>
+  <a href="skills.html">Skills</a>
+  <a href="quests.html">Quests</a>
+  <a href="breakpoints.html">Breakpoints</a>
+  <a href="items.html">Items</a>
+</nav>
+<div class="parchment">
+<h1>Glass Desert</h1>
+<div class="description">Crystalline endgame wasteland. Crystal Wyrm, Inferno, dragons.</div>
+
+<div class="stat-grid">
+  <div class="stat-cell"><div class="value">11</div><div class="label">Training Methods</div></div>
+  <div class="stat-cell"><div class="value">4</div><div class="label">Sub-areas</div></div>
+  <div class="stat-cell"><div class="value">2</div><div class="label">Quirky Interactions</div></div>
+  <div class="stat-cell"><div class="value">1</div><div class="label">Prestige Goals</div></div>
+</div>
+<h2>Prestige Goal: Slaying the Crystal Wyrm</h2>
+<div class="description">The endgame. Defeat Veldrak the Crystal Wyrm — Aelgards ultimate tier 5 boss. Claim the Dragon Hunter Lance components.</div>
+<p><strong>Required skills:</strong> <span class="tag tag-skill">attack 90</span> <span class="tag tag-skill">ranged 90</span> <span class="tag tag-skill">magic 85</span> <span class="tag tag-skill">prayer 77</span> <span class="tag tag-skill">hitpoints 90</span> <span class="tag tag-skill">herblore 80</span></p>
+<p><strong>Bosses:</strong> veldrak_the_crystal_wyrm</p>
+<p><strong>Unique rewards:</strong> crystal_wyrm_scale_cape, dragon_hunter_lance</p>
+<h2>Sub-areas</h2><ul class="loose"><li><strong>The Glass Desert</strong> — Crystalline wasteland. The hardest region. Crystal Wyrm lives here. Endgame bosses and resources. <small>[requires: mining 50, magic 45, prayer 35, agility 30, hitpoints 50, quest: echoes_of_the_deep]</small></li><li><strong>Crystal Caverns</strong> — Crystal Wyrm lair. Tier 5 endgame boss. The hardest solo encounter in Aelgard. <small>[requires: attack 80, ranged 80, magic 75, prayer 70, hitpoints 80, quest: the_last_dragon_p3]</small></li><li><strong>The Fight Caves</strong> — 63 waves of combat. Fire Cape reward. The prestige challenge of Aelgard. <small>[requires: ranged 60, prayer 45, hitpoints 60]</small></li><li><strong>The Inferno</strong> — 69 waves. The hardest content in the game. Infernal Cape. Requires Fire Cape to enter. <small>[requires: ranged 90, magic 85, prayer 75, hitpoints 90, quest: fight_caves]</small></li></ul><h2>Training Methods (11)</h2>
+<table>
+  <tr><th>Skill</th><th>Method</th><th>Levels</th><th>XP/hr</th><th>Attention</th><th>Danger</th><th>Cost/hr</th></tr>
+  <tr>
+    <td><span class="tag tag-skill">attack</span></td>
+    <td><strong>Crystal Wyrm Grinding</strong><br><small>Crystal Wyrm. Tier-5 prestige boss. Best endgame melee XP + profit.</small></td>
+    <td>85-99</td>
+    <td>95,000</td>
+    <td><span class="tag tag-maximum">maximum</span></td>
+    <td>extreme</td>
+    <td>50000</td>
+  </tr>
+  <tr>
+    <td><span class="tag tag-skill">crafting</span></td>
+    <td><strong>Glassblowing</strong><br><small>Blow glass from sand and seaweed. Free if you gather materials. True AFK crafting.</small></td>
+    <td>1-99</td>
+    <td>45,000</td>
+    <td><span class="tag tag-afk">afk</span></td>
+    <td>none</td>
+    <td>0</td>
+  </tr>
+  <tr>
+    <td><span class="tag tag-skill">crafting</span></td>
+    <td><strong>[Quirky] Tune the Crystal Wind Chimes</strong><br><small>Adjust the resonance of the crystal chimes. The sage listens critically.</small></td>
+    <td>1-99</td>
+    <td>800</td>
+    <td><span class="tag tag-medium">medium</span></td>
+    <td>none</td>
+    <td>0</td>
+  </tr>
+  <tr>
+    <td><span class="tag tag-skill">herblore</span></td>
+    <td><strong>Prism Garden Herblore</strong><br><small>Prism garden grows all herb types. 2x yield means Glass Desert can self-sustain herblore.</small></td>
+    <td>70-99</td>
+    <td>105,000</td>
+    <td><span class="tag tag-medium">medium</span></td>
+    <td>none</td>
+    <td>0</td>
+  </tr>
+  <tr>
+    <td><span class="tag tag-skill">mining</span></td>
+    <td><strong>Granite 3-Tick Mining</strong><br><small>Tick-manipulate granite in the desert. Fastest mining XP. Demands perfect rhythm.</small></td>
+    <td>45-99</td>
+    <td>100,000</td>
+    <td><span class="tag tag-maximum">maximum</span></td>
+    <td>low</td>
+    <td>0</td>
+  </tr>
+  <tr>
+    <td><span class="tag tag-skill">mining</span></td>
+    <td><strong>Crystal Endgame Mining</strong><br><small>Endgame crystal mining. Lv 92 mining breakpoint. Feeds all crystal gear maintenance.</small></td>
+    <td>92-99</td>
+    <td>80,000</td>
+    <td><span class="tag tag-medium">medium</span></td>
+    <td>low</td>
+    <td>0</td>
+  </tr>
+  <tr>
+    <td><span class="tag tag-skill">prayer</span></td>
+    <td><strong>[Quirky] Polish the Sun Prisms</strong><br><small>Polish the great prisms. They redirect sunlight for the shrine.</small></td>
+    <td>1-99</td>
+    <td>900</td>
+    <td><span class="tag tag-medium">medium</span></td>
+    <td>none</td>
+    <td>0</td>
+  </tr>
+  <tr>
+    <td><span class="tag tag-skill">ranged</span></td>
+    <td><strong>Fight Caves Progression</strong><br><small>The Fight Caves. 63 waves. Earns Fire Cape — prestige item, also entry to Inferno.</small></td>
+    <td>70-99</td>
+    <td>52,000</td>
+    <td><span class="tag tag-maximum">maximum</span></td>
+    <td>extreme</td>
+    <td>40000</td>
+  </tr>
+  <tr>
+    <td><span class="tag tag-skill">ranged</span></td>
+    <td><strong>Inferno Progression</strong><br><small>The Inferno. 69 waves. Hardest content in Aelgard. Infernal Cape = ultimate prestige.</small></td>
+    <td>90-99</td>
+    <td>38,000</td>
+    <td><span class="tag tag-maximum">maximum</span></td>
+    <td>extreme</td>
+    <td>150000</td>
+  </tr>
+  <tr>
+    <td><span class="tag tag-skill">runecrafting</span></td>
+    <td><strong>Sun Rune Crafting</strong><br><small>Wrath runes at the Sun Altar. Post-endgame RC. Only source of Wrath spells.</small></td>
+    <td>95-99</td>
+    <td>52,000</td>
+    <td><span class="tag tag-medium">medium</span></td>
+    <td>none</td>
+    <td>0</td>
+  </tr>
+  <tr>
+    <td><span class="tag tag-skill">smithing</span></td>
+    <td><strong>Obsidian Smithing</strong><br><small>TzHaar obsidian smithing. Obsidian gear is BIS in specific niches.</small></td>
+    <td>60-99</td>
+    <td>95,000</td>
+    <td><span class="tag tag-medium">medium</span></td>
+    <td>none</td>
+    <td>0</td>
+  </tr></table><h2>Quirky Interactions (2)</h2>
+<div class="description">Ambient world objects that grant tiny XP. Discoverable, flavorful, mathematically terrible — but sometimes a lifeline.</div>
+<ul class="loose"><li><strong>Tune the Crystal Wind Chimes</strong> [crafting] — 1 xp/click. <em>The sage smiles when you hit the right tone. Rare occurrence.</em></li><li><strong>Polish the Sun Prisms</strong> [prayer] — 1.5 xp/click. <em>Light catches and throws rainbows across your face.</em></li></ul>
+</div>
+</body></html>

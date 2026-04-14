@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html><head><meta charset="utf-8"><title>Sootworks — Aelgard Codex</title>
+<style>
+  body {
+    font-family: ui-monospace, 'Cascadia Code', 'Consolas', monospace;
+    background: #3e3529;
+    color: #e8dcc0;
+    margin: 0;
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  .parchment {
+    background: #e8dcc0;
+    color: #2c1810;
+    padding: 30px 40px;
+    border: 3px solid #8b6f47;
+    border-radius: 4px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.5);
+    margin: 20px 0;
+  }
+  h1 {
+    color: #7a1f1a;
+    border-bottom: 2px solid #8b6f47;
+    padding-bottom: 10px;
+  }
+  h2 { color: #5a3a1a; margin-top: 30px; }
+  h3 { color: #6b4423; }
+  a { color: #7a1f1a; text-decoration: none; border-bottom: 1px dotted #7a1f1a; }
+  a:hover { background: #d4c49c; }
+  nav { margin-bottom: 20px; }
+  nav a { margin-right: 15px; font-weight: bold; }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 15px 0;
+  }
+  th, td {
+    text-align: left;
+    padding: 6px 10px;
+    border-bottom: 1px solid #c4a970;
+  }
+  th { background: #d4c49c; color: #2c1810; }
+  tr:hover { background: #d4c49c; }
+  .tag {
+    display: inline-block;
+    padding: 2px 8px;
+    margin: 2px;
+    border-radius: 3px;
+    font-size: 11px;
+    font-weight: bold;
+  }
+  .tag-region { background: #4a6b8a; color: #fff; }
+  .tag-skill  { background: #5a7f4a; color: #fff; }
+  .tag-trans  { background: #8a1f1a; color: #fff; }
+  .tag-major  { background: #a86a2a; color: #fff; }
+  .tag-minor  { background: #6a6a6a; color: #fff; }
+  .tag-afk    { background: #3a5a2a; color: #fff; }
+  .tag-low    { background: #4a7a3a; color: #fff; }
+  .tag-medium { background: #8a7a2a; color: #fff; }
+  .tag-high   { background: #a85a2a; color: #fff; }
+  .tag-maximum{ background: #8a1f1a; color: #fff; }
+  .tag-obscure{ background: #6a4a2a; color: #fff; font-style: italic; }
+  .stat-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    margin: 15px 0;
+  }
+  .stat-cell {
+    background: #d4c49c;
+    padding: 10px;
+    border-radius: 3px;
+    text-align: center;
+  }
+  .stat-cell .value {
+    font-size: 24px;
+    font-weight: bold;
+    color: #7a1f1a;
+  }
+  .stat-cell .label {
+    font-size: 11px;
+    color: #5a3a1a;
+    text-transform: uppercase;
+  }
+  .description {
+    font-style: italic;
+    color: #5a3a1a;
+    margin: 10px 0;
+    padding: 10px;
+    background: #d4c49c;
+    border-left: 3px solid #8b6f47;
+  }
+  ul.loose li { margin-bottom: 8px; }
+  details {
+    margin: 10px 0;
+    padding: 10px;
+    background: #d4c49c;
+    border-radius: 3px;
+  }
+  summary { cursor: pointer; font-weight: bold; }
+</style>
+</head>
+<body>
+<nav>
+  <a href="index.html">Home</a>
+  <a href="regions.html">Regions</a>
+  <a href="skills.html">Skills</a>
+  <a href="quests.html">Quests</a>
+  <a href="breakpoints.html">Breakpoints</a>
+  <a href="items.html">Items</a>
+</nav>
+<div class="parchment">
+<h1>Sootworks</h1>
+<div class="description">Clockwork industrial underground. Dwarven forges, steam vents.</div>
+
+<div class="stat-grid">
+  <div class="stat-cell"><div class="value">15</div><div class="label">Training Methods</div></div>
+  <div class="stat-cell"><div class="value">3</div><div class="label">Sub-areas</div></div>
+  <div class="stat-cell"><div class="value">4</div><div class="label">Quirky Interactions</div></div>
+  <div class="stat-cell"><div class="value">1</div><div class="label">Prestige Goals</div></div>
+</div>
+<h2>Prestige Goal: The Clockwork Heart</h2>
+<div class="description">Build and activate the Sootworks Titan — a massive clockwork golem that patrols the foundry. Forge its heart, animate it, and best it in combat.</div>
+<p><strong>Required skills:</strong> <span class="tag tag-skill">smithing 85</span> <span class="tag tag-skill">construction 75</span> <span class="tag tag-skill">crafting 70</span> <span class="tag tag-skill">mining 70</span></p>
+<p><strong>Bosses:</strong> sootworks_titan</p>
+<p><strong>Unique rewards:</strong> clockwork_heart_core, steampunk_greataxe</p>
+<h2>Sub-areas</h2><ul class="loose"><li><strong>The Sootworks</strong> — Clockwork industrial underground. Dwarven forges, steam vents, mechanical puzzles. <small>[requires: mining 25, smithing 15, construction 10, quest: foundations_of_the_fallen]</small></li><li><strong>Sootworks Blast Furnace</strong> — Halves coal requirements for smelting. Best smithing XP/hr but requires constant attention. <small>[requires: smithing 30, quest: sootworks_rising]</small></li><li><strong>Sootworks Deep Mines</strong> — Runite ore deposits, gem rocks, and the entrance to the metal dragon den. <small>[requires: mining 55, defence 40, quest: dragon_slayer_aelgard]</small></li></ul><h2>Training Methods (15)</h2>
+<table>
+  <tr><th>Skill</th><th>Method</th><th>Levels</th><th>XP/hr</th><th>Attention</th><th>Danger</th><th>Cost/hr</th></tr>
+  <tr>
+    <td><span class="tag tag-skill">attack</span></td>
+    <td><strong>Metal Dragon Hunting</strong><br><small>Iron + steel dragons. Premium dragon bones + rare visage (1/5000).</small></td>
+    <td>75-99</td>
+    <td>88,000</td>
+    <td><span class="tag tag-high">high</span></td>
+    <td>high</td>
+    <td>20000</td>
+  </tr>
+  <tr>
+    <td><span class="tag tag-skill">construction</span></td>
+    <td><strong>Sawmill Contracts</strong><br><small>Fill NPC construction orders for profit. Slower XP but actually makes money.</small></td>
+    <td>20-70</td>
+    <td>80,000</td>
+    <td><span class="tag tag-low">low</span></td>
+    <td>none</td>
+    <td><strong>+100000</strong></td>
+  </tr>
+  <tr>
+    <td><span class="tag tag-skill">construction</span></td>
+    <td><strong>Dwarven Workshop</strong><br><small>Dwarven master craftsmanship training. Only region with this method.</small></td>
+    <td>50-99</td>
+    <td>380,000</td>
+    <td><span class="tag tag-high">high</span></td>
+    <td>none</td>
+    <td>450000</td>
+  </tr>
+  <tr>
+    <td><span class="tag tag-skill">crafting</span></td>
+    <td><strong>Gold Jewelry</strong><br><small>Smelt gold bars into jewelry at a furnace. Costly but fast for the level.</small></td>
+    <td>5-60</td>
+    <td>55,000</td>
+    <td><span class="tag tag-low">low</span></td>
+    <td>none</td>
+    <td>80000</td>
+  </tr>
+  <tr>
+    <td><span class="tag tag-skill">crafting</span></td>
+    <td><strong>Clockwork Assembly</strong><br><small>Assemble clockwork items. Unique Sootworks craft — mechanical pets, traps, automatic doors.</small></td>
+    <td>50-99</td>
+    <td>115,000</td>
+    <td><span class="tag tag-high">high</span></td>
+    <td>none</td>
+    <td>0</td>
+  </tr>
+  <tr>
+    <td><span class="tag tag-skill">crafting</span></td>
+    <td><strong>Sootworks Gem Cutting</strong><br><small>Gem cutting. AFK-friendly. Feeds the entire Aelgard jewelry economy.</small></td>
+    <td>20-99</td>
+    <td>58,000</td>
+    <td><span class="tag tag-afk">afk</span></td>
+    <td>none</td>
+    <td>0</td>
+  </tr>
+  <tr>
+    <td><span class="tag tag-skill">crafting</span></td>
+    <td><strong>[Quirky] Tighten the Steam Pipes</strong><br><small>Tighten the endless steam pipe joints. They always leak.</small></td>
+    <td>1-99</td>
+    <td>1,080</td>
+    <td><span class="tag tag-medium">medium</span></td>
+    <td>none</td>
+    <td>0</td>
+  </tr>
+  <tr>
+    <td><span class="tag tag-skill">firemaking</span></td>
+    <td><strong>Foundry Stoker</strong><br><small>Stoke the foundry fires. High firemaking XP + coal consumption.</small></td>
+    <td>1-60</td>
+    <td>95,000</td>
+    <td><span class="tag tag-low">low</span></td>
+    <td>none</td>
+    <td>0</td>
+  </tr>
+  <tr>
+    <td><span class="tag tag-skill">firemaking</span></td>
+    <td><strong>[Quirky] Trim the Factory Lamps</strong><br><small>Trim the wicks on the dim factory lamps. Light gets slightly better.</small></td>
+    <td>1-99</td>
+    <td>540</td>
+    <td><span class="tag tag-low">low</span></td>
+    <td>none</td>
+    <td>0</td>
+  </tr>
+  <tr>
+    <td><span class="tag tag-skill">mining</span></td>
+    <td><strong>Motherlode Mine</strong><br><small>AFK mine paydirt, wash it. Random ore output. Nuggets buy prospector outfit.</small></td>
+    <td>30-99</td>
+    <td>32,000</td>
+    <td><span class="tag tag-afk">afk</span></td>
+    <td>none</td>
+    <td><strong>+25000</strong></td>
+  </tr>
+  <tr>
+    <td><span class="tag tag-skill">mining</span></td>
+    <td><strong>Runite Shaft Mining</strong><br><small>Mine runite at 85+. Slow but extremely profitable (~300k/hr).</small></td>
+    <td>85-99</td>
+    <td>35,000</td>
+    <td><span class="tag tag-low">low</span></td>
+    <td>none</td>
+    <td>0</td>
+  </tr>
+  <tr>
+    <td><span class="tag tag-skill">smithing</span></td>
+    <td><strong>Gold Bars at Blast Furnace</strong><br><small>Goldsmith gauntlets triple XP. Fastest smithing method. Bank-furnace sprinting.</small></td>
+    <td>40-99</td>
+    <td>300,000</td>
+    <td><span class="tag tag-high">high</span></td>
+    <td>none</td>
+    <td>400000</td>
+  </tr>
+  <tr>
+    <td><span class="tag tag-skill">smithing</span></td>
+    <td><strong>Blast Furnace Smelting</strong><br><small>Blast Furnace halves coal requirements. Best smithing XP in the game.</small></td>
+    <td>30-99</td>
+    <td>280,000</td>
+    <td><span class="tag tag-high">high</span></td>
+    <td>none</td>
+    <td>60000</td>
+  </tr>
+  <tr>
+    <td><span class="tag tag-skill">smithing</span></td>
+    <td><strong>[Quirky] Pump the Bellows</strong><br><small>Pump the forge bellows. Apprentice work, but smithing XP trickles in.</small></td>
+    <td>1-99</td>
+    <td>1,920</td>
+    <td><span class="tag tag-high">high</span></td>
+    <td>none</td>
+    <td>0</td>
+  </tr>
+  <tr>
+    <td><span class="tag tag-skill">strength</span></td>
+    <td><strong>[Quirky] Pull the Pressure Lever</strong><br><small>Pull the massive pressure-release lever. Heavy. Unsatisfying.</small></td>
+    <td>1-99</td>
+    <td>1,400</td>
+    <td><span class="tag tag-high">high</span></td>
+    <td>none</td>
+    <td>0</td>
+  </tr></table><h2>Quirky Interactions (4)</h2>
+<div class="description">Ambient world objects that grant tiny XP. Discoverable, flavorful, mathematically terrible — but sometimes a lifeline.</div>
+<ul class="loose"><li><strong>Pull the Pressure Lever</strong> [strength] — 0.7 xp/click. <em>A dwarf grunts approval. &quot;Keep pullin. Keeps the place from blowin up.&quot;</em></li><li><strong>Pump the Bellows</strong> [smithing] — 0.8 xp/click. <em>The blacksmith tolerates you. &quot;Youre not in the way, at least.&quot;</em></li><li><strong>Tighten the Steam Pipes</strong> [crafting] — 0.6 xp/click. <em>The pipes hiss at you passively. Mocking.</em></li><li><strong>Trim the Factory Lamps</strong> [firemaking] — 0.3 xp/click. <em>No one notices. Somehow still rewarding.</em></li></ul>
+</div>
+</body></html>

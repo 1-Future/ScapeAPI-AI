@@ -1,4 +1,8 @@
 // Load all mechanic definitions
+// OSRS-verbatim files (bosses, shops, quests, quests-extended, slayer, slayer-extended,
+// pets, teleports, fairy-rings, music-tracks) were deleted to rebuild Aelgard-native.
+// All original IP content lives in src/content/aelgard/*.
+
 require('./skills-gathering');
 require('./skills-processing');
 require('./skills-activity');
@@ -9,31 +13,21 @@ require('./smithing-items');
 require('./farming');
 require('./hunter');
 require('./prayers');
-require('./bosses');
 require('./construction');
-require('./teleports');
-require('./slayer');
-require('./quests');
 require('./equipment-armor');
 require('./minigames');
 require('./npcs-dialogue');
 require('./diaries-achievements');
 require('./monsters-extended');
 require('./agility-shortcuts');
-require('./fairy-rings');
-require('./pets');
-require('./quests-extended');
 require('./special-items');
 require('./locations');
-require('./shops');
-require('./music-tracks');
 require('./system-plugins');
 require('./items-comprehensive');
 require('./drop-tables');
 require('./spells-utility-extended');
 require('./combat-armor-extended');
 require('./npc-services');
-require('./slayer-extended');
 require('./transportation-extended');
 require('./unique-mechanics');
 require('./boss-palette');

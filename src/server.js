@@ -899,6 +899,19 @@ commands.register('look', { help: 'Look around', aliases: ['l'], category: 'Navi
       const infernoModule = require('./content/inferno/inferno');
       return infernoModule.getInfernoLook(inst, p);
     }
+    if (inst && inst.type === 'crystal_wyrm') {
+      const alive = npcs.getNpcsInInstance(inst.id);
+      let msg = '=== Crystal Heart Chamber ===\n';
+      msg += 'A vast cavern of living crystal. The air thrums with energy.\n\n';
+      for (const npc of alive) {
+        const dist = Math.max(Math.abs(npc.x - p.x), Math.abs(npc.y - p.y));
+        const phase = npc.customState?.phase ? ` [Phase ${npc.customState.phase}]` : '';
+        msg += `  ${npc.name}${phase} — HP: ${npc.hp}/${npc.maxHp} — ${dist} tiles away\n`;
+      }
+      if (!alive.length) msg += '  The chamber is quiet.\n';
+      msg += `\nYou: HP ${p.hp}/${p.maxHp} | Prayer ${p.pp}/${p.maxPp}`;
+      return msg;
+    }
 
     const tile = tiles.getTileName(tiles.tileAt(p.x, p.y, p.layer));
     const area = tiles.getArea(p.x, p.y, p.layer);
@@ -1296,10 +1309,41 @@ commands.register('talk', { help: 'Talk to an NPC: talk [name] (or just `talk` f
       if (!npc) return `No "${name}" nearby. Type \`npcs\` to see who's around.`;
     }
 
-    // Canned greeting only — no AI call. Use `r` or `sayto` for AI conversation.
     p._lastTalkNpc = npc.defId;
+
+    // Handle structured dialogue types (shop, quest, slayer)
+    const dlg = typeof npc.dialogue === 'object' ? npc.dialogue : null;
+    if (dlg && dlg.type === 'shop' && dlg.shopId) {
+      const shop = shopData.getShop(dlg.shopId);
+      if (shop) {
+        p._openShop = dlg.shopId;
+        const lines = [`${npc.name}: "Take a look at my wares!"\n=== ${shop.name} ===`];
+        shop.stock.forEach((s, i) => {
+          lines.push(`  ${i + 1}. ${s.name} — ${shopData.buyPrice(shop, i)} gp (stock: ${s.current})`);
+        });
+        lines.push(`\nType \`buy [item]\` or \`sell [item]\`.`);
+        return lines.join('\n');
+      }
+    }
+    if (dlg && dlg.type === 'quest' && dlg.questId) {
+      const questData = require('./data/quests');
+      const quest = questData.getQuest(dlg.questId);
+      if (quest) {
+        const status = questData.getStatus(p, dlg.questId);
+        if (status.complete) {
+          return `${npc.name}: "Thank you for your help, ${p.name}!"`;
+        }
+        if (!status.started) {
+          return `${npc.name}: "${quest.description}"\n\nType \`quest start ${dlg.questId}\` to begin.`;
+        }
+        const step = quest.steps[status.step];
+        return `${npc.name}: "${step?.text || 'Continue your task.'}"`;
+      }
+    }
+
+    // Canned greeting only — no AI call. Use `r` or `sayto` for AI conversation.
     const fallback = ai.getFallback(npc.defId);
-    return `${npc.name}: "${npc.dialogue || fallback}"\n(Type \`r [message]\` to respond)`;
+    return `${npc.name}: "${(typeof npc.dialogue === 'string' ? npc.dialogue : null) || fallback}"\n(Type \`r [message]\` to respond)`;
   }
 });
 
@@ -1319,10 +1363,18 @@ commands.register('sayto', { help: 'Say something to an NPC: sayto [npc] [messag
     if (!message) return 'What do you want to say?';
 
     const area = tiles.getArea(p.x, p.y, p.layer);
-    const prompt = ai.buildSimplePrompt(npc.defId, npc.name, p.name, combatLevel(p), message, area?.name || `(${p.x},${p.y})`);
 
+    // Check for builder persona first, fall back to hardcoded profiles
     let playerWs; for (const [ws, pl] of players) { if (pl === p) { playerWs = ws; break; } }
-    addNpcPrompt(npc.name, prompt, (text) => { if (playerWs) sendText(playerWs, `${npc.name}: "${text}"`); });
+    getBuilderPersona(npc.defId).then(persona => {
+      let prompt;
+      if (persona) {
+        prompt = persona + `\n\n${p.name} (combat level ${combatLevel(p)}) at ${area?.name || `(${p.x},${p.y})`} says: "${message}"\nRespond in character. Keep it short (1-2 sentences).`;
+      } else {
+        prompt = ai.buildSimplePrompt(npc.defId, npc.name, p.name, combatLevel(p), message, area?.name || `(${p.x},${p.y})`);
+      }
+      addNpcPrompt(npc.name, prompt, (text) => { if (playerWs) sendText(playerWs, `${npc.name}: "${text}"`); });
+    });
 
     p._lastTalkNpc = npc.defId; // Remember for /r replies
     return `You say to ${npc.name}: "${message}"\n(thinking...)`;
@@ -1340,10 +1392,17 @@ commands.register('r', { help: 'Reply to last NPC: r [message]', aliases: ['repl
     if (!npc) return `${p._lastTalkNpc} is no longer nearby.`;
 
     const area = tiles.getArea(p.x, p.y, p.layer);
-    const prompt = ai.buildSimplePrompt(npc.defId, npc.name, p.name, combatLevel(p), message, area?.name || `(${p.x},${p.y})`);
 
     let playerWs; for (const [ws, pl] of players) { if (pl === p) { playerWs = ws; break; } }
-    addNpcPrompt(npc.name, prompt, (text) => { if (playerWs) sendText(playerWs, `${npc.name}: "${text}"`); });
+    getBuilderPersona(npc.defId).then(persona => {
+      let prompt;
+      if (persona) {
+        prompt = persona + `\n\n${p.name} (combat level ${combatLevel(p)}) at ${area?.name || `(${p.x},${p.y})`} says: "${message}"\nRespond in character. Keep it short (1-2 sentences).`;
+      } else {
+        prompt = ai.buildSimplePrompt(npc.defId, npc.name, p.name, combatLevel(p), message, area?.name || `(${p.x},${p.y})`);
+      }
+      addNpcPrompt(npc.name, prompt, (text) => { if (playerWs) sendText(playerWs, `${npc.name}: "${text}"`); });
+    });
 
     return `You say to ${npc.name}: "${message}"\n(thinking...)`;
   }
@@ -1481,6 +1540,728 @@ commands.register('pick', { help: 'Pick something: pick [object]', aliases: ['us
       return `You pick the ${obj.name}. Got: ${obj.product.name}.`;
     }
     return `You interact with the ${obj.name}. Nothing happens.`;
+  }
+});
+
+// ── Eating / Food ──────────────────────────────────────────────────────────────
+const FOOD_HEALS = {
+  'Bread': 5, 'Cooked meat': 3, 'Cooked chicken': 3, 'Shrimps': 3,
+  'Trout': 7, 'Salmon': 9, 'Lobster': 12, 'Swordfish': 14, 'Shark': 20,
+  'Cactus water': 3,
+};
+commands.register('eat', { help: 'Eat food from inventory: eat [name]', category: 'Items',
+  fn: (p, args) => {
+    const name = args.join(' ');
+    if (!name) {
+      // Eat first available food
+      for (let i = 0; i < p.inventory.length; i++) {
+        if (p.inventory[i] && FOOD_HEALS[p.inventory[i].name]) {
+          return eatFood(p, i);
+        }
+      }
+      return 'No food in inventory.';
+    }
+    const lower = name.toLowerCase();
+    for (let i = 0; i < p.inventory.length; i++) {
+      if (p.inventory[i] && p.inventory[i].name.toLowerCase() === lower && FOOD_HEALS[p.inventory[i].name]) {
+        return eatFood(p, i);
+      }
+    }
+    return `No "${name}" to eat.`;
+  }
+});
+
+function eatFood(p, slot) {
+  const item = p.inventory[slot];
+  const heal = FOOD_HEALS[item.name] || 1;
+  const currentTick = tick.getTick();
+  if (p._nextEatTick && currentTick < p._nextEatTick) return 'You are eating too quickly.';
+  p._nextEatTick = currentTick + 3; // 3-tick eat delay
+  p.inventory[slot] = null;
+  const before = p.hp;
+  p.hp = Math.min(p.maxHp, p.hp + heal);
+  const healed = p.hp - before;
+  return `You eat the ${item.name}. Healed ${healed} HP (${p.hp}/${p.maxHp}).`;
+}
+
+// ── Cooking ────────────────────────────────────────────────────────────────────
+const processingSkills = require('./skills/processing');
+
+commands.register('cook', { help: 'Cook raw food: cook [name]', category: 'Processing',
+  fn: (p, args) => {
+    const name = args.join(' ').toLowerCase();
+    // Find matching recipe
+    const recipes = processingSkills.listRecipes('cooking');
+    let recipe = null;
+    if (name) {
+      recipe = recipes.find(r => r.inputName.toLowerCase().includes(name) || r.outputName.toLowerCase().includes(name));
+    } else {
+      // Cook first available raw food
+      for (const r of recipes) {
+        if (p.inventory.some(s => s && s.id === r.inputId)) { recipe = r; break; }
+      }
+    }
+    if (!recipe) return name ? `No cooking recipe for "${name}".` : 'No raw food to cook.';
+
+    // Start repeating action
+    if (p.busy) actions.cancel(p);
+    actions.start(p, {
+      type: 'cooking', ticks: recipe.ticks || 4, repeat: true,
+      data: { recipe, player: p },
+      onTick: (data, ticksLeft) => ticksLeft === data.recipe.ticks - 1 ? `You cook the ${data.recipe.inputName}...` : null,
+      onComplete: (data) => {
+        const result = processingSkills.processAttempt(data.player, data.recipe.id);
+        if (result.error === 'missing_input') { actions.cancel(data.player); return 'No more raw food.'; }
+        if (result.error === 'inventory_full') { actions.cancel(data.player); return 'Inventory full.'; }
+        if (result.error) return result.error;
+        if (result.success) {
+          let msg = `You cook the ${data.recipe.inputName}. Got: ${result.product.name}.${xpDrop(data.recipe.skill, data.recipe.xp)}`;
+          const lvl = getLevel(data.player, data.recipe.skill);
+          return msg;
+        }
+        return `You accidentally burn the ${data.recipe.inputName}.`;
+      },
+    });
+    return `You begin cooking...`;
+  }
+});
+
+// ── Smelting ───────────────────────────────────────────────────────────────────
+commands.register('smelt', { help: 'Smelt ore at a furnace: smelt [bar name]', category: 'Processing',
+  fn: (p, args) => {
+    const name = args.join(' ').toLowerCase();
+    const recipes = processingSkills.listRecipes('smithing');
+    let recipe = null;
+    if (name) {
+      recipe = recipes.find(r => r.outputName.toLowerCase().includes(name) || r.inputName.toLowerCase().includes(name));
+    } else {
+      // Smelt first available recipe
+      for (const r of recipes) {
+        if (p.inventory.some(s => s && s.id === r.inputId)) { recipe = r; break; }
+      }
+    }
+    if (!recipe) return name ? `No smelting recipe for "${name}".` : 'No ore to smelt.';
+
+    if (p.busy) actions.cancel(p);
+    actions.start(p, {
+      type: 'smithing', ticks: recipe.ticks || 4, repeat: true,
+      data: { recipe, player: p },
+      onTick: (data, ticksLeft) => ticksLeft === data.recipe.ticks - 1 ? `You smelt the ${data.recipe.inputName}...` : null,
+      onComplete: (data) => {
+        const result = processingSkills.processAttempt(data.player, data.recipe.id);
+        if (result.error === 'missing_input' || result.error === 'missing_secondary') { actions.cancel(data.player); return 'Not enough materials.'; }
+        if (result.error === 'inventory_full') { actions.cancel(data.player); return 'Inventory full.'; }
+        if (result.error) return result.error;
+        if (result.success) {
+          return `You smelt a ${result.product.name}.${xpDrop(data.recipe.skill, data.recipe.xp)}`;
+        }
+        return `You fail to smelt the ore.`;
+      },
+    });
+    return `You begin smelting...`;
+  }
+});
+
+// ── Shop interaction ───────────────────────────────────────────────────────────
+const shopData = require('./data/shops');
+
+commands.register('buy', { help: 'Buy from a shop: buy [item]', category: 'Items',
+  fn: (p, args) => {
+    if (!p._openShop) return 'You are not at a shop. Talk to a shopkeeper first.';
+    const shop = shopData.getShop(p._openShop);
+    if (!shop) return 'Shop not found.';
+    const name = args.join(' ').toLowerCase();
+    if (!name) {
+      // List shop stock
+      const lines = [`=== ${shop.name} ===`];
+      shop.stock.forEach((s, i) => {
+        lines.push(`  ${i + 1}. ${s.name} — ${shopData.buyPrice(shop, i)} gp (stock: ${s.current})`);
+      });
+      return lines.join('\n');
+    }
+    // Find item by name or number
+    let idx = parseInt(name) - 1;
+    if (isNaN(idx)) {
+      idx = shop.stock.findIndex(s => s.name.toLowerCase().includes(name));
+    }
+    if (idx < 0 || idx >= shop.stock.length) return `Item "${name}" not found in shop.`;
+    const stockItem = shop.stock[idx];
+    if (stockItem.current <= 0) return `${stockItem.name} is out of stock.`;
+    const price = shopData.buyPrice(shop, idx);
+    const coinSlot = p.inventory.findIndex(s => s && s.name === 'Coins');
+    const coins = coinSlot >= 0 ? p.inventory[coinSlot].count : 0;
+    if (coins < price) return `You need ${price} gp but only have ${coins}.`;
+    // Deduct coins
+    p.inventory[coinSlot].count -= price;
+    if (p.inventory[coinSlot].count <= 0) p.inventory[coinSlot] = null;
+    // Add item
+    if (invFreeSlots(p) < 1) return 'Inventory is full.';
+    const itemDef = items.get(stockItem.id);
+    invAdd(p, stockItem.id, stockItem.name, 1, itemDef?.stackable);
+    stockItem.current--;
+    return `Bought ${stockItem.name} for ${price} gp.`;
+  }
+});
+
+commands.register('sell', { help: 'Sell to a shop: sell [item]', category: 'Items',
+  fn: (p, args) => {
+    if (!p._openShop) return 'You are not at a shop. Talk to a shopkeeper first.';
+    const shop = shopData.getShop(p._openShop);
+    if (!shop) return 'Shop not found.';
+    const name = args.join(' ').toLowerCase();
+    if (!name) return 'What do you want to sell?';
+    const slot = p.inventory.findIndex(s => s && s.name.toLowerCase().includes(name));
+    if (slot < 0) return `No "${name}" in inventory.`;
+    const item = p.inventory[slot];
+    const itemDef = items.get(item.id);
+    const value = itemDef ? shopData.sellPrice(shop, itemDef.value) : 1;
+    p.inventory[slot] = null;
+    // Add coins
+    const coinSlot = p.inventory.findIndex(s => s && s.name === 'Coins');
+    if (coinSlot >= 0) {
+      p.inventory[coinSlot].count += value;
+    } else {
+      invAdd(p, 101, 'Coins', value, true);
+    }
+    return `Sold ${item.name} for ${value} gp.`;
+  }
+});
+
+// ── Combining skills (Herblore, Fletching, Crafting, Prayer) ───────────────────
+const combiningSkills = require('./skills/combining');
+
+commands.register('clean', { help: 'Clean a grimy herb: clean [herb]', category: 'Herblore',
+  fn: (p, args) => {
+    const name = args.join(' ').toLowerCase();
+    const recipes = combiningSkills.listRecipes('herblore').filter(r => r.id.startsWith('clean'));
+    let recipe = name ? recipes.find(r => r.primaryName.toLowerCase().includes(name) || r.outputName.toLowerCase().includes(name)) : recipes.find(r => p.inventory.some(s => s && s.id === r.primaryId));
+    if (!recipe) return name ? `No clean recipe for "${name}".` : 'No grimy herbs to clean.';
+    const result = combiningSkills.attempt(p, recipe.id);
+    if (result.error) return result.error === 'missing_primary' ? 'No grimy herbs.' : result.error;
+    return `You clean the herb. Got: ${result.product.name}.${xpDrop(result.skill, recipe.xp)}`;
+  }
+});
+
+commands.register('mix', { help: 'Mix a potion: mix [potion name]', aliases: ['brew_potion'], category: 'Herblore',
+  fn: (p, args) => {
+    const name = args.join(' ').toLowerCase();
+    const recipes = combiningSkills.listRecipes('herblore').filter(r => r.id.startsWith('mix'));
+    let recipe = name ? recipes.find(r => r.outputName.toLowerCase().includes(name) || r.name.toLowerCase().includes(name)) : null;
+    if (!recipe) return name ? `No potion recipe for "${name}". Try: mix attack, mix prayer, mix super strength` : 'Usage: mix [potion name]';
+    if (p.busy) actions.cancel(p);
+    actions.start(p, {
+      type: 'herblore', ticks: recipe.ticks || 3, repeat: true,
+      data: { recipe, player: p },
+      onTick: () => null,
+      onComplete: (data) => {
+        const result = combiningSkills.attempt(data.player, data.recipe.id);
+        if (result.error) { actions.cancel(data.player); return result.error === 'missing_primary' || result.error === 'missing_secondary' ? 'Out of ingredients.' : result.error; }
+        return `You mix a ${result.product.name}.${xpDrop(result.skill, data.recipe.xp)}`;
+      },
+    });
+    return `You begin mixing ${recipe.outputName}...`;
+  }
+});
+
+commands.register('fletch', { help: 'Fletch an item: fletch [item]', category: 'Fletching',
+  fn: (p, args) => {
+    const name = args.join(' ').toLowerCase();
+    const recipes = combiningSkills.listRecipes('fletching');
+    let recipe = name ? recipes.find(r => r.outputName.toLowerCase().includes(name) || r.name.toLowerCase().includes(name)) : null;
+    if (!recipe) return name ? `No fletching recipe for "${name}".` : 'Usage: fletch [item name]';
+    if (p.busy) actions.cancel(p);
+    actions.start(p, {
+      type: 'fletching', ticks: recipe.ticks || 3, repeat: true,
+      data: { recipe, player: p },
+      onTick: () => null,
+      onComplete: (data) => {
+        const result = combiningSkills.attempt(data.player, data.recipe.id);
+        if (result.error) { actions.cancel(data.player); return result.error === 'missing_primary' || result.error === 'missing_secondary' ? 'Out of materials.' : result.error; }
+        return `You fletch ${result.product.count > 1 ? result.product.count + 'x ' : ''}${result.product.name}.${xpDrop(result.skill, data.recipe.xp)}`;
+      },
+    });
+    return `You begin fletching ${recipe.outputName}...`;
+  }
+});
+
+commands.register('craft', { help: 'Craft an item: craft [item]', category: 'Crafting',
+  fn: (p, args) => {
+    const name = args.join(' ').toLowerCase();
+    const recipes = combiningSkills.listRecipes('crafting');
+    let recipe = name ? recipes.find(r => r.outputName.toLowerCase().includes(name) || r.name.toLowerCase().includes(name)) : null;
+    if (!recipe) return name ? `No crafting recipe for "${name}".` : 'Usage: craft [item name]';
+    if (p.busy) actions.cancel(p);
+    actions.start(p, {
+      type: 'crafting', ticks: recipe.ticks || 3, repeat: true,
+      data: { recipe, player: p },
+      onTick: () => null,
+      onComplete: (data) => {
+        const result = combiningSkills.attempt(data.player, data.recipe.id);
+        if (result.error) { actions.cancel(data.player); return result.error === 'missing_primary' ? 'Out of materials.' : result.error; }
+        return `You craft ${result.product.name}.${xpDrop(result.skill, data.recipe.xp)}`;
+      },
+    });
+    return `You begin crafting ${recipe.outputName}...`;
+  }
+});
+
+commands.register('bury', { help: 'Bury bones for Prayer XP: bury [bones]', category: 'Prayer',
+  fn: (p, args) => {
+    const name = args.join(' ').toLowerCase();
+    const recipes = combiningSkills.listRecipes('prayer');
+    let recipe = name ? recipes.find(r => r.primaryName.toLowerCase().includes(name)) : recipes.find(r => p.inventory.some(s => s && s.id === r.primaryId));
+    if (!recipe) return name ? `No prayer recipe for "${name}".` : 'No bones to bury.';
+    const result = combiningSkills.attempt(p, recipe.id);
+    if (result.error) return result.error === 'missing_primary' ? 'No bones.' : result.error;
+    return `You bury the ${recipe.primaryName}.${xpDrop('prayer', recipe.xp)}`;
+  }
+});
+
+// ── Firemaking ─────────────────────────────────────────────────────────────────
+const firemakingSkill = require('./skills/firemaking');
+
+commands.register('light', { help: 'Burn logs: light [log type]', aliases: ['burn', 'firemake'], category: 'Skills',
+  fn: (p, args) => {
+    const name = args.join(' ').toLowerCase();
+    // Find log in inventory
+    let logSlot = -1;
+    if (name) {
+      logSlot = p.inventory.findIndex(s => s && s.name.toLowerCase().includes(name) && firemakingSkill.getLog(s.id));
+    } else {
+      logSlot = p.inventory.findIndex(s => s && firemakingSkill.getLog(s.id));
+    }
+    if (logSlot < 0) return name ? `No "${name}" to burn.` : 'No logs to burn.';
+    const logId = p.inventory[logSlot].id;
+
+    if (p.busy) actions.cancel(p);
+    actions.start(p, {
+      type: 'firemaking', ticks: 4, repeat: true,
+      data: { logId, player: p },
+      onTick: () => null,
+      onComplete: (data) => {
+        const result = firemakingSkill.burnLog(data.player, data.logId);
+        if (result.error === 'no_logs') { actions.cancel(data.player); return 'No more logs.'; }
+        if (result.error) return result.error;
+        return `You light the ${result.log}.${xpDrop('firemaking', result.xp)}`;
+      },
+    });
+    return `You begin lighting fires...`;
+  }
+});
+
+// ── Runecrafting ───────────────────────────────────────────────────────────────
+const runecraftingSkill = require('./skills/runecrafting');
+
+commands.register('craft_runes', { help: 'Craft runes at altar: craft_runes [altar] | craft_runes list', aliases: ['rc', 'runecraft'], category: 'Skills',
+  fn: (p, args) => {
+    const sub = args.join(' ').toLowerCase();
+    if (!sub || sub === 'list') {
+      const altars = runecraftingSkill.listAltars();
+      return '=== Runecrafting Altars ===\n' + altars.map(a =>
+        `  ${a.name} (Level ${a.level}, ${a.region}) → ${a.runeName}`
+      ).join('\n');
+    }
+    const altar = runecraftingSkill.listAltars().find(a =>
+      a.id.includes(sub) || a.name.toLowerCase().includes(sub) || a.runeName.toLowerCase().includes(sub)
+    );
+    if (!altar) return `Unknown altar: "${sub}". Type \`craft_runes list\`.`;
+    const result = runecraftingSkill.craftRunes(p, altar.id);
+    if (result.error) return result.error;
+    return `Crafted ${result.runesCrafted}x ${result.rune} from ${result.essenceUsed} essence${result.multiplier > 1 ? ` (${result.multiplier}x multiplier!)` : ''}.${xpDrop('runecrafting', result.xp)}`;
+  }
+});
+
+// ── Hunter ──────────────────────────────────────────────────────────────────────
+const hunterSkill = require('./skills/hunter');
+
+commands.register('trap', { help: 'Set a trap: trap [creature] | trap list', aliases: ['hunt', 'catch'], category: 'Skills',
+  fn: (p, args) => {
+    const sub = args.join(' ').toLowerCase();
+    if (!sub || sub === 'list') {
+      const traps = [...hunterSkill.trapDefs.values()];
+      return '=== Hunter Targets ===\n' + traps.map(t =>
+        `  ${t.name} (Level ${t.level}, ${t.type}, ${t.region || 'any'})${t.dangerous ? ' [DANGEROUS]' : ''}`
+      ).join('\n');
+    }
+    const trap = [...hunterSkill.trapDefs.values()].find(t =>
+      t.id.includes(sub.replace(/\s+/g, '_')) || t.name.toLowerCase().includes(sub)
+    );
+    if (!trap) return `Unknown target: "${sub}". Type \`trap list\`.`;
+
+    if (p.busy) actions.cancel(p);
+    actions.start(p, {
+      type: 'hunter', ticks: trap.checkTicks, repeat: true,
+      data: { trap, player: p },
+      onTick: (data, ticksLeft) => ticksLeft === 1 ? `You check the trap...` : null,
+      onComplete: (data) => {
+        const result = hunterSkill.attemptCatch(data.player, data.trap.id);
+        if (result.error) { actions.cancel(data.player); return result.error; }
+        if (!result.success) return 'The creature escaped!';
+        let msg = `You catch the ${data.trap.name}!${xpDrop('hunter', result.xp)}`;
+        if (result.loot) {
+          const { invAdd: ia } = require('./player/player');
+          const def = items.get(result.loot.id);
+          ia(data.player, result.loot.id, result.loot.name, result.loot.count, def?.stackable);
+          msg += ` Got: ${result.loot.count}x ${result.loot.name}.`;
+        }
+        return msg;
+      },
+    });
+    return `You set a trap for ${trap.name}...`;
+  }
+});
+
+// ── Construction ───────────────────────────────────────────────────────────────
+const constructionSkill = require('./skills/construction');
+
+commands.register('build', { help: 'Build furniture: build [furniture] | build list', category: 'Skills',
+  fn: (p, args) => {
+    const sub = args.join(' ').toLowerCase();
+    if (!sub || sub === 'list') {
+      const furniture = [...constructionSkill.furnitureDefs.values()];
+      const level = p.skills?.construction?.level || 1;
+      return '=== Construction ===\n' + furniture.map(f => {
+        const mats = f.materials.map(m => `${m.count}x ${m.name}`).join(', ');
+        const locked = f.level > level ? ' [LOCKED]' : '';
+        return `  ${f.name} (Level ${f.level}, ${f.xp} XP) — ${mats}${f.effect ? ` [${f.effect}]` : ''}${locked}`;
+      }).join('\n');
+    }
+    const furniture = [...constructionSkill.furnitureDefs.values()].find(f =>
+      f.id.includes(sub.replace(/\s+/g, '_')) || f.name.toLowerCase().includes(sub)
+    );
+    if (!furniture) return `Unknown furniture: "${sub}". Type \`build list\`.`;
+
+    if (p.busy) actions.cancel(p);
+    actions.start(p, {
+      type: 'construction', ticks: 5, repeat: true,
+      data: { furnitureId: furniture.id, player: p },
+      onTick: () => null,
+      onComplete: (data) => {
+        const result = constructionSkill.buildFurniture(data.player, data.furnitureId);
+        if (result.error === 'missing_material') { actions.cancel(data.player); return `Need more ${result.need} (have ${result.have}, need ${result.required}).`; }
+        if (result.error) { actions.cancel(data.player); return result.error; }
+        return `You build a ${result.furniture}.${xpDrop('construction', result.xp)}`;
+      },
+    });
+    return `You begin building ${furniture.name}...`;
+  }
+});
+
+// ── Agility ────────────────────────────────────────────────────────────────────
+const agilitySkill = require('./skills/agility');
+
+commands.register('agility', { help: 'Run agility course: agility [course] | agility list', category: 'Skills',
+  fn: (p, args) => {
+    const sub = args[0]?.toLowerCase();
+    if (!sub || sub === 'list') {
+      const courses = agilitySkill.listCourses();
+      return '=== Agility Courses ===\n' + courses.map(c => {
+        const rate = agilitySkill.computeCourseRate(c.id, p.skills?.agility?.level || 1);
+        return `  ${c.name} (Level ${c.level}, ${rate?.xpPerHour || '?'} XP/hr, ${c.attention})`;
+      }).join('\n');
+    }
+    const course = agilitySkill.listCourses().find(c =>
+      c.id.includes(sub) || c.name.toLowerCase().includes(sub) || c.region.toLowerCase().includes(sub)
+    );
+    if (!course) return `Unknown course: "${sub}". Type \`agility list\`.`;
+
+    // Start running the course as a repeating action
+    if (p.busy) actions.cancel(p);
+    if (!p._agilityObstacle) p._agilityObstacle = 0;
+    p._agilityObstacle = 0;
+    p._agilityCourse = course.id;
+
+    actions.start(p, {
+      type: 'agility', ticks: course.obstacles[0]?.ticks || 5, repeat: true,
+      data: { course, player: p },
+      onTick: (data, ticksLeft) => {
+        if (ticksLeft === 1) {
+          const obs = data.course.obstacles[data.player._agilityObstacle];
+          return obs ? `You attempt the ${obs.name}...` : null;
+        }
+        return null;
+      },
+      onComplete: (data) => {
+        const result = agilitySkill.attemptObstacle(data.player, data.player._agilityCourse, data.player._agilityObstacle);
+        if (result.error) { actions.cancel(data.player); return result.error; }
+        if (!result.success) {
+          data.player._agilityObstacle = 0; // Reset to start
+          return `You fall off the ${result.obstacle}! (${result.damage} damage) Starting over...`;
+        }
+        data.player._agilityObstacle = result.nextObstacle;
+        let msg = `${result.obstacle} cleared!${xpDrop('agility', result.xp)}`;
+        if (result.lapComplete) {
+          msg += `\nLap complete! +${result.lapBonus} bonus XP.`;
+          if (result.gotMark) {
+            const { invAdd } = require('./player/player');
+            invAdd(data.player, 14001, 'Mark of grace', 1, true);
+            msg += ' You find a Mark of grace!';
+          }
+        }
+        // Update tick count for next obstacle
+        const nextObs = data.course.obstacles[result.nextObstacle];
+        if (nextObs) actions.setTicks(data.player, nextObs.ticks);
+        return msg;
+      },
+    });
+    return `You begin the ${course.name}... (${course.obstacles.length} obstacles)`;
+  }
+});
+
+// ── Thieving ───────────────────────────────────────────────────────────────────
+const thievingSkill = require('./skills/thieving');
+
+commands.register('pickpocket', { help: 'Pickpocket an NPC: pickpocket [target]', aliases: ['pp', 'steal'], category: 'Thieving',
+  fn: (p, args) => {
+    const name = args.join(' ').toLowerCase();
+    const targets = thievingSkill.listTargets('pickpocket');
+    let target = name ? targets.find(t => t.name.toLowerCase().includes(name)) : null;
+    if (!target && !name) {
+      // Try nearest pickpocketable NPC
+      target = targets[0]; // fallback to easiest
+    }
+    if (!target) return name ? `Can't pickpocket "${name}". Try: pickpocket man, pickpocket guard` : 'Who do you want to pickpocket?';
+
+    // Repeating action
+    if (p.busy) actions.cancel(p);
+    actions.start(p, {
+      type: 'thieving', ticks: 3, repeat: true,
+      data: { target, player: p },
+      onTick: () => null,
+      onComplete: (data) => {
+        const result = thievingSkill.attemptTheft(data.player, data.target.id);
+        if (result.error === 'stunned') return `You are stunned! (${result.remaining} ticks)`;
+        if (result.error) { actions.cancel(data.player); return result.error; }
+        if (!result.success) {
+          return `You fail to pickpocket the ${data.target.name}. Stunned for ${result.stunTicks} ticks! (-${result.stunDamage} HP)`;
+        }
+        let msg = `You pick the ${data.target.name}'s pocket.${xpDrop('thieving', result.xp)}`;
+        if (result.loot) {
+          const { invAdd } = require('./player/player');
+          const itemDef = items.get(result.loot.id);
+          invAdd(data.player, result.loot.id, result.loot.name, result.loot.count, itemDef?.stackable);
+          msg += ` Got: ${result.loot.count}x ${result.loot.name}.`;
+        }
+        return msg;
+      },
+    });
+    return `You attempt to pickpocket the ${target.name}...`;
+  }
+});
+
+commands.register('thieve', { help: 'Steal from a stall: thieve [stall]', aliases: ['stealfrom'], category: 'Thieving',
+  fn: (p, args) => {
+    const name = args.join(' ').toLowerCase();
+    const targets = thievingSkill.listTargets('stall');
+    let target = name ? targets.find(t => t.name.toLowerCase().includes(name)) : targets[0];
+    if (!target) return name ? `No "${name}" stall nearby.` : 'No stalls to steal from.';
+    const result = thievingSkill.attemptTheft(p, target.id);
+    if (result.error) return result.error;
+    if (!result.success) return `You fail to steal from the ${target.name}! Stunned.`;
+    let msg = `You steal from the ${target.name}.${xpDrop('thieving', result.xp)}`;
+    if (result.loot) {
+      const { invAdd: ia } = require('./player/player');
+      const def = items.get(result.loot.id);
+      ia(p, result.loot.id, result.loot.name, result.loot.count, def?.stackable);
+      msg += ` Got: ${result.loot.count}x ${result.loot.name}.`;
+    }
+    return msg;
+  }
+});
+
+// ── Farming ────────────────────────────────────────────────────────────────────
+const farmingSkill = require('./skills/farming');
+
+commands.register('farm', { help: 'Farming: farm plant [patch] [seed] | farm harvest [patch] | farm inspect [patch] | farm patches', category: 'Farming',
+  fn: (p, args) => {
+    const sub = args[0]?.toLowerCase();
+    if (!sub || sub === 'patches') {
+      const patches = farmingSkill.listPatches();
+      if (!patches.length) return 'No farming patches available.';
+      const lines = ['=== Farming Patches ==='];
+      for (const patch of patches) {
+        farmingSkill.updateGrowth(patch.id);
+        const seed = patch.seedId ? farmingSkill.seedDefs.get(patch.seedId) : null;
+        let status = 'Empty';
+        if (patch.dead) status = 'Dead crop';
+        else if (patch.diseased) status = 'Diseased!';
+        else if (patch.harvestsRemaining > 0) status = `Ready to harvest (${patch.harvestsRemaining} remaining)`;
+        else if (seed) status = `Growing: ${seed.seedName} (stage ${patch.growthStage}/${patch.maxGrowthStage})`;
+        const compostTag = patch.supercomposted ? ' [SC]' : patch.composted ? ' [C]' : '';
+        lines.push(`  ${patch.id} (${patch.region}, ${patch.type})${compostTag}: ${status}`);
+      }
+      return lines.join('\n');
+    }
+    if (sub === 'plant') {
+      const patchId = args[1];
+      const seedName = args.slice(2).join(' ').toLowerCase();
+      if (!patchId || !seedName) return 'Usage: farm plant [patch_id] [seed name]';
+      // Find seed in inventory by name
+      const seedSlot = p.inventory.findIndex(s => s && s.name.toLowerCase().includes(seedName));
+      if (seedSlot < 0) return `No "${seedName}" in inventory.`;
+      const seedId = p.inventory[seedSlot].id;
+      const result = farmingSkill.plant(p, patchId, seedId);
+      if (result.error) return result.error;
+      return `Planted ${result.seed}. Growth time: ~${Math.floor(result.growthTicks * 0.6 / 60)} minutes.${xpDrop('farming', result.xp)}`;
+    }
+    if (sub === 'harvest') {
+      const patchId = args[1];
+      if (!patchId) return 'Usage: farm harvest [patch_id]';
+      // Harvest all available
+      let totalXp = 0, totalItems = 0, productName = '';
+      while (true) {
+        const result = farmingSkill.harvest(p, patchId);
+        if (result.error) {
+          if (totalItems > 0) return `Harvested ${totalItems}x ${productName}.${xpDrop('farming', totalXp)}`;
+          return result.error === 'not_grown' ? `Not ready yet. Stage ${result.stage}/${result.maxStage}. ~${Math.floor(result.ticksRemaining * 0.6 / 60)}min remaining.` : result.error;
+        }
+        totalXp += result.xp;
+        totalItems++;
+        productName = result.product;
+        if (result.remaining <= 0) break;
+        if (p.inventory.findIndex(s => s === null) < 0) { break; } // Inventory full
+      }
+      return `Harvested ${totalItems}x ${productName}.${xpDrop('farming', totalXp)}`;
+    }
+    if (sub === 'compost') {
+      const patchId = args[1];
+      const isSuper = args[2]?.toLowerCase() === 'super';
+      if (!patchId) return 'Usage: farm compost [patch_id] [super]';
+      // Check for compost in inventory
+      const compostId = isSuper ? 12817 : 12816;
+      const slot = p.inventory.findIndex(s => s && s.id === compostId);
+      if (slot < 0) return `No ${isSuper ? 'supercompost' : 'compost'} in inventory.`;
+      p.inventory[slot] = null;
+      const result = farmingSkill.compost(p, patchId, isSuper);
+      if (result.error) return result.error;
+      return `Applied ${result.type} to ${patchId}.`;
+    }
+    if (sub === 'inspect') {
+      const patchId = args[1];
+      if (!patchId) return 'Usage: farm inspect [patch_id]';
+      farmingSkill.updateGrowth(patchId);
+      const patch = farmingSkill.getPatch(patchId);
+      if (!patch) return 'Unknown patch.';
+      if (!patch.seedId) return `${patchId}: Empty. Use \`farm plant ${patchId} [seed]\`.`;
+      const seed = farmingSkill.seedDefs.get(patch.seedId);
+      return `${patchId}: ${seed?.seedName || 'Unknown'}, stage ${patch.growthStage}/${patch.maxGrowthStage}${patch.diseased ? ' DISEASED' : ''}${patch.dead ? ' DEAD' : ''}${patch.harvestsRemaining > 0 ? ` READY (${patch.harvestsRemaining} harvests)` : ''}`;
+    }
+    return 'Usage: farm patches | farm plant [patch] [seed] | farm harvest [patch] | farm compost [patch] | farm inspect [patch]';
+  }
+});
+
+// ── Quest commands ─────────────────────────────────────────────────────────────
+const questData = require('./data/quests');
+
+commands.register('quest', { help: 'Quest commands: quest list | quest start [id] | quest status [id]', category: 'Quests',
+  fn: (p, args) => {
+    const sub = args[0]?.toLowerCase();
+    if (!sub || sub === 'list') {
+      const all = questData.listAll();
+      if (all.length === 0) return 'No quests available.';
+      const lines = ['=== Quests ==='];
+      for (const q of all) {
+        const status = questData.getStatus(p, q.id);
+        const tag = status.complete ? '[DONE]' : status.started ? `[Step ${status.step + 1}/${q.steps.length}]` : '[NOT STARTED]';
+        lines.push(`  ${q.name} (${q.difficulty}) ${tag}`);
+      }
+      return lines.join('\n');
+    }
+    if (sub === 'start') {
+      const qId = args[1];
+      if (!qId) return 'Usage: quest start [quest_id]';
+      const q = questData.getQuest(qId);
+      if (!q) return `Unknown quest: ${qId}`;
+      const status = questData.getStatus(p, qId);
+      if (status.complete) return `You have already completed ${q.name}.`;
+      if (status.started) return `You are already on ${q.name} (step ${status.step + 1}).`;
+      if (!questData.meetsRequirements(p, q, getLevel)) return `You don't meet the requirements for ${q.name}.`;
+      questData.startQuest(p, qId);
+      return `Quest started: ${q.name}\n${q.steps[0]?.text || 'Begin your journey.'}`;
+    }
+    if (sub === 'status' || sub === 'info') {
+      const qId = args[1];
+      if (!qId) return 'Usage: quest status [quest_id]';
+      const q = questData.getQuest(qId);
+      if (!q) return `Unknown quest: ${qId}`;
+      const status = questData.getStatus(p, qId);
+      if (status.complete) return `${q.name} — COMPLETE (${q.questPoints} QP)`;
+      if (!status.started) return `${q.name} — Not started.\n${q.description}`;
+      const step = q.steps[status.step];
+      return `${q.name} — Step ${status.step + 1}/${q.steps.length}\n${step?.text || 'Continue.'}`;
+    }
+    if (sub === 'advance') {
+      // Debug/admin: manually advance quest step
+      const qId = args[1];
+      if (!qId) return 'Usage: quest advance [quest_id]';
+      const q = questData.getQuest(qId);
+      if (!q) return `Unknown quest: ${qId}`;
+      const result = questData.advanceStep(p, qId);
+      if (!result) return 'Cannot advance.';
+      if (result.complete) {
+        // Grant rewards
+        if (q.rewards.xp) {
+          for (const [skill, amount] of Object.entries(q.rewards.xp)) {
+            addXp(p, skill, amount);
+          }
+        }
+        if (q.rewards.items) {
+          for (const item of q.rewards.items) {
+            const def = items.get(item.id);
+            invAdd(p, item.id, item.name, item.count || 1, def?.stackable);
+          }
+        }
+        return `Quest complete: ${q.name}! Rewards granted.`;
+      }
+      return `Quest step advanced. Step ${result.step + 1}/${q.steps.length}: ${q.steps[result.step]?.text || 'Continue.'}`;
+    }
+    return 'Usage: quest list | quest start [id] | quest status [id] | quest advance [id]';
+  }
+});
+
+// ── Slayer commands ────────────────────────────────────────────────────────────
+const slayerData = require('./data/slayer');
+
+// Add Aelgard slayer master (Moryskah)
+slayerData.defineMaster('varrek', {
+  name: 'Slayer Master Varrek', combatReq: 40, slayerReq: 15,
+  tasks: [
+    { monster: 'banshee', weight: 6, min: 40, max: 80, slayerReq: 15 },
+    { monster: 'crawling hand', weight: 5, min: 40, max: 80 },
+    { monster: 'vampyre juvenile', weight: 5, min: 50, max: 90, slayerReq: 25 },
+    { monster: 'werewolf', weight: 4, min: 40, max: 70, slayerReq: 30 },
+    { monster: 'aberrant spectre', weight: 4, min: 50, max: 80, slayerReq: 40 },
+    { monster: 'dust devil', weight: 3, min: 60, max: 100, slayerReq: 45 },
+    { monster: 'mummy', weight: 3, min: 40, max: 70, slayerReq: 35 },
+    { monster: 'bone crawler', weight: 4, min: 50, max: 80 },
+    { monster: 'fungal mage', weight: 3, min: 50, max: 80, slayerReq: 30 },
+    { monster: 'prism wizard', weight: 2, min: 40, max: 60, slayerReq: 55 },
+  ],
+});
+
+commands.register('slayer', { help: 'Slayer commands: slayer task | slayer info | slayer rewards', aliases: ['task'], category: 'Skills',
+  fn: (p, args) => {
+    const sub = args[0]?.toLowerCase();
+    if (sub === 'task' || (!sub && !p.slayerTask)) {
+      // Pick master based on combat level
+      const cb = combatLevel(p);
+      const masterId = cb >= 40 ? 'varrek' : (cb >= 20 ? 'vannaka' : 'turael');
+      const task = slayerData.assignTask(p, masterId, getLevel);
+      if (!task) return 'No slayer tasks available at your level.';
+      p.slayerTask = { monster: task.monster, count: task.count, remaining: task.remaining };
+      const master = slayerData.masters.get(masterId);
+      return `New slayer task from ${master?.name || masterId}: Kill ${task.count} ${task.monster}.`;
+    }
+    if (sub === 'rewards') {
+      const lines = ['=== Slayer Reward Shop ===', `Your points: ${p.slayerPoints || 0}`];
+      for (const [id, r] of Object.entries(slayerData.SLAYER_REWARDS)) {
+        lines.push(`  ${id} (${r.cost} pts) — ${r.desc}`);
+      }
+      return lines.join('\n');
+    }
+    const t = p.slayerTask;
+    if (!t) return 'You have no slayer task. Type `slayer task` to get one.';
+    return `Slayer task: Kill ${t.remaining} more ${t.monster}. (Streak: ${p.slayerStreak || 0}, Points: ${p.slayerPoints || 0})`;
   }
 });
 
@@ -2837,6 +3618,104 @@ function createDefaultContent() {
   for (let x = 94; x <= 100; x++) for (let y = 84; y <= 88; y++) tiles.setTile(x, y, T.FLOOR, 1);
   objects.placeObject('staircase', 96, 86, 1); // Matching stairs on layer 1
 
+  // ═══════════════════════════════════════════════════════════════════════════
+  // AELGARD — World content packs (define items, NPCs, monsters, shops, quests)
+  // ═══════════════════════════════════════════════════════════════════════════
+  const heartlands = require('./content/aelgard/heartlands');
+  require('./content/aelgard/boneyard-wastes');
+  require('./content/aelgard/moryskah');
+  require('./content/aelgard/veilwood');
+  require('./content/aelgard/sootworks');
+  require('./content/aelgard/saltbrine');
+  require('./content/aelgard/inkweald');
+  require('./content/aelgard/glass-desert');
+  require('./content/aelgard/items-expanded'); // Potions, ranged, magic, herbs, seeds, gems, jewellery, tools
+  require('./content/aelgard/active-gathering'); // Trawler, Storm Felling, Blast Mining, Feast Cooking, Volcanic Core
+  require('./content/aelgard/boss-instances');  // 13 boss instances registered as playable RL content
+  require('./content/aelgard/quests-expanded'); // 10 more quests
+  require('./content/aelgard/shops-expanded');  // 16 more shops → 30 total
+  require('./content/aelgard/monsters-expanded'); // 50+ more monsters across all regions + wilds
+  require('./content/aelgard/items-dragon-barrows'); // Dragon tier, Barrows sets, Slayer drops, God Wars, clue rewards
+  require('./content/aelgard/quests-series');        // 20 more quests: RFD chain, Desert Treasure, Monkey Business, Lunar, etc
+  require('./content/aelgard/spellbooks');           // 3 spellbooks, ~55 spells
+  require('./content/aelgard/minigames');            // 6 minigames with unique reward sets
+  require('./content/aelgard/slayer-creatures');     // Slayer creatures + full dragon tier (green→KBD)
+  require('./content/aelgard/achievement-diaries');  // 8 region diaries × 4 tiers = 32 completions
+  require('./content/aelgard/treasure-trails');      // 4-tier clue scroll system with reward tables
+  require('./content/aelgard/items-blitz');          // 200+ items: smithing products, food, dragonhide, teleport jewellery, skilling outfits, capes, gloves, boots, shields, amulets
+  require('./content/aelgard/monsters-blitz');       // 70+ more monsters: dungeon creatures, expanded slayer tower, dragons, wilderness bosses
+  require('./content/aelgard/monsters-blitz2');      // 90+ more monsters: city variants, cave systems, deep dungeons, wilderness bosses
+  require('./content/aelgard/droptables-expanded');  // Fill missing drop tables for all monsters
+  require('./content/aelgard/items-blitz2');         // 247 items: obsidian, godwars, prayer, slayer equip, potions, farming, treasure trail, utility
+  require('./content/aelgard/quests-blitz');          // 30 quests: skill intros, lore chains, multi-region adventures, combat challenges, group quests
+  require('./content/aelgard/training-methods');      // Level bracket density: +11 mining, +15 fishing, +7 WC, +11 cooking, +2 smithing
+  require('./content/aelgard/pets-collection');       // 45 pets + collection log (27 sections, 100+ uniques)
+  require('./content/aelgard/smithing-complete');     // 126 anvil recipes (6 tiers × 21 products)
+  require('./content/aelgard/prayer-expansion');     // 29 prayers, bone XP table, altar multipliers
+  require('./content/aelgard/slayer-expansion');     // 33 slayer creatures, 10 superior variants, 25 items, endgame slayer master
+  require('./content/aelgard/bosses-expanded');      // 12 more bosses: God Wars (4), Zulrah, Vorkath, Corp, Nightmare, DKs (3), Mole, KQ
+  require('./content/aelgard/diaries-tasks-detailed'); // 320 specific diary tasks across all regions
+  require('./content/aelgard/raids');                 // 2 raids: Chambers of Aelgard (6 rooms) + Theatre of Shadows (5 bosses), 20 items, 20 NPCs
+  require('./content/aelgard/quests-mega');            // 50 more quests: novice→grandmaster, all 23 skills, multi-region adventures
+  require('./content/aelgard/combat-achievements');   // 100+ combat achievements across 6 tiers (Easy→Grandmaster)
+  require('./content/aelgard/clue-scrolls-expanded'); // 85 more clue steps + master tier with 3rd age druidic rewards
+  require('./content/aelgard/random-events-daily');   // 10 random events + 10 daily/weekly activities
+  require('./content/aelgard/transportation-network'); // 40 fairy rings, 15+ teleports, spirit trees, 20 shortcuts, boats/carts/trams
+  require('./content/aelgard/raids-bosses-mega');    // Raid 3 (Tombs of Aelgard) + 15 more bosses + Torva/Virtus/Masori armour
+  require('./content/aelgard/raid-prerequisites');   // 11 raid unlock quests + tier structure
+  try { require('./content/aelgard/raids-mega1'); } catch(e) { console.warn('[aelgard] raids-mega1 pending:', e.message); }
+  try { require('./content/aelgard/raids-mega2'); } catch(e) { console.warn('[aelgard] raids-mega2 pending:', e.message); }
+  require('./content/aelgard/dungeon-packs');        // 35+ dungeon monsters across 7 region dungeons
+  require('./content/aelgard/combat-challenges');    // 5 wave challenges (Colosseum, Crypt Inferno, Crucible, Sea Gauntlet, Dream Arena) + 5 duo bosses
+  require('./content/aelgard/league-modes');         // Seasonal leagues: 6 relic tiers, 540 tasks, 5 league templates, reward shop
+  require('./content/aelgard/wilderness-content');   // Wilds weapons, BH system, LMS, chaos altar, wilderness slayer, Larran's chest
+
+  // Spawn Aelgard entities in the world (after tiles are set up)
+  if (heartlands.spawnHeartlands) heartlands.spawnHeartlands();
+  const worldLayout = require('./content/aelgard/world-layout');
+  worldLayout.spawnWorld(); // All 8 regions: terrain, areas, NPCs, monsters, resource nodes, bosses
+
+  // CRYSTAL CAVERNS — Builder content pack (now part of the Glass Desert region)
+  // ═══════════════════════════════════════════════════════════════════════════
+  const crystalMobs = require('./content/crystal_wyrm/mobs');
+  crystalMobs.registerAll();
+
+  // Crystal Caverns area (east of town)
+  for (let x = 130; x <= 150; x++) for (let y = 90; y <= 110; y++) tiles.setTile(x, y, T.FLOOR);
+  tiles.defineArea('crystal_caverns', { name: 'Crystal Caverns', x1: 130, y1: 90, x2: 150, y2: 110, safe: false, multicombat: false });
+
+  // Elara the Geomancer (quest giver at entrance)
+  npcs.defineNpc('elara', {
+    name: 'Elara the Geomancer',
+    examine: 'A weathered scholar who has spent decades studying crystal formations.',
+    combat: 0, maxHp: 50,
+    stats: {}, attackSpeed: 0, attackRange: 0, maxHit: 0,
+    size: 1, aggressive: false, wanderRadius: 3, respawnTicks: 10,
+    dialogue: 'Fascinating! The crystal lattice structures here are unlike anything documented. Have you come to study the tremors too?',
+  });
+  npcs.spawnNpc('elara', 131, 95);
+
+  // Crystal Forge object (for Crystallurgy skill)
+  objects.defineObject('crystal_forge', {
+    name: 'Crystal Forge',
+    examine: 'An ancient forge powered by crystal energy.',
+    actions: ['Use'],
+  });
+  objects.placeObject('crystal_forge', 135, 93);
+
+  // Crystallite spawns (6 throughout the cavern)
+  for (const [x, y] of [[137, 96], [140, 100], [143, 97], [145, 103], [138, 107], [147, 95]]) {
+    npcs.spawnNpc('crystallite', x, y);
+  }
+
+  // Crystal Altar (deeper in caverns)
+  objects.defineObject('crystal_altar', {
+    name: 'Crystal Altar',
+    examine: 'An altar humming with crystal energy.',
+    actions: ['Pray', 'Use'],
+  });
+  objects.placeObject('crystal_altar', 148, 108);
+
   console.log(`[init] Default world created with ${npcs.npcs.size} NPCs, ${objects.objects.size} objects`);
 }
 
@@ -2864,6 +3743,20 @@ function addNpcPrompt(npcName, prompt, sendFn) {
   }
 }
 const dbApi = require('./db/api');
+const db = require('./db/index');
+
+// Builder persona lookup — check if a custom AI persona exists for this NPC
+async function getBuilderPersona(npcDefId) {
+  try {
+    const result = await db.queryOne(
+      `SELECT data FROM builder_entities
+       WHERE tab_id = 'npc-personas' AND (data->>'npcId' = $1 OR data->>'name' = $1)
+       ORDER BY updated_at DESC LIMIT 1`,
+      [npcDefId]
+    );
+    return result?.data?.systemPrompt || null;
+  } catch { return null; }
+}
 
 const server = http.createServer(async (req, res) => {
   // Auth API endpoints — handle first
@@ -2871,6 +3764,19 @@ const server = http.createServer(async (req, res) => {
     try {
       const handled = await auth.handleAuthRequest(req, res);
       if (handled !== false) return;
+    } catch (err) {
+      res.writeHead(500, { 'Content-Type': 'application/json' });
+      res.end(JSON.stringify({ error: err.message }));
+      return;
+    }
+  }
+
+  // Codex API — read-only endpoints serving engine content (hardcoded + builder)
+  if (req.url.startsWith('/api/codex/')) {
+    try {
+      const codexApi = require('./db/codex-api');
+      const handled = codexApi.handleCodexRequest(req, res);
+      if (handled) return;
     } catch (err) {
       res.writeHead(500, { 'Content-Type': 'application/json' });
       res.end(JSON.stringify({ error: err.message }));
@@ -2920,6 +3826,16 @@ const server = http.createServer(async (req, res) => {
   // Play page
   if (req.url === '/play') {
     if (serveHTML('play.html')) return;
+  }
+
+  // Codex — browsable encyclopedia (primary human interface)
+  // Multi-page structure at public/codex/ — serve any .html file under that path
+  if (req.url === '/codex' || req.url === '/codex/' || req.url.startsWith('/codex?')) {
+    if (serveHTML('codex/index.html')) return;
+  }
+  if (req.url.startsWith('/codex/') && req.url.endsWith('.html')) {
+    const codexFile = req.url.substring(1); // strip leading /
+    if (serveHTML(codexFile)) return;
   }
 
   // Guide page
@@ -2994,10 +3910,13 @@ const server = http.createServer(async (req, res) => {
     // Track viewer
     const ip = req.headers['x-forwarded-for'] || req.connection.remoteAddress || 'unknown';
     global._spectateViewers.set(ip, Date.now());
-    // Look for live.log in ScapeTests/inferno-rl/
+    // Look for live.log — crystal-wyrm-rl first, then inferno-rl
+    const home = process.env.HOME || process.env.USERPROFILE || '';
     const logPaths = [
+      require('path').join(__dirname, '..', '..', 'ScapeTests', 'crystal-wyrm-rl', 'live.log'),
+      require('path').join(home, 'ScapeTests', 'crystal-wyrm-rl', 'live.log'),
       require('path').join(__dirname, '..', '..', 'ScapeTests', 'inferno-rl', 'live.log'),
-      require('path').join(process.env.HOME || process.env.USERPROFILE || '', 'ScapeTests', 'inferno-rl', 'live.log'),
+      require('path').join(home, 'ScapeTests', 'inferno-rl', 'live.log'),
     ];
     for (const logPath of logPaths) {
       if (require('fs').existsSync(logPath)) {
@@ -3011,14 +3930,23 @@ const server = http.createServer(async (req, res) => {
     return;
   }
 
-  // Challenge status
+  // Challenge status — check crystal-wyrm-rl first, fall back to inferno-rl
   if (req.url === '/challenges') {
-    const cPath = require('path').join(process.env.HOME || process.env.USERPROFILE || '', 'ScapeTests', 'inferno-rl', 'challenges.json');
-    try {
-      res.writeHead(200, { 'Content-Type': 'application/json', 'Cache-Control': 'no-cache' });
-      res.end(require('fs').readFileSync(cPath, 'utf-8'));
-      return;
-    } catch {}
+    const home = process.env.HOME || process.env.USERPROFILE || '';
+    const cPaths = [
+      require('path').join(home, 'ScapeTests', 'crystal-wyrm-rl', 'challenges.json'),
+      require('path').join(__dirname, '..', '..', 'ScapeTests', 'crystal-wyrm-rl', 'challenges.json'),
+      require('path').join(home, 'ScapeTests', 'inferno-rl', 'challenges.json'),
+    ];
+    for (const cPath of cPaths) {
+      try {
+        if (require('fs').existsSync(cPath)) {
+          res.writeHead(200, { 'Content-Type': 'application/json', 'Cache-Control': 'no-cache' });
+          res.end(require('fs').readFileSync(cPath, 'utf-8'));
+          return;
+        }
+      } catch {}
+    }
     res.writeHead(200, { 'Content-Type': 'application/json' }); res.end('{}'); return;
   }
 
@@ -3561,6 +4489,14 @@ persistence.startAutoSave();
 
 // HTTP API for Claude Code / external tools
 setupHttpApi(server, { players, playersByName, commands, sendText, createPlayer, combatLevel, getLevel, totalLevel, tick, tiles, npcs, invFreeSlots });
+
+// Load builder content from Postgres into the engine
+const contentLoader = require('./engine/content-loader');
+contentLoader.loadAllContent().then(() => {
+  console.log('[server] Builder content loaded');
+}).catch(err => {
+  console.warn('[server] Builder content load skipped:', err.message);
+});
 
 // Start
 tick.startTicking();

@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Scape Codex — Aelgard Encyclopedia</title>
+<style>
+:root {
+  --bg: #1a1a2e;
+  --bg2: #16213e;
+  --bg3: #0f3460;
+  --text: #e0e0e0;
+  --text-dim: #8888aa;
+  --accent: #e94560;
+  --accent2: #f5a623;
+  --link: #53c0f0;
+  --border: #2a2a4e;
+  --card: #1e1e3a;
+  --success: #4caf50;
+  --warn: #ff9800;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: 'Segoe UI', system-ui, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+}
+a { color: var(--link); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+/* Layout */
+.header {
+  background: var(--bg2);
+  border-bottom: 1px solid var(--border);
+  padding: 12px 24px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+.header h1 { font-size: 18px; color: var(--accent); white-space: nowrap; }
+.header nav { display: flex; gap: 8px; flex-wrap: wrap; }
+.header nav button {
+  background: var(--bg3);
+  color: var(--text);
+  border: 1px solid var(--border);
+  padding: 6px 14px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 13px;
+}
+.header nav button:hover, .header nav button.active {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #fff;
+}
+
+/* Search */
+.search-bar {
+  margin-left: auto;
+  position: relative;
+}
+.search-bar input {
+  background: var(--bg);
+  color: var(--text);
+  border: 1px solid var(--border);
+  padding: 6px 12px 6px 30px;
+  border-radius: 4px;
+  font-size: 13px;
+  width: 260px;
+}
+.search-bar::before {
+  content: '\1F50D';
+  position: absolute;
+  left: 8px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 13px;
+}
+.search-results {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background: var(--bg2);
+  border: 1px solid var(--border);
+  border-radius: 0 0 4px 4px;
+  max-height: 400px;
+  overflow-y: auto;
+  display: none;
+  z-index: 200;
+}
+.search-results.visible { display: block; }
+.search-result {
+  padding: 8px 12px;
+  cursor: pointer;
+  border-bottom: 1px solid var(--border);
+  font-size: 13px;
+}
+.search-result:hover { background: var(--bg3); }
+.search-result .type { color: var(--text-dim); font-size: 11px; text-transform: uppercase; margin-left: 6px; }
+
+/* Main content */
+.main { display: flex; min-height: calc(100vh - 50px); }
+.sidebar {
+  width: 260px;
+  min-width: 260px;
+  background: var(--bg2);
+  border-right: 1px solid var(--border);
+  overflow-y: auto;
+  padding: 12px 0;
+}
+.sidebar h3 {
+  padding: 8px 16px;
+  font-size: 12px;
+  color: var(--text-dim);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+.sidebar-item {
+  padding: 6px 16px;
+  cursor: pointer;
+  font-size: 13px;
+  border-left: 3px solid transparent;
+}
+.sidebar-item:hover { background: var(--bg3); }
+.sidebar-item.active { border-left-color: var(--accent); background: var(--bg3); }
+.sidebar-item .count { color: var(--text-dim); font-size: 11px; margin-left: 4px; }
+
+.content {
+  flex: 1;
+  padding: 24px;
+  overflow-y: auto;
+}
+
+/* Entity cards */
+.entity-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 12px;
+}
+.entity-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 14px;
+  cursor: pointer;
+  transition: border-color 0.15s;
+}
+.entity-card:hover { border-color: var(--accent); }
+.entity-card h3 { font-size: 14px; margin-bottom: 4px; }
+.entity-card .meta { font-size: 12px; color: var(--text-dim); }
+.entity-card .stat { display: inline-block; background: var(--bg3); padding: 2px 6px; border-radius: 3px; font-size: 11px; margin: 2px; }
+
+/* Detail view */
+.detail { max-width: 800px; }
+.detail h2 { font-size: 22px; margin-bottom: 4px; }
+.detail .examine { color: var(--text-dim); font-style: italic; margin-bottom: 16px; }
+.detail .breadcrumb { font-size: 12px; color: var(--text-dim); margin-bottom: 12px; }
+.detail .breadcrumb a { color: var(--link); }
+.detail table { width: 100%; border-collapse: collapse; margin: 12px 0; }
+.detail th, .detail td {
+  padding: 6px 10px;
+  text-align: left;
+  border-bottom: 1px solid var(--border);
+  font-size: 13px;
+}
+.detail th { color: var(--text-dim); font-size: 12px; text-transform: uppercase; }
+.detail .section-title { font-size: 15px; color: var(--accent2); margin: 16px 0 8px; }
+.detail .tag {
+  display: inline-block;
+  background: var(--bg3);
+  color: var(--text);
+  padding: 2px 8px;
+  border-radius: 3px;
+  font-size: 12px;
+  margin: 2px;
+}
+.back-btn {
+  background: none;
+  border: 1px solid var(--border);
+  color: var(--text);
+  padding: 4px 10px;
+  border-radius: 3px;
+  cursor: pointer;
+  font-size: 12px;
+  margin-bottom: 12px;
+}
+.back-btn:hover { background: var(--bg3); }
+
+/* Stats grid */
+.stats-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 6px; margin: 8px 0; }
+.stats-grid .stat-box {
+  background: var(--bg3);
+  padding: 6px 10px;
+  border-radius: 4px;
+  font-size: 12px;
+}
+.stats-grid .stat-box .label { color: var(--text-dim); }
+.stats-grid .stat-box .value { color: var(--accent2); font-weight: bold; }
+
+/* Loading */
+.loading { text-align: center; padding: 40px; color: var(--text-dim); }
+
+/* Responsive */
+@media (max-width: 768px) {
+  .sidebar { display: none; }
+  .search-bar input { width: 150px; }
+  .entity-grid { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>Scape Codex</h1>
+  <nav id="nav"></nav>
+  <div class="search-bar">
+    <input type="text" id="search" placeholder="Search everything... (Ctrl+K)" autocomplete="off">
+    <div class="search-results" id="searchResults"></div>
+  </div>
+</div>
+
+<div class="main">
+  <div class="sidebar" id="sidebar"></div>
+  <div class="content" id="content"><div class="loading">Loading codex...</div></div>
+</div>
+
+<script>
+// ══════════════════════════════════════════════════════════════════════════════
+// Scape Codex — client-side app
+// Reads from /api/content/* endpoints (same data the engine uses)
+// ══════════════════════════════════════════════════════════════════════════════
+
+const CATEGORIES = [
+  { id: 'items', label: 'Items', endpoint: '/api/codex/items' },
+  { id: 'monsters', label: 'Monsters', endpoint: '/api/codex/monsters' },
+  { id: 'npcs', label: 'NPCs', endpoint: '/api/codex/npcs' },
+  { id: 'quests', label: 'Quests', endpoint: '/api/codex/quests' },
+  { id: 'shops', label: 'Shops', endpoint: '/api/codex/shops' },
+];
+
+const entityCache = {}; // categoryId → [entities]
+let currentCategory = 'items';
+let currentDetail = null;
+
+// ── Fetch all content ──────────────────────────────────────────────────────
+
+async function loadAllContent() {
+  try {
+    // Load summary first
+    const summaryRes = await fetch('/api/codex/summary');
+    const summary = await summaryRes.json();
+
+    // Load each category
+    for (const cat of CATEGORIES) {
+      try {
+        const res = await fetch(cat.endpoint);
+        const data = await res.json();
+        entityCache[cat.id] = data.map(e => ({
+          ...e,
+          _type: cat.id,
+          _id: e.id || e.defId,
+        }));
+      } catch {
+        entityCache[cat.id] = [];
+      }
+    }
+
+    renderNav();
+    renderSidebar();
+    renderContent();
+  } catch (err) {
+    document.getElementById('content').innerHTML =
+      `<div class="loading">Could not load codex data.<br><small>${err.message}</small><br><br>
+       <small>Make sure the game server is running on this host.</small></div>`;
+  }
+}
+
+// ── Navigation ─────────────────────────────────────────────────────────────
+
+function renderNav() {
+  const nav = document.getElementById('nav');
+  nav.innerHTML = '';
+  for (const cat of CATEGORIES) {
+    const count = (entityCache[cat.id] || []).length;
+    const btn = document.createElement('button');
+    btn.textContent = `${cat.label} (${count})`;
+    btn.className = cat.id === currentCategory ? 'active' : '';
+    btn.onclick = () => { currentCategory = cat.id; currentDetail = null; renderNav(); renderSidebar(); renderContent(); };
+    nav.appendChild(btn);
+  }
+}
+
+// ── Sidebar ────────────────────────────────────────────────────────────────
+
+function renderSidebar() {
+  const sidebar = document.getElementById('sidebar');
+  const entities = entityCache[currentCategory] || [];
+  const catLabel = CATEGORIES.find(c => c.id === currentCategory)?.label || currentCategory;
+  if (entities.length === 0) {
+    sidebar.innerHTML = `<h3>${catLabel}</h3><div class="sidebar-item" style="color:var(--text-dim)">No content loaded</div>`;
+    return;
+  }
+  let html = `<h3>${catLabel} (${entities.length})</h3>`;
+  for (const e of entities) {
+    const eid = e._id || e.id || e.defId;
+    const active = currentDetail?._id === eid ? 'active' : '';
+    html += `<div class="sidebar-item ${active}" onclick="showDetail('${currentCategory}','${eid}')">${e.name}</div>`;
+  }
+  sidebar.innerHTML = html;
+}
+
+// ── Content: grid view ─────────────────────────────────────────────────────
+
+function renderContent() {
+  if (currentDetail) { renderDetail(); return; }
+
+  const content = document.getElementById('content');
+  const entities = entityCache[currentCategory] || [];
+  const catLabel = CATEGORIES.find(c => c.id === currentCategory)?.label || currentCategory;
+
+  if (entities.length === 0) {
+    content.innerHTML = `<div class="loading">
+      <h2 style="margin-bottom:8px">No ${catLabel} loaded</h2>
+      <p style="color:var(--text-dim)">Make sure the game server is running.</p>
+    </div>`;
+    return;
+  }
+
+  let html = '<div class="entity-grid">';
+  for (const e of entities) {
+    const eid = e._id || e.id || e.defId;
+    let meta = '';
+    if (e.combat) meta += `<span class="stat">Combat ${e.combat}</span>`;
+    if (e.maxHp) meta += `<span class="stat">HP ${e.maxHp}</span>`;
+    if (e.value) meta += `<span class="stat">${e.value} gp</span>`;
+    if (e.difficulty) meta += `<span class="stat">${e.difficulty}</span>`;
+    if (e.questPoints) meta += `<span class="stat">${e.questPoints} QP</span>`;
+    if (e.equipSlot) meta += `<span class="stat">${e.equipSlot}</span>`;
+    if (e.category) meta += `<span class="stat">${e.category}</span>`;
+    if (e.type) meta += `<span class="stat">${e.type}</span>`;
+    html += `<div class="entity-card" onclick="showDetail('${currentCategory}','${eid}')">
+      <h3>${e.name}</h3>
+      <div class="meta">${e.examine || e.description || ''}</div>
+      <div style="margin-top:6px">${meta}</div>
+    </div>`;
+  }
+  html += '</div>';
+  content.innerHTML = html;
+}
+
+// ── Content: detail view ───────────────────────────────────────────────────
+
+function showDetail(category, entityId) {
+  const entities = entityCache[category] || [];
+  currentDetail = entities.find(e => (e._id || e.id || e.defId) == entityId);
+  if (!currentDetail) return;
+  currentDetail._type = category;
+  renderSidebar();
+  renderDetail();
+}
+
+function renderDetail() {
+  const e = currentDetail;
+  if (!e) return;
+  const d = e; // The entity IS the data (not nested)
+  const catLabel = CATEGORIES.find(c => c.id === e._type)?.label || e._type;
+  const content = document.getElementById('content');
+
+  let html = `<div class="detail">
+    <button class="back-btn" onclick="currentDetail=null;renderSidebar();renderContent();">Back to list</button>
+    <div class="breadcrumb"><a href="#" onclick="currentDetail=null;renderContent();return false;">${catLabel}</a> / ${e.name}</div>
+    <h2>${e.name}</h2>
+    <div class="examine">${d.examine || d.description || ''}</div>`;
+
+  // Stats
+  if (d.stats && Object.keys(d.stats).length > 0) {
+    html += `<div class="section-title">Stats</div><div class="stats-grid">`;
+    for (const [k, v] of Object.entries(d.stats)) {
+      if (v !== 0) html += `<div class="stat-box"><span class="label">${formatStatName(k)}</span> <span class="value">${v > 0 ? '+' : ''}${v}</span></div>`;
+    }
+    html += '</div>';
+  }
+
+  // Properties table
+  const props = [];
+  if (d.value) props.push(['Value', `${d.value} gp`]);
+  if (d.combat || d.combatLevel) props.push(['Combat Level', d.combat || d.combatLevel]);
+  if (d.maxHp || d.max_hp) props.push(['Hitpoints', d.maxHp || d.max_hp]);
+  if (d.maxHit || d.max_hit) props.push(['Max Hit', d.maxHit || d.max_hit]);
+  if (d.attackStyle || d.attack_style) props.push(['Attack Style', d.attackStyle || d.attack_style]);
+  if (d.attackSpeed || d.attack_speed) props.push(['Attack Speed', d.attackSpeed || d.attack_speed]);
+  if (d.equipSlot || d.equip_slot) props.push(['Equip Slot', d.equipSlot || d.equip_slot]);
+  if (d.difficulty) props.push(['Difficulty', d.difficulty]);
+  if (d.questPoints || d.quest_points) props.push(['Quest Points', d.questPoints || d.quest_points]);
+  if (d.level) props.push(['Level Required', d.level]);
+  if (d.xp) props.push(['XP', d.xp]);
+  if (d.skill) props.push(['Skill', d.skill]);
+  if (d.weight) props.push(['Weight', d.weight + ' kg']);
+  if (d.size && d.size > 1) props.push(['Size', d.size + 'x' + d.size]);
+  if (d.aggressive) props.push(['Aggressive', 'Yes']);
+  if (d.poisonDamage || d.poison_damage) props.push(['Poison', (d.poisonDamage || d.poison_damage) + ' damage']);
+  if (d.category) props.push(['Category', d.category]);
+  if (d.tradeable === false) props.push(['Tradeable', 'No']);
+  if (d.members) props.push(['Members', 'Yes']);
+
+  if (props.length > 0) {
+    html += `<div class="section-title">Properties</div><table>`;
+    for (const [k, v] of props) html += `<tr><th>${k}</th><td>${v}</td></tr>`;
+    html += '</table>';
+  }
+
+  // Requirements
+  if (d.equipReqs && Object.keys(d.equipReqs).length > 0) {
+    html += `<div class="section-title">Requirements</div><div class="stats-grid">`;
+    for (const [k, v] of Object.entries(d.equipReqs)) {
+      html += `<div class="stat-box"><span class="label">${k}</span> <span class="value">${v}</span></div>`;
+    }
+    html += '</div>';
+  }
+  if (d.requirements) {
+    html += `<div class="section-title">Requirements</div>`;
+    if (d.requirements.skills) {
+      html += '<div class="stats-grid">';
+      for (const [k, v] of Object.entries(d.requirements.skills)) {
+        html += `<div class="stat-box"><span class="label">${k}</span> <span class="value">${v}</span></div>`;
+      }
+      html += '</div>';
+    }
+    if (d.requirements.quests) {
+      html += '<p style="margin-top:4px;font-size:13px">Quests: ' + d.requirements.quests.map(q => `<span class="tag">${q}</span>`).join(' ') + '</p>';
+    }
+  }
+
+  // Quest steps
+  if (d.steps && d.steps.length > 0) {
+    html += `<div class="section-title">Steps</div><ol style="margin-left:20px;font-size:13px;line-height:1.8">`;
+    for (const step of d.steps) {
+      html += `<li>${step.text || step.description || step}</li>`;
+    }
+    html += '</ol>';
+  }
+
+  // Rewards
+  if (d.rewards) {
+    html += `<div class="section-title">Rewards</div>`;
+    if (d.rewards.xp) {
+      html += '<div class="stats-grid">';
+      for (const [k, v] of Object.entries(d.rewards.xp)) {
+        html += `<div class="stat-box"><span class="label">${k} XP</span> <span class="value">+${v}</span></div>`;
+      }
+      html += '</div>';
+    }
+    if (d.rewards.items) {
+      html += '<p style="margin-top:4px;font-size:13px">Items: ';
+      html += d.rewards.items.map(i => `${i.count || 1}x ${i.name}`).join(', ');
+      html += '</p>';
+    }
+  }
+
+  // Drop table
+  if (d.dropTable || d.drop_table) {
+    const dt = d.dropTable || d.drop_table;
+    if (dt.always?.length) {
+      html += `<div class="section-title">Always Drops</div><table><tr><th>Item</th><th>Quantity</th></tr>`;
+      for (const drop of dt.always) html += `<tr><td>${drop.name}</td><td>${drop.min}-${drop.max}</td></tr>`;
+      html += '</table>';
+    }
+    if (dt.main?.length) {
+      html += `<div class="section-title">Main Drop Table</div><table><tr><th>Item</th><th>Quantity</th><th>Weight</th></tr>`;
+      for (const drop of dt.main) html += `<tr><td>${drop.name}</td><td>${drop.min}-${drop.max}</td><td>${drop.weight}</td></tr>`;
+      html += '</table>';
+    }
+    if (dt.tertiary?.length) {
+      html += `<div class="section-title">Rare Drops</div><table><tr><th>Item</th><th>Rate</th></tr>`;
+      for (const drop of dt.tertiary) html += `<tr><td>${drop.name}</td><td>1/${drop.chance}</td></tr>`;
+      html += '</table>';
+    }
+  }
+
+  // Shop stock
+  if (d.stock && d.stock.length > 0) {
+    html += `<div class="section-title">Stock</div><table><tr><th>Item</th><th>Stock</th><th>Price</th></tr>`;
+    for (const s of d.stock) html += `<tr><td>${s.name || s.itemName}</td><td>${s.base || s.quantity}</td><td>${s.price} gp</td></tr>`;
+    html += '</table>';
+  }
+
+  // Phases (bosses)
+  if (d.phases && Array.isArray(d.phases)) {
+    html += `<div class="section-title">Phases (${d.phases.length})</div><ol style="margin-left:20px;font-size:13px;line-height:1.8">`;
+    for (const phase of d.phases) html += `<li>${phase.name || phase}</li>`;
+    html += '</ol>';
+  }
+
+  // Created by
+  if (e.createdBy) {
+    html += `<div style="margin-top:24px;font-size:11px;color:var(--text-dim)">Created by ${e.createdBy}</div>`;
+  }
+
+  html += '</div>';
+  content.innerHTML = html;
+}
+
+function formatStatName(name) {
+  return name.replace(/_/g, ' ').replace(/\b\w/g, c => c.toUpperCase());
+}
+
+// ── Search ─────────────────────────────────────────────────────────────────
+
+const searchInput = document.getElementById('search');
+const searchResults = document.getElementById('searchResults');
+
+let searchTimeout;
+searchInput.addEventListener('input', () => {
+  const q = searchInput.value.trim();
+  if (!q || q.length < 2) { searchResults.classList.remove('visible'); return; }
+
+  clearTimeout(searchTimeout);
+  searchTimeout = setTimeout(async () => {
+    try {
+      const res = await fetch(`/api/codex/search?q=${encodeURIComponent(q)}`);
+      const matches = await res.json();
+
+      if (matches.length === 0) {
+        searchResults.innerHTML = '<div class="search-result" style="color:var(--text-dim)">No results</div>';
+      } else {
+        const typeToCategory = { item: 'items', monster: 'monsters', npc: 'npcs', quest: 'quests', shop: 'shops' };
+        searchResults.innerHTML = matches.map(m => {
+          const cat = typeToCategory[m.type] || m.type;
+          return `<div class="search-result" onclick="jumpTo('${cat}', '${m.id}')">
+            ${m.name}<span class="type">${m.type}${m.extra ? ' - ' + m.extra : ''}</span>
+          </div>`;
+        }).join('');
+      }
+      searchResults.classList.add('visible');
+    } catch {}
+  }, 200);
+});
+
+searchInput.addEventListener('blur', () => {
+  setTimeout(() => searchResults.classList.remove('visible'), 200);
+});
+
+// Ctrl+K shortcut
+document.addEventListener('keydown', (e) => {
+  if ((e.ctrlKey || e.metaKey) && e.key === 'k') {
+    e.preventDefault();
+    searchInput.focus();
+    searchInput.select();
+  }
+  if (e.key === 'Escape') {
+    searchResults.classList.remove('visible');
+    searchInput.blur();
+  }
+});
+
+function jumpTo(category, entityId) {
+  const cat = CATEGORIES.find(c => c.id === category);
+  if (cat) currentCategory = cat.id;
+  renderNav();
+  showDetail(category, entityId);
+  searchResults.classList.remove('visible');
+  searchInput.value = '';
+}
+
+// ── Init ───────────────────────────────────────────────────────────────────
+
+loadAllContent();
+</script>
+</body>
+</html>

@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html><head><meta charset="utf-8"><title>Veilwood — Aelgard Codex</title>
+<style>
+  body {
+    font-family: ui-monospace, 'Cascadia Code', 'Consolas', monospace;
+    background: #3e3529;
+    color: #e8dcc0;
+    margin: 0;
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  .parchment {
+    background: #e8dcc0;
+    color: #2c1810;
+    padding: 30px 40px;
+    border: 3px solid #8b6f47;
+    border-radius: 4px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.5);
+    margin: 20px 0;
+  }
+  h1 {
+    color: #7a1f1a;
+    border-bottom: 2px solid #8b6f47;
+    padding-bottom: 10px;
+  }
+  h2 { color: #5a3a1a; margin-top: 30px; }
+  h3 { color: #6b4423; }
+  a { color: #7a1f1a; text-decoration: none; border-bottom: 1px dotted #7a1f1a; }
+  a:hover { background: #d4c49c; }
+  nav { margin-bottom: 20px; }
+  nav a { margin-right: 15px; font-weight: bold; }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 15px 0;
+  }
+  th, td {
+    text-align: left;
+    padding: 6px 10px;
+    border-bottom: 1px solid #c4a970;
+  }
+  th { background: #d4c49c; color: #2c1810; }
+  tr:hover { background: #d4c49c; }
+  .tag {
+    display: inline-block;
+    padding: 2px 8px;
+    margin: 2px;
+    border-radius: 3px;
+    font-size: 11px;
+    font-weight: bold;
+  }
+  .tag-region { background: #4a6b8a; color: #fff; }
+  .tag-skill  { background: #5a7f4a; color: #fff; }
+  .tag-trans  { background: #8a1f1a; color: #fff; }
+  .tag-major  { background: #a86a2a; color: #fff; }
+  .tag-minor  { background: #6a6a6a; color: #fff; }
+  .tag-afk    { background: #3a5a2a; color: #fff; }
+  .tag-low    { background: #4a7a3a; color: #fff; }
+  .tag-medium { background: #8a7a2a; color: #fff; }
+  .tag-high   { background: #a85a2a; color: #fff; }
+  .tag-maximum{ background: #8a1f1a; color: #fff; }
+  .tag-obscure{ background: #6a4a2a; color: #fff; font-style: italic; }
+  .stat-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    margin: 15px 0;
+  }
+  .stat-cell {
+    background: #d4c49c;
+    padding: 10px;
+    border-radius: 3px;
+    text-align: center;
+  }
+  .stat-cell .value {
+    font-size: 24px;
+    font-weight: bold;
+    color: #7a1f1a;
+  }
+  .stat-cell .label {
+    font-size: 11px;
+    color: #5a3a1a;
+    text-transform: uppercase;
+  }
+  .description {
+    font-style: italic;
+    color: #5a3a1a;
+    margin: 10px 0;
+    padding: 10px;
+    background: #d4c49c;
+    border-left: 3px solid #8b6f47;
+  }
+  ul.loose li { margin-bottom: 8px; }
+  details {
+    margin: 10px 0;
+    padding: 10px;
+    background: #d4c49c;
+    border-radius: 3px;
+  }
+  summary { cursor: pointer; font-weight: bold; }
+</style>
+</head>
+<body>
+<nav>
+  <a href="index.html">Home</a>
+  <a href="regions.html">Regions</a>
+  <a href="skills.html">Skills</a>
+  <a href="quests.html">Quests</a>
+  <a href="breakpoints.html">Breakpoints</a>
+  <a href="items.html">Items</a>
+</nav>
+<div class="parchment">
+<h1>Veilwood</h1>
+<div class="description">Enchanted elven forest. Crystal trees, druids, moonpools.</div>
+
+<div class="stat-grid">
+  <div class="stat-cell"><div class="value">20</div><div class="label">Training Methods</div></div>
+  <div class="stat-cell"><div class="value">4</div><div class="label">Sub-areas</div></div>
+  <div class="stat-cell"><div class="value">4</div><div class="label">Quirky Interactions</div></div>
+  <div class="stat-cell"><div class="value">1</div><div class="label">Prestige Goals</div></div>
+</div>
+<h2>Prestige Goal: Song of the Elves</h2>
+<div class="description">Complete the Veilwood ritual. Restore the Great Ash. Walk the path of the Moon Elder. Unlock the Inner Sanctum.</div>
+<p><strong>Required skills:</strong> <span class="tag tag-skill">agility 70</span> <span class="tag tag-skill">construction 70</span> <span class="tag tag-skill">farming 70</span> <span class="tag tag-skill">herblore 70</span> <span class="tag tag-skill">hunter 70</span> <span class="tag tag-skill">mining 70</span> <span class="tag tag-skill">smithing 70</span> <span class="tag tag-skill">woodcutting 70</span></p>
+<p><strong>Bosses:</strong> seren_shade, corrupted_elder</p>
+<p><strong>Unique rewards:</strong> crystal_halberd, elder_crown</p>
+<h2>Sub-areas</h2><ul class="loose"><li><strong>Veilwood</strong> — Enchanted elven forest. Dense canopy, hidden paths, druid circles. Requires agility to navigate. <small>[requires: agility 15, woodcutting 10, quest: the_green_thumb]</small></li><li><strong>Veilwood Canopy Hunting Grounds</strong> — High-level hunter area above the forest floor. Rare chinchompas and moonhawks. <small>[requires: hunter 20, agility 15, quest: the_apprentice_trapper]</small></li><li><strong>Veilwood Druid Circle</strong> — Sacred grove. Herblore and farming training with elven bonuses. <small>[requires: farming 25, herblore 20, quest: roots_of_the_old_growth]</small></li><li><strong>Veilwood Inner Sanctum</strong> — Heart of the elven forest. Crystal-enhanced magic training. Prerequisite for Prifddinas equivalent. <small>[requires: agility 70, construction 70, farming 70, herblore 70, hunter 70, mining 70, smithing 70, woodcutting 70, quest: song_of_the_elves_aelgard]</small></li></ul><h2>Training Methods (20)</h2>
+<table>
+  <tr><th>Skill</th><th>Method</th><th>Levels</th><th>XP/hr</th><th>Attention</th><th>Danger</th><th>Cost/hr</th></tr>
+  <tr>
+    <td><span class="tag tag-skill">agility</span></td>
+    <td><strong>Gnome Stronghold Course</strong><br><small>The starter agility course. Click through obstacles. Free and straightforward.</small></td>
+    <td>1-20</td>
+    <td>8,000</td>
+    <td><span class="tag tag-medium">medium</span></td>
+    <td>none</td>
+    <td>0</td>
+  </tr>
+  <tr>
+    <td><span class="tag tag-skill">agility</span></td>
+    <td><strong>Druidic Canopy Course</strong><br><small>Canopy-top parkour between ancient elven platforms. Best mid-tier agility XP.</small></td>
+    <td>50-90</td>
+    <td>68,000</td>
+    <td><span class="tag tag-high">high</span></td>
+    <td>low</td>
+    <td>0</td>
+  </tr>
+  <tr>
+    <td><span class="tag tag-skill">farming</span></td>
+    <td><strong>Hespori Boss</strong><br><small>Farming boss. Grows over time, fight it when ready. Unique seed rewards.</small></td>
+    <td>65-99</td>
+    <td>200,000</td>
+    <td><span class="tag tag-medium">medium</span></td>
+    <td>medium</td>
+    <td>0</td>
+  </tr>
+  <tr>
+    <td><span class="tag tag-skill">farming</span></td>
+    <td><strong>Fruit Tree Rotation</strong><br><small>Fruit tree patches. Best farming XP after ranarr rotation. Fruit cooks into premium food.</small></td>
+    <td>45-99</td>
+    <td>65,000</td>
+    <td><span class="tag tag-low">low</span></td>
+    <td>none</td>
+    <td>0</td>
+  </tr>
+  <tr>
+    <td><span class="tag tag-skill">farming</span></td>
+    <td><strong>[Quirky] Trim the Sacred Vines</strong><br><small>Prune overgrown vines. The druids appreciate the help.</small></td>
+    <td>1-99</td>
+    <td>1,200</td>
+    <td><span class="tag tag-medium">medium</span></td>
+    <td>none</td>
+    <td>0</td>
+  </tr>
+  <tr>
+    <td><span class="tag tag-skill">fletching</span></td>
+    <td><strong>Crystal Bow Fletching</strong><br><small>Craft crystal bows — endgame fletching. Requires elven rituals.</small></td>
+    <td>72-99</td>
+    <td>110,000</td>
+    <td><span class="tag tag-low">low</span></td>
+    <td>none</td>
+    <td>0</td>
+  </tr>
+  <tr>
+    <td><span class="tag tag-skill">herblore</span></td>
+    <td><strong>Druid Herb Mastery</strong><br><small>Brew with the druids. Druid circle grants +10% potion yield.</small></td>
+    <td>30-99</td>
+    <td>95,000</td>
+    <td><span class="tag tag-medium">medium</span></td>
+    <td>none</td>
+    <td>0</td>
+  </tr>
+  <tr>
+    <td><span class="tag tag-skill">hunter</span></td>
+    <td><strong>Birdhouse Runs</strong><br><small>Set birdhouses, come back in 50 min. Best hunter XP per time spent. Passive income. Requires crafting and hunter levels.</small></td>
+    <td>5-99</td>
+    <td>100,000</td>
+    <td><span class="tag tag-afk">afk</span></td>
+    <td>none</td>
+    <td><strong>+20000</strong></td>
+  </tr>
+  <tr>
+    <td><span class="tag tag-skill">hunter</span></td>
+    <td><strong>Red Chinchompa Trapping</strong><br><small>Set box traps for red chins. Good XP and great profit from ranged trainers buying them.</small></td>
+    <td>63-80</td>
+    <td>120,000</td>
+    <td><span class="tag tag-medium">medium</span></td>
+    <td>none</td>
+    <td><strong>+300000</strong></td>
+  </tr>
+  <tr>
+    <td><span class="tag tag-skill">hunter</span></td>
+    <td><strong>Herbiboar Tracking</strong><br><small>Track herbiboar through the forest. Best safe hunter XP. Herbs as bonus.</small></td>
+    <td>80-99</td>
+    <td>150,000</td>
+    <td><span class="tag tag-medium">medium</span></td>
+    <td>none</td>
+    <td><strong>+80000</strong></td>
+  </tr>
+  <tr>
+    <td><span class="tag tag-skill">magic</span></td>
+    <td><strong>Dark Wizard Magic Training</strong><br><small>Cast spells on dark wizards. They drop runes back — net-positive rune training.</small></td>
+    <td>20-70</td>
+    <td>55,000</td>
+    <td><span class="tag tag-medium">medium</span></td>
+    <td>medium</td>
+    <td>15000</td>
+  </tr>
+  <tr>
+    <td><span class="tag tag-skill">magic</span></td>
+    <td><strong>[Quirky] Scry at the Moonpool</strong><br><small>Stare into the moonlit pool. Visions grant magic insight.</small></td>
+    <td>1-99</td>
+    <td>900</td>
+    <td><span class="tag tag-medium">medium</span></td>
+    <td>none</td>
+    <td>0</td>
+  </tr>
+  <tr>
+    <td><span class="tag tag-skill">mining</span></td>
+    <td><strong>Crystal Vein Mining</strong><br><small>Mine crystal veins. The only source of crystal shards for all charging.</small></td>
+    <td>70-99</td>
+    <td>75,000</td>
+    <td><span class="tag tag-medium">medium</span></td>
+    <td>none</td>
+    <td>3000</td>
+  </tr>
+  <tr>
+    <td><span class="tag tag-skill">prayer</span></td>
+    <td><strong>Druid Altar Offerings</strong><br><small>Offer bones at the Druid Altar. 3x prayer XP boost vs regular bones.</small></td>
+    <td>1-99</td>
+    <td>120,000</td>
+    <td><span class="tag tag-low">low</span></td>
+    <td>none</td>
+    <td>0</td>
+  </tr>
+  <tr>
+    <td><span class="tag tag-skill">prayer</span></td>
+    <td><strong>[Quirky] Chant with the Druids</strong><br><small>Join the druids low chant. Repeat the syllables they teach you.</small></td>
+    <td>1-99</td>
+    <td>960</td>
+    <td><span class="tag tag-medium">medium</span></td>
+    <td>none</td>
+    <td>0</td>
+  </tr>
+  <tr>
+    <td><span class="tag tag-skill">ranged</span></td>
+    <td><strong>[Quirky] Elven Archery Targets</strong><br><small>Practice on the elven target range. They mock your aim.</small></td>
+    <td>1-99</td>
+    <td>1,800</td>
+    <td><span class="tag tag-high">high</span></td>
+    <td>none</td>
+    <td>0</td>
+  </tr>
+  <tr>
+    <td><span class="tag tag-skill">slayer</span></td>
+    <td><strong>Nieve/Duradel Tasks (Efficient)</strong><br><small>Best XP masters. Skip bad tasks, extend good ones. The efficient grinder path.</small></td>
+    <td>50-99</td>
+    <td>35,000</td>
+    <td><span class="tag tag-medium">medium</span></td>
+    <td>medium</td>
+    <td><strong>+50000</strong></td>
+  </tr>
+  <tr>
+    <td><span class="tag tag-skill">strength</span></td>
+    <td><strong>Moss Giant Smashing</strong><br><small>Moss giants in the glades. Safe, profitable, feeds prayer via big bones.</small></td>
+    <td>30-75</td>
+    <td>58,000</td>
+    <td><span class="tag tag-low">low</span></td>
+    <td>medium</td>
+    <td>0</td>
+  </tr>
+  <tr>
+    <td><span class="tag tag-skill">woodcutting</span></td>
+    <td><strong>Teak 1.5-Tick Chopping</strong><br><small>Tick-manipulate teak trees. Fastest WC XP. Demands frame-perfect clicking.</small></td>
+    <td>35-99</td>
+    <td>100,000</td>
+    <td><span class="tag tag-maximum">maximum</span></td>
+    <td>none</td>
+    <td>0</td>
+  </tr>
+  <tr>
+    <td><span class="tag tag-skill">woodcutting</span></td>
+    <td><strong>Redwood Chopping</strong><br><small>Chop massive redwoods. Extremely AFK, high XP per log. The endgame chill.</small></td>
+    <td>90-99</td>
+    <td>60,000</td>
+    <td><span class="tag tag-afk">afk</span></td>
+    <td>none</td>
+    <td><strong>+50000</strong></td>
+  </tr></table><h2>Quirky Interactions (4)</h2>
+<div class="description">Ambient world objects that grant tiny XP. Discoverable, flavorful, mathematically terrible — but sometimes a lifeline.</div>
+<ul class="loose"><li><strong>Chant with the Druids</strong> [prayer] — 1.2 xp/click. <em>You dont understand the words. The druids smile anyway.</em></li><li><strong>Trim the Sacred Vines</strong> [farming] — 0.6 xp/click. <em>The vines seem to grow back the moment you look away.</em></li><li><strong>Elven Archery Targets</strong> [ranged] — 2 xp/click. <em>&quot;Your technique is... primitive,&quot; the elf says.</em></li><li><strong>Scry at the Moonpool</strong> [magic] — 1.5 xp/click. <em>Brief, flickering images. A war. A throne. A broken crystal.</em></li></ul>
+</div>
+</body></html>

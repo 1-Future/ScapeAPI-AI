@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html><head><meta charset="utf-8"><title>Saltbrine Reach — Aelgard Codex</title>
+<style>
+  body {
+    font-family: ui-monospace, 'Cascadia Code', 'Consolas', monospace;
+    background: #3e3529;
+    color: #e8dcc0;
+    margin: 0;
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  .parchment {
+    background: #e8dcc0;
+    color: #2c1810;
+    padding: 30px 40px;
+    border: 3px solid #8b6f47;
+    border-radius: 4px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.5);
+    margin: 20px 0;
+  }
+  h1 {
+    color: #7a1f1a;
+    border-bottom: 2px solid #8b6f47;
+    padding-bottom: 10px;
+  }
+  h2 { color: #5a3a1a; margin-top: 30px; }
+  h3 { color: #6b4423; }
+  a { color: #7a1f1a; text-decoration: none; border-bottom: 1px dotted #7a1f1a; }
+  a:hover { background: #d4c49c; }
+  nav { margin-bottom: 20px; }
+  nav a { margin-right: 15px; font-weight: bold; }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 15px 0;
+  }
+  th, td {
+    text-align: left;
+    padding: 6px 10px;
+    border-bottom: 1px solid #c4a970;
+  }
+  th { background: #d4c49c; color: #2c1810; }
+  tr:hover { background: #d4c49c; }
+  .tag {
+    display: inline-block;
+    padding: 2px 8px;
+    margin: 2px;
+    border-radius: 3px;
+    font-size: 11px;
+    font-weight: bold;
+  }
+  .tag-region { background: #4a6b8a; color: #fff; }
+  .tag-skill  { background: #5a7f4a; color: #fff; }
+  .tag-trans  { background: #8a1f1a; color: #fff; }
+  .tag-major  { background: #a86a2a; color: #fff; }
+  .tag-minor  { background: #6a6a6a; color: #fff; }
+  .tag-afk    { background: #3a5a2a; color: #fff; }
+  .tag-low    { background: #4a7a3a; color: #fff; }
+  .tag-medium { background: #8a7a2a; color: #fff; }
+  .tag-high   { background: #a85a2a; color: #fff; }
+  .tag-maximum{ background: #8a1f1a; color: #fff; }
+  .tag-obscure{ background: #6a4a2a; color: #fff; font-style: italic; }
+  .stat-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    margin: 15px 0;
+  }
+  .stat-cell {
+    background: #d4c49c;
+    padding: 10px;
+    border-radius: 3px;
+    text-align: center;
+  }
+  .stat-cell .value {
+    font-size: 24px;
+    font-weight: bold;
+    color: #7a1f1a;
+  }
+  .stat-cell .label {
+    font-size: 11px;
+    color: #5a3a1a;
+    text-transform: uppercase;
+  }
+  .description {
+    font-style: italic;
+    color: #5a3a1a;
+    margin: 10px 0;
+    padding: 10px;
+    background: #d4c49c;
+    border-left: 3px solid #8b6f47;
+  }
+  ul.loose li { margin-bottom: 8px; }
+  details {
+    margin: 10px 0;
+    padding: 10px;
+    background: #d4c49c;
+    border-radius: 3px;
+  }
+  summary { cursor: pointer; font-weight: bold; }
+</style>
+</head>
+<body>
+<nav>
+  <a href="index.html">Home</a>
+  <a href="regions.html">Regions</a>
+  <a href="skills.html">Skills</a>
+  <a href="quests.html">Quests</a>
+  <a href="breakpoints.html">Breakpoints</a>
+  <a href="items.html">Items</a>
+</nav>
+<div class="parchment">
+<h1>Saltbrine Reach</h1>
+<div class="description">Pirate coast. Ships, smugglers, deep-sea fishing, pearl beds.</div>
+
+<div class="stat-grid">
+  <div class="stat-cell"><div class="value">18</div><div class="label">Training Methods</div></div>
+  <div class="stat-cell"><div class="value">3</div><div class="label">Sub-areas</div></div>
+  <div class="stat-cell"><div class="value">4</div><div class="label">Quirky Interactions</div></div>
+  <div class="stat-cell"><div class="value">1</div><div class="label">Prestige Goals</div></div>
+</div>
+<h2>Prestige Goal: The Kraken Hunt</h2>
+<div class="description">Assemble a crew, charter a ship, and hunt the Deep Kraken in its lair. BIS fishing and combat gear required.</div>
+<p><strong>Required skills:</strong> <span class="tag tag-skill">fishing 80</span> <span class="tag tag-skill">attack 70</span> <span class="tag tag-skill">ranged 75</span> <span class="tag tag-skill">prayer 60</span></p>
+<p><strong>Bosses:</strong> deep_kraken_prime</p>
+<p><strong>Unique rewards:</strong> kraken_tentacle_whip, sailors_necklace</p>
+<h2>Sub-areas</h2><ul class="loose"><li><strong>Saltbrine Reach</strong> — Pirate coast. Ships, smugglers, deep-sea fishing. Water travel hub. <small>[requires: fishing 20, cooking 15, agility 10, quest: pirate_king]</small></li><li><strong>Saltbrine Deep Waters</strong> — High-level fishing. Anglerfish, dark crabs. Accessed by charter ship. <small>[requires: fishing 62, cooking 45, quest: the_anglers_challenge]</small></li><li><strong>Smuggler&#39;s Cove</strong> — Black market shop. Higher sell prices but requires Thieving to access. <small>[requires: thieving 40, quest: the_counterfeit_ring]</small></li></ul><h2>Training Methods (18)</h2>
+<table>
+  <tr><th>Skill</th><th>Method</th><th>Levels</th><th>XP/hr</th><th>Attention</th><th>Danger</th><th>Cost/hr</th></tr>
+  <tr>
+    <td><span class="tag tag-skill">agility</span></td>
+    <td><strong>Ship Rigging Course</strong><br><small>Climb ship rigging across the harbor. Falling hurts.</small></td>
+    <td>30-75</td>
+    <td>58,000</td>
+    <td><span class="tag tag-medium">medium</span></td>
+    <td>medium</td>
+    <td>0</td>
+  </tr>
+  <tr>
+    <td><span class="tag tag-skill">agility</span></td>
+    <td><strong>[Quirky] Climb the Rigging</strong><br><small>Climb the ship rigging. Sailors laugh if you slip.</small></td>
+    <td>1-99</td>
+    <td>1,350</td>
+    <td><span class="tag tag-medium">medium</span></td>
+    <td>none</td>
+    <td>0</td>
+  </tr>
+  <tr>
+    <td><span class="tag tag-skill">attack</span></td>
+    <td><strong>Sand Crab AFKing</strong><br><small>AFK multi-combat crabs. Reset aggro every 10 minutes. Zero profit, pure XP.</small></td>
+    <td>10-60</td>
+    <td>30,000</td>
+    <td><span class="tag tag-afk">afk</span></td>
+    <td>none</td>
+    <td>0</td>
+  </tr>
+  <tr>
+    <td><span class="tag tag-skill">attack</span></td>
+    <td><strong>Pirate Ship Boarding</strong><br><small>Board pirate ships. Combat + loot. Unique deck-fighting mechanics.</small></td>
+    <td>30-75</td>
+    <td>62,000</td>
+    <td><span class="tag tag-medium">medium</span></td>
+    <td>medium</td>
+    <td>0</td>
+  </tr>
+  <tr>
+    <td><span class="tag tag-skill">crafting</span></td>
+    <td><strong>[Quirky] Practice Knot Tying</strong><br><small>Tie and untie sailor knots. The veterans critique your form.</small></td>
+    <td>1-99</td>
+    <td>900</td>
+    <td><span class="tag tag-medium">medium</span></td>
+    <td>none</td>
+    <td>0</td>
+  </tr>
+  <tr>
+    <td><span class="tag tag-skill">crafting</span></td>
+    <td><strong>[Quirky] Clean Pearls for the Jeweller</strong><br><small>Polish raw pearls. The jeweller pays you nothing but you learn the craft.</small></td>
+    <td>1-99</td>
+    <td>840</td>
+    <td><span class="tag tag-medium">medium</span></td>
+    <td>none</td>
+    <td>0</td>
+  </tr>
+  <tr>
+    <td><span class="tag tag-skill">defence</span></td>
+    <td><strong>Sand Crab Defence</strong><br><small>Defensive style on crabs. Slowest combat XP but completely AFK.</small></td>
+    <td>1-60</td>
+    <td>22,000</td>
+    <td><span class="tag tag-afk">afk</span></td>
+    <td>none</td>
+    <td>0</td>
+  </tr>
+  <tr>
+    <td><span class="tag tag-skill">defence</span></td>
+    <td><strong>Pest Control (Defence)</strong><br><small>Team minigame. Medium engagement, free, earns void knight equipment.</small></td>
+    <td>40-99</td>
+    <td>55,000</td>
+    <td><span class="tag tag-medium">medium</span></td>
+    <td>low</td>
+    <td>0</td>
+  </tr>
+  <tr>
+    <td><span class="tag tag-skill">fishing</span></td>
+    <td><strong>Monkfish Fishing</strong><br><small>Relaxed fishing with decent profit. Bank is close. The chill money maker.</small></td>
+    <td>62-99</td>
+    <td>35,000</td>
+    <td><span class="tag tag-low">low</span></td>
+    <td>none</td>
+    <td><strong>+60000</strong></td>
+  </tr>
+  <tr>
+    <td><span class="tag tag-skill">fishing</span></td>
+    <td><strong>Tempoross (Fishing Boss)</strong><br><small>Skilling boss. Cook, fish, douse fires, dodge waves. Unique rewards plus raw fish output.</small></td>
+    <td>35-99</td>
+    <td>50,000</td>
+    <td><span class="tag tag-medium">medium</span></td>
+    <td>medium</td>
+    <td>0</td>
+  </tr>
+  <tr>
+    <td><span class="tag tag-skill">fishing</span></td>
+    <td><strong>Saltbrine Fishing Guild</strong><br><small>Saltbrine coastal fishing. Sharks + swordfish. Primary cross-region food export.</small></td>
+    <td>68-99</td>
+    <td>88,000</td>
+    <td><span class="tag tag-low">low</span></td>
+    <td>none</td>
+    <td>0</td>
+  </tr>
+  <tr>
+    <td><span class="tag tag-skill">fishing</span></td>
+    <td><strong>Anglerfish Deep-Water</strong><br><small>Anglerfish — overheals past max HP. Essential for endgame PvM.</small></td>
+    <td>82-99</td>
+    <td>55,000</td>
+    <td><span class="tag tag-afk">afk</span></td>
+    <td>none</td>
+    <td>0</td>
+  </tr>
+  <tr>
+    <td><span class="tag tag-skill">herblore</span></td>
+    <td><strong>Sea Potion Brewing</strong><br><small>Brew sea potions. Unique Saltbrine herblore — fishing + waterbreathing variants.</small></td>
+    <td>35-99</td>
+    <td>78,000</td>
+    <td><span class="tag tag-medium">medium</span></td>
+    <td>none</td>
+    <td>0</td>
+  </tr>
+  <tr>
+    <td><span class="tag tag-skill">hunter</span></td>
+    <td><strong>[Quirky] Stare Down the Seagulls</strong><br><small>Stare intently at seagulls. They stare back. Hunter XP somehow.</small></td>
+    <td>1-99</td>
+    <td>600</td>
+    <td><span class="tag tag-low">low</span></td>
+    <td>none</td>
+    <td>0</td>
+  </tr>
+  <tr>
+    <td><span class="tag tag-skill">magic</span></td>
+    <td><strong>Sea Witch Duels</strong><br><small>Magic duels with sea witches. Unique magic experience — dodge enchanted storms.</small></td>
+    <td>40-85</td>
+    <td>68,000</td>
+    <td><span class="tag tag-high">high</span></td>
+    <td>medium</td>
+    <td>18000</td>
+  </tr>
+  <tr>
+    <td><span class="tag tag-skill">ranged</span></td>
+    <td><strong>Sand Crab Ranging</strong><br><small>Iron arrows on crabs. AFK ranged with minor ammo cost.</small></td>
+    <td>10-60</td>
+    <td>30,000</td>
+    <td><span class="tag tag-afk">afk</span></td>
+    <td>none</td>
+    <td>5000</td>
+  </tr>
+  <tr>
+    <td><span class="tag tag-skill">strength</span></td>
+    <td><strong>Sand Crab Strength</strong><br><small>AFK crabs on aggressive style. Pure XP, zero engagement, zero profit.</small></td>
+    <td>1-60</td>
+    <td>28,000</td>
+    <td><span class="tag tag-afk">afk</span></td>
+    <td>none</td>
+    <td>0</td>
+  </tr>
+  <tr>
+    <td><span class="tag tag-skill">thieving</span></td>
+    <td><strong>Pearl Diving</strong><br><small>Dive for pearls. Unique thieving method. Pearls feed jewelry economy.</small></td>
+    <td>40-90</td>
+    <td>72,000</td>
+    <td><span class="tag tag-medium">medium</span></td>
+    <td>medium</td>
+    <td>2000</td>
+  </tr></table><h2>Quirky Interactions (4)</h2>
+<div class="description">Ambient world objects that grant tiny XP. Discoverable, flavorful, mathematically terrible — but sometimes a lifeline.</div>
+<ul class="loose"><li><strong>Climb the Rigging</strong> [agility] — 1.5 xp/click. <em>&quot;You climb like a landlubber,&quot; the captain says, smirking.</em></li><li><strong>Practice Knot Tying</strong> [crafting] — 0.5 xp/click. <em>&quot;Thats a granny knot, not a bowline. Try again.&quot;</em></li><li><strong>Clean Pearls for the Jeweller</strong> [crafting] — 0.7 xp/click. <em>She watches your technique. &quot;Not bad. Keep at it.&quot;</em></li><li><strong>Stare Down the Seagulls</strong> [hunter] — 0.2 xp/click. <em>This is somehow the most flavorful content in Aelgard.</em></li></ul>
+</div>
+</body></html>

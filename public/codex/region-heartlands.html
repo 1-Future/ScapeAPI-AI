@@ -1,0 +1,953 @@
+<!DOCTYPE html>
+<html><head><meta charset="utf-8"><title>Heartlands — Aelgard Codex</title>
+<style>
+  body {
+    font-family: ui-monospace, 'Cascadia Code', 'Consolas', monospace;
+    background: #3e3529;
+    color: #e8dcc0;
+    margin: 0;
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  .parchment {
+    background: #e8dcc0;
+    color: #2c1810;
+    padding: 30px 40px;
+    border: 3px solid #8b6f47;
+    border-radius: 4px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.5);
+    margin: 20px 0;
+  }
+  h1 {
+    color: #7a1f1a;
+    border-bottom: 2px solid #8b6f47;
+    padding-bottom: 10px;
+  }
+  h2 { color: #5a3a1a; margin-top: 30px; }
+  h3 { color: #6b4423; }
+  a { color: #7a1f1a; text-decoration: none; border-bottom: 1px dotted #7a1f1a; }
+  a:hover { background: #d4c49c; }
+  nav { margin-bottom: 20px; }
+  nav a { margin-right: 15px; font-weight: bold; }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 15px 0;
+  }
+  th, td {
+    text-align: left;
+    padding: 6px 10px;
+    border-bottom: 1px solid #c4a970;
+  }
+  th { background: #d4c49c; color: #2c1810; }
+  tr:hover { background: #d4c49c; }
+  .tag {
+    display: inline-block;
+    padding: 2px 8px;
+    margin: 2px;
+    border-radius: 3px;
+    font-size: 11px;
+    font-weight: bold;
+  }
+  .tag-region { background: #4a6b8a; color: #fff; }
+  .tag-skill  { background: #5a7f4a; color: #fff; }
+  .tag-trans  { background: #8a1f1a; color: #fff; }
+  .tag-major  { background: #a86a2a; color: #fff; }
+  .tag-minor  { background: #6a6a6a; color: #fff; }
+  .tag-afk    { background: #3a5a2a; color: #fff; }
+  .tag-low    { background: #4a7a3a; color: #fff; }
+  .tag-medium { background: #8a7a2a; color: #fff; }
+  .tag-high   { background: #a85a2a; color: #fff; }
+  .tag-maximum{ background: #8a1f1a; color: #fff; }
+  .tag-obscure{ background: #6a4a2a; color: #fff; font-style: italic; }
+  .stat-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    margin: 15px 0;
+  }
+  .stat-cell {
+    background: #d4c49c;
+    padding: 10px;
+    border-radius: 3px;
+    text-align: center;
+  }
+  .stat-cell .value {
+    font-size: 24px;
+    font-weight: bold;
+    color: #7a1f1a;
+  }
+  .stat-cell .label {
+    font-size: 11px;
+    color: #5a3a1a;
+    text-transform: uppercase;
+  }
+  .description {
+    font-style: italic;
+    color: #5a3a1a;
+    margin: 10px 0;
+    padding: 10px;
+    background: #d4c49c;
+    border-left: 3px solid #8b6f47;
+  }
+  ul.loose li { margin-bottom: 8px; }
+  details {
+    margin: 10px 0;
+    padding: 10px;
+    background: #d4c49c;
+    border-radius: 3px;
+  }
+  summary { cursor: pointer; font-weight: bold; }
+</style>
+</head>
+<body>
+<nav>
+  <a href="index.html">Home</a>
+  <a href="regions.html">Regions</a>
+  <a href="skills.html">Skills</a>
+  <a href="quests.html">Quests</a>
+  <a href="breakpoints.html">Breakpoints</a>
+  <a href="items.html">Items</a>
+</nav>
+<div class="parchment">
+<h1>Heartlands</h1>
+<div class="description">Medieval starter kingdom. Safe, rich with guilds, farms, the central hub.</div>
+
+<div class="stat-grid">
+  <div class="stat-cell"><div class="value">91</div><div class="label">Training Methods</div></div>
+  <div class="stat-cell"><div class="value">6</div><div class="label">Sub-areas</div></div>
+  <div class="stat-cell"><div class="value">5</div><div class="label">Quirky Interactions</div></div>
+  <div class="stat-cell"><div class="value">1</div><div class="label">Prestige Goals</div></div>
+</div>
+<h2>Prestige Goal: The Grand Feast</h2>
+<div class="description">Host a 10-course feast at the Heartlands Cooking Guild using ONLY Heartlands-sourced ingredients. Serve the Royal Court. Earn the title of Master Chef.</div>
+<p><strong>Required skills:</strong> <span class="tag tag-skill">cooking 90</span> <span class="tag tag-skill">farming 75</span> <span class="tag tag-skill">fishing 70</span></p>
+<p><strong>Bosses:</strong> evil_chef_boss</p>
+<p><strong>Unique rewards:</strong> master_chef_apron, culinaromancer_gloves</p>
+<h2>Sub-areas</h2><ul class="loose"><li><strong>The Heartlands</strong> — The safe starter kingdom. All players begin here. Medieval towns, farms, guilds, a river.</li><li><strong>Champions&#39; Guild</strong> — Requires quest points to enter. Sells rune platebody. Gateway to Dragon Slayer equivalent.</li><li><strong>Heartlands Mining Guild</strong> — Rich ore deposits. Mithril and adamant rocks. Invisible +7 mining level boost. <small>[requires: mining 60]</small></li><li><strong>Heartlands Cooking Guild</strong> — Best cooking range in the game (lower burn rate). Rare ingredient shop. <small>[requires: cooking 32]</small></li><li><strong>Heartlands Crafting Guild</strong> — Spinning wheel, pottery oven, and gem cutting station all in one building. <small>[requires: crafting 40]</small></li><li><strong>Warriors&#39; Guild</strong> — Earn warrior guild tokens. Buy defenders — crucial off-hand for melee. <small>[requires: attack 65]</small></li></ul><h2>Training Methods (91)</h2>
+<table>
+  <tr><th>Skill</th><th>Method</th><th>Levels</th><th>XP/hr</th><th>Attention</th><th>Danger</th><th>Cost/hr</th></tr>
+  <tr>
+    <td><span class="tag tag-skill">agility</span></td>
+    <td><strong>Ardougne Rooftop Course</strong><br><small>Best standard agility XP. Consistent course with no fail points at 90+.</small></td>
+    <td>90-99</td>
+    <td>56,000</td>
+    <td><span class="tag tag-medium">medium</span></td>
+    <td>none</td>
+    <td>0</td>
+  </tr>
+  <tr>
+    <td><span class="tag tag-skill">attack</span></td>
+    <td><strong>Chicken Slaughter</strong><br><small>Auto-retaliate on chickens. Feathers sell to fletchers. The gentlest start.</small></td>
+    <td>1-20</td>
+    <td>8,000</td>
+    <td><span class="tag tag-afk">afk</span></td>
+    <td>none</td>
+    <td>0</td>
+  </tr>
+  <tr>
+    <td><span class="tag tag-skill">attack</span></td>
+    <td><strong>Cow Field Training</strong><br><small>Cows near the bank. Hides are valuable early on for crafting.</small></td>
+    <td>1-30</td>
+    <td>14,000</td>
+    <td><span class="tag tag-low">low</span></td>
+    <td>none</td>
+    <td>0</td>
+  </tr>
+  <tr>
+    <td><span class="tag tag-skill">attack</span></td>
+    <td><strong>Slayer Task Melee</strong><br><small>Train attack on slayer assignments. Varied tasks keep it interesting and profitable.</small></td>
+    <td>20-99</td>
+    <td>40,000</td>
+    <td><span class="tag tag-medium">medium</span></td>
+    <td>medium</td>
+    <td>5000</td>
+  </tr>
+  <tr>
+    <td><span class="tag tag-skill">attack</span></td>
+    <td><strong>Nightmare Zone Melee</strong><br><small>Absorption potions and overloads turn this into semi-AFK high XP. Costs entry fee.</small></td>
+    <td>70-99</td>
+    <td>90,000</td>
+    <td><span class="tag tag-low">low</span></td>
+    <td>low</td>
+    <td>20000</td>
+  </tr>
+  <tr>
+    <td><span class="tag tag-skill">attack</span></td>
+    <td><strong>[Quirky] Kick the Scarecrow</strong><br><small>Kick the farm scarecrow repeatedly. Gives the tiniest attack XP. The farmer watches, bemused.</small></td>
+    <td>1-99</td>
+    <td>1,200</td>
+    <td><span class="tag tag-high">high</span></td>
+    <td>none</td>
+    <td>0</td>
+  </tr>
+  <tr>
+    <td><span class="tag tag-skill">attack</span></td>
+    <td><strong>[Quirky] Guard Practice Dummy</strong><br><small>Swing at the practice dummy. Each hit gives minimal attack XP.</small></td>
+    <td>1-99</td>
+    <td>1,800</td>
+    <td><span class="tag tag-high">high</span></td>
+    <td>none</td>
+    <td>0</td>
+  </tr>
+  <tr>
+    <td><span class="tag tag-skill">construction</span></td>
+    <td><strong>Crude Wooden Chairs</strong><br><small>Build, remove, repeat. The introductory grind. Cheap planks.</small></td>
+    <td>1-19</td>
+    <td>20,000</td>
+    <td><span class="tag tag-medium">medium</span></td>
+    <td>none</td>
+    <td>5000</td>
+  </tr>
+  <tr>
+    <td><span class="tag tag-skill">construction</span></td>
+    <td><strong>Oak Larders</strong><br><small>Butler brings planks, build larder, remove. Fast but expensive. Requires focus.</small></td>
+    <td>33-74</td>
+    <td>300,000</td>
+    <td><span class="tag tag-high">high</span></td>
+    <td>none</td>
+    <td>200000</td>
+  </tr>
+  <tr>
+    <td><span class="tag tag-skill">construction</span></td>
+    <td><strong>Mahogany Tables</strong><br><small>The fastest construction XP. Mahogany planks are brutal on the wallet.</small></td>
+    <td>52-99</td>
+    <td>700,000</td>
+    <td><span class="tag tag-high">high</span></td>
+    <td>none</td>
+    <td>1200000</td>
+  </tr>
+  <tr>
+    <td><span class="tag tag-skill">construction</span></td>
+    <td><strong>Teak Garden Benches</strong><br><small>Cheaper than mahogany tables but slower. The budget high-level option.</small></td>
+    <td>66-99</td>
+    <td>450,000</td>
+    <td><span class="tag tag-medium">medium</span></td>
+    <td>none</td>
+    <td>400000</td>
+  </tr>
+  <tr>
+    <td><span class="tag tag-skill">construction</span></td>
+    <td><strong>Carpenter Apprentice Work</strong><br><small>Help local carpenters build houses. Slow XP but no house needed.</small></td>
+    <td>1-30</td>
+    <td>16,000</td>
+    <td><span class="tag tag-low">low</span></td>
+    <td>none</td>
+    <td>5000</td>
+  </tr>
+  <tr>
+    <td><span class="tag tag-skill">cooking</span></td>
+    <td><strong>Shrimp Cooking</strong><br><small>Cook shrimp on a range. Burns often at low levels. Cheap to practice.</small></td>
+    <td>1-20</td>
+    <td>30,000</td>
+    <td><span class="tag tag-low">low</span></td>
+    <td>none</td>
+    <td>5000</td>
+  </tr>
+  <tr>
+    <td><span class="tag tag-skill">cooking</span></td>
+    <td><strong>Wine Making</strong><br><small>Fastest cooking XP. Add grapes to jugs, ferment. High failure rate below 68.</small></td>
+    <td>35-99</td>
+    <td>400,000</td>
+    <td><span class="tag tag-medium">medium</span></td>
+    <td>none</td>
+    <td>100000</td>
+  </tr>
+  <tr>
+    <td><span class="tag tag-skill">cooking</span></td>
+    <td><strong>Shark Cooking</strong><br><small>Buy raw, cook, sell. Profitable and fast. The premier endgame money method.</small></td>
+    <td>80-99</td>
+    <td>220,000</td>
+    <td><span class="tag tag-low">low</span></td>
+    <td>none</td>
+    <td><strong>+60000</strong></td>
+  </tr>
+  <tr>
+    <td><span class="tag tag-skill">cooking</span></td>
+    <td><strong>Karambwan 1-Tick Cooking</strong><br><small>Spam-click karambwan for 1-tick cooking. Fastest possible XP. Wrist-breaking.</small></td>
+    <td>30-99</td>
+    <td>500,000</td>
+    <td><span class="tag tag-maximum">maximum</span></td>
+    <td>none</td>
+    <td>200000</td>
+  </tr>
+  <tr>
+    <td><span class="tag tag-skill">cooking</span></td>
+    <td><strong>[Quirky] Stir the Dough</strong><br><small>Stir the bakers dough. They let you help if you dont eat any.</small></td>
+    <td>1-99</td>
+    <td>960</td>
+    <td><span class="tag tag-medium">medium</span></td>
+    <td>none</td>
+    <td>0</td>
+  </tr>
+  <tr>
+    <td><span class="tag tag-skill">crafting</span></td>
+    <td><strong>Leather Crafting</strong><br><small>Cut leather into gloves, boots, bodies. Cheap and simple. The first taste.</small></td>
+    <td>1-30</td>
+    <td>25,000</td>
+    <td><span class="tag tag-low">low</span></td>
+    <td>none</td>
+    <td>15000</td>
+  </tr>
+  <tr>
+    <td><span class="tag tag-skill">crafting</span></td>
+    <td><strong>Dragonhide Bodies</strong><br><small>Cut dragonhides into bodies. Fast XP, moderate cost. The standard path.</small></td>
+    <td>63-99</td>
+    <td>150,000</td>
+    <td><span class="tag tag-medium">medium</span></td>
+    <td>none</td>
+    <td>300000</td>
+  </tr>
+  <tr>
+    <td><span class="tag tag-skill">crafting</span></td>
+    <td><strong>[Quirky] Masonry Wall Chiseling</strong><br><small>Chisel decorative patterns into the market wall. Never makes it look better.</small></td>
+    <td>1-99</td>
+    <td>1,500</td>
+    <td><span class="tag tag-high">high</span></td>
+    <td>none</td>
+    <td>0</td>
+  </tr>
+  <tr>
+    <td><span class="tag tag-skill">defence</span></td>
+    <td><strong>Castle Wars Defence Training</strong><br><small>AFK at Castle Wars on defensive. Free, earns tickets, no food needed. Low-level AFK defence option.</small></td>
+    <td>1-40</td>
+    <td>15,000</td>
+    <td><span class="tag tag-afk">afk</span></td>
+    <td>low</td>
+    <td>0</td>
+  </tr>
+  <tr>
+    <td><span class="tag tag-skill">defence</span></td>
+    <td><strong>Slayer on Defensive</strong><br><small>Slayer tasks on defensive. Slower kills but profitable and varied.</small></td>
+    <td>20-99</td>
+    <td>35,000</td>
+    <td><span class="tag tag-medium">medium</span></td>
+    <td>medium</td>
+    <td>5000</td>
+  </tr>
+  <tr>
+    <td><span class="tag tag-skill">defence</span></td>
+    <td><strong>Guard Patrol Drills</strong><br><small>Patrol the Heartlands walls with the guard corps. Defensive stance. Boring but safe.</small></td>
+    <td>1-40</td>
+    <td>18,000</td>
+    <td><span class="tag tag-afk">afk</span></td>
+    <td>none</td>
+    <td>0</td>
+  </tr>
+  <tr>
+    <td><span class="tag tag-skill">defence</span></td>
+    <td><strong>Noble Bodyguard Work</strong><br><small>Escort Heartlands nobles between guilds. Occasional assassination attempts provide combat practice.</small></td>
+    <td>30-75</td>
+    <td>52,000</td>
+    <td><span class="tag tag-medium">medium</span></td>
+    <td>medium</td>
+    <td>0</td>
+  </tr>
+  <tr>
+    <td><span class="tag tag-skill">farming</span></td>
+    <td><strong>Allotment Patch Runs</strong><br><small>Plant seeds, come back later, harvest. Passive XP between other activities.</small></td>
+    <td>1-40</td>
+    <td>20,000</td>
+    <td><span class="tag tag-afk">afk</span></td>
+    <td>none</td>
+    <td><strong>+5000</strong></td>
+  </tr>
+  <tr>
+    <td><span class="tag tag-skill">farming</span></td>
+    <td><strong>Herb Patch Runs</strong><br><small>Best farming money. 5-minute runs every 80 minutes. Passive wealth engine.</small></td>
+    <td>9-99</td>
+    <td>50,000</td>
+    <td><span class="tag tag-afk">afk</span></td>
+    <td>none</td>
+    <td><strong>+200000</strong></td>
+  </tr>
+  <tr>
+    <td><span class="tag tag-skill">farming</span></td>
+    <td><strong>Tree Patch Runs</strong><br><small>Plant saplings, pay farmer, check health. Fastest farming XP. Extremely expensive.</small></td>
+    <td>15-99</td>
+    <td>500,000</td>
+    <td><span class="tag tag-low">low</span></td>
+    <td>none</td>
+    <td>600000</td>
+  </tr>
+  <tr>
+    <td><span class="tag tag-skill">farming</span></td>
+    <td><strong>Tithe Farm</strong><br><small>Active farming minigame. Plant, water, harvest on timers. Free but demands focus.</small></td>
+    <td>34-99</td>
+    <td>90,000</td>
+    <td><span class="tag tag-high">high</span></td>
+    <td>none</td>
+    <td>0</td>
+  </tr>
+  <tr>
+    <td><span class="tag tag-skill">farming</span></td>
+    <td><strong>Heartlands 4-Field Rotation</strong><br><small>Rotate 4 Heartlands fields through wheat → potato → herb → allotment. +15% yield via rotation.</small></td>
+    <td>30-99</td>
+    <td>55,000</td>
+    <td><span class="tag tag-low">low</span></td>
+    <td>none</td>
+    <td>3000</td>
+  </tr>
+  <tr>
+    <td><span class="tag tag-skill">firemaking</span></td>
+    <td><strong>Normal Log Burning</strong><br><small>Light logs in a line. Walk, click, repeat. The simplest grind in the game.</small></td>
+    <td>1-15</td>
+    <td>20,000</td>
+    <td><span class="tag tag-low">low</span></td>
+    <td>none</td>
+    <td>2000</td>
+  </tr>
+  <tr>
+    <td><span class="tag tag-skill">firemaking</span></td>
+    <td><strong>Maple Log Burning</strong><br><small>Cheap logs, decent XP. The budget mid-range option.</small></td>
+    <td>45-60</td>
+    <td>130,000</td>
+    <td><span class="tag tag-low">low</span></td>
+    <td>none</td>
+    <td>10000</td>
+  </tr>
+  <tr>
+    <td><span class="tag tag-skill">firemaking</span></td>
+    <td><strong>Redwood Pyre Burning</strong><br><small>Most expensive logs but highest FM XP. Line-burning for the wealthy.</small></td>
+    <td>90-99</td>
+    <td>400,000</td>
+    <td><span class="tag tag-low">low</span></td>
+    <td>none</td>
+    <td>200000</td>
+  </tr>
+  <tr>
+    <td><span class="tag tag-skill">fishing</span></td>
+    <td><strong>Shrimp Netting</strong><br><small>Net shrimp on the coast. The classic start. Nearly free and fully AFK.</small></td>
+    <td>1-20</td>
+    <td>8,000</td>
+    <td><span class="tag tag-afk">afk</span></td>
+    <td>none</td>
+    <td><strong>+2000</strong></td>
+  </tr>
+  <tr>
+    <td><span class="tag tag-skill">fishing</span></td>
+    <td><strong>Barbarian Fishing</strong><br><small>Drop fish, gain fishing + agility + strength XP. The efficient 3-skill method.</small></td>
+    <td>48-99</td>
+    <td>65,000</td>
+    <td><span class="tag tag-medium">medium</span></td>
+    <td>none</td>
+    <td>0</td>
+  </tr>
+  <tr>
+    <td><span class="tag tag-skill">fishing</span></td>
+    <td><strong>Heartlands River Fishing</strong><br><small>Fly-fish the Heartlands river. Produces the core food supply for most of Aelgard.</small></td>
+    <td>1-50</td>
+    <td>35,000</td>
+    <td><span class="tag tag-afk">afk</span></td>
+    <td>none</td>
+    <td>0</td>
+  </tr>
+  <tr>
+    <td><span class="tag tag-skill">fishing</span></td>
+    <td><strong>Heartlands Fishing Guild</strong><br><small>Fishing Guild harpoon area. Best pure-fishing method for sharks.</small></td>
+    <td>68-99</td>
+    <td>85,000</td>
+    <td><span class="tag tag-low">low</span></td>
+    <td>none</td>
+    <td>0</td>
+  </tr>
+  <tr>
+    <td><span class="tag tag-skill">fletching</span></td>
+    <td><strong>Arrow Shaft Cutting</strong><br><small>Cut logs into arrow shafts. AFK, profitable, brain-dead. Great while watching TV.</small></td>
+    <td>1-20</td>
+    <td>15,000</td>
+    <td><span class="tag tag-afk">afk</span></td>
+    <td>none</td>
+    <td><strong>+5000</strong></td>
+  </tr>
+  <tr>
+    <td><span class="tag tag-skill">fletching</span></td>
+    <td><strong>Yew Longbow Stringing</strong><br><small>String yew longbows. Fast, low attention. Slight loss per bow.</small></td>
+    <td>70-99</td>
+    <td>120,000</td>
+    <td><span class="tag tag-low">low</span></td>
+    <td>none</td>
+    <td>40000</td>
+  </tr>
+  <tr>
+    <td><span class="tag tag-skill">fletching</span></td>
+    <td><strong>Broad Bolt Fletching</strong><br><small>Attach broad tips to bolts. Insanely fast XP AND profit. Requires slayer unlock.</small></td>
+    <td>55-99</td>
+    <td>500,000</td>
+    <td><span class="tag tag-low">low</span></td>
+    <td>none</td>
+    <td><strong>+30000</strong></td>
+  </tr>
+  <tr>
+    <td><span class="tag tag-skill">fletching</span></td>
+    <td><strong>Dragon Dart Tips</strong><br><small>Fastest fletching XP in the game. Dragon dart tips cost a fortune.</small></td>
+    <td>95-99</td>
+    <td>1,000,000</td>
+    <td><span class="tag tag-medium">medium</span></td>
+    <td>none</td>
+    <td>2000000</td>
+  </tr>
+  <tr>
+    <td><span class="tag tag-skill">fletching</span></td>
+    <td><strong>Bowstring Spinning</strong><br><small>Spin flax into bowstring on the spinning wheel. Produces THE key fletching input.</small></td>
+    <td>10-50</td>
+    <td>45,000</td>
+    <td><span class="tag tag-afk">afk</span></td>
+    <td>none</td>
+    <td>0</td>
+  </tr>
+  <tr>
+    <td><span class="tag tag-skill">fletching</span></td>
+    <td><strong>Novice Arrow Fletching</strong><br><small>Fletch basic arrows for the Heartlands militia. Low XP but produces ammo.</small></td>
+    <td>1-30</td>
+    <td>20,000</td>
+    <td><span class="tag tag-afk">afk</span></td>
+    <td>none</td>
+    <td>0</td>
+  </tr>
+  <tr>
+    <td><span class="tag tag-skill">herblore</span></td>
+    <td><strong>Attack Potions</strong><br><small>Clean herbs, mix potions. Simple but costs money from buying secondaries.</small></td>
+    <td>3-25</td>
+    <td>30,000</td>
+    <td><span class="tag tag-low">low</span></td>
+    <td>none</td>
+    <td>20000</td>
+  </tr>
+  <tr>
+    <td><span class="tag tag-skill">herblore</span></td>
+    <td><strong>Prayer Potions</strong><br><small>Ranarr + snape grass. One of the few profitable herblore methods. Always in demand.</small></td>
+    <td>38-72</td>
+    <td>80,000</td>
+    <td><span class="tag tag-low">low</span></td>
+    <td>none</td>
+    <td><strong>+30000</strong></td>
+  </tr>
+  <tr>
+    <td><span class="tag tag-skill">herblore</span></td>
+    <td><strong>Super Combat Potions</strong><br><small>Combine super attack, strength, defence. Massive XP, massive cost. Endgame money sink.</small></td>
+    <td>90-99</td>
+    <td>350,000</td>
+    <td><span class="tag tag-medium">medium</span></td>
+    <td>none</td>
+    <td>500000</td>
+  </tr>
+  <tr>
+    <td><span class="tag tag-skill">herblore</span></td>
+    <td><strong>Herb Cleaning</strong><br><small>Click and clean. Profitable, brain-dead, scales with herb type. The AFK path.</small></td>
+    <td>1-99</td>
+    <td>60,000</td>
+    <td><span class="tag tag-afk">afk</span></td>
+    <td>none</td>
+    <td><strong>+100000</strong></td>
+  </tr>
+  <tr>
+    <td><span class="tag tag-skill">herblore</span></td>
+    <td><strong>Apothecary Potion Mixing</strong><br><small>Mix potions at the Heartlands Apothecary. Clean herb + secondary + vial. Bread-and-butter herblore.</small></td>
+    <td>1-60</td>
+    <td>60,000</td>
+    <td><span class="tag tag-medium">medium</span></td>
+    <td>none</td>
+    <td>0</td>
+  </tr>
+  <tr>
+    <td><span class="tag tag-skill">hitpoints</span></td>
+    <td><strong>Passive Combat HP</strong><br><small>HP XP comes free with any combat. AFK anything and HP ticks up.</small></td>
+    <td>1-99</td>
+    <td>12,000</td>
+    <td><span class="tag tag-afk">afk</span></td>
+    <td>none</td>
+    <td>0</td>
+  </tr>
+  <tr>
+    <td><span class="tag tag-skill">hitpoints</span></td>
+    <td><strong>NMZ Absorption HP</strong><br><small>Absorption potions soak damage while you accumulate passive HP XP.</small></td>
+    <td>50-99</td>
+    <td>30,000</td>
+    <td><span class="tag tag-low">low</span></td>
+    <td>none</td>
+    <td>20000</td>
+  </tr>
+  <tr>
+    <td><span class="tag tag-skill">hitpoints</span></td>
+    <td><strong>Slayer HP Training</strong><br><small>HP XP from slayer tasks. Profitable and varied, standard mid-game path.</small></td>
+    <td>20-99</td>
+    <td>25,000</td>
+    <td><span class="tag tag-medium">medium</span></td>
+    <td>medium</td>
+    <td>0</td>
+  </tr>
+  <tr>
+    <td><span class="tag tag-skill">hitpoints</span></td>
+    <td><strong>Infirmary Practice Ward</strong><br><small>Practice taking damage at the Apothecary infirmary. Healers patch you up. Pure HP training.</small></td>
+    <td>1-30</td>
+    <td>8,000</td>
+    <td><span class="tag tag-afk">afk</span></td>
+    <td>low</td>
+    <td>500</td>
+  </tr>
+  <tr>
+    <td><span class="tag tag-skill">hunter</span></td>
+    <td><strong>Butterfly Netting</strong><br><small>Chase butterflies through meadows. Free, no requirements, no setup. Not fast but zero-cost entry to hunter.</small></td>
+    <td>1-50</td>
+    <td>30,000</td>
+    <td><span class="tag tag-low">low</span></td>
+    <td>none</td>
+    <td>0</td>
+  </tr>
+  <tr>
+    <td><span class="tag tag-skill">hunter</span></td>
+    <td><strong>[Quirky] Groom the Stable Horses</strong><br><small>Brush the Heartlands stable horses. Unusual hunter XP. Horsehair sells to fletchers.</small></td>
+    <td>1-99</td>
+    <td>1,500</td>
+    <td><span class="tag tag-low">low</span></td>
+    <td>none</td>
+    <td>0</td>
+  </tr>
+  <tr>
+    <td><span class="tag tag-skill">magic</span></td>
+    <td><strong>Strike Spells</strong><br><small>Auto-cast strikes on safe monsters. Rune cost is minimal. Gentle start.</small></td>
+    <td>1-20</td>
+    <td>10,000</td>
+    <td><span class="tag tag-afk">afk</span></td>
+    <td>none</td>
+    <td>5000</td>
+  </tr>
+  <tr>
+    <td><span class="tag tag-skill">magic</span></td>
+    <td><strong>Curse / Low Alchemy</strong><br><small>Cast curse on NPCs or low alch items. Bridges the gap between strikes and high alch.</small></td>
+    <td>19-40</td>
+    <td>35,000</td>
+    <td><span class="tag tag-low">low</span></td>
+    <td>none</td>
+    <td>30000</td>
+  </tr>
+  <tr>
+    <td><span class="tag tag-skill">magic</span></td>
+    <td><strong>Bolt Spells on Slayer</strong><br><small>Cast bolt spells on slayer tasks. Trains magic and slayer together. Decent loot offsets rune cost.</small></td>
+    <td>29-50</td>
+    <td>45,000</td>
+    <td><span class="tag tag-medium">medium</span></td>
+    <td>low</td>
+    <td>25000</td>
+  </tr>
+  <tr>
+    <td><span class="tag tag-skill">magic</span></td>
+    <td><strong>High Alchemy</strong><br><small>Alch items for gold. Profitable with the right items. Can be done anywhere.</small></td>
+    <td>55-99</td>
+    <td>78,000</td>
+    <td><span class="tag tag-low">low</span></td>
+    <td>none</td>
+    <td><strong>+20000</strong></td>
+  </tr>
+  <tr>
+    <td><span class="tag tag-skill">magic</span></td>
+    <td><strong>Bolt Enchanting</strong><br><small>Enchant bolts for profit. Decent XP and money. Scales with bolt type.</small></td>
+    <td>7-99</td>
+    <td>100,000</td>
+    <td><span class="tag tag-medium">medium</span></td>
+    <td>none</td>
+    <td><strong>+50000</strong></td>
+  </tr>
+  <tr>
+    <td><span class="tag tag-skill">magic</span></td>
+    <td><strong>[Quirky] Read the Spell Tome</strong><br><small>Browse the Heartlands library. Tiny magic XP per page turned.</small></td>
+    <td>1-99</td>
+    <td>1,800</td>
+    <td><span class="tag tag-low">low</span></td>
+    <td>none</td>
+    <td>0</td>
+  </tr>
+  <tr>
+    <td><span class="tag tag-skill">mining</span></td>
+    <td><strong>Copper/Tin Mining</strong><br><small>Starter ores next to a bank. Sell or smelt into bronze. The first pick swing.</small></td>
+    <td>1-15</td>
+    <td>8,000</td>
+    <td><span class="tag tag-afk">afk</span></td>
+    <td>none</td>
+    <td><strong>+2000</strong></td>
+  </tr>
+  <tr>
+    <td><span class="tag tag-skill">mining</span></td>
+    <td><strong>Iron Powermining</strong><br><small>Drop ore as you mine. Fast XP, zero resources. The pure XP method.</small></td>
+    <td>15-99</td>
+    <td>55,000</td>
+    <td><span class="tag tag-high">high</span></td>
+    <td>none</td>
+    <td>0</td>
+  </tr>
+  <tr>
+    <td><span class="tag tag-skill">mining</span></td>
+    <td><strong>Heartlands Deep Mines</strong><br><small>Mining Guild deep shafts. Free mithril/adamant ore. No PKers, no competition.</small></td>
+    <td>45-85</td>
+    <td>72,000</td>
+    <td><span class="tag tag-low">low</span></td>
+    <td>none</td>
+    <td>0</td>
+  </tr>
+  <tr>
+    <td><span class="tag tag-skill">prayer</span></td>
+    <td><strong>Regular Bones at Altar</strong><br><small>Buy bones, use on altar. The cheapest entry into prayer. Repetitive but safe.</small></td>
+    <td>1-30</td>
+    <td>15,000</td>
+    <td><span class="tag tag-low">low</span></td>
+    <td>none</td>
+    <td>10000</td>
+  </tr>
+  <tr>
+    <td><span class="tag tag-skill">prayer</span></td>
+    <td><strong>Dragon Bones on Gilded Altar</strong><br><small>Gilded altar gives 350% XP. Fast but drains the bank. The money method.</small></td>
+    <td>30-99</td>
+    <td>300,000</td>
+    <td><span class="tag tag-medium">medium</span></td>
+    <td>none</td>
+    <td>1500000</td>
+  </tr>
+  <tr>
+    <td><span class="tag tag-skill">prayer</span></td>
+    <td><strong>[Quirky] Polish the Altar</strong><br><small>Rub the altar with a cloth. Monks appreciate the dedication.</small></td>
+    <td>1-99</td>
+    <td>600</td>
+    <td><span class="tag tag-medium">medium</span></td>
+    <td>none</td>
+    <td>0</td>
+  </tr>
+  <tr>
+    <td><span class="tag tag-skill">ranged</span></td>
+    <td><strong>Ogre Safespot</strong><br><small>Safespot ogres behind a fence. Arrow cost is the only expense. Relaxed.</small></td>
+    <td>1-30</td>
+    <td>12,000</td>
+    <td><span class="tag tag-low">low</span></td>
+    <td>none</td>
+    <td>2000</td>
+  </tr>
+  <tr>
+    <td><span class="tag tag-skill">ranged</span></td>
+    <td><strong>NMZ Blowpipe AFK</strong><br><small>Blowpipe at NMZ with absorption potions. AFK ranged training at 60+. Scale cost adds up.</small></td>
+    <td>60-99</td>
+    <td>65,000</td>
+    <td><span class="tag tag-low">low</span></td>
+    <td>none</td>
+    <td>120000</td>
+  </tr>
+  <tr>
+    <td><span class="tag tag-skill">ranged</span></td>
+    <td><strong>Cannon + Slayer</strong><br><small>Cannon accelerates slayer kills. Expensive but profitable from drops. The balanced path.</small></td>
+    <td>30-99</td>
+    <td>60,000</td>
+    <td><span class="tag tag-medium">medium</span></td>
+    <td>medium</td>
+    <td>200000</td>
+  </tr>
+  <tr>
+    <td><span class="tag tag-skill">runecrafting</span></td>
+    <td><strong>Air Rune Running</strong><br><small>Bank, fill pouches, run to altar, craft. The classic RC grind. Slow but free.</small></td>
+    <td>1-44</td>
+    <td>8,000</td>
+    <td><span class="tag tag-medium">medium</span></td>
+    <td>none</td>
+    <td><strong>+3000</strong></td>
+  </tr>
+  <tr>
+    <td><span class="tag tag-skill">runecrafting</span></td>
+    <td><strong>Guardians of the Rift</strong><br><small>Minigame provides essence and altars. Low attention entry to runecrafting. Earns runes and outfit pieces.</small></td>
+    <td>1-30</td>
+    <td>15,000</td>
+    <td><span class="tag tag-low">low</span></td>
+    <td>low</td>
+    <td>0</td>
+  </tr>
+  <tr>
+    <td><span class="tag tag-skill">runecrafting</span></td>
+    <td><strong>Lava Rune Crafting</strong><br><small>Fastest RC XP. Binding necklace + magic imbue + precise banking. Costs a fortune.</small></td>
+    <td>23-99</td>
+    <td>60,000</td>
+    <td><span class="tag tag-maximum">maximum</span></td>
+    <td>none</td>
+    <td>100000</td>
+  </tr>
+  <tr>
+    <td><span class="tag tag-skill">slayer</span></td>
+    <td><strong>Turael Tasks (Easy)</strong><br><small>Baby tasks from the easiest master. Low XP but introduces the system.</small></td>
+    <td>1-30</td>
+    <td>5,000</td>
+    <td><span class="tag tag-low">low</span></td>
+    <td>none</td>
+    <td>0</td>
+  </tr>
+  <tr>
+    <td><span class="tag tag-skill">slayer</span></td>
+    <td><strong>Konar Tasks (Varied)</strong><br><small>Location-locked tasks. Forces you to explore. Brimstone keys add profit.</small></td>
+    <td>20-80</td>
+    <td>20,000</td>
+    <td><span class="tag tag-medium">medium</span></td>
+    <td>medium</td>
+    <td><strong>+30000</strong></td>
+  </tr>
+  <tr>
+    <td><span class="tag tag-skill">slayer</span></td>
+    <td><strong>Boss Slayer Tasks</strong><br><small>Kill bosses as slayer assignments. Lower slayer XP/hr but massive drops.</small></td>
+    <td>75-99</td>
+    <td>25,000</td>
+    <td><span class="tag tag-high">high</span></td>
+    <td>high</td>
+    <td><strong>+200000</strong></td>
+  </tr>
+  <tr>
+    <td><span class="tag tag-skill">slayer</span></td>
+    <td><strong>Heartlands Novice Slayer</strong><br><small>Novice slayer tasks from the Heartlands lodge. Chickens, rats, cows, goblins. Safe learning.</small></td>
+    <td>1-40</td>
+    <td>16,000</td>
+    <td><span class="tag tag-low">low</span></td>
+    <td>low</td>
+    <td>0</td>
+  </tr>
+  <tr>
+    <td><span class="tag tag-skill">smithing</span></td>
+    <td><strong>Bronze Bar Smelting</strong><br><small>Smelt copper and tin at a furnace. Simple introduction to smithing.</small></td>
+    <td>1-15</td>
+    <td>12,000</td>
+    <td><span class="tag tag-low">low</span></td>
+    <td>none</td>
+    <td>5000</td>
+  </tr>
+  <tr>
+    <td><span class="tag tag-skill">smithing</span></td>
+    <td><strong>Platebody Smithing</strong><br><small>Hammer bars into platebodies at an anvil. Straightforward, moderate cost.</small></td>
+    <td>33-99</td>
+    <td>130,000</td>
+    <td><span class="tag tag-medium">medium</span></td>
+    <td>none</td>
+    <td>200000</td>
+  </tr>
+  <tr>
+    <td><span class="tag tag-skill">smithing</span></td>
+    <td><strong>Cannonball Smithing</strong><br><small>Smelt steel bars into cannonballs. Extremely AFK, always profitable. Slowest XP.</small></td>
+    <td>35-99</td>
+    <td>14,000</td>
+    <td><span class="tag tag-afk">afk</span></td>
+    <td>none</td>
+    <td><strong>+100000</strong></td>
+  </tr>
+  <tr>
+    <td><span class="tag tag-skill">strength</span></td>
+    <td><strong>Hill Giant Bashing</strong><br><small>Big bone drops fund prayer training. A classic early grind with real output. The resource advantage over crabs.</small></td>
+    <td>10-40</td>
+    <td>18,000</td>
+    <td><span class="tag tag-low">low</span></td>
+    <td>low</td>
+    <td><strong>+15000</strong></td>
+  </tr>
+  <tr>
+    <td><span class="tag tag-skill">strength</span></td>
+    <td><strong>Obsidian Sword Training</strong><br><small>Full obsidian with berserker necklace. Semi-AFK training at NMZ or crabs.</small></td>
+    <td>60-99</td>
+    <td>80,000</td>
+    <td><span class="tag tag-low">low</span></td>
+    <td>low</td>
+    <td>15000</td>
+  </tr>
+  <tr>
+    <td><span class="tag tag-skill">strength</span></td>
+    <td><strong>Barbarian Assault (Attacker)</strong><br><small>Team minigame with role-based combat. High engagement, unique rewards, free.</small></td>
+    <td>40-99</td>
+    <td>50,000</td>
+    <td><span class="tag tag-high">high</span></td>
+    <td>medium</td>
+    <td>0</td>
+  </tr>
+  <tr>
+    <td><span class="tag tag-skill">strength</span></td>
+    <td><strong>[Quirky] Haul the Well Bucket</strong><br><small>Haul a heavy bucket up the village well. Tiny strength XP per lift. Produces water.</small></td>
+    <td>1-99</td>
+    <td>2,000</td>
+    <td><span class="tag tag-high">high</span></td>
+    <td>none</td>
+    <td>0</td>
+  </tr>
+  <tr>
+    <td><span class="tag tag-skill">strength</span></td>
+    <td><strong>[Quirky] Ring the Church Bell</strong><br><small>Pull the church bell rope. Heavy work. The priest tolerates it for a few hours a day.</small></td>
+    <td>1-99</td>
+    <td>2,500</td>
+    <td><span class="tag tag-high">high</span></td>
+    <td>none</td>
+    <td>0</td>
+  </tr>
+  <tr>
+    <td><span class="tag tag-skill">strength</span></td>
+    <td><strong>[Quirky] The Village Pump</strong><br><small>Pump handle at the village well. Each pump gives the slightest strength XP.</small></td>
+    <td>1-99</td>
+    <td>720</td>
+    <td><span class="tag tag-high">high</span></td>
+    <td>none</td>
+    <td>0</td>
+  </tr>
+  <tr>
+    <td><span class="tag tag-skill">thieving</span></td>
+    <td><strong>Man Pickpocketing</strong><br><small>Pickpocket men for coins. Pathetic profit, but it is a start.</small></td>
+    <td>1-20</td>
+    <td>10,000</td>
+    <td><span class="tag tag-low">low</span></td>
+    <td>none</td>
+    <td><strong>+3000</strong></td>
+  </tr>
+  <tr>
+    <td><span class="tag tag-skill">thieving</span></td>
+    <td><strong>Fruit Stall Theft</strong><br><small>Spam-click a stall. Completely braindead. Fruit is nearly worthless.</small></td>
+    <td>25-50</td>
+    <td>35,000</td>
+    <td><span class="tag tag-afk">afk</span></td>
+    <td>none</td>
+    <td>0</td>
+  </tr>
+  <tr>
+    <td><span class="tag tag-skill">thieving</span></td>
+    <td><strong>Ardougne Knight Pickpocket</strong><br><small>Trap a knight, click repeatedly. Semi-AFK with coin pouches. The relaxed money maker.</small></td>
+    <td>55-99</td>
+    <td>120,000</td>
+    <td><span class="tag tag-low">low</span></td>
+    <td>low</td>
+    <td><strong>+60000</strong></td>
+  </tr>
+  <tr>
+    <td><span class="tag tag-skill">thieving</span></td>
+    <td><strong>Heartlands Market Pickpocketing</strong><br><small>Pickpocket marketgoers. Getting caught = small fine, no real danger.</small></td>
+    <td>1-45</td>
+    <td>22,000</td>
+    <td><span class="tag tag-low">low</span></td>
+    <td>low</td>
+    <td>0</td>
+  </tr>
+  <tr>
+    <td><span class="tag tag-skill">woodcutting</span></td>
+    <td><strong>Normal Tree Chopping</strong><br><small>Chop trees near a bank. Logs sell for fletching. The gentlest start.</small></td>
+    <td>1-15</td>
+    <td>7,000</td>
+    <td><span class="tag tag-afk">afk</span></td>
+    <td>none</td>
+    <td><strong>+1000</strong></td>
+  </tr>
+  <tr>
+    <td><span class="tag tag-skill">woodcutting</span></td>
+    <td><strong>Willow Chopping</strong><br><small>Powerdrop willows. AFK XP staple. Logs are nearly worthless.</small></td>
+    <td>30-60</td>
+    <td>35,000</td>
+    <td><span class="tag tag-afk">afk</span></td>
+    <td>none</td>
+    <td>0</td>
+  </tr>
+  <tr>
+    <td><span class="tag tag-skill">woodcutting</span></td>
+    <td><strong>[Quirky] Stack the Woodpile</strong><br><small>Organize the town woodpile. Technically woodcutting XP. Really just being helpful.</small></td>
+    <td>1-99</td>
+    <td>1,000</td>
+    <td><span class="tag tag-medium">medium</span></td>
+    <td>none</td>
+    <td>0</td>
+  </tr></table><h2>Quirky Interactions (5)</h2>
+<div class="description">Ambient world objects that grant tiny XP. Discoverable, flavorful, mathematically terrible — but sometimes a lifeline.</div>
+<ul class="loose"><li><strong>The Village Pump</strong> [strength] — 0.3 xp/click. <em>Old Grigg leans against the well, watching you. &quot;Thirsty work, eh?&quot;</em></li><li><strong>Guard Practice Dummy</strong> [attack] — 1 xp/click. <em>The guards laugh at your form. The dummy doesnt complain.</em></li><li><strong>Polish the Altar</strong> [prayer] — 0.5 xp/click. <em>Father Dorin nods approvingly each time you polish.</em></li><li><strong>Masonry Wall Chiseling</strong> [crafting] — 0.5 xp/click. <em>The mason will let you practice all day. &quot;Wont hurt the wall — already ugly.&quot;</em></li><li><strong>Stir the Dough</strong> [cooking] — 0.4 xp/click. <em>The smell is incredible. Your stomach growls.</em></li></ul>
+</div>
+</body></html>

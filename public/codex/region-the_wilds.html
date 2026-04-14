@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html><head><meta charset="utf-8"><title>The Wilds — Aelgard Codex</title>
+<style>
+  body {
+    font-family: ui-monospace, 'Cascadia Code', 'Consolas', monospace;
+    background: #3e3529;
+    color: #e8dcc0;
+    margin: 0;
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  .parchment {
+    background: #e8dcc0;
+    color: #2c1810;
+    padding: 30px 40px;
+    border: 3px solid #8b6f47;
+    border-radius: 4px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.5);
+    margin: 20px 0;
+  }
+  h1 {
+    color: #7a1f1a;
+    border-bottom: 2px solid #8b6f47;
+    padding-bottom: 10px;
+  }
+  h2 { color: #5a3a1a; margin-top: 30px; }
+  h3 { color: #6b4423; }
+  a { color: #7a1f1a; text-decoration: none; border-bottom: 1px dotted #7a1f1a; }
+  a:hover { background: #d4c49c; }
+  nav { margin-bottom: 20px; }
+  nav a { margin-right: 15px; font-weight: bold; }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 15px 0;
+  }
+  th, td {
+    text-align: left;
+    padding: 6px 10px;
+    border-bottom: 1px solid #c4a970;
+  }
+  th { background: #d4c49c; color: #2c1810; }
+  tr:hover { background: #d4c49c; }
+  .tag {
+    display: inline-block;
+    padding: 2px 8px;
+    margin: 2px;
+    border-radius: 3px;
+    font-size: 11px;
+    font-weight: bold;
+  }
+  .tag-region { background: #4a6b8a; color: #fff; }
+  .tag-skill  { background: #5a7f4a; color: #fff; }
+  .tag-trans  { background: #8a1f1a; color: #fff; }
+  .tag-major  { background: #a86a2a; color: #fff; }
+  .tag-minor  { background: #6a6a6a; color: #fff; }
+  .tag-afk    { background: #3a5a2a; color: #fff; }
+  .tag-low    { background: #4a7a3a; color: #fff; }
+  .tag-medium { background: #8a7a2a; color: #fff; }
+  .tag-high   { background: #a85a2a; color: #fff; }
+  .tag-maximum{ background: #8a1f1a; color: #fff; }
+  .tag-obscure{ background: #6a4a2a; color: #fff; font-style: italic; }
+  .stat-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    margin: 15px 0;
+  }
+  .stat-cell {
+    background: #d4c49c;
+    padding: 10px;
+    border-radius: 3px;
+    text-align: center;
+  }
+  .stat-cell .value {
+    font-size: 24px;
+    font-weight: bold;
+    color: #7a1f1a;
+  }
+  .stat-cell .label {
+    font-size: 11px;
+    color: #5a3a1a;
+    text-transform: uppercase;
+  }
+  .description {
+    font-style: italic;
+    color: #5a3a1a;
+    margin: 10px 0;
+    padding: 10px;
+    background: #d4c49c;
+    border-left: 3px solid #8b6f47;
+  }
+  ul.loose li { margin-bottom: 8px; }
+  details {
+    margin: 10px 0;
+    padding: 10px;
+    background: #d4c49c;
+    border-radius: 3px;
+  }
+  summary { cursor: pointer; font-weight: bold; }
+</style>
+</head>
+<body>
+<nav>
+  <a href="index.html">Home</a>
+  <a href="regions.html">Regions</a>
+  <a href="skills.html">Skills</a>
+  <a href="quests.html">Quests</a>
+  <a href="breakpoints.html">Breakpoints</a>
+  <a href="items.html">Items</a>
+</nav>
+<div class="parchment">
+<h1>The Wilds</h1>
+<div class="description">Lawless PvP zone. Superior rewards, constant danger.</div>
+
+<div class="stat-grid">
+  <div class="stat-cell"><div class="value">33</div><div class="label">Training Methods</div></div>
+  <div class="stat-cell"><div class="value">3</div><div class="label">Sub-areas</div></div>
+  <div class="stat-cell"><div class="value">2</div><div class="label">Quirky Interactions</div></div>
+  <div class="stat-cell"><div class="value">1</div><div class="label">Prestige Goals</div></div>
+</div>
+<h2>Prestige Goal: Coronation of the Revenant King</h2>
+<div class="description">Defeat the Revenant King deep in the Wilderness. Survive multiple PKer ambushes. Emerge with the Wilderness Crown.</div>
+<p><strong>Required skills:</strong> <span class="tag tag-skill">attack 85</span> <span class="tag tag-skill">ranged 80</span> <span class="tag tag-skill">prayer 75</span> <span class="tag tag-skill">hitpoints 85</span></p>
+<p><strong>Bosses:</strong> revenant_king</p>
+<p><strong>Unique rewards:</strong> wilderness_crown, revenant_ether_mace</p>
+<h2>Sub-areas</h2><ul class="loose"><li><strong>The Wilds</strong> — Lawless PvP zone north of Aelgard. No requirements to enter, but anything you carry can be taken. Superior training methods and rare resources justify the risk.</li><li><strong>Revenant Caves</strong> — Multi-combat PvP dungeon. Revenants drop unique PvP weapons. Extremely dangerous. <small>[requires: hitpoints 40]</small></li><li><strong>Wilderness Resource Area</strong> — Dark crabs, runite ore, magic trees. 7,500gp entry fee. Deep wilderness.</li></ul><h2>Training Methods (33)</h2>
+<table>
+  <tr><th>Skill</th><th>Method</th><th>Levels</th><th>XP/hr</th><th>Attention</th><th>Danger</th><th>Cost/hr</th></tr>
+  <tr>
+    <td><span class="tag tag-skill">agility</span></td>
+    <td><strong>Wilderness Agility Course</strong><br><small>Free, fast, dangerous. PKers patrol the course. Bring nothing you cannot lose. Higher XP than Ardougne justifies the risk.</small></td>
+    <td>52-99</td>
+    <td>62,000</td>
+    <td><span class="tag tag-high">high</span></td>
+    <td>extreme</td>
+    <td>0</td>
+  </tr>
+  <tr>
+    <td><span class="tag tag-skill">agility</span></td>
+    <td><strong>[Quirky] Climb the Fallen Statue</strong><br><small>Climb the ancient fallen statue. PvP-enabled while you do.</small></td>
+    <td>1-99</td>
+    <td>1,000</td>
+    <td><span class="tag tag-high">high</span></td>
+    <td>extreme</td>
+    <td>0</td>
+  </tr>
+  <tr>
+    <td><span class="tag tag-skill">attack</span></td>
+    <td><strong>Revenant Hunting (Melee)</strong><br><small>High profit revenants in deep Wilds. PKers are the real threat. Bring 3-item risk.</small></td>
+    <td>60-99</td>
+    <td>55,000</td>
+    <td><span class="tag tag-maximum">maximum</span></td>
+    <td>extreme</td>
+    <td><strong>+80000</strong></td>
+  </tr>
+  <tr>
+    <td><span class="tag tag-skill">attack</span></td>
+    <td><strong>Revenant Weapon Hunting</strong><br><small>Revenant caves. Extreme PKer threat. Highest combat profit + XP. Revenant weapons are BIS in wilds.</small></td>
+    <td>75-99</td>
+    <td>110,000</td>
+    <td><span class="tag tag-maximum">maximum</span></td>
+    <td>extreme</td>
+    <td>80000</td>
+  </tr>
+  <tr>
+    <td><span class="tag tag-skill">construction</span></td>
+    <td><strong>Wilderness Fortifications</strong><br><small>Build fortifications at Wilds outposts. Cheaper materials but PKers patrol the area.</small></td>
+    <td>30-99</td>
+    <td>500,000</td>
+    <td><span class="tag tag-high">high</span></td>
+    <td>high</td>
+    <td>100000</td>
+  </tr>
+  <tr>
+    <td><span class="tag tag-skill">cooking</span></td>
+    <td><strong>Wilderness Campfire Cooking</strong><br><small>Wilds campfires give 20% bonus XP. Bring your own fish. Keep an eye out.</small></td>
+    <td>1-99</td>
+    <td>250,000</td>
+    <td><span class="tag tag-high">high</span></td>
+    <td>high</td>
+    <td>0</td>
+  </tr>
+  <tr>
+    <td><span class="tag tag-skill">crafting</span></td>
+    <td><strong>Wilderness Tannery</strong><br><small>Wilds tanner charges nothing. Tan hides for profit, but watch your back.</small></td>
+    <td>40-99</td>
+    <td>100,000</td>
+    <td><span class="tag tag-high">high</span></td>
+    <td>high</td>
+    <td><strong>+120000</strong></td>
+  </tr>
+  <tr>
+    <td><span class="tag tag-skill">defence</span></td>
+    <td><strong>Abyss Defence Training</strong><br><small>Multi-combat abyss creatures. Good XP, skull risk entering. Bring cheap gear.</small></td>
+    <td>60-99</td>
+    <td>70,000</td>
+    <td><span class="tag tag-medium">medium</span></td>
+    <td>high</td>
+    <td>8000</td>
+  </tr>
+  <tr>
+    <td><span class="tag tag-skill">farming</span></td>
+    <td><strong>Wilderness Herb Patches</strong><br><small>Wilds patches yield 50% more herbs. Extremely profitable if you survive the run.</small></td>
+    <td>30-99</td>
+    <td>60,000</td>
+    <td><span class="tag tag-high">high</span></td>
+    <td>high</td>
+    <td><strong>+250000</strong></td>
+  </tr>
+  <tr>
+    <td><span class="tag tag-skill">farming</span></td>
+    <td><strong>Wilderness Ent Farming</strong><br><small>Plant tree saplings in the wilds. PKers can steal your logs — high risk, high reward.</small></td>
+    <td>65-99</td>
+    <td>75,000</td>
+    <td><span class="tag tag-high">high</span></td>
+    <td>extreme</td>
+    <td>0</td>
+  </tr>
+  <tr>
+    <td><span class="tag tag-skill">firemaking</span></td>
+    <td><strong>Wilderness Bonfires</strong><br><small>Communal bonfires give 40% bonus XP. Bring your own logs. Free-ish but deadly. Beats Wintertodt XP if you survive.</small></td>
+    <td>30-99</td>
+    <td>310,000</td>
+    <td><span class="tag tag-high">high</span></td>
+    <td>extreme</td>
+    <td>15000</td>
+  </tr>
+  <tr>
+    <td><span class="tag tag-skill">fishing</span></td>
+    <td><strong>Dark Crab Fishing (Wilds)</strong><br><small>Best food fish, Wilds-only spot. Extremely profitable. PKer magnet.</small></td>
+    <td>85-99</td>
+    <td>40,000</td>
+    <td><span class="tag tag-high">high</span></td>
+    <td>extreme</td>
+    <td><strong>+150000</strong></td>
+  </tr>
+  <tr>
+    <td><span class="tag tag-skill">fishing</span></td>
+    <td><strong>Dark Crab Pirate Coast</strong><br><small>Dark crabs = premium food (heals 22). Wilderness-only. Extreme PKer threat.</small></td>
+    <td>85-99</td>
+    <td>45,000</td>
+    <td><span class="tag tag-medium">medium</span></td>
+    <td>extreme</td>
+    <td>0</td>
+  </tr>
+  <tr>
+    <td><span class="tag tag-skill">fletching</span></td>
+    <td><strong>Wilderness Javelin Crafting</strong><br><small>Wilds-only javelin wood. Good XP and profit but you are a sitting target.</small></td>
+    <td>35-99</td>
+    <td>200,000</td>
+    <td><span class="tag tag-high">high</span></td>
+    <td>high</td>
+    <td><strong>+50000</strong></td>
+  </tr>
+  <tr>
+    <td><span class="tag tag-skill">herblore</span></td>
+    <td><strong>Wilderness Herb Gathering + Mixing</strong><br><small>Gather Wilds herbs and brew on-site. Free materials but PK risk. Self-sufficient path.</small></td>
+    <td>30-99</td>
+    <td>70,000</td>
+    <td><span class="tag tag-high">high</span></td>
+    <td>high</td>
+    <td><strong>+80000</strong></td>
+  </tr>
+  <tr>
+    <td><span class="tag tag-skill">hitpoints</span></td>
+    <td><strong>Green Dragons (HP)</strong><br><small>Great profit from bones and hides. PKer risk keeps most people away.</small></td>
+    <td>40-70</td>
+    <td>35,000</td>
+    <td><span class="tag tag-high">high</span></td>
+    <td>high</td>
+    <td><strong>+60000</strong></td>
+  </tr>
+  <tr>
+    <td><span class="tag tag-skill">hunter</span></td>
+    <td><strong>Black Chinchompa Trapping</strong><br><small>Best hunter XP and profit. Wilds-only. PKers will find you. Bring escape tools.</small></td>
+    <td>73-99</td>
+    <td>180,000</td>
+    <td><span class="tag tag-maximum">maximum</span></td>
+    <td>extreme</td>
+    <td><strong>+500000</strong></td>
+  </tr>
+  <tr>
+    <td><span class="tag tag-skill">magic</span></td>
+    <td><strong>God Spell PKing</strong><br><small>Cast god spells on other players. Requires Mage Arena. Profit depends on kills.</small></td>
+    <td>60-99</td>
+    <td>80,000</td>
+    <td><span class="tag tag-maximum">maximum</span></td>
+    <td>extreme</td>
+    <td><strong>+100000</strong></td>
+  </tr>
+  <tr>
+    <td><span class="tag tag-skill">magic</span></td>
+    <td><strong>Mage of Zamorak Battles</strong><br><small>Fight Zamorakian mages in the wilderness. They drop runes. PvP-enabled.</small></td>
+    <td>60-99</td>
+    <td>95,000</td>
+    <td><span class="tag tag-high">high</span></td>
+    <td>high</td>
+    <td>30000</td>
+  </tr>
+  <tr>
+    <td><span class="tag tag-skill">mining</span></td>
+    <td><strong>Wilderness Runite Mining</strong><br><small>Runite spawns in deep Wilds. Extremely profitable per ore but slow and dangerous.</small></td>
+    <td>85-99</td>
+    <td>15,000</td>
+    <td><span class="tag tag-high">high</span></td>
+    <td>extreme</td>
+    <td><strong>+200000</strong></td>
+  </tr>
+  <tr>
+    <td><span class="tag tag-skill">prayer</span></td>
+    <td><strong>Chaos Altar (Wilderness)</strong><br><small>50% chance bones are saved. Best XP/gp in the game. Bring one inventory at a time.</small></td>
+    <td>1-99</td>
+    <td>350,000</td>
+    <td><span class="tag tag-maximum">maximum</span></td>
+    <td>extreme</td>
+    <td>700000</td>
+  </tr>
+  <tr>
+    <td><span class="tag tag-skill">prayer</span></td>
+    <td><strong>Chaos Altar Prayer</strong><br><small>Chaos Altar gives 7x prayer XP. Highest in the game. PKers patrol the altar — you WILL be attacked.</small></td>
+    <td>1-99</td>
+    <td>380,000</td>
+    <td><span class="tag tag-maximum">maximum</span></td>
+    <td>extreme</td>
+    <td>0</td>
+  </tr>
+  <tr>
+    <td><span class="tag tag-skill">prayer</span></td>
+    <td><strong>[Quirky] Place a Revenant Ward</strong><br><small>Stake a holy ward into the ground. Slight prayer XP per ward.</small></td>
+    <td>1-99</td>
+    <td>720</td>
+    <td><span class="tag tag-medium">medium</span></td>
+    <td>extreme</td>
+    <td>0</td>
+  </tr>
+  <tr>
+    <td><span class="tag tag-skill">ranged</span></td>
+    <td><strong>Black Chin Hunting + Ranging</strong><br><small>Hunt and use black chins in the Wilds. Massive profit but PKers camp the spot.</small></td>
+    <td>70-99</td>
+    <td>150,000</td>
+    <td><span class="tag tag-maximum">maximum</span></td>
+    <td>extreme</td>
+    <td><strong>+200000</strong></td>
+  </tr>
+  <tr>
+    <td><span class="tag tag-skill">runecrafting</span></td>
+    <td><strong>Abyss Runecrafting</strong><br><small>Run through Wilds to the Abyss portal. Skull risk every trip. Best general RC XP/profit.</small></td>
+    <td>1-99</td>
+    <td>50,000</td>
+    <td><span class="tag tag-high">high</span></td>
+    <td>high</td>
+    <td><strong>+80000</strong></td>
+  </tr>
+  <tr>
+    <td><span class="tag tag-skill">runecrafting</span></td>
+    <td><strong>Wilderness Pure Essence</strong><br><small>Pure essence mines in the wilderness — 3x yield vs safe regions. PKer threat.</small></td>
+    <td>1-99</td>
+    <td>68,000</td>
+    <td><span class="tag tag-medium">medium</span></td>
+    <td>extreme</td>
+    <td>0</td>
+  </tr>
+  <tr>
+    <td><span class="tag tag-skill">runecrafting</span></td>
+    <td><strong>Wilderness Abyss RC</strong><br><small>Abyss shortcut to all altars. Wilderness route is fastest RC. Danger from PKers.</small></td>
+    <td>44-99</td>
+    <td>58,000</td>
+    <td><span class="tag tag-high">high</span></td>
+    <td>high</td>
+    <td>0</td>
+  </tr>
+  <tr>
+    <td><span class="tag tag-skill">slayer</span></td>
+    <td><strong>Wilderness Slayer</strong><br><small>Slayer tasks in the Wilds with bonus drop table. PKers are the real boss.</small></td>
+    <td>1-99</td>
+    <td>30,000</td>
+    <td><span class="tag tag-high">high</span></td>
+    <td>extreme</td>
+    <td><strong>+100000</strong></td>
+  </tr>
+  <tr>
+    <td><span class="tag tag-skill">smithing</span></td>
+    <td><strong>Wilderness Anvil Smithing</strong><br><small>Wilds anvil gives 20% XP bonus. Bring bars, smith fast, escape faster.</small></td>
+    <td>50-99</td>
+    <td>180,000</td>
+    <td><span class="tag tag-high">high</span></td>
+    <td>high</td>
+    <td>100000</td>
+  </tr>
+  <tr>
+    <td><span class="tag tag-skill">strength</span></td>
+    <td><strong>Wilderness Boss Grinding</strong><br><small>Wilderness bosses hit hard and PKers lurk. Huge profit justifies extreme risk.</small></td>
+    <td>70-99</td>
+    <td>60,000</td>
+    <td><span class="tag tag-high">high</span></td>
+    <td>extreme</td>
+    <td><strong>+120000</strong></td>
+  </tr>
+  <tr>
+    <td><span class="tag tag-skill">strength</span></td>
+    <td><strong>Wilderness Boss Hunting</strong><br><small>Callisto / Venenatis / Vetion. Wilderness bosses. Extreme risk — PKers hunt you while you hunt bosses.</small></td>
+    <td>80-99</td>
+    <td>85,000</td>
+    <td><span class="tag tag-high">high</span></td>
+    <td>extreme</td>
+    <td>100000</td>
+  </tr>
+  <tr>
+    <td><span class="tag tag-skill">thieving</span></td>
+    <td><strong>Rogues Castle Chests</strong><br><small>Loot chests in deep Wilderness. Best thieving gp/hr but PKers camp the castle.</small></td>
+    <td>84-99</td>
+    <td>100,000</td>
+    <td><span class="tag tag-high">high</span></td>
+    <td>extreme</td>
+    <td><strong>+300000</strong></td>
+  </tr>
+  <tr>
+    <td><span class="tag tag-skill">woodcutting</span></td>
+    <td><strong>Wilderness Ent Chopping</strong><br><small>Ents drop noted logs, no banking needed. Good profit if you survive the PKers.</small></td>
+    <td>40-99</td>
+    <td>70,000</td>
+    <td><span class="tag tag-high">high</span></td>
+    <td>high</td>
+    <td><strong>+40000</strong></td>
+  </tr></table><h2>Quirky Interactions (2)</h2>
+<div class="description">Ambient world objects that grant tiny XP. Discoverable, flavorful, mathematically terrible — but sometimes a lifeline.</div>
+<ul class="loose"><li><strong>Climb the Fallen Statue</strong> [agility] — 2 xp/click. <em>The statue is massive. Climbing it exposes you to any PKer in the zone.</em></li><li><strong>Place a Revenant Ward</strong> [prayer] — 1.8 xp/click. <em>You hope no revenants notice. Or PKers. Mostly PKers.</em></li></ul>
+</div>
+</body></html>

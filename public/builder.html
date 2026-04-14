@@ -282,6 +282,27 @@ body{background:var(--stone);color:var(--parchment);font-family:var(--font);min-
 .quest-ref .qr-name{font-weight:600;color:var(--parchment)}
 .quest-ref .qr-meta{font-size:0.65rem;color:var(--parchment-dark);margin-top:2px}
 
+/* ── Entity List ── */
+.entity-list{margin-bottom:12px;border-bottom:1px solid var(--gold-dim);padding-bottom:8px}
+.entity-list-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:6px}
+.entity-list-header h3{font-size:0.7rem;color:var(--parchment-dark);text-transform:uppercase;letter-spacing:0.5px}
+.entity-list-actions{display:flex;gap:4px}
+.entity-list-actions button{font-family:var(--font);font-size:0.65rem;padding:2px 8px;border-radius:3px;cursor:pointer;border:1px solid var(--gold-dim);background:transparent;color:var(--parchment-dim)}
+.entity-list-actions button:hover{border-color:var(--gold);color:var(--parchment)}
+.entity-item{display:flex;align-items:center;gap:6px;padding:5px 8px;border-radius:3px;cursor:pointer;font-size:0.75rem;color:var(--parchment-dim);transition:all 0.1s;border:1px solid transparent}
+.entity-item:hover{background:rgba(184,134,11,0.08);color:var(--parchment)}
+.entity-item.active{color:var(--gold-bright);background:rgba(184,134,11,0.15);border-color:var(--gold-dim)}
+.entity-item .entity-name{flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.entity-item .entity-actions{display:none;gap:4px;font-size:0.65rem}
+.entity-item:hover .entity-actions{display:flex}
+.entity-item .entity-actions span{cursor:pointer;opacity:0.5;padding:0 2px}
+.entity-item .entity-actions span:hover{opacity:1}
+.entity-item .entity-actions .del{color:var(--red)}
+.save-indicator{font-size:0.6rem;padding:2px 6px;border-radius:3px}
+.save-indicator.saved{color:var(--green)}
+.save-indicator.saving{color:var(--gold)}
+.save-indicator.dirty{color:var(--parchment-dark)}
+
 /* Scrollbar */
 ::-webkit-scrollbar{width:8px}
 ::-webkit-scrollbar-track{background:var(--stone)}
@@ -472,6 +493,238 @@ let currentTab = 'bosses';
 const tabState = {};
 
 // ════════════════════════════════════════════════════════════════
+// PERSISTENCE LAYER
+// ════════════════════════════════════════════════════════════════
+
+const entityCache = {};       // tabId → [{id, tab_id, name, data, updated_at}]
+const currentEntityId = {};   // tabId → id (which entity is loaded)
+const dirtyTabs = new Set();
+let saveTimer = null;
+let currentUser = null;       // set on page load from /api/auth/me
+
+// Entity display name key per tab
+const NAME_KEY = { bosses:'bossName', quests:'questName', skills:'skillName' };
+function getEntityName(tabId, data) {
+  const key = NAME_KEY[tabId] || 'name';
+  return data?.[key] || data?.name || 'Untitled';
+}
+
+// Config tabs are singletons (no list UI, auto-save/load)
+function isConfigTab(tabId) { return tabId.startsWith('cfg-'); }
+function isReferenceTab(tabId) { return tabId.startsWith('ref-'); }
+function isContentTab(tabId) { return !isConfigTab(tabId) && !isReferenceTab(tabId); }
+
+function markDirty(tabId) {
+  if (!currentEntityId[tabId]) return;
+  dirtyTabs.add(tabId);
+  clearTimeout(saveTimer);
+  saveTimer = setTimeout(autoSave, 3000);
+  updateSaveIndicator(tabId, 'dirty');
+}
+
+async function autoSave() {
+  const saving = [...dirtyTabs];
+  dirtyTabs.clear();
+  for (const tabId of saving) {
+    const entityId = currentEntityId[tabId];
+    if (!entityId) continue;
+    updateSaveIndicator(tabId, 'saving');
+    try {
+      const data = tabState[tabId];
+      const name = getEntityName(tabId, data);
+      await fetch(`/api/builder/entities/${entityId}`, {
+        method: 'PUT',
+        headers: {'Content-Type':'application/json'},
+        body: JSON.stringify({ data, name })
+      });
+      // Update cache
+      const cached = entityCache[tabId]?.find(e => e.id === entityId);
+      if (cached) { cached.data = data; cached.name = name; cached.updated_at = new Date().toISOString(); }
+      updateSaveIndicator(tabId, 'saved');
+    } catch (err) {
+      console.error('[save]', tabId, err);
+      updateSaveIndicator(tabId, 'dirty');
+    }
+  }
+}
+
+function saveNow(tabId) {
+  dirtyTabs.add(tabId);
+  clearTimeout(saveTimer);
+  autoSave();
+}
+
+async function fetchEntities(tabId) {
+  if (entityCache[tabId]) return entityCache[tabId];
+  try {
+    const r = await fetch(`/api/builder/entities?tab_id=${encodeURIComponent(tabId)}`);
+    if (!r.ok) return [];
+    entityCache[tabId] = await r.json();
+  } catch { entityCache[tabId] = []; }
+  return entityCache[tabId];
+}
+
+async function createEntity(tabId, name, data) {
+  try {
+    const r = await fetch('/api/builder/entities', {
+      method: 'POST',
+      headers: {'Content-Type':'application/json'},
+      body: JSON.stringify({ tab_id: tabId, name, data })
+    });
+    const result = await r.json();
+    // Refresh cache
+    delete entityCache[tabId];
+    await fetchEntities(tabId);
+    return result;
+  } catch (err) { console.error('[create]', err); return null; }
+}
+
+async function deleteEntity(tabId, entityId) {
+  try {
+    await fetch(`/api/builder/entities/${entityId}`, { method: 'DELETE' });
+    delete entityCache[tabId];
+    await fetchEntities(tabId);
+    if (currentEntityId[tabId] === entityId) {
+      currentEntityId[tabId] = null;
+      tabState[tabId] = null;
+    }
+  } catch (err) { console.error('[delete]', err); }
+}
+
+async function duplicateEntity(tabId, entityId) {
+  try {
+    const r = await fetch(`/api/builder/entities/${entityId}/duplicate`, { method: 'POST' });
+    const result = await r.json();
+    delete entityCache[tabId];
+    await fetchEntities(tabId);
+    return result;
+  } catch (err) { console.error('[dup]', err); return null; }
+}
+
+function loadEntityData(tabId, entity) {
+  currentEntityId[tabId] = entity.id;
+  tabState[tabId] = typeof entity.data === 'string' ? JSON.parse(entity.data) : { ...entity.data };
+  dirtyTabs.delete(tabId);
+}
+
+// Auto-load config singletons
+async function ensureConfigLoaded(tabId) {
+  if (!isConfigTab(tabId)) return;
+  if (currentEntityId[tabId]) return;
+  const entities = await fetchEntities(tabId);
+  if (entities.length) {
+    loadEntityData(tabId, entities[0]);
+  }
+  // Config creates on first save via markDirty, not eagerly
+}
+
+// Auto-save config on any change (creates if needed)
+async function saveConfigSingleton(tabId) {
+  if (!isConfigTab(tabId)) return;
+  const data = tabState[tabId];
+  const name = tabId;
+  if (currentEntityId[tabId]) {
+    // Update existing
+    dirtyTabs.add(tabId);
+    clearTimeout(saveTimer);
+    saveTimer = setTimeout(autoSave, 3000);
+  } else {
+    // Create new
+    const result = await createEntity(tabId, name, data);
+    if (result?.id) currentEntityId[tabId] = result.id;
+  }
+}
+
+function updateSaveIndicator(tabId, status) {
+  const el = document.getElementById(`save-ind-${tabId}`);
+  if (!el) return;
+  el.className = 'save-indicator ' + status;
+  el.textContent = status === 'saved' ? 'Saved' : status === 'saving' ? 'Saving...' : 'Unsaved';
+}
+
+// ════════════════════════════════════════════════════════════════
+// ENTITY LIST UI
+// ════════════════════════════════════════════════════════════════
+
+async function renderEntityList(tabId) {
+  if (!isContentTab(tabId)) return '';
+  const entities = await fetchEntities(tabId);
+  const activeId = currentEntityId[tabId];
+
+  let items = '';
+  for (const e of entities) {
+    const isActive = e.id === activeId;
+    items += `<div class="entity-item ${isActive ? 'active' : ''}" onclick="entitySelect('${tabId}',${e.id})">
+      <span class="entity-name">${e.name}</span>
+      <span class="entity-actions">
+        <span title="Duplicate" onclick="event.stopPropagation();entityDuplicate('${tabId}',${e.id})">+</span>
+        <span class="del" title="Delete" onclick="event.stopPropagation();entityDelete('${tabId}',${e.id},'${e.name.replace(/'/g,"\\'")}')">&times;</span>
+      </span>
+    </div>`;
+  }
+
+  return `<div class="entity-list">
+    <div class="entity-list-header">
+      <h3>Saved <span id="save-ind-${tabId}" class="save-indicator ${activeId ? 'saved' : ''}"></span></h3>
+      <div class="entity-list-actions">
+        <button onclick="entityNew('${tabId}')">+ New</button>
+      </div>
+    </div>
+    ${items || '<div style="font-size:0.7rem;color:var(--parchment-dark);padding:4px 8px">No saved entities yet</div>'}
+  </div>`;
+}
+
+async function entitySelect(tabId, entityId) {
+  // Save current if dirty
+  if (dirtyTabs.has(tabId)) await autoSave();
+  const entities = await fetchEntities(tabId);
+  const entity = entities.find(e => e.id === entityId);
+  if (!entity) return;
+  loadEntityData(tabId, entity);
+  renderContent();
+}
+
+async function entityNew(tabId) {
+  // Save current if dirty
+  if (dirtyTabs.has(tabId)) await autoSave();
+  // Clear current state to defaults
+  tabState[tabId] = null;
+  currentEntityId[tabId] = null;
+  // Create with default name
+  const nameKey = NAME_KEY[tabId] || 'name';
+  const defaultName = 'New ' + (findTab(tabId)?.label || tabId);
+  const result = await createEntity(tabId, defaultName, { [nameKey]: defaultName });
+  if (result?.id) {
+    // Reload entities and select the new one
+    const entities = await fetchEntities(tabId);
+    const newEntity = entities.find(e => e.id === result.id);
+    if (newEntity) loadEntityData(tabId, newEntity);
+  }
+  renderContent();
+}
+
+async function entityDelete(tabId, entityId, name) {
+  if (!confirm(`Delete "${name}"?`)) return;
+  await deleteEntity(tabId, entityId);
+  // If we deleted the active one, load the first remaining or clear
+  if (!currentEntityId[tabId]) {
+    const entities = await fetchEntities(tabId);
+    if (entities.length) loadEntityData(tabId, entities[0]);
+  }
+  renderContent();
+}
+
+async function entityDuplicate(tabId, entityId) {
+  const result = await duplicateEntity(tabId, entityId);
+  if (result?.id) {
+    const entities = await fetchEntities(tabId);
+    const newEntity = entities.find(e => e.id === result.id);
+    if (newEntity) loadEntityData(tabId, newEntity);
+    renderContent();
+  }
+}
+
+// ════════════════════════════════════════════════════════════════
 // NAVIGATION
 // ════════════════════════════════════════════════════════════════
 
@@ -602,7 +855,7 @@ function loadFromURL() {
 // CONTENT RENDERER
 // ════════════════════════════════════════════════════════════════
 
-function renderContent() {
+async function renderContent() {
   const tabDef = findTab(currentTab);
   if (!tabDef) return;
 
@@ -616,6 +869,9 @@ function renderContent() {
     palette.style.display = '';
   }
 
+  // Auto-load config singletons
+  if (isConfigTab(currentTab)) await ensureConfigLoaded(currentTab);
+
   // Route to tab renderer
   if (tabDef.status === 'stub') {
     renderStub(tabDef);
@@ -624,9 +880,9 @@ function renderContent() {
 
   // Live tabs
   switch (currentTab) {
-    case 'bosses': renderBossesTab(); break;
-    case 'skills': renderSkillsTab(); break;
-    case 'quests': renderQuestsTab(); break;
+    case 'bosses': await renderBossesTab(); break;
+    case 'skills': await renderSkillsTab(); break;
+    case 'quests': await renderQuestsTab(); break;
     case 'items': renderItemsTab(); break;
     case 'equipment': renderEquipmentTab(); break;
     case 'monsters': renderMonstersTab(); break;
@@ -642,6 +898,15 @@ function renderContent() {
       if (currentMode === 'configure' && tabDef.status === 'live') { renderConfigTab(tabDef); break; }
       if (currentMode === 'reference' && tabDef.status === 'live') { renderReferenceTab(tabDef); break; }
       renderStub(tabDef);
+  }
+
+  // Inject entity list into palette for content tabs
+  if (isContentTab(currentTab)) {
+    const listHtml = await renderEntityList(currentTab);
+    const paletteContent = document.getElementById('palette-content');
+    if (paletteContent && listHtml) {
+      paletteContent.insertAdjacentHTML('afterbegin', listHtml);
+    }
   }
 }
 
@@ -742,7 +1007,7 @@ function renderBossDropzone() {
 
       return `<div class="phase">
         <div class="phase-header">
-          <input value="${phase.name}" onchange="tabState.bosses.phases[${pi}].name=this.value">
+          <input value="${phase.name}" onchange="tabState.bosses.phases[${pi}].name=this.value;markDirty('bosses')">
           <div class="phase-controls">
             <button onclick="bossReorderPhase(${pi},-1)">Up</button>
             <button onclick="bossReorderPhase(${pi},1)">Down</button>
@@ -756,7 +1021,7 @@ function renderBossDropzone() {
           ${blocksHtml}
         </div>
         <div class="phase-trigger">
-          Trigger: <select onchange="tabState.bosses.phases[${pi}].trigger=this.value">
+          Trigger: <select onchange="tabState.bosses.phases[${pi}].trigger=this.value;markDirty('bosses')">
             ${['hp_threshold','timer','mechanic_done','adds_dead','totem_charged','start','set_rotation','random'].map(t =>
               `<option value="${t}" ${phase.trigger===t?'selected':''}>${t.replace(/_/g,' ')}</option>`
             ).join('')}
@@ -799,7 +1064,7 @@ function renderBossDropzone() {
 
   dz.innerHTML = `
     <input style="font-family:var(--font);font-size:1.1rem;font-weight:600;background:transparent;color:var(--gold-bright);border:none;border-bottom:1px solid var(--gold-dim);padding:4px 0;margin-bottom:16px;width:100%;outline:none"
-      value="${s.bossName}" onchange="tabState.bosses.bossName=this.value" placeholder="Enter boss name...">
+      value="${s.bossName}" onchange="tabState.bosses.bossName=this.value;markDirty('bosses')" placeholder="Enter boss name...">
 
     <div class="builder-tabs">
       <button class="builder-tab ${s.subTab==='phases'?'active':''}" onclick="tabState.bosses.subTab='phases';renderBossDropzone()">Phases</button>
@@ -826,20 +1091,20 @@ function renderBossDropzone() {
 }
 
 // Boss actions
-function bossAddPhase() { const s = getBossState(); s.phases.push({ name: `Phase ${s.phases.length+1}`, trigger: 'hp_threshold', blocks: [] }); renderBossDropzone(); }
-function bossRemovePhase(i) { getBossState().phases.splice(i, 1); renderBossDropzone(); }
-function bossReorderPhase(i, dir) { const s = getBossState(); const j = i+dir; if (j<0||j>=s.phases.length) return; [s.phases[i],s.phases[j]]=[s.phases[j],s.phases[i]]; renderBossDropzone(); }
-function bossRemoveBlock(pi, bid) { const s = getBossState(); s.phases[pi].blocks = s.phases[pi].blocks.filter(b=>b.id!==bid); renderBossDropzone(); }
+function bossAddPhase() { const s = getBossState(); s.phases.push({ name: `Phase ${s.phases.length+1}`, trigger: 'hp_threshold', blocks: [] }); markDirty('bosses'); renderBossDropzone(); }
+function bossRemovePhase(i) { getBossState().phases.splice(i, 1); markDirty('bosses'); renderBossDropzone(); }
+function bossReorderPhase(i, dir) { const s = getBossState(); const j = i+dir; if (j<0||j>=s.phases.length) return; [s.phases[i],s.phases[j]]=[s.phases[j],s.phases[i]]; markDirty('bosses'); renderBossDropzone(); }
+function bossRemoveBlock(pi, bid) { const s = getBossState(); s.phases[pi].blocks = s.phases[pi].blocks.filter(b=>b.id!==bid); markDirty('bosses'); renderBossDropzone(); }
 function bossDropBlock(e, pi) {
   e.preventDefault(); e.currentTarget.classList.remove('dragover');
   try { const d = JSON.parse(e.dataTransfer.getData('text/plain')); const s = getBossState();
     if (s.phases[pi].blocks.some(b=>b.id===d.id)) return;
     const full = s.allBlocks.find(b=>b.id===d.id);
     s.phases[pi].blocks.push({ id: d.id, name: d.name, desc: full?.description||'' });
-    renderBossDropzone();
+    markDirty('bosses'); renderBossDropzone();
   } catch {}
 }
-function bossClear() { const s = getBossState(); s.phases=[{name:'Phase 1',trigger:'hp_threshold',blocks:[]}]; s.arenaData=Array(s.arenaSize).fill(null).map(()=>Array(s.arenaSize).fill('floor')); s.bossName='My Custom Boss'; renderBossDropzone(); }
+function bossClear() { const s = getBossState(); s.phases=[{name:'Phase 1',trigger:'hp_threshold',blocks:[]}]; s.arenaData=Array(s.arenaSize).fill(null).map(()=>Array(s.arenaSize).fill('floor')); s.bossName='My Custom Boss'; markDirty('bosses'); renderBossDropzone(); }
 function bossExport() {
   const s = getBossState();
   const json = JSON.stringify({ name: s.bossName, arena: { size: s.arenaSize, tiles: s.arenaData }, phases: s.phases.map(p => ({ name: p.name, trigger: p.trigger, blocks: p.blocks.map(b=>b.id), blockNames: p.blocks.map(b=>b.name) })), created: new Date().toISOString() }, null, 2);
@@ -1017,14 +1282,14 @@ function skillPreview(m, interaction) {
   return parts.length ? parts.join(' ') : '<span style="color:var(--parchment-dark);font-size:0.75rem">Drag items into the slots above to see the interaction</span>';
 }
 
-function skillAddMethod() { const s=getSkillState(); const n=s.methods.length+1; s.methods.push({name:`${s.skillName||'Skill'} Method ${n}`,level:n===1?1:Math.min(99,(n-1)*10+1),xp:n*20,interval:4,successRate:1.0,consumed:[],tool:null,object:null,output:[],failOutput:[],successMsg:'',failMsg:'',expanded:true}); renderSkillDropzone(); }
-function skillRemoveMethod(i) { getSkillState().methods.splice(i,1); renderSkillDropzone(); }
-function skillMoveMethod(i,dir) { const s=getSkillState(); const j=i+dir; if(j<0||j>=s.methods.length)return; [s.methods[i],s.methods[j]]=[s.methods[j],s.methods[i]]; renderSkillDropzone(); }
+function skillAddMethod() { const s=getSkillState(); const n=s.methods.length+1; s.methods.push({name:`${s.skillName||'Skill'} Method ${n}`,level:n===1?1:Math.min(99,(n-1)*10+1),xp:n*20,interval:4,successRate:1.0,consumed:[],tool:null,object:null,output:[],failOutput:[],successMsg:'',failMsg:'',expanded:true}); markDirty('skills'); renderSkillDropzone(); }
+function skillRemoveMethod(i) { getSkillState().methods.splice(i,1); markDirty('skills'); renderSkillDropzone(); }
+function skillMoveMethod(i,dir) { const s=getSkillState(); const j=i+dir; if(j<0||j>=s.methods.length)return; [s.methods[i],s.methods[j]]=[s.methods[j],s.methods[i]]; markDirty('skills'); renderSkillDropzone(); }
 function skillToggle(i) { getSkillState().methods[i].expanded=!getSkillState().methods[i].expanded; renderSkillDropzone(); }
-function skillUpdateMethod(i,f,v) { const m=getSkillState().methods[i]; if(f==='level'||f==='interval')v=Math.max(1,parseInt(v)||1); if(f==='xp')v=Math.max(0,parseFloat(v)||0); if(f==='successRate')v=Math.max(0,Math.min(1,parseFloat(v)||0)); m[f]=v; renderSkillDropzone(); }
-function skillDropItem(e,i,slot) { e.preventDefault(); e.currentTarget.classList.remove('dragover'); try { const d=JSON.parse(e.dataTransfer.getData('text/plain')); const m=getSkillState().methods[i]; if(slot==='consumed'){if(!m.consumed.includes(d.name))m.consumed.push(d.name);} else if(slot==='tool')m.tool=d.name; else if(slot==='object')m.object=d.name; else if(slot==='output'){if(!m.output.includes(d.name))m.output.push(d.name);} else if(slot==='failOutput'){if(!m.failOutput.includes(d.name))m.failOutput.push(d.name);} renderSkillDropzone(); } catch{} }
-function skillRemoveItem(i,slot,name) { const m=getSkillState().methods[i]; if(slot==='consumed')m.consumed=m.consumed.filter(x=>x!==name); else if(slot==='tool')m.tool=null; else if(slot==='object')m.object=null; else if(slot==='output')m.output=m.output.filter(x=>x!==name); else if(slot==='failOutput')m.failOutput=m.failOutput.filter(x=>x!==name); renderSkillDropzone(); }
-function skillClear() { const s=getSkillState(); s.methods=[]; s.skillName=''; renderSkillDropzone(); }
+function skillUpdateMethod(i,f,v) { const m=getSkillState().methods[i]; if(f==='level'||f==='interval')v=Math.max(1,parseInt(v)||1); if(f==='xp')v=Math.max(0,parseFloat(v)||0); if(f==='successRate')v=Math.max(0,Math.min(1,parseFloat(v)||0)); m[f]=v; markDirty('skills'); renderSkillDropzone(); }
+function skillDropItem(e,i,slot) { e.preventDefault(); e.currentTarget.classList.remove('dragover'); try { const d=JSON.parse(e.dataTransfer.getData('text/plain')); const m=getSkillState().methods[i]; if(slot==='consumed'){if(!m.consumed.includes(d.name))m.consumed.push(d.name);} else if(slot==='tool')m.tool=d.name; else if(slot==='object')m.object=d.name; else if(slot==='output'){if(!m.output.includes(d.name))m.output.push(d.name);} else if(slot==='failOutput'){if(!m.failOutput.includes(d.name))m.failOutput.push(d.name);} markDirty('skills'); renderSkillDropzone(); } catch{} }
+function skillRemoveItem(i,slot,name) { const m=getSkillState().methods[i]; if(slot==='consumed')m.consumed=m.consumed.filter(x=>x!==name); else if(slot==='tool')m.tool=null; else if(slot==='object')m.object=null; else if(slot==='output')m.output=m.output.filter(x=>x!==name); else if(slot==='failOutput')m.failOutput=m.failOutput.filter(x=>x!==name); markDirty('skills'); renderSkillDropzone(); }
+function skillClear() { const s=getSkillState(); s.methods=[]; s.skillName=''; markDirty('skills'); renderSkillDropzone(); }
 function skillExport() {
   const s=getSkillState(); const id=(s.skillName||'custom-skill').toLowerCase().replace(/\s+/g,'-').replace(/[^a-z0-9-]/g,'');
   const json = JSON.stringify({id,name:s.skillName||'Custom Skill',type:s.skillType,interaction:s.interaction,methods:s.methods.map(m=>{
@@ -1163,13 +1428,13 @@ function renderQuestDropzone() {
   `;
 }
 
-function questAddStep() { const s=getQuestState(); s.steps.push({name:`Step ${s.steps.length+1}`,type:'action',description:'',blocks:[]}); renderQuestDropzone(); }
-function questRemoveStep(i) { getQuestState().steps.splice(i,1); renderQuestDropzone(); }
-function questMoveStep(i,dir) { const s=getQuestState(); const j=i+dir; if(j<0||j>=s.steps.length)return; [s.steps[i],s.steps[j]]=[s.steps[j],s.steps[i]]; renderQuestDropzone(); }
-function questRemoveBlock(si,bid) { const s=getQuestState(); s.steps[si].blocks=s.steps[si].blocks.filter(b=>b.id!==bid); renderQuestDropzone(); }
-function questDropBlock(e,si) { e.preventDefault(); e.currentTarget.classList.remove('dragover'); try { const d=JSON.parse(e.dataTransfer.getData('text/plain')); const s=getQuestState(); const block=QUEST_BLOCKS.find(b=>b.id===d.id); if(s.steps[si].blocks.some(b=>b.id===d.id))return; s.steps[si].blocks.push({id:d.id,name:d.name,desc:block?.desc||''}); renderQuestDropzone(); } catch{} }
-function questLoad(id) { const s=getQuestState(); const q=s.existingQuests.find(x=>x.id===id); if(!q)return; s.questName=q.name; if(q.difficulty)s.difficulty=q.difficulty; if(q.questPoints!=null)s.questPoints=q.questPoints; renderQuestDropzone(); }
-function questClear() { const s=getQuestState(); Object.assign(s,{questName:'My Custom Quest',difficulty:'intermediate',questPoints:1,members:true,length:'medium',steps:[{name:'Step 1',type:'action',description:'',blocks:[]}],skillReqs:[],questReqs:[],itemReqs:[],otherReqs:[],xpRewards:[],itemRewards:[],unlockRewards:[],subTab:'steps'}); renderQuestDropzone(); }
+function questAddStep() { const s=getQuestState(); s.steps.push({name:`Step ${s.steps.length+1}`,type:'action',description:'',blocks:[]}); markDirty('quests'); renderQuestDropzone(); }
+function questRemoveStep(i) { getQuestState().steps.splice(i,1); markDirty('quests'); renderQuestDropzone(); }
+function questMoveStep(i,dir) { const s=getQuestState(); const j=i+dir; if(j<0||j>=s.steps.length)return; [s.steps[i],s.steps[j]]=[s.steps[j],s.steps[i]]; markDirty('quests'); renderQuestDropzone(); }
+function questRemoveBlock(si,bid) { const s=getQuestState(); s.steps[si].blocks=s.steps[si].blocks.filter(b=>b.id!==bid); markDirty('quests'); renderQuestDropzone(); }
+function questDropBlock(e,si) { e.preventDefault(); e.currentTarget.classList.remove('dragover'); try { const d=JSON.parse(e.dataTransfer.getData('text/plain')); const s=getQuestState(); const block=QUEST_BLOCKS.find(b=>b.id===d.id); if(s.steps[si].blocks.some(b=>b.id===d.id))return; s.steps[si].blocks.push({id:d.id,name:d.name,desc:block?.desc||''}); markDirty('quests'); renderQuestDropzone(); } catch{} }
+function questLoad(id) { const s=getQuestState(); const q=s.existingQuests.find(x=>x.id===id); if(!q)return; s.questName=q.name; if(q.difficulty)s.difficulty=q.difficulty; if(q.questPoints!=null)s.questPoints=q.questPoints; markDirty('quests'); renderQuestDropzone(); }
+function questClear() { const s=getQuestState(); Object.assign(s,{questName:'My Custom Quest',difficulty:'intermediate',questPoints:1,members:true,length:'medium',steps:[{name:'Step 1',type:'action',description:'',blocks:[]}],skillReqs:[],questReqs:[],itemReqs:[],otherReqs:[],xpRewards:[],itemRewards:[],unlockRewards:[],subTab:'steps'}); markDirty('quests'); renderQuestDropzone(); }
 function questExport() {
   const s=getQuestState();
   const json = JSON.stringify({name:s.questName||'Custom Quest',difficulty:s.difficulty,questPoints:s.questPoints,members:s.members,length:s.length,
@@ -1204,11 +1469,11 @@ function renderItemsTab() {
     <p style="margin-top:8px;font-size:0.7rem">40 item categories from the design docs. Set <strong>Equippable</strong> to link to Equipment tab.</p>
   </div>`;
 
-  const sel = (id,val,opts) => `<select id="${id}" onchange="getItemState().${id.replace('item-','')}=this.value;renderItemsTab()">
+  const sel = (id,val,opts) => `<select id="${id}" onchange="getItemState().${id.replace('item-','')}=this.value;markDirty('items');renderItemsTab()">
     ${opts.map(o => typeof o==='string' ? `<option value="${o}" ${val===o?'selected':''}>${o}</option>` : `<option value="${o[0]}" ${val===o[0]?'selected':''}>${o[1]}</option>`).join('')}</select>`;
-  const chk = (id,val) => `<input type="checkbox" ${val?'checked':''} onchange="getItemState().${id.replace('item-','')}=this.checked">`;
-  const num = (id,val,min,max,step) => `<input type="number" value="${val}" min="${min||0}" ${max?`max="${max}"`:''} step="${step||1}" style="width:80px" onchange="getItemState().${id.replace('item-','')}=+this.value">`;
-  const txt = (id,val,ph) => `<input type="text" value="${val||''}" placeholder="${ph||''}" onchange="getItemState().${id.replace('item-','')}=this.value">`;
+  const chk = (id,val) => `<input type="checkbox" ${val?'checked':''} onchange="getItemState().${id.replace('item-','')}=this.checked;markDirty('items')">`;
+  const num = (id,val,min,max,step) => `<input type="number" value="${val}" min="${min||0}" ${max?`max="${max}"`:''} step="${step||1}" style="width:80px" onchange="getItemState().${id.replace('item-','')}=+this.value;markDirty('items')">`;
+  const txt = (id,val,ph) => `<input type="text" value="${val||''}" placeholder="${ph||''}" onchange="getItemState().${id.replace('item-','')}=this.value;markDirty('items')">`;
 
   // Category-specific fields
   let extraFields = '';
@@ -1335,7 +1600,7 @@ function renderEquipmentTab() {
     <p style="margin-top:8px">15 equipment slots, combat bonuses, stat requirements, degradation, and special attacks.</p>
   </div>`;
 
-  const num = (key,val,w) => `<input type="number" value="${val}" style="width:${w||'65px'}" onchange="getEquipState().${key}=+this.value">`;
+  const num = (key,val,w) => `<input type="number" value="${val}" style="width:${w||'65px'}" onchange="getEquipState().${key}=+this.value;markDirty('equipment')">`;
   const dz = document.getElementById('dropzone');
 
   const bonusRow = (label, pairs) => `<div style="display:flex;gap:6px;align-items:center;margin-bottom:6px">
@@ -1456,7 +1721,7 @@ function renderMonstersTab() {
     ${MONSTER_TYPES.map(t => `<label class="toggle" style="margin:4px 0"><input type="checkbox" ${s.types.includes(t)?'checked':''} onchange="monsterToggleType('${t}',this.checked)"> ${t}</label>`).join('')}
   </div>`;
 
-  const num = (key,val,w) => `<input type="number" value="${val}" style="width:${w||'65px'}" onchange="getMonsterState().${key}=+this.value">`;
+  const num = (key,val,w) => `<input type="number" value="${val}" style="width:${w||'65px'}" onchange="getMonsterState().${key}=+this.value;markDirty('monsters')">`;
   const dz = document.getElementById('dropzone');
 
   // Drop table editor
@@ -1784,6 +2049,13 @@ function renderPersonasTab() {
         <p style="font-size:0.7rem;color:var(--parchment-dark);margin-bottom:8px">This is what gets sent to Ollama when a player talks to this NPC</p>
         <div style="background:var(--stone);border:1px solid var(--gold-dim);border-radius:4px;padding:12px;font-size:0.75rem;line-height:1.7;white-space:pre-wrap;color:var(--green);max-height:500px;overflow-y:auto">${personaBuildPrompt(s)}</div>
       </div>
+      <div class="config-section"><h3>Test with Ollama</h3>
+        <div class="field-row">
+          <div class="field" style="flex:1"><label>Test Message</label><input type="text" id="persona-test-msg" placeholder="Hello there!" value="Hello there!"></div>
+          <button class="btn btn-gold btn-sm" style="align-self:flex-end" onclick="personaTest()">Send</button>
+        </div>
+        <div id="persona-test-result" style="margin-top:8px;background:var(--stone);border:1px solid var(--gold-dim);border-radius:4px;padding:12px;font-size:0.8rem;line-height:1.6;color:var(--parchment);display:none"></div>
+      </div>
     </div>
 
     <div class="actions" style="margin-top:16px">
@@ -1818,6 +2090,26 @@ function personaExport() {
     personality:s.personality,speechPattern:s.speechPattern,knowledgeScope:s.knowledgeScope,opinions:s.opinions,fears:s.fears,goals:s.goals,boundaries:s.boundaries,
     systemPrompt:personaBuildPrompt(s),created:new Date().toISOString()};
   document.getElementById('persona-export-box').style.display='block'; document.getElementById('persona-export').value=JSON.stringify(obj,null,2);
+}
+
+async function personaTest() {
+  const s = getPersonaState();
+  const msg = document.getElementById('persona-test-msg')?.value || 'Hello!';
+  const resultEl = document.getElementById('persona-test-result');
+  resultEl.style.display = 'block';
+  resultEl.innerHTML = '<span style="color:var(--parchment-dark)">Thinking...</span>';
+  try {
+    const r = await fetch('/api/builder/persona-test', {
+      method: 'POST',
+      headers: {'Content-Type':'application/json'},
+      body: JSON.stringify({ systemPrompt: personaBuildPrompt(s), testMessage: `A player says: "${msg}"\nRespond in character. Keep it short (1-2 sentences).` })
+    });
+    const data = await r.json();
+    if (data.error) resultEl.innerHTML = `<span style="color:var(--red)">${data.error}</span>`;
+    else resultEl.innerHTML = `<strong style="color:var(--gold)">${s.name||'NPC'}:</strong> "${data.response}"`;
+  } catch (err) {
+    resultEl.innerHTML = `<span style="color:var(--red)">Connection error</span>`;
+  }
 }
 
 // ════════════════════════════════════════════════════════════════
@@ -2172,10 +2464,10 @@ function renderGenericForm(tabId, schema) {
     html += `<div class="config-section"><h3>${sec.name}</h3><div class="field-row" style="flex-wrap:wrap">`;
     for (const f of sec.fields) {
       let input = '';
-      if (f.t === 'bool') input = `<input type="checkbox" ${s[f.k]?'checked':''} onchange="getFormState('${tabId}').${f.k}=this.checked" style="width:18px;height:18px;accent-color:var(--gold)">`;
-      else if (f.t === 'num') input = `<input type="number" value="${s[f.k]}" min="${f.min||0}" ${f.max!=null?`max="${f.max}"`:''} step="${f.step||1}" style="width:90px" onchange="getFormState('${tabId}').${f.k}=+this.value">`;
-      else if (f.t === 'select') input = `<select onchange="getFormState('${tabId}').${f.k}=this.value">${f.opts.map(o=>`<option ${s[f.k]===o?'selected':''}>${o}</option>`).join('')}</select>`;
-      else input = `<input type="text" value="${s[f.k]||''}" placeholder="${f.l}..." onchange="getFormState('${tabId}').${f.k}=this.value" style="width:100%">`;
+      if (f.t === 'bool') input = `<input type="checkbox" ${s[f.k]?'checked':''} onchange="getFormState('${tabId}').${f.k}=this.checked;markDirty('${tabId}')" style="width:18px;height:18px;accent-color:var(--gold)">`;
+      else if (f.t === 'num') input = `<input type="number" value="${s[f.k]}" min="${f.min||0}" ${f.max!=null?`max="${f.max}"`:''} step="${f.step||1}" style="width:90px" onchange="getFormState('${tabId}').${f.k}=+this.value;markDirty('${tabId}')">`;
+      else if (f.t === 'select') input = `<select onchange="getFormState('${tabId}').${f.k}=this.value;markDirty('${tabId}')">${f.opts.map(o=>`<option ${s[f.k]===o?'selected':''}>${o}</option>`).join('')}</select>`;
+      else input = `<input type="text" value="${s[f.k]||''}" placeholder="${f.l}..." onchange="getFormState('${tabId}').${f.k}=this.value;markDirty('${tabId}')" style="width:100%">`;
       html += `<div class="field" style="min-width:${f.t==='text'?'200px':'auto'};flex:${f.t==='text'?'1':'none'}"><label>${f.l}</label>${input}</div>`;
     }
     html += '</div></div>';
@@ -2445,10 +2737,10 @@ function renderConfigTab(tabDef) {
     html += `<div class="config-section"><h3>${sec.name}</h3>`;
     for (const f of sec.fields) {
       let input = '';
-      if (f.t === 'bool') input = `<input type="checkbox" ${s[f.k]?'checked':''} onchange="getConfigState('${tabDef.id}').${f.k}=this.checked" style="width:18px;height:18px;accent-color:var(--gold)">`;
-      else if (f.t === 'num') input = `<input type="number" value="${s[f.k]}" min="${f.min||0}" ${f.max!=null?`max="${f.max}"`:''} step="${f.step||1}" style="width:90px" onchange="getConfigState('${tabDef.id}').${f.k}=+this.value">`;
-      else if (f.t === 'select') input = `<select onchange="getConfigState('${tabDef.id}').${f.k}=this.value">${f.opts.map(o=>`<option ${s[f.k]===o?'selected':''}>${o}</option>`).join('')}</select>`;
-      else if (f.t === 'text') input = `<input type="text" value="${s[f.k]||''}" onchange="getConfigState('${tabDef.id}').${f.k}=this.value" style="width:180px">`;
+      if (f.t === 'bool') input = `<input type="checkbox" ${s[f.k]?'checked':''} onchange="getConfigState('${tabDef.id}').${f.k}=this.checked;saveConfigSingleton('${tabDef.id}')" style="width:18px;height:18px;accent-color:var(--gold)">`;
+      else if (f.t === 'num') input = `<input type="number" value="${s[f.k]}" min="${f.min||0}" ${f.max!=null?`max="${f.max}"`:''} step="${f.step||1}" style="width:90px" onchange="getConfigState('${tabDef.id}').${f.k}=+this.value;saveConfigSingleton('${tabDef.id}')">`;
+      else if (f.t === 'select') input = `<select onchange="getConfigState('${tabDef.id}').${f.k}=this.value;saveConfigSingleton('${tabDef.id}')">${f.opts.map(o=>`<option ${s[f.k]===o?'selected':''}>${o}</option>`).join('')}</select>`;
+      else if (f.t === 'text') input = `<input type="text" value="${s[f.k]||''}" onchange="getConfigState('${tabDef.id}').${f.k}=this.value;saveConfigSingleton('${tabDef.id}')" style="width:180px">`;
       html += `<div class="config-row"><label>${f.l}</label>${input}</div>`;
     }
     html += '</div>';
@@ -2488,39 +2780,112 @@ function renderReferenceTab(tabDef) {
   if (!ref) { renderStub(tabDef); return; }
 
   const dz = document.getElementById('dropzone');
-  const cacheKey = `ref-cache-${tabDef.id}`;
+  const cacheKey = `ref-md-${tabDef.id}`;
 
   // Check if we already loaded this doc
   if (tabState[cacheKey]) {
-    dz.innerHTML = renderRefDoc(ref, tabState[cacheKey]);
+    dz.innerHTML = renderMarkdown(tabState[cacheKey], ref.title);
     return;
   }
 
-  dz.innerHTML = `<div class="config-section"><h3>${ref.title}</h3><p style="font-size:0.8rem;color:var(--parchment-dim)">${ref.desc}</p>
+  dz.innerHTML = `<div class="config-section"><h3>${ref.title}</h3>
+    <p style="font-size:0.8rem;color:var(--parchment-dim)">${ref.desc}</p>
     <div style="margin-top:16px;color:var(--parchment-dark)">Loading document...</div></div>`;
 
-  // Try to load from the build-your-own-scape docs
-  fetch(`/api/query`, {method:'POST',headers:{'Content-Type':'application/json'},
-    body:JSON.stringify({sql:`SELECT 1`})}) // just check DB is up
-    .then(() => {
-      // Can't read files via API, show the doc info instead
-      tabState[cacheKey] = true;
-      dz.innerHTML = renderRefDoc(ref, true);
-    }).catch(() => {
-      tabState[cacheKey] = true;
-      dz.innerHTML = renderRefDoc(ref, true);
+  fetch(`/api/builder/doc/${ref.docFile}`)
+    .then(r => { if (!r.ok) throw new Error('Not found'); return r.json(); })
+    .then(d => {
+      tabState[cacheKey] = d.content;
+      dz.innerHTML = renderMarkdown(d.content, ref.title);
+    })
+    .catch(() => {
+      dz.innerHTML = `<div class="config-section"><h3>${ref.title}</h3>
+        <p style="font-size:0.85rem;color:var(--red)">Failed to load document. Check that build-your-own-scape/docs/${ref.docFile} exists.</p></div>`;
     });
 }
 
-function renderRefDoc(ref, loaded) {
-  return `<div class="config-section"><h3>${ref.title}</h3>
-    <p style="font-size:0.85rem;color:var(--parchment-dim);line-height:1.6;margin-bottom:16px">${ref.desc}</p>
-    <div class="ref-card"><h4>Source Document</h4><p>build-your-own-scape/docs/${ref.docFile}</p></div>
-    <div class="ref-card"><h4>How to Use</h4><p>Browse this catalog while working in Build or Write mode. These are read-only reference materials extracted from the design docs. Content here informs what you create in the other tabs.</p></div>
-    <div style="margin-top:16px;padding:12px;background:var(--stone);border:1px solid var(--gold-dim);border-radius:4px;font-size:0.75rem;color:var(--parchment-dark)">
-      Full document content will be loaded from the docs directory in a future update. For now, reference the source file directly.
-    </div>
-  </div>`;
+// Inline markdown → HTML renderer (parchment-themed)
+function renderMarkdown(md, title) {
+  const esc = s => s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+  const lines = md.split('\n');
+  let html = '';
+  let inTable = false, inCode = false, inList = false;
+
+  for (let i = 0; i < lines.length; i++) {
+    let line = lines[i];
+
+    // Code blocks
+    if (line.startsWith('```')) {
+      if (inCode) { html += '</pre>'; inCode = false; }
+      else { html += '<pre style="background:var(--stone);border:1px solid var(--gold-dim);border-radius:4px;padding:10px;font-size:0.75rem;color:var(--green);overflow-x:auto;margin:8px 0">'; inCode = true; }
+      continue;
+    }
+    if (inCode) { html += esc(line) + '\n'; continue; }
+
+    // Close list if not a list line
+    if (inList && !line.match(/^\s*[-*]\s/)) { html += '</ul>'; inList = false; }
+
+    // Close table if not a table line
+    if (inTable && !line.startsWith('|')) { html += '</tbody></table></div>'; inTable = false; }
+
+    // Blank line
+    if (!line.trim()) { html += '<div style="height:8px"></div>'; continue; }
+
+    // Headers
+    if (line.startsWith('# ')) { html += `<h2 style="font-size:1.1rem;color:var(--gold-bright);margin:20px 0 8px;border-bottom:1px solid var(--gold-dim);padding-bottom:4px">${esc(line.slice(2))}</h2>`; continue; }
+    if (line.startsWith('## ')) { html += `<h3 style="font-size:0.95rem;color:var(--gold);margin:16px 0 6px;text-transform:uppercase;letter-spacing:0.5px">${esc(line.slice(3))}</h3>`; continue; }
+    if (line.startsWith('### ')) { html += `<h4 style="font-size:0.85rem;color:var(--gold);margin:12px 0 4px">${esc(line.slice(4))}</h4>`; continue; }
+    if (line.startsWith('#### ')) { html += `<h4 style="font-size:0.8rem;color:var(--parchment-dim);margin:10px 0 4px">${esc(line.slice(5))}</h4>`; continue; }
+
+    // Horizontal rule
+    if (line.match(/^-{3,}$/)) { html += '<hr style="border:none;border-top:1px solid var(--gold-dim);margin:12px 0">'; continue; }
+
+    // Table
+    if (line.startsWith('|')) {
+      const cells = line.split('|').filter(c => c.trim()).map(c => c.trim());
+      if (line.match(/^\|[\s-|:]+\|$/)) continue; // separator row
+      if (!inTable) {
+        html += '<div style="overflow-x:auto;margin:8px 0"><table style="width:100%;border-collapse:collapse;font-size:0.75rem"><thead><tr>';
+        cells.forEach(c => html += `<th style="text-align:left;padding:6px 10px;border-bottom:2px solid var(--gold-dim);color:var(--gold);font-weight:600">${inlineFormat(esc(c))}</th>`);
+        html += '</tr></thead><tbody>';
+        inTable = true;
+      } else {
+        html += '<tr>';
+        cells.forEach(c => html += `<td style="padding:5px 10px;border-bottom:1px solid rgba(184,134,11,0.15);color:var(--parchment-dim)">${inlineFormat(esc(c))}</td>`);
+        html += '</tr>';
+      }
+      continue;
+    }
+
+    // List items
+    if (line.match(/^\s*[-*]\s/)) {
+      if (!inList) { html += '<ul style="margin:4px 0;padding-left:20px;font-size:0.8rem;line-height:1.6;color:var(--parchment-dim)">'; inList = true; }
+      html += `<li>${inlineFormat(esc(line.replace(/^\s*[-*]\s/,'')))}</li>`;
+      continue;
+    }
+
+    // Numbered list
+    if (line.match(/^\d+\.\s/)) {
+      html += `<div style="font-size:0.8rem;color:var(--parchment-dim);line-height:1.6;padding-left:8px">${inlineFormat(esc(line))}</div>`;
+      continue;
+    }
+
+    // Paragraph
+    html += `<p style="font-size:0.8rem;color:var(--parchment-dim);line-height:1.6;margin:4px 0">${inlineFormat(esc(line))}</p>`;
+  }
+
+  if (inCode) html += '</pre>';
+  if (inTable) html += '</tbody></table></div>';
+  if (inList) html += '</ul>';
+
+  return `<div style="max-width:900px;padding:4px 0">${html}</div>`;
+}
+
+function inlineFormat(text) {
+  return text
+    .replace(/\*\*(.+?)\*\*/g, '<strong style="color:var(--parchment);font-weight:600">$1</strong>')
+    .replace(/\*(.+?)\*/g, '<em>$1</em>')
+    .replace(/`(.+?)`/g, '<code style="background:var(--stone);padding:1px 5px;border-radius:3px;font-size:0.75rem;color:var(--gold)">$1</code>');
 }
 
 // ════════════════════════════════════════════════════════════════
@@ -2617,8 +2982,17 @@ renderModeBar();
 renderTabBar();
 renderContent();
 
+// Global change listener — catches all inline onchange handlers for auto-save
+document.getElementById('dropzone').addEventListener('change', () => {
+  if (isContentTab(currentTab) && currentEntityId[currentTab]) markDirty(currentTab);
+});
+document.getElementById('dropzone').addEventListener('input', () => {
+  if (isContentTab(currentTab) && currentEntityId[currentTab]) markDirty(currentTab);
+});
+
 // Auth info
 fetch('/api/auth/me').then(r=>r.json()).then(d=>{
+  currentUser = d.authenticated ? d.name : null;
   const el=document.getElementById('user-info');
   if(d.authenticated) el.innerHTML=`${d.name} <a href="/logout" style="color:var(--red);text-decoration:none;margin-left:4px">Logout</a>`;
 }).catch(()=>{});

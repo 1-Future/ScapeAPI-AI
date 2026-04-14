@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html><head><meta charset="utf-8"><title>ranged — Aelgard Codex</title>
+<style>
+  body {
+    font-family: ui-monospace, 'Cascadia Code', 'Consolas', monospace;
+    background: #3e3529;
+    color: #e8dcc0;
+    margin: 0;
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  .parchment {
+    background: #e8dcc0;
+    color: #2c1810;
+    padding: 30px 40px;
+    border: 3px solid #8b6f47;
+    border-radius: 4px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.5);
+    margin: 20px 0;
+  }
+  h1 {
+    color: #7a1f1a;
+    border-bottom: 2px solid #8b6f47;
+    padding-bottom: 10px;
+  }
+  h2 { color: #5a3a1a; margin-top: 30px; }
+  h3 { color: #6b4423; }
+  a { color: #7a1f1a; text-decoration: none; border-bottom: 1px dotted #7a1f1a; }
+  a:hover { background: #d4c49c; }
+  nav { margin-bottom: 20px; }
+  nav a { margin-right: 15px; font-weight: bold; }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 15px 0;
+  }
+  th, td {
+    text-align: left;
+    padding: 6px 10px;
+    border-bottom: 1px solid #c4a970;
+  }
+  th { background: #d4c49c; color: #2c1810; }
+  tr:hover { background: #d4c49c; }
+  .tag {
+    display: inline-block;
+    padding: 2px 8px;
+    margin: 2px;
+    border-radius: 3px;
+    font-size: 11px;
+    font-weight: bold;
+  }
+  .tag-region { background: #4a6b8a; color: #fff; }
+  .tag-skill  { background: #5a7f4a; color: #fff; }
+  .tag-trans  { background: #8a1f1a; color: #fff; }
+  .tag-major  { background: #a86a2a; color: #fff; }
+  .tag-minor  { background: #6a6a6a; color: #fff; }
+  .tag-afk    { background: #3a5a2a; color: #fff; }
+  .tag-low    { background: #4a7a3a; color: #fff; }
+  .tag-medium { background: #8a7a2a; color: #fff; }
+  .tag-high   { background: #a85a2a; color: #fff; }
+  .tag-maximum{ background: #8a1f1a; color: #fff; }
+  .tag-obscure{ background: #6a4a2a; color: #fff; font-style: italic; }
+  .stat-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    margin: 15px 0;
+  }
+  .stat-cell {
+    background: #d4c49c;
+    padding: 10px;
+    border-radius: 3px;
+    text-align: center;
+  }
+  .stat-cell .value {
+    font-size: 24px;
+    font-weight: bold;
+    color: #7a1f1a;
+  }
+  .stat-cell .label {
+    font-size: 11px;
+    color: #5a3a1a;
+    text-transform: uppercase;
+  }
+  .description {
+    font-style: italic;
+    color: #5a3a1a;
+    margin: 10px 0;
+    padding: 10px;
+    background: #d4c49c;
+    border-left: 3px solid #8b6f47;
+  }
+  ul.loose li { margin-bottom: 8px; }
+  details {
+    margin: 10px 0;
+    padding: 10px;
+    background: #d4c49c;
+    border-radius: 3px;
+  }
+  summary { cursor: pointer; font-weight: bold; }
+</style>
+</head>
+<body>
+<nav>
+  <a href="index.html">Home</a>
+  <a href="regions.html">Regions</a>
+  <a href="skills.html">Skills</a>
+  <a href="quests.html">Quests</a>
+  <a href="breakpoints.html">Breakpoints</a>
+  <a href="items.html">Items</a>
+</nav>
+<div class="parchment">
+<h1>Ranged</h1>
+<div class="description">11 training methods. 5 breakpoints.</div>
+
+<h2>Breakpoints</h2>
+<ul class="loose"><li><span class="tag tag-minor">level 20</span> <strong>Willow shortbow. Ranged becomes a real combat style, not just a novelty.</strong><br><small>unlocks: Willow shortbow equippable</small></li><li><span class="tag tag-major">level 40</span> <strong>Green dragonhide armour. Yew shortbow. Ranged is now competitive with melee for many encounters.</strong><br><small>unlocks: Green dragonhide body equippable · Yew shortbow equippable</small></li><li><span class="tag tag-major">level 61</span> <strong>Rune crossbow. One-handed ranged weapon with shield slot free. Changes the meta for prayer-using fights.</strong><br><small>unlocks: Rune crossbow equippable — prayer + shield + ranged</small></li><li><span class="tag tag-major">level 70</span> <strong>Armadyl crossbow. Crystal bow. The ranged endgame begins.</strong><br><small>unlocks: Armadyl crossbow equippable · Crystal bow equippable</small></li><li><span class="tag tag-transformative">level 75</span> <strong>Toxic blowpipe. The most iconic ranged weapon. Fast, venomous, game-changing DPS.</strong><br><small>unlocks: Toxic blowpipe equippable — fastest ranged weapon</small></li></ul><h2>Training Methods</h2><table>
+<tr><th>Method</th><th>Levels</th><th>XP/hr</th><th>Location</th><th>Attention</th><th>Danger</th><th>Cost</th></tr><tr>
+  <td><strong>Ogre Safespot</strong><br><small>Safespot ogres behind a fence. Arrow cost is the only expense. Relaxed.</small></td>
+  <td>1-30</td>
+  <td>12,000</td>
+  <td><span class="tag tag-region">Heartlands</span></td>
+  <td><span class="tag tag-low">low</span></td>
+  <td>none</td>
+  <td>2000</td>
+</tr><tr>
+  <td><strong>[Quirky] Elven Archery Targets</strong><br><small>Practice on the elven target range. They mock your aim.</small></td>
+  <td>1-99</td>
+  <td>1,800</td>
+  <td><span class="tag tag-region">Veilwood</span></td>
+  <td><span class="tag tag-high">high</span></td>
+  <td>none</td>
+  <td>0</td>
+</tr><tr>
+  <td><strong>Sand Crab Ranging</strong><br><small>Iron arrows on crabs. AFK ranged with minor ammo cost.</small></td>
+  <td>10-60</td>
+  <td>30,000</td>
+  <td><span class="tag tag-region">Saltbrine Reach</span></td>
+  <td><span class="tag tag-afk">afk</span></td>
+  <td>none</td>
+  <td>5000</td>
+</tr><tr>
+  <td><strong>Cannon + Slayer</strong><br><small>Cannon accelerates slayer kills. Expensive but profitable from drops. The balanced path.</small></td>
+  <td>30-99</td>
+  <td>60,000</td>
+  <td><span class="tag tag-region">Heartlands</span></td>
+  <td><span class="tag tag-medium">medium</span></td>
+  <td>medium</td>
+  <td>200000</td>
+</tr><tr>
+  <td><strong>Sand Serpent Hunting</strong><br><small>Pick off sand serpents. Fangs feed herblore (weapon poison).</small></td>
+  <td>30-85</td>
+  <td>62,000</td>
+  <td><span class="tag tag-region">Boneyard Wastes</span></td>
+  <td><span class="tag tag-low">low</span></td>
+  <td>low</td>
+  <td>5000</td>
+</tr><tr>
+  <td><strong>Shade Shooting</strong><br><small>Pick off shades with silver bolts. Remains feed the pyre-prayer path.</small></td>
+  <td>40-99</td>
+  <td>75,000</td>
+  <td><span class="tag tag-region">Moryskah</span></td>
+  <td><span class="tag tag-medium">medium</span></td>
+  <td>low</td>
+  <td>15000</td>
+</tr><tr>
+  <td><strong>Chinchompa Stacking</strong><br><small>AoE chinchompas on stacked monkeys. The fastest ranged XP in the game. Extremely expensive.</small></td>
+  <td>45-99</td>
+  <td>350,000</td>
+  <td><span class="tag tag-region">Moryskah</span></td>
+  <td><span class="tag tag-high">high</span></td>
+  <td>medium</td>
+  <td>800000</td>
+</tr><tr>
+  <td><strong>NMZ Blowpipe AFK</strong><br><small>Blowpipe at NMZ with absorption potions. AFK ranged training at 60+. Scale cost adds up.</small></td>
+  <td>60-99</td>
+  <td>65,000</td>
+  <td><span class="tag tag-region">Heartlands</span></td>
+  <td><span class="tag tag-low">low</span></td>
+  <td>none</td>
+  <td>120000</td>
+</tr><tr>
+  <td><strong>Black Chin Hunting + Ranging</strong><br><small>Hunt and use black chins in the Wilds. Massive profit but PKers camp the spot.</small></td>
+  <td>70-99</td>
+  <td>150,000</td>
+  <td><span class="tag tag-region">The Wilds</span></td>
+  <td><span class="tag tag-maximum">maximum</span></td>
+  <td>extreme</td>
+  <td><strong>+200000</strong></td>
+</tr><tr>
+  <td><strong>Fight Caves Progression</strong><br><small>The Fight Caves. 63 waves. Earns Fire Cape — prestige item, also entry to Inferno.</small></td>
+  <td>70-99</td>
+  <td>52,000</td>
+  <td><span class="tag tag-region">Glass Desert</span></td>
+  <td><span class="tag tag-maximum">maximum</span></td>
+  <td>extreme</td>
+  <td>40000</td>
+</tr><tr>
+  <td><strong>Inferno Progression</strong><br><small>The Inferno. 69 waves. Hardest content in Aelgard. Infernal Cape = ultimate prestige.</small></td>
+  <td>90-99</td>
+  <td>38,000</td>
+  <td><span class="tag tag-region">Glass Desert</span></td>
+  <td><span class="tag tag-maximum">maximum</span></td>
+  <td>extreme</td>
+  <td>150000</td>
+</tr></table>
+</div>
+</body></html>

@@ -328,12 +328,135 @@ function magicCombatXp(p, damage, baseXp) {
   return results;
 }
 
+// ══════════════════════════════════════════════════════════════════════════════
+// WEAKNESS / RESISTANCE SYSTEM — Manifesto P04 (Non-Degenerate Design)
+//
+// Every monster can declare:
+//   weakness: 'crush' | 'slash' | 'stab' | 'ranged' | 'magic'  → +50% accuracy
+//   resistance: 'melee' | 'ranged' | 'magic'                   → -30% accuracy
+//   tags: ['undead', 'dragon', 'demon', 'elemental', 'vampyre'] → weapon bonuses
+//
+// Weapon effects (item properties):
+//   effective_vs: ['undead']  → +20% damage against tagged monsters
+//
+// This makes gear situational: silver sickle vs undead, crystal arrows vs
+// elementals, crush weapons vs armoured. No universal BIS.
+// ══════════════════════════════════════════════════════════════════════════════
+
+// Style categories
+const MELEE_STYLES = new Set(['slash', 'stab', 'crush']);
+
+function getWeaknessModifier(attacker, defender, attackStyle) {
+  let accuracyMod = 1.0;
+  let damageMod = 1.0;
+
+  // Style weakness: +50% accuracy when attacking with the monster's weakness
+  if (defender.weakness) {
+    if (defender.weakness === attackStyle) {
+      accuracyMod *= 1.5;
+    }
+    // Also check broad categories (e.g., weakness: 'ranged' matches any ranged attack)
+    if (defender.weakness === 'ranged' && attackStyle === 'ranged') accuracyMod *= 1.5;
+    if (defender.weakness === 'magic' && attackStyle === 'magic') accuracyMod *= 1.5;
+  }
+
+  // Style resistance: -30% accuracy when attacking into a resistance
+  if (defender.resistance) {
+    if (defender.resistance === 'melee' && MELEE_STYLES.has(attackStyle)) {
+      accuracyMod *= 0.7;
+    }
+    if (defender.resistance === 'ranged' && attackStyle === 'ranged') accuracyMod *= 0.7;
+    if (defender.resistance === 'magic' && attackStyle === 'magic') accuracyMod *= 0.7;
+  }
+
+  // Tag-based weapon bonuses
+  const tags = defender.tags || [];
+  if (tags.length > 0 && attacker.equipment) {
+    const weapon = attacker.equipment.weapon;
+    if (weapon) {
+      const effectiveVs = weapon.stats?.effective_vs || weapon.effective_vs;
+      if (effectiveVs && Array.isArray(effectiveVs)) {
+        for (const tag of tags) {
+          if (effectiveVs.includes(tag)) {
+            damageMod *= 1.2; // +20% damage per matching tag
+            break; // Only apply once even if multiple tags match
+          }
+        }
+      }
+      // Hardcoded weapon-tag interactions (for items that don't have effective_vs set yet)
+      const wname = (weapon.name || '').toLowerCase();
+      if (tags.includes('undead')) {
+        if (wname.includes('silver') || wname.includes('holy') || wname.includes('salve')) {
+          damageMod *= 1.2;
+        }
+      }
+      if (tags.includes('dragon')) {
+        if (wname.includes('dragon') && wname.includes('bane')) damageMod *= 1.3;
+      }
+      if (tags.includes('vampyre')) {
+        if (wname.includes('silver') || wname.includes('blisterwood') || wname.includes('ivandis')) {
+          damageMod *= 1.25;
+        }
+      }
+    }
+  }
+
+  return { accuracyMod, damageMod };
+}
+
+// Patched melee attack with weakness system
+const _origMeleeAttack = meleeAttack;
+function meleeAttackWithWeakness(attacker, defender) {
+  // Determine attack style from weapon
+  const weapon = attacker.equipment?.weapon;
+  const wname = (weapon?.name || '').toLowerCase();
+  let attackStyle = 'slash'; // default
+  if (wname.includes('mace') || wname.includes('hammer') || wname.includes('maul') || wname.includes('flail')) attackStyle = 'crush';
+  if (wname.includes('dagger') || wname.includes('spear') || wname.includes('rapier') || wname.includes('fang') || wname.includes('harpoon')) attackStyle = 'stab';
+
+  const { accuracyMod, damageMod } = getWeaknessModifier(attacker, defender, attackStyle);
+
+  const atkRoll = attackRoll(attacker) * accuracyMod;
+  const defRoll = typeof defender.stats !== 'undefined'
+    ? npcDefenceRoll(defender, attackStyle)
+    : attackRoll(defender);
+
+  const hitChance = accuracy(atkRoll, defRoll);
+  const hit = Math.random() < hitChance;
+  const maxDmg = Math.floor(maxHitMelee(attacker) * damageMod);
+  const damage = hit ? Math.floor(Math.random() * (maxDmg + 1)) : 0;
+
+  return { hit, damage, maxHit: maxDmg, accuracy: hitChance, attackStyle, weakness: defender.weakness, tags: defender.tags };
+}
+
+// Patched ranged attack with weakness system
+function rangedAttackWithWeakness(attacker, defender) {
+  const { accuracyMod, damageMod } = getWeaknessModifier(attacker, defender, 'ranged');
+
+  const atkRoll = rangedAttackRoll(attacker) * accuracyMod;
+  const defRoll = typeof defender.stats !== 'undefined'
+    ? npcDefenceRoll(defender, 'ranged')
+    : rangedAttackRoll(defender);
+
+  const hitChance = accuracy(atkRoll, defRoll);
+  const hit = Math.random() < hitChance;
+  const maxDmg = Math.floor(maxHitRanged(attacker) * damageMod);
+  const damage = hit ? Math.floor(Math.random() * (maxDmg + 1)) : 0;
+
+  return { hit, damage, maxHit: maxDmg, accuracy: hitChance, attackStyle: 'ranged', weakness: defender.weakness, tags: defender.tags };
+}
+
+// Override exports — old meleeAttack/rangedAttack callers get the weakness-aware versions
+meleeAttack = meleeAttackWithWeakness;
+rangedAttack = rangedAttackWithWeakness;
+
 module.exports = {
-  STYLES, meleeAttack, combatXp, maxHitMelee,
+  STYLES, meleeAttack: meleeAttackWithWeakness, combatXp, maxHitMelee,
   attackRoll, npcDefenceRoll, accuracy,
   effectiveLevel, getEquipBonus, getAttackSpeed, getPrayerMultiplier,
+  getWeaknessModifier,
   // Ranged
-  hasRangedSetup, maxHitRanged, rangedAttack, rangedCombatXp, getRangedRange,
+  hasRangedSetup, maxHitRanged, rangedAttack: rangedAttackWithWeakness, rangedCombatXp, getRangedRange,
   // Magic
   COMBAT_SPELLS, magicAttack, magicCombatXp, magicAttackRoll,
 };

@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html><head><meta charset="utf-8"><title>Home — Aelgard Codex</title>
+<style>
+  body {
+    font-family: ui-monospace, 'Cascadia Code', 'Consolas', monospace;
+    background: #3e3529;
+    color: #e8dcc0;
+    margin: 0;
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  .parchment {
+    background: #e8dcc0;
+    color: #2c1810;
+    padding: 30px 40px;
+    border: 3px solid #8b6f47;
+    border-radius: 4px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.5);
+    margin: 20px 0;
+  }
+  h1 {
+    color: #7a1f1a;
+    border-bottom: 2px solid #8b6f47;
+    padding-bottom: 10px;
+  }
+  h2 { color: #5a3a1a; margin-top: 30px; }
+  h3 { color: #6b4423; }
+  a { color: #7a1f1a; text-decoration: none; border-bottom: 1px dotted #7a1f1a; }
+  a:hover { background: #d4c49c; }
+  nav { margin-bottom: 20px; }
+  nav a { margin-right: 15px; font-weight: bold; }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 15px 0;
+  }
+  th, td {
+    text-align: left;
+    padding: 6px 10px;
+    border-bottom: 1px solid #c4a970;
+  }
+  th { background: #d4c49c; color: #2c1810; }
+  tr:hover { background: #d4c49c; }
+  .tag {
+    display: inline-block;
+    padding: 2px 8px;
+    margin: 2px;
+    border-radius: 3px;
+    font-size: 11px;
+    font-weight: bold;
+  }
+  .tag-region { background: #4a6b8a; color: #fff; }
+  .tag-skill  { background: #5a7f4a; color: #fff; }
+  .tag-trans  { background: #8a1f1a; color: #fff; }
+  .tag-major  { background: #a86a2a; color: #fff; }
+  .tag-minor  { background: #6a6a6a; color: #fff; }
+  .tag-afk    { background: #3a5a2a; color: #fff; }
+  .tag-low    { background: #4a7a3a; color: #fff; }
+  .tag-medium { background: #8a7a2a; color: #fff; }
+  .tag-high   { background: #a85a2a; color: #fff; }
+  .tag-maximum{ background: #8a1f1a; color: #fff; }
+  .tag-obscure{ background: #6a4a2a; color: #fff; font-style: italic; }
+  .stat-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    margin: 15px 0;
+  }
+  .stat-cell {
+    background: #d4c49c;
+    padding: 10px;
+    border-radius: 3px;
+    text-align: center;
+  }
+  .stat-cell .value {
+    font-size: 24px;
+    font-weight: bold;
+    color: #7a1f1a;
+  }
+  .stat-cell .label {
+    font-size: 11px;
+    color: #5a3a1a;
+    text-transform: uppercase;
+  }
+  .description {
+    font-style: italic;
+    color: #5a3a1a;
+    margin: 10px 0;
+    padding: 10px;
+    background: #d4c49c;
+    border-left: 3px solid #8b6f47;
+  }
+  ul.loose li { margin-bottom: 8px; }
+  details {
+    margin: 10px 0;
+    padding: 10px;
+    background: #d4c49c;
+    border-radius: 3px;
+  }
+  summary { cursor: pointer; font-weight: bold; }
+</style>
+</head>
+<body>
+<nav>
+  <a href="index.html">Home</a>
+  <a href="regions.html">Regions</a>
+  <a href="skills.html">Skills</a>
+  <a href="quests.html">Quests</a>
+  <a href="breakpoints.html">Breakpoints</a>
+  <a href="items.html">Items</a>
+</nav>
+<div class="parchment">
+
+<h1>The Aelgard Codex</h1>
+<div class="description">
+  The primary human interface to the game. Every quest, item, region, breakpoint,
+  training method, and recipe — cross-referenced.
+</div>
+
+<div class="stat-grid">
+  <div class="stat-cell"><div class="value">10</div><div class="label">Regions</div></div>
+  <div class="stat-cell"><div class="value">69</div><div class="label">Quests</div></div>
+  <div class="stat-cell"><div class="value">262</div><div class="label">Training Methods</div></div>
+  <div class="stat-cell"><div class="value">142</div><div class="label">Breakpoints</div></div>
+  <div class="stat-cell"><div class="value">69</div><div class="label">Recipes</div></div>
+  <div class="stat-cell"><div class="value">456</div><div class="label">Item Sources</div></div>
+  <div class="stat-cell"><div class="value">80</div><div class="label">Item Uses</div></div>
+  <div class="stat-cell"><div class="value">7</div><div class="label">Degradable Items</div></div>
+</div>
+
+<h2>Browse</h2>
+<ul class="loose">
+  <li><a href="regions.html">Regions</a> — the 8 lands of Aelgard plus The Wilds</li>
+  <li><a href="skills.html">Skills</a> — 23 skills with all training methods</li>
+  <li><a href="quests.html">Quests</a> — every quest with unique unlocks</li>
+  <li><a href="breakpoints.html">Breakpoints</a> — the "this changes everything" moments</li>
+  <li><a href="items.html">Items</a> — sources, uses, degradation, reagents</li>
+</ul>
+
+<h2>About the Codex</h2>
+<p>
+  Aelgard is structured as a Metroidvania. Every skill gates areas. Every quest
+  unlocks something unique. Every item has multiple uses. Training methods trade
+  off across 8 balance knobs: XP/hr, prerequisites, resource output, banking
+  frequency, cost, danger, complexity, and attention.
+</p>
+<p>
+  Use the Codex to plan your route, discover obscure connections, and understand
+  what the next breakpoint unlocks before you grind toward it.
+</p>
+
+</div>
+</body></html>

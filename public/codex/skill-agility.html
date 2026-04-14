@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html><head><meta charset="utf-8"><title>agility — Aelgard Codex</title>
+<style>
+  body {
+    font-family: ui-monospace, 'Cascadia Code', 'Consolas', monospace;
+    background: #3e3529;
+    color: #e8dcc0;
+    margin: 0;
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  .parchment {
+    background: #e8dcc0;
+    color: #2c1810;
+    padding: 30px 40px;
+    border: 3px solid #8b6f47;
+    border-radius: 4px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.5);
+    margin: 20px 0;
+  }
+  h1 {
+    color: #7a1f1a;
+    border-bottom: 2px solid #8b6f47;
+    padding-bottom: 10px;
+  }
+  h2 { color: #5a3a1a; margin-top: 30px; }
+  h3 { color: #6b4423; }
+  a { color: #7a1f1a; text-decoration: none; border-bottom: 1px dotted #7a1f1a; }
+  a:hover { background: #d4c49c; }
+  nav { margin-bottom: 20px; }
+  nav a { margin-right: 15px; font-weight: bold; }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 15px 0;
+  }
+  th, td {
+    text-align: left;
+    padding: 6px 10px;
+    border-bottom: 1px solid #c4a970;
+  }
+  th { background: #d4c49c; color: #2c1810; }
+  tr:hover { background: #d4c49c; }
+  .tag {
+    display: inline-block;
+    padding: 2px 8px;
+    margin: 2px;
+    border-radius: 3px;
+    font-size: 11px;
+    font-weight: bold;
+  }
+  .tag-region { background: #4a6b8a; color: #fff; }
+  .tag-skill  { background: #5a7f4a; color: #fff; }
+  .tag-trans  { background: #8a1f1a; color: #fff; }
+  .tag-major  { background: #a86a2a; color: #fff; }
+  .tag-minor  { background: #6a6a6a; color: #fff; }
+  .tag-afk    { background: #3a5a2a; color: #fff; }
+  .tag-low    { background: #4a7a3a; color: #fff; }
+  .tag-medium { background: #8a7a2a; color: #fff; }
+  .tag-high   { background: #a85a2a; color: #fff; }
+  .tag-maximum{ background: #8a1f1a; color: #fff; }
+  .tag-obscure{ background: #6a4a2a; color: #fff; font-style: italic; }
+  .stat-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    margin: 15px 0;
+  }
+  .stat-cell {
+    background: #d4c49c;
+    padding: 10px;
+    border-radius: 3px;
+    text-align: center;
+  }
+  .stat-cell .value {
+    font-size: 24px;
+    font-weight: bold;
+    color: #7a1f1a;
+  }
+  .stat-cell .label {
+    font-size: 11px;
+    color: #5a3a1a;
+    text-transform: uppercase;
+  }
+  .description {
+    font-style: italic;
+    color: #5a3a1a;
+    margin: 10px 0;
+    padding: 10px;
+    background: #d4c49c;
+    border-left: 3px solid #8b6f47;
+  }
+  ul.loose li { margin-bottom: 8px; }
+  details {
+    margin: 10px 0;
+    padding: 10px;
+    background: #d4c49c;
+    border-radius: 3px;
+  }
+  summary { cursor: pointer; font-weight: bold; }
+</style>
+</head>
+<body>
+<nav>
+  <a href="index.html">Home</a>
+  <a href="regions.html">Regions</a>
+  <a href="skills.html">Skills</a>
+  <a href="quests.html">Quests</a>
+  <a href="breakpoints.html">Breakpoints</a>
+  <a href="items.html">Items</a>
+</nav>
+<div class="parchment">
+<h1>Agility</h1>
+<div class="description">12 training methods. 4 breakpoints.</div>
+
+<h2>Breakpoints</h2>
+<ul class="loose"><li><span class="tag tag-minor">level 10</span> <strong>Run energy restores faster. The world stops feeling sluggish.</strong><br><small>unlocks: Draynor rooftop agility course</small></li><li><span class="tag tag-minor">level 40</span> <strong>Several key shortcuts unlock. The Falador dungeon shortcut saves minutes per trip.</strong><br><small>unlocks: Falador dungeon pipe shortcut</small></li><li><span class="tag tag-major">level 70</span> <strong>Most endgame shortcuts accessible. God Wars Dungeon shortcut. Bossing efficiency jumps.</strong><br><small>unlocks: God Wars Dungeon agility shortcut</small></li><li><span class="tag tag-major">level 92</span> <strong>Hallowed Sepulchre floor 5. The best agility training in the game and one of the best money-makers.</strong><br><small>unlocks: Hallowed Sepulchre floor 5 — best agility XP + profit</small></li></ul><h2>Training Methods</h2><table>
+<tr><th>Method</th><th>Levels</th><th>XP/hr</th><th>Location</th><th>Attention</th><th>Danger</th><th>Cost</th></tr><tr>
+  <td><strong>Gnome Stronghold Course</strong><br><small>The starter agility course. Click through obstacles. Free and straightforward.</small></td>
+  <td>1-20</td>
+  <td>8,000</td>
+  <td><span class="tag tag-region">Veilwood</span></td>
+  <td><span class="tag tag-medium">medium</span></td>
+  <td>none</td>
+  <td>0</td>
+</tr><tr>
+  <td><strong>[Quirky] Climb the Rigging</strong><br><small>Climb the ship rigging. Sailors laugh if you slip.</small></td>
+  <td>1-99</td>
+  <td>1,350</td>
+  <td><span class="tag tag-region">Saltbrine Reach</span></td>
+  <td><span class="tag tag-medium">medium</span></td>
+  <td>none</td>
+  <td>0</td>
+</tr><tr>
+  <td><strong>[Quirky] Climb the Fallen Statue</strong><br><small>Climb the ancient fallen statue. PvP-enabled while you do.</small></td>
+  <td>1-99</td>
+  <td>1,000</td>
+  <td><span class="tag tag-region">The Wilds</span></td>
+  <td><span class="tag tag-high">high</span></td>
+  <td>extreme</td>
+  <td>0</td>
+</tr><tr>
+  <td><strong>Mausoleum Rooftop Course</strong><br><small>Rooftop parkour across the mausoleum district. Gothic-flavored agility training.</small></td>
+  <td>30-80</td>
+  <td>54,000</td>
+  <td><span class="tag tag-region">Moryskah</span></td>
+  <td><span class="tag tag-medium">medium</span></td>
+  <td>low</td>
+  <td>0</td>
+</tr><tr>
+  <td><strong>Ship Rigging Course</strong><br><small>Climb ship rigging across the harbor. Falling hurts.</small></td>
+  <td>30-75</td>
+  <td>58,000</td>
+  <td><span class="tag tag-region">Saltbrine Reach</span></td>
+  <td><span class="tag tag-medium">medium</span></td>
+  <td>medium</td>
+  <td>0</td>
+</tr><tr>
+  <td><strong>Canifis Rooftop Course</strong><br><small>Short laps, decent marks of grace. Easy money via graceful set pieces.</small></td>
+  <td>40-60</td>
+  <td>20,000</td>
+  <td><span class="tag tag-region">Moryskah</span></td>
+  <td><span class="tag tag-low">low</span></td>
+  <td>none</td>
+  <td>0</td>
+</tr><tr>
+  <td><strong>Pyramid Agility Course</strong><br><small>Climb the ancient pyramid. Rare gold pyramid top = 1m gp when sold.</small></td>
+  <td>40-80</td>
+  <td>60,000</td>
+  <td><span class="tag tag-region">Boneyard Wastes</span></td>
+  <td><span class="tag tag-medium">medium</span></td>
+  <td>low</td>
+  <td>0</td>
+</tr><tr>
+  <td><strong>Druidic Canopy Course</strong><br><small>Canopy-top parkour between ancient elven platforms. Best mid-tier agility XP.</small></td>
+  <td>50-90</td>
+  <td>68,000</td>
+  <td><span class="tag tag-region">Veilwood</span></td>
+  <td><span class="tag tag-high">high</span></td>
+  <td>low</td>
+  <td>0</td>
+</tr><tr>
+  <td><strong>Hallowed Sepulchre</strong><br><small>Dodge traps in a crypt. The fastest agility XP by far but demands perfection.</small></td>
+  <td>52-99</td>
+  <td>80,000</td>
+  <td><span class="tag tag-region">Moryskah</span></td>
+  <td><span class="tag tag-maximum">maximum</span></td>
+  <td>medium</td>
+  <td>0</td>
+</tr><tr>
+  <td><strong>Wilderness Agility Course</strong><br><small>Free, fast, dangerous. PKers patrol the course. Bring nothing you cannot lose. Higher XP than Ardougne justifies the risk.</small></td>
+  <td>52-99</td>
+  <td>62,000</td>
+  <td><span class="tag tag-region">The Wilds</span></td>
+  <td><span class="tag tag-high">high</span></td>
+  <td>extreme</td>
+  <td>0</td>
+</tr><tr>
+  <td><strong>Seers Rooftop Course</strong><br><small>Teleport to start shortcut makes this the best mid-level course. Requires diary.</small></td>
+  <td>60-80</td>
+  <td>46,000</td>
+  <td><span class="tag tag-region">Inkweald</span></td>
+  <td><span class="tag tag-medium">medium</span></td>
+  <td>none</td>
+  <td>0</td>
+</tr><tr>
+  <td><strong>Ardougne Rooftop Course</strong><br><small>Best standard agility XP. Consistent course with no fail points at 90+.</small></td>
+  <td>90-99</td>
+  <td>56,000</td>
+  <td><span class="tag tag-region">Heartlands</span></td>
+  <td><span class="tag tag-medium">medium</span></td>
+  <td>none</td>
+  <td>0</td>
+</tr></table>
+</div>
+</body></html>

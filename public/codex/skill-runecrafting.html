@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html><head><meta charset="utf-8"><title>runecrafting — Aelgard Codex</title>
+<style>
+  body {
+    font-family: ui-monospace, 'Cascadia Code', 'Consolas', monospace;
+    background: #3e3529;
+    color: #e8dcc0;
+    margin: 0;
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  .parchment {
+    background: #e8dcc0;
+    color: #2c1810;
+    padding: 30px 40px;
+    border: 3px solid #8b6f47;
+    border-radius: 4px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.5);
+    margin: 20px 0;
+  }
+  h1 {
+    color: #7a1f1a;
+    border-bottom: 2px solid #8b6f47;
+    padding-bottom: 10px;
+  }
+  h2 { color: #5a3a1a; margin-top: 30px; }
+  h3 { color: #6b4423; }
+  a { color: #7a1f1a; text-decoration: none; border-bottom: 1px dotted #7a1f1a; }
+  a:hover { background: #d4c49c; }
+  nav { margin-bottom: 20px; }
+  nav a { margin-right: 15px; font-weight: bold; }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 15px 0;
+  }
+  th, td {
+    text-align: left;
+    padding: 6px 10px;
+    border-bottom: 1px solid #c4a970;
+  }
+  th { background: #d4c49c; color: #2c1810; }
+  tr:hover { background: #d4c49c; }
+  .tag {
+    display: inline-block;
+    padding: 2px 8px;
+    margin: 2px;
+    border-radius: 3px;
+    font-size: 11px;
+    font-weight: bold;
+  }
+  .tag-region { background: #4a6b8a; color: #fff; }
+  .tag-skill  { background: #5a7f4a; color: #fff; }
+  .tag-trans  { background: #8a1f1a; color: #fff; }
+  .tag-major  { background: #a86a2a; color: #fff; }
+  .tag-minor  { background: #6a6a6a; color: #fff; }
+  .tag-afk    { background: #3a5a2a; color: #fff; }
+  .tag-low    { background: #4a7a3a; color: #fff; }
+  .tag-medium { background: #8a7a2a; color: #fff; }
+  .tag-high   { background: #a85a2a; color: #fff; }
+  .tag-maximum{ background: #8a1f1a; color: #fff; }
+  .tag-obscure{ background: #6a4a2a; color: #fff; font-style: italic; }
+  .stat-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    margin: 15px 0;
+  }
+  .stat-cell {
+    background: #d4c49c;
+    padding: 10px;
+    border-radius: 3px;
+    text-align: center;
+  }
+  .stat-cell .value {
+    font-size: 24px;
+    font-weight: bold;
+    color: #7a1f1a;
+  }
+  .stat-cell .label {
+    font-size: 11px;
+    color: #5a3a1a;
+    text-transform: uppercase;
+  }
+  .description {
+    font-style: italic;
+    color: #5a3a1a;
+    margin: 10px 0;
+    padding: 10px;
+    background: #d4c49c;
+    border-left: 3px solid #8b6f47;
+  }
+  ul.loose li { margin-bottom: 8px; }
+  details {
+    margin: 10px 0;
+    padding: 10px;
+    background: #d4c49c;
+    border-radius: 3px;
+  }
+  summary { cursor: pointer; font-weight: bold; }
+</style>
+</head>
+<body>
+<nav>
+  <a href="index.html">Home</a>
+  <a href="regions.html">Regions</a>
+  <a href="skills.html">Skills</a>
+  <a href="quests.html">Quests</a>
+  <a href="breakpoints.html">Breakpoints</a>
+  <a href="items.html">Items</a>
+</nav>
+<div class="parchment">
+<h1>Runecrafting</h1>
+<div class="description">11 training methods. 8 breakpoints.</div>
+
+<h2>Breakpoints</h2>
+<ul class="loose"><li><span class="tag tag-minor">level 27</span> <strong>Cosmic runes. Required for all enchant spells. Your crafted jewelry becomes enchanted jewelry.</strong><br><small>unlocks: Craft cosmic runes at cosmic altar</small></li><li><span class="tag tag-major">level 44</span> <strong>Nature runes. Self-sufficient high alchemy. You craft your own nature runes, alch your own items. Full circle.</strong><br><small>unlocks: Craft nature runes — backbone of alchemy</small></li><li><span class="tag tag-minor">level 54</span> <strong>Law runes. Self-crafted teleports. Total mobility independence.</strong><br><small>unlocks: Craft law runes — independence from rune shops</small></li><li><span class="tag tag-minor">level 65</span> <strong>Death runes. The currency of burst and barrage magic. Slayer efficiency multiplier.</strong><br><small>unlocks: Craft death runes</small></li><li><span class="tag tag-transformative">level 77</span> <strong>Blood runes. AFK runecrafting. Profitable. Fuels blood barrage for endgame PvM. The skill is finally worth training.</strong><br><small>unlocks: Craft blood runes — AFK, profitable, fuels endgame magic</small></li><li><span class="tag tag-transformative">level 77</span> <strong>Blood rune crafting at the Moryskah altar. Profitable rune training + feeds Scythe/Sanguinesti upkeep. The iconic RC breakpoint.</strong><br><small>unlocks: Blood rune crafting</small></li><li><span class="tag tag-minor">level 90</span> <strong>Soul runes. The highest altar. Used in the most powerful spells.</strong><br><small>unlocks: Craft soul runes</small></li><li><span class="tag tag-transformative">level 90</span> <strong>Soul rune crafting in Inkweald. Most profitable RC method. Cross-region endgame magic demand.</strong><br><small>unlocks: Soul runes</small></li></ul><h2>Training Methods</h2><table>
+<tr><th>Method</th><th>Levels</th><th>XP/hr</th><th>Location</th><th>Attention</th><th>Danger</th><th>Cost</th></tr><tr>
+  <td><strong>Air Rune Running</strong><br><small>Bank, fill pouches, run to altar, craft. The classic RC grind. Slow but free.</small></td>
+  <td>1-44</td>
+  <td>8,000</td>
+  <td><span class="tag tag-region">Heartlands</span></td>
+  <td><span class="tag tag-medium">medium</span></td>
+  <td>none</td>
+  <td><strong>+3000</strong></td>
+</tr><tr>
+  <td><strong>Guardians of the Rift</strong><br><small>Minigame provides essence and altars. Low attention entry to runecrafting. Earns runes and outfit pieces.</small></td>
+  <td>1-30</td>
+  <td>15,000</td>
+  <td><span class="tag tag-region">Heartlands</span></td>
+  <td><span class="tag tag-low">low</span></td>
+  <td>low</td>
+  <td>0</td>
+</tr><tr>
+  <td><strong>Daeyalt Essence RC</strong><br><small>Mine daeyalt first (AFK), then craft for 50% bonus XP. Split attention over two sessions.</small></td>
+  <td>1-99</td>
+  <td>45,000</td>
+  <td><span class="tag tag-region">Moryskah</span></td>
+  <td><span class="tag tag-medium">medium</span></td>
+  <td>none</td>
+  <td><strong>+50000</strong></td>
+</tr><tr>
+  <td><strong>Abyss Runecrafting</strong><br><small>Run through Wilds to the Abyss portal. Skull risk every trip. Best general RC XP/profit.</small></td>
+  <td>1-99</td>
+  <td>50,000</td>
+  <td><span class="tag tag-region">The Wilds</span></td>
+  <td><span class="tag tag-high">high</span></td>
+  <td>high</td>
+  <td><strong>+80000</strong></td>
+</tr><tr>
+  <td><strong>Wilderness Pure Essence</strong><br><small>Pure essence mines in the wilderness — 3x yield vs safe regions. PKer threat.</small></td>
+  <td>1-99</td>
+  <td>68,000</td>
+  <td><span class="tag tag-region">The Wilds</span></td>
+  <td><span class="tag tag-medium">medium</span></td>
+  <td>extreme</td>
+  <td>0</td>
+</tr><tr>
+  <td><strong>Lava Rune Crafting</strong><br><small>Fastest RC XP. Binding necklace + magic imbue + precise banking. Costs a fortune.</small></td>
+  <td>23-99</td>
+  <td>60,000</td>
+  <td><span class="tag tag-region">Heartlands</span></td>
+  <td><span class="tag tag-maximum">maximum</span></td>
+  <td>none</td>
+  <td>100000</td>
+</tr><tr>
+  <td><strong>Wilderness Abyss RC</strong><br><small>Abyss shortcut to all altars. Wilderness route is fastest RC. Danger from PKers.</small></td>
+  <td>44-99</td>
+  <td>58,000</td>
+  <td><span class="tag tag-region">The Wilds</span></td>
+  <td><span class="tag tag-high">high</span></td>
+  <td>high</td>
+  <td>0</td>
+</tr><tr>
+  <td><strong>Blood Rune Crafting</strong><br><small>Mine dense essence, chisel, craft at blood altar. AFK and profitable. The endgame chill.</small></td>
+  <td>77-99</td>
+  <td>35,000</td>
+  <td><span class="tag tag-region">Inkweald</span></td>
+  <td><span class="tag tag-afk">afk</span></td>
+  <td>none</td>
+  <td><strong>+200000</strong></td>
+</tr><tr>
+  <td><strong>Moryskah Blood Altar</strong><br><small>Blood runes at the Moryskah altar. THE blood rune source. Cross-region demand (Scythe/Sang charges).</small></td>
+  <td>77-99</td>
+  <td>48,000</td>
+  <td><span class="tag tag-region">Moryskah</span></td>
+  <td><span class="tag tag-low">low</span></td>
+  <td>none</td>
+  <td>0</td>
+</tr><tr>
+  <td><strong>Soul Rune Crafting</strong><br><small>Soul runes at the Inkweald spire. Highest-tier RC. Ultra-profitable.</small></td>
+  <td>90-99</td>
+  <td>38,000</td>
+  <td><span class="tag tag-region">Inkweald</span></td>
+  <td><span class="tag tag-high">high</span></td>
+  <td>none</td>
+  <td>0</td>
+</tr><tr>
+  <td><strong>Sun Rune Crafting</strong><br><small>Wrath runes at the Sun Altar. Post-endgame RC. Only source of Wrath spells.</small></td>
+  <td>95-99</td>
+  <td>52,000</td>
+  <td><span class="tag tag-region">Glass Desert</span></td>
+  <td><span class="tag tag-medium">medium</span></td>
+  <td>none</td>
+  <td>0</td>
+</tr></table>
+</div>
+</body></html>

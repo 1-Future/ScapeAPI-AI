@@ -374,6 +374,32 @@ async function debugQuery(episodeId, conditions = {}) {
 }
 
 // ══════════════════════════════════════════════════════════════════════════════
+// BUILDER PERSISTENCE
+// ══════════════════════════════════════════════════════════════════════════════
+
+async function ensureBuilderTable() {
+  await query(`
+    CREATE TABLE IF NOT EXISTS builder_entities (
+      id          SERIAL PRIMARY KEY,
+      tab_id      VARCHAR(64) NOT NULL,
+      name        VARCHAR(255) NOT NULL,
+      data        JSONB NOT NULL DEFAULT '{}',
+      created_by  VARCHAR(64) NOT NULL,
+      created_at  TIMESTAMPTZ DEFAULT NOW(),
+      updated_at  TIMESTAMPTZ DEFAULT NOW(),
+      UNIQUE(tab_id, name, created_by)
+    )
+  `);
+  await query('CREATE INDEX IF NOT EXISTS idx_builder_tab ON builder_entities(tab_id)');
+  await query('CREATE INDEX IF NOT EXISTS idx_builder_owner ON builder_entities(created_by)');
+}
+
+// Run on startup (non-blocking)
+ensureBuilderTable().catch(err => {
+  console.error('[db] Failed to ensure builder_entities table:', err.message);
+});
+
+// ══════════════════════════════════════════════════════════════════════════════
 
 module.exports = {
   pool,

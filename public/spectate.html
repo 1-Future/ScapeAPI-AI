@@ -785,7 +785,7 @@
   <div id="map-pane" class="empty" style="position:relative">
     <div id="live-indicator"><div id="live-dot"></div><span id="viewer-count">0</span></div>
     <div id="map-attempt" style="position:absolute;top:0;left:0;z-index:20;font-family:var(--mono);font-size:11px;color:#aaa;background:rgba(0,0,0,0.6);padding:2px 8px;border-radius:0 0 2px 0;cursor:pointer" title="Click to copy replay ID" onclick="const id=this.dataset.replayId||'';navigator.clipboard.writeText(id);this.querySelector('b').textContent=id+' (copied)';setTimeout(()=>this.querySelector('b').textContent=id,2000)"><b id="attempt-num" style="color:var(--gold)">-</b></div>
-    <div id="map-overlay">Wave <b id="map-wave">-</b>/69 &nbsp; Mobs <b id="map-mobs">-</b></div>
+    <div id="map-overlay"><span id="map-wave-label">Wave</span> <b id="map-wave">-</b> &nbsp; Mobs <b id="map-mobs">-</b></div>
     <div id="map-stats">
       <span class="sh">A</span><span class="sh">S</span><span class="sh">D</span><span class="sh">R</span><span class="sh">M</span><span class="sh" style="color:#ff0">Run</span>
       <span id="s-atk">99</span><span id="s-str">99</span><span id="s-def">99</span><span id="s-rng">99</span><span id="s-mag">99</span><span id="s-run" style="color:#ff0">100</span>
@@ -925,18 +925,34 @@ const dc={
   'J':'#ff0000','Z':'#ff0000','h':'#2ecc71','H':'#27ae60','x':'#2ecc71','j':'#3498db','q':'#e74c3c',
   'G':'#2ecc71','B':'#3498db',
   ',':'#ff0000',';':'#00ff00',':':'#0000ff',
+  // Crystal Wyrm mobs
+  'W':'#e74c3c','E':'#ff0000','c':'#9b59b6',
   // Entities
   'O':'#aaaaff','=':'#ffff00',
   '?':'#f4a261','P':'#00ffff','T':'#00ff3d','*':'#efb366',',':'#8ab17d',
 };
-let uc={...dc}; // No localStorage override — spectator uses fixed Inferno colors
+let uc={...dc};
 
-// Legend — Inferno focused
-const leg=[['@','You'],['n','Nib'],['b','Bat'],['o','Blob'],['G','Blob→Rng'],['B','Blob→Mag'],['k','Melee'],['r','Ranger'],['M','Mager'],['J','Jad'],['Z','Zuk'],['h','Heal'],['O','Pillar'],['=','Shield'],[',','MeleeRng'],[';','RngRng'],[':','MagRng'],['.','Floor']];
+// Legend — auto-detect content type
+const infernoLeg=[['@','You'],['n','Nib'],['b','Bat'],['o','Blob'],['G','Blob→Rng'],['B','Blob→Mag'],['k','Melee'],['r','Ranger'],['M','Mager'],['J','Jad'],['Z','Zuk'],['h','Heal'],['O','Pillar'],['=','Shield'],[',','MeleeRng'],[';','RngRng'],[':','MagRng'],['.','Floor']];
+const wyrmLeg=[['@','You'],['W','Wyrm'],['S','Shattered'],['E','Enraged'],['c','Crystal'],['O','Pillar'],[',','MeleeRng'],[';','RngRng'],[':','MagRng'],['.','Floor']];
+let leg=infernoLeg;
 const legend=document.getElementById('legend');legend.innerHTML='';
 for(const[ch,lb]of leg){const s=document.createElement('span');s.className='lk';s.innerHTML='<span class="ls" style="color:'+uc[ch]+'">'+ch+'</span>'+lb;legend.appendChild(s)}
 
-// Map render
+// Map render — with hover tooltips
+const charNames={
+  '@':'Player','.':'Floor','\u00B7':'Grass','X':'Unwalkable','#':'Wall','=':'Path/Shield','S':'Sand','~':'Water','D':'Door','T':'Tree',
+  // Inferno
+  'n':'Jal-Nib (Nibbler)','b':'Jal-MejRah (Bat)','o':'Jal-Ak (Blob)','G':'Blob (ranged next)','B':'Blob (magic next)',
+  'k':'Jal-ImKot (Melee)','r':'Jal-Xil (Ranger)','M':'Jal-Zek (Mager)','J':'JalTok-Jad','Z':'TzKal-Zuk',
+  'h':'Healer','H':'Zuk Healer','x':'Bloblet (range)','j':'Bloblet (mage)','q':'Bloblet (melee)',
+  // Crystal Wyrm
+  'W':'Crystal Wyrm','E':'Crystal Wyrm (Enraged)','S':'Crystal Wyrm (Shattered)','c':'Crystallite',
+  // Entities & overlays
+  'O':'Pillar',',':'Melee range',';':'Ranged range',':':'Magic range','+':'Your range',
+  '?':'Object','P':'Player','*':'Entity',
+};
 function renderMap(text){
   const am=text.match(/Area:\s*(.+)/);if(am){const e=document.getElementById('area-here-text');if(e)e.textContent=am[1]}
   const dm=text.match(/Dirs: N=([^|]+)\|S=([^|]+)\|E=([^|]+)\|W=(.+)/);
@@ -947,7 +963,7 @@ function renderMap(text){
   const mw=Math.max(...gl.map(l=>l.length));
   let h='';
   for(const l of gl){h+='<div class="map-row">';for(const c of l.padEnd(mw)){if(c===' '){h+='<div class="map-cell">&nbsp;</div>';continue}
-  const co=uc[c]||'#264653',b=c==='@'?';font-weight:bold':'';h+='<div class="map-cell" style="color:'+co+b+'">'+c+'</div>'}h+='</div>'}
+  const co=uc[c]||'#264653',b=c==='@'?';font-weight:bold':'',tt=charNames[c]||'';h+='<div class="map-cell" style="color:'+co+b+'"'+(tt?' title="'+tt+'"':'')+'>'+c+'</div>'}h+='</div>'}
   mapContent.innerHTML=h;
 }
 
@@ -1197,8 +1213,8 @@ function addMsg(text,type){
     if(text.includes('cleared')){addCleanMsg('<span class="tag">[Clear]</span> Wave cleared','wave-clear');return}
     // Wave start
     if(text.includes('Wave')&&text.includes('===')){
-      const wm=text.match(/Wave (\d+)\/69/);
-      addCleanMsg('Wave '+(wm?wm[1]:'?')+'/69','wave');
+      const wm=text.match(/Wave (\d+)/);
+      addCleanMsg('Wave '+(wm?wm[1]:'?'),'wave');
       return;
     }
     // Spawns
@@ -1434,9 +1450,9 @@ function isMapLine(line){
   if(line.startsWith('>>>')||line.startsWith('{'))return false;
   // Must be ONLY map characters — no letters like a-z A-Z that aren't mob/tile chars
   // Map chars: . @ ! ? # ~ = S D T X P O W n b o k r M J Z h H x j q and spaces
-  if(/[a-efi-lp-wA-IK-LN-QU-Y0-9:(),'"!?]/.test(line.replace(/[.@#~=SDTXPOWnbokrMJZhHxjq\s]/g,'')))return false;
-  const mapChars=/^[.\u00B7@!#~=SDTXPOWnbokrMJZhHxjq\s]+$/;
-  return mapChars.test(line)&&line.length>20;
+  if(/[a-df-hil-np-vA-IK-LN-QU-Y0-9(),'"!?]/.test(line.replace(/[.@#~=:;,SDTXPOWEecnbokrMJZhHxjq\s]/g,'')))return false;
+  const mapChars=/^[.\u00B7@!#~=:;,SDTXPOWEecnbokrMJZhHxjq\s]+$/;
+  return mapChars.test(line)&&line.length>10;
 }
 
 function updateHud(line){
@@ -1469,9 +1485,20 @@ function updateHud(line){
       if(offensives.length)prayHtml+=(prayHtml?' ':'')+'<span class="pray-off">\u2694\uFE0F '+offensives.join('+')+'</span>';
       if(!prayHtml)prayHtml='None';
       document.getElementById('hud-pray').innerHTML=prayHtml;
-      document.getElementById('hud-wave').textContent=s.wave+'/69';
+      // Dynamic wave/phase display based on content type
+      const isWyrm=challengeOrder[0]==='phase1';
+      if(isWyrm){
+        const phaseNames=['','Crystal Shell','Shattered Core','Enraged'];
+        const bossPhase=s.bossPhase||s.wave||1;
+        document.getElementById('hud-wave').textContent='Phase '+bossPhase+'/3'+(phaseNames[bossPhase]?' — '+phaseNames[bossPhase]:'');
+        document.getElementById('map-wave-label').textContent='Phase';
+        document.getElementById('map-wave').textContent=bossPhase+'/3';
+      }else{
+        document.getElementById('hud-wave').textContent='Wave '+s.wave+'/69';
+        document.getElementById('map-wave-label').textContent='Wave';
+        document.getElementById('map-wave').textContent=s.wave+'/69';
+      }
       document.getElementById('hud-mobs').textContent=s.mobCount;
-      document.getElementById('map-wave').textContent=s.wave;
       document.getElementById('map-mobs').textContent=s.mobCount;
       if(s.tick){document.getElementById('hud-tick').textContent=s.tick;currentTick=s.tick}
       document.getElementById('ep-label').textContent=currentEp;
@@ -1745,8 +1772,12 @@ async function pollTotal(){
 pollTotal();
 
 // Poll challenge status
-const challengeNames={wave35:'Wave 35 — First Mager',wave63:'Wave 63 — All Mobs',jads:'Triple Jads',zuk:'TzKal-Zuk',gauntlet:'Gauntlet'};
-const challengeOrder=['wave35','wave63','jads','zuk','gauntlet'];
+// Challenge definitions — supports both Inferno and Crystal Wyrm RL
+const INFERNO_CHALLENGES={wave35:'Wave 35 — First Mager',wave63:'Wave 63 — All Mobs',jads:'Triple Jads',zuk:'TzKal-Zuk',gauntlet:'Gauntlet'};
+const WYRM_CHALLENGES={phase1:'Phase 1 — Crystal Shell',phase2:'Phase 2 — Shattered Core',phase3:'Phase 3 — Enraged',full_kill:'Full Kill'};
+// Auto-detect which content is running based on challenge keys
+let challengeNames=INFERNO_CHALLENGES;
+let challengeOrder=['wave35','wave63','jads','zuk','gauntlet'];
 
 async function pollChallenges(){
   while(true){
@@ -1755,8 +1786,19 @@ async function pollChallenges(){
       if(r.ok){
         const data=await r.json();
 
+        // Auto-detect Crystal Wyrm challenges and switch legend
+        if(data.phase1||data.phase2||data.phase3||data.full_kill){
+          challengeNames=WYRM_CHALLENGES;
+          challengeOrder=['phase1','phase2','phase3','full_kill'];
+          if(leg!==wyrmLeg){leg=wyrmLeg;const legend=document.getElementById('legend');legend.innerHTML='';for(const[ch,lb]of leg){const s=document.createElement('span');s.className='lk';s.innerHTML='<span class="ls" style="color:'+(uc[ch]||'#aaa')+'">'+ch+'</span>'+lb;legend.appendChild(s)}}
+        }else{
+          challengeNames=INFERNO_CHALLENGES;
+          challengeOrder=['wave35','wave63','jads','zuk','gauntlet'];
+          if(leg!==infernoLeg){leg=infernoLeg;const legend=document.getElementById('legend');legend.innerHTML='';for(const[ch,lb]of leg){const s=document.createElement('span');s.className='lk';s.innerHTML='<span class="ls" style="color:'+(uc[ch]||'#aaa')+'">'+ch+'</span>'+lb;legend.appendChild(s)}}
+        }
+
         // Find active challenge (first incomplete)
-        let active='wave35';
+        let active=challengeOrder[0];
         for(const c of challengeOrder){
           if((data[c]||{}).status!=='complete'){active=c;break}
         }
@@ -1767,7 +1809,9 @@ async function pollChallenges(){
         document.getElementById('cb-info').textContent='Attempt '+(ac.attempts||0)+' | '+((ac.passes||0))+' passes';
         document.getElementById('cb-dot').className='cb-dot '+(ac.status==='complete'?'green':'yellow');
 
-        // Update pips
+        // Rebuild pips dynamically for current challenge set
+        const pipContainer=document.getElementById('cb-progress');
+        pipContainer.innerHTML=challengeOrder.map(c=>`<div class="cb-pip todo" id="pip-${c}" title="${challengeNames[c]}"></div>`).join('');
         for(const c of challengeOrder){
           const pip=document.getElementById('pip-'+c);
           if(!pip)continue;
@@ -1775,7 +1819,9 @@ async function pollChallenges(){
           pip.className='cb-pip '+(s==='complete'?'done':c===active?'active':'todo');
         }
 
-        // Update detail panel
+        // Rebuild detail panel dynamically
+        const detailContainer=document.getElementById('challenge-detail');
+        detailContainer.innerHTML=challengeOrder.map(c=>`<div class="cd-row" id="cd-${c}"><span class="cd-dot" style="background:#c00"></span><span class="cd-name">${challengeNames[c]}</span><span class="cd-attempts">0 attempts</span><span class="cd-passes">0 passes</span><span class="cd-best"></span></div>`).join('')+`<div class="cd-next" id="cd-next"></div>`;
         for(const c of challengeOrder){
           const row=document.getElementById('cd-'+c);
           if(!row)continue;

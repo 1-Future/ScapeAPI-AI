@@ -381,4 +381,25 @@ define({ id: 1031, name: 'Death rune', examine: 'A death rune.', value: 300, cat
 // Add brew/restore/bastion to food/potion heal system
 FOOD_HEAL[1020] = 16; // Sara brew heals 16 per sip
 
+// ── Crystal Wyrm Content Pack ────────────────────────────────────────────────
+// Materials
+define({ id: 2000, name: 'Crystal shard', examine: 'A fragment of crystallized energy. It hums faintly.', value: 500, category: 'material', stackable: true, members: true, weight: 0.01 });
+define({ id: 2001, name: 'Crystal dust', examine: 'Finely ground crystal powder.', value: 50, category: 'material', stackable: true, members: true, weight: 0 });
+define({ id: 2002, name: 'Shaped crystal', examine: 'A crystal shard worked into a usable form.', value: 2000, category: 'material', stackable: true, members: true, weight: 0.02 });
+define({ id: 2003, name: 'Crystal lens', examine: 'A flawless crystal lens that focuses light.', value: 8000, category: 'material', members: true, weight: 0.1 });
+define({ id: 2004, name: 'Crystal core', examine: 'A crystal core pulsing with energy.', value: 25000, category: 'material', members: true, weight: 0.3 });
+define({ id: 2005, name: 'Crystal seed', examine: 'A living crystal seed. Could it grow?', value: 100000, category: 'material', members: true, weight: 0.05 });
+define({ id: 2006, name: 'Wyrm scale', examine: 'A massive scale from the Crystal Wyrm.', value: 50000, category: 'boss', members: true, weight: 2 });
+define({ id: 2007, name: 'Attuned wyrm scale', examine: 'A wyrm scale resonating with crystal energy.', value: 500000, category: 'boss', members: true, weight: 1.5 });
+define({ id: 2008, name: 'Binding stone', examine: 'An ancient stone used in sealing rituals.', value: 10000, category: 'quest', members: true, weight: 3 });
+define({ id: 2009, name: 'Crystal lantern', examine: 'Illuminates even the deepest caverns.', value: 5000, category: 'tool', members: true, weight: 0.5 });
+
+// Equipment — Wyrm Scale Armor (T70 melee, prayer bonus, degrades)
+define({ id: 2010, name: 'Wyrm scale platebody', examine: 'Platebody forged from crystal wyrm scales. Hums with residual energy.', value: 2000000, category: 'boss', members: true, equipSlot: 'body', equipReqs: { defence: 70 }, stats: { def_stab: 95, def_slash: 102, def_crush: 85, def_magic: -8, def_ranged: 98, melee_strength: 4, prayer: 2 }, weight: 9.5 });
+define({ id: 2011, name: 'Wyrm scale platelegs', examine: 'Platelegs forged from crystal wyrm scales.', value: 1500000, category: 'boss', members: true, equipSlot: 'legs', equipReqs: { defence: 70 }, stats: { def_stab: 68, def_slash: 66, def_crush: 63, def_magic: -4, def_ranged: 65, melee_strength: 2, prayer: 1 }, weight: 8 });
+define({ id: 2012, name: 'Wyrm scale helm', examine: 'A helm forged from crystal wyrm scales.', value: 1000000, category: 'boss', members: true, equipSlot: 'head', equipReqs: { defence: 70 }, stats: { def_stab: 42, def_slash: 45, def_crush: 38, def_magic: -2, def_ranged: 40, prayer: 1 }, weight: 2 });
+
+// Weapon — Crystal Wyrm Fang (T75 stab weapon, fast, spec)
+define({ id: 2015, name: 'Crystal wyrm fang', examine: 'A fang from the Crystal Wyrm, shaped into a deadly rapier.', value: 5000000, category: 'boss', members: true, equipSlot: 'weapon', speed: 4, equipReqs: { attack: 75 }, stats: { stab: 85, slash: 55, crush: 0, melee_strength: 78, prayer: 2 }, weight: 1.5 });
+
 module.exports = { define, get, find, search, items, FOOD_HEAL };
