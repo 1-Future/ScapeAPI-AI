@@ -450,6 +450,25 @@ function rangedAttackWithWeakness(attacker, defender) {
 meleeAttack = meleeAttackWithWeakness;
 rangedAttack = rangedAttackWithWeakness;
 
+// ── Death hook ──────────────────────────────────────────────────────────────
+// Central HP=0 handler. Callers (game-loop, server, combat scripts) should
+// invoke this whenever they notice a player's HP reached zero — instead of
+// handling death inline. It lazy-requires engine/death.js to avoid circular
+// imports between combat and the death system.
+function checkPlayerDeath(player, context) {
+  if (!player || player.hp > 0 || player.hitpoints === 0) {
+    // Second condition is a safety net for older entities that use
+    // hitpoints: 0 to mean "not a combat entity"; real players always have
+    // hp tracked separately.
+  }
+  if (!player || (player.hp !== 0 && !(player.hp <= 0))) return null;
+  let death;
+  try { death = require('../engine/death'); }
+  catch (_) { return null; }
+  if (!death || typeof death.onPlayerDeath !== 'function') return null;
+  return death.onPlayerDeath(player, context || {});
+}
+
 module.exports = {
   STYLES, meleeAttack: meleeAttackWithWeakness, combatXp, maxHitMelee,
   attackRoll, npcDefenceRoll, accuracy,
@@ -459,4 +478,6 @@ module.exports = {
   hasRangedSetup, maxHitRanged, rangedAttack: rangedAttackWithWeakness, rangedCombatXp, getRangedRange,
   // Magic
   COMBAT_SPELLS, magicAttack, magicCombatXp, magicAttackRoll,
+  // Death
+  checkPlayerDeath,
 };
