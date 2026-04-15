@@ -1,399 +1,571 @@
-// ── ScapeAI ────────────────────────────────────────────────────────────────────
-// AI layer for ScapeAPI. Connects to the game, intercepts NPC dialogue,
-// sends to Discord bot, streams response back. Can't break the game.
+// ══════════════════════════════════════════════════════════════════════════════
+// NPC Dialogue — routes `talk <npcId>` and follow-up player lines to local
+// Ollama (qwen2.5:14b), using the NPC's personality bible as system context.
 //
-// Usage: node index.js
-// Config: config.json (webhook URL, bot user ID, game URL)
+// Design notes:
+//   - Mirrors narrator.js: lazy probe Ollama once, fall back gracefully.
+//   - Non-blocking: every Ollama call is async; engine code awaits only its own
+//     chain (the command socket), never the tick loop.
+//   - System prompt built from data/npc-bibles.json — voice, background, drives,
+//     example_lines, dialogue_patterns. No hardcoded archetype tables.
+//   - Per-NPC LRU cache for cold-open questions (no player-specific context).
+//     Persists to data/dialogue-cache.json between runs.
+//   - If Ollama is unreachable or returns empty, fall back to the NPC bible's
+//     `dialogue_patterns.greeting_first` (or similar canned stock line).
+//
+// No reference to any real-world author/essayist is ever passed to the model;
+// the model tends to treat proper nouns as place names. Voice direction is
+// phrased as "grounded design principles" or similar neutral phrasing.
+// ══════════════════════════════════════════════════════════════════════════════
 
-const WebSocket = require('ws');
+'use strict';
+
 const fs = require('fs');
 const path = require('path');
 
-// Load .env file manually (no dotenv dependency needed)
-const envPath = path.join(__dirname, '..', '..', '.env');
-if (fs.existsSync(envPath)) {
-  for (const line of fs.readFileSync(envPath, 'utf8').split('\n')) {
-    const match = line.match(/^([^#=]+)=(.*)$/);
-    if (match && !process.env[match[1].trim()]) process.env[match[1].trim()] = match[2].trim();
+// ── Paths ────────────────────────────────────────────────────────────────────
+const DATA_DIR = path.join(__dirname, '..', '..', 'data');
+const BIBLES_FILE = path.join(DATA_DIR, 'npc-bibles.json');
+const CACHE_FILE = path.join(DATA_DIR, 'dialogue-cache.json');
+
+// ── Ollama config ────────────────────────────────────────────────────────────
+const OLLAMA_URL = (process.env.OLLAMA_URL || 'http://localhost:11434').replace(/\/$/, '');
+const MODEL = process.env.OLLAMA_MODEL || 'qwen2.5:14b';
+const NUM_PREDICT = 200;
+const PROBE_TIMEOUT_MS = 2000;
+const GEN_TIMEOUT_MS = 30000;
+
+// ── Cache config ─────────────────────────────────────────────────────────────
+const CACHE_MAX_PER_NPC = 50;
+const CACHE_SAVE_INTERVAL_MS = 60000;
+
+// ── NPC bibles registry ──────────────────────────────────────────────────────
+let biblesLoaded = false;
+const bibles = new Map(); // id → bible object
+
+function loadBibles() {
+  if (biblesLoaded) return;
+  try {
+    const raw = fs.readFileSync(BIBLES_FILE, 'utf8');
+    const data = JSON.parse(raw);
+    const list = Array.isArray(data.npcs) ? data.npcs : [];
+    for (const b of list) {
+      if (b && b.id) bibles.set(b.id, b);
+    }
+    biblesLoaded = true;
+  } catch (e) {
+    // Not fatal — the engine may be running without bibles in dev.
+    biblesLoaded = true;
+    console.warn(`[dialogue] Could not load ${BIBLES_FILE}: ${e.message}`);
   }
 }
 
-const config = JSON.parse(fs.readFileSync(path.join(__dirname, 'config.json'), 'utf8'));
-
-const YELLOW = '\x1b[38;2;254;255;1m';
-const CYAN = '\x1b[36m';
-const DIM = '\x1b[2m';
-const GREEN = '\x1b[32m';
-const RESET = '\x1b[0m';
-
-// ── Discord Webhook ───────────────────────────────────────────────────────────
-
-async function sendToDiscord(prompt) {
-  const res = await fetch(config.webhook, {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ content: prompt }),
-  });
-  if (!res.ok) console.error(`${DIM}[discord] Webhook error: ${res.status}${RESET}`);
-  return res.ok;
+function getBible(npcId) {
+  loadBibles();
+  return bibles.get(npcId) || null;
 }
 
-// ── Discord Polling (reads bot responses back) ───────────────────────────────
-// Same pattern as MiniScape/OpenScape. Polls channel every 3s, routes
-// FUTURE BOT responses back to the player who asked.
+function listNpcIds() {
+  loadBibles();
+  return [...bibles.keys()];
+}
 
-const DISCORD_API = 'https://discord.com/api/v10';
-let lastSeenMessageId = null;
-let pendingNpcTalk = null; // { playerId, npcName, sendFn }
-let pollTimer = null;
+// ── Cache: per-NPC LRU for cold-open answers ─────────────────────────────────
+// Map<npcId, Map<cacheKey, { lines, options, ts }>>
+const cache = new Map();
+let cacheDirty = false;
 
-async function pollDiscordMessages() {
-  const token = config.botToken || process.env.DISCORD_BOT_TOKEN;
-  if (!token || !config.channelId) return;
-
+function loadCache() {
   try {
-    const url = lastSeenMessageId
-      ? `${DISCORD_API}/channels/${config.channelId}/messages?after=${lastSeenMessageId}&limit=10`
-      : `${DISCORD_API}/channels/${config.channelId}/messages?limit=1`;
-    const res = await fetch(url, {
-      headers: { 'Authorization': `Bot ${token}` }
-    });
-    if (!res.ok) {
-      if (res.status !== 401) console.error(`[discord] Poll error: ${res.status}`);
-      return;
-    }
-    const messages = await res.json();
-    if (!Array.isArray(messages) || messages.length === 0) return;
-
-    messages.reverse(); // oldest first
-
-    // First poll: just record latest ID
-    if (!lastSeenMessageId) {
-      lastSeenMessageId = messages[messages.length - 1].id;
-      console.log('[discord] Polling active');
-      return;
-    }
-
-    for (const msg of messages) {
-      lastSeenMessageId = msg.id;
-
-      const text = (msg.content || '').trim().slice(0, 500);
-      if (!text) continue;
-
-      // Skip our own outgoing webhook messages (the prompts we send)
-      // But don't skip bot responses — those could come via webhook OR bot user
-      const isOurWebhook = msg.webhook_id && msg.author.id !== config.botUserId;
-      if (isOurWebhook) continue;
-
-      // Check if this is from FUTURE BOT (either as bot user or webhook)
-      const isBot = msg.author.id === config.botUserId || msg.author.bot;
-
-      if (isBot && pendingNpcTalk) {
-        const { sendFn, npcName } = pendingNpcTalk;
-        if (sendFn) sendFn(`${npcName}: "${text}"`);
-        console.log(`[discord] AI response → ${npcName}: ${text.slice(0, 80)}`);
-        pendingNpcTalk = null;
-      } else if (isBot) {
-        console.log(`[discord] Bot message (no pending talk): ${text.slice(0, 80)}`);
+    if (!fs.existsSync(CACHE_FILE)) return;
+    const raw = fs.readFileSync(CACHE_FILE, 'utf8');
+    const data = JSON.parse(raw);
+    for (const [npcId, entries] of Object.entries(data || {})) {
+      const m = new Map();
+      for (const [k, v] of Object.entries(entries || {})) {
+        m.set(k, v);
       }
+      cache.set(npcId, m);
     }
   } catch (e) {
-    console.error('[discord] Poll error:', e.message);
+    console.warn(`[dialogue] Cache load failed: ${e.message}`);
   }
 }
 
-function startPolling() {
-  if (pollTimer) return;
-  const token = config.botToken || process.env.DISCORD_BOT_TOKEN;
-  if (!token) {
-    console.log('[discord] No bot token — polling disabled. Set botToken in config.json or DISCORD_BOT_TOKEN env var.');
-    return;
-  }
-  console.log('[discord] Starting message polling...');
-  pollDiscordMessages();
-  pollTimer = setInterval(pollDiscordMessages, config.pollInterval || 3000);
-}
-
-function stopPolling() {
-  if (pollTimer) { clearInterval(pollTimer); pollTimer = null; }
-}
-
-function setPendingTalk(npcName, sendFn) {
-  pendingNpcTalk = { npcName, sendFn };
-}
-
-// ── NPC Personality Templates ─────────────────────────────────────────────────
-
-const PERSONALITIES = {
-  // Default per NPC role
-  shopkeeper: {
-    traits: 'Friendly, merchant-minded, always trying to upsell',
-    style: 'Mentions deals and prices casually in conversation',
-  },
-  guard: {
-    traits: 'Stern, dutiful, suspicious of strangers',
-    style: 'Short sentences, formal tone, references law and order',
-  },
-  farmer: {
-    traits: 'Simple, hardworking, talks about weather and crops',
-    style: 'Rural dialect, complains about pests and weather',
-  },
-  banker: {
-    traits: 'Professional, careful, slightly condescending',
-    style: 'Formal, mentions security and account safety',
-  },
-  quest_giver: {
-    traits: 'Desperate, grateful, dramatic about their problem',
-    style: 'Emphatic, begging for help, promises rewards',
-  },
-  warrior: {
-    traits: 'Brave, boastful, loves combat stories',
-    style: 'Loud, exclamation marks, talks about battles',
-  },
-  wizard: {
-    traits: 'Mysterious, knowledgeable, speaks in riddles',
-    style: 'Archaic language, references runes and magic',
-  },
-  general: {
-    traits: 'Friendly, helpful, curious about adventurers',
-    style: 'Casual, asks questions about the player\'s journey',
-  },
-};
-
-// Per-NPC overrides (keyed by NPC defId)
-const NPC_PROFILES = {
-  hans: {
-    personality: 'Friendly old man who walks around the castle. Loves welcoming new players. Knows how long everyone has been playing.',
-    knowledge: 'Spawn island layout, basic game tips, player account age',
-    role: 'general',
-  },
-  shopkeeper: {
-    personality: 'Enthusiastic general store owner. Sells basic supplies. Thinks everything in the store is fascinating.',
-    knowledge: 'General store stock, tool uses, beginner tips',
-    role: 'shopkeeper',
-  },
-  cook: {
-    personality: 'Stressed cook preparing for a birthday party. Needs ingredients desperately.',
-    knowledge: 'Cook\'s Assistant quest, cooking recipes, kitchen location',
-    role: 'quest_giver',
-  },
-  guard: {
-    personality: 'Vigilant town guard. Patrols the area. Warns about dangers beyond town.',
-    knowledge: 'Town safety, wilderness dangers, goblin activity',
-    role: 'guard',
-  },
-  weapon_master: {
-    personality: 'Grizzled veteran who now sells weapons. Has a story for every blade in the shop.',
-    knowledge: 'Weapon stats, combat styles, training tips',
-    role: 'warrior',
-  },
-  armour_seller: {
-    personality: 'Proud armourer. Tests every piece personally. Thinks defence is more important than offence.',
-    knowledge: 'Armour stats, defence training, equipment requirements',
-    role: 'warrior',
-  },
-  aubury: {
-    personality: 'Eccentric rune shop owner. Fascinated by magic. Knows the secret of runecrafting.',
-    knowledge: 'Rune types, magic spells, Rune Mysteries quest, runecrafting altars',
-    role: 'wizard',
-  },
-  slayer_master: {
-    personality: 'No-nonsense slayer master. Assigns tasks bluntly. Respects only proven fighters.',
-    knowledge: 'Monster weaknesses, slayer equipment, task rewards, slayer point shop',
-    role: 'warrior',
-  },
-  banker: {
-    personality: 'Efficient and slightly uptight. Manages everyone\'s valuables with obsessive care.',
-    knowledge: 'Banking operations, item storage, security tips',
-    role: 'banker',
-  },
-  fishing_tutor: {
-    personality: 'Patient teacher who loves the water. Tells fishing stories that may or may not be true.',
-    knowledge: 'Fishing spots, equipment, fish types, cooking tips',
-    role: 'general',
-  },
-  mining_instructor: {
-    personality: 'Enthusiastic about rocks. Gets excited about ore types. Covered in dust.',
-    knowledge: 'Rock types, ore locations, pickaxe tiers, smithing basics',
-    role: 'general',
-  },
-  tanner: {
-    personality: 'Skilled craftsman. Smells of leather. Grumpy but fair.',
-    knowledge: 'Leather crafting, cowhide processing, crafting skill',
-    role: 'shopkeeper',
-  },
-  herbalist: {
-    personality: 'Gentle, knowledgeable about plants. Slightly mysterious. Brew potions in the back.',
-    knowledge: 'Herb types, potion recipes, farming patches, herblore training',
-    role: 'wizard',
-  },
-};
-
-// ── Simple Prompt Builder (used by OpenClaw AI bridge) ───────────────────────
-
-function buildSimplePrompt(npcDefId, npcName, playerName, playerCombat, playerMessage, location) {
-  const profile = NPC_PROFILES[npcDefId] || {};
-  const roleKey = profile.role || 'general';
-  const personality = PERSONALITIES[roleKey] || PERSONALITIES.general;
-  const personalityText = profile.personality || personality.traits;
-  const knowledgeText = profile.knowledge || 'General world knowledge';
-
-  return `You are ${npcName}, a ${personalityText} in ${location}.\n` +
-    `Knowledge: ${knowledgeText}\n` +
-    `${playerName} (combat ${playerCombat}) says: "${playerMessage}"\n` +
-    `Respond in character. Keep it short (1-2 sentences). Never break character.`;
-}
-
-// ── Prompt Builder ────────────────────────────────────────────────────────────
-
-function buildPrompt(npcDefId, npcName, npcExamine, playerName, playerCombat, playerMessage, location, extra = {}) {
-  const profile = NPC_PROFILES[npcDefId] || {};
-  const roleKey = profile.role || 'general';
-  const personality = PERSONALITIES[roleKey] || PERSONALITIES.general;
-
-  const prompt = `[NPC: ${npcName} (${npcExamine}), near ${location}] ` +
-    `${playerName} (combat ${playerCombat}) says: "${playerMessage}"\n` +
-    `Personality: ${profile.personality || personality.traits}\n` +
-    `Knowledge: ${profile.knowledge || 'General world knowledge'}\n` +
-    `Respond in character as ${npcName}. Keep it short (1-2 sentences). Stay in Scape lore. Never break character.`;
-
-  return prompt;
-}
-
-// ── Examine Text Generator ────────────────────────────────────────────────────
-
-function buildExaminePrompt(entityType, name, properties) {
-  return `Generate an examine text for a ${entityType} called "${name}" in an OSRS-style game.\n` +
-    `Properties: ${JSON.stringify(properties)}\n` +
-    `Style: Dry wit, puns welcome, 1 sentence max. Like OSRS examine texts.\n` +
-    `Respond with ONLY the examine text, nothing else.`;
-}
-
-// ── Canned Fallbacks ──────────────────────────────────────────────────────────
-
-const FALLBACK_DIALOGUES = {
-  shopkeeper: [
-    "Want to see my wares?",
-    "I've got the best prices in town!",
-    "Can I interest you in anything?",
-  ],
-  guard: [
-    "Move along, citizen.",
-    "Stay out of trouble.",
-    "The town is safe under my watch.",
-  ],
-  farmer: [
-    "The crops are growing well this season.",
-    "Watch out for the chickens, they bite.",
-    "Nothing like honest farm work.",
-  ],
-  banker: [
-    "Your valuables are safe with us.",
-    "Would you like to access your bank?",
-    "We offer the finest security in the land.",
-  ],
-  general: [
-    "Hello there, adventurer!",
-    "Nice day for an adventure.",
-    "Good luck out there!",
-  ],
-  warrior: [
-    "Have you tested your blade lately?",
-    "The wilderness is no place for the weak.",
-    "Train hard, fight harder.",
-  ],
-  wizard: [
-    "The runes hold many secrets...",
-    "Magic flows through all things.",
-    "Have you studied the ancient texts?",
-  ],
-  quest_giver: [
-    "I could really use some help...",
-    "Are you the adventurer I've heard about?",
-    "Please, won't you help me?",
-  ],
-};
-
-function getFallback(npcDefId) {
-  const profile = NPC_PROFILES[npcDefId] || {};
-  const roleKey = profile.role || 'general';
-  const lines = FALLBACK_DIALOGUES[roleKey] || FALLBACK_DIALOGUES.general;
-  return lines[Math.floor(Math.random() * lines.length)];
-}
-
-// ── Game Integration ──────────────────────────────────────────────────────────
-// Connects to ScapeAPI as a service. Listens for AI-eligible events.
-
-let gameWs = null;
-
-function connectToGame() {
-  console.log(`${DIM}[scape-ai] Connecting to ${config.gameUrl}...${RESET}`);
-  gameWs = new WebSocket(config.gameUrl);
-
-  gameWs.on('open', () => {
-    console.log(`${GREEN}[scape-ai] Connected to ScapeAPI${RESET}`);
-    // Login as AI service (not a player — just listens)
-    gameWs.send('login ScapeAI');
-  });
-
-  gameWs.on('message', (data) => {
-    const msg = JSON.parse(data);
-    if (msg.text) {
-      // Log game messages
-      console.log(`${YELLOW}${msg.text}${RESET}`);
+function saveCache() {
+  if (!cacheDirty) return;
+  try {
+    const out = {};
+    for (const [npcId, m] of cache) {
+      out[npcId] = {};
+      for (const [k, v] of m) out[npcId][k] = v;
     }
-  });
-
-  gameWs.on('close', () => {
-    console.log(`${DIM}[scape-ai] Disconnected. Reconnecting in 5s...${RESET}`);
-    setTimeout(connectToGame, 5000);
-  });
-
-  gameWs.on('error', (e) => {
-    console.error(`${DIM}[scape-ai] Connection error: ${e.message}${RESET}`);
-  });
+    fs.mkdirSync(path.dirname(CACHE_FILE), { recursive: true });
+    fs.writeFileSync(CACHE_FILE, JSON.stringify(out, null, 2));
+    cacheDirty = false;
+  } catch (e) {
+    console.warn(`[dialogue] Cache save failed: ${e.message}`);
+  }
 }
 
-// ── Exports (for use as module) ───────────────────────────────────────────────
+let cacheTimer = null;
+function startCachePersistence(ms = CACHE_SAVE_INTERVAL_MS) {
+  if (cacheTimer) return;
+  loadCache();
+  cacheTimer = setInterval(saveCache, ms);
+}
+function stopCachePersistence() {
+  if (cacheTimer) { clearInterval(cacheTimer); cacheTimer = null; }
+  saveCache();
+}
 
+function timeOfDayBucket(worldState) {
+  if (!worldState || typeof worldState.tick !== 'number') return 'day';
+  // Simple bucket: day/night cycle every 2400 ticks, day first half.
+  const phase = (worldState.tick % 2400) / 2400;
+  return phase < 0.5 ? 'day' : 'night';
+}
+
+function cacheKeyFor(npcId, topic, playerState) {
+  // Cache keys only include NPC-scope data (no player-specific facts that
+  // personalize the reply). topic + region + time bucket are enough to
+  // dedupe cold-open questions.
+  const t = topic || 'greeting';
+  const region = (playerState && playerState.region) || 'unknown';
+  const timeBucket = (playerState && playerState.timeOfDay) || 'day';
+  return `${npcId}::${t}::${region}::${timeBucket}`;
+}
+
+function cacheGet(npcId, key) {
+  const m = cache.get(npcId);
+  if (!m) return null;
+  const entry = m.get(key);
+  if (!entry) return null;
+  // LRU: touch moves to end.
+  m.delete(key);
+  m.set(key, entry);
+  return { lines: entry.lines.slice(), options: entry.options.slice() };
+}
+
+function cacheSet(npcId, key, value) {
+  let m = cache.get(npcId);
+  if (!m) { m = new Map(); cache.set(npcId, m); }
+  m.delete(key);
+  m.set(key, { lines: value.lines.slice(), options: value.options.slice(), ts: Date.now() });
+  while (m.size > CACHE_MAX_PER_NPC) {
+    const oldest = m.keys().next().value;
+    m.delete(oldest);
+  }
+  cacheDirty = true;
+}
+
+function clearCache() {
+  cache.clear();
+  cacheDirty = true;
+}
+
+// ── Ollama probe ─────────────────────────────────────────────────────────────
+let probed = null;
+let probePromise = null;
+let disabledReason = null;
+
+async function probeOllama() {
+  try {
+    const f = _getFetch();
+    const r = await f(`${OLLAMA_URL}/api/tags`, { signal: AbortSignal.timeout(PROBE_TIMEOUT_MS) });
+    if (!r.ok) {
+      disabledReason = `Ollama returned HTTP ${r.status} from /api/tags`;
+      return false;
+    }
+    return true;
+  } catch (e) {
+    disabledReason = `Ollama unreachable at ${OLLAMA_URL} (${e.message})`;
+    return false;
+  }
+}
+
+async function ensureProbed() {
+  if (probed !== null) return probed;
+  if (!probePromise) probePromise = probeOllama();
+  probed = await probePromise;
+  return probed;
+}
+
+function resetProbe() {
+  probed = null;
+  probePromise = null;
+  disabledReason = null;
+}
+
+// ── Prompt builders ──────────────────────────────────────────────────────────
+function pickExampleLines(bible, max = 5) {
+  const lines = (bible.voice && Array.isArray(bible.voice.example_lines)) ? bible.voice.example_lines : [];
+  return lines.slice(0, Math.max(3, Math.min(max, lines.length)));
+}
+
+function summarizeRelationships(bible) {
+  const rels = Array.isArray(bible.relationships) ? bible.relationships.slice(0, 3) : [];
+  return rels.map(r => `  - ${r.with}: ${r.nature}`).join('\n');
+}
+
+function summarizeDrives(bible) {
+  const d = bible.drives || {};
+  const parts = [];
+  if (d.wants) parts.push(`Wants: ${d.wants}`);
+  if (d.fears) parts.push(`Fears: ${d.fears}`);
+  // The secret is NOT revealed to the player. The model should weigh it but
+  // never state it.
+  if (d.secret) parts.push(`Secret (never speak aloud, shapes silences only): ${d.secret}`);
+  return parts.join('\n');
+}
+
+function summarizeVoice(bible) {
+  const v = bible.voice || {};
+  const parts = [];
+  if (v.cadence) parts.push(`Cadence: ${v.cadence}`);
+  if (v.vocabulary) parts.push(`Vocabulary: ${v.vocabulary}`);
+  if (Array.isArray(v.verbal_tics) && v.verbal_tics.length) {
+    parts.push(`Verbal tics: ${v.verbal_tics.join('; ')}`);
+  }
+  if (v.silences) parts.push(`Silences: ${v.silences}`);
+  return parts.join('\n');
+}
+
+function buildSystemPrompt(bible, playerState, worldState) {
+  const examples = pickExampleLines(bible, 5);
+  const examplesBlock = examples.map(e => `- "${e}"`).join('\n');
+
+  const forbid = Array.isArray(bible.do_not_have_her_say) ? bible.do_not_have_her_say : [];
+  const forbidBlock = forbid.length
+    ? `\nThis character must NEVER say:\n${forbid.map(s => `- ${s}`).join('\n')}`
+    : '';
+
+  const patterns = bible.dialogue_patterns || {};
+  const patternsBlock = Object.keys(patterns).length
+    ? `\nCanned patterns (tone reference, not verbatim quotes):\n${Object.entries(patterns).map(([k, v]) => `- ${k}: "${v}"`).join('\n')}`
+    : '';
+
+  const drivesBlock = summarizeDrives(bible);
+  const voiceBlock = summarizeVoice(bible);
+  const relsBlock = summarizeRelationships(bible);
+
+  // Minimal player context. Do not include secrets, do not include inventory
+  // details — only what a villager would realistically observe or remember.
+  const ps = playerState || {};
+  const playerBlock = [
+    `Player name: ${ps.name || 'an adventurer'}`,
+    ps.region ? `Where they stand right now: ${ps.region}` : null,
+    (typeof ps.totalLevel === 'number') ? `Impression of their bearing: total skill ${ps.totalLevel}${ps.highestSkill ? `, visibly trained in ${ps.highestSkill}` : ''}` : null,
+    (Array.isArray(ps.activeQuests) && ps.activeQuests.length) ? `Quests the player has spoken of: ${ps.activeQuests.join(', ')}` : null,
+  ].filter(Boolean).join('\n');
+
+  const ws = worldState || {};
+  const worldBlock = [
+    ws.timeOfDay ? `Time of day: ${ws.timeOfDay}` : null,
+    (Array.isArray(ws.recentEvents) && ws.recentEvents.length) ? `Recent events this NPC would know of: ${ws.recentEvents.slice(0, 3).join('; ')}` : null,
+  ].filter(Boolean).join('\n');
+
+  return [
+    `You are ${bible.name}${bible.title_shown_to_players ? ` (${bible.title_shown_to_players})` : ''}, a character in the world of Aelgard — a grounded OSRS-inspired setting. Stay in character at all times.`,
+    '',
+    `Region: ${bible.region || 'unknown'}`,
+    `Location: ${bible.location || 'unknown'}`,
+    `Role: ${bible.role || 'villager'}`,
+    bible.archetype ? `Archetype: ${bible.archetype}` : '',
+    '',
+    'Background:',
+    (bible.background || '').trim(),
+    '',
+    'Drives:',
+    drivesBlock,
+    '',
+    'Voice (match this exactly):',
+    voiceBlock,
+    '',
+    'Relationships shaping their outlook:',
+    relsBlock,
+    '',
+    'Example lines — study their cadence, vocabulary, and beat-closing rhythm. Do NOT quote them verbatim; write new lines that sound like these:',
+    examplesBlock,
+    patternsBlock,
+    forbidBlock,
+    '',
+    '— Player context —',
+    playerBlock || '(player unknown)',
+    '',
+    worldBlock ? `— World context —\n${worldBlock}\n` : '',
+    '— Grounded design principles (must follow) —',
+    '- Speak as this person, in their region\'s register. No modern speech, no slang outside their vocabulary, no genre-savvy winks or meta-jokes, no emoji.',
+    '- Exclamation marks are forbidden unless this character explicitly uses them in their examples; even then, use them sparingly.',
+    '- Never break character. Never say you are an AI. Never refer to game mechanics, stats, inventories, tick counts, or menus. Translate any mechanic into in-world observation.',
+    '- Cap reply to 3-4 short sentences per turn. Shorter is better. Silence is allowed when this character would be silent.',
+    '- Never reveal the character\'s secret. Let it shape what they do not say.',
+    '',
+    'Output format:',
+    '- Return ONLY the character\'s line(s) of dialogue, with no preamble, no label, no quotes around them, no stage directions.',
+    '- If you offer the player 2-3 branching options, append them on separate lines each starting with "> " at the end.',
+  ].filter(x => x !== '').join('\n');
+}
+
+function buildUserPrompt(userLine, topic, history) {
+  const parts = [];
+  if (Array.isArray(history) && history.length) {
+    parts.push('Conversation so far:');
+    for (const turn of history.slice(-6)) {
+      if (turn.role === 'player') parts.push(`Player: ${turn.text}`);
+      else if (turn.role === 'npc') parts.push(`You (previously): ${turn.text}`);
+    }
+    parts.push('');
+  }
+  if (topic) parts.push(`The player wants to discuss: ${topic}`);
+  if (userLine) {
+    parts.push(`Player says: "${userLine}"`);
+  } else {
+    parts.push('The player has just approached you for the first time this session. Greet or regard them as this character would.');
+  }
+  parts.push('');
+  parts.push('Write the character\'s response now.');
+  return parts.join('\n');
+}
+
+// ── Response parsing ─────────────────────────────────────────────────────────
+function parseOllamaText(text) {
+  if (!text || typeof text !== 'string') return { lines: [], options: [] };
+  let cleaned = text.trim();
+
+  // Try JSON first.
+  if (cleaned.startsWith('{') || cleaned.startsWith('[')) {
+    try {
+      const obj = JSON.parse(cleaned);
+      if (obj && Array.isArray(obj.lines)) {
+        return {
+          lines: obj.lines.filter(Boolean).map(String),
+          options: Array.isArray(obj.options) ? obj.options.filter(Boolean).map(String) : [],
+        };
+      }
+    } catch {
+      // Fall through to plain-text parsing.
+    }
+  }
+
+  // Plain text with "> " prefixed options at the end.
+  const options = [];
+  const mainLines = [];
+  for (const raw of cleaned.split(/\r?\n/)) {
+    const line = raw.trim();
+    if (!line) continue;
+    if (/^>\s+/.test(line)) {
+      options.push(line.replace(/^>\s+/, '').trim());
+    } else {
+      mainLines.push(line);
+    }
+  }
+  const joined = mainLines.join(' ').trim();
+  const final = joined ? [joined] : [];
+  return { lines: final, options };
+}
+
+// ── Ollama call ──────────────────────────────────────────────────────────────
+let fetchImpl = null;
+function _getFetch() {
+  if (fetchImpl) return fetchImpl;
+  if (typeof fetch === 'function') return fetch;
+  throw new Error('No fetch implementation available');
+}
+function _setFetch(fn) { fetchImpl = fn; }
+
+async function callOllama(systemPrompt, userPrompt) {
+  const f = _getFetch();
+  const res = await f(`${OLLAMA_URL}/api/chat`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({
+      model: MODEL,
+      messages: [
+        { role: 'system', content: systemPrompt },
+        { role: 'user', content: userPrompt },
+      ],
+      stream: false,
+      options: {
+        num_predict: NUM_PREDICT,
+        temperature: 0.8,
+        top_p: 0.9,
+      },
+    }),
+    signal: AbortSignal.timeout(GEN_TIMEOUT_MS),
+  });
+  if (!res.ok) {
+    const body = await res.text().catch(() => '');
+    throw new Error(`Ollama HTTP ${res.status}${body ? ': ' + body.slice(0, 160) : ''}`);
+  }
+  const data = await res.json();
+  const text = data && data.message && data.message.content;
+  return typeof text === 'string' ? text.trim() : null;
+}
+
+// ── Available topics ─────────────────────────────────────────────────────────
+// Derived from the bible's role/archetype text and player gating (quest status,
+// skill levels). Keeps us honest: no "shop" option if there's no shop.
+function availableTopics(npcId, player) {
+  const bible = getBible(npcId);
+  if (!bible) return [];
+
+  const topics = new Set();
+  topics.add('small_talk');
+
+  const haystack = [
+    bible.role || '',
+    bible.archetype || '',
+    bible.location || '',
+  ].join(' ').toLowerCase();
+
+  const offersShop = /\b(merchant|shop|store|general goods|seller|fence|stockist|trader|fishmonger|armourer|smithy|tanner|innkeeper)\b/.test(haystack);
+  const offersTraining = /\b(tutor|trainer|master|instructor|coach|teaches|apprentice|gatekeeper)\b/.test(haystack);
+  const offersQuests = /\b(quest-giver|quest giver|errand|patrol|assistant|coordinator|contact|broker)\b/.test(haystack);
+  const knowsRumours = !!(bible.opinions || bible.relationships);
+
+  if (offersShop) topics.add('shop');
+  if (offersTraining) topics.add('training');
+  if (offersQuests || (player && Array.isArray(player.activeQuests) && player.activeQuests.length)) {
+    topics.add('quest');
+  }
+  if (knowsRumours) topics.add('rumors');
+
+  return [...topics];
+}
+
+// ── Fallback ─────────────────────────────────────────────────────────────────
+function fallbackLine(bible) {
+  const p = (bible && bible.dialogue_patterns) || {};
+  return p.greeting_first || p.greeting_regular || 'Hm.';
+}
+
+function fallbackResponse(bible) {
+  return { lines: [fallbackLine(bible)], options: [], fallback: true };
+}
+
+// ── Player state projection ──────────────────────────────────────────────────
+// Accept a raw engine player object and produce the minimal context we send
+// to Ollama. Never leak skills objects, inventory, or breakpoint history.
+function projectPlayerState(player) {
+  if (!player) return {};
+  const state = {
+    name: player.name,
+    region: player.region || (player.currentRegion) || null,
+  };
+  // Skills summary
+  if (player.skills && typeof player.skills === 'object') {
+    let total = 0;
+    let highest = null;
+    let highestLvl = 0;
+    for (const [skill, s] of Object.entries(player.skills)) {
+      const lvl = s && typeof s.level === 'number' ? s.level : 0;
+      total += lvl;
+      if (lvl > highestLvl) { highestLvl = lvl; highest = skill; }
+    }
+    state.totalLevel = total;
+    state.highestSkill = highest;
+  }
+  // Active quest ids
+  if (player.questProgress && typeof player.questProgress === 'object') {
+    state.activeQuests = Object.entries(player.questProgress)
+      .filter(([, s]) => s && s.started && !s.complete)
+      .map(([id]) => id);
+  }
+  // Optional time-of-day hint
+  if (typeof player._timeOfDay === 'string') state.timeOfDay = player._timeOfDay;
+  return state;
+}
+
+// ── Public API ───────────────────────────────────────────────────────────────
+// talk(player, npcId, userLine=null, topic=null) -> { lines, options }
+//
+// - userLine=null, topic=null → cold open (cacheable).
+// - userLine=null, topic=X    → "we want to discuss X" (cacheable).
+// - userLine=X                → follow-up; never cached.
+async function talk(player, npcId, userLine = null, topic = null, extra = {}) {
+  const bible = getBible(npcId);
+  if (!bible) {
+    return { lines: [`You address no one in particular.`], options: [], error: 'unknown_npc' };
+  }
+
+  const playerState = projectPlayerState(player);
+  // Timestamp on the NPC's side; we use tick if provided by caller.
+  const worldState = extra.worldState || {};
+  if (!worldState.timeOfDay) worldState.timeOfDay = timeOfDayBucket(worldState);
+
+  const coldOpen = !userLine;
+  const history = Array.isArray(extra.history) ? extra.history : [];
+
+  // Cache lookup (cold-open only; per-NPC LRU)
+  if (coldOpen) {
+    const key = cacheKeyFor(npcId, topic, { region: playerState.region, timeOfDay: worldState.timeOfDay });
+    const hit = cacheGet(npcId, key);
+    if (hit) return { ...hit, cached: true };
+  }
+
+  const ok = await ensureProbed();
+  if (!ok) {
+    return fallbackResponse(bible);
+  }
+
+  const systemPrompt = buildSystemPrompt(bible, playerState, worldState);
+  const userPrompt = buildUserPrompt(userLine, topic, history);
+
+  let raw = null;
+  try {
+    raw = await callOllama(systemPrompt, userPrompt);
+  } catch (e) {
+    console.error(`[dialogue] Ollama error for ${npcId}: ${e.message}`);
+    return fallbackResponse(bible);
+  }
+  const parsed = parseOllamaText(raw);
+  if (!parsed.lines.length) {
+    return fallbackResponse(bible);
+  }
+
+  const response = { lines: parsed.lines, options: parsed.options };
+
+  if (coldOpen) {
+    const key = cacheKeyFor(npcId, topic, { region: playerState.region, timeOfDay: worldState.timeOfDay });
+    cacheSet(npcId, key, response);
+  }
+
+  return response;
+}
+
+// ── Exports ──────────────────────────────────────────────────────────────────
 module.exports = {
-  sendToDiscord,
-  buildPrompt,
-  buildSimplePrompt,
-  buildExaminePrompt,
-  getFallback,
-  setPendingTalk,
-  startPolling,
-  stopPolling,
-  NPC_PROFILES,
-  PERSONALITIES,
-  FALLBACK_DIALOGUES,
-  config,
+  // primary
+  talk,
+  availableTopics,
+  cacheKeyFor,
+  // introspection / lifecycle
+  loadBibles,
+  getBible,
+  listNpcIds,
+  startCachePersistence,
+  stopCachePersistence,
+  saveCache,
+  clearCache,
+  // prompt building (exposed for tests / tools)
+  buildSystemPrompt,
+  buildUserPrompt,
+  parseOllamaText,
+  projectPlayerState,
+  fallbackLine,
+  fallbackResponse,
+  // probe state
+  probe: ensureProbed,
+  resetProbe,
+  isEnabled: () => probed === true,
+  disabledReason: () => probed === false ? disabledReason : (probed === null ? 'not yet probed' : null),
+  // hooks for tests
+  _setFetch,
+  // config constants
+  OLLAMA_URL,
+  MODEL,
+  BIBLES_FILE,
+  CACHE_FILE,
+  CACHE_MAX_PER_NPC,
 };
-
-// ── CLI Mode ──────────────────────────────────────────────────────────────────
-
-if (require.main === module) {
-  console.log(`${GREEN}╔══════════════════════════════════╗${RESET}`);
-  console.log(`${GREEN}║         ScapeAI v0.1.0           ║${RESET}`);
-  console.log(`${GREEN}║  AI layer for ScapeAPI           ║${RESET}`);
-  console.log(`${GREEN}╚══════════════════════════════════╝${RESET}`);
-  console.log(`${DIM}Webhook: ${config.webhook.slice(0, 50)}...${RESET}`);
-  console.log(`${DIM}Game: ${config.gameUrl}${RESET}`);
-  console.log('');
-
-  // Test: send a sample NPC prompt to Discord
-  const testPrompt = buildPrompt('hans', 'Hans', 'A man walking around.', 'TestPlayer', 3, 'Hello!', 'Spawn Island');
-  console.log(`${CYAN}Sample prompt:${RESET}`);
-  console.log(testPrompt);
-  console.log('');
-
-  console.log(`${DIM}Sending test to Discord webhook...${RESET}`);
-  sendToDiscord(testPrompt).then(ok => {
-    if (ok) console.log(`${GREEN}Webhook working!${RESET}`);
-    else console.log(`${DIM}Webhook failed — check config.json${RESET}`);
-
-    // Connect to game
-    connectToGame();
-  });
-}
