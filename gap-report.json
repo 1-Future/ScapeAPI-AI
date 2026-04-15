@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-04-15T13:41:42.835Z",
+  "timestamp": "2026-04-15T14:00:36.443Z",
   "thinnestRegion": {
     "id": "moryskah",
     "label": "Moryskah",
@@ -13,14 +13,6 @@
       "minigames": 3,
       "blockedSkills": 0,
       "gapScore": 44
-    },
-    {
-      "region": "sootworks",
-      "label": "Sootworks",
-      "methods": 52,
-      "minigames": 4,
-      "blockedSkills": 0,
-      "gapScore": 49
     },
     {
       "region": "veilwood",
@@ -69,6 +61,14 @@
       "minigames": 5,
       "blockedSkills": 0,
       "gapScore": 73
+    },
+    {
+      "region": "sootworks",
+      "label": "Sootworks",
+      "methods": 136,
+      "minigames": 4,
+      "blockedSkills": 0,
+      "gapScore": 91
     },
     {
       "region": "heartlands",
