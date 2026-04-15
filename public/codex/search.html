@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Search — Aelgard Codex</title>
+<style>
+  body {
+    font-family: ui-monospace, 'Cascadia Code', 'Consolas', monospace;
+    background: #3e3529;
+    color: #e8dcc0;
+    margin: 0 auto;
+    padding: 20px;
+    max-width: 1200px;
+  }
+  .parchment {
+    background: #e8dcc0;
+    color: #2c1810;
+    padding: 30px 40px;
+    border: 3px solid #8b6f47;
+    border-radius: 4px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.5);
+    margin: 20px 0;
+  }
+  h1 {
+    color: #7a1f1a;
+    border-bottom: 2px solid #8b6f47;
+    padding-bottom: 10px;
+    margin-top: 0;
+  }
+  h2 { color: #5a3a1a; margin-top: 30px; margin-bottom: 8px; font-size: 18px; }
+  a { color: #7a1f1a; text-decoration: none; border-bottom: 1px dotted #7a1f1a; }
+  a:hover { background: #d4c49c; }
+  nav { margin-bottom: 20px; }
+  nav a { margin-right: 15px; font-weight: bold; }
+  .description {
+    font-style: italic;
+    color: #5a3a1a;
+    margin: 10px 0;
+    padding: 10px;
+    background: #d4c49c;
+    border-left: 3px solid #8b6f47;
+  }
+  #query {
+    width: 100%;
+    padding: 12px 14px;
+    font-size: 18px;
+    font-family: inherit;
+    background: #f3ecd6;
+    color: #2c1810;
+    border: 2px solid #8b6f47;
+    border-radius: 3px;
+    box-sizing: border-box;
+  }
+  #query:focus { outline: none; border-color: #7a1f1a; background: #fff; }
+  #meta {
+    font-size: 12px;
+    color: #5a3a1a;
+    margin: 10px 0;
+  }
+  .filters {
+    margin: 15px 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+  .chip {
+    display: inline-block;
+    padding: 4px 10px;
+    font-size: 12px;
+    font-family: inherit;
+    background: #d4c49c;
+    color: #2c1810;
+    border: 1px solid #8b6f47;
+    border-radius: 3px;
+    cursor: pointer;
+    user-select: none;
+  }
+  .chip.active {
+    background: #7a1f1a;
+    color: #e8dcc0;
+    border-color: #7a1f1a;
+  }
+  .chip:hover:not(.active) { background: #c4a970; }
+  .group {
+    margin-top: 20px;
+  }
+  .group-header {
+    font-size: 13px;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: #8b6f47;
+    letter-spacing: 1px;
+    border-bottom: 1px solid #c4a970;
+    padding-bottom: 4px;
+    margin-bottom: 8px;
+  }
+  .hit {
+    padding: 10px 12px;
+    margin: 4px 0;
+    background: #d4c49c;
+    border-left: 3px solid transparent;
+    border-radius: 2px;
+    cursor: pointer;
+  }
+  .hit.selected {
+    border-left-color: #7a1f1a;
+    background: #c4a970;
+  }
+  .hit .title {
+    font-weight: bold;
+    color: #7a1f1a;
+    display: block;
+    margin-bottom: 4px;
+  }
+  .hit .snippet {
+    font-size: 13px;
+    color: #3a2810;
+    line-height: 1.4;
+  }
+  .hit .score {
+    float: right;
+    font-size: 11px;
+    color: #8b6f47;
+    font-weight: normal;
+  }
+  .hit .type-tag {
+    display: inline-block;
+    font-size: 10px;
+    text-transform: uppercase;
+    padding: 2px 6px;
+    margin-right: 6px;
+    border-radius: 2px;
+    background: #8b6f47;
+    color: #e8dcc0;
+    font-weight: bold;
+    letter-spacing: 0.5px;
+  }
+  .empty {
+    color: #8b6f47;
+    font-style: italic;
+    padding: 20px;
+    text-align: center;
+  }
+  .loading { color: #8b6f47; font-style: italic; }
+  kbd {
+    background: #8b6f47;
+    color: #e8dcc0;
+    padding: 1px 5px;
+    border-radius: 2px;
+    font-size: 11px;
+    font-family: inherit;
+  }
+  .hint { font-size: 12px; color: #5a3a1a; margin-top: 8px; }
+  mark { background: #f5d76e; color: #2c1810; padding: 0 2px; border-radius: 2px; }
+</style>
+</head>
+<body>
+<nav>
+  <a href="index.html">Home</a>
+  <a href="regions.html">Regions</a>
+  <a href="skills.html">Skills</a>
+  <a href="quests.html">Quests</a>
+  <a href="lore.html">Lore</a>
+  <a href="npcs.html">NPCs</a>
+  <a href="bosses.html">Bosses</a>
+  <a href="breakpoints.html">Breakpoints</a>
+  <a href="items.html">Items</a>
+  <a href="search.html"><strong>Search</strong></a>
+</nav>
+<div class="parchment">
+  <h1>Search the Codex</h1>
+  <div class="description">
+    Full-text search across every quest, NPC, boss, item, training method,
+    breakpoint, lore page, and region palette. Type to search. BM25-ranked,
+    client-side, offline-capable.
+  </div>
+
+  <input type="search" id="query" placeholder="Search for 'bog witch', 'moryskah', 'prayer 43', 'infernal cape'..." autocomplete="off" autofocus>
+
+  <div id="meta" class="loading">Loading index…</div>
+
+  <div class="filters" id="filters"></div>
+
+  <div class="hint">
+    <kbd>↑</kbd> <kbd>↓</kbd> to navigate · <kbd>Enter</kbd> to open · <kbd>Esc</kbd> to clear · Share with <kbd>#q=…</kbd>
+  </div>
+
+  <div id="results"></div>
+</div>
+
+<script>
+(() => {
+  'use strict';
+
+  // ── Stopwords (must match generator) ────────────────────────────────────
+  const STOPWORDS = new Set((
+    'a about above after again against all am an and any are as at be because been ' +
+    'before being below between both but by can could did do does doing down during ' +
+    'each few for from further had has have having he her here hers herself him himself ' +
+    'his how i if in into is it its itself just me more most my myself no nor not now ' +
+    'of off on once only or other our ours ourselves out over own same she should so ' +
+    'some such than that the their theirs them themselves then there these they this ' +
+    'those through to too under until up very was we were what when where which while ' +
+    'who whom why will with you your yours yourself yourselves also would one two three ' +
+    'four five six seven eight nine ten been don theres youre youll ill hes shes ' +
+    'thats wont cant wasnt isnt arent wouldnt couldnt shouldnt'
+  ).split(/\s+/).filter(Boolean));
+
+  // ── Tokeniser (must match generator) ────────────────────────────────────
+  function tokenise(text) {
+    if (!text) return [];
+    return String(text)
+      .toLowerCase()
+      .replace(/[_\-]/g, ' ')
+      .replace(/[^a-z0-9 ]+/g, ' ')
+      .split(/\s+/)
+      .filter(t => t && t.length >= 2 && t.length <= 24 && !STOPWORDS.has(t));
+  }
+
+  // ── BM25 scorer ─────────────────────────────────────────────────────────
+  // Since the generator deduplicates tokens per document, each doc is a set.
+  // This means BM25 with tf=1 reduces to a sum of IDF over intersected terms,
+  // which is fine for a search over short structured snippets. We apply a
+  // length-normalisation penalty so terse entries don't get buried.
+  const BM25_K1 = 1.2;
+  const BM25_B  = 0.75;
+
+  let INDEX = null;        // full index object
+  let DOCS  = null;        // docs array
+  let IDF   = null;        // idf map
+  let AVG_LEN = 0;         // average tokens per doc
+  let TYPES = [];          // sorted list of types
+
+  function scoreDoc(doc, queryTokens) {
+    if (!doc._tokenSet) doc._tokenSet = new Set(doc.tokens);
+    let score = 0;
+    let matched = 0;
+    for (const qt of queryTokens) {
+      if (!doc._tokenSet.has(qt)) continue;
+      matched++;
+      const idf = IDF[qt] || 0;
+      const tf = 1; // deduped
+      const dl = doc.tokens.length || 1;
+      const norm = 1 - BM25_B + BM25_B * (dl / (AVG_LEN || 1));
+      const tfNorm = (tf * (BM25_K1 + 1)) / (tf + BM25_K1 * norm);
+      score += idf * tfNorm;
+    }
+    // Phrase bonus: reward title hits (exact & token) heavily.
+    const titleLower = doc.title.toLowerCase();
+    for (const qt of queryTokens) {
+      if (titleLower.includes(qt)) score += 1.5;
+    }
+    // Coverage bonus: reward matching more of the query.
+    if (matched > 1) score *= 1 + 0.12 * (matched - 1);
+    return { score, matched };
+  }
+
+  function search(query, activeTypes) {
+    const qTokens = tokenise(query);
+    if (qTokens.length === 0) return [];
+    const hits = [];
+    const hasFilter = activeTypes && activeTypes.length > 0;
+    for (const doc of DOCS) {
+      if (hasFilter && !activeTypes.includes(doc.type)) continue;
+      const { score, matched } = scoreDoc(doc, qTokens);
+      if (matched === 0) continue;
+      hits.push({ doc, score });
+    }
+    hits.sort((a, b) => b.score - a.score);
+    return hits.slice(0, 30);
+  }
+
+  // ── Rendering ───────────────────────────────────────────────────────────
+  const TYPE_LABELS = {
+    quest: 'Quests',
+    npc: 'NPCs',
+    boss: 'Bosses',
+    item: 'Items',
+    training_method: 'Training Methods',
+    breakpoint: 'Breakpoints',
+    area: 'Areas',
+    lore: 'Lore Pages',
+    prestige: 'Prestige Goals',
+    recipe: 'Recipes',
+    diary: 'Diaries',
+    collection: 'Collection Log',
+    palette: 'Region Palettes',
+    animation: 'Animations',
+    audio: 'Audio Cues',
+    sprite: 'Sprites',
+  };
+  const TYPE_ORDER = [
+    'quest', 'npc', 'boss', 'item', 'training_method', 'breakpoint',
+    'area', 'lore', 'prestige', 'recipe', 'diary', 'collection',
+    'palette', 'animation', 'audio', 'sprite',
+  ];
+
+  function escapeHtml(s) {
+    return String(s).replace(/[&<>"']/g, c =>
+      ({ '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;' }[c]));
+  }
+
+  function highlight(text, qTokens) {
+    let out = escapeHtml(text);
+    for (const qt of qTokens) {
+      if (!qt) continue;
+      const re = new RegExp('\\b(' + qt.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + ')', 'gi');
+      out = out.replace(re, '<mark>$1</mark>');
+    }
+    return out;
+  }
+
+  let SELECTED_IDX = -1;
+  let CURRENT_HITS = [];
+
+  function render(hits, query) {
+    const el = document.getElementById('results');
+    CURRENT_HITS = hits;
+    SELECTED_IDX = hits.length > 0 ? 0 : -1;
+
+    if (!query) {
+      el.innerHTML = '<div class="empty">Type to search across ' + DOCS.length + ' entries.</div>';
+      return;
+    }
+    if (hits.length === 0) {
+      el.innerHTML = '<div class="empty">No results for <em>' + escapeHtml(query) + '</em>.</div>';
+      return;
+    }
+    const qTokens = tokenise(query);
+    const grouped = {};
+    for (const h of hits) {
+      (grouped[h.doc.type] = grouped[h.doc.type] || []).push(h);
+    }
+    const parts = [];
+    let globalIdx = 0;
+    for (const type of TYPE_ORDER) {
+      const bucket = grouped[type];
+      if (!bucket) continue;
+      parts.push('<div class="group">');
+      parts.push('<div class="group-header">' + escapeHtml(TYPE_LABELS[type] || type) + ' (' + bucket.length + ')</div>');
+      for (const h of bucket) {
+        const d = h.doc;
+        const titleHl = highlight(d.title, qTokens);
+        const snipHl  = highlight(d.snippet || '', qTokens);
+        parts.push(
+          '<a class="hit" data-idx="' + globalIdx + '" href="' + escapeHtml(d.url || '#') + '">' +
+            '<span class="score">' + h.score.toFixed(2) + '</span>' +
+            '<span class="type-tag">' + escapeHtml(type) + '</span>' +
+            '<span class="title">' + titleHl + '</span>' +
+            '<span class="snippet">' + snipHl + '</span>' +
+          '</a>'
+        );
+        globalIdx++;
+      }
+      parts.push('</div>');
+    }
+    // Emit any remaining groups (types not in TYPE_ORDER)
+    for (const [type, bucket] of Object.entries(grouped)) {
+      if (TYPE_ORDER.includes(type)) continue;
+      parts.push('<div class="group">');
+      parts.push('<div class="group-header">' + escapeHtml(TYPE_LABELS[type] || type) + ' (' + bucket.length + ')</div>');
+      for (const h of bucket) {
+        const d = h.doc;
+        const titleHl = highlight(d.title, qTokens);
+        const snipHl  = highlight(d.snippet || '', qTokens);
+        parts.push(
+          '<a class="hit" data-idx="' + globalIdx + '" href="' + escapeHtml(d.url || '#') + '">' +
+            '<span class="score">' + h.score.toFixed(2) + '</span>' +
+            '<span class="type-tag">' + escapeHtml(type) + '</span>' +
+            '<span class="title">' + titleHl + '</span>' +
+            '<span class="snippet">' + snipHl + '</span>' +
+          '</a>'
+        );
+        globalIdx++;
+      }
+      parts.push('</div>');
+    }
+    el.innerHTML = parts.join('');
+    updateSelection();
+  }
+
+  function updateSelection() {
+    const hits = document.querySelectorAll('.hit');
+    hits.forEach((el, i) => {
+      if (i === SELECTED_IDX) {
+        el.classList.add('selected');
+        el.scrollIntoView({ block: 'nearest' });
+      } else {
+        el.classList.remove('selected');
+      }
+    });
+  }
+
+  // ── Filters ────────────────────────────────────────────────────────────
+  const ACTIVE_TYPES = new Set();
+  function renderFilters() {
+    const el = document.getElementById('filters');
+    el.innerHTML = TYPES.map(t =>
+      '<span class="chip ' + (ACTIVE_TYPES.has(t) ? 'active' : '') + '" data-type="' + t + '">' +
+      escapeHtml(TYPE_LABELS[t] || t) +
+      '</span>'
+    ).join('');
+    el.querySelectorAll('.chip').forEach(c => {
+      c.addEventListener('click', () => {
+        const t = c.dataset.type;
+        if (ACTIVE_TYPES.has(t)) ACTIVE_TYPES.delete(t);
+        else ACTIVE_TYPES.add(t);
+        renderFilters();
+        runSearch();
+        writeHash();
+      });
+    });
+  }
+
+  // ── URL hash state ─────────────────────────────────────────────────────
+  function parseHash() {
+    const h = window.location.hash.slice(1);
+    const params = new URLSearchParams(h);
+    const q = params.get('q') || '';
+    const types = (params.get('types') || '').split(',').filter(Boolean);
+    return { q, types };
+  }
+
+  function writeHash() {
+    const q = document.getElementById('query').value;
+    const parts = [];
+    if (q) parts.push('q=' + encodeURIComponent(q).replace(/%20/g, '+'));
+    if (ACTIVE_TYPES.size > 0) parts.push('types=' + [...ACTIVE_TYPES].join(','));
+    const newHash = parts.length ? '#' + parts.join('&') : '';
+    if (newHash !== window.location.hash) {
+      // replaceState keeps back-button clean while editing
+      try { history.replaceState(null, '', window.location.pathname + newHash); }
+      catch (_) { window.location.hash = newHash; }
+    }
+  }
+
+  // ── Main ────────────────────────────────────────────────────────────────
+  function runSearch() {
+    const q = document.getElementById('query').value.trim();
+    const activeTypes = [...ACTIVE_TYPES];
+    const hits = search(q, activeTypes);
+    render(hits, q);
+  }
+
+  function attachHandlers() {
+    const q = document.getElementById('query');
+    q.addEventListener('input', () => { runSearch(); writeHash(); });
+    q.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowDown') {
+        e.preventDefault();
+        if (CURRENT_HITS.length > 0) {
+          SELECTED_IDX = (SELECTED_IDX + 1) % CURRENT_HITS.length;
+          updateSelection();
+        }
+      } else if (e.key === 'ArrowUp') {
+        e.preventDefault();
+        if (CURRENT_HITS.length > 0) {
+          SELECTED_IDX = (SELECTED_IDX - 1 + CURRENT_HITS.length) % CURRENT_HITS.length;
+          updateSelection();
+        }
+      } else if (e.key === 'Enter') {
+        e.preventDefault();
+        if (SELECTED_IDX >= 0 && CURRENT_HITS[SELECTED_IDX]) {
+          const url = CURRENT_HITS[SELECTED_IDX].doc.url;
+          if (url) window.location.href = url;
+        }
+      } else if (e.key === 'Escape') {
+        q.value = '';
+        runSearch();
+        writeHash();
+      }
+    });
+    window.addEventListener('hashchange', () => {
+      const { q: hq, types } = parseHash();
+      if (hq !== document.getElementById('query').value) {
+        document.getElementById('query').value = hq;
+      }
+      ACTIVE_TYPES.clear();
+      for (const t of types) ACTIVE_TYPES.add(t);
+      renderFilters();
+      runSearch();
+    });
+  }
+
+  async function loadIndex() {
+    const meta = document.getElementById('meta');
+    try {
+      const res = await fetch('search-index.json');
+      if (!res.ok) throw new Error('HTTP ' + res.status);
+      INDEX = await res.json();
+    } catch (e) {
+      meta.textContent = 'Failed to load search-index.json: ' + e.message;
+      meta.classList.remove('loading');
+      return;
+    }
+    DOCS = INDEX.documents || [];
+    IDF = INDEX.idf || {};
+    AVG_LEN = DOCS.reduce((n, d) => n + d.tokens.length, 0) / (DOCS.length || 1);
+    TYPES = [...new Set(DOCS.map(d => d.type))].sort((a, b) => {
+      const ai = TYPE_ORDER.indexOf(a), bi = TYPE_ORDER.indexOf(b);
+      if (ai === -1 && bi === -1) return a.localeCompare(b);
+      if (ai === -1) return 1;
+      if (bi === -1) return -1;
+      return ai - bi;
+    });
+    meta.textContent =
+      DOCS.length + ' entries · ' +
+      Object.keys(IDF).length + ' terms · ' +
+      'avg ' + AVG_LEN.toFixed(0) + ' tokens/doc · ' +
+      'generated ' + (INDEX.generated || '?').slice(0, 10);
+    meta.classList.remove('loading');
+    renderFilters();
+
+    const { q: hq, types } = parseHash();
+    if (hq) document.getElementById('query').value = hq;
+    for (const t of types) ACTIVE_TYPES.add(t);
+    renderFilters();
+    runSearch();
+  }
+
+  // Expose API for tests (file:// test harness loads this page in a mock DOM)
+  window.__CodexSearch = {
+    tokenise, search, scoreDoc, STOPWORDS,
+    get INDEX() { return INDEX; },
+    get DOCS() { return DOCS; },
+    get IDF() { return IDF; },
+    get AVG_LEN() { return AVG_LEN; },
+  };
+
+  document.addEventListener('DOMContentLoaded', () => {
+    attachHandlers();
+    loadIndex();
+  });
+})();
+</script>
+</body>
+</html>
