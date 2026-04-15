@@ -96,6 +96,16 @@ function step(p, method, sendFn) {
     const whole = Math.floor(at.xpAccum);
     at.xpAccum -= whole;
     leveledTo = breakpoints.addXpWithBreakpoints(p, method.skill, whole);
+    // burn-v2: forward any Construction XP to the housing progress ticker so
+    // non-housing training methods visibly advance the player's house.
+    if (method.skill === 'construction') {
+      try {
+        const housing = require('./housing');
+        if (typeof housing.notifyConstructionXp === 'function') {
+          housing.notifyConstructionXp(p, whole, { source: 'training_runner', methodId: method.id });
+        }
+      } catch (_) { /* housing unavailable */ }
+    }
   }
 
   // Stop if player exceeded the method's max level
