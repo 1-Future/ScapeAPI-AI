@@ -1,9 +1,9 @@
 {
-  "timestamp": "2026-04-15T02:08:32.632Z",
+  "timestamp": "2026-04-15T06:59:26.528Z",
   "thinnestRegion": {
-    "id": "sootworks",
-    "label": "Sootworks",
-    "flavor": "industrial underground, dwarves, clockwork"
+    "id": "saltbrine_reach",
+    "label": "Saltbrine Reach",
+    "flavor": "pirate coast, fishing, smuggling"
   },
   "all_regions_ranked": [
     {
@@ -26,13 +26,6 @@
       "methods": 10,
       "blockedSkills": 16,
       "gapScore": 12
-    },
-    {
-      "region": "saltbrine_reach",
-      "label": "Saltbrine Reach",
-      "methods": 14,
-      "blockedSkills": 14,
-      "gapScore": 16
     },
     {
       "region": "boneyard_wastes",
@@ -63,6 +56,13 @@
       "gapScore": 44
     },
     {
+      "region": "saltbrine_reach",
+      "label": "Saltbrine Reach",
+      "methods": 62,
+      "blockedSkills": 0,
+      "gapScore": 54
+    },
+    {
       "region": "heartlands",
       "label": "Heartlands",
       "methods": 86,
@@ -71,50 +71,50 @@
     }
   ],
   "analysis": {
-    "region": "sootworks",
-    "label": "Sootworks",
-    "flavor": "industrial underground, dwarves, clockwork",
-    "methodsInRegion": 11,
+    "region": "saltbrine_reach",
+    "label": "Saltbrine Reach",
+    "flavor": "pirate coast, fishing, smuggling",
+    "methodsInRegion": 62,
     "skillStatus": {
       "attack": {
-        "count": 1,
-        "maxLevel": 99,
+        "count": 2,
+        "maxLevel": 75,
         "status": "trainable"
       },
       "strength": {
-        "count": 0,
-        "maxLevel": 0,
-        "status": "hard_blocked"
+        "count": 4,
+        "maxLevel": 99,
+        "status": "trainable"
       },
       "defence": {
-        "count": 0,
-        "maxLevel": 0,
-        "status": "hard_blocked"
+        "count": 2,
+        "maxLevel": 99,
+        "status": "trainable"
       },
       "hitpoints": {
-        "count": 0,
-        "maxLevel": 0,
-        "status": "hard_blocked"
+        "count": 2,
+        "maxLevel": 85,
+        "status": "trainable"
       },
       "ranged": {
-        "count": 0,
-        "maxLevel": 0,
-        "status": "hard_blocked"
+        "count": 3,
+        "maxLevel": 99,
+        "status": "trainable"
       },
       "prayer": {
-        "count": 0,
-        "maxLevel": 0,
-        "status": "hard_blocked"
+        "count": 3,
+        "maxLevel": 99,
+        "status": "trainable"
       },
       "magic": {
-        "count": 0,
-        "maxLevel": 0,
-        "status": "hard_blocked"
+        "count": 2,
+        "maxLevel": 99,
+        "status": "trainable"
       },
       "runecrafting": {
-        "count": 0,
-        "maxLevel": 0,
-        "status": "hard_blocked"
+        "count": 2,
+        "maxLevel": 99,
+        "status": "trainable"
       },
       "construction": {
         "count": 2,
@@ -122,42 +122,42 @@
         "status": "trainable"
       },
       "agility": {
-        "count": 0,
-        "maxLevel": 0,
-        "status": "hard_blocked"
-      },
-      "herblore": {
-        "count": 0,
-        "maxLevel": 0,
-        "status": "hard_blocked"
-      },
-      "thieving": {
-        "count": 0,
-        "maxLevel": 0,
-        "status": "hard_blocked"
-      },
-      "crafting": {
         "count": 3,
         "maxLevel": 99,
         "status": "trainable"
       },
+      "herblore": {
+        "count": 2,
+        "maxLevel": 99,
+        "status": "trainable"
+      },
+      "thieving": {
+        "count": 3,
+        "maxLevel": 99,
+        "status": "trainable"
+      },
+      "crafting": {
+        "count": 4,
+        "maxLevel": 99,
+        "status": "trainable"
+      },
       "fletching": {
-        "count": 0,
-        "maxLevel": 0,
-        "status": "hard_blocked"
+        "count": 3,
+        "maxLevel": 99,
+        "status": "trainable"
       },
       "slayer": {
-        "count": 0,
-        "maxLevel": 0,
-        "status": "hard_blocked"
+        "count": 2,
+        "maxLevel": 99,
+        "status": "trainable"
       },
       "hunter": {
-        "count": 0,
-        "maxLevel": 0,
-        "status": "hard_blocked"
+        "count": 3,
+        "maxLevel": 99,
+        "status": "trainable"
       },
       "mining": {
-        "count": 2,
+        "count": 3,
         "maxLevel": 99,
         "status": "trainable"
       },
@@ -167,93 +167,39 @@
         "status": "trainable"
       },
       "fishing": {
-        "count": 0,
-        "maxLevel": 0,
-        "status": "hard_blocked"
+        "count": 5,
+        "maxLevel": 99,
+        "status": "trainable"
       },
       "cooking": {
-        "count": 0,
-        "maxLevel": 0,
-        "status": "hard_blocked"
+        "count": 3,
+        "maxLevel": 99,
+        "status": "trainable"
       },
       "firemaking": {
-        "count": 1,
-        "maxLevel": 60,
+        "count": 3,
+        "maxLevel": 99,
         "status": "trainable"
       },
       "woodcutting": {
-        "count": 0,
-        "maxLevel": 0,
-        "status": "hard_blocked"
+        "count": 2,
+        "maxLevel": 99,
+        "status": "trainable"
       },
       "farming": {
-        "count": 0,
-        "maxLevel": 0,
-        "status": "hard_blocked"
+        "count": 2,
+        "maxLevel": 99,
+        "status": "trainable"
       }
     },
-    "blockedSkills": [
-      "strength",
-      "defence",
-      "hitpoints",
-      "ranged",
-      "prayer",
-      "magic",
-      "runecrafting",
-      "agility",
-      "herblore",
-      "thieving",
-      "fletching",
-      "slayer",
-      "hunter",
-      "fishing",
-      "cooking",
-      "woodcutting",
-      "farming"
-    ],
-    "lowCapSkills": [
-      "firemaking"
-    ],
+    "blockedSkills": [],
+    "lowCapSkills": [],
     "prestigeGoal": {
-      "name": "The Clockwork Heart",
-      "flavor": "engineering / smithing"
-    },
-    "gapScore": 11.5
-  },
-  "suggestions": [
-    {
-      "priority": "high",
-      "type": "unblock_skill",
-      "skills": [
-        "strength",
-        "defence",
-        "hitpoints",
-        "ranged",
-        "prayer",
-        "magic",
-        "runecrafting",
-        "agility",
-        "herblore",
-        "thieving",
-        "fletching",
-        "slayer",
-        "hunter",
-        "fishing",
-        "cooking",
-        "woodcutting",
-        "farming"
-      ],
-      "action": "Add at least one training method for each of: strength, defence, hitpoints, ranged, prayer, magic, runecrafting, agility, herblore, thieving, fletching, slayer, hunter, fishing, cooking, woodcutting, farming in the Sootworks region. Match the regional flavor (industrial underground, dwarves, clockwork)."
-    },
-    {
-      "priority": "medium",
-      "type": "raise_cap",
-      "skills": [
-        "firemaking"
-      ],
-      "action": "Add higher-tier training methods (levels 70-99) for: firemaking in Sootworks."
+      "name": "The Kraken Hunt",
+      "flavor": "naval / fishing boss"
     }
-  ],
+  },
+  "suggestions": [],
   "example_quest_shape": {
     "description": "A quest definition should be added to src/content/aelgard/<region>-quests.js using rel.defineQuestUnlock(). It should unlock something UNIQUE (area, training method, shop, spellbook, BiS item) — never just XP.",
     "example": "rel.defineQuestUnlock('quest_id', {\n  name: 'Quest Name',\n  unlocks: [\n    { type: 'training_method', id: 'method_id', description: '...' },\n    { type: 'item_equip', id: 'unique_item', description: '...' },\n  ],\n});"
