@@ -79,6 +79,7 @@ function page(title, body) {
   <a href="bosses.html">Bosses</a>
   <a href="breakpoints.html">Breakpoints</a>
   <a href="items.html">Items</a>
+  <a href="search.html">Search</a>
 </nav>
 <div class="parchment">
 ${body}

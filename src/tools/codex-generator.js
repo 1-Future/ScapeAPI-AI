@@ -198,6 +198,7 @@ function page(title, body) {
   <a href="breakpoints.html">Breakpoints</a>
   <a href="combat-achievements.html">Combat Achievements</a>
   <a href="web.html">Web</a>
+  <a href="search.html">Search</a>
 </nav>
 <div class="parchment">
 ${body}
