@@ -19,11 +19,38 @@ const tiles = require('../world/tiles');
 const player = require('../player/player');
 const rel = require('../data/relationships');
 
+// ── Pre-check hooks ───────────────────────────────────────────────────────────
+// Subscribers receive (player, areaId) and return either:
+//   null / undefined        → no objection, fall through to normal gate logic
+//   { ok: false, reason }   → deny with reason, short-circuit normal gate
+// Used by account-mode plugins (area-locked, ironman) without mutating
+// the base gate-check flow. Event-style so content stays decoupled.
+const preCheckHooks = new Set();
+
+function addPreCheck(fn) { preCheckHooks.add(fn); return () => preCheckHooks.delete(fn); }
+
+function runPreChecks(p, areaId) {
+  for (const fn of preCheckHooks) {
+    try {
+      const r = fn(p, areaId);
+      if (r && r.ok === false) return r;
+    } catch (e) {
+      console.error('[area-gate-runner] pre-check', e.message);
+    }
+  }
+  return null;
+}
+
 // Adapter so canAccessArea can call player.getLevel(p, skill) — the registry
 // expects this shape since it's content-layer agnostic.
 function getLevel(p, skill) { return player.getLevel(p, skill); }
 
 function canEnter(p, areaId) {
+  // Pre-check hooks (account modes, etc.) deny before the base gate check.
+  const pre = runPreChecks(p, areaId);
+  if (pre && pre.ok === false) {
+    return { allowed: false, missing: [pre.reason], reason: pre.reason };
+  }
   return rel.canAccessArea(p, areaId, getLevel);
 }
 
@@ -83,4 +110,4 @@ function listAll(p) {
   return out;
 }
 
-module.exports = { canEnter, enter, entryPoint, listAccessible, listAll };
+module.exports = { canEnter, enter, entryPoint, listAccessible, listAll, addPreCheck };
