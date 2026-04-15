@@ -57,6 +57,8 @@ try { require('../content/aelgard/quirky-interactions'); } catch (e) {}
 try { require('../content/aelgard/items-blitz3'); } catch (e) {}
 try { require('../content/aelgard/monsters-mega'); } catch (e) {}
 try { require('../content/aelgard/droptables-mega'); } catch (e) {}
+try { require('../content/aelgard/combinations-mega'); } catch (e) {}
+try { require('../content/aelgard/recipes-mega'); } catch (e) {}
 
 // ── XP Table ─────────────────────────────────────────────────────────────────
 const XP_TABLE = [0];

@@ -56,6 +56,8 @@ try { require('../src/content/aelgard/special-regions'); } catch (e) {}
 try { require('../src/content/aelgard/items-blitz3'); } catch (e) {}
 try { require('../src/content/aelgard/monsters-mega'); } catch (e) {}
 try { require('../src/content/aelgard/droptables-mega'); } catch (e) {}
+try { require('../src/content/aelgard/combinations-mega'); } catch (e) {}
+try { require('../src/content/aelgard/recipes-mega'); } catch (e) {}
 
 let PRESTIGE_GOALS = {};
 try { PRESTIGE_GOALS = require('../src/content/aelgard/cross-region-web').PRESTIGE_GOALS || {}; } catch (e) {}
