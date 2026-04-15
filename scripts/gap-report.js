@@ -49,6 +49,8 @@ try { require('../src/content/aelgard/inkweald-density'); } catch (e) {}
 try { require('../src/content/aelgard/mid-tier-regions'); } catch (e) {}
 try { require('../src/content/aelgard/universal-items'); } catch (e) {}
 try { require('../src/content/aelgard/special-regions'); } catch (e) {}
+try { require('../src/content/aelgard/combinations-mega'); } catch (e) {}
+try { require('../src/content/aelgard/recipes-mega'); } catch (e) {}
 
 let PRESTIGE_GOALS = {};
 try { PRESTIGE_GOALS = require('../src/content/aelgard/cross-region-web').PRESTIGE_GOALS || {}; } catch (e) {}

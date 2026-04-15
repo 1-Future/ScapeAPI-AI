@@ -51,6 +51,8 @@ try { require('../content/aelgard/universal-items'); } catch (e) {}
 try { require('../content/aelgard/special-regions'); } catch (e) {}
 try { require('../content/aelgard/cross-region-web'); } catch (e) {}
 try { require('../content/aelgard/quirky-interactions'); } catch (e) {}
+try { require('../content/aelgard/combinations-mega'); } catch (e) {}
+try { require('../content/aelgard/recipes-mega'); } catch (e) {}
 
 // ── XP Table ─────────────────────────────────────────────────────────────────
 const XP_TABLE = [0];

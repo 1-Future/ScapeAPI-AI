@@ -52,6 +52,8 @@ try { require('../content/aelgard/inkweald-density'); } catch (e) { /* optional 
 try { require('../content/aelgard/mid-tier-regions'); } catch (e) { /* optional */ }
 try { require('../content/aelgard/universal-items'); } catch (e) { /* optional */ }
 try { require('../content/aelgard/special-regions'); } catch (e) { /* optional */ }
+try { require('../content/aelgard/combinations-mega'); } catch (e) { /* optional */ }
+try { require('../content/aelgard/recipes-mega'); } catch (e) { /* optional */ }
 
 let PRESTIGE_GOALS = {};
 try {
