@@ -1,0 +1,22 @@
+{
+  "type": "combination",
+  "label": "Combination",
+  "description": "Reagent system: combine a boss-drop reagent with an old item to upgrade it. Keeps old content alive.",
+  "idPrefix": "cmb_",
+  "fields": [
+    { "key": "id", "type": "string", "required": true, "readonly_after_create": true, "label": "ID" },
+    { "key": "resultName", "type": "string", "required": true, "label": "Result item name" },
+    { "key": "description", "type": "markdown", "required": true, "label": "Why this combination exists" },
+    { "key": "skill", "type": "enum",
+      "values": ["crafting","smithing","fletching","herblore","magic","prayer"],
+      "label": "Skill used (optional)" },
+    { "key": "level", "type": "int", "default": 1, "label": "Skill level required" },
+    { "key": "xp", "type": "float", "default": 0 },
+    { "key": "station", "type": "string", "label": "Station required (e.g. singing bowl)" },
+    { "key": "inputs", "type": "obj_list", "required": true, "label": "Inputs", "fields": [
+      { "key": "name", "type": "string", "required": true },
+      { "key": "count", "type": "int", "default": 1 },
+      { "key": "consumed", "type": "bool", "default": true, "label": "Consumed on use?" }
+    ]}
+  ]
+}

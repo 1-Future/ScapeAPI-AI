@@ -1,0 +1,25 @@
+{
+  "type": "area_gate",
+  "label": "Area Gate",
+  "description": "A Metroidvania-style lock on an area. Marstead: 'hundreds of unique progression locks opened by hundreds of unique keys.'",
+  "idPrefix": "gate_",
+  "fields": [
+    { "key": "id", "type": "string", "required": true, "readonly_after_create": true, "label": "ID" },
+    { "key": "name", "type": "string", "required": true, "label": "Gate name" },
+    { "key": "description", "type": "markdown", "required": true },
+    { "key": "region", "type": "region_picker", "required": true },
+    { "key": "subArea", "type": "string", "label": "Sub-area within region (optional)" },
+    { "key": "requires", "type": "object", "required": true, "label": "Requirements", "fields": [
+      { "key": "skills", "type": "kv_int", "label": "Skill reqs" },
+      { "key": "quests", "type": "string_list", "label": "Quest prerequisites" },
+      { "key": "items", "type": "obj_list", "fields": [
+        { "key": "name", "type": "string", "required": true },
+        { "key": "consumed", "type": "bool", "default": false }
+      ]},
+      { "key": "combatLevel", "type": "int" },
+      { "key": "other", "type": "string", "label": "Custom requirement expression" }
+    ]},
+    { "key": "denialMessage", "type": "markdown", "label": "Message shown on fail" },
+    { "key": "unlockMessage", "type": "markdown", "label": "Message shown on first-time unlock" }
+  ]
+}

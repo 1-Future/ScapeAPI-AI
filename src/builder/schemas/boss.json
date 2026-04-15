@@ -1,0 +1,47 @@
+{
+  "type": "boss",
+  "label": "Boss",
+  "description": "A multi-phase encounter. Extends monster with phase data and loadout.",
+  "idPrefix": "boss_",
+  "fields": [
+    { "key": "id", "type": "string", "required": true, "readonly_after_create": true, "label": "ID" },
+    { "key": "name", "type": "string", "required": true, "label": "Name" },
+    { "key": "description", "type": "markdown", "required": true, "label": "Description" },
+    { "key": "combatLevel", "type": "int", "required": true, "default": 100 },
+    { "key": "maxHp", "type": "int", "required": true, "default": 500 },
+    { "key": "maxHit", "type": "int", "required": true, "default": 20 },
+    { "key": "attackSpeed", "type": "int", "required": true, "default": 4 },
+    { "key": "attackStyle", "type": "enum", "required": true, "default": "melee",
+      "values": ["melee","ranged","magic","hybrid"] },
+    { "key": "size", "type": "int", "default": 3 },
+    { "key": "region", "type": "region_picker" },
+    { "key": "phases", "type": "obj_list", "required": true, "label": "Phases", "fields": [
+      { "key": "name", "type": "string", "required": true, "label": "Phase name" },
+      { "key": "hpThreshold", "type": "int", "label": "HP threshold to enter this phase" },
+      { "key": "attackStyle", "type": "enum",
+        "values": ["melee","ranged","magic","mixed"] },
+      { "key": "mechanics", "type": "markdown", "label": "Mechanics description" }
+    ]},
+    { "key": "addMobs", "type": "string_list", "label": "Additional mob def ids summoned in fight" },
+    { "key": "challenges", "type": "obj_list", "label": "Challenge variants", "fields": [
+      { "key": "id", "type": "string", "required": true },
+      { "key": "description", "type": "string", "required": true }
+    ]},
+    { "key": "drops", "type": "obj_list", "label": "Drop table", "fields": [
+      { "key": "name", "type": "string", "required": true },
+      { "key": "min", "type": "int", "default": 1 },
+      { "key": "max", "type": "int", "default": 1 },
+      { "key": "weight", "type": "int", "default": 1 },
+      { "key": "rare", "type": "bool", "default": false }
+    ]},
+    { "key": "loadout", "type": "object", "label": "Recommended player loadout", "fields": [
+      { "key": "level", "type": "int", "default": 99 },
+      { "key": "equipment", "type": "string_list", "label": "Equipment names" },
+      { "key": "inventory", "type": "obj_list", "fields": [
+        { "key": "name", "type": "string", "required": true },
+        { "key": "count", "type": "int", "default": 1 }
+      ]},
+      { "key": "prayers", "type": "string_list" }
+    ]}
+  ]
+}

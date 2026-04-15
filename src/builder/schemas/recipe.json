@@ -1,0 +1,29 @@
+{
+  "type": "recipe",
+  "label": "Recipe",
+  "description": "A processing/combining recipe. Used by cooking, smithing, crafting, fletching, herblore, firemaking.",
+  "idPrefix": "rcp_",
+  "fields": [
+    { "key": "id", "type": "string", "required": true, "readonly_after_create": true, "label": "ID" },
+    { "key": "name", "type": "string", "required": true, "label": "Recipe name" },
+    { "key": "skill", "type": "enum", "required": true,
+      "values": ["cooking","smithing","crafting","fletching","herblore","firemaking","farming","construction","runecrafting"] },
+    { "key": "level", "type": "int", "required": true, "default": 1 },
+    { "key": "xp", "type": "float", "required": true, "default": 0 },
+    { "key": "ticks", "type": "int", "required": true, "default": 3, "label": "Ticks per attempt" },
+    { "key": "station", "type": "enum", "label": "Station required",
+      "values": ["", "range","furnace","anvil","spinning wheel","tanner","loom","pottery wheel","altar"] },
+    { "key": "tool", "type": "string", "label": "Tool required (e.g. hammer, knife)" },
+    { "key": "inputs", "type": "obj_list", "required": true, "label": "Inputs (consumed)", "fields": [
+      { "key": "name", "type": "string", "required": true },
+      { "key": "count", "type": "int", "required": true, "default": 1 }
+    ]},
+    { "key": "outputs", "type": "obj_list", "required": true, "label": "Outputs (produced)", "fields": [
+      { "key": "name", "type": "string", "required": true },
+      { "key": "count", "type": "int", "required": true, "default": 1 }
+    ]},
+    { "key": "failChance", "type": "float", "label": "Chance to fail (0.0 - 1.0)" },
+    { "key": "failItem", "type": "string", "label": "Item produced on fail (burnt/broken)" },
+    { "key": "stopBurn", "type": "int", "label": "Level at which this no longer fails/burns" }
+  ]
+}

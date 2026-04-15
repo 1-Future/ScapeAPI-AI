@@ -1,0 +1,35 @@
+{
+  "type": "item",
+  "label": "Item",
+  "description": "Any in-game item: loot, food, tool, currency, or quest item.",
+  "idPrefix": "itm_",
+  "fields": [
+    { "key": "id", "type": "string", "required": true, "readonly_after_create": true, "label": "ID" },
+    { "key": "name", "type": "string", "required": true, "label": "Item name" },
+    { "key": "examine", "type": "string", "required": true, "label": "Examine text" },
+    { "key": "category", "type": "enum", "default": "misc",
+      "values": ["misc","currency","food","cooking","fishing","mining","smithing","woodcutting",
+        "crafting","fletching","herblore","prayer","farming","hunter","slayer","runecrafting",
+        "combat","weapon","armor","ranged","magic","quest","junk","pet"] },
+    { "key": "value", "type": "int", "default": 0, "label": "Base value (gp)" },
+    { "key": "weight", "type": "float", "default": 0, "label": "Weight (kg)" },
+    { "key": "tradeable", "type": "bool", "default": true },
+    { "key": "stackable", "type": "bool", "default": false },
+    { "key": "members", "type": "bool", "default": false },
+    { "key": "equipSlot", "type": "enum", "label": "Equipment slot (weapons/armor)",
+      "values": ["", "head","cape","neck","ammo","weapon","body","shield","legs","hands","feet","ring"] },
+    { "key": "equipReqs", "type": "kv_int", "label": "Equip requirements {skill: level}" },
+    { "key": "stats", "type": "object", "label": "Combat stats", "fields": [
+      { "key": "stab", "type": "int", "default": 0 },
+      { "key": "slash", "type": "int", "default": 0 },
+      { "key": "crush", "type": "int", "default": 0 },
+      { "key": "magic", "type": "int", "default": 0 },
+      { "key": "ranged", "type": "int", "default": 0 },
+      { "key": "melee_strength", "type": "int", "default": 0 },
+      { "key": "ranged_strength", "type": "int", "default": 0 },
+      { "key": "magic_damage", "type": "int", "default": 0 },
+      { "key": "prayer", "type": "int", "default": 0 }
+    ]},
+    { "key": "speed", "type": "int", "label": "Attack speed (weapons only, ticks)" }
+  ]
+}

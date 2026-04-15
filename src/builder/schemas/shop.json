@@ -1,0 +1,23 @@
+{
+  "type": "shop",
+  "label": "Shop",
+  "description": "An NPC shop with stock, restock rate, and currency.",
+  "idPrefix": "shop_",
+  "fields": [
+    { "key": "id", "type": "string", "required": true, "readonly_after_create": true, "label": "ID" },
+    { "key": "name", "type": "string", "required": true, "label": "Shop name" },
+    { "key": "npc", "type": "string", "label": "Shopkeeper NPC id" },
+    { "key": "region", "type": "region_picker" },
+    { "key": "type", "type": "enum", "required": true, "default": "specialty",
+      "values": ["general","specialty","pvp","magic","cosmetic","ironman","members"] },
+    { "key": "currency", "type": "string", "default": "coins", "label": "Currency (default: coins)" },
+    { "key": "restockRate", "type": "int", "default": 100, "label": "Restock rate (ticks)" },
+    { "key": "sellMultiplier", "type": "float", "default": 0.6, "label": "Sell-to-shop multiplier" },
+    { "key": "buyMultiplier", "type": "float", "default": 1.0, "label": "Buy-from-shop multiplier" },
+    { "key": "stock", "type": "obj_list", "required": true, "label": "Stock", "fields": [
+      { "key": "name", "type": "string", "required": true, "label": "Item name" },
+      { "key": "base", "type": "int", "default": 10, "label": "Base quantity" },
+      { "key": "price", "type": "int", "required": true, "label": "Price" }
+    ]}
+  ]
+}

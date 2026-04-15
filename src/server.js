@@ -4832,6 +4832,18 @@ contentLoader.loadAllContent().then(() => {
   console.warn('[server] Builder content load skipped:', err.message);
 });
 
+// Apply published builder-staging overrides (filesystem DM edits)
+try {
+  const staging = require('./builder/staging');
+  staging.applyOverridesAtBoot();
+  const stats = staging.stats();
+  if (stats.total > 0) {
+    console.log(`[server] Builder staging: ${stats.total} entities across ${Object.keys(stats.types).length} types (${stats.published} published, ${stats.dirty} dirty)`);
+  }
+} catch (err) {
+  console.warn('[server] Builder staging not applied:', err.message);
+}
+
 // Start
 tick.startTicking();
 ollama.checkOllama(); // Check if Ollama is running for local AI

@@ -1,0 +1,28 @@
+{
+  "type": "region",
+  "label": "Region",
+  "description": "A top-level world region (one of the 8 Aelgard regions or a custom zone).",
+  "idPrefix": "rgn_",
+  "fields": [
+    { "key": "id", "type": "string", "required": true, "readonly_after_create": true, "label": "ID" },
+    { "key": "name", "type": "string", "required": true, "label": "Region name" },
+    { "key": "flavor", "type": "markdown", "required": true, "label": "Flavor / atmosphere" },
+    { "key": "description", "type": "markdown", "required": true, "label": "Description" },
+    { "key": "biome", "type": "enum", "required": true, "default": "temperate",
+      "values": ["temperate","desert","forest","swamp","arctic","volcanic","coastal","underground","magical","wasteland"] },
+    { "key": "architecturalStyle", "type": "enum",
+      "values": ["medieval","roman","gothic","rustic","arcane","tribal","industrial","ruined","crystalline","organic"] },
+    { "key": "tier", "type": "enum", "required": true, "default": "starter",
+      "values": ["starter","mid","high","endgame"] },
+    { "key": "entryGate", "type": "string", "label": "Area gate id (if any)" },
+    { "key": "landmarks", "type": "obj_list", "label": "Notable landmarks", "fields": [
+      { "key": "name", "type": "string", "required": true },
+      { "key": "type", "type": "string" },
+      { "key": "x", "type": "int" },
+      { "key": "y", "type": "int" }
+    ]},
+    { "key": "neighbors", "type": "string_list", "label": "Neighboring region ids" },
+    { "key": "weather", "type": "string_list", "label": "Weather patterns" },
+    { "key": "members", "type": "bool", "default": false }
+  ]
+}

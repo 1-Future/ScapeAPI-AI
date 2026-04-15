@@ -1,0 +1,51 @@
+{
+  "type": "training_method",
+  "label": "Training Method",
+  "description": "A way to train a skill. Must satisfy the 8 design knobs from Marstead.",
+  "idPrefix": "tm_",
+  "fields": [
+    { "key": "id", "type": "string", "required": true, "readonly_after_create": true, "label": "ID (auto)" },
+    { "key": "name", "type": "string", "required": true, "label": "Display name" },
+    { "key": "skill", "type": "enum", "required": true, "label": "Skill",
+      "values": ["attack","strength","defence","hitpoints","ranged","magic","prayer",
+        "runecrafting","construction","agility","herblore","thieving","crafting",
+        "fletching","slayer","hunter","mining","smithing","fishing","cooking",
+        "firemaking","woodcutting","farming"] },
+    { "key": "levelRange", "type": "tuple_int_int", "required": true, "label": "Level range [min, max]" },
+    { "key": "xpPerHour", "type": "int_or_range", "required": true, "label": "XP / hour (int or [low, high])" },
+    { "key": "description", "type": "markdown", "label": "Description / flavor" },
+    { "key": "location", "type": "region_picker", "label": "Location (region id)" },
+    { "key": "members", "type": "bool", "default": true, "label": "Members-only?" },
+    { "key": "ironmanViable", "type": "bool", "default": true, "label": "Ironman-viable?" },
+    { "key": "breakpointAt", "type": "int", "label": "Breakpoint level (if any)" },
+    { "key": "prerequisites", "type": "object", "label": "Prerequisites", "fields": [
+      { "key": "skills", "type": "kv_int", "label": "Skill reqs {skill: level}" },
+      { "key": "quests", "type": "string_list", "label": "Quest reqs (ids)" },
+      { "key": "items", "type": "string_list", "label": "Item reqs" },
+      { "key": "areas", "type": "string_list", "label": "Area reqs (gate ids)" }
+    ]},
+    { "key": "knobs", "type": "object", "label": "The 8 design knobs (Marstead)", "fields": [
+      { "key": "resourceOutput", "type": "object", "label": "Resource output", "fields": [
+        { "key": "net", "type": "enum", "values": ["profit", "loss", "neutral"], "required": true },
+        { "key": "produces", "type": "obj_list", "label": "Produces [{name, perHour}]", "fields": [
+          { "key": "name", "type": "string", "required": true },
+          { "key": "perHour", "type": "int", "required": true }
+        ]}
+      ]},
+      { "key": "bankingFrequency", "type": "enum", "required": true,
+        "values": ["never","rare","moderate","frequent","constant"] },
+      { "key": "costPerHour", "type": "int", "required": true, "label": "Cost / hour (gp; negative = profit)" },
+      { "key": "danger", "type": "enum", "required": true,
+        "values": ["none","low","medium","high","extreme"] },
+      { "key": "complexity", "type": "enum", "required": true,
+        "values": ["trivial","simple","moderate","complex","intense"] },
+      { "key": "attention", "type": "enum", "required": true,
+        "values": ["afk","low","medium","high","maximum"] },
+      { "key": "inputs", "type": "obj_list", "label": "Supply chain (consumed items)", "fields": [
+        { "key": "name", "type": "string", "required": true },
+        { "key": "perHour", "type": "int", "required": true },
+        { "key": "source", "type": "string", "label": "Source hint (combat_drops, fishing, shop, ge, ...)" }
+      ]}
+    ]}
+  ]
+}
