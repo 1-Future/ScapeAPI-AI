@@ -1,0 +1,72 @@
+{
+  "$schema": "scape.diary.v1",
+  "region": "sootworks",
+  "name": "Sootworks Diary",
+  "summary": "Dwarven forge-city of pipework, blast furnaces, and rune-bound steel. The Soot King reigns from the deep vein. Bring a stout, your best pickaxe, and a tolerance for ash.",
+  "tiers": {
+    "easy": {
+      "tasks": [
+        { "id": "s_easy_1", "description": "Enter the Sootworks from the Heartlands.", "check": { "type": "enter_area", "area": "sootworks", "from_area": "heartlands" } },
+        { "id": "s_easy_2", "description": "Mine coal in the Sootworks mines.", "check": { "type": "mine_items", "items": ["coal"], "area": "sootworks_mines" } },
+        { "id": "s_easy_3", "description": "Smith a bronze bar at the Sootworks furnace.", "check": { "type": "smelt_item", "item": "bronze_bar", "area": "sootworks_furnace" } },
+        { "id": "s_easy_4", "description": "Kill a mine spider.", "check": { "type": "kill_npc", "npc": "mine_spider" } },
+        { "id": "s_easy_5", "description": "Buy a dwarven stout from Vendor Grit.", "check": { "type": "buy_item", "item": "dwarven_stout", "shop": "vendor_grit" } },
+        { "id": "s_easy_6", "description": "Take the steam tram to the lower levels.", "check": { "type": "use_transport", "transport": "steam_tram" } },
+        { "id": "s_easy_7", "description": "Talk to Forgemaster Brun.", "check": { "type": "talk_to_npc", "npc": "forgemaster_brun" } },
+        { "id": "s_easy_8", "description": "Use the Sootworks anvil.", "check": { "type": "use_anvil", "area": "sootworks" } },
+        { "id": "s_easy_9", "description": "Mine 10 coal in one trip.", "check": { "type": "obtain_item_in_trip", "item": "coal", "count": 10 } },
+        { "id": "s_easy_10", "description": "Kill 3 mine spiders.", "check": { "type": "kill_npc_in_trip", "npc": "mine_spider", "count": 3 } }
+      ],
+      "reward": "Sootworks cape (easy) + emote: tip helmet. Diary lamp (easy).",
+      "perk_description": "Sootworks teleport (3/day); noted coal from rock golems."
+    },
+    "medium": {
+      "tasks": [
+        { "id": "s_med_1", "description": "Complete Sootworks Rising quest.", "check": { "type": "quest_complete", "quest": "sootworks_rising" } },
+        { "id": "s_med_2", "description": "Use the Blast Forge (half-coal smelting).", "check": { "type": "use_blast_forge" } },
+        { "id": "s_med_3", "description": "Kill a rock golem with magic.", "check": { "type": "kill_npc", "npc": "rock_golem", "with_style": "magic" } },
+        { "id": "s_med_4", "description": "Smith a mithril platebody.", "check": { "type": "smith_item", "item": "mithril_platebody" } },
+        { "id": "s_med_5", "description": "Mine mithril ore in the Sootworks.", "check": { "type": "mine_items", "items": ["mithril_ore"], "area": "sootworks_mines" } },
+        { "id": "s_med_6", "description": "Complete a lap of the Sootworks Pipe Network agility course.", "check": { "type": "agility_course_lap", "course": "sootworks_pipe_network" } },
+        { "id": "s_med_7", "description": "Kill a clockwork sentry with ranged.", "check": { "type": "kill_npc", "npc": "clockwork_sentry", "with_style": "ranged" } },
+        { "id": "s_med_8", "description": "Collect 10 clockwork gears.", "check": { "type": "obtain_item", "item": "clockwork_gear", "count": 10 } },
+        { "id": "s_med_9", "description": "Smith a full set of soot-iron weapons.", "check": { "type": "smith_set", "set": "soot_iron_weapons" } },
+        { "id": "s_med_10", "description": "Kill a crazed miner.", "check": { "type": "kill_npc", "npc": "crazed_miner" } }
+      ],
+      "reward": "Sootworks cape (medium) + Blast Forge access (half coal). Diary lamp (medium).",
+      "perk_description": "Blast Forge half-coal smelting; +10% soot-iron yield from sootworks rocks; pipe network shortcut."
+    },
+    "hard": {
+      "tasks": [
+        { "id": "s_hard_1", "description": "Complete The Forge Beneath the City quest.", "check": { "type": "quest_complete", "quest": "forge_beneath_the_city" } },
+        { "id": "s_hard_2", "description": "Kill an iron dragon with magic.", "check": { "type": "kill_npc", "npc": "iron_dragon", "with_style": "magic" } },
+        { "id": "s_hard_3", "description": "Smith an adamant platebody.", "check": { "type": "smith_item", "item": "adamant_platebody" } },
+        { "id": "s_hard_4", "description": "Complete a full Sootworks Pipe Network lap without failing.", "check": { "type": "agility_course_lap", "course": "sootworks_pipe_network", "perfect": true } },
+        { "id": "s_hard_5", "description": "Kill a rogue automaton.", "check": { "type": "kill_npc", "npc": "rogue_automaton" } },
+        { "id": "s_hard_6", "description": "Mine adamantite ore in the deep mines.", "check": { "type": "mine_items", "items": ["adamantite_ore"], "area": "sootworks_deep_mines" } },
+        { "id": "s_hard_7", "description": "Kill a lava beast without taking fire damage.", "check": { "type": "kill_npc_without_damage", "npc": "lava_beast", "damage_type": "fire" } },
+        { "id": "s_hard_8", "description": "Smelt a runite bar at the Blast Forge.", "check": { "type": "smelt_item_in_area", "item": "runite_bar", "area": "sootworks_blast_forge" } },
+        { "id": "s_hard_9", "description": "Kill Vorath, Warden of the Deep Vein.", "check": { "type": "boss_kill", "boss": "vorath_warden" } },
+        { "id": "s_hard_10", "description": "Collect 50 blast powder.", "check": { "type": "obtain_item", "item": "blast_powder", "count": 50 } }
+      ],
+      "reward": "Sootworks cape (hard) + deep mine shortcut. Diary lamp (hard).",
+      "perk_description": "Deep mine shortcut; +5% smithing success; auto-smelt at the Blast Forge."
+    },
+    "elite": {
+      "tasks": [
+        { "id": "s_elite_1", "description": "Defeat the Soot King in a group of 3+.", "check": { "type": "boss_kill_group", "boss": "the_soot_king", "min_party": 3 } },
+        { "id": "s_elite_2", "description": "Kill a steel dragon.", "check": { "type": "kill_npc", "npc": "steel_dragon" } },
+        { "id": "s_elite_3", "description": "Smith a rune platebody from bars you smelted.", "check": { "type": "compound", "all": [{ "type": "smelt_item", "item": "runite_bar", "count": 5 }, { "type": "smith_item", "item": "rune_platebody" }] } },
+        { "id": "s_elite_4", "description": "Mine a volcanic core (mining 75).", "check": { "type": "mine_items", "items": ["volcanic_core"], "min_level": { "mining": 75 } } },
+        { "id": "s_elite_5", "description": "Complete every Sootworks quest.", "check": { "type": "all_region_quests_complete", "region": "sootworks" } },
+        { "id": "s_elite_6", "description": "Kill a mithril dragon with magic only.", "check": { "type": "kill_npc", "npc": "mithril_dragon", "with_style": "magic", "exclusive": true } },
+        { "id": "s_elite_7", "description": "Complete the Dragon Slayer of Aelgard quest.", "check": { "type": "quest_complete", "quest": "dragon_slayer_of_aelgard" } },
+        { "id": "s_elite_8", "description": "Kill 50 iron dragons.", "check": { "type": "kill_npc", "npc": "iron_dragon", "count": 50 } },
+        { "id": "s_elite_9", "description": "Use the infernal pickaxe (auto-smelt) in the Sootworks.", "check": { "type": "use_item_in_area", "item": "infernal_pickaxe", "area": "sootworks_mines" } },
+        { "id": "s_elite_10", "description": "Complete an elite clue step in the deep vein.", "check": { "type": "clue_step_complete", "tier": "elite", "area": "sootworks_deep_vein" } }
+      ],
+      "reward": "Sootworks cape (elite — molten-trim recolour), unlimited Sootworks teleport, smithing apprentice's brand. Diary lamp (elite).",
+      "perk_description": "Unlimited Sootworks teleport; auto-smelt unlocked at every Sootworks furnace; +5% chance of double bars at the Blast Forge."
+    }
+  }
+}

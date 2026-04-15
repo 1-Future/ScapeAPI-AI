@@ -1,0 +1,683 @@
+{
+  "$schema": "scape.collection-log.v1",
+  "generated": "2026-04-15",
+  "notes": "Static catalogue of unique drop sources. Player progress lives on player.collectionLog. Source ids are stable engine identifiers (boss def_ids, minigame ids, etc.). Items reference data/items.js by numeric id. Cross-referenced from src/content/aelgard/{bosses-expanded,raids-bosses-mega,raids-mega1,raids-mega2,clue-scrolls-expanded,treasure-trails,minigames,pets-collection,slayer-expansion}.js — port any new drops here.",
+  "sources": [
+    {
+      "id": "forgefather_duran",
+      "name": "Forgefather Duran",
+      "category": "boss",
+      "region": "heartlands",
+      "items": [
+        { "id": 3010, "name": "Duran's hammer" },
+        { "id": 80001, "name": "Baby Duran" }
+      ],
+      "completionReward": {
+        "cosmetic": "Duran's molten cloak",
+        "title": "the Forgeheir",
+        "log": "Forgefather Duran"
+      }
+    },
+    {
+      "id": "azhmari_sand_prince",
+      "name": "Azhmari, the Sand Prince",
+      "category": "boss",
+      "region": "boneyard",
+      "items": [
+        { "id": 4050, "name": "Azhmari's crown" },
+        { "id": 4051, "name": "Sandstorm staff" },
+        { "id": 4052, "name": "Bone cleaver" },
+        { "id": 80002, "name": "Sand Prince Jr." }
+      ],
+      "completionReward": {
+        "cosmetic": "Sand-prince circlet",
+        "title": "the Crowned",
+        "log": "Azhmari"
+      }
+    },
+    {
+      "id": "bog_hydra",
+      "name": "Bog Hydra",
+      "category": "boss",
+      "region": "boneyard",
+      "items": [
+        { "id": 4060, "name": "Hydra scale" },
+        { "id": 4061, "name": "Hydra leather body" },
+        { "id": 80003, "name": "Hydra cub" }
+      ],
+      "completionReward": { "cosmetic": "Bog-stained mantle", "title": "the Hydra-slayer", "log": "Bog Hydra" }
+    },
+    {
+      "id": "count_malachar",
+      "name": "Count Malachar",
+      "category": "boss",
+      "region": "moryskah",
+      "items": [
+        { "id": 5050, "name": "Malachar's signet" },
+        { "id": 5051, "name": "Sanguine cape" },
+        { "id": 5052, "name": "Bloodwood staff" },
+        { "id": 80004, "name": "Count Malachar Jr." }
+      ],
+      "completionReward": { "cosmetic": "Sanguine vampyric robes", "title": "the Stake-bearer", "log": "Count Malachar" }
+    },
+    {
+      "id": "the_veilmother",
+      "name": "The Veilmother",
+      "category": "boss",
+      "region": "veilwood",
+      "items": [
+        { "id": 6050, "name": "Veilmother's heartwood" },
+        { "id": 6051, "name": "Verdant plate" },
+        { "id": 6052, "name": "Root whip" },
+        { "id": 80005, "name": "Veil sprout" }
+      ],
+      "completionReward": { "cosmetic": "Heartwood crown", "title": "of the Verdant Veil", "log": "The Veilmother" }
+    },
+    {
+      "id": "vorath_warden",
+      "name": "Vorath, Warden of the Deep Vein",
+      "category": "boss",
+      "region": "sootworks",
+      "items": [
+        { "id": 7050, "name": "Vorath's anvil ring" },
+        { "id": 7051, "name": "Molten maul" },
+        { "id": 80006, "name": "Mini anvil" }
+      ],
+      "completionReward": { "cosmetic": "Smoke-soot warden's helm", "title": "the Deep-Vein Warden", "log": "Vorath" }
+    },
+    {
+      "id": "the_soot_king",
+      "name": "The Soot King",
+      "category": "boss",
+      "region": "sootworks",
+      "items": [
+        { "id": 7060, "name": "Soot King crown" },
+        { "id": 80007, "name": "Soot golem" }
+      ],
+      "completionReward": { "cosmetic": "Ash-blackened mantle", "title": "the Sootcrowned", "log": "Soot King" }
+    },
+    {
+      "id": "kraken_of_saltbrine",
+      "name": "Kraken of Saltbrine",
+      "category": "boss",
+      "region": "saltbrine",
+      "items": [
+        { "id": 8050, "name": "Kraken tentacle" },
+        { "id": 8051, "name": "Tidal amulet" },
+        { "id": 8052, "name": "Abyssal trident" },
+        { "id": 80008, "name": "Baby kraken" }
+      ],
+      "completionReward": { "cosmetic": "Tidal-storm cloak", "title": "the Tidebreaker", "log": "Kraken of Saltbrine" }
+    },
+    {
+      "id": "inkweald_muse",
+      "name": "Inkweald Muse",
+      "category": "boss",
+      "region": "inkweald",
+      "items": [
+        { "id": 9050, "name": "Muse's mask" },
+        { "id": 9051, "name": "Dreamweaver staff" },
+        { "id": 80009, "name": "Dream wisp pet" }
+      ],
+      "completionReward": { "cosmetic": "Lucid muse's veil", "title": "the Lucid", "log": "Inkweald Muse" }
+    },
+    {
+      "id": "glass_tyrant",
+      "name": "The Glass Tyrant",
+      "category": "boss",
+      "region": "glass_desert",
+      "items": [
+        { "id": 10050, "name": "Glass crown" },
+        { "id": 10051, "name": "Prismatic blade" },
+        { "id": 80011, "name": "Glass shard pet" }
+      ],
+      "completionReward": { "cosmetic": "Refracted prism cloak", "title": "the Prism-shattered", "log": "Glass Tyrant" }
+    },
+    {
+      "id": "veldrak_last_dragon",
+      "name": "Veldrak, the Last Dragon",
+      "category": "boss",
+      "region": "glass_desert",
+      "items": [
+        { "id": 10060, "name": "Dragon shard" },
+        { "id": 10061, "name": "Veldrak's talon" },
+        { "id": 10062, "name": "Veldrak's scale mail" },
+        { "id": 80012, "name": "Veldrak hatchling" }
+      ],
+      "completionReward": { "cosmetic": "Dragonbone cape (coloured)", "title": "the Last-Dragon Slayer", "log": "Veldrak" }
+    },
+    {
+      "id": "crystal_wyrm",
+      "name": "Crystal Wyrm",
+      "category": "boss",
+      "region": "glass_desert",
+      "items": [
+        { "id": 2010, "name": "Wyrm scale platebody" },
+        { "id": 2011, "name": "Wyrm scale platelegs" },
+        { "id": 2012, "name": "Wyrm scale helm" },
+        { "id": 2015, "name": "Crystal wyrm fang" },
+        { "id": 80013, "name": "Wyrm scale pet" }
+      ],
+      "completionReward": { "cosmetic": "Crystallised wyrm-scale trim", "title": "the Wyrm-Hunter", "log": "Crystal Wyrm" }
+    },
+    {
+      "id": "commander_zilyana",
+      "name": "Commander Zilyana",
+      "category": "boss",
+      "region": "wilds",
+      "items": [
+        { "id": 91008, "name": "Saradomin sword" },
+        { "id": 91001, "name": "Saradomin hilt" },
+        { "id": 91005, "name": "Godsword blade" },
+        { "id": 82001, "name": "Zilyana Jr." }
+      ],
+      "completionReward": { "cosmetic": "Saradomin's blessed wings", "title": "Commander", "log": "Zilyana" }
+    },
+    {
+      "id": "general_graardor",
+      "name": "General Graardor",
+      "category": "boss",
+      "region": "wilds",
+      "items": [
+        { "id": 26003, "name": "Bandos chestplate" },
+        { "id": 26004, "name": "Bandos tassets" },
+        { "id": 91010, "name": "Bandos boots" },
+        { "id": 91003, "name": "Bandos hilt" },
+        { "id": 82002, "name": "General Graardor Jr." }
+      ],
+      "completionReward": { "cosmetic": "Bandos warlord's mantle", "title": "the Warlord", "log": "Graardor" }
+    },
+    {
+      "id": "kreearra",
+      "name": "Kree'arra",
+      "category": "boss",
+      "region": "wilds",
+      "items": [
+        { "id": 26006, "name": "Armadyl chestplate" },
+        { "id": 26007, "name": "Armadyl chainskirt" },
+        { "id": 91011, "name": "Armadyl helmet" },
+        { "id": 91004, "name": "Armadyl hilt" },
+        { "id": 26008, "name": "Armadyl crossbow" },
+        { "id": 82003, "name": "Kree'arra Jr." }
+      ],
+      "completionReward": { "cosmetic": "Aviansie wings (decorative)", "title": "the Skybound", "log": "Kree'arra" }
+    },
+    {
+      "id": "kril_tsutsaroth",
+      "name": "K'ril Tsutsaroth",
+      "category": "boss",
+      "region": "wilds",
+      "items": [
+        { "id": 91009, "name": "Zamorak spear" },
+        { "id": 91002, "name": "Zamorak hilt" },
+        { "id": 82004, "name": "K'ril Jr." }
+      ],
+      "completionReward": { "cosmetic": "Zamorak's burning brand", "title": "the Demon-bound", "log": "K'ril Tsutsaroth" }
+    },
+    {
+      "id": "zulrah",
+      "name": "Zulrah",
+      "category": "boss",
+      "region": "saltbrine",
+      "items": [
+        { "id": 91101, "name": "Tanzanite fang" },
+        { "id": 91102, "name": "Magic fang" },
+        { "id": 91103, "name": "Serpentine visage" },
+        { "id": 82005, "name": "Snakeling" }
+      ],
+      "completionReward": { "cosmetic": "Serpentine scarf", "title": "of Zul-Andra", "log": "Zulrah" }
+    },
+    {
+      "id": "vorkath",
+      "name": "Vorkath",
+      "category": "boss",
+      "region": "moryskah",
+      "items": [
+        { "id": 91201, "name": "Vorkath's head" },
+        { "id": 91202, "name": "Dragonbone necklace" },
+        { "id": 91203, "name": "Skeletal visage" },
+        { "id": 82006, "name": "Vorki" }
+      ],
+      "completionReward": { "cosmetic": "Vorkath head trophy (mounted)", "title": "the Dragon-mounted", "log": "Vorkath" }
+    },
+    {
+      "id": "corporeal_beast",
+      "name": "Corporeal Beast",
+      "category": "boss",
+      "region": "wilds",
+      "items": [
+        { "id": 91301, "name": "Spectral sigil" },
+        { "id": 91302, "name": "Arcane sigil" },
+        { "id": 91303, "name": "Elysian sigil" },
+        { "id": 82007, "name": "Dark core pet" }
+      ],
+      "completionReward": { "cosmetic": "Spirit-shield emblem cloak", "title": "the Spirit-Cleaver", "log": "Corporeal Beast" }
+    },
+    {
+      "id": "the_nightmare",
+      "name": "The Nightmare",
+      "category": "boss",
+      "region": "inkweald",
+      "items": [
+        { "id": 91401, "name": "Nightmare staff" },
+        { "id": 91402, "name": "Harmonised orb" },
+        { "id": 91403, "name": "Volatile orb" },
+        { "id": 91404, "name": "Eldritch orb" },
+        { "id": 91405, "name": "Inquisitor's mace" },
+        { "id": 91406, "name": "Inquisitor's hauberk" },
+        { "id": 91407, "name": "Inquisitor's plateskirt" },
+        { "id": 91408, "name": "Inquisitor's great helm" },
+        { "id": 82008, "name": "Little nightmare" }
+      ],
+      "completionReward": { "cosmetic": "Inquisitor's full helm (recoloured)", "title": "the Dreamwarden", "log": "The Nightmare" }
+    },
+    {
+      "id": "dagannoth_kings",
+      "name": "Dagannoth Kings",
+      "category": "boss",
+      "region": "saltbrine",
+      "items": [
+        { "id": 24001, "name": "Berserker ring" },
+        { "id": 24002, "name": "Archers ring" },
+        { "id": 24003, "name": "Seers ring" },
+        { "id": 82009, "name": "Dagannoth Rex pet" },
+        { "id": 82010, "name": "Dagannoth Prime pet" },
+        { "id": 82011, "name": "Dagannoth Supreme pet" }
+      ],
+      "completionReward": { "cosmetic": "Triple-king signet", "title": "King-Slayer", "log": "Dagannoth Kings" }
+    },
+    {
+      "id": "giant_mole",
+      "name": "Giant Mole",
+      "category": "boss",
+      "region": "heartlands",
+      "items": [
+        { "id": 82012, "name": "Baby mole" }
+      ],
+      "completionReward": { "cosmetic": "Mole-fur scarf", "title": "the Burrower", "log": "Giant Mole" }
+    },
+    {
+      "id": "kalphite_queen",
+      "name": "Kalphite Queen",
+      "category": "boss",
+      "region": "boneyard",
+      "items": [
+        { "id": 91501, "name": "Dragon chain" },
+        { "id": 24006, "name": "Brimstone ring" },
+        { "id": 82013, "name": "Kalphite princess" }
+      ],
+      "completionReward": { "cosmetic": "Kalphite mandible cape", "title": "the Hive-Slayer", "log": "Kalphite Queen" }
+    },
+    {
+      "id": "barrows_brothers",
+      "name": "Barrows Brothers",
+      "category": "boss",
+      "region": "moryskah",
+      "items": [
+        { "id": 21001, "name": "Dharok's greataxe" },
+        { "id": 21002, "name": "Dharok's helm" },
+        { "id": 21003, "name": "Dharok's platebody" },
+        { "id": 21004, "name": "Dharok's platelegs" },
+        { "id": 21011, "name": "Guthan's warspear" },
+        { "id": 21012, "name": "Guthan's helm" },
+        { "id": 21013, "name": "Guthan's platebody" },
+        { "id": 21014, "name": "Guthan's chainskirt" },
+        { "id": 21021, "name": "Verac's flail" },
+        { "id": 21022, "name": "Verac's helm" },
+        { "id": 21023, "name": "Verac's brassard" },
+        { "id": 21024, "name": "Verac's plateskirt" },
+        { "id": 21031, "name": "Ahrim's staff" },
+        { "id": 21032, "name": "Ahrim's hood" },
+        { "id": 21033, "name": "Ahrim's robe top" },
+        { "id": 21034, "name": "Ahrim's robe bottom" },
+        { "id": 21041, "name": "Karil's crossbow" },
+        { "id": 21042, "name": "Karil's coif" },
+        { "id": 21043, "name": "Karil's leathertop" },
+        { "id": 21044, "name": "Karil's leatherskirt" },
+        { "id": 21051, "name": "Torag's hammers" },
+        { "id": 21052, "name": "Torag's helm" },
+        { "id": 21053, "name": "Torag's platebody" },
+        { "id": 21054, "name": "Torag's platelegs" }
+      ],
+      "completionReward": { "cosmetic": "Barrows-stained shroud", "title": "the Brother-Bested", "log": "Barrows" }
+    },
+    {
+      "id": "hollow_choir_raid",
+      "name": "Hollow Choir (raid)",
+      "category": "raid",
+      "region": "inkweald",
+      "items": [
+        { "id": 9060, "name": "Choir sigil" },
+        { "id": 9061, "name": "Harmonic blade" },
+        { "id": 9062, "name": "Silence bow" },
+        { "id": 80010, "name": "Harmonic note" }
+      ],
+      "completionReward": { "cosmetic": "Hollow Choir conductor's robe", "title": "the Conductor", "log": "Hollow Choir" }
+    },
+    {
+      "id": "godwars_dungeon",
+      "name": "God Wars Dungeon (mega-rares)",
+      "category": "raid",
+      "region": "wilds",
+      "items": [
+        { "id": 26009, "name": "Ancestral hat" },
+        { "id": 26010, "name": "Ancestral robe top" },
+        { "id": 26011, "name": "Ancestral robe bottom" },
+        { "id": 26012, "name": "Twisted bow" },
+        { "id": 26013, "name": "Scythe of vitur" }
+      ],
+      "completionReward": { "cosmetic": "Godwars commander cape", "title": "the All-Generals'-Bane", "log": "GWD mega-rares" }
+    },
+    {
+      "id": "clue_beginner",
+      "name": "Clue Scroll (Beginner)",
+      "category": "clue",
+      "region": "any",
+      "items": [
+        { "id": 12501, "name": "Uncut sapphire" }
+      ],
+      "completionReward": { "cosmetic": "Beginner clue casket trophy", "title": "the Novice Treasure-Hunter", "log": "Beginner Clues" }
+    },
+    {
+      "id": "clue_medium",
+      "name": "Clue Scroll (Medium)",
+      "category": "clue",
+      "region": "any",
+      "items": [
+        { "id": 23020, "name": "Ranger boots" },
+        { "id": 23021, "name": "Wizard boots" },
+        { "id": 23003, "name": "Black platebody (t)" }
+      ],
+      "completionReward": { "cosmetic": "Medium casket trophy", "title": "the Steady Treasure-Hunter", "log": "Medium Clues" }
+    },
+    {
+      "id": "clue_hard",
+      "name": "Clue Scroll (Hard)",
+      "category": "clue",
+      "region": "any",
+      "items": [
+        { "id": 23001, "name": "Rune platebody (t)" },
+        { "id": 23002, "name": "Rune platebody (g)" },
+        { "id": 23022, "name": "Robin Hood hat" },
+        { "id": 23010, "name": "Holy book" },
+        { "id": 23011, "name": "Book of darkness" }
+      ],
+      "completionReward": { "cosmetic": "Hard casket trophy", "title": "the Veteran Treasure-Hunter", "log": "Hard Clues" }
+    },
+    {
+      "id": "clue_elite",
+      "name": "Clue Scroll (Elite)",
+      "category": "clue",
+      "region": "any",
+      "items": [
+        { "id": 23030, "name": "Third-age platebody" },
+        { "id": 23031, "name": "Third-age platelegs" },
+        { "id": 23032, "name": "Third-age full helm" },
+        { "id": 23033, "name": "Third-age range top" },
+        { "id": 23034, "name": "Third-age mage hat" }
+      ],
+      "completionReward": { "cosmetic": "Elite casket trophy", "title": "the Elite Treasure-Hunter", "log": "Elite Clues" }
+    },
+    {
+      "id": "clue_master",
+      "name": "Clue Scroll (Master)",
+      "category": "clue",
+      "region": "any",
+      "items": [
+        { "id": 34001, "name": "Bloodhound" },
+        { "id": 34002, "name": "3rd age druidic robe top" },
+        { "id": 34003, "name": "3rd age druidic robe bottom" },
+        { "id": 34004, "name": "3rd age druidic cloak" },
+        { "id": 34005, "name": "Ring of 3rd age" },
+        { "id": 34006, "name": "Gilded scimitar" },
+        { "id": 34007, "name": "Gilded platebody" },
+        { "id": 34008, "name": "Ankou mask" },
+        { "id": 34009, "name": "Mummy head" },
+        { "id": 34010, "name": "Samurai top" }
+      ],
+      "completionReward": { "cosmetic": "Master casket trophy + bloodhound emote", "title": "the Master Treasure-Hunter", "log": "Master Clues" }
+    },
+    {
+      "id": "minigame_pest_control",
+      "name": "Pest Control",
+      "category": "minigame",
+      "region": "heartlands",
+      "items": [
+        { "id": 30001, "name": "Void knight top" },
+        { "id": 30002, "name": "Void knight robe" },
+        { "id": 30003, "name": "Void knight gloves" },
+        { "id": 30004, "name": "Void melee helm" },
+        { "id": 30005, "name": "Void ranger helm" },
+        { "id": 30006, "name": "Void mage helm" },
+        { "id": 80201, "name": "Lil creator" }
+      ],
+      "completionReward": { "cosmetic": "Void Knight commander cape", "title": "of the Void", "log": "Pest Control" }
+    },
+    {
+      "id": "minigame_barbarian_assault",
+      "name": "Barbarian Assault",
+      "category": "minigame",
+      "region": "saltbrine",
+      "items": [
+        { "id": 30401, "name": "Fighter torso" },
+        { "id": 30402, "name": "Penance skirt" }
+      ],
+      "completionReward": { "cosmetic": "Penance Queen victor mantle", "title": "the Penance-Crowned", "log": "Barbarian Assault" }
+    },
+    {
+      "id": "minigame_spirit_pyre",
+      "name": "Spirit Pyre",
+      "category": "minigame",
+      "region": "veilwood",
+      "items": [
+        { "id": 30101, "name": "Pyromancer hat" },
+        { "id": 30102, "name": "Pyromancer top" },
+        { "id": 30103, "name": "Pyromancer legs" },
+        { "id": 30104, "name": "Pyromancer boots" },
+        { "id": 30105, "name": "Bruma torch" },
+        { "id": 80109, "name": "Phoenix" }
+      ],
+      "completionReward": { "cosmetic": "Phoenix-flame cape", "title": "the Pyromancer", "log": "Spirit Pyre" }
+    },
+    {
+      "id": "minigame_guardians_of_the_rift",
+      "name": "Guardians of the Rift",
+      "category": "minigame",
+      "region": "inkweald",
+      "items": [
+        { "id": 30301, "name": "Hat of the eye" },
+        { "id": 30302, "name": "Robe top of the eye" },
+        { "id": 30303, "name": "Robe bottom of the eye" },
+        { "id": 30304, "name": "Boots of the eye" },
+        { "id": 80107, "name": "Rift guardian" }
+      ],
+      "completionReward": { "cosmetic": "Abyssal lantern (cosmetic)", "title": "the Rift-Guardian", "log": "Guardians of the Rift" }
+    },
+    {
+      "id": "minigame_castle_wars",
+      "name": "Castle Wars",
+      "category": "minigame",
+      "region": "wilds",
+      "items": [
+        { "id": 30201, "name": "Decorative armour (gold, body)" },
+        { "id": 30202, "name": "Castle wars halo" }
+      ],
+      "completionReward": { "cosmetic": "Castle Wars trophy banner", "title": "the Standard-Bearer", "log": "Castle Wars" }
+    },
+    {
+      "id": "slayer_grotesque_guardians",
+      "name": "Grotesque Guardians",
+      "category": "slayer",
+      "region": "moryskah",
+      "items": [
+        { "id": 80019, "name": "Noon" }
+      ],
+      "completionReward": { "cosmetic": "Granite-stone gargoyle pauldrons", "title": "the Stone-Wakeful", "log": "Grotesque Guardians" }
+    },
+    {
+      "id": "slayer_alchemical_hydra",
+      "name": "Alchemical Hydra",
+      "category": "slayer",
+      "region": "moryskah",
+      "items": [
+        { "id": 31127, "name": "Hydra leather" },
+        { "id": 31128, "name": "Hydra claw" },
+        { "id": 31129, "name": "Brimstone ring piece (i)" }
+      ],
+      "completionReward": { "cosmetic": "Hydra-leather cloak", "title": "the Alchemist's Bane", "log": "Alchemical Hydra" }
+    },
+    {
+      "id": "slayer_thermonuclear_smoke_devil",
+      "name": "Thermonuclear Smoke Devil",
+      "category": "slayer",
+      "region": "boneyard",
+      "items": [
+        { "id": 31131, "name": "Smoke devil heart" },
+        { "id": 31132, "name": "Occult necklace" },
+        { "id": 80023, "name": "Smoke devil pet" }
+      ],
+      "completionReward": { "cosmetic": "Smouldering occult shroud", "title": "the Smoke-Walker", "log": "Thermonuclear Smoke Devil" }
+    },
+    {
+      "id": "slayer_cerberus",
+      "name": "Cerberus",
+      "category": "slayer",
+      "region": "moryskah",
+      "items": [
+        { "id": 31020, "name": "Primordial crystal" },
+        { "id": 31021, "name": "Pegasian crystal" },
+        { "id": 31022, "name": "Eternal crystal" },
+        { "id": 80021, "name": "Hellpuppy" }
+      ],
+      "completionReward": { "cosmetic": "Hellhound-fang trim", "title": "the Hellforged", "log": "Cerberus" }
+    },
+    {
+      "id": "slayer_abyssal_demon",
+      "name": "Abyssal Sire / Demon",
+      "category": "slayer",
+      "region": "moryskah",
+      "items": [
+        { "id": 22001, "name": "Abyssal whip" },
+        { "id": 80020, "name": "Skotos" }
+      ],
+      "completionReward": { "cosmetic": "Abyssal-tendril belt", "title": "the Abyssal", "log": "Abyssal Demons" }
+    },
+    {
+      "id": "slayer_cave_kraken",
+      "name": "Cave Kraken Boss",
+      "category": "slayer",
+      "region": "saltbrine",
+      "items": [
+        { "id": 22004, "name": "Trident of the seas" },
+        { "id": 80022, "name": "Kraken pet" }
+      ],
+      "completionReward": { "cosmetic": "Tendril coat", "title": "the Cave-Diver", "log": "Cave Kraken" }
+    },
+    {
+      "id": "wilds_chaos_elemental",
+      "name": "Chaos Elemental",
+      "category": "boss",
+      "region": "wilds",
+      "items": [
+        { "id": 80014, "name": "Chaos blob" }
+      ],
+      "completionReward": { "cosmetic": "Chaos-twisted cloak", "title": "the Chaotic", "log": "Chaos Elemental" }
+    },
+    {
+      "id": "wilds_scorpia",
+      "name": "Scorpia",
+      "category": "boss",
+      "region": "wilds",
+      "items": [
+        { "id": 22007, "name": "Imbued heart" },
+        { "id": 80015, "name": "Scorpia offspring" }
+      ],
+      "completionReward": { "cosmetic": "Scorpion-tail mantle", "title": "the Heart-Imbued", "log": "Scorpia" }
+    },
+    {
+      "id": "wilds_vetion",
+      "name": "Vet'ion",
+      "category": "boss",
+      "region": "wilds",
+      "items": [
+        { "id": 24001, "name": "Berserker ring" },
+        { "id": 22008, "name": "Eternal gem" },
+        { "id": 80016, "name": "Vet'ion skull" }
+      ],
+      "completionReward": { "cosmetic": "Floating-skull aura", "title": "the Skull-Bearer", "log": "Vet'ion" }
+    },
+    {
+      "id": "wilds_callisto",
+      "name": "Callisto",
+      "category": "boss",
+      "region": "wilds",
+      "items": [
+        { "id": 24004, "name": "Warrior ring" },
+        { "id": 80017, "name": "Callisto cub" }
+      ],
+      "completionReward": { "cosmetic": "Bear-pelt cloak", "title": "the Bear-Bound", "log": "Callisto" }
+    },
+    {
+      "id": "wilds_venenatis",
+      "name": "Venenatis",
+      "category": "boss",
+      "region": "wilds",
+      "items": [
+        { "id": 24005, "name": "Ring of suffering" },
+        { "id": 80018, "name": "Venenatis spiderling" }
+      ],
+      "completionReward": { "cosmetic": "Spider-silk shawl", "title": "the Suffering-Ring", "log": "Venenatis" }
+    },
+    {
+      "id": "wilds_king_black_dragon",
+      "name": "King Black Dragon",
+      "category": "boss",
+      "region": "wilds",
+      "items": [
+        { "id": 20010, "name": "Dragon full helm" },
+        { "id": 80027, "name": "Prince Black Dragon" }
+      ],
+      "completionReward": { "cosmetic": "KBD horn helm trim", "title": "the Three-Crowned", "log": "King Black Dragon" }
+    },
+    {
+      "id": "skilling_pets",
+      "name": "Skilling Pets",
+      "category": "pet",
+      "region": "any",
+      "items": [
+        { "id": 80101, "name": "Rock golem (pet)" },
+        { "id": 80102, "name": "Heron" },
+        { "id": 80103, "name": "Beaver" },
+        { "id": 80104, "name": "Giant squirrel" },
+        { "id": 80105, "name": "Tangleroot" },
+        { "id": 80106, "name": "Rocky" },
+        { "id": 80107, "name": "Rift guardian" },
+        { "id": 80108, "name": "Herbi" },
+        { "id": 80109, "name": "Phoenix" },
+        { "id": 80110, "name": "Chompy chick" },
+        { "id": 80111, "name": "Nexling" }
+      ],
+      "completionReward": { "cosmetic": "Rainbow skill-cape trim", "title": "the All-Pet Trainer", "log": "Skilling Pets" }
+    },
+    {
+      "id": "fight_caves",
+      "name": "Fight Caves (TzHaar Jad)",
+      "category": "raid",
+      "region": "boneyard",
+      "items": [
+        { "id": 80026, "name": "TzRek-Jad" }
+      ],
+      "completionReward": { "cosmetic": "Fire cape", "title": "the Caved", "log": "Fight Caves" }
+    },
+    {
+      "id": "infernal_challenge",
+      "name": "Infernal Challenge (TzKal-Zuk)",
+      "category": "raid",
+      "region": "glass_desert",
+      "items": [
+        { "id": 80025, "name": "Jal-nib-rek" }
+      ],
+      "completionReward": { "cosmetic": "Infernal cape", "title": "the Infernal", "log": "Infernal Challenge" }
+    }
+  ]
+}
