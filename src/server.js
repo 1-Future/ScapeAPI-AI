@@ -4938,6 +4938,16 @@ audioTriggers.registerForwarder((target, msg) => {
   }
 });
 
+// Wire every engine event to an audio cue (burn-v2 audio activation). Fire-
+// and-forget — every handler is try/catch-guarded so no audio path can block
+// a tick. Safe if the manifest failed to load (dispatcher no-ops).
+try {
+  const audioWiring = require('./engine/audio-wiring');
+  audioWiring.attach();
+} catch (e) {
+  console.warn('[audio-wiring] attach failed:', e.message);
+}
+
 console.log('[server] burn-v2 subsystems wired: GE, dialogue, death, area-locked, ironman, audio');
 
 // Tutorial + onboarding (burn v2) — data-driven curriculum.
