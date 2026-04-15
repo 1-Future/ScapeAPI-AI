@@ -91,6 +91,9 @@ function defineQuestUnlock(questId, opts) {
 
 function getQuestUnlocks(questId) { return questUnlocks.get(questId); }
 
+function listQuestUnlocks() { return [...questUnlocks.entries()]; }
+function listQuestUnlockIds() { return [...questUnlocks.keys()]; }
+
 function isUnlockedByQuest(type, id) {
   // Reverse lookup: what quest unlocks this thing?
   for (const [qId, data] of questUnlocks) {
@@ -533,7 +536,8 @@ module.exports = {
   // Area Gates
   defineAreaGate, getAreaGate, listAreaGates, canAccessArea,
   // Quest Unlocks
-  defineQuestUnlock, getQuestUnlocks, isUnlockedByQuest, hasUnlock,
+  defineQuestUnlock, getQuestUnlocks, listQuestUnlocks, listQuestUnlockIds,
+  isUnlockedByQuest, hasUnlock,
   // Training Methods (8 knobs)
   defineTrainingMethod, getTrainingMethod, listMethodsForSkill,
   listMethodsByAttention, listMethodsInRange,
