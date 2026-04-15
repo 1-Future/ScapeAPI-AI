@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Scape — Hiscores</title>
+<style>
+  :root {
+    --parchment: #c8b88a;
+    --parchment-dark: #b0a070;
+    --parchment-darker: #8f7f58;
+    --stone: #5c5445;
+    --stone-dark: #3a352e;
+    --stone-light: #7a7060;
+    --gold: #ff981f;
+    --gold-dim: #c8842a;
+    --text: #000;
+    --ink: #2a2015;
+    --mono: 'Courier New', 'Consolas', monospace;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    background: #000;
+    font-family: var(--mono);
+    min-height: 100dvh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: var(--ink);
+  }
+  #site-header {
+    display: flex;
+    align-items: center;
+    background: var(--stone-dark);
+    height: 30px;
+    padding: 0 10px;
+    font-family: var(--mono);
+    font-size: 12px;
+    flex-shrink: 0;
+    border-bottom: 1px solid var(--stone);
+    width: 100%;
+  }
+  #site-header .logo {
+    color: var(--gold);
+    font-weight: bold;
+    font-size: 14px;
+    margin-right: 16px;
+    text-decoration: none;
+    letter-spacing: 2px;
+  }
+  #site-header nav {
+    display: flex;
+    flex: 1;
+  }
+  #site-header nav a {
+    color: #aaa;
+    text-decoration: none;
+    padding: 0 10px;
+    line-height: 30px;
+    transition: color 0.15s;
+  }
+  #site-header nav a:hover { color: #fff; }
+  #site-header nav a.active { color: var(--gold); }
+
+  .content {
+    width: 100%;
+    max-width: 840px;
+    background: var(--parchment);
+    flex: 1;
+    padding: 20px;
+    color: var(--text);
+  }
+
+  h1 {
+    color: var(--stone-dark);
+    font-size: 22px;
+    margin-bottom: 10px;
+    border-bottom: 2px solid var(--parchment-dark);
+    padding-bottom: 6px;
+    letter-spacing: 1px;
+  }
+  h2 {
+    color: var(--stone-dark);
+    font-size: 14px;
+    margin-top: 14px;
+    margin-bottom: 8px;
+  }
+
+  .tabs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0;
+    margin-top: 10px;
+    border-bottom: 2px solid var(--parchment-darker);
+  }
+  .tab {
+    padding: 6px 12px;
+    background: var(--parchment-dark);
+    border: 1px solid var(--parchment-darker);
+    border-bottom: none;
+    color: var(--ink);
+    cursor: pointer;
+    font-family: var(--mono);
+    font-size: 12px;
+    transition: background 0.15s;
+    user-select: none;
+  }
+  .tab:hover { background: var(--parchment-darker); }
+  .tab.active {
+    background: var(--parchment);
+    color: var(--stone-dark);
+    font-weight: bold;
+    border-bottom: 1px solid var(--parchment);
+    margin-bottom: -1px;
+    z-index: 2;
+  }
+
+  .subtabs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px;
+    margin: 10px 0;
+    max-height: 120px;
+    overflow-y: auto;
+    padding: 4px;
+    background: rgba(0,0,0,0.05);
+    border: 1px solid var(--parchment-darker);
+  }
+  .subtab {
+    padding: 3px 8px;
+    background: var(--parchment-darker);
+    color: var(--ink);
+    cursor: pointer;
+    font-size: 11px;
+    user-select: none;
+    border: 1px solid transparent;
+  }
+  .subtab:hover { border-color: var(--stone); }
+  .subtab.active {
+    background: var(--stone-dark);
+    color: var(--gold);
+    font-weight: bold;
+  }
+
+  .search-row {
+    display: flex;
+    gap: 8px;
+    margin: 14px 0 10px;
+  }
+  .search-row input {
+    flex: 1;
+    padding: 6px 8px;
+    background: #efe2b8;
+    border: 1px solid var(--parchment-darker);
+    font-family: var(--mono);
+    font-size: 13px;
+    color: var(--ink);
+  }
+  .search-row button {
+    padding: 6px 14px;
+    background: var(--stone-dark);
+    color: var(--gold);
+    border: 1px solid var(--stone);
+    cursor: pointer;
+    font-family: var(--mono);
+    font-size: 12px;
+  }
+  .search-row button:hover { background: var(--stone); }
+
+  .ranking {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+    font-size: 13px;
+    background: #efe2b8;
+    border: 1px solid var(--parchment-darker);
+  }
+  .ranking th {
+    text-align: left;
+    background: var(--parchment-dark);
+    padding: 6px 10px;
+    font-size: 12px;
+    color: var(--stone-dark);
+    border-bottom: 2px solid var(--parchment-darker);
+  }
+  .ranking td {
+    padding: 4px 10px;
+    border-bottom: 1px solid rgba(0,0,0,0.08);
+  }
+  .ranking tr:nth-child(even) td { background: rgba(0,0,0,0.03); }
+  .ranking tr:hover td { background: rgba(255,152,31,0.12); }
+  .rank-col { width: 50px; color: var(--stone); }
+  .rank-col.top-1 { color: #b8860b; font-weight: bold; }
+  .rank-col.top-2 { color: #7a7060; font-weight: bold; }
+  .rank-col.top-3 { color: #8b4513; font-weight: bold; }
+  .val-col { text-align: right; font-family: var(--mono); }
+  .mode-tag {
+    font-size: 10px;
+    color: var(--stone);
+    background: var(--parchment-dark);
+    padding: 1px 4px;
+    margin-left: 4px;
+  }
+
+  .player-card {
+    background: #efe2b8;
+    border: 1px solid var(--parchment-darker);
+    padding: 12px 14px;
+    margin-top: 12px;
+  }
+  .player-card .name {
+    font-size: 16px;
+    font-weight: bold;
+    color: var(--stone-dark);
+    margin-bottom: 8px;
+  }
+  .player-card .grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4px 12px;
+    font-size: 12px;
+  }
+  .empty {
+    padding: 14px;
+    text-align: center;
+    color: var(--stone);
+    font-style: italic;
+  }
+  .error {
+    color: #8b0000;
+    padding: 10px;
+    background: rgba(139,0,0,0.08);
+    border: 1px solid rgba(139,0,0,0.2);
+    margin-top: 10px;
+  }
+</style>
+</head>
+<body>
+<div id="site-header">
+  <a class="logo" href="/">SCAPE</a>
+  <nav>
+    <a href="/">Watch</a>
+    <a href="/play">Play</a>
+    <a href="/guide">Guide</a>
+    <a href="/hiscores" class="active">Hiscores</a>
+    <a href="/polls">Polls</a>
+    <a href="/about">About</a>
+  </nav>
+</div>
+
+<div class="content">
+  <h1>Hiscores</h1>
+  <div style="font-size:12px;color:var(--stone);margin-bottom:10px">
+    Rankings are refreshed live as players gain XP. Opt-out is honored.
+  </div>
+
+  <div class="tabs" id="tabs">
+    <div class="tab active" data-tab="overall">Overall</div>
+    <div class="tab" data-tab="skills">Skills</div>
+    <div class="tab" data-tab="bosses">Bosses</div>
+    <div class="tab" data-tab="ca">Combat Achievements</div>
+    <div class="tab" data-tab="diary">Diary</div>
+    <div class="tab" data-tab="clans">Clans</div>
+    <div class="tab" data-tab="ironman">Ironman</div>
+  </div>
+
+  <!-- Subtab containers: shown based on active tab -->
+  <div class="subtabs" id="subtabs-skills" style="display:none"></div>
+  <div class="subtabs" id="subtabs-bosses" style="display:none"></div>
+  <div class="subtabs" id="subtabs-ironman" style="display:none"></div>
+
+  <div class="search-row">
+    <input type="text" id="search-input" placeholder="Look up a player by name">
+    <button id="search-btn">Search</button>
+  </div>
+
+  <div id="player-result"></div>
+  <div id="ranking-container"></div>
+</div>
+
+<script>
+  const SKILLS = [
+    'attack', 'strength', 'defence', 'hitpoints', 'ranged', 'prayer', 'magic',
+    'runecrafting', 'construction', 'agility', 'herblore', 'thieving',
+    'crafting', 'fletching', 'slayer', 'hunter', 'mining', 'smithing',
+    'fishing', 'cooking', 'firemaking', 'woodcutting', 'farming',
+  ];
+
+  // Best-effort boss list. Real boss ids come from the server at runtime via
+  // boards listing; we use this as a starter set.
+  const FALLBACK_BOSSES = [
+    'giant_mole', 'kalphite_queen', 'king_black_dragon', 'chaos_elemental',
+    'dagannoth_prime', 'dagannoth_rex', 'dagannoth_supreme',
+    'commander_zilyana', 'general_graardor', 'kril_tsutsaroth', 'kreearra',
+    'corporeal_beast', 'zulrah', 'vorkath', 'cerberus', 'kraken_saltbrine',
+    'thermonuclear_smoke_devil', 'bog_hydra', 'crystal_wyrm',
+    'count_malachar', 'the_nightmare', 'phosanis_nightmare',
+    'the_glass_tyrant', 'forgefather_duran', 'hollow_choir_conductor',
+    'inkweald_muse', 'the_soot_king', 'veldrak', 'vorath', 'the_veilmother',
+    'the_evil_chef', 'azhmari', 'osmumten', 'the_revenant_king',
+  ];
+
+  let currentTab = 'overall';
+  let currentSkill = 'attack';
+  let currentBoss = FALLBACK_BOSSES[0];
+  let currentIronmanSkill = 'overall';
+  let knownBosses = FALLBACK_BOSSES.slice();
+
+  function qs(id) { return document.getElementById(id); }
+
+  function fmtXp(n) {
+    n = n | 0;
+    if (n >= 1_000_000_000) return (n/1_000_000_000).toFixed(2) + 'b';
+    if (n >= 1_000_000) return (n/1_000_000).toFixed(2) + 'm';
+    if (n >= 1_000) return (n/1_000).toFixed(1) + 'k';
+    return String(n);
+  }
+
+  async function fetchJson(url) {
+    try {
+      const r = await fetch(url);
+      if (!r.ok) return { error: `HTTP ${r.status}` };
+      return await r.json();
+    } catch (e) {
+      return { error: e.message || 'Fetch failed' };
+    }
+  }
+
+  function renderRanking(entries, valueLabel) {
+    if (!entries || entries.length === 0) {
+      return '<div class="empty">No entries yet.</div>';
+    }
+    const rows = entries.map(e => {
+      const name = e.playerName || e.clanName || '-';
+      const val = e.value != null ? fmtXp(e.value) : fmtXp(e.totalXp || 0);
+      const rankClass = e.rank === 1 ? 'top-1' : e.rank === 2 ? 'top-2' : e.rank === 3 ? 'top-3' : '';
+      const tag = e.variant ? `<span class="mode-tag">${e.variant}</span>` : '';
+      const extra = e.memberCount != null ? ` <span class="mode-tag">${e.memberCount} members</span>` : '';
+      return `<tr>
+        <td class="rank-col ${rankClass}">#${e.rank}</td>
+        <td>${escapeHtml(name)}${tag}${extra}</td>
+        <td class="val-col">${val}</td>
+      </tr>`;
+    }).join('');
+    return `<table class="ranking">
+      <thead><tr><th>Rank</th><th>Name</th><th class="val-col">${valueLabel}</th></tr></thead>
+      <tbody>${rows}</tbody>
+    </table>`;
+  }
+
+  function escapeHtml(s) {
+    return String(s).replace(/[&<>"']/g, c => ({
+      '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'
+    }[c]));
+  }
+
+  function showSubtabs(which) {
+    for (const id of ['skills', 'bosses', 'ironman']) {
+      qs('subtabs-' + id).style.display = (id === which) ? 'flex' : 'none';
+    }
+  }
+
+  function buildSubtabs(containerId, items, activeKey, onClick) {
+    const el = qs(containerId);
+    el.innerHTML = items.map(i => {
+      const key = i.key != null ? i.key : i;
+      const label = i.label != null ? i.label : i;
+      const cls = key === activeKey ? 'subtab active' : 'subtab';
+      return `<span class="${cls}" data-key="${escapeHtml(String(key))}">${escapeHtml(label)}</span>`;
+    }).join('');
+    for (const c of el.querySelectorAll('.subtab')) {
+      c.addEventListener('click', () => onClick(c.getAttribute('data-key')));
+    }
+  }
+
+  async function loadBoards() {
+    const data = await fetchJson('/api/hiscores/boards');
+    if (data && data.boards) {
+      const bosses = data.boards.filter(b => b.startsWith('boss:')).map(b => b.slice(5));
+      if (bosses.length > 0) knownBosses = bosses.sort();
+    }
+  }
+
+  async function render() {
+    const c = qs('ranking-container');
+    c.innerHTML = '<div class="empty">Loading...</div>';
+
+    let url, valueLabel;
+    if (currentTab === 'overall') {
+      url = '/api/hiscores/overall';
+      valueLabel = 'Total XP';
+      showSubtabs(null);
+    } else if (currentTab === 'skills') {
+      url = '/api/hiscores/skill/' + currentSkill;
+      valueLabel = currentSkill + ' XP';
+      showSubtabs('skills');
+      buildSubtabs('subtabs-skills', SKILLS, currentSkill, (k) => { currentSkill = k; render(); });
+    } else if (currentTab === 'bosses') {
+      url = '/api/hiscores/boss/' + encodeURIComponent(currentBoss);
+      valueLabel = currentBoss + ' KC';
+      showSubtabs('bosses');
+      buildSubtabs('subtabs-bosses', knownBosses, currentBoss, (k) => { currentBoss = k; render(); });
+    } else if (currentTab === 'ca') {
+      url = '/api/hiscores/ca';
+      valueLabel = 'CA Points';
+      showSubtabs(null);
+    } else if (currentTab === 'diary') {
+      url = '/api/hiscores/diary';
+      valueLabel = 'Diary tiers';
+      showSubtabs(null);
+    } else if (currentTab === 'clans') {
+      url = '/api/hiscores/clan';
+      valueLabel = 'Total XP';
+      showSubtabs(null);
+    } else if (currentTab === 'ironman') {
+      const skill = currentIronmanSkill;
+      url = '/api/hiscores/ironman?skill=' + encodeURIComponent(skill);
+      valueLabel = skill === 'overall' ? 'Total XP' : skill + ' XP';
+      showSubtabs('ironman');
+      buildSubtabs('subtabs-ironman',
+        [{ key: 'overall', label: 'Overall' }, ...SKILLS.map(s => ({ key: s, label: s }))],
+        skill,
+        (k) => { currentIronmanSkill = k; render(); });
+    }
+
+    const data = await fetchJson(url);
+    if (data.error) {
+      c.innerHTML = `<div class="error">${escapeHtml(data.error)}</div>`;
+      return;
+    }
+    c.innerHTML = renderRanking(data.entries || [], valueLabel);
+  }
+
+  async function searchPlayer(name) {
+    const result = qs('player-result');
+    result.innerHTML = '<div class="empty">Searching...</div>';
+    const data = await fetchJson('/api/hiscores/player/' + encodeURIComponent(name));
+    if (data.error) {
+      result.innerHTML = `<div class="error">${escapeHtml(data.error)}</div>`;
+      return;
+    }
+    const s = data.player;
+    const rows = [];
+    if (s.ranks.overall) rows.push(`<div><b>Overall:</b> #${s.ranks.overall.rank} (${fmtXp(s.ranks.overall.value)} xp)</div>`);
+    for (const skill of SKILLS) {
+      const r = s.ranks.skills && s.ranks.skills[skill];
+      if (r) rows.push(`<div><b>${skill}:</b> #${r.rank} (${fmtXp(r.value)})</div>`);
+    }
+    if (s.ranks.ca) rows.push(`<div><b>CA:</b> #${s.ranks.ca.rank} (${s.ranks.ca.value} pts)</div>`);
+    if (s.ranks.diary) rows.push(`<div><b>Diary:</b> #${s.ranks.diary.rank} (${s.ranks.diary.value} tiers)</div>`);
+    if (s.ranks.ironman && s.ranks.ironman.overall) {
+      rows.push(`<div><b>Ironman Overall:</b> #${s.ranks.ironman.overall.rank}</div>`);
+    }
+    const modeTag = s.variant ? ` <span class="mode-tag">${s.variant}</span>` : '';
+    result.innerHTML = `<div class="player-card">
+      <div class="name">${escapeHtml(s.playerName)}${modeTag}</div>
+      <div class="grid">${rows.join('')}</div>
+    </div>`;
+  }
+
+  function wireTabs() {
+    for (const t of document.querySelectorAll('.tab')) {
+      t.addEventListener('click', () => {
+        for (const x of document.querySelectorAll('.tab')) x.classList.remove('active');
+        t.classList.add('active');
+        currentTab = t.getAttribute('data-tab');
+        render();
+      });
+    }
+    qs('search-btn').addEventListener('click', () => {
+      const name = qs('search-input').value.trim();
+      if (name) searchPlayer(name);
+    });
+    qs('search-input').addEventListener('keydown', (e) => {
+      if (e.key === 'Enter') {
+        const name = e.target.value.trim();
+        if (name) searchPlayer(name);
+      }
+    });
+  }
+
+  (async function init() {
+    wireTabs();
+    await loadBoards();
+    render();
+  })();
+</script>
+</body>
+</html>
