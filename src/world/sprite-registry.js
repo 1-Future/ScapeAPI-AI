@@ -285,9 +285,13 @@ function _loadItemsDb() {
     'src/content/aelgard/items-expanded.js',
     'src/content/aelgard/items-blitz.js',
     'src/content/aelgard/items-blitz2.js',
+    'src/content/aelgard/items-blitz3.js',
     'src/content/aelgard/items-dragon-barrows.js',
     'src/content/aelgard/universal-items.js',
     'src/content/aelgard/smithing-complete.js',
+    'src/content/aelgard/combinations-mega.js',
+    'src/content/aelgard/recipes-mega.js',
+    'src/content/aelgard/wilderness-content.js',
   ];
   const origLog = console.log;
   console.log = () => {};
@@ -305,6 +309,9 @@ function _scanNpcDefs() {
     { re: /mob\('([^']+)',\s*\{\s*name:\s*'([^']+)'/g, kind: 'monster' },
     { re: /boss\('([^']+)',\s*\{\s*name:\s*'([^']+)'/g, kind: 'boss' },
     { re: /npcs\.defineNpc\('([^']+)',\s*\{\s*name:\s*'([^']+)'/g, kind: 'npc' },
+    // monsters-mega uses a wrapper: mega({ id: '...', name: '...', ... })
+    // The id/name may be on the same line or on two different lines.
+    { re: /mega\(\{\s*\n?\s*id:\s*'([^']+)'\s*,\s*name:\s*'([^']+)'/g, kind: 'monster' },
   ];
   for (const f of fs.readdirSync(dir)) {
     if (!f.endsWith('.js')) continue;
