@@ -45,6 +45,8 @@ const slayerSystem = require('./data/slayer');
 const ge = require('./data/ge');
 const actions = require('./engine/actions');
 const registerAllCommands = require('./commands/all');
+const tutorial = require('./engine/tutorial');
+const tutorialCommands = require('./engine/tutorial-commands');
 
 // ── State ─────────────────────────────────────────────────────────────────────
 const PORT = 2223;
@@ -803,7 +805,7 @@ const COMMAND_EXAMPLES = {
   drop: { usage: 'drop [item]', examples: ['drop logs', 'drop bones'] },
   examine: { usage: 'examine [target]', examples: ['examine chicken', 'examine self', 'examine tree'] },
   cast: { usage: 'cast [spell] or cast [spell] on [npc]', examples: ['cast home teleport', 'cast wind strike on goblin'] },
-  tutorial: { usage: 'tutorial or tutorial skip', examples: ['tutorial', 'tutorial skip'] },
+  tutorial: { usage: 'tutorial [status|hint|skip|replay]', examples: ['tutorial status', 'tutorial hint', 'tutorial skip', 'tutorial replay'] },
   actions: { usage: 'actions [target]', examples: ['actions chicken', 'actions tree', 'actions man'] },
   restore: { usage: 'restore (near a bank)', examples: ['restore'] },
   uselamp: { usage: 'uselamp [skill]', examples: ['uselamp attack', 'uselamp woodcutting'] },
@@ -2295,8 +2297,11 @@ commands.register('yell', { help: 'Broadcast to all players: yell [message]', ca
   }
 });
 
-// ── Tutorial command ──
-commands.register('tutorial', { help: 'Show tutorial progress or skip', category: 'General',
+// ── Tutorial command (legacy inline block — replaced by engine/tutorial-commands) ──
+// The /tutorial command family is now registered via tutorialCommands.register()
+// near registerAllCommands. The legacy 10-step block below is retained only as a
+// disabled reference for the former shape; the new engine owns all behaviour.
+if (false) { commands.register('tutorial-legacy-disabled', { help: 'Show tutorial progress or skip', category: 'General',
   fn: (p, args) => {
     if (args[0] === 'skip') {
       p.tutorialStep = 10;
@@ -2319,7 +2324,7 @@ commands.register('tutorial', { help: 'Show tutorial progress or skip', category
     ];
     return `── Tutorial (${p.tutorialStep}/9) ──\n${steps[p.tutorialStep] || 'Complete!'}\nType \`tutorial skip\` to skip.`;
   }
-});
+}); }
 
 // ── Deaths command ──
 commands.register('deaths', { help: 'Show death count', category: 'General',
@@ -4409,9 +4414,11 @@ wss.on('connection', (ws) => {
       const modeIcon = p.accountMode === 'ironman' ? ' [Ironman]' : p.accountMode === 'hcim' ? ' [Hardcore Ironman]' : p.accountMode === 'uim' ? ' [Ultimate Ironman]' : '';
       sendText(ws, `Logged in as ${name}${modeIcon}. Combat level: ${combatLevel(p)}. Type \`help\` for commands.\nYou are at (${p.x}, ${p.y}).`);
       if (!p.modeSet) sendText(ws, 'Tip: Set your account mode with `mode ironman/hcim/uim` (one-time choice).');
-      // Tutorial for new players
+      // Tutorial (burn v2) — seed state, show first-step parchment for new players.
+      tutorial.initPlayer(p);
       if (!p.tutorialComplete && p.tutorialStep === 0) {
-        sendText(ws, '── Tutorial ──\nWelcome! Type `look` to see your surroundings. (Type `tutorial skip` to skip the tutorial.)');
+        const first = tutorial.currentStep(p);
+        sendText(ws, `── Tutorial ──\nWelcome to Aelgard. A parchment unfurls in your hand:\n  ${first ? first.hint : 'Type `look` to see your surroundings.'}\n(Type \`/tutorial status\` for progress, \`/tutorial skip\` to forgo the tutorial.)`);
       }
       sendText(ws, commands.execute(p, 'look'));
       events.emit('player_login', { player: p, ws });
@@ -4472,61 +4479,29 @@ wss.on('connection', (ws) => {
       sendText(ws, result);
     }
 
-    // ── Tutorial step tracking ──
-    if (!p.tutorialComplete && p.tutorialStep < 10) {
+    // ── Tutorial step tracking (burn v2) ──
+    // Route command verbs, pickups, bank/ge opens, and a few skill keywords
+    // through the new tutorial engine. The engine itself decides whether the
+    // current step matches.
+    if (!p.tutorialComplete) {
       const parsed = commands.parse(input);
       if (parsed) {
         const verb = parsed.verb;
-        let advanced = false;
-        if (p.tutorialStep === 0 && (verb === 'look' || verb === 'l')) advanced = true;
-        else if (p.tutorialStep === 1 && verb === 'n') advanced = true;
-        else if (p.tutorialStep === 2 && (verb === 'skills' || verb === 'stats')) advanced = true;
-        else if (p.tutorialStep === 3 && (verb === 'attack' || verb === 'fight' || verb === 'kill')) advanced = true;
-        else if (p.tutorialStep === 4 && (verb === 'inventory' || verb === 'inv' || verb === 'i')) advanced = true;
-        else if (p.tutorialStep === 5 && verb === 'chop') advanced = true;
-        else if (p.tutorialStep === 6 && verb === 'mine') advanced = true;
-        else if (p.tutorialStep === 7 && verb === 'nearby') advanced = true;
-        else if (p.tutorialStep === 8 && (verb === 'goto' || verb === 'shop')) advanced = true;
-        if (advanced) {
-          p.tutorialStep++;
-          // Award small XP reward per step
-          const tutorialXpRewards = [
-            { skill: 'hitpoints', amount: 25 },   // step 0->1: look
-            { skill: 'agility', amount: 25 },      // step 1->2: walk
-            null,                                   // step 2->3: skills (no xp)
-            { skill: 'attack', amount: 50 },        // step 3->4: attack
-            null,                                   // step 4->5: inv (no xp)
-            { skill: 'woodcutting', amount: 50 },   // step 5->6: chop
-            { skill: 'mining', amount: 50 },        // step 6->7: mine
-            null,                                   // step 7->8: nearby (no xp)
-            { skill: 'hitpoints', amount: 100 },    // step 8->9: goto/shop
-          ];
-          const reward = tutorialXpRewards[p.tutorialStep - 1];
-          let rewardMsg = '';
-          if (reward) {
-            addXp(p, reward.skill, reward.amount);
-            rewardMsg = ` (+${reward.amount} ${reward.skill} XP)`;
-          }
-          const tutorialMessages = [
-            null, // step 0 (handled on login)
-            "Great! Now type `n` to walk north.",
-            "You moved! Type `skills` to see your stats.",
-            "Now find a chicken and type `attack chicken`.",
-            "Nice! Type `inv` to check your inventory for loot.",
-            "Try `chop tree` near a tree to gather logs.",
-            "Now try `mine copper rock` near some rocks.",
-            "Use `nearby` to see what's around you.",
-            "Head to town with `goto 100 90` and visit the shops with `shop shopkeeper`.",
-            "Tutorial complete! Type `help` anytime. Explore the world!",
-          ];
-          if (p.tutorialStep >= 9) {
-            p.tutorialStep = 10;
-            p.tutorialComplete = true;
-            addXp(p, 'hitpoints', 200);
-            sendText(ws, `Tutorial complete! Type \`help\` anytime. Explore the world! (+200 hitpoints XP)`);
-          } else {
-            sendText(ws, `[Tutorial]${rewardMsg} ${tutorialMessages[p.tutorialStep]}`);
-          }
+        // Command-verb trigger (covers look, inventory, eat, equip, shop,
+        // deposit/withdraw, bury, save, sethome, map, help, fish/mine, etc.)
+        tutorialAdvance(p, { type: 'command', verb });
+        // A few verbs also synthesise domain events for data-level steps.
+        if (verb === 'bank') tutorialAdvance(p, { type: 'bank_opened' });
+        if (verb === 'ge') tutorialAdvance(p, { type: 'ge_opened' });
+        if (verb === 'pickup' || verb === 'take') tutorialAdvance(p, { type: 'pickup' });
+        if (verb === 'pray') tutorialAdvance(p, { type: 'prayer_toggled' });
+        if (verb === 'style') tutorialAdvance(p, { type: 'combat_style' });
+        if (verb === 'save') tutorialAdvance(p, { type: 'save' });
+        if (verb === 'codex') tutorialAdvance(p, { type: 'codex_opened' });
+        if (verb === 'talk') tutorialAdvance(p, { type: 'dialogue' });
+        if (verb === 'clan') tutorialAdvance(p, { type: 'clan_joined' });
+        if (verb === 'quest' && parsed.args[0] === 'start') {
+          tutorialAdvance(p, { type: 'quest_started', questId: parsed.args[1] });
         }
       }
     }
@@ -4605,6 +4580,62 @@ cmdCtx = {
   getLevelUpMessage, clans,
 };
 registerAllCommands(cmdCtx);
+
+// Tutorial + onboarding (burn v2) — data-driven curriculum.
+// Configure the tutorial engine with the host's XP/inventory primitives,
+// then register commands and subscribe to runtime events.
+tutorial.configure({
+  addXp: (p, skill, amount) => addXp(p, skill, amount),
+  invAdd: (p, id, name, count, stackable) => invAdd(p, id, name, count, stackable),
+  getItem: (id) => items.get(id),
+});
+tutorialCommands.register({ commands, tutorial });
+
+// Helper: advance tutorial and emit the hint/reward notification to the player.
+function tutorialAdvance(p, trigger) {
+  if (!p || p.tutorialComplete) return;
+  const ws = (() => { for (const [w, pl] of players) if (pl === p) return w; return null; })();
+  const before = p.tutorialStep;
+  const result = tutorial.advanceStep(p, trigger);
+  if (!result.advanced) return;
+  if (!ws) return;
+  const rewardBits = [];
+  if (result.reward && result.reward.xp) {
+    for (const [s, n] of Object.entries(result.reward.xp)) rewardBits.push(`+${n} ${s} XP`);
+  }
+  if (result.reward && result.reward.items && result.reward.items.length) {
+    for (const it of result.reward.items) rewardBits.push(`+${it.count} ${it.name}`);
+  }
+  const rewardMsg = rewardBits.length ? ` (${rewardBits.join(', ')})` : '';
+  if (result.completed) {
+    sendText(ws, `── Tutorial Complete ──\nThe parchment glows once and rests. You know the bones of Aelgard now.${rewardMsg}`);
+  } else {
+    const next = tutorial.currentStep(p);
+    if (next) {
+      sendText(ws, `[Tutorial ${before + 1}/${tutorial.totalSteps()}]${rewardMsg}\n  Next: ${next.title} — ${next.hint}`);
+    }
+  }
+}
+
+// Subscribe to engine events and translate them to tutorial triggers.
+events.on('player_login', 'tutorial.login', ({ player }) => {
+  tutorial.initPlayer(player);
+});
+events.on('player_move', 'tutorial.move', ({ player }) => {
+  if (!player || player.tutorialComplete) return;
+  tutorialAdvance(player, { type: 'player_move', tiles: 1 });
+});
+events.on('npc_kill', 'tutorial.kill', ({ player, npc }) => {
+  if (!player || player.tutorialComplete) return;
+  const name = (npc && (npc.name || npc.type)) || '';
+  tutorialAdvance(player, { type: 'npc_kill', name });
+});
+events.on('skill_action', 'tutorial.skill', ({ player, skill }) => {
+  if (!player || player.tutorialComplete) return;
+  if (skill === 'woodcutting') tutorialAdvance(player, { type: 'tree_chopped' });
+  else if (skill === 'firemaking') tutorialAdvance(player, { type: 'fire_lit' });
+  else if (skill === 'cooking') tutorialAdvance(player, { type: 'item_cooked' });
+});
 
 // Persistence
 persistence.onSave('chunks', () => tiles.saveChunks());
