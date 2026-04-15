@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html><head><meta charset="utf-8"><title>The Wilds density — Aelgard Codex</title>
+<style>
+  body { font-family: ui-monospace, 'Cascadia Code', Consolas, monospace; background:#3e3529; color:#e8dcc0; margin:0 auto; padding:20px; max-width:1200px; }
+  .parchment { background:#e8dcc0; color:#2c1810; padding:30px 40px; border:3px solid #8b6f47; border-radius:4px; box-shadow:0 0 20px rgba(0,0,0,.5); margin:20px 0; }
+  h1 { color:#7a1f1a; border-bottom:2px solid #8b6f47; padding-bottom:10px; }
+  h2 { color:#5a3a1a; margin-top:30px; }
+  h3 { color:#6b4423; }
+  a { color:#7a1f1a; border-bottom:1px dotted #7a1f1a; text-decoration:none; }
+  a:hover { background:#d4c49c; }
+  nav { margin-bottom:20px; }
+  nav a { margin-right:12px; font-weight:bold; }
+  .description { font-style:italic; color:#5a3a1a; padding:10px; background:#d4c49c; border-left:3px solid #8b6f47; margin:10px 0; }
+  table { width:100%; border-collapse:collapse; margin:15px 0; }
+  th, td { text-align:left; padding:6px 10px; border-bottom:1px solid #c4a970; }
+  th { background:#d4c49c; color:#2c1810; }
+  tr:hover { background:#d4c49c; }
+  .tag { display:inline-block; padding:2px 8px; margin:2px; border-radius:3px; font-size:11px; font-weight:bold; }
+  .tag-region { background:#4a6b8a; color:#fff; }
+  .tag-skill  { background:#5a7f4a; color:#fff; }
+  .tag-trans  { background:#8a1f1a; color:#fff; }
+  .tag-major  { background:#a86a2a; color:#fff; }
+  .tag-minor  { background:#6a6a6a; color:#fff; }
+  .tag-afk    { background:#3a5a2a; color:#fff; }
+  .tag-low    { background:#4a7a3a; color:#fff; }
+  .tag-medium { background:#8a7a2a; color:#fff; }
+  .tag-high   { background:#a85a2a; color:#fff; }
+  .tag-maximum{ background:#8a1f1a; color:#fff; }
+  .tag-obscure{ background:#6a4a2a; color:#fff; font-style:italic; }
+  .knob-grid { display:grid; grid-template-columns:repeat(4, 1fr); gap:10px; margin:15px 0; }
+  .knob { background:#d4c49c; padding:10px; border-radius:3px; }
+  .knob .label { font-size:11px; color:#5a3a1a; text-transform:uppercase; font-weight:bold; }
+  .knob .value { font-size:16px; color:#7a1f1a; font-weight:bold; margin-top:4px; }
+  .knob .detail { font-size:11px; color:#3a2810; margin-top:2px; }
+  .stat-grid { display:grid; grid-template-columns:repeat(4, 1fr); gap:10px; margin:15px 0; }
+  .stat-cell { background:#d4c49c; padding:10px; border-radius:3px; text-align:center; }
+  .stat-cell .value { font-size:24px; font-weight:bold; color:#7a1f1a; }
+  .stat-cell .label { font-size:11px; color:#5a3a1a; text-transform:uppercase; }
+  .heat { display:inline-block; width:40px; text-align:center; padding:4px; margin:1px; border-radius:3px; font-weight:bold; font-size:11px; }
+  .heat-0 { background:#c4a970; color:#5a3a1a; }
+  .heat-1 { background:#9ec49a; color:#1a3a1a; }
+  .heat-3 { background:#6a9e6a; color:#fff; }
+  .heat-5 { background:#3a7a3a; color:#fff; }
+  .heat-10 { background:#1a5a1a; color:#fff; }
+  ul.loose li { margin-bottom:8px; }
+  details { margin:8px 0; padding:8px; background:#d4c49c; border-radius:3px; }
+  summary { cursor:pointer; font-weight:bold; }
+  .graph-wrap { overflow:auto; background:#d4c49c; padding:10px; border-radius:3px; }
+  svg { background:#e8dcc0; }
+</style>
+</head>
+<body>
+<nav>
+  <a href="index.html">Home</a>
+  <a href="regions.html">Regions</a>
+  <a href="skills.html">Skills</a>
+  <a href="methods.html">Methods</a>
+  <a href="quests.html">Quests</a>
+  <a href="items.html">Items</a>
+  <a href="recipes.html">Recipes</a>
+  <a href="minigames.html">Minigames</a>
+  <a href="bosses.html">Bosses</a>
+  <a href="npcs.html">NPCs</a>
+  <a href="lore.html">Lore</a>
+  <a href="breakpoints.html">Breakpoints</a>
+  <a href="web.html">Web</a>
+</nav>
+<div class="parchment">
+
+<h1>The Wilds — Density Heatmap</h1>
+<div class="description">How many training methods this region has per skill, broken down by attention tier.</div>
+
+<div class="stat-grid">
+  <div class="stat-cell"><div class="value">31</div><div class="label">Total Methods</div></div>
+  <div class="stat-cell"><div class="value">23</div><div class="label">Skills With Content</div></div>
+  <div class="stat-cell"><div class="value">0</div><div class="label">AFK Methods</div></div>
+  <div class="stat-cell"><div class="value">28</div><div class="label">High-Focus Methods</div></div>
+</div>
+
+<h2>Skill × Attention Matrix</h2>
+<p><em>0 &lt; 1 &lt; 3 &lt; 5 &lt; 10+ methods. Gaps identify where this region needs more content.</em></p>
+<table>
+<tr><th>Skill</th><th>AFK</th><th>Low</th><th>Medium</th><th>High</th><th>Maximum</th><th>Total</th></tr>
+<tr>
+    <td><a href="skill-attack.html"><strong>attack</strong></a></td>
+    <td><span class="heat heat-0">0</span></td>
+    <td><span class="heat heat-0">0</span></td>
+    <td><span class="heat heat-0">0</span></td>
+    <td><span class="heat heat-0">0</span></td>
+    <td><span class="heat heat-1">2</span></td>
+    <td><strong>2</strong></td>
+  </tr>
+<tr>
+    <td><a href="skill-strength.html"><strong>strength</strong></a></td>
+    <td><span class="heat heat-0">0</span></td>
+    <td><span class="heat heat-0">0</span></td>
+    <td><span class="heat heat-0">0</span></td>
+    <td><span class="heat heat-1">2</span></td>
+    <td><span class="heat heat-0">0</span></td>
+    <td><strong>2</strong></td>
+  </tr>
+<tr>
+    <td><a href="skill-defence.html"><strong>defence</strong></a></td>
+    <td><span class="heat heat-0">0</span></td>
+    <td><span class="heat heat-0">0</span></td>
+    <td><span class="heat heat-1">1</span></td>
+    <td><span class="heat heat-0">0</span></td>
+    <td><span class="heat heat-0">0</span></td>
+    <td><strong>1</strong></td>
+  </tr>
+<tr>
+    <td><a href="skill-hitpoints.html"><strong>hitpoints</strong></a></td>
+    <td><span class="heat heat-0">0</span></td>
+    <td><span class="heat heat-0">0</span></td>
+    <td><span class="heat heat-0">0</span></td>
+    <td><span class="heat heat-1">1</span></td>
+    <td><span class="heat heat-0">0</span></td>
+    <td><strong>1</strong></td>
+  </tr>
+<tr>
+    <td><a href="skill-ranged.html"><strong>ranged</strong></a></td>
+    <td><span class="heat heat-0">0</span></td>
+    <td><span class="heat heat-0">0</span></td>
+    <td><span class="heat heat-0">0</span></td>
+    <td><span class="heat heat-0">0</span></td>
+    <td><span class="heat heat-1">1</span></td>
+    <td><strong>1</strong></td>
+  </tr>
+<tr>
+    <td><a href="skill-prayer.html"><strong>prayer</strong></a></td>
+    <td><span class="heat heat-0">0</span></td>
+    <td><span class="heat heat-0">0</span></td>
+    <td><span class="heat heat-0">0</span></td>
+    <td><span class="heat heat-0">0</span></td>
+    <td><span class="heat heat-1">2</span></td>
+    <td><strong>2</strong></td>
+  </tr>
+<tr>
+    <td><a href="skill-magic.html"><strong>magic</strong></a></td>
+    <td><span class="heat heat-0">0</span></td>
+    <td><span class="heat heat-0">0</span></td>
+    <td><span class="heat heat-0">0</span></td>
+    <td><span class="heat heat-1">1</span></td>
+    <td><span class="heat heat-1">1</span></td>
+    <td><strong>2</strong></td>
+  </tr>
+<tr>
+    <td><a href="skill-runecrafting.html"><strong>runecrafting</strong></a></td>
+    <td><span class="heat heat-0">0</span></td>
+    <td><span class="heat heat-0">0</span></td>
+    <td><span class="heat heat-1">1</span></td>
+    <td><span class="heat heat-1">2</span></td>
+    <td><span class="heat heat-0">0</span></td>
+    <td><strong>3</strong></td>
+  </tr>
+<tr>
+    <td><a href="skill-construction.html"><strong>construction</strong></a></td>
+    <td><span class="heat heat-0">0</span></td>
+    <td><span class="heat heat-0">0</span></td>
+    <td><span class="heat heat-0">0</span></td>
+    <td><span class="heat heat-1">1</span></td>
+    <td><span class="heat heat-0">0</span></td>
+    <td><strong>1</strong></td>
+  </tr>
+<tr>
+    <td><a href="skill-agility.html"><strong>agility</strong></a></td>
+    <td><span class="heat heat-0">0</span></td>
+    <td><span class="heat heat-0">0</span></td>
+    <td><span class="heat heat-0">0</span></td>
+    <td><span class="heat heat-1">1</span></td>
+    <td><span class="heat heat-0">0</span></td>
+    <td><strong>1</strong></td>
+  </tr>
+<tr>
+    <td><a href="skill-herblore.html"><strong>herblore</strong></a></td>
+    <td><span class="heat heat-0">0</span></td>
+    <td><span class="heat heat-0">0</span></td>
+    <td><span class="heat heat-0">0</span></td>
+    <td><span class="heat heat-1">1</span></td>
+    <td><span class="heat heat-0">0</span></td>
+    <td><strong>1</strong></td>
+  </tr>
+<tr>
+    <td><a href="skill-thieving.html"><strong>thieving</strong></a></td>
+    <td><span class="heat heat-0">0</span></td>
+    <td><span class="heat heat-0">0</span></td>
+    <td><span class="heat heat-0">0</span></td>
+    <td><span class="heat heat-1">1</span></td>
+    <td><span class="heat heat-0">0</span></td>
+    <td><strong>1</strong></td>
+  </tr>
+<tr>
+    <td><a href="skill-crafting.html"><strong>crafting</strong></a></td>
+    <td><span class="heat heat-0">0</span></td>
+    <td><span class="heat heat-0">0</span></td>
+    <td><span class="heat heat-0">0</span></td>
+    <td><span class="heat heat-1">1</span></td>
+    <td><span class="heat heat-0">0</span></td>
+    <td><strong>1</strong></td>
+  </tr>
+<tr>
+    <td><a href="skill-fletching.html"><strong>fletching</strong></a></td>
+    <td><span class="heat heat-0">0</span></td>
+    <td><span class="heat heat-0">0</span></td>
+    <td><span class="heat heat-0">0</span></td>
+    <td><span class="heat heat-1">1</span></td>
+    <td><span class="heat heat-0">0</span></td>
+    <td><strong>1</strong></td>
+  </tr>
+<tr>
+    <td><a href="skill-slayer.html"><strong>slayer</strong></a></td>
+    <td><span class="heat heat-0">0</span></td>
+    <td><span class="heat heat-0">0</span></td>
+    <td><span class="heat heat-0">0</span></td>
+    <td><span class="heat heat-1">1</span></td>
+    <td><span class="heat heat-0">0</span></td>
+    <td><strong>1</strong></td>
+  </tr>
+<tr>
+    <td><a href="skill-hunter.html"><strong>hunter</strong></a></td>
+    <td><span class="heat heat-0">0</span></td>
+    <td><span class="heat heat-0">0</span></td>
+    <td><span class="heat heat-0">0</span></td>
+    <td><span class="heat heat-0">0</span></td>
+    <td><span class="heat heat-1">1</span></td>
+    <td><strong>1</strong></td>
+  </tr>
+<tr>
+    <td><a href="skill-mining.html"><strong>mining</strong></a></td>
+    <td><span class="heat heat-0">0</span></td>
+    <td><span class="heat heat-0">0</span></td>
+    <td><span class="heat heat-0">0</span></td>
+    <td><span class="heat heat-1">1</span></td>
+    <td><span class="heat heat-0">0</span></td>
+    <td><strong>1</strong></td>
+  </tr>
+<tr>
+    <td><a href="skill-smithing.html"><strong>smithing</strong></a></td>
+    <td><span class="heat heat-0">0</span></td>
+    <td><span class="heat heat-0">0</span></td>
+    <td><span class="heat heat-0">0</span></td>
+    <td><span class="heat heat-1">1</span></td>
+    <td><span class="heat heat-0">0</span></td>
+    <td><strong>1</strong></td>
+  </tr>
+<tr>
+    <td><a href="skill-fishing.html"><strong>fishing</strong></a></td>
+    <td><span class="heat heat-0">0</span></td>
+    <td><span class="heat heat-0">0</span></td>
+    <td><span class="heat heat-1">1</span></td>
+    <td><span class="heat heat-1">1</span></td>
+    <td><span class="heat heat-0">0</span></td>
+    <td><strong>2</strong></td>
+  </tr>
+<tr>
+    <td><a href="skill-cooking.html"><strong>cooking</strong></a></td>
+    <td><span class="heat heat-0">0</span></td>
+    <td><span class="heat heat-0">0</span></td>
+    <td><span class="heat heat-0">0</span></td>
+    <td><span class="heat heat-1">1</span></td>
+    <td><span class="heat heat-0">0</span></td>
+    <td><strong>1</strong></td>
+  </tr>
+<tr>
+    <td><a href="skill-firemaking.html"><strong>firemaking</strong></a></td>
+    <td><span class="heat heat-0">0</span></td>
+    <td><span class="heat heat-0">0</span></td>
+    <td><span class="heat heat-0">0</span></td>
+    <td><span class="heat heat-1">1</span></td>
+    <td><span class="heat heat-0">0</span></td>
+    <td><strong>1</strong></td>
+  </tr>
+<tr>
+    <td><a href="skill-woodcutting.html"><strong>woodcutting</strong></a></td>
+    <td><span class="heat heat-0">0</span></td>
+    <td><span class="heat heat-0">0</span></td>
+    <td><span class="heat heat-0">0</span></td>
+    <td><span class="heat heat-1">1</span></td>
+    <td><span class="heat heat-0">0</span></td>
+    <td><strong>1</strong></td>
+  </tr>
+<tr>
+    <td><a href="skill-farming.html"><strong>farming</strong></a></td>
+    <td><span class="heat heat-0">0</span></td>
+    <td><span class="heat heat-0">0</span></td>
+    <td><span class="heat heat-0">0</span></td>
+    <td><span class="heat heat-1">2</span></td>
+    <td><span class="heat heat-0">0</span></td>
+    <td><strong>2</strong></td>
+  </tr>
+</table>
+
+<h2>Methods by Skill</h2>
+
+<h3>attack (2)</h3>
+<ul class="loose">
+<li><a href="method-attack-wilds-revenants.html"><strong>Revenant Hunting (Melee)</strong></a> <span class="tag tag-maximum">maximum</span> 60-99</li>
+<li><a href="method-wilds-revenant-combat.html"><strong>Revenant Weapon Hunting</strong></a> <span class="tag tag-maximum">maximum</span> 75-99</li>
+</ul>
+
+
+<h3>strength (2)</h3>
+<ul class="loose">
+<li><a href="method-strength-wilderness-bosses.html"><strong>Wilderness Boss Grinding</strong></a> <span class="tag tag-high">high</span> 70-99</li>
+<li><a href="method-wilds-boss-hunting.html"><strong>Wilderness Boss Hunting</strong></a> <span class="tag tag-high">high</span> 80-99</li>
+</ul>
+
+
+<h3>defence (1)</h3>
+<ul class="loose">
+<li><a href="method-defence-wilds-abyss-training.html"><strong>Abyss Defence Training</strong></a> <span class="tag tag-medium">medium</span> 60-99</li>
+</ul>
+
+
+<h3>hitpoints (1)</h3>
+<ul class="loose">
+<li><a href="method-hitpoints-wilds-green-dragons.html"><strong>Green Dragons (HP)</strong></a> <span class="tag tag-high">high</span> 40-70</li>
+</ul>
+
+
+<h3>ranged (1)</h3>
+<ul class="loose">
+<li><a href="method-ranged-wilds-black-chins.html"><strong>Black Chin Hunting + Ranging</strong></a> <span class="tag tag-maximum">maximum</span> 70-99</li>
+</ul>
+
+
+<h3>prayer (2)</h3>
+<ul class="loose">
+<li><a href="method-prayer-wilds-chaos-altar.html"><strong>Chaos Altar (Wilderness)</strong></a> <span class="tag tag-maximum">maximum</span> 1-99</li>
+<li><a href="method-wilds-chaos-altar-prayer.html"><strong>Chaos Altar Prayer</strong></a> <span class="tag tag-maximum">maximum</span> 1-99</li>
+</ul>
+
+
+<h3>magic (2)</h3>
+<ul class="loose">
+<li><a href="method-magic-wilds-god-spells.html"><strong>God Spell PKing</strong></a> <span class="tag tag-maximum">maximum</span> 60-99</li>
+<li><a href="method-wilds-mage-bank-magic.html"><strong>Mage of Zamorak Battles</strong></a> <span class="tag tag-high">high</span> 60-99</li>
+</ul>
+
+
+<h3>runecrafting (3)</h3>
+<ul class="loose">
+<li><a href="method-runecrafting-wilds-abyss.html"><strong>Abyss Runecrafting</strong></a> <span class="tag tag-high">high</span> 1-99</li>
+<li><a href="method-wilds-rune-essence.html"><strong>Wilderness Pure Essence</strong></a> <span class="tag tag-medium">medium</span> 1-99</li>
+<li><a href="method-wilds-abyss-runecrafting.html"><strong>Wilderness Abyss RC</strong></a> <span class="tag tag-high">high</span> 44-99</li>
+</ul>
+
+
+<h3>construction (1)</h3>
+<ul class="loose">
+<li><a href="method-construction-wilds-fortifications.html"><strong>Wilderness Fortifications</strong></a> <span class="tag tag-high">high</span> 30-99</li>
+</ul>
+
+
+<h3>agility (1)</h3>
+<ul class="loose">
+<li><a href="method-agility-wilds-course.html"><strong>Wilderness Agility Course</strong></a> <span class="tag tag-high">high</span> 52-99</li>
+</ul>
+
+
+<h3>herblore (1)</h3>
+<ul class="loose">
+<li><a href="method-herblore-wilds-potions.html"><strong>Wilderness Herb Gathering + Mixing</strong></a> <span class="tag tag-high">high</span> 30-99</li>
+</ul>
+
+
+<h3>thieving (1)</h3>
+<ul class="loose">
+<li><a href="method-thieving-wilds-rogues-chest.html"><strong>Rogues Castle Chests</strong></a> <span class="tag tag-high">high</span> 84-99</li>
+</ul>
+
+
+<h3>crafting (1)</h3>
+<ul class="loose">
+<li><a href="method-crafting-wilds-dragonhide-tanning.html"><strong>Wilderness Tannery</strong></a> <span class="tag tag-high">high</span> 40-99</li>
+</ul>
+
+
+<h3>fletching (1)</h3>
+<ul class="loose">
+<li><a href="method-fletching-wilds-javelin-shafts.html"><strong>Wilderness Javelin Crafting</strong></a> <span class="tag tag-high">high</span> 35-99</li>
+</ul>
+
+
+<h3>slayer (1)</h3>
+<ul class="loose">
+<li><a href="method-slayer-wilds-tasks.html"><strong>Wilderness Slayer</strong></a> <span class="tag tag-high">high</span> 1-99</li>
+</ul>
+
+
+<h3>hunter (1)</h3>
+<ul class="loose">
+<li><a href="method-hunter-wilds-black-chins.html"><strong>Black Chinchompa Trapping</strong></a> <span class="tag tag-maximum">maximum</span> 73-99</li>
+</ul>
+
+
+<h3>mining (1)</h3>
+<ul class="loose">
+<li><a href="method-mining-wilds-runite.html"><strong>Wilderness Runite Mining</strong></a> <span class="tag tag-high">high</span> 85-99</li>
+</ul>
+
+
+<h3>smithing (1)</h3>
+<ul class="loose">
+<li><a href="method-smithing-wilds-anvil.html"><strong>Wilderness Anvil Smithing</strong></a> <span class="tag tag-high">high</span> 50-99</li>
+</ul>
+
+
+<h3>fishing (2)</h3>
+<ul class="loose">
+<li><a href="method-fishing-wilds-dark-crabs.html"><strong>Dark Crab Fishing (Wilds)</strong></a> <span class="tag tag-high">high</span> 85-99</li>
+<li><a href="method-wilds-dark-crab-fishing.html"><strong>Dark Crab Pirate Coast</strong></a> <span class="tag tag-medium">medium</span> 85-99</li>
+</ul>
+
+
+<h3>cooking (1)</h3>
+<ul class="loose">
+<li><a href="method-cooking-wilds-campfire.html"><strong>Wilderness Campfire Cooking</strong></a> <span class="tag tag-high">high</span> 1-99</li>
+</ul>
+
+
+<h3>firemaking (1)</h3>
+<ul class="loose">
+<li><a href="method-firemaking-wilds-bonfires.html"><strong>Wilderness Bonfires</strong></a> <span class="tag tag-high">high</span> 30-99</li>
+</ul>
+
+
+<h3>woodcutting (1)</h3>
+<ul class="loose">
+<li><a href="method-woodcutting-wilds-ents.html"><strong>Wilderness Ent Chopping</strong></a> <span class="tag tag-high">high</span> 40-99</li>
+</ul>
+
+
+<h3>farming (2)</h3>
+<ul class="loose">
+<li><a href="method-farming-wilds-herb-patches.html"><strong>Wilderness Herb Patches</strong></a> <span class="tag tag-high">high</span> 30-99</li>
+<li><a href="method-wilds-ent-farming.html"><strong>Wilderness Ent Farming</strong></a> <span class="tag tag-high">high</span> 65-99</li>
+</ul>
+
+
+<p><a href="region-the_wilds.html">← The Wilds region</a></p>
+
+</div>
+</body></html>

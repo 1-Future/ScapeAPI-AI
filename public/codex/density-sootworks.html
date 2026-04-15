@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html><head><meta charset="utf-8"><title>Sootworks density — Aelgard Codex</title>
+<style>
+  body { font-family: ui-monospace, 'Cascadia Code', Consolas, monospace; background:#3e3529; color:#e8dcc0; margin:0 auto; padding:20px; max-width:1200px; }
+  .parchment { background:#e8dcc0; color:#2c1810; padding:30px 40px; border:3px solid #8b6f47; border-radius:4px; box-shadow:0 0 20px rgba(0,0,0,.5); margin:20px 0; }
+  h1 { color:#7a1f1a; border-bottom:2px solid #8b6f47; padding-bottom:10px; }
+  h2 { color:#5a3a1a; margin-top:30px; }
+  h3 { color:#6b4423; }
+  a { color:#7a1f1a; border-bottom:1px dotted #7a1f1a; text-decoration:none; }
+  a:hover { background:#d4c49c; }
+  nav { margin-bottom:20px; }
+  nav a { margin-right:12px; font-weight:bold; }
+  .description { font-style:italic; color:#5a3a1a; padding:10px; background:#d4c49c; border-left:3px solid #8b6f47; margin:10px 0; }
+  table { width:100%; border-collapse:collapse; margin:15px 0; }
+  th, td { text-align:left; padding:6px 10px; border-bottom:1px solid #c4a970; }
+  th { background:#d4c49c; color:#2c1810; }
+  tr:hover { background:#d4c49c; }
+  .tag { display:inline-block; padding:2px 8px; margin:2px; border-radius:3px; font-size:11px; font-weight:bold; }
+  .tag-region { background:#4a6b8a; color:#fff; }
+  .tag-skill  { background:#5a7f4a; color:#fff; }
+  .tag-trans  { background:#8a1f1a; color:#fff; }
+  .tag-major  { background:#a86a2a; color:#fff; }
+  .tag-minor  { background:#6a6a6a; color:#fff; }
+  .tag-afk    { background:#3a5a2a; color:#fff; }
+  .tag-low    { background:#4a7a3a; color:#fff; }
+  .tag-medium { background:#8a7a2a; color:#fff; }
+  .tag-high   { background:#a85a2a; color:#fff; }
+  .tag-maximum{ background:#8a1f1a; color:#fff; }
+  .tag-obscure{ background:#6a4a2a; color:#fff; font-style:italic; }
+  .knob-grid { display:grid; grid-template-columns:repeat(4, 1fr); gap:10px; margin:15px 0; }
+  .knob { background:#d4c49c; padding:10px; border-radius:3px; }
+  .knob .label { font-size:11px; color:#5a3a1a; text-transform:uppercase; font-weight:bold; }
+  .knob .value { font-size:16px; color:#7a1f1a; font-weight:bold; margin-top:4px; }
+  .knob .detail { font-size:11px; color:#3a2810; margin-top:2px; }
+  .stat-grid { display:grid; grid-template-columns:repeat(4, 1fr); gap:10px; margin:15px 0; }
+  .stat-cell { background:#d4c49c; padding:10px; border-radius:3px; text-align:center; }
+  .stat-cell .value { font-size:24px; font-weight:bold; color:#7a1f1a; }
+  .stat-cell .label { font-size:11px; color:#5a3a1a; text-transform:uppercase; }
+  .heat { display:inline-block; width:40px; text-align:center; padding:4px; margin:1px; border-radius:3px; font-weight:bold; font-size:11px; }
+  .heat-0 { background:#c4a970; color:#5a3a1a; }
+  .heat-1 { background:#9ec49a; color:#1a3a1a; }
+  .heat-3 { background:#6a9e6a; color:#fff; }
+  .heat-5 { background:#3a7a3a; color:#fff; }
+  .heat-10 { background:#1a5a1a; color:#fff; }
+  ul.loose li { margin-bottom:8px; }
+  details { margin:8px 0; padding:8px; background:#d4c49c; border-radius:3px; }
+  summary { cursor:pointer; font-weight:bold; }
+  .graph-wrap { overflow:auto; background:#d4c49c; padding:10px; border-radius:3px; }
+  svg { background:#e8dcc0; }
+</style>
+</head>
+<body>
+<nav>
+  <a href="index.html">Home</a>
+  <a href="regions.html">Regions</a>
+  <a href="skills.html">Skills</a>
+  <a href="methods.html">Methods</a>
+  <a href="quests.html">Quests</a>
+  <a href="items.html">Items</a>
+  <a href="recipes.html">Recipes</a>
+  <a href="minigames.html">Minigames</a>
+  <a href="bosses.html">Bosses</a>
+  <a href="npcs.html">NPCs</a>
+  <a href="lore.html">Lore</a>
+  <a href="breakpoints.html">Breakpoints</a>
+  <a href="web.html">Web</a>
+</nav>
+<div class="parchment">
+
+<h1>Sootworks — Density Heatmap</h1>
+<div class="description">How many training methods this region has per skill, broken down by attention tier.</div>
+
+<div class="stat-grid">
+  <div class="stat-cell"><div class="value">52</div><div class="label">Total Methods</div></div>
+  <div class="stat-cell"><div class="value">23</div><div class="label">Skills With Content</div></div>
+  <div class="stat-cell"><div class="value">6</div><div class="label">AFK Methods</div></div>
+  <div class="stat-cell"><div class="value">14</div><div class="label">High-Focus Methods</div></div>
+</div>
+
+<h2>Skill × Attention Matrix</h2>
+<p><em>0 &lt; 1 &lt; 3 &lt; 5 &lt; 10+ methods. Gaps identify where this region needs more content.</em></p>
+<table>
+<tr><th>Skill</th><th>AFK</th><th>Low</th><th>Medium</th><th>High</th><th>Maximum</th><th>Total</th></tr>
+<tr>
+    <td><a href="skill-attack.html"><strong>attack</strong></a></td>
+    <td><span class="heat heat-0">0</span></td>
+    <td><span class="heat heat-0">0</span></td>
+    <td><span class="heat heat-0">0</span></td>
+    <td><span class="heat heat-1">1</span></td>
+    <td><span class="heat heat-0">0</span></td>
+    <td><strong>1</strong></td>
+  </tr>
+<tr>
+    <td><a href="skill-strength.html"><strong>strength</strong></a></td>
+    <td><span class="heat heat-0">0</span></td>
+    <td><span class="heat heat-1">1</span></td>
+    <td><span class="heat heat-1">1</span></td>
+    <td><span class="heat heat-1">1</span></td>
+    <td><span class="heat heat-0">0</span></td>
+    <td><strong>3</strong></td>
+  </tr>
+<tr>
+    <td><a href="skill-defence.html"><strong>defence</strong></a></td>
+    <td><span class="heat heat-0">0</span></td>
+    <td><span class="heat heat-1">1</span></td>
+    <td><span class="heat heat-1">1</span></td>
+    <td><span class="heat heat-0">0</span></td>
+    <td><span class="heat heat-0">0</span></td>
+    <td><strong>2</strong></td>
+  </tr>
+<tr>
+    <td><a href="skill-hitpoints.html"><strong>hitpoints</strong></a></td>
+    <td><span class="heat heat-1">1</span></td>
+    <td><span class="heat heat-1">1</span></td>
+    <td><span class="heat heat-0">0</span></td>
+    <td><span class="heat heat-0">0</span></td>
+    <td><span class="heat heat-0">0</span></td>
+    <td><strong>2</strong></td>
+  </tr>
+<tr>
+    <td><a href="skill-ranged.html"><strong>ranged</strong></a></td>
+    <td><span class="heat heat-0">0</span></td>
+    <td><span class="heat heat-0">0</span></td>
+    <td><span class="heat heat-1">1</span></td>
+    <td><span class="heat heat-1">1</span></td>
+    <td><span class="heat heat-0">0</span></td>
+    <td><strong>2</strong></td>
+  </tr>
+<tr>
+    <td><a href="skill-prayer.html"><strong>prayer</strong></a></td>
+    <td><span class="heat heat-0">0</span></td>
+    <td><span class="heat heat-1">2</span></td>
+    <td><span class="heat heat-1">1</span></td>
+    <td><span class="heat heat-0">0</span></td>
+    <td><span class="heat heat-0">0</span></td>
+    <td><strong>3</strong></td>
+  </tr>
+<tr>
+    <td><a href="skill-magic.html"><strong>magic</strong></a></td>
+    <td><span class="heat heat-0">0</span></td>
+    <td><span class="heat heat-0">0</span></td>
+    <td><span class="heat heat-1">1</span></td>
+    <td><span class="heat heat-1">1</span></td>
+    <td><span class="heat heat-0">0</span></td>
+    <td><strong>2</strong></td>
+  </tr>
+<tr>
+    <td><a href="skill-runecrafting.html"><strong>runecrafting</strong></a></td>
+    <td><span class="heat heat-0">0</span></td>
+    <td><span class="heat heat-1">1</span></td>
+    <td><span class="heat heat-0">0</span></td>
+    <td><span class="heat heat-0">0</span></td>
+    <td><span class="heat heat-0">0</span></td>
+    <td><strong>1</strong></td>
+  </tr>
+<tr>
+    <td><a href="skill-construction.html"><strong>construction</strong></a></td>
+    <td><span class="heat heat-0">0</span></td>
+    <td><span class="heat heat-1">1</span></td>
+    <td><span class="heat heat-0">0</span></td>
+    <td><span class="heat heat-1">1</span></td>
+    <td><span class="heat heat-0">0</span></td>
+    <td><strong>2</strong></td>
+  </tr>
+<tr>
+    <td><a href="skill-agility.html"><strong>agility</strong></a></td>
+    <td><span class="heat heat-0">0</span></td>
+    <td><span class="heat heat-0">0</span></td>
+    <td><span class="heat heat-1">2</span></td>
+    <td><span class="heat heat-1">1</span></td>
+    <td><span class="heat heat-0">0</span></td>
+    <td><strong>3</strong></td>
+  </tr>
+<tr>
+    <td><a href="skill-herblore.html"><strong>herblore</strong></a></td>
+    <td><span class="heat heat-0">0</span></td>
+    <td><span class="heat heat-0">0</span></td>
+    <td><span class="heat heat-1">1</span></td>
+    <td><span class="heat heat-1">1</span></td>
+    <td><span class="heat heat-0">0</span></td>
+    <td><strong>2</strong></td>
+  </tr>
+<tr>
+    <td><a href="skill-thieving.html"><strong>thieving</strong></a></td>
+    <td><span class="heat heat-0">0</span></td>
+    <td><span class="heat heat-1">1</span></td>
+    <td><span class="heat heat-0">0</span></td>
+    <td><span class="heat heat-1">1</span></td>
+    <td><span class="heat heat-0">0</span></td>
+    <td><strong>2</strong></td>
+  </tr>
+<tr>
+    <td><a href="skill-crafting.html"><strong>crafting</strong></a></td>
+    <td><span class="heat heat-1">1</span></td>
+    <td><span class="heat heat-1">2</span></td>
+    <td><span class="heat heat-0">0</span></td>
+    <td><span class="heat heat-1">1</span></td>
+    <td><span class="heat heat-0">0</span></td>
+    <td><strong>4</strong></td>
+  </tr>
+<tr>
+    <td><a href="skill-fletching.html"><strong>fletching</strong></a></td>
+    <td><span class="heat heat-1">1</span></td>
+    <td><span class="heat heat-0">0</span></td>
+    <td><span class="heat heat-1">1</span></td>
+    <td><span class="heat heat-0">0</span></td>
+    <td><span class="heat heat-0">0</span></td>
+    <td><strong>2</strong></td>
+  </tr>
+<tr>
+    <td><a href="skill-slayer.html"><strong>slayer</strong></a></td>
+    <td><span class="heat heat-0">0</span></td>
+    <td><span class="heat heat-0">0</span></td>
+    <td><span class="heat heat-0">0</span></td>
+    <td><span class="heat heat-1">1</span></td>
+    <td><span class="heat heat-0">0</span></td>
+    <td><strong>1</strong></td>
+  </tr>
+<tr>
+    <td><a href="skill-hunter.html"><strong>hunter</strong></a></td>
+    <td><span class="heat heat-0">0</span></td>
+    <td><span class="heat heat-1">1</span></td>
+    <td><span class="heat heat-1">1</span></td>
+    <td><span class="heat heat-1">1</span></td>
+    <td><span class="heat heat-0">0</span></td>
+    <td><strong>3</strong></td>
+  </tr>
+<tr>
+    <td><a href="skill-mining.html"><strong>mining</strong></a></td>
+    <td><span class="heat heat-1">1</span></td>
+    <td><span class="heat heat-1">1</span></td>
+    <td><span class="heat heat-0">0</span></td>
+    <td><span class="heat heat-0">0</span></td>
+    <td><span class="heat heat-0">0</span></td>
+    <td><strong>2</strong></td>
+  </tr>
+<tr>
+    <td><a href="skill-smithing.html"><strong>smithing</strong></a></td>
+    <td><span class="heat heat-0">0</span></td>
+    <td><span class="heat heat-0">0</span></td>
+    <td><span class="heat heat-0">0</span></td>
+    <td><span class="heat heat-1">2</span></td>
+    <td><span class="heat heat-0">0</span></td>
+    <td><strong>2</strong></td>
+  </tr>
+<tr>
+    <td><a href="skill-fishing.html"><strong>fishing</strong></a></td>
+    <td><span class="heat heat-1">1</span></td>
+    <td><span class="heat heat-1">1</span></td>
+    <td><span class="heat heat-1">1</span></td>
+    <td><span class="heat heat-0">0</span></td>
+    <td><span class="heat heat-0">0</span></td>
+    <td><strong>3</strong></td>
+  </tr>
+<tr>
+    <td><a href="skill-cooking.html"><strong>cooking</strong></a></td>
+    <td><span class="heat heat-0">0</span></td>
+    <td><span class="heat heat-1">1</span></td>
+    <td><span class="heat heat-1">1</span></td>
+    <td><span class="heat heat-0">0</span></td>
+    <td><span class="heat heat-0">0</span></td>
+    <td><strong>2</strong></td>
+  </tr>
+<tr>
+    <td><a href="skill-firemaking.html"><strong>firemaking</strong></a></td>
+    <td><span class="heat heat-0">0</span></td>
+    <td><span class="heat heat-1">1</span></td>
+    <td><span class="heat heat-1">2</span></td>
+    <td><span class="heat heat-1">1</span></td>
+    <td><span class="heat heat-0">0</span></td>
+    <td><strong>4</strong></td>
+  </tr>
+<tr>
+    <td><a href="skill-woodcutting.html"><strong>woodcutting</strong></a></td>
+    <td><span class="heat heat-1">1</span></td>
+    <td><span class="heat heat-1">1</span></td>
+    <td><span class="heat heat-0">0</span></td>
+    <td><span class="heat heat-0">0</span></td>
+    <td><span class="heat heat-0">0</span></td>
+    <td><strong>2</strong></td>
+  </tr>
+<tr>
+    <td><a href="skill-farming.html"><strong>farming</strong></a></td>
+    <td><span class="heat heat-0">0</span></td>
+    <td><span class="heat heat-1">2</span></td>
+    <td><span class="heat heat-0">0</span></td>
+    <td><span class="heat heat-0">0</span></td>
+    <td><span class="heat heat-0">0</span></td>
+    <td><strong>2</strong></td>
+  </tr>
+</table>
+
+<h2>Methods by Skill</h2>
+
+<h3>attack (1)</h3>
+<ul class="loose">
+<li><a href="method-sootworks-dragon-combat.html"><strong>Metal Dragon Hunting</strong></a> <span class="tag tag-high">high</span> 75-99</li>
+</ul>
+
+
+<h3>strength (3)</h3>
+<ul class="loose">
+<li><a href="method-sootworks-furnace-chant-strength.html"><strong>Furnace-Chant Hammer Drills</strong></a> <span class="tag tag-low">low</span> 1-50</li>
+<li><a href="method-quirky-sootworks-bellows-pump.html"><strong>[Quirky] Pump the Cathedral Bellows</strong></a> <span class="tag tag-high">high</span> 1-99</li>
+<li><a href="method-sootworks-slag-tunnel-strength.html"><strong>Slag-Tunnel Haul</strong></a> <span class="tag tag-medium">medium</span> 30-80</li>
+</ul>
+
+
+<h3>defence (2)</h3>
+<ul class="loose">
+<li><a href="method-sootworks-heat-temper-defence.html"><strong>Heat-Temper Plate Drills</strong></a> <span class="tag tag-low">low</span> 10-70</li>
+<li><a href="method-sootworks-golem-spawn-defence.html"><strong>Golem-Spawn Wardening</strong></a> <span class="tag tag-medium">medium</span> 40-90</li>
+</ul>
+
+
+<h3>hitpoints (2)</h3>
+<ul class="loose">
+<li><a href="method-sootworks-boilfloor-hpbath.html"><strong>Boil-Floor Heat Bath</strong></a> <span class="tag tag-afk">afk</span> 1-45</li>
+<li><a href="method-sootworks-pipehound-hp.html"><strong>Pipehound Grappling Pit</strong></a> <span class="tag tag-low">low</span> 30-80</li>
+</ul>
+
+
+<h3>ranged (2)</h3>
+<ul class="loose">
+<li><a href="method-sootworks-tinker-crossbow-range.html"><strong>Tinker-Yard Crossbow Range</strong></a> <span class="tag tag-medium">medium</span> 20-70</li>
+<li><a href="method-sootworks-shotcast-munitions-range.html"><strong>Shot-Cast Munitions Line</strong></a> <span class="tag tag-high">high</span> 60-99</li>
+</ul>
+
+
+<h3>prayer (3)</h3>
+<ul class="loose">
+<li><a href="method-sootworks-brass-choir-prayer.html"><strong>Brass Choir Sermons</strong></a> <span class="tag tag-medium">medium</span> 1-99</li>
+<li><a href="method-quirky-sootworks-chantbook-reading.html"><strong>[Quirky] Read the Chantbook</strong></a> <span class="tag tag-low">low</span> 1-99</li>
+<li><a href="method-sootworks-pilgrim-watchfire.html"><strong>Pilgrim Watchfire Vigil</strong></a> <span class="tag tag-low">low</span> 30-99</li>
+</ul>
+
+
+<h3>magic (2)</h3>
+<ul class="loose">
+<li><a href="method-sootworks-gearbound-magic.html"><strong>Gear-Bound Soot-Cant</strong></a> <span class="tag tag-medium">medium</span> 30-80</li>
+<li><a href="method-sootworks-rune-imbue-magic.html"><strong>Rune-Imbue Press</strong></a> <span class="tag tag-high">high</span> 70-99</li>
+</ul>
+
+
+<h3>runecrafting (1)</h3>
+<ul class="loose">
+<li><a href="method-sootworks-soot-library-rc.html"><strong>Soot-Library Industrial Runes</strong></a> <span class="tag tag-low">low</span> 25-99</li>
+</ul>
+
+
+<h3>construction (2)</h3>
+<ul class="loose">
+<li><a href="method-construction-sawmill-contracts.html"><strong>Sawmill Contracts</strong></a> <span class="tag tag-low">low</span> 20-70</li>
+<li><a href="method-sootworks-dwarf-construction.html"><strong>Dwarven Workshop</strong></a> <span class="tag tag-high">high</span> 50-99</li>
+</ul>
+
+
+<h3>agility (3)</h3>
+<ul class="loose">
+<li><a href="method-quirky-sootworks-valve-spin.html"><strong>[Quirky] Spin the Pump Valves</strong></a> <span class="tag tag-medium">medium</span> 1-99</li>
+<li><a href="method-sootworks-pump-station-course.html"><strong>Pump Station Pipe-Vault Course</strong></a> <span class="tag tag-medium">medium</span> 20-75</li>
+<li><a href="method-sootworks-gearwalk-elite.html"><strong>Deep Gearwalk Elite Run</strong></a> <span class="tag tag-high">high</span> 75-99</li>
+</ul>
+
+
+<h3>herblore (2)</h3>
+<ul class="loose">
+<li><a href="method-sootworks-rust-pits-apothecary.html"><strong>Rust-Pits Pipe-Brewing</strong></a> <span class="tag tag-medium">medium</span> 15-75</li>
+<li><a href="method-sootworks-ventbloom-master.html"><strong>Vent-Bloom Master Apothecary</strong></a> <span class="tag tag-high">high</span> 70-99</li>
+</ul>
+
+
+<h3>thieving (2)</h3>
+<ul class="loose">
+<li><a href="method-sootworks-beggars-gallery-pickpocket.html"><strong>Beggars&#39; Gallery Clerk-Lifting</strong></a> <span class="tag tag-low">low</span> 15-60</li>
+<li><a href="method-sootworks-strongbox-lockpick.html"><strong>Coal-Throat Strongbox Lockpicking</strong></a> <span class="tag tag-high">high</span> 50-99</li>
+</ul>
+
+
+<h3>crafting (4)</h3>
+<ul class="loose">
+<li><a href="method-quirky-sootworks-gear-grease.html"><strong>[Quirky] Grease the Tinker Yard Gears</strong></a> <span class="tag tag-low">low</span> 1-99</li>
+<li><a href="method-crafting-gold-jewelry.html"><strong>Gold Jewelry</strong></a> <span class="tag tag-low">low</span> 5-60</li>
+<li><a href="method-sootworks-gem-cutting.html"><strong>Sootworks Gem Cutting</strong></a> <span class="tag tag-afk">afk</span> 20-99</li>
+<li><a href="method-sootworks-clockwork-crafting.html"><strong>Clockwork Assembly</strong></a> <span class="tag tag-high">high</span> 50-99</li>
+</ul>
+
+
+<h3>fletching (2)</h3>
+<ul class="loose">
+<li><a href="method-sootworks-tinker-bolt-fletching.html"><strong>Tinker-Yard Bolt Fletching</strong></a> <span class="tag tag-afk">afk</span> 10-60</li>
+<li><a href="method-sootworks-shotcaster-fletching.html"><strong>Shot-Caster Assembly</strong></a> <span class="tag tag-medium">medium</span> 60-99</li>
+</ul>
+
+
+<h3>slayer (1)</h3>
+<ul class="loose">
+<li><a href="method-sootworks-slag-tunnels-slayer.html"><strong>Slag Tunnels Clockwork Contracts</strong></a> <span class="tag tag-high">high</span> 35-99</li>
+</ul>
+
+
+<h3>hunter (3)</h3>
+<ul class="loose">
+<li><a href="method-sootworks-clockbeetle-trapping.html"><strong>Clockbeetle Trapping</strong></a> <span class="tag tag-low">low</span> 20-65</li>
+<li><a href="method-sootworks-glowmoth-netting.html"><strong>Glowmoth Lantern Netting</strong></a> <span class="tag tag-medium">medium</span> 45-85</li>
+<li><a href="method-sootworks-depthtrout-snare.html"><strong>Depth-Trout Snare Line</strong></a> <span class="tag tag-high">high</span> 70-99</li>
+</ul>
+
+
+<h3>mining (2)</h3>
+<ul class="loose">
+<li><a href="method-mining-motherlode.html"><strong>Motherlode Mine</strong></a> <span class="tag tag-afk">afk</span> 30-99</li>
+<li><a href="method-sootworks-rune-mining.html"><strong>Runite Shaft Mining</strong></a> <span class="tag tag-low">low</span> 85-99</li>
+</ul>
+
+
+<h3>smithing (2)</h3>
+<ul class="loose">
+<li><a href="method-sootworks-blast-furnace.html"><strong>Blast Furnace Smelting</strong></a> <span class="tag tag-high">high</span> 30-99</li>
+<li><a href="method-smithing-gold-blast-furnace.html"><strong>Gold Bars at Blast Furnace</strong></a> <span class="tag tag-high">high</span> 40-99</li>
+</ul>
+
+
+<h3>fishing (3)</h3>
+<ul class="loose">
+<li><a href="method-sootworks-ironfin-line.html"><strong>Aquifer Ironfin Line Fishing</strong></a> <span class="tag tag-afk">afk</span> 15-60</li>
+<li><a href="method-sootworks-geyser-skitter-fishing.html"><strong>Geyser-Skitter Catching</strong></a> <span class="tag tag-medium">medium</span> 50-85</li>
+<li><a href="method-sootworks-deepwell-cavefishing.html"><strong>Deepwell Cave-Fishing</strong></a> <span class="tag tag-low">low</span> 75-99</li>
+</ul>
+
+
+<h3>cooking (2)</h3>
+<ul class="loose">
+<li><a href="method-sootworks-boilfloor-steamcure.html"><strong>Boil-Floor Steam-Cure Kitchen</strong></a> <span class="tag tag-low">low</span> 15-85</li>
+<li><a href="method-sootworks-pressurepot-cooking.html"><strong>Pressure-Pot Stout Kitchen</strong></a> <span class="tag tag-medium">medium</span> 45-99</li>
+</ul>
+
+
+<h3>firemaking (4)</h3>
+<ul class="loose">
+<li><a href="method-quirky-sootworks-lantern-lighting.html"><strong>[Quirky] Relight the Shaft Lanterns</strong></a> <span class="tag tag-medium">medium</span> 1-99</li>
+<li><a href="method-sootworks-foundry-firemaking.html"><strong>Foundry Stoker</strong></a> <span class="tag tag-low">low</span> 1-60</li>
+<li><a href="method-sootworks-lantern-mine-firemaking.html"><strong>Lantern Mine Seam-Lighting</strong></a> <span class="tag tag-medium">medium</span> 40-90</li>
+<li><a href="method-sootworks-deepcoal-furnace-fm.html"><strong>Deep-Coal Furnace Master Burn</strong></a> <span class="tag tag-high">high</span> 70-99</li>
+</ul>
+
+
+<h3>woodcutting (2)</h3>
+<ul class="loose">
+<li><a href="method-sootworks-sapwells-woodcutting.html"><strong>Sap-Wells Fungus-Wood Cutting</strong></a> <span class="tag tag-afk">afk</span> 20-70</li>
+<li><a href="method-sootworks-blackroot-cutting.html"><strong>Blackroot Lantern-Stand Cutting</strong></a> <span class="tag tag-low">low</span> 55-99</li>
+</ul>
+
+
+<h3>farming (2)</h3>
+<ul class="loose">
+<li><a href="method-sootworks-steamfield-farming.html"><strong>Steam-Field Heated Trays</strong></a> <span class="tag tag-low">low</span> 20-99</li>
+<li><a href="method-sootworks-lantern-lichen-farming.html"><strong>Lantern-Lichen Plate Tending</strong></a> <span class="tag tag-low">low</span> 65-99</li>
+</ul>
+
+
+<p><a href="region-sootworks.html">← Sootworks region</a></p>
+
+</div>
+</body></html>

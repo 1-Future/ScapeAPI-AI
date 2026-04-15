@@ -187,10 +187,17 @@ function page(title, body) {
   <a href="index.html">Home</a>
   <a href="regions.html">Regions</a>
   <a href="skills.html">Skills</a>
+  <a href="methods.html">Methods</a>
   <a href="quests.html">Quests</a>
-  <a href="breakpoints.html">Breakpoints</a>
   <a href="items.html">Items</a>
+  <a href="recipes.html">Recipes</a>
+  <a href="minigames.html">Minigames</a>
+  <a href="bosses.html">Bosses</a>
+  <a href="npcs.html">NPCs</a>
+  <a href="lore.html">Lore</a>
+  <a href="breakpoints.html">Breakpoints</a>
   <a href="combat-achievements.html">Combat Achievements</a>
+  <a href="web.html">Web</a>
 </nav>
 <div class="parchment">
 ${body}
@@ -236,9 +243,16 @@ function writeIndex() {
 <ul class="loose">
   <li><a href="regions.html">Regions</a> — the 8 lands of Aelgard plus The Wilds</li>
   <li><a href="skills.html">Skills</a> — 23 skills with all training methods</li>
+  <li><a href="methods.html">Methods</a> — every training method, all 8 Marstead knobs</li>
   <li><a href="quests.html">Quests</a> — every quest with unique unlocks</li>
-  <li><a href="breakpoints.html">Breakpoints</a> — the "this changes everything" moments</li>
   <li><a href="items.html">Items</a> — sources, uses, degradation, reagents</li>
+  <li><a href="recipes.html">Recipes</a> — every crafting combination</li>
+  <li><a href="minigames.html">Minigames</a> — each one fills a unique attention tier</li>
+  <li><a href="bosses.html">Bosses</a> — bestiary and combat achievements</li>
+  <li><a href="npcs.html">NPCs</a> — authored personality bibles</li>
+  <li><a href="lore.html">Lore</a> — region histories, bosses, prestige, signature items</li>
+  <li><a href="breakpoints.html">Breakpoints</a> — the "this changes everything" moments</li>
+  <li><a href="web.html">The Web</a> — cross-region sources-uses visualization</li>
 </ul>
 
 <h2>About the Codex</h2>
@@ -309,6 +323,8 @@ function writeRegions() {
     let body = `<h1>${escapeHtml(r.label)}</h1>
 <div class="description">${escapeHtml(r.desc)}</div>
 
+<p><a href="density-${r.id}.html"><strong>See the density heatmap &rarr;</strong></a> · <a href="lore-${r.id}.html">Read the lore &rarr;</a></p>
+
 <div class="stat-grid">
   <div class="stat-cell"><div class="value">${methods.length}</div><div class="label">Training Methods</div></div>
   <div class="stat-cell"><div class="value">${areaGatesInRegion.length}</div><div class="label">Sub-areas</div></div>
@@ -349,7 +365,7 @@ ${goal.uniqueItems ? `<p><strong>Unique rewards:</strong> ${goal.uniqueItems.map
         body += `
   <tr>
     <td><span class="tag tag-skill">${m.skill}</span></td>
-    <td><strong>${escapeHtml(m.name)}</strong><br><small>${escapeHtml(m.description || '')}</small></td>
+    <td><a href="method-${slug(m.id)}.html"><strong>${escapeHtml(m.name)}</strong></a><br><small>${escapeHtml(m.description || '')}</small></td>
     <td>${m.levelRange[0]}-${m.levelRange[1]}</td>
     <td>${xp.toLocaleString()}</td>
     <td><span class="tag tag-${m.attention}">${m.attention}</span></td>
@@ -412,7 +428,7 @@ function writeSkills() {
     for (const m of methods) {
       const xp = Array.isArray(m.xpPerHour) ? `${m.xpPerHour[0]}-${m.xpPerHour[1]}` : m.xpPerHour;
       body += `<tr>
-  <td><strong>${escapeHtml(m.name)}</strong><br><small>${escapeHtml(m.description || '')}</small></td>
+  <td><a href="method-${slug(m.id)}.html"><strong>${escapeHtml(m.name)}</strong></a><br><small>${escapeHtml(m.description || '')}</small></td>
   <td>${m.levelRange[0]}-${m.levelRange[1]}</td>
   <td>${xp.toLocaleString()}</td>
   <td><span class="tag tag-region">${escapeHtml(m.location || '')}</span></td>

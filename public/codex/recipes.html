@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html><head><meta charset="utf-8"><title>Recipes — Aelgard Codex</title>
+<style>
+  body { font-family: ui-monospace, 'Cascadia Code', Consolas, monospace; background:#3e3529; color:#e8dcc0; margin:0 auto; padding:20px; max-width:1200px; }
+  .parchment { background:#e8dcc0; color:#2c1810; padding:30px 40px; border:3px solid #8b6f47; border-radius:4px; box-shadow:0 0 20px rgba(0,0,0,.5); margin:20px 0; }
+  h1 { color:#7a1f1a; border-bottom:2px solid #8b6f47; padding-bottom:10px; }
+  h2 { color:#5a3a1a; margin-top:30px; }
+  h3 { color:#6b4423; }
+  a { color:#7a1f1a; border-bottom:1px dotted #7a1f1a; text-decoration:none; }
+  a:hover { background:#d4c49c; }
+  nav { margin-bottom:20px; }
+  nav a { margin-right:12px; font-weight:bold; }
+  .description { font-style:italic; color:#5a3a1a; padding:10px; background:#d4c49c; border-left:3px solid #8b6f47; margin:10px 0; }
+  table { width:100%; border-collapse:collapse; margin:15px 0; }
+  th, td { text-align:left; padding:6px 10px; border-bottom:1px solid #c4a970; }
+  th { background:#d4c49c; color:#2c1810; }
+  tr:hover { background:#d4c49c; }
+  .tag { display:inline-block; padding:2px 8px; margin:2px; border-radius:3px; font-size:11px; font-weight:bold; }
+  .tag-region { background:#4a6b8a; color:#fff; }
+  .tag-skill  { background:#5a7f4a; color:#fff; }
+  .tag-trans  { background:#8a1f1a; color:#fff; }
+  .tag-major  { background:#a86a2a; color:#fff; }
+  .tag-minor  { background:#6a6a6a; color:#fff; }
+  .tag-afk    { background:#3a5a2a; color:#fff; }
+  .tag-low    { background:#4a7a3a; color:#fff; }
+  .tag-medium { background:#8a7a2a; color:#fff; }
+  .tag-high   { background:#a85a2a; color:#fff; }
+  .tag-maximum{ background:#8a1f1a; color:#fff; }
+  .tag-obscure{ background:#6a4a2a; color:#fff; font-style:italic; }
+  .knob-grid { display:grid; grid-template-columns:repeat(4, 1fr); gap:10px; margin:15px 0; }
+  .knob { background:#d4c49c; padding:10px; border-radius:3px; }
+  .knob .label { font-size:11px; color:#5a3a1a; text-transform:uppercase; font-weight:bold; }
+  .knob .value { font-size:16px; color:#7a1f1a; font-weight:bold; margin-top:4px; }
+  .knob .detail { font-size:11px; color:#3a2810; margin-top:2px; }
+  .stat-grid { display:grid; grid-template-columns:repeat(4, 1fr); gap:10px; margin:15px 0; }
+  .stat-cell { background:#d4c49c; padding:10px; border-radius:3px; text-align:center; }
+  .stat-cell .value { font-size:24px; font-weight:bold; color:#7a1f1a; }
+  .stat-cell .label { font-size:11px; color:#5a3a1a; text-transform:uppercase; }
+  .heat { display:inline-block; width:40px; text-align:center; padding:4px; margin:1px; border-radius:3px; font-weight:bold; font-size:11px; }
+  .heat-0 { background:#c4a970; color:#5a3a1a; }
+  .heat-1 { background:#9ec49a; color:#1a3a1a; }
+  .heat-3 { background:#6a9e6a; color:#fff; }
+  .heat-5 { background:#3a7a3a; color:#fff; }
+  .heat-10 { background:#1a5a1a; color:#fff; }
+  ul.loose li { margin-bottom:8px; }
+  details { margin:8px 0; padding:8px; background:#d4c49c; border-radius:3px; }
+  summary { cursor:pointer; font-weight:bold; }
+  .graph-wrap { overflow:auto; background:#d4c49c; padding:10px; border-radius:3px; }
+  svg { background:#e8dcc0; }
+</style>
+</head>
+<body>
+<nav>
+  <a href="index.html">Home</a>
+  <a href="regions.html">Regions</a>
+  <a href="skills.html">Skills</a>
+  <a href="methods.html">Methods</a>
+  <a href="quests.html">Quests</a>
+  <a href="items.html">Items</a>
+  <a href="recipes.html">Recipes</a>
+  <a href="minigames.html">Minigames</a>
+  <a href="bosses.html">Bosses</a>
+  <a href="npcs.html">NPCs</a>
+  <a href="lore.html">Lore</a>
+  <a href="breakpoints.html">Breakpoints</a>
+  <a href="web.html">Web</a>
+</nav>
+<div class="parchment">
+<h1>Recipes</h1>
+<div class="description">198 recipes registered. Every reagent path, every upgrade combination.</div>
+
+<div class="stat-grid">
+  <div class="stat-cell"><div class="value">198</div><div class="label">Total Recipes</div></div>
+  <div class="stat-cell"><div class="value">10</div><div class="label">Skills Involved</div></div>
+</div>
+
+<h2>By Skill</h2>
+
+<h3>smithing (50)</h3>
+<table><tr><th>Result</th><th>Level</th><th>XP</th><th>Station</th></tr>
+<tr><td><a href="recipe-90301.html"><strong>Bronze bar</strong></a></td><td>1</td><td>6</td><td>furnace</td></tr>
+<tr><td><a href="recipe-90302.html"><strong>Iron bar</strong></a></td><td>15</td><td>12</td><td>furnace</td></tr>
+<tr><td><a href="recipe-95301.html"><strong>Moryskah Silver Bar</strong></a></td><td>20</td><td>14</td><td>furnace</td></tr>
+<tr><td><a href="recipe-96301.html"><strong>Sun-Tempered Alloy Bar</strong></a></td><td>20</td><td>18</td><td>boneyard_sun_forge</td></tr>
+<tr><td><a href="recipe-96605.html"><strong>Boneyard Silver Bar</strong></a></td><td>20</td><td>14</td><td>boneyard_sun_furnace</td></tr>
+<tr><td><a href="recipe-90303.html"><strong>Steel bar</strong></a></td><td>30</td><td>17</td><td>furnace</td></tr>
+<tr><td><a href="recipe-96701.html"><strong>Cannon iron bar</strong></a></td><td>30</td><td>20</td><td>cannon_foundry_furnace</td></tr>
+<tr><td><a href="recipe-97601.html"><strong>Steel bar (Sootworks)</strong></a></td><td>30</td><td>17</td><td>furnace</td></tr>
+<tr><td><a href="recipe-98601.html"><strong>Dream-Iron Bar</strong></a></td><td>30</td><td>22</td><td>furnace</td></tr>
+<tr><td><a href="recipe-99001.html"><strong>Steel bar (Lens Forge)</strong></a></td><td>30</td><td>17</td><td>lens_forge_furnace</td></tr>
+<tr><td><a href="recipe-95302.html"><strong>Silver Bolt Tips</strong></a></td><td>33</td><td>26</td><td></td></tr>
+<tr><td><a href="recipe-96606.html"><strong>Anti-Undead Silver Bolt Tip</strong></a></td><td>33</td><td>26</td><td></td></tr>
+<tr><td><a href="recipe-90306.html"><strong>Gold bar</strong></a></td><td>40</td><td>23</td><td>furnace</td></tr>
+<tr><td><a href="recipe-96502.html"><strong>Cannon-ball</strong></a></td><td>40</td><td>25</td><td>cannon_foundry</td></tr>
+<tr><td><a href="recipe-96803.html"><strong>Dream-Iron Bar</strong></a></td><td>40</td><td>25</td><td>glass_glade_forge</td></tr>
+<tr><td><a href="recipe-96702.html"><strong>Cannon bronze bar</strong></a></td><td>45</td><td>28</td><td>cannon_foundry_furnace</td></tr>
+<tr><td><a href="recipe-96811.html"><strong>Pitch-Fork Saw (quest reward)</strong></a></td><td>45</td><td>180</td><td></td></tr>
+<tr><td><a href="recipe-97501.html"><strong>Cinderbar bar</strong></a></td><td>45</td><td>32</td><td>furnace</td></tr>
+<tr><td><a href="recipe-90304.html"><strong>Mithril bar</strong></a></td><td>50</td><td>30</td><td>furnace</td></tr>
+<tr><td><a href="recipe-97602.html"><strong>Mithril bar (Sootworks)</strong></a></td><td>50</td><td>30</td><td>furnace</td></tr>
+<tr><td><a href="recipe-97609.html"><strong>Shot-munitions (100)</strong></a></td><td>50</td><td>35</td><td>anvil</td></tr>
+<tr><td><a href="recipe-99002.html"><strong>Mithril bar (Lens Forge)</strong></a></td><td>50</td><td>30</td><td>lens_forge_furnace</td></tr>
+<tr><td><a href="recipe-88011.html"><strong>Enchanted Silver Blade</strong></a></td><td>55</td><td>275</td><td></td></tr>
+<tr><td><a href="recipe-96309.html"><strong>Bone-Bound Iron Weapon</strong></a></td><td>55</td><td>180</td><td>boneyard_sun_forge</td></tr>
+<tr><td><a href="recipe-96503.html"><strong>Sea-shot bolts (100)</strong></a></td><td>55</td><td>62</td><td>cannon_foundry</td></tr>
+<tr><td><a href="recipe-97502.html"><strong>Gear-train steel</strong></a></td><td>55</td><td>60</td><td>anvil</td></tr>
+<tr><td><a href="recipe-95309.html"><strong>Silver-Tipped Flail</strong></a></td><td>60</td><td>200</td><td></td></tr>
+<tr><td><a href="recipe-97608.html"><strong>Gear-train platebody</strong></a></td><td>68</td><td>200</td><td>anvil</td></tr>
+<tr><td><a href="recipe-88006.html"><strong>Phoenix Ember Plate</strong></a></td><td>70</td><td>350</td><td></td></tr>
+<tr><td><a href="recipe-90305.html"><strong>Adamant bar</strong></a></td><td>70</td><td>37</td><td>furnace</td></tr>
+<tr><td><a href="recipe-96703.html"><strong>Cannon barrel</strong></a></td><td>70</td><td>140</td><td>cannon_foundry_barrel_rig</td></tr>
+<tr><td><a href="recipe-96804.html"><strong>Glass-Cored Alloy</strong></a></td><td>70</td><td>120</td><td>glass_cored_alloy_bench</td></tr>
+<tr><td><a href="recipe-97603.html"><strong>Adamant bar (Sootworks)</strong></a></td><td>70</td><td>37</td><td>furnace</td></tr>
+<tr><td><a href="recipe-98602.html"><strong>Glass-Iron Bar</strong></a></td><td>70</td><td>34</td><td>furnace</td></tr>
+<tr><td><a href="recipe-88005.html"><strong>Dream-Forged Steel Bar</strong></a></td><td>75</td><td>400</td><td>furnace</td></tr>
+<tr><td><a href="recipe-88031.html"><strong>Wilderness Blade</strong></a></td><td>75</td><td>320</td><td></td></tr>
+<tr><td><a href="recipe-92010.html"><strong>Dragon hunter lance</strong></a></td><td>75</td><td>150</td><td></td></tr>
+<tr><td><a href="recipe-98801.html"><strong>Light-imbued metal bar</strong></a></td><td>75</td><td>110</td><td>lens_forge_furnace</td></tr>
+<tr><td><a href="recipe-91005.html"><strong>Godsword blade</strong></a></td><td>80</td><td>100</td><td>anvil</td></tr>
+<tr><td><a href="recipe-91006.html"><strong>Saradomin godsword</strong></a></td><td>80</td><td>200</td><td></td></tr>
+<tr><td><a href="recipe-91007.html"><strong>Zamorak godsword</strong></a></td><td>80</td><td>200</td><td></td></tr>
+<tr><td><a href="recipe-99006.html"><strong>Crystal-cored boots</strong></a></td><td>80</td><td>120</td><td>lens_forge_anvil</td></tr>
+<tr><td><a href="recipe-99004.html"><strong>Crystal-cored helm</strong></a></td><td>82</td><td>180</td><td>lens_forge_anvil</td></tr>
+<tr><td><a href="recipe-99005.html"><strong>Crystal-cored legs</strong></a></td><td>84</td><td>220</td><td>lens_forge_anvil</td></tr>
+<tr><td><a href="recipe-96812.html"><strong>Mirror-Shard Shield</strong></a></td><td>85</td><td>260</td><td></td></tr>
+<tr><td><a href="recipe-98802.html"><strong>Crystal-cored plate</strong></a></td><td>85</td><td>340</td><td>lens_forge_anvil</td></tr>
+<tr><td><a href="recipe-99003.html"><strong>Rune bar (Lens Forge)</strong></a></td><td>85</td><td>50</td><td>lens_forge_furnace</td></tr>
+<tr><td><a href="recipe-88035.html"><strong>Sun-Glass Crucible</strong></a></td><td>88</td><td>550</td><td></td></tr>
+<tr><td><a href="recipe-92020.html"><strong>Dragonfire shield</strong></a></td><td>90</td><td>2000</td><td>anvil</td></tr>
+<tr><td><a href="recipe-98803.html"><strong>Prism-blade</strong></a></td><td>92</td><td>480</td><td>lens_forge_anvil</td></tr>
+</table>
+
+
+<h3>crafting (49)</h3>
+<table><tr><th>Result</th><th>Level</th><th>XP</th><th>Station</th></tr>
+<tr><td><a href="recipe-95305.html"><strong>Bonemeal</strong></a></td><td>1</td><td>1</td><td></td></tr>
+<tr><td><a href="recipe-96614.html"><strong>Dune-Silk Bowstring</strong></a></td><td>10</td><td>15</td><td></td></tr>
+<tr><td><a href="recipe-96711.html"><strong>Earmuffs (sailor pattern)</strong></a></td><td>12</td><td>35</td><td>sail_loft</td></tr>
+<tr><td><a href="recipe-95304.html"><strong>Construction Mortar</strong></a></td><td>15</td><td>8</td><td></td></tr>
+<tr><td><a href="recipe-96312.html"><strong>Desert-Temple Mortar</strong></a></td><td>20</td><td>14</td><td></td></tr>
+<tr><td><a href="recipe-96302.html"><strong>Sand-Glass Pane</strong></a></td><td>25</td><td>24</td><td>boneyard_sun_furnace</td></tr>
+<tr><td><a href="recipe-96709.html"><strong>Tarred cordage (coil)</strong></a></td><td>25</td><td>50</td><td>rope_house</td></tr>
+<tr><td><a href="recipe-96612.html"><strong>Falconry Glove (Boneyard)</strong></a></td><td>30</td><td>95</td><td></td></tr>
+<tr><td><a href="recipe-96813.html"><strong>Remembered Scroll</strong></a></td><td>30</td><td>38</td><td></td></tr>
+<tr><td><a href="recipe-96505.html"><strong>Stitched sail</strong></a></td><td>35</td><td>72</td><td>sail_loft</td></tr>
+<tr><td><a href="recipe-88030.html"><strong>Scarab-Bone Fossil Tool</strong></a></td><td>40</td><td>85</td><td></td></tr>
+<tr><td><a href="recipe-96610.html"><strong>Wind-Numbered Anklet</strong></a></td><td>40</td><td>120</td><td></td></tr>
+<tr><td><a href="recipe-96801.html"><strong>Court-Cloth Bolt</strong></a></td><td>40</td><td>38</td><td>loom_sanctum</td></tr>
+<tr><td><a href="recipe-97604.html"><strong>Clockbeetle-plate inlay</strong></a></td><td>40</td><td>60</td><td>workbench</td></tr>
+<tr><td><a href="recipe-88008.html"><strong>Smugglers Compass</strong></a></td><td>45</td><td>120</td><td></td></tr>
+<tr><td><a href="recipe-88016.html"><strong>Spider Silk Sail</strong></a></td><td>50</td><td>160</td><td></td></tr>
+<tr><td><a href="recipe-88026.html"><strong>Treasure Vault Key</strong></a></td><td>50</td><td>100</td><td></td></tr>
+<tr><td><a href="recipe-97503.html"><strong>Piston assembly</strong></a></td><td>50</td><td>42</td><td>workbench</td></tr>
+<tr><td><a href="recipe-88003.html"><strong>Clockwork Scarab</strong></a></td><td>55</td><td>180</td><td></td></tr>
+<tr><td><a href="recipe-88027.html"><strong>Pearl Teleport Amulet</strong></a></td><td>55</td><td>145</td><td></td></tr>
+<tr><td><a href="recipe-96611.html"><strong>Prophet&#39;s Waterskin</strong></a></td><td>55</td><td>280</td><td></td></tr>
+<tr><td><a href="recipe-96710.html"><strong>Diving mask</strong></a></td><td>55</td><td>110</td><td>diving_workshop</td></tr>
+<tr><td><a href="recipe-96802.html"><strong>Rune-Thread</strong></a></td><td>55</td><td>32</td><td></td></tr>
+<tr><td><a href="recipe-97605.html"><strong>Lantern-robe</strong></a></td><td>55</td><td>48</td><td></td></tr>
+<tr><td><a href="recipe-88022.html"><strong>Werewolf-Kin Helm</strong></a></td><td>58</td><td>165</td><td></td></tr>
+<tr><td><a href="recipe-88013.html"><strong>Scarab Charm Amulet</strong></a></td><td>60</td><td>185</td><td></td></tr>
+<tr><td><a href="recipe-92001.html"><strong>Tentacle whip</strong></a></td><td>60</td><td>80</td><td></td></tr>
+<tr><td><a href="recipe-96608.html"><strong>Sun-King Cape</strong></a></td><td>60</td><td>450</td><td></td></tr>
+<tr><td><a href="recipe-97610.html"><strong>Automaton repair kit</strong></a></td><td>60</td><td>80</td><td>workbench</td></tr>
+<tr><td><a href="recipe-98615.html"><strong>Lantern of the Dreamless</strong></a></td><td>60</td><td>180</td><td></td></tr>
+<tr><td><a href="recipe-88002.html"><strong>Prismatic Lens</strong></a></td><td>65</td><td>200</td><td></td></tr>
+<tr><td><a href="recipe-88028.html"><strong>Mithril Grease Gel</strong></a></td><td>65</td><td>180</td><td></td></tr>
+<tr><td><a href="recipe-96506.html"><strong>Oilskin coat</strong></a></td><td>65</td><td>130</td><td>tannery</td></tr>
+<tr><td><a href="recipe-88029.html"><strong>Blood-Bound Bowstring</strong></a></td><td>70</td><td>200</td><td></td></tr>
+<tr><td><a href="recipe-88034.html"><strong>Kraken Ink Tattoo</strong></a></td><td>70</td><td>210</td><td></td></tr>
+<tr><td><a href="recipe-96712.html"><strong>Deep pearl ring</strong></a></td><td>70</td><td>155</td><td>pearl_setter_bench</td></tr>
+<tr><td><a href="recipe-96810.html"><strong>Glass-Stag Pelt Cape</strong></a></td><td>70</td><td>180</td><td></td></tr>
+<tr><td><a href="recipe-98612.html"><strong>Answered Antler Cape</strong></a></td><td>70</td><td>240</td><td></td></tr>
+<tr><td><a href="recipe-99014.html"><strong>Anti-corruption amulet</strong></a></td><td>70</td><td>95</td><td>jewelry_workbench</td></tr>
+<tr><td><a href="recipe-88018.html"><strong>Ectoplasmic Focus</strong></a></td><td>75</td><td>380</td><td></td></tr>
+<tr><td><a href="recipe-92040.html"><strong>Brimstone ring</strong></a></td><td>75</td><td>100</td><td></td></tr>
+<tr><td><a href="recipe-96714.html"><strong>Kraken-spawn staff</strong></a></td><td>75</td><td>210</td><td>sea_witch_lectern</td></tr>
+<tr><td><a href="recipe-88021.html"><strong>Prismatic Dream Robe</strong></a></td><td>78</td><td>400</td><td></td></tr>
+<tr><td><a href="recipe-92050.html"><strong>Crystal bow</strong></a></td><td>78</td><td>150</td><td></td></tr>
+<tr><td><a href="recipe-88015.html"><strong>Crystal Scythe (tainted)</strong></a></td><td>80</td><td>450</td><td></td></tr>
+<tr><td><a href="recipe-96805.html"><strong>Crystal Armour Piece</strong></a></td><td>80</td><td>220</td><td>inner_sanctum</td></tr>
+<tr><td><a href="recipe-92030.html"><strong>Ferocious gloves</strong></a></td><td>84</td><td>250</td><td></td></tr>
+<tr><td><a href="recipe-88007.html"><strong>Wyrm-Heart Pendant</strong></a></td><td>85</td><td>500</td><td></td></tr>
+<tr><td><a href="recipe-99013.html"><strong>Lens-true ring</strong></a></td><td>85</td><td>120</td><td>jewelry_workbench</td></tr>
+</table>
+
+
+<h3>herblore (36)</h3>
+<table><tr><th>Result</th><th>Level</th><th>XP</th><th>Station</th></tr>
+<tr><td><a href="recipe-96303.html"><strong>Heat-Distilled Tincture</strong></a></td><td>15</td><td>40</td><td></td></tr>
+<tr><td><a href="recipe-98605.html"><strong>Reverse-Decay Potion (4)</strong></a></td><td>15</td><td>72</td><td></td></tr>
+<tr><td><a href="recipe-97506.html"><strong>Pipe-brew</strong></a></td><td>18</td><td>46</td><td></td></tr>
+<tr><td><a href="recipe-96501.html"><strong>Anti-drowning draught</strong></a></td><td>35</td><td>110</td><td>brewers_quay</td></tr>
+<tr><td><a href="recipe-90321.html"><strong>Prayer potion (4)</strong></a></td><td>38</td><td>88</td><td></td></tr>
+<tr><td><a href="recipe-95306.html"><strong>Moryskah Prayer Potion (4)</strong></a></td><td>38</td><td>88</td><td></td></tr>
+<tr><td><a href="recipe-96601.html"><strong>Parched Prophet Prayer Potion (4)</strong></a></td><td>38</td><td>88</td><td></td></tr>
+<tr><td><a href="recipe-96808.html"><strong>Veilwood Prayer Potion (4)</strong></a></td><td>38</td><td>95</td><td></td></tr>
+<tr><td><a href="recipe-97606.html"><strong>Sootworks prayer potion (4)</strong></a></td><td>38</td><td>88</td><td></td></tr>
+<tr><td><a href="recipe-88001.html"><strong>Lycanthropy Cure</strong></a></td><td>45</td><td>150</td><td></td></tr>
+<tr><td><a href="recipe-90322.html"><strong>Super attack (4)</strong></a></td><td>45</td><td>100</td><td></td></tr>
+<tr><td><a href="recipe-96304.html"><strong>Salt-Cured Tincture</strong></a></td><td>45</td><td>96</td><td></td></tr>
+<tr><td><a href="recipe-88025.html"><strong>Unicorn Salve Remedy</strong></a></td><td>48</td><td>130</td><td></td></tr>
+<tr><td><a href="recipe-98606.html"><strong>Lucid Potion (4)</strong></a></td><td>50</td><td>110</td><td></td></tr>
+<tr><td><a href="recipe-88017.html"><strong>Bog Witchs Brew</strong></a></td><td>55</td><td>175</td><td></td></tr>
+<tr><td><a href="recipe-90323.html"><strong>Super strength (4)</strong></a></td><td>55</td><td>125</td><td></td></tr>
+<tr><td><a href="recipe-88009.html"><strong>Super Restore Potion (4)</strong></a></td><td>63</td><td>142</td><td></td></tr>
+<tr><td><a href="recipe-90324.html"><strong>Super restore (4)</strong></a></td><td>63</td><td>142</td><td></td></tr>
+<tr><td><a href="recipe-95307.html"><strong>Moryskah Super Restore (4)</strong></a></td><td>63</td><td>142</td><td></td></tr>
+<tr><td><a href="recipe-96602.html"><strong>Parched Prophet Super Restore (4)</strong></a></td><td>63</td><td>142</td><td></td></tr>
+<tr><td><a href="recipe-96806.html"><strong>Veilwood Super Restore (4)</strong></a></td><td>63</td><td>145</td><td></td></tr>
+<tr><td><a href="recipe-97607.html"><strong>Sootworks super-restore (4)</strong></a></td><td>63</td><td>142</td><td></td></tr>
+<tr><td><a href="recipe-98607.html"><strong>Paradox Potion</strong></a></td><td>65</td><td>145</td><td></td></tr>
+<tr><td><a href="recipe-99008.html"><strong>Crystal prayer potion (4)</strong></a></td><td>68</td><td>120</td><td></td></tr>
+<tr><td><a href="recipe-97507.html"><strong>Vent-bloom brew</strong></a></td><td>70</td><td>110</td><td></td></tr>
+<tr><td><a href="recipe-88020.html"><strong>Revenant Ether Flask</strong></a></td><td>72</td><td>260</td><td></td></tr>
+<tr><td><a href="recipe-99007.html"><strong>Crystal super-restore (4)</strong></a></td><td>78</td><td>160</td><td></td></tr>
+<tr><td><a href="recipe-88033.html"><strong>Moonpetal Draught</strong></a></td><td>80</td><td>340</td><td></td></tr>
+<tr><td><a href="recipe-99009.html"><strong>Anti-corruption brew (4)</strong></a></td><td>80</td><td>195</td><td></td></tr>
+<tr><td><a href="recipe-99010.html"><strong>Stamina ++ (crystal)</strong></a></td><td>82</td><td>175</td><td></td></tr>
+<tr><td><a href="recipe-98806.html"><strong>Super combat ++ (crystal)</strong></a></td><td>85</td><td>220</td><td></td></tr>
+<tr><td><a href="recipe-98807.html"><strong>Divine ranged ++ (crystal)</strong></a></td><td>88</td><td>260</td><td></td></tr>
+<tr><td><a href="recipe-95308.html"><strong>Super Combat Potion (4)</strong></a></td><td>90</td><td>150</td><td></td></tr>
+<tr><td><a href="recipe-96603.html"><strong>Parched Prophet Super Combat (4)</strong></a></td><td>90</td><td>150</td><td></td></tr>
+<tr><td><a href="recipe-96807.html"><strong>Veilwood Super Combat Potion (4)</strong></a></td><td>90</td><td>155</td><td></td></tr>
+<tr><td><a href="recipe-98808.html"><strong>Prism elixir</strong></a></td><td>92</td><td>310</td><td></td></tr>
+</table>
+
+
+<h3>fletching (19)</h3>
+<table><tr><th>Result</th><th>Level</th><th>XP</th><th>Station</th></tr>
+<tr><td><a href="recipe-96306.html"><strong>Bone-Shaft Arrow</strong></a></td><td>1</td><td>3</td><td></td></tr>
+<tr><td><a href="recipe-90331.html"><strong>Oak shortbow (unstrung)</strong></a></td><td>20</td><td>16</td><td></td></tr>
+<tr><td><a href="recipe-98603.html"><strong>Dream-Arrow</strong></a></td><td>20</td><td>8</td><td></td></tr>
+<tr><td><a href="recipe-96504.html"><strong>Driftwood bow</strong></a></td><td>25</td><td>42</td><td>sail_loft</td></tr>
+<tr><td><a href="recipe-95303.html"><strong>Silver Bolts (unenchanted)</strong></a></td><td>35</td><td>6</td><td></td></tr>
+<tr><td><a href="recipe-96607.html"><strong>Anti-Undead Silver Bolt</strong></a></td><td>35</td><td>6</td><td></td></tr>
+<tr><td><a href="recipe-96613.html"><strong>Magnifier Bow</strong></a></td><td>35</td><td>85</td><td></td></tr>
+<tr><td><a href="recipe-96800.html"><strong>Singing-Arrow</strong></a></td><td>35</td><td>14</td><td>singing_arrow_bench</td></tr>
+<tr><td><a href="recipe-96307.html"><strong>Scorpion-Fletched Arrow</strong></a></td><td>40</td><td>9</td><td></td></tr>
+<tr><td><a href="recipe-88010.html"><strong>Saltbrine Blowdart (tipped)</strong></a></td><td>52</td><td>95</td><td></td></tr>
+<tr><td><a href="recipe-96308.html"><strong>Bone-Boomerang</strong></a></td><td>55</td><td>48</td><td></td></tr>
+<tr><td><a href="recipe-98604.html"><strong>Mirror-Bow</strong></a></td><td>55</td><td>85</td><td></td></tr>
+<tr><td><a href="recipe-97504.html"><strong>Shot-caster (assembled)</strong></a></td><td>60</td><td>50</td><td></td></tr>
+<tr><td><a href="recipe-88014.html"><strong>Dreamwood Shortbow</strong></a></td><td>65</td><td>220</td><td></td></tr>
+<tr><td><a href="recipe-90332.html"><strong>Yew shortbow (unstrung)</strong></a></td><td>65</td><td>67</td><td></td></tr>
+<tr><td><a href="recipe-99015.html"><strong>Crystal-hunter arrow-tip set</strong></a></td><td>72</td><td>45</td><td></td></tr>
+<tr><td><a href="recipe-98809.html"><strong>Crystal arrow</strong></a></td><td>75</td><td>18</td><td></td></tr>
+<tr><td><a href="recipe-98811.html"><strong>Light-bound bowstring</strong></a></td><td>80</td><td>42</td><td></td></tr>
+<tr><td><a href="recipe-98810.html"><strong>Prism-bow</strong></a></td><td>88</td><td>240</td><td></td></tr>
+</table>
+
+
+<h3>cooking (19)</h3>
+<table><tr><th>Result</th><th>Level</th><th>XP</th><th>Station</th></tr>
+<tr><td><a href="recipe-90311.html"><strong>Cooked shrimp</strong></a></td><td>1</td><td>30</td><td>range</td></tr>
+<tr><td><a href="recipe-96310.html"><strong>Sand-Jerky</strong></a></td><td>1</td><td>45</td><td>boneyard_dry_cure_rack</td></tr>
+<tr><td><a href="recipe-90312.html"><strong>Trout (cooked)</strong></a></td><td>15</td><td>70</td><td>range</td></tr>
+<tr><td><a href="recipe-96508.html"><strong>Ship&#39;s biscuit</strong></a></td><td>15</td><td>42</td><td>galley</td></tr>
+<tr><td><a href="recipe-98608.html"><strong>Memory-Trout (cooked)</strong></a></td><td>15</td><td>80</td><td>range</td></tr>
+<tr><td><a href="recipe-96311.html"><strong>Bone-Broth Bowl</strong></a></td><td>30</td><td>120</td><td>range</td></tr>
+<tr><td><a href="recipe-96809.html"><strong>Thinkberry Pie</strong></a></td><td>30</td><td>66</td><td></td></tr>
+<tr><td><a href="recipe-96507.html"><strong>Salt-smoked fish</strong></a></td><td>35</td><td>90</td><td>smokehouse</td></tr>
+<tr><td><a href="recipe-98610.html"><strong>Midnight-Melon Slice</strong></a></td><td>35</td><td>130</td><td>range</td></tr>
+<tr><td><a href="recipe-90313.html"><strong>Lobster (cooked)</strong></a></td><td>40</td><td>120</td><td>range</td></tr>
+<tr><td><a href="recipe-97508.html"><strong>Dwarven stout (4)</strong></a></td><td>45</td><td>80</td><td>pressure_pot</td></tr>
+<tr><td><a href="recipe-98609.html"><strong>What-Was-Promised (cooked glass-eel)</strong></a></td><td>55</td><td>190</td><td>range</td></tr>
+<tr><td><a href="recipe-97509.html"><strong>Steam-cured cave-fish</strong></a></td><td>65</td><td>170</td><td>boil_floor</td></tr>
+<tr><td><a href="recipe-90314.html"><strong>Shark (cooked)</strong></a></td><td>80</td><td>210</td><td>range</td></tr>
+<tr><td><a href="recipe-96604.html"><strong>Salted Shark</strong></a></td><td>80</td><td>230</td><td>boneyard_dry_cure_rack</td></tr>
+<tr><td><a href="recipe-99012.html"><strong>Crystal-corn bread</strong></a></td><td>80</td><td>180</td><td>salt_glass_hearth</td></tr>
+<tr><td><a href="recipe-98813.html"><strong>Lens-fish carpaccio</strong></a></td><td>82</td><td>220</td><td>salt_glass_hearth</td></tr>
+<tr><td><a href="recipe-99011.html"><strong>Glass-eel jerky</strong></a></td><td>85</td><td>260</td><td>salt_glass_hearth</td></tr>
+<tr><td><a href="recipe-98812.html"><strong>Crystal-cured prism-trout</strong></a></td><td>88</td><td>310</td><td>salt_glass_hearth</td></tr>
+</table>
+
+
+<h3>construction (9)</h3>
+<table><tr><th>Result</th><th>Level</th><th>XP</th><th>Station</th></tr>
+<tr><td><a href="recipe-96704.html"><strong>Mangrove plank</strong></a></td><td>1</td><td>12</td><td>saltbrine_sawmill</td></tr>
+<tr><td><a href="recipe-96706.html"><strong>Deck section (completed)</strong></a></td><td>20</td><td>85</td><td>shipwright_yard</td></tr>
+<tr><td><a href="recipe-96705.html"><strong>Black teak plank</strong></a></td><td>35</td><td>36</td><td>saltbrine_sawmill</td></tr>
+<tr><td><a href="recipe-96708.html"><strong>Signal-fire beacon (completed)</strong></a></td><td>50</td><td>160</td><td>lighthouse_vigil</td></tr>
+<tr><td><a href="recipe-96707.html"><strong>Mast (stepped)</strong></a></td><td>55</td><td>220</td><td>shipwright_yard</td></tr>
+<tr><td><a href="recipe-98611.html"><strong>Dream-Oak Plank</strong></a></td><td>60</td><td>38</td><td>sawmill</td></tr>
+<tr><td><a href="recipe-88023.html"><strong>Coral Construction Block</strong></a></td><td>68</td><td>280</td><td></td></tr>
+<tr><td><a href="recipe-98815.html"><strong>Crystal-glass wall section</strong></a></td><td>80</td><td>180</td><td>dunewright_yard</td></tr>
+<tr><td><a href="recipe-98814.html"><strong>Prism beam</strong></a></td><td>85</td><td>380</td><td>dunewright_yard</td></tr>
+</table>
+
+
+<h3>runecrafting (7)</h3>
+<table><tr><th>Result</th><th>Level</th><th>XP</th><th>Station</th></tr>
+<tr><td><a href="recipe-97505.html"><strong>Soot-cant scroll</strong></a></td><td>25</td><td>14</td><td></td></tr>
+<tr><td><a href="recipe-98613.html"><strong>Dream Rune</strong></a></td><td>55</td><td>9</td><td>altar</td></tr>
+<tr><td><a href="recipe-88024.html"><strong>Fairy Dust Pouch</strong></a></td><td>65</td><td>150</td><td></td></tr>
+<tr><td><a href="recipe-98614.html"><strong>Name Rune</strong></a></td><td>72</td><td>13</td><td>altar</td></tr>
+<tr><td><a href="recipe-88032.html"><strong>Chaos Rune Pouch (imbued)</strong></a></td><td>75</td><td>340</td><td></td></tr>
+<tr><td><a href="recipe-98804.html"><strong>Crystal-rune</strong></a></td><td>85</td><td>42</td><td>singing_glass_altar</td></tr>
+<tr><td><a href="recipe-98805.html"><strong>Light-rune</strong></a></td><td>92</td><td>78</td><td>singing_glass_altar</td></tr>
+</table>
+
+
+<h3>prayer (6)</h3>
+<table><tr><th>Result</th><th>Level</th><th>XP</th><th>Station</th></tr>
+<tr><td><a href="recipe-96510.html"><strong>Captain&#39;s Bond offering</strong></a></td><td>1</td><td>50</td><td>bond_altar</td></tr>
+<tr><td><a href="recipe-96713.html"><strong>Sailor-icon (Captain&#39;s Bond)</strong></a></td><td>15</td><td>75</td><td>bond_altar</td></tr>
+<tr><td><a href="recipe-96305.html"><strong>Water-Blessed Vial</strong></a></td><td>45</td><td>35</td><td>boneyard_veiled_grave_altar</td></tr>
+<tr><td><a href="recipe-88012.html"><strong>Mummified Prayer Wrap</strong></a></td><td>50</td><td>650</td><td></td></tr>
+<tr><td><a href="recipe-88019.html"><strong>Sun-Bleached Offering</strong></a></td><td>70</td><td>950</td><td></td></tr>
+<tr><td><a href="recipe-96609.html"><strong>Sun-King Cape (i)</strong></a></td><td>77</td><td>800</td><td></td></tr>
+</table>
+
+
+<h3>magic (2)</h3>
+<table><tr><th>Result</th><th>Level</th><th>XP</th><th>Station</th></tr>
+<tr><td><a href="recipe-96509.html"><strong>Charter scroll</strong></a></td><td>50</td><td>85</td><td>sea_witch_lectern</td></tr>
+<tr><td><a href="recipe-97510.html"><strong>Imbued gear-token</strong></a></td><td>70</td><td>95</td><td></td></tr>
+</table>
+
+
+<h3>fishing (1)</h3>
+<table><tr><th>Result</th><th>Level</th><th>XP</th><th>Station</th></tr>
+<tr><td><a href="recipe-88004.html"><strong>Blessed Kraken Harpoon</strong></a></td><td>70</td><td>300</td><td></td></tr>
+</table>
+
+
+</div>
+</body></html>

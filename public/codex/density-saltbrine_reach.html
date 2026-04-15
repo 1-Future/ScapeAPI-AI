@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html><head><meta charset="utf-8"><title>Saltbrine Reach density — Aelgard Codex</title>
+<style>
+  body { font-family: ui-monospace, 'Cascadia Code', Consolas, monospace; background:#3e3529; color:#e8dcc0; margin:0 auto; padding:20px; max-width:1200px; }
+  .parchment { background:#e8dcc0; color:#2c1810; padding:30px 40px; border:3px solid #8b6f47; border-radius:4px; box-shadow:0 0 20px rgba(0,0,0,.5); margin:20px 0; }
+  h1 { color:#7a1f1a; border-bottom:2px solid #8b6f47; padding-bottom:10px; }
+  h2 { color:#5a3a1a; margin-top:30px; }
+  h3 { color:#6b4423; }
+  a { color:#7a1f1a; border-bottom:1px dotted #7a1f1a; text-decoration:none; }
+  a:hover { background:#d4c49c; }
+  nav { margin-bottom:20px; }
+  nav a { margin-right:12px; font-weight:bold; }
+  .description { font-style:italic; color:#5a3a1a; padding:10px; background:#d4c49c; border-left:3px solid #8b6f47; margin:10px 0; }
+  table { width:100%; border-collapse:collapse; margin:15px 0; }
+  th, td { text-align:left; padding:6px 10px; border-bottom:1px solid #c4a970; }
+  th { background:#d4c49c; color:#2c1810; }
+  tr:hover { background:#d4c49c; }
+  .tag { display:inline-block; padding:2px 8px; margin:2px; border-radius:3px; font-size:11px; font-weight:bold; }
+  .tag-region { background:#4a6b8a; color:#fff; }
+  .tag-skill  { background:#5a7f4a; color:#fff; }
+  .tag-trans  { background:#8a1f1a; color:#fff; }
+  .tag-major  { background:#a86a2a; color:#fff; }
+  .tag-minor  { background:#6a6a6a; color:#fff; }
+  .tag-afk    { background:#3a5a2a; color:#fff; }
+  .tag-low    { background:#4a7a3a; color:#fff; }
+  .tag-medium { background:#8a7a2a; color:#fff; }
+  .tag-high   { background:#a85a2a; color:#fff; }
+  .tag-maximum{ background:#8a1f1a; color:#fff; }
+  .tag-obscure{ background:#6a4a2a; color:#fff; font-style:italic; }
+  .knob-grid { display:grid; grid-template-columns:repeat(4, 1fr); gap:10px; margin:15px 0; }
+  .knob { background:#d4c49c; padding:10px; border-radius:3px; }
+  .knob .label { font-size:11px; color:#5a3a1a; text-transform:uppercase; font-weight:bold; }
+  .knob .value { font-size:16px; color:#7a1f1a; font-weight:bold; margin-top:4px; }
+  .knob .detail { font-size:11px; color:#3a2810; margin-top:2px; }
+  .stat-grid { display:grid; grid-template-columns:repeat(4, 1fr); gap:10px; margin:15px 0; }
+  .stat-cell { background:#d4c49c; padding:10px; border-radius:3px; text-align:center; }
+  .stat-cell .value { font-size:24px; font-weight:bold; color:#7a1f1a; }
+  .stat-cell .label { font-size:11px; color:#5a3a1a; text-transform:uppercase; }
+  .heat { display:inline-block; width:40px; text-align:center; padding:4px; margin:1px; border-radius:3px; font-weight:bold; font-size:11px; }
+  .heat-0 { background:#c4a970; color:#5a3a1a; }
+  .heat-1 { background:#9ec49a; color:#1a3a1a; }
+  .heat-3 { background:#6a9e6a; color:#fff; }
+  .heat-5 { background:#3a7a3a; color:#fff; }
+  .heat-10 { background:#1a5a1a; color:#fff; }
+  ul.loose li { margin-bottom:8px; }
+  details { margin:8px 0; padding:8px; background:#d4c49c; border-radius:3px; }
+  summary { cursor:pointer; font-weight:bold; }
+  .graph-wrap { overflow:auto; background:#d4c49c; padding:10px; border-radius:3px; }
+  svg { background:#e8dcc0; }
+</style>
+</head>
+<body>
+<nav>
+  <a href="index.html">Home</a>
+  <a href="regions.html">Regions</a>
+  <a href="skills.html">Skills</a>
+  <a href="methods.html">Methods</a>
+  <a href="quests.html">Quests</a>
+  <a href="items.html">Items</a>
+  <a href="recipes.html">Recipes</a>
+  <a href="minigames.html">Minigames</a>
+  <a href="bosses.html">Bosses</a>
+  <a href="npcs.html">NPCs</a>
+  <a href="lore.html">Lore</a>
+  <a href="breakpoints.html">Breakpoints</a>
+  <a href="web.html">Web</a>
+</nav>
+<div class="parchment">
+
+<h1>Saltbrine Reach — Density Heatmap</h1>
+<div class="description">How many training methods this region has per skill, broken down by attention tier.</div>
+
+<div class="stat-grid">
+  <div class="stat-cell"><div class="value">62</div><div class="label">Total Methods</div></div>
+  <div class="stat-cell"><div class="value">23</div><div class="label">Skills With Content</div></div>
+  <div class="stat-cell"><div class="value">14</div><div class="label">AFK Methods</div></div>
+  <div class="stat-cell"><div class="value">7</div><div class="label">High-Focus Methods</div></div>
+</div>
+
+<h2>Skill × Attention Matrix</h2>
+<p><em>0 &lt; 1 &lt; 3 &lt; 5 &lt; 10+ methods. Gaps identify where this region needs more content.</em></p>
+<table>
+<tr><th>Skill</th><th>AFK</th><th>Low</th><th>Medium</th><th>High</th><th>Maximum</th><th>Total</th></tr>
+<tr>
+    <td><a href="skill-attack.html"><strong>attack</strong></a></td>
+    <td><span class="heat heat-1">1</span></td>
+    <td><span class="heat heat-0">0</span></td>
+    <td><span class="heat heat-1">1</span></td>
+    <td><span class="heat heat-0">0</span></td>
+    <td><span class="heat heat-0">0</span></td>
+    <td><strong>2</strong></td>
+  </tr>
+<tr>
+    <td><a href="skill-strength.html"><strong>strength</strong></a></td>
+    <td><span class="heat heat-1">2</span></td>
+    <td><span class="heat heat-0">0</span></td>
+    <td><span class="heat heat-1">1</span></td>
+    <td><span class="heat heat-1">1</span></td>
+    <td><span class="heat heat-0">0</span></td>
+    <td><strong>4</strong></td>
+  </tr>
+<tr>
+    <td><a href="skill-defence.html"><strong>defence</strong></a></td>
+    <td><span class="heat heat-1">1</span></td>
+    <td><span class="heat heat-0">0</span></td>
+    <td><span class="heat heat-1">1</span></td>
+    <td><span class="heat heat-0">0</span></td>
+    <td><span class="heat heat-0">0</span></td>
+    <td><strong>2</strong></td>
+  </tr>
+<tr>
+    <td><a href="skill-hitpoints.html"><strong>hitpoints</strong></a></td>
+    <td><span class="heat heat-1">1</span></td>
+    <td><span class="heat heat-1">1</span></td>
+    <td><span class="heat heat-0">0</span></td>
+    <td><span class="heat heat-0">0</span></td>
+    <td><span class="heat heat-0">0</span></td>
+    <td><strong>2</strong></td>
+  </tr>
+<tr>
+    <td><a href="skill-ranged.html"><strong>ranged</strong></a></td>
+    <td><span class="heat heat-1">2</span></td>
+    <td><span class="heat heat-0">0</span></td>
+    <td><span class="heat heat-0">0</span></td>
+    <td><span class="heat heat-1">1</span></td>
+    <td><span class="heat heat-0">0</span></td>
+    <td><strong>3</strong></td>
+  </tr>
+<tr>
+    <td><a href="skill-prayer.html"><strong>prayer</strong></a></td>
+    <td><span class="heat heat-0">0</span></td>
+    <td><span class="heat heat-1">2</span></td>
+    <td><span class="heat heat-1">1</span></td>
+    <td><span class="heat heat-0">0</span></td>
+    <td><span class="heat heat-0">0</span></td>
+    <td><strong>3</strong></td>
+  </tr>
+<tr>
+    <td><a href="skill-magic.html"><strong>magic</strong></a></td>
+    <td><span class="heat heat-0">0</span></td>
+    <td><span class="heat heat-0">0</span></td>
+    <td><span class="heat heat-1">1</span></td>
+    <td><span class="heat heat-1">1</span></td>
+    <td><span class="heat heat-0">0</span></td>
+    <td><strong>2</strong></td>
+  </tr>
+<tr>
+    <td><a href="skill-runecrafting.html"><strong>runecrafting</strong></a></td>
+    <td><span class="heat heat-1">1</span></td>
+    <td><span class="heat heat-0">0</span></td>
+    <td><span class="heat heat-1">1</span></td>
+    <td><span class="heat heat-0">0</span></td>
+    <td><span class="heat heat-0">0</span></td>
+    <td><strong>2</strong></td>
+  </tr>
+<tr>
+    <td><a href="skill-construction.html"><strong>construction</strong></a></td>
+    <td><span class="heat heat-0">0</span></td>
+    <td><span class="heat heat-1">1</span></td>
+    <td><span class="heat heat-1">1</span></td>
+    <td><span class="heat heat-0">0</span></td>
+    <td><span class="heat heat-0">0</span></td>
+    <td><strong>2</strong></td>
+  </tr>
+<tr>
+    <td><a href="skill-agility.html"><strong>agility</strong></a></td>
+    <td><span class="heat heat-0">0</span></td>
+    <td><span class="heat heat-0">0</span></td>
+    <td><span class="heat heat-1">2</span></td>
+    <td><span class="heat heat-1">1</span></td>
+    <td><span class="heat heat-0">0</span></td>
+    <td><strong>3</strong></td>
+  </tr>
+<tr>
+    <td><a href="skill-herblore.html"><strong>herblore</strong></a></td>
+    <td><span class="heat heat-0">0</span></td>
+    <td><span class="heat heat-0">0</span></td>
+    <td><span class="heat heat-1">2</span></td>
+    <td><span class="heat heat-0">0</span></td>
+    <td><span class="heat heat-0">0</span></td>
+    <td><strong>2</strong></td>
+  </tr>
+<tr>
+    <td><a href="skill-thieving.html"><strong>thieving</strong></a></td>
+    <td><span class="heat heat-0">0</span></td>
+    <td><span class="heat heat-1">1</span></td>
+    <td><span class="heat heat-1">1</span></td>
+    <td><span class="heat heat-1">1</span></td>
+    <td><span class="heat heat-0">0</span></td>
+    <td><strong>3</strong></td>
+  </tr>
+<tr>
+    <td><a href="skill-crafting.html"><strong>crafting</strong></a></td>
+    <td><span class="heat heat-0">0</span></td>
+    <td><span class="heat heat-1">2</span></td>
+    <td><span class="heat heat-1">2</span></td>
+    <td><span class="heat heat-0">0</span></td>
+    <td><span class="heat heat-0">0</span></td>
+    <td><strong>4</strong></td>
+  </tr>
+<tr>
+    <td><a href="skill-fletching.html"><strong>fletching</strong></a></td>
+    <td><span class="heat heat-1">2</span></td>
+    <td><span class="heat heat-1">1</span></td>
+    <td><span class="heat heat-0">0</span></td>
+    <td><span class="heat heat-0">0</span></td>
+    <td><span class="heat heat-0">0</span></td>
+    <td><strong>3</strong></td>
+  </tr>
+<tr>
+    <td><a href="skill-slayer.html"><strong>slayer</strong></a></td>
+    <td><span class="heat heat-0">0</span></td>
+    <td><span class="heat heat-0">0</span></td>
+    <td><span class="heat heat-1">1</span></td>
+    <td><span class="heat heat-1">1</span></td>
+    <td><span class="heat heat-0">0</span></td>
+    <td><strong>2</strong></td>
+  </tr>
+<tr>
+    <td><a href="skill-hunter.html"><strong>hunter</strong></a></td>
+    <td><span class="heat heat-0">0</span></td>
+    <td><span class="heat heat-1">1</span></td>
+    <td><span class="heat heat-1">1</span></td>
+    <td><span class="heat heat-1">1</span></td>
+    <td><span class="heat heat-0">0</span></td>
+    <td><strong>3</strong></td>
+  </tr>
+<tr>
+    <td><a href="skill-mining.html"><strong>mining</strong></a></td>
+    <td><span class="heat heat-0">0</span></td>
+    <td><span class="heat heat-1">2</span></td>
+    <td><span class="heat heat-1">1</span></td>
+    <td><span class="heat heat-0">0</span></td>
+    <td><span class="heat heat-0">0</span></td>
+    <td><strong>3</strong></td>
+  </tr>
+<tr>
+    <td><a href="skill-smithing.html"><strong>smithing</strong></a></td>
+    <td><span class="heat heat-0">0</span></td>
+    <td><span class="heat heat-0">0</span></td>
+    <td><span class="heat heat-1">2</span></td>
+    <td><span class="heat heat-0">0</span></td>
+    <td><span class="heat heat-0">0</span></td>
+    <td><strong>2</strong></td>
+  </tr>
+<tr>
+    <td><a href="skill-fishing.html"><strong>fishing</strong></a></td>
+    <td><span class="heat heat-1">1</span></td>
+    <td><span class="heat heat-1">2</span></td>
+    <td><span class="heat heat-1">2</span></td>
+    <td><span class="heat heat-0">0</span></td>
+    <td><span class="heat heat-0">0</span></td>
+    <td><strong>5</strong></td>
+  </tr>
+<tr>
+    <td><a href="skill-cooking.html"><strong>cooking</strong></a></td>
+    <td><span class="heat heat-1">2</span></td>
+    <td><span class="heat heat-0">0</span></td>
+    <td><span class="heat heat-1">1</span></td>
+    <td><span class="heat heat-0">0</span></td>
+    <td><span class="heat heat-0">0</span></td>
+    <td><strong>3</strong></td>
+  </tr>
+<tr>
+    <td><a href="skill-firemaking.html"><strong>firemaking</strong></a></td>
+    <td><span class="heat heat-0">0</span></td>
+    <td><span class="heat heat-1">2</span></td>
+    <td><span class="heat heat-1">1</span></td>
+    <td><span class="heat heat-0">0</span></td>
+    <td><span class="heat heat-0">0</span></td>
+    <td><strong>3</strong></td>
+  </tr>
+<tr>
+    <td><a href="skill-woodcutting.html"><strong>woodcutting</strong></a></td>
+    <td><span class="heat heat-1">1</span></td>
+    <td><span class="heat heat-0">0</span></td>
+    <td><span class="heat heat-1">1</span></td>
+    <td><span class="heat heat-0">0</span></td>
+    <td><span class="heat heat-0">0</span></td>
+    <td><strong>2</strong></td>
+  </tr>
+<tr>
+    <td><a href="skill-farming.html"><strong>farming</strong></a></td>
+    <td><span class="heat heat-0">0</span></td>
+    <td><span class="heat heat-1">2</span></td>
+    <td><span class="heat heat-0">0</span></td>
+    <td><span class="heat heat-0">0</span></td>
+    <td><span class="heat heat-0">0</span></td>
+    <td><strong>2</strong></td>
+  </tr>
+</table>
+
+<h2>Methods by Skill</h2>
+
+<h3>attack (2)</h3>
+<ul class="loose">
+<li><a href="method-attack-sand-crabs.html"><strong>Sand Crab AFKing</strong></a> <span class="tag tag-afk">afk</span> 10-60</li>
+<li><a href="method-saltbrine-pirate-combat.html"><strong>Pirate Ship Boarding</strong></a> <span class="tag tag-medium">medium</span> 30-75</li>
+</ul>
+
+
+<h3>strength (4)</h3>
+<ul class="loose">
+<li><a href="method-strength-sand-crabs.html"><strong>Sand Crab Strength</strong></a> <span class="tag tag-afk">afk</span> 1-60</li>
+<li><a href="method-saltbrine-capstan-hauling.html"><strong>Capstan &amp; Cable Hauling</strong></a> <span class="tag tag-afk">afk</span> 1-99</li>
+<li><a href="method-quirky-saltbrine-bilge-pumping.html"><strong>[Quirky] Pump the Bilge</strong></a> <span class="tag tag-high">high</span> 1-99</li>
+<li><a href="method-saltbrine-lobstrosity-str.html"><strong>Lobstrosity Crushing</strong></a> <span class="tag tag-medium">medium</span> 45-99</li>
+</ul>
+
+
+<h3>defence (2)</h3>
+<ul class="loose">
+<li><a href="method-defence-sand-crabs-def.html"><strong>Sand Crab Defence</strong></a> <span class="tag tag-afk">afk</span> 1-60</li>
+<li><a href="method-defence-pest-control.html"><strong>Pest Control (Defence)</strong></a> <span class="tag tag-medium">medium</span> 40-99</li>
+</ul>
+
+
+<h3>hitpoints (2)</h3>
+<ul class="loose">
+<li><a href="method-saltbrine-rockcrab-hp.html"><strong>Rock-Crab Tanking</strong></a> <span class="tag tag-afk">afk</span> 1-50</li>
+<li><a href="method-saltbrine-siren-hp.html"><strong>Siren-Rock Endurance</strong></a> <span class="tag tag-low">low</span> 40-85</li>
+</ul>
+
+
+<h3>ranged (3)</h3>
+<ul class="loose">
+<li><a href="method-saltbrine-harbour-archery.html"><strong>Harbour Archery Practice</strong></a> <span class="tag tag-afk">afk</span> 1-60</li>
+<li><a href="method-ranged-sand-crabs-ranged.html"><strong>Sand Crab Ranging</strong></a> <span class="tag tag-afk">afk</span> 10-60</li>
+<li><a href="method-saltbrine-crows-nest-range.html"><strong>Crow&#39;s Nest Sniper Range</strong></a> <span class="tag tag-high">high</span> 50-99</li>
+</ul>
+
+
+<h3>prayer (3)</h3>
+<ul class="loose">
+<li><a href="method-saltbrine-captains-bond-prayer.html"><strong>Captain&#39;s Bond Offering</strong></a> <span class="tag tag-medium">medium</span> 1-99</li>
+<li><a href="method-quirky-saltbrine-sea-chanty.html"><strong>[Quirky] Sing the Sea-Chanty</strong></a> <span class="tag tag-low">low</span> 1-99</li>
+<li><a href="method-saltbrine-kraken-warding-chant.html"><strong>Kraken-Warding Chant</strong></a> <span class="tag tag-low">low</span> 30-99</li>
+</ul>
+
+
+<h3>magic (2)</h3>
+<ul class="loose">
+<li><a href="method-saltbrine-sea-witch-magic.html"><strong>Sea Witch Duels</strong></a> <span class="tag tag-high">high</span> 40-85</li>
+<li><a href="method-saltbrine-sea-witch-advanced.html"><strong>Sea-Witch Charter-Conjure</strong></a> <span class="tag tag-medium">medium</span> 50-99</li>
+</ul>
+
+
+<h3>runecrafting (2)</h3>
+<ul class="loose">
+<li><a href="method-saltbrine-salt-pan-runecrafting.html"><strong>Salt-Pan Brine-Crystal RC</strong></a> <span class="tag tag-afk">afk</span> 5-99</li>
+<li><a href="method-saltbrine-storm-altar.html"><strong>Storm-Altar Runecrafting</strong></a> <span class="tag tag-medium">medium</span> 66-99</li>
+</ul>
+
+
+<h3>construction (2)</h3>
+<ul class="loose">
+<li><a href="method-saltbrine-shipwright-construction.html"><strong>Shipwright&#39;s Yard Framing</strong></a> <span class="tag tag-low">low</span> 1-99</li>
+<li><a href="method-saltbrine-lighthouse-construction.html"><strong>Lighthouse Masonry</strong></a> <span class="tag tag-medium">medium</span> 50-99</li>
+</ul>
+
+
+<h3>agility (3)</h3>
+<ul class="loose">
+<li><a href="method-saltbrine-sail-agility.html"><strong>Ship Rigging Course</strong></a> <span class="tag tag-medium">medium</span> 30-75</li>
+<li><a href="method-saltbrine-piratesfall-agility.html"><strong>Piratesfall Rope-Bridge Course</strong></a> <span class="tag tag-medium">medium</span> 40-90</li>
+<li><a href="method-saltbrine-rigging-agility.html"><strong>Rigging-Run Agility</strong></a> <span class="tag tag-high">high</span> 70-99</li>
+</ul>
+
+
+<h3>herblore (2)</h3>
+<ul class="loose">
+<li><a href="method-saltbrine-brewer-quay-herblore.html"><strong>Brewer&#39;s Quay Barrel-Fermenting</strong></a> <span class="tag tag-medium">medium</span> 20-99</li>
+<li><a href="method-saltbrine-kelp-herblore.html"><strong>Sea Potion Brewing</strong></a> <span class="tag tag-medium">medium</span> 35-99</li>
+</ul>
+
+
+<h3>thieving (3)</h3>
+<ul class="loose">
+<li><a href="method-saltbrine-charter-pickpocket.html"><strong>Charter-House Pickpocketing</strong></a> <span class="tag tag-low">low</span> 25-70</li>
+<li><a href="method-saltbrine-pearl-diving.html"><strong>Pearl Diving</strong></a> <span class="tag tag-medium">medium</span> 40-90</li>
+<li><a href="method-saltbrine-smuggler-manifest-thieving.html"><strong>Smuggler&#39;s Manifest Forgery</strong></a> <span class="tag tag-high">high</span> 50-99</li>
+</ul>
+
+
+<h3>crafting (4)</h3>
+<ul class="loose">
+<li><a href="method-quirky-saltbrine-knot-tying.html"><strong>[Quirky] Tie Knots on the Pier</strong></a> <span class="tag tag-low">low</span> 1-99</li>
+<li><a href="method-saltbrine-sail-stitching.html"><strong>Sail-Stitching</strong></a> <span class="tag tag-low">low</span> 15-80</li>
+<li><a href="method-saltbrine-pearl-jewelry.html"><strong>Pearl-Setting</strong></a> <span class="tag tag-medium">medium</span> 40-90</li>
+<li><a href="method-saltbrine-sharkhide-tanning.html"><strong>Sharkhide Tanning</strong></a> <span class="tag tag-medium">medium</span> 55-99</li>
+</ul>
+
+
+<h3>fletching (3)</h3>
+<ul class="loose">
+<li><a href="method-quirky-saltbrine-net-mending.html"><strong>[Quirky] Mend the Nets</strong></a> <span class="tag tag-low">low</span> 1-99</li>
+<li><a href="method-saltbrine-driftwood-bow-fletching.html"><strong>Driftwood Bow Fletching</strong></a> <span class="tag tag-afk">afk</span> 20-80</li>
+<li><a href="method-saltbrine-sea-cured-bolts.html"><strong>Sea-Cured Bolt Fletching</strong></a> <span class="tag tag-afk">afk</span> 40-99</li>
+</ul>
+
+
+<h3>slayer (2)</h3>
+<ul class="loose">
+<li><a href="method-saltbrine-scuttler-pits.html"><strong>Scuttler Pits Slaying</strong></a> <span class="tag tag-medium">medium</span> 35-85</li>
+<li><a href="method-saltbrine-salt-wraith-slayer.html"><strong>Salt-Wraith Hunting</strong></a> <span class="tag tag-high">high</span> 65-99</li>
+</ul>
+
+
+<h3>hunter (3)</h3>
+<ul class="loose">
+<li><a href="method-saltbrine-sea-bird-snaring.html"><strong>Sea-Bird Snaring</strong></a> <span class="tag tag-low">low</span> 15-70</li>
+<li><a href="method-saltbrine-cormorant-fishing.html"><strong>Cormorant-Trained Fishing</strong></a> <span class="tag tag-medium">medium</span> 35-85</li>
+<li><a href="method-saltbrine-pearl-diver-hunter.html"><strong>Pearl-Diver Underwater Hunter</strong></a> <span class="tag tag-high">high</span> 55-99</li>
+</ul>
+
+
+<h3>mining (3)</h3>
+<ul class="loose">
+<li><a href="method-saltbrine-coastal-mining.html"><strong>Tidestone &amp; Wreck-Iron Mining</strong></a> <span class="tag tag-low">low</span> 1-70</li>
+<li><a href="method-quirky-saltbrine-barnacle-scraping.html"><strong>[Quirky] Scrape the Barnacles</strong></a> <span class="tag tag-medium">medium</span> 1-99</li>
+<li><a href="method-saltbrine-saltpetre-lead-mining.html"><strong>Saltpetre &amp; Lead Mining</strong></a> <span class="tag tag-low">low</span> 40-99</li>
+</ul>
+
+
+<h3>smithing (2)</h3>
+<ul class="loose">
+<li><a href="method-saltbrine-cannon-foundry-smithing.html"><strong>Cannon Foundry Smithing</strong></a> <span class="tag tag-medium">medium</span> 30-99</li>
+<li><a href="method-saltbrine-anchor-forge.html"><strong>Anchor Forge</strong></a> <span class="tag tag-medium">medium</span> 55-99</li>
+</ul>
+
+
+<h3>fishing (5)</h3>
+<ul class="loose">
+<li><a href="method-fishing-tempoross.html"><strong>Tempoross (Fishing Boss)</strong></a> <span class="tag tag-medium">medium</span> 35-99</li>
+<li><a href="method-fishing-monkfish-chill.html"><strong>Monkfish Fishing</strong></a> <span class="tag tag-low">low</span> 62-99</li>
+<li><a href="method-saltbrine-wreck-deepwater-fishing.html"><strong>Wreck Coast Deep-Water Fishing</strong></a> <span class="tag tag-medium">medium</span> 62-99</li>
+<li><a href="method-saltbrine-fishing-guild.html"><strong>Saltbrine Fishing Guild</strong></a> <span class="tag tag-low">low</span> 68-99</li>
+<li><a href="method-saltbrine-anglerfish-fishing.html"><strong>Anglerfish Deep-Water</strong></a> <span class="tag tag-afk">afk</span> 82-99</li>
+</ul>
+
+
+<h3>cooking (3)</h3>
+<ul class="loose">
+<li><a href="method-saltbrine-salt-smoked-cooking.html"><strong>Salt-Smoked Fish Cooking</strong></a> <span class="tag tag-afk">afk</span> 1-99</li>
+<li><a href="method-saltbrine-hardtack-baking.html"><strong>Hardtack &amp; Ship&#39;s Biscuit</strong></a> <span class="tag tag-afk">afk</span> 15-70</li>
+<li><a href="method-saltbrine-grog-brewing.html"><strong>Grog &amp; Galley Stew</strong></a> <span class="tag tag-medium">medium</span> 35-85</li>
+</ul>
+
+
+<h3>firemaking (3)</h3>
+<ul class="loose">
+<li><a href="method-quirky-saltbrine-lantern-carry.html"><strong>[Quirky] Walk the Lantern Round</strong></a> <span class="tag tag-low">low</span> 1-99</li>
+<li><a href="method-saltbrine-lighthouse-firemaking.html"><strong>Lighthouse Beacon Tending</strong></a> <span class="tag tag-medium">medium</span> 30-99</li>
+<li><a href="method-saltbrine-signal-fire-chain.html"><strong>Signal-Fire Chain Burning</strong></a> <span class="tag tag-low">low</span> 50-99</li>
+</ul>
+
+
+<h3>woodcutting (2)</h3>
+<ul class="loose">
+<li><a href="method-saltbrine-coastal-woodcutting.html"><strong>Mangrove &amp; Driftwood Gathering</strong></a> <span class="tag tag-afk">afk</span> 1-65</li>
+<li><a href="method-saltbrine-black-teak-felling.html"><strong>Black Teak Felling</strong></a> <span class="tag tag-medium">medium</span> 60-99</li>
+</ul>
+
+
+<h3>farming (2)</h3>
+<ul class="loose">
+<li><a href="method-saltbrine-tide-tide-farming.html"><strong>Tide-Tide Salt-Resistant Farming</strong></a> <span class="tag tag-low">low</span> 15-99</li>
+<li><a href="method-saltbrine-kelp-cultivation-farming.html"><strong>Brine-Fed Kelp Cultivation</strong></a> <span class="tag tag-low">low</span> 35-99</li>
+</ul>
+
+
+<p><a href="region-saltbrine_reach.html">← Saltbrine Reach region</a></p>
+
+</div>
+</body></html>
