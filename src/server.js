@@ -47,7 +47,7 @@ const actions = require('./engine/actions');
 const registerAllCommands = require('./commands/all');
 
 // ── State ─────────────────────────────────────────────────────────────────────
-const PORT = 2223;
+const PORT = parseInt(process.env.PORT, 10) || 2223;
 const players = new Map(); // ws → player
 const playersByName = new Map(); // name → player
 const groundItems = []; // [{ id, name, x, y, layer, count, owner, despawnTick }]
@@ -4441,6 +4441,30 @@ wss.on('connection', (ws) => {
       return;
     }
 
+    // ── Dialogue input hook (burn-v2) ──
+    // If a player has an active NPC dialogue session, free-text input (not
+    // starting with '/') is routed to the dialogue module as a follow-up
+    // line. Returns a promise that resolves to a reply string, or null to
+    // fall through to normal command parsing.
+    if (global._dialogueInputHook && global._dialogueInputHook.fn
+        && p && p.activeDialogue && !/^[1-9]$/.test(input)) {
+      logEntry(ws, 'in', input);
+      try {
+        const hookResult = global._dialogueInputHook.fn(p, input);
+        if (hookResult && typeof hookResult.then === 'function') {
+          hookResult.then(reply => { if (reply) sendText(ws, reply); })
+                    .catch(e => sendText(ws, `(dialogue error: ${e.message})`));
+          return;
+        } else if (hookResult) {
+          sendText(ws, hookResult);
+          return;
+        }
+      } catch (e) {
+        // Fall through to normal parsing on any hook error.
+        console.warn('[dialogue-hook] threw:', e.message);
+      }
+    }
+
     // Execute command
     logEntry(ws, 'in', input);
     // Check stun
@@ -4605,6 +4629,143 @@ cmdCtx = {
   getLevelUpMessage, clans,
 };
 registerAllCommands(cmdCtx);
+
+// ── burn-v2 wire-in: GE, dialogue, death, area-locked, ironman, audio ────────
+// Each subsystem exposes a register()/attach() that installs its own
+// commands, tick hooks, and event listeners without touching inline registers.
+// Registration order matters: commands registered here OVERRIDE earlier inline
+// definitions in the commands Map (last-wins), so the v1 modules win.
+const geCommands = require('./engine/ge-commands');
+const dialogueCommands = require('./engine/dialogue-commands');
+const deathModule = require('./engine/death');
+const deathCommands = require('./engine/death-commands');
+const areaLocked = require('./engine/area-locked');
+const areaLockedCommands = require('./engine/area-locked-commands');
+const ironman = require('./engine/ironman');
+const ironmanCommands = require('./engine/ironman-commands');
+const audioTriggers = require('./engine/audio-triggers');
+const geRunner = require('./engine/ge-runner');
+
+// Inventory adapter — wrap player-module helpers to match ge-runner signatures.
+const _invAdd = (p, id, count, name, stackable) =>
+  invAdd(p, id, name || (items.get(id)?.name || 'Item'), count, stackable != null ? stackable : (items.get(id)?.stackable || false));
+const _invRemove = (p, id, count) => {
+  const before = invCount(p, id);
+  if (before <= 0) return 0;
+  invRemove(p, id, count);
+  return Math.min(before, count);
+};
+const _invCount = (p, id) => invCount(p, id);
+
+// Register the GE command family and wire runner hooks. Also installs the
+// ironman→GE guard via ge-commands' own lazy require of ironman.installGEHook.
+geCommands.register({
+  commands,
+  items,
+  shops: shopSystem,
+  invAdd: _invAdd,
+  invRemove: _invRemove,
+  invCount: _invCount,
+  tick,
+});
+// Defensive — ensure installGEHook fires even if the lazy-require path didn't.
+try { ironman.installGEHook(geRunner); } catch (_) {}
+
+// Wire death subsystem adapters. combat.checkPlayerDeath() lazy-requires
+// ./engine/death and calls onPlayerDeath — we also subscribe to the existing
+// 'player_death' event so inline death handlers in server.js still trigger
+// grave creation without refactoring those paths.
+deathModule.register({
+  items,
+  ge: geRunner,
+  tick,
+  invAdd: _invAdd,
+  invRemove: _invRemove,
+  setPlayerPosition: (p, point) => {
+    if (!p || !point) return;
+    p.x = point.x | 0;
+    p.y = point.y | 0;
+    if (point.region) p.region = point.region;
+    p.path = [];
+  },
+});
+events.on('player_death', 'death_grave_hook', (data) => {
+  if (!data || !data.player) return;
+  try {
+    deathModule.onPlayerDeath(data.player, { killer: data.killer || null });
+  } catch (e) {
+    console.warn('[death] onPlayerDeath threw:', e.message);
+  }
+});
+// Tick graves once per tick so expired graves clean themselves.
+tick.onTick('death:graves', (t) => { try { deathModule.tickGraves(t); } catch (_) {} });
+
+deathCommands.register({
+  commands,
+  death: deathModule,
+  items,
+  getTick: () => tick.getTick(),
+});
+
+// Area-Locked account mode — hooks area-gate preCheck + breakpoint xpModifier.
+areaLocked.attach();
+areaLockedCommands.register({ commands });
+
+// Ironman command family (already wired to GE via installGEHook above).
+ironmanCommands.register({
+  commands,
+  ironman,
+  findPlayer,
+  getTick: () => tick.getTick(),
+});
+
+// Dialogue (Ollama NPC bibles). The register() function also sets an input
+// hook that intercepts non-slash chat when a player has an active session.
+// server.reply is used so the async Ollama call can push the NPC reply back
+// after the command layer has already returned synchronously.
+const _dialogueInputHook = { fn: null };
+dialogueCommands.register({
+  commands,
+  findNpc: (npcId, player) => {
+    if (!player) return null;
+    // First, try to find an NPC within 10 tiles whose defId matches.
+    const nearby = npcs.getNpcsNear(player.x, player.y, 10, player.layer) || [];
+    for (const n of nearby) {
+      if (n.defId === npcId) return { id: n.id, x: n.x, y: n.y, layer: n.layer, name: n.name };
+    }
+    // Fallback — any NPC anywhere with that defId.
+    for (const n of npcs.npcs.values()) {
+      if (n.defId === npcId) return { id: n.id, x: n.x, y: n.y, layer: n.layer, name: n.name };
+    }
+    return null;
+  },
+  tick,
+  reply: (player, text) => {
+    for (const [ws, pl] of players) {
+      if (pl && pl.id === player.id) { sendText(ws, text); break; }
+    }
+  },
+  setInputHook: (fn) => { _dialogueInputHook.fn = fn; },
+});
+
+// Expose the input hook globally so the WS message handler can consult it
+// before parsing a line as a command. Fire-and-forget — the async reply is
+// pushed via server.reply() when it resolves.
+global._dialogueInputHook = _dialogueInputHook;
+
+// Audio dispatcher forwarder — map playerId to WebSocket and send audio msgs.
+audioTriggers.registerForwarder((target, msg) => {
+  // target is usually a playerId from breakpoint-runner events; also accept ws.
+  if (target && typeof target.send === 'function') {
+    send(target, msg);
+    return;
+  }
+  for (const [ws, pl] of players) {
+    if (pl && pl.id === target) { send(ws, msg); return; }
+  }
+});
+
+console.log('[server] burn-v2 subsystems wired: GE, dialogue, death, area-locked, ironman, audio');
 
 // Persistence
 persistence.onSave('chunks', () => tiles.saveChunks());
