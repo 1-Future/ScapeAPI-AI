@@ -313,6 +313,93 @@
   #site-header nav a.active { color:var(--gold); }
   #site-header .gh-link { color:#aaa; text-decoration:none; font-size:16px; line-height:1; margin-left:auto; transition:color 0.15s; }
   #site-header .gh-link:hover { color:#fff; }
+
+  /* ── Accessibility: colorblind palettes ─────────────────────────────────
+     Toggled via data-colorblind="deuteranopia|protanopia|tritanopia|achromatopsia"
+     on <body>. Overrides the top-level custom properties so every `var(--x)`
+     reference in the stylesheet picks up the alternate palette automatically. */
+  body[data-colorblind="deuteranopia"] {
+    --parchment: #d8cfa8;
+    --parchment-dark: #b8a878;
+    --stone: #2a2420;
+    --stone-dark: #1a1410;
+    --stone-light: #5a5040;
+    --gold: #ffaa00;
+    --gold-dim: #cc8800;
+    --text: #000000;
+    --text-system: #0040aa;
+    --text-player: #000099;
+  }
+  body[data-colorblind="protanopia"] {
+    --parchment: #dacfa8;
+    --parchment-dark: #b0a078;
+    --stone: #2a2420;
+    --stone-dark: #1a1410;
+    --stone-light: #5c5240;
+    --gold: #ffbb11;
+    --gold-dim: #cc8822;
+    --text: #000000;
+    --text-system: #0050bb;
+    --text-player: #000099;
+  }
+  body[data-colorblind="tritanopia"] {
+    --parchment: #d0c090;
+    --parchment-dark: #a89870;
+    --stone: #3a352e;
+    --stone-dark: #2a2520;
+    --stone-light: #7a7060;
+    --gold: #aa3300;
+    --gold-dim: #881800;
+    --text: #000000;
+    --text-system: #aa3333;
+    --text-player: #990055;
+  }
+  body[data-colorblind="achromatopsia"] {
+    --parchment: #e8e8e8;
+    --parchment-dark: #b8b8b8;
+    --stone: #555555;
+    --stone-dark: #333333;
+    --stone-light: #888888;
+    --gold: #aaaaaa;
+    --gold-dim: #888888;
+    --text: #000000;
+    --text-system: #333333;
+    --text-player: #222222;
+  }
+
+  /* ── Accessibility: high contrast theme ─────────────────────────────── */
+  body[data-theme="high-contrast"] {
+    --parchment: #ffffff;
+    --parchment-dark: #dddddd;
+    --stone: #000000;
+    --stone-dark: #000000;
+    --stone-light: #444444;
+    --gold: #ffff00;
+    --gold-dim: #cccc00;
+    --text: #000000;
+    --text-system: #000088;
+    --text-player: #000000;
+  }
+  body[data-theme="high-contrast"] * { border-color: #000 !important; }
+  body[data-theme="high-contrast"] #chat-log { background: #fff; color: #000; }
+
+  /* ── Accessibility: text size multiplier ────────────────────────────── */
+  body[data-text-size] { font-size: calc(16px * var(--a11y-text-scale, 1)); }
+
+  /* ── Accessibility: reduced motion ──────────────────────────────────── */
+  body[data-reduced-motion="true"] *,
+  body[data-reduced-motion="true"] *::before,
+  body[data-reduced-motion="true"] *::after {
+    transition: none !important;
+    animation: none !important;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      transition-duration: 0.001ms !important;
+      animation-duration: 0.001ms !important;
+      animation-iteration-count: 1 !important;
+    }
+  }
 </style>
 </head>
 <body>
@@ -778,6 +865,81 @@ for (const line of onboardMsgs) {
 input.placeholder = 'enter your name...';
 // Scroll to top so player sees the welcome first
 setTimeout(() => { chatLog.scrollTop = 0; }, 50);
+</script>
+
+<!-- ── Accessibility client bootstrap ─────────────────────────────────────
+     Applies colorblind palette, text size, high contrast, reduced motion, TTS
+     and screen-reader hooks from localStorage, and listens to WS `accessibility`
+     frames from the server for live updates. -->
+<script>
+(function () {
+  'use strict';
+  var LS_KEY = 'scape-a11y';
+  function load() {
+    try { return JSON.parse(localStorage.getItem(LS_KEY)) || {}; }
+    catch (e) { return {}; }
+  }
+  function save(p) {
+    try { localStorage.setItem(LS_KEY, JSON.stringify(p)); } catch (e) {}
+  }
+  function apply(p) {
+    var b = document.body;
+    b.setAttribute('data-colorblind', p.colorblind || 'none');
+    b.setAttribute('data-theme', p.highContrast ? 'high-contrast' : 'default');
+    b.setAttribute('data-reduced-motion', p.reducedMotion ? 'true' : 'false');
+    b.setAttribute('data-text-size', String(p.textSize || 1));
+    b.style.setProperty('--a11y-text-scale', String(p.textSize || 1));
+  }
+  function speak(text) {
+    try {
+      if (!('speechSynthesis' in window)) return;
+      var u = new SpeechSynthesisUtterance(text);
+      u.rate = 1.0; u.volume = 0.8;
+      window.speechSynthesis.speak(u);
+    } catch (e) {}
+  }
+  var live = document.getElementById('a11y-live');
+  if (!live) {
+    live = document.createElement('div');
+    live.id = 'a11y-live';
+    live.setAttribute('role', 'status');
+    live.setAttribute('aria-live', 'polite');
+    live.setAttribute('aria-atomic', 'true');
+    live.style.cssText = 'position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden;';
+    document.body.appendChild(live);
+  }
+  window.scapeA11y = {
+    get: load,
+    set: function (patch) {
+      var p = Object.assign(load(), patch || {});
+      save(p); apply(p); return p;
+    },
+    apply: apply,
+    speak: speak,
+    announce: function (text) { if (live && text) live.textContent = String(text); },
+  };
+  apply(load());
+  // Hook the WebSocket if present.
+  var origWS = window.WebSocket;
+  if (origWS) {
+    window.WebSocket = function (url, proto) {
+      var ws = proto ? new origWS(url, proto) : new origWS(url);
+      ws.addEventListener('message', function (ev) {
+        var data; try { data = JSON.parse(ev.data); } catch (e) { return; }
+        if (!data || typeof data !== 'object') return;
+        if (data.type === 'accessibility' && data.prefs) {
+          window.scapeA11y.set(data.prefs);
+        } else if (data.type === 'audio' && data.role === 'tts' && data.text && load().tts) {
+          speak(data.text);
+        } else if (data.type === 'aria' && data.text && load().screenReader) {
+          window.scapeA11y.announce(data.text);
+        }
+      });
+      return ws;
+    };
+    window.WebSocket.prototype = origWS.prototype;
+  }
+})();
 </script>
 </body>
 </html>
