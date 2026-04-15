@@ -3670,6 +3670,72 @@ function createDefaultContent() {
   require('./content/aelgard/league-modes');         // Seasonal leagues: 6 relic tiers, 540 tasks, 5 league templates, reward shop
   require('./content/aelgard/wilderness-content');   // Wilds weapons, BH system, LMS, chaos altar, wilderness slayer, Larran's chest
 
+  // ── Relationship registry content (engine bridge) ──
+  // Loads training methods, area gates, quest unlocks, breakpoints, etc. into
+  // the central registry (src/data/relationships.js) so the engine can resolve
+  // them at runtime via rel.getTrainingMethod() etc.
+  try { require('./content/aelgard/area-gates'); } catch (e) { console.warn('[aelgard:rel] area-gates:', e.message); }
+  try { require('./content/aelgard/quest-unlocks'); } catch (e) { console.warn('[aelgard:rel] quest-unlocks:', e.message); }
+  try { require('./content/aelgard/item-ecosystem'); } catch (e) { console.warn('[aelgard:rel] item-ecosystem:', e.message); }
+  try { require('./content/aelgard/training-knobs'); } catch (e) { console.warn('[aelgard:rel] training-knobs:', e.message); }
+  try { require('./content/aelgard/breakpoints'); } catch (e) { console.warn('[aelgard:rel] breakpoints:', e.message); }
+  try { require('./content/aelgard/skill-web'); } catch (e) { console.warn('[aelgard:rel] skill-web:', e.message); }
+  try { require('./content/aelgard/heartlands-deep'); } catch (e) {}
+  try { require('./content/aelgard/heartlands-density'); } catch (e) {}
+  try { require('./content/aelgard/moryskah-deep'); } catch (e) {}
+  try { require('./content/aelgard/moryskah-density'); } catch (e) {}
+  try { require('./content/aelgard/mid-tier-regions'); } catch (e) {}
+  try { require('./content/aelgard/special-regions'); } catch (e) {}
+  try { require('./content/aelgard/cross-region-web'); } catch (e) {}
+  try { require('./content/aelgard/quirky-interactions'); } catch (e) {}
+  try { require('./content/aelgard/universal-items'); } catch (e) {}
+  {
+    const rel = require('./data/relationships');
+    const s = rel.stats();
+    console.log(`[aelgard:rel] Loaded relationship registry: ${s.trainingMethods} methods, ${s.areaGates} gates, ${s.questUnlocks} quest unlocks, ${s.breakpoints} breakpoints`);
+  }
+
+  // ── Forward breakpoint events to the player's WebSocket + Live Narrator ──
+  // Spectator/codex/UI can react to these. Format:
+  //   { t: 'breakpoint', importance, description, unlocks[], bpKey }
+  {
+    const breakpoints = require('./engine/breakpoint-runner');
+    const narrator = require('./ai/narrator');
+    narrator.ensureInitialized(); // create public/events.json if missing
+    // Probe Ollama asynchronously; report result when it resolves. Non-blocking.
+    narrator.probe().then((reachable) => {
+      if (reachable) {
+        console.log(`[narrator] connected to Ollama at ${narrator.OLLAMA_URL} (model: ${narrator.MODEL})`);
+      } else {
+        console.log(`[narrator] ${narrator.disabledReason()} — events.json will still record breakpoints, just without generated text.`);
+      }
+    });
+    breakpoints.subscribe((ev) => {
+      for (const [ws, pl] of players) {
+        if (pl.id === ev.playerId) {
+          send(ws, {
+            t: 'breakpoint',
+            importance: ev.importance,
+            description: ev.description,
+            unlocks: ev.unlocks,
+            bpKey: ev.bpKey,
+            bpType: ev.bpType,
+            trigger: ev.trigger,
+            tick: ev.tick,
+          });
+          // Inline text for terminal/debug clients
+          const tag = ev.importance === 'transformative' ? '★ TRANSFORMATIVE' :
+                      ev.importance === 'major' ? '◆ MAJOR' : '· minor';
+          sendText(ws, `[Breakpoint ${tag}] ${ev.description}`);
+          break;
+        }
+      }
+      // Fire-and-forget: Claude generates flavor text, appends to events.json.
+      // Never blocks the tick loop; errors are logged by the narrator module.
+      narrator.handleBreakpoint(ev);
+    });
+  }
+
   // Spawn Aelgard entities in the world (after tiles are set up)
   if (heartlands.spawnHeartlands) heartlands.spawnHeartlands();
   const worldLayout = require('./content/aelgard/world-layout');
@@ -3818,6 +3884,25 @@ const server = http.createServer(async (req, res) => {
     return false;
   };
 
+  // Narrator feed — always fresh, never cached. Served from public/events.json.
+  if (req.url === '/events.json' || req.url.startsWith('/events.json?')) {
+    const eventsPath = require('path').join(publicDir, 'events.json');
+    if (require('fs').existsSync(eventsPath)) {
+      res.writeHead(200, {
+        'Content-Type': 'application/json; charset=utf-8',
+        'Cache-Control': 'no-cache, no-store, must-revalidate',
+      });
+      res.end(require('fs').readFileSync(eventsPath));
+    } else {
+      res.writeHead(200, {
+        'Content-Type': 'application/json; charset=utf-8',
+        'Cache-Control': 'no-cache, no-store, must-revalidate',
+      });
+      res.end('{"entries":[]}');
+    }
+    return;
+  }
+
   // Main page — spectate (the landing page)
   if (req.url === '/' || req.url === '/spectate') {
     if (serveHTML('spectate.html')) return;
@@ -3830,7 +3915,13 @@ const server = http.createServer(async (req, res) => {
 
   // Codex — browsable encyclopedia (primary human interface)
   // Multi-page structure at public/codex/ — serve any .html file under that path
-  if (req.url === '/codex' || req.url === '/codex/' || req.url.startsWith('/codex?')) {
+  // Redirect /codex → /codex/ so relative links (href="regions.html") resolve correctly
+  if (req.url === '/codex') {
+    res.writeHead(301, { Location: '/codex/' });
+    res.end();
+    return;
+  }
+  if (req.url === '/codex/' || req.url.startsWith('/codex?')) {
     if (serveHTML('codex/index.html')) return;
   }
   if (req.url.startsWith('/codex/') && req.url.endsWith('.html')) {
@@ -4039,6 +4130,45 @@ const server = http.createServer(async (req, res) => {
       return;
     }
     res.writeHead(404); res.end('Not found');
+    return;
+  }
+
+  // ── Narrator inject endpoint ──
+  // For manual testing and future external triggers. Body is a single entry
+  // appended to events.json. Auth via Bearer token matching NARRATOR_TOKEN env.
+  if (req.url === '/api/narrator-inject' && req.method === 'POST') {
+    const expected = process.env.NARRATOR_TOKEN;
+    if (!expected) {
+      res.writeHead(503, { 'Content-Type': 'application/json' });
+      res.end(JSON.stringify({ ok: false, error: 'NARRATOR_TOKEN not configured on server' }));
+      return;
+    }
+    const auth = req.headers.authorization || '';
+    const presented = auth.startsWith('Bearer ') ? auth.slice(7) : '';
+    // Constant-time comparison — prevents timing side-channels on token guess
+    const crypto = require('crypto');
+    const a = Buffer.from(presented);
+    const b = Buffer.from(expected);
+    const authed = a.length === b.length && crypto.timingSafeEqual(a, b);
+    if (!authed) {
+      res.writeHead(401, { 'Content-Type': 'application/json' });
+      res.end(JSON.stringify({ ok: false, error: 'invalid bearer token' }));
+      return;
+    }
+    let body = '';
+    req.on('data', c => { body += c; if (body.length > 8192) req.destroy(); });
+    req.on('end', async () => {
+      try {
+        const entry = JSON.parse(body);
+        const narrator = require('./ai/narrator');
+        await narrator.injectEntry(entry);
+        res.writeHead(200, { 'Content-Type': 'application/json' });
+        res.end(JSON.stringify({ ok: true }));
+      } catch (e) {
+        res.writeHead(400, { 'Content-Type': 'application/json' });
+        res.end(JSON.stringify({ ok: false, error: e.message }));
+      }
+    });
     return;
   }
 

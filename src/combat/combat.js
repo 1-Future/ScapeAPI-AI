@@ -6,6 +6,7 @@
 // - OSRS Wiki: https://oldschool.runescape.wiki/w/Damage_per_second
 
 const player = require('../player/player');
+const breakpoints = require('../engine/breakpoint-runner');
 
 // Attack styles and their XP distribution
 const STYLES = {
@@ -144,25 +145,25 @@ function combatXp(p, damage) {
   const results = {};
   if (style.atk > 0) {
     const xp = damage * style.atk;
-    const lvl = player.addXp(p, 'attack', xp);
+    const lvl = breakpoints.addXpWithBreakpoints(p, 'attack', xp);
     results.attack = xp;
     if (lvl) results.levelUp = { skill: 'attack', level: lvl };
   }
   if (style.str > 0) {
     const xp = damage * style.str;
-    const lvl = player.addXp(p, 'strength', xp);
+    const lvl = breakpoints.addXpWithBreakpoints(p, 'strength', xp);
     results.strength = xp;
     if (lvl) results.levelUp = { skill: 'strength', level: lvl };
   }
   if (style.def > 0) {
     const xp = damage * style.def;
-    const lvl = player.addXp(p, 'defence', xp);
+    const lvl = breakpoints.addXpWithBreakpoints(p, 'defence', xp);
     results.defence = xp;
     if (lvl) results.levelUp = { skill: 'defence', level: lvl };
   }
   // Always get 1.33 HP XP per damage
   const hpXp = damage * 1.33;
-  const hpLvl = player.addXp(p, 'hitpoints', hpXp);
+  const hpLvl = breakpoints.addXpWithBreakpoints(p, 'hitpoints', hpXp);
   results.hitpoints = hpXp;
   if (hpLvl) results.hpLevelUp = { skill: 'hitpoints', level: hpLvl };
   return results;
@@ -247,11 +248,11 @@ function rangedAttack(attacker, defender) {
 function rangedCombatXp(p, damage) {
   const results = {};
   const xp = damage * 4;
-  const lvl = player.addXp(p, 'ranged', xp);
+  const lvl = breakpoints.addXpWithBreakpoints(p, 'ranged', xp);
   results.ranged = xp;
   if (lvl) results.levelUp = { skill: 'ranged', level: lvl };
   const hpXp = damage * 1.33;
-  const hpLvl = player.addXp(p, 'hitpoints', hpXp);
+  const hpLvl = breakpoints.addXpWithBreakpoints(p, 'hitpoints', hpXp);
   results.hitpoints = hpXp;
   if (hpLvl) results.hpLevelUp = { skill: 'hitpoints', level: hpLvl };
   return results;
@@ -318,11 +319,11 @@ function magicAttack(p, defender, spell) {
 function magicCombatXp(p, damage, baseXp) {
   const results = {};
   const xp = damage * 2 + baseXp;
-  const lvl = player.addXp(p, 'magic', xp);
+  const lvl = breakpoints.addXpWithBreakpoints(p, 'magic', xp);
   results.magic = xp;
   if (lvl) results.levelUp = { skill: 'magic', level: lvl };
   const hpXp = damage * 1.33;
-  const hpLvl = player.addXp(p, 'hitpoints', hpXp);
+  const hpLvl = breakpoints.addXpWithBreakpoints(p, 'hitpoints', hpXp);
   results.hitpoints = hpXp;
   if (hpLvl) results.hpLevelUp = { skill: 'hitpoints', level: hpLvl };
   return results;

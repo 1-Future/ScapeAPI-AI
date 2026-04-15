@@ -270,6 +270,44 @@
     box-shadow: inset 0 2px 4px rgba(0,0,0,0.15);
   }
 
+  /* ── Narrator feed — appears between divider and chat ── */
+  #narrator-pane {
+    flex-shrink: 0;
+    background: var(--parchment-dark);
+    color: var(--text);
+    font-family: var(--mono);
+    border-top: 1px solid var(--stone-dark);
+    border-bottom: 1px solid var(--stone-dark);
+    max-height: 140px;
+    overflow-y: auto;
+    padding: 4px 10px;
+    font-size: 12px;
+    line-height: 1.4;
+  }
+  #narrator-pane.empty { display: none; }
+  #narrator-pane::-webkit-scrollbar { width: 6px; }
+  #narrator-pane::-webkit-scrollbar-thumb { background: var(--stone); }
+  .narr-entry {
+    padding: 3px 0;
+    border-bottom: 1px dotted rgba(60,50,40,0.25);
+    animation: narr-fade 600ms ease-out;
+  }
+  .narr-entry:last-child { border-bottom: none; }
+  @keyframes narr-fade { from { opacity: 0; transform: translateY(-3px); } to { opacity: 1; transform: none; } }
+  .narr-head {
+    display: inline-block;
+    font-weight: bold;
+    margin-right: 6px;
+    padding: 0 4px;
+    border-radius: 2px;
+  }
+  .narr-minor         { color: var(--stone-dark); }
+  .narr-major         { color: #8a5e00; background: rgba(255,152,31,0.15); }
+  .narr-transformative{ color: #000; background: var(--gold); text-shadow: 0 0 4px rgba(255,200,80,0.6); }
+  .narr-desc { color: var(--stone-dark); font-style: italic; }
+  .narr-text { display: block; margin-top: 2px; color: var(--text); }
+  .narr-pending { color: var(--stone); font-style: italic; }
+
   #chat-log {
     flex: 1;
     overflow-y: auto;
@@ -828,6 +866,9 @@
   <div id="divider">
     <div id="legend"></div>
   </div>
+
+  <!-- Narrator feed (hidden when empty) -->
+  <div id="narrator-pane" class="empty"></div>
 
   <!-- Chat pane -->
   <div id="chat-pane" style="position:relative">
@@ -1851,6 +1892,57 @@ async function pollViewers(){
   }
 }
 pollViewers();
+
+// ── Live Narrator feed ──
+// Polls /events.json every 3s with cache-busting. Renders newest-last so
+// the feed reads top-to-bottom chronologically; auto-scrolls to the bottom
+// when new entries arrive.
+const narratorPane=document.getElementById('narrator-pane');
+let narratorSeen=new Set();
+function escHtml(s){return String(s==null?'':s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]))}
+function renderNarratorEntry(e){
+  const div=document.createElement('div');
+  div.className='narr-entry';
+  const cls='narr-'+(e.importance||'minor');
+  const tag=e.importance==='transformative'?'TRANSFORMATIVE':e.importance==='major'?'MAJOR':'minor';
+  const who=e.playerName||'?';
+  let html=`<span class="narr-head ${cls}">${escHtml(tag)}</span><span class="narr-desc">${escHtml(who)} — ${escHtml(e.description||e.bpKey||'')}</span>`;
+  if(e.narration){
+    html+=`<span class="narr-text">${escHtml(e.narration)}</span>`;
+  }else if(e.narrationError){
+    html+=`<span class="narr-text narr-pending">(no narration: ${escHtml(e.narrationError)})</span>`;
+  }else{
+    html+=`<span class="narr-text narr-pending">...</span>`;
+  }
+  div.innerHTML=html;
+  return div;
+}
+async function pollNarrator(){
+  while(true){
+    try{
+      const r=await fetch('/events.json?t='+Date.now(),{cache:'no-store'});
+      if(r.ok){
+        const data=await r.json();
+        const entries=Array.isArray(data.entries)?data.entries:[];
+        let appended=false;
+        for(const e of entries){
+          const key=(e.ts||0)+':'+(e.bpKey||'')+':'+(e.playerId||'');
+          if(narratorSeen.has(key))continue;
+          narratorSeen.add(key);
+          narratorPane.appendChild(renderNarratorEntry(e));
+          appended=true;
+        }
+        if(entries.length>0)narratorPane.classList.remove('empty');
+        // Trim DOM to last 20 entries
+        while(narratorPane.children.length>20)narratorPane.removeChild(narratorPane.firstChild);
+        if(appended)narratorPane.scrollTop=narratorPane.scrollHeight;
+      }
+    }catch(e){/* network hiccup — try again next tick */}
+    await new Promise(r=>setTimeout(r,3000));
+  }
+}
+pollNarrator();
+
 startPlayback();
 </script>
 </body>

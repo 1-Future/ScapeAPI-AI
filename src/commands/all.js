@@ -8,15 +8,23 @@ const shops = require('../data/shops');
 const quests = require('../data/quests');
 const droptables = require('../data/droptables');
 const slayer = require('../data/slayer');
+const breakpoints = require('../engine/breakpoint-runner');
 
 module.exports = function registerAll(ctx) {
   const { players, playersByName, groundItems, tick, events, persistence,
     tiles, walls, npcs, objects, pathfinding, combat, actions,
-    getLevel, getXp, addXp, totalLevel, combatLevel,
+    getLevel, getXp, totalLevel, combatLevel,
     getBoostedLevel, calcWeight,
     invAdd, invRemove, invCount, invFreeSlots,
     send, sendText, broadcast, findPlayer, nextItemId,
     getLevelUpMessage, clans } = ctx;
+
+  // All XP grants in this module route through the breakpoint runner so
+  // combat-skill level crossings (prayer 43, magic 55, etc.) emit the events
+  // server.js forwards to player WebSockets. Variable-skill paths (quest
+  // rewards, XP lamps, achievement diaries) could carry combat XP, so
+  // wrapping once here is safer than surgically patching each call site.
+  const addXp = (p, skill, amount) => breakpoints.addXpWithBreakpoints(p, skill, amount);
 
   // Helper: recalculate player weight
   function updateWeight(p) {
@@ -3168,4 +3176,191 @@ module.exports = function registerAll(ctx) {
       return msg.trimEnd();
     }
   });
+
+  // ── Training methods (engine bridge: relationship-registry → engine) ──────
+  const trainingRunner = require('../engine/training-runner');
+  const questRunner = require('../engine/quest-runner');
+  const areaGateRunner = require('../engine/area-gate-runner');
+  const recipeRunner = require('../engine/recipe-runner');
+  const rel = require('../data/relationships');
+
+  commands.register('train', {
+    help: 'Train a method: `train <methodId>` to start, `train stop`, `train status`, `train list <skill>`',
+    category: 'Skills',
+    fn: (p, args, raw, ws) => {
+      const sub = (args[0] || '').toLowerCase();
+
+      if (!sub || sub === 'status') {
+        const st = trainingRunner.status(p);
+        if (!st) return 'You are not training. Use `train <methodId>` to start.';
+        const minutes = Math.floor(st.elapsedTicks * 0.6 / 60);
+        return `Training: ${st.name} (${st.skill}) — ${st.xpPerHour} xp/hr — ${minutes}m elapsed`;
+      }
+
+      if (sub === 'stop' || sub === 'cancel') {
+        return trainingRunner.stop(p) ? 'You stop training.' : 'You are not training.';
+      }
+
+      if (sub === 'list') {
+        const skill = (args[1] || '').toLowerCase();
+        if (!skill) return 'Usage: train list <skill>';
+        const lvl = getLevel(p, skill);
+        const methods = rel.listMethodsInRange(skill, lvl);
+        if (!methods.length) return `No ${skill} methods available at level ${lvl}.`;
+        return methods.map(m =>
+          `  ${m.id} — ${m.name} [${m.levelRange[0]}-${m.levelRange[1]}] ${m.attention} ${typeof m.xpPerHour === 'number' ? m.xpPerHour : m.xpPerHour.join('-')} xp/hr`
+        ).join('\n');
+      }
+
+      const methodId = args[0];
+      const sendFn = ws ? (msg) => sendText(ws, msg) : null;
+      const result = trainingRunner.start(p, methodId, sendFn);
+      if (!result.ok) return `Cannot train: ${result.reason}`;
+      return `You begin training: ${result.method.name}.`;
+    }
+  });
+
+  commands.register('quest', {
+    help: 'Quests: `quest list`, `quest start <id>`, `quest step`, `quest complete <id>`, `quest status [id]`',
+    category: 'Quests',
+    fn: (p, args) => {
+      const sub = (args[0] || '').toLowerCase();
+
+      if (!sub || sub === 'status') {
+        const id = args[1];
+        if (id) {
+          const s = questRunner.status(p, id);
+          if (!s.started && !s.complete) return `Quest "${id}" not started.`;
+          const stepInfo = s.totalSteps ? ` (step ${s.step}/${s.totalSteps})` : '';
+          return s.complete ? `${s.name}: COMPLETE` : `${s.name}: in progress${stepInfo}`;
+        }
+        const all = questRunner.status(p);
+        if (!all.length) return 'No quests started. Try `quest list`.';
+        return all.map(q => `  ${q.questId} — ${q.name} — ${q.complete ? 'COMPLETE' : 'in progress (step ' + q.step + ')'}`).join('\n');
+      }
+
+      if (sub === 'list') {
+        const avail = questRunner.listAvailable(p);
+        if (!avail.length) return 'No quests available.';
+        return avail.slice(0, 30).map(q => `  ${q.id} — ${q.name} [${q.difficulty}]`).join('\n');
+      }
+
+      if (sub === 'start') {
+        const id = args[1];
+        if (!id) return 'Usage: quest start <id>';
+        const r = questRunner.start(p, id);
+        if (!r.ok) return `Cannot start: ${r.reason}`;
+        return `Quest started: ${r.quest.name}`;
+      }
+
+      if (sub === 'step') {
+        const id = args[1] || Object.keys(p.questProgress || {}).find(k => !p.questProgress[k].complete);
+        if (!id) return 'No active quest. Use `quest start <id>` first.';
+        const r = questRunner.advanceStep(p, id);
+        if (!r.ok) return `Cannot advance: ${r.reason}`;
+        if (r.questId) {
+          // Step rolled over into a complete()
+          return formatComplete(r);
+        }
+        return `Step ${r.step}/${r.totalSteps || '?'}`;
+      }
+
+      if (sub === 'complete') {
+        const id = args[1];
+        if (!id) return 'Usage: quest complete <id>';
+        const r = questRunner.complete(p, id);
+        if (!r.ok) return `Cannot complete: ${r.reason}`;
+        return formatComplete(r);
+      }
+
+      if (sub === 'points' || sub === 'qp') {
+        return `Quest Points: ${questRunner.getQuestPoints(p)}`;
+      }
+
+      return 'Usage: quest [list|start <id>|step|complete <id>|status [id]|points]';
+    }
+  });
+
+  commands.register('travel', {
+    help: 'Travel to a gated area: `travel <areaId>`, `travel list` (accessible), `travel all` (with gate info)',
+    category: 'World',
+    fn: (p, args) => {
+      const sub = (args[0] || '').toLowerCase();
+
+      if (!sub || sub === 'list') {
+        const accessible = areaGateRunner.listAccessible(p);
+        if (!accessible.length) return 'No gated areas accessible. Try `travel all` to see what you need.';
+        return accessible.map(a => `  ${a.id} — ${a.name}${a.region ? ' (' + a.region + ')' : ''}`).join('\n');
+      }
+
+      if (sub === 'all') {
+        const all = areaGateRunner.listAll(p);
+        if (!all.length) return 'No gated areas defined.';
+        return all.map(a => {
+          const lock = a.allowed ? 'OK   ' : 'LOCK ';
+          const miss = a.missing.length ? ` — needs: ${a.missing.join(', ')}` : '';
+          return `  ${lock} ${a.id} — ${a.name}${miss}`;
+        }).join('\n');
+      }
+
+      // Treat first arg as areaId
+      const areaId = args[0];
+      if (p.busy) actions.cancel(p);
+      const r = areaGateRunner.enter(p, areaId);
+      if (!r.ok) return `Cannot travel: ${r.reason}`;
+      return `You travel to ${r.name}. (${r.x}, ${r.y})`;
+    }
+  });
+
+  commands.register('craft', {
+    help: 'Craft a recipe: `craft <recipeId>` or `craft list [skill]`',
+    category: 'Skills',
+    fn: (p, args) => {
+      const sub = (args[0] || '').toLowerCase();
+      if (sub === 'list') {
+        const skill = (args[1] || '').toLowerCase() || null;
+        const list = recipeRunner.listAvailable(p, skill);
+        if (!list.length) return `No ${skill ? skill + ' ' : ''}recipes available with current inventory.`;
+        return list.slice(0, 30).map(r => `  ${r.id} — ${r.name} [${r.skill} ${r.level}]`).join('\n');
+      }
+      const recipeId = args.join(' ');
+      if (!recipeId) return 'Usage: craft <recipeId> | craft list [skill]';
+      const r = recipeRunner.craft(p, recipeId);
+      if (!r.ok) return `Cannot craft: ${r.reason}`;
+      const xpStr = r.xpGained ? ` (+${r.xpGained} ${r.skill} XP)` : '';
+      const made = r.produced.map(o => `${o.count} ${o.name}`).join(', ');
+      return `You craft: ${made || r.name}${xpStr}${r.leveledTo ? ` — ${r.skill} level ${r.leveledTo}!` : ''}`;
+    }
+  });
+
+  commands.register('combine', {
+    help: 'Combine items into a result: `combine <resultName|resultId>`',
+    category: 'Skills',
+    fn: (p, args) => {
+      const target = args.join(' ');
+      if (!target) return 'Usage: combine <resultName|resultId>';
+      // Try numeric first, then string
+      const asNum = Number(target);
+      const arg = Number.isFinite(asNum) ? asNum : target;
+      const r = recipeRunner.combine(p, arg);
+      if (!r.ok) return `Cannot combine: ${r.reason}`;
+      const xpStr = r.xpGained ? ` (+${r.xpGained} ${r.skill} XP)` : '';
+      return `You combine the items into ${r.name}.${xpStr}${r.leveledTo ? ` — ${r.skill} level ${r.leveledTo}!` : ''}`;
+    }
+  });
+
+  function formatComplete(r) {
+    const lines = [`Quest complete: ${r.name}`];
+    for (const [skill, amount] of Object.entries(r.xpAwarded || {})) {
+      if (!skill.endsWith('_level')) lines.push(`  +${amount} ${skill} XP`);
+    }
+    for (const item of (r.itemsAwarded || [])) {
+      lines.push(`  +${item.count} ${item.name}`);
+    }
+    if (r.unlocks && r.unlocks.length) {
+      lines.push('  Unlocked:');
+      for (const u of r.unlocks) lines.push(`    - ${u.type}: ${u.description || u.id}`);
+    }
+    return lines.join('\n');
+  }
 };

@@ -175,6 +175,23 @@ function createPlayer(id, name) {
     diaryProgress: {}, // { "lumbridge_easy": { chop_tree: true, ... } }
     diaryComplete: {}, // { "lumbridge_easy": true }
     diaryRewards: {}, // { "lumbridge_easy": true }
+
+    // ── Active Training Method (engine bridge) ──
+    // Set when a training-runner method is running. Cleared on stop / depletion.
+    // Shape: { methodId, startedTick, lastTick, xpAccum, produceAccum, consumeAccum }
+    // The accumulators hold fractional units between integer XP/item events.
+    activeTraining: null,
+
+    // ── Quest progress (engine bridge) ──
+    // Shape: { questId: { started: tick, step: 0, complete: false, completedAt: null } }
+    // Initialized lazily by quests.js too — declared here for shape consistency.
+    questProgress: {},
+
+    // ── Breakpoint history (engine bridge) ──
+    // breakpointsHit is a string set ("skill_level:prayer:43") so we never
+    // re-fire. history captures recent crossings for the codex / spectator.
+    breakpointsHit: {},               // { "skill_level:prayer:43": tick }
+    breakpointHistory: [],            // [{ tick, type, trigger, importance, unlocks }]
   };
 }
 
