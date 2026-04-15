@@ -1,11 +1,21 @@
 {
   "_comment": "Per-region colour palette guidance for the sprite artist (human or AI). Every sprite in a region should read coherently against these colours. Palettes are suggestive, not prescriptive — breakpoints and boss fights can stray, but ambient tiles and common NPCs should sit inside the region's bands. Low-res pixel art, 16-24 colours per region, readable at 32px.",
   "_version": "1.0.0",
-  "_consumed_by": ["scripts/gen-sprite-manifest.js", "src/world/sprite-registry.js"],
-
+  "_consumed_by": [
+    "scripts/gen-sprite-manifest.js",
+    "src/world/sprite-registry.js"
+  ],
   "heartlands": {
-    "dominant": ["#5a7e3d", "#9b8154", "#d4c4a0"],
-    "accent": ["#c23b22", "#f5d76e", "#4a6ea7"],
+    "dominant": [
+      "#5a7e3d",
+      "#9b8154",
+      "#d4c4a0"
+    ],
+    "accent": [
+      "#c23b22",
+      "#f5d76e",
+      "#4a6ea7"
+    ],
     "shadow": "#2e3b1f",
     "highlight": "#f3ecd6",
     "mood": "warm neutrals, sunlit afternoons, hay and honey, gentle wind",
@@ -14,10 +24,17 @@
     "water_tint": "#5888a8",
     "sky_tint": "#bcd6ea"
   },
-
   "moryskah": {
-    "dominant": ["#2a3432", "#4d5849", "#6b5d4a"],
-    "accent": ["#8a2a2a", "#c2a15a", "#3a2550"],
+    "dominant": [
+      "#2a3432",
+      "#4d5849",
+      "#6b5d4a"
+    ],
+    "accent": [
+      "#8a2a2a",
+      "#c2a15a",
+      "#3a2550"
+    ],
     "shadow": "#12161a",
     "highlight": "#a8b0a0",
     "mood": "damp, mossed stone, fog at knee height, candlelight through shutters, the feeling that dusk came early",
@@ -27,10 +44,17 @@
     "sky_tint": "#56606a",
     "mist_tint": "#7d8178"
   },
-
   "sootworks": {
-    "dominant": ["#1f1d1b", "#4a3d32", "#806050"],
-    "accent": ["#e8682a", "#c95820", "#d4b483"],
+    "dominant": [
+      "#1f1d1b",
+      "#4a3d32",
+      "#806050"
+    ],
+    "accent": [
+      "#e8682a",
+      "#c95820",
+      "#d4b483"
+    ],
     "shadow": "#0d0a08",
     "highlight": "#ffb060",
     "mood": "ember-lit industrial — coal dust, iron filings, the constant glow of molten bars and forge chimneys against a starless sky",
@@ -40,10 +64,17 @@
     "sky_tint": "#3a332c",
     "ember_tint": "#ff7a1c"
   },
-
   "saltbrine": {
-    "dominant": ["#4e6c7a", "#c1b49a", "#7a8a7a"],
-    "accent": ["#cc7a3a", "#4a8a8a", "#2a3a4e"],
+    "dominant": [
+      "#4e6c7a",
+      "#c1b49a",
+      "#7a8a7a"
+    ],
+    "accent": [
+      "#cc7a3a",
+      "#4a8a8a",
+      "#2a3a4e"
+    ],
     "shadow": "#1a2631",
     "highlight": "#eae3cf",
     "mood": "wind-flattened, salt-bleached, tar-smelling — piers, pulled-up boats, gulls, the light that only exists at coasts",
@@ -53,10 +84,17 @@
     "sky_tint": "#a8c0cc",
     "fog_tint": "#c0c8c8"
   },
-
   "veilwood": {
-    "dominant": ["#2c4a2e", "#4d3a28", "#8a6a4a"],
-    "accent": ["#e8d274", "#6ec06e", "#f4e1b8"],
+    "dominant": [
+      "#2c4a2e",
+      "#4d3a28",
+      "#8a6a4a"
+    ],
+    "accent": [
+      "#e8d274",
+      "#6ec06e",
+      "#f4e1b8"
+    ],
     "shadow": "#131e14",
     "highlight": "#c8f0c0",
     "mood": "broadleaf forest pierced by shafts of afternoon sun — mossy roots, elven banners, the feeling a stag is about to step into the clearing",
@@ -66,10 +104,17 @@
     "sky_tint": "#7a9a70",
     "sunbeam_tint": "#f8e9a0"
   },
-
   "boneyard": {
-    "dominant": ["#d4b880", "#a07c4a", "#c0a070"],
-    "accent": ["#8a3a2a", "#e4c880", "#3a5a6a"],
+    "dominant": [
+      "#d4b880",
+      "#a07c4a",
+      "#c0a070"
+    ],
+    "accent": [
+      "#8a3a2a",
+      "#e4c880",
+      "#3a5a6a"
+    ],
     "shadow": "#4e361c",
     "highlight": "#faedcb",
     "mood": "sun-bleached desert — bones whitened by heat, sandstone warm to touch, nomad tents, oasis water the colour of a promise",
@@ -79,10 +124,17 @@
     "sky_tint": "#e0c6a0",
     "heat_shimmer": "#fff2cc"
   },
-
   "inkweald": {
-    "dominant": ["#3a2a5a", "#8a74c2", "#c0a0e0"],
-    "accent": ["#e8c0d8", "#4a4a8a", "#fae0ff"],
+    "dominant": [
+      "#3a2a5a",
+      "#8a74c2",
+      "#c0a0e0"
+    ],
+    "accent": [
+      "#e8c0d8",
+      "#4a4a8a",
+      "#fae0ff"
+    ],
     "shadow": "#1e1230",
     "highlight": "#fff6ff",
     "mood": "violet dream-grass under a pale moon — brass instruments catch starlight wrong, ponds reflect the wrong sky, thoughts bloom into flowers",
@@ -92,10 +144,17 @@
     "sky_tint": "#6a5a8a",
     "bloom_tint": "#e8a8ff"
   },
-
   "glass_desert": {
-    "dominant": ["#d8b890", "#8a90a0", "#e0d0c0"],
-    "accent": ["#a8d8e8", "#e8c8a8", "#5a6a8a"],
+    "dominant": [
+      "#d8b890",
+      "#8a90a0",
+      "#e0d0c0"
+    ],
+    "accent": [
+      "#a8d8e8",
+      "#e8c8a8",
+      "#5a6a8a"
+    ],
     "shadow": "#5a4a3a",
     "highlight": "#fffdf5",
     "mood": "heat-fused silica plains — crystal spires catch sun, glass underfoot crunches, the air wobbles at noon, mirages suggest water that isn't there",
@@ -103,12 +162,67 @@
     "reference": "OSRS Desert Treasure 2 crystal caverns + Dune Part 2 sand palette with glass refraction",
     "water_tint": "#8ac0d8",
     "sky_tint": "#f0e0c8",
-    "crystal_tint": "#a8e4f4"
+    "crystal_tint": "#a8e4f4",
+    "tile_variants": {
+      "sand_pale": [
+        "fine-grain smooth (#d8b890)",
+        "wind-ripple (#c8a880 + #e0d0c0 highlights)",
+        "impact-crater (#b09870 with #fffdf5 rim)"
+      ],
+      "path_glass_chip": [
+        "dry chip (#8a90a0)",
+        "sun-glint (#a8d8e8 highlights)",
+        "embedded-shard (#e8c8a8 + #a8e4f4 sliver)"
+      ],
+      "wall_crystal": [
+        "single colour (#a8e4f4)",
+        "banded (#a8e4f4 + #5a6a8a)",
+        "cracked with light-leak (#fffdf5 fissure)"
+      ],
+      "crystal_spire": [
+        "short broad",
+        "tall narrow",
+        "fractured-tip"
+      ],
+      "floor_glass": [
+        "smooth mirror (#e0d0c0)",
+        "foot-scuffed (#a8d8e8 scratch)",
+        "cracked web (#5a6a8a fractures)"
+      ],
+      "floor_outpost": [
+        "timber plank (#8a6a4a)",
+        "sand-dusted (#d8b890 layer)",
+        "sandstone flag (#a07c4a)"
+      ],
+      "floor_arena": [
+        "polished stone (#e0d0c0)",
+        "blood-stained (#c02020 dark)",
+        "glyph-inlaid (#a8e4f4 inlay)"
+      ],
+      "sand_cracked": [
+        "hairline crack",
+        "wide crevasse (#5a4a3a)",
+        "broken plate (tectonic tiles)"
+      ],
+      "vein_crystal": [
+        "thin seam",
+        "thick cluster",
+        "burst-chamber (post-mined)"
+      ]
+    },
+    "variant_mood": "glass-desert variants should vary refraction — variant-01 matte, variant-02 glinting, variant-03 fracture-webbed"
   },
-
   "wilds": {
-    "dominant": ["#4a3a2a", "#2a1a0a", "#6a4a2a"],
-    "accent": ["#c02020", "#a04020", "#404040"],
+    "dominant": [
+      "#4a3a2a",
+      "#2a1a0a",
+      "#6a4a2a"
+    ],
+    "accent": [
+      "#c02020",
+      "#a04020",
+      "#404040"
+    ],
     "shadow": "#1a0a06",
     "highlight": "#d0b090",
     "mood": "dead-grass wasteland, burned bridges, places where old gods used to stand and nothing now grows, player-skull on the horizon",
@@ -116,12 +230,67 @@
     "reference": "OSRS wilderness — low-budget hell, ruins rather than gothic, lava pits rather than volcanoes",
     "water_tint": "#4a2a2a",
     "sky_tint": "#4a3a30",
-    "blood_tint": "#8a1a1a"
+    "blood_tint": "#8a1a1a",
+    "tile_variants": {
+      "grass_dead": [
+        "lightly charred (#5a4a3a)",
+        "deeper scorch w/ embers (#4a2a1a + #e8682a fleck)",
+        "bone-littered edge (#4a3a2a + #d0b090 fleck)"
+      ],
+      "path_blood": [
+        "dry rust (#7a2a1a)",
+        "wet glisten (#8a1a1a)",
+        "splatter-trail (#a02020 speckle over #6a3a2a)"
+      ],
+      "wall_ruined": [
+        "mossless (#4a4030)",
+        "burn-scored (#2a1a0a streaks)",
+        "claw-marked (#3a2a1a fractures)"
+      ],
+      "rubble": [
+        "small-stone (#4a3a2a)",
+        "charred timber (#2a1a0a)",
+        "skeletal (#d0b090 bone flecks)"
+      ],
+      "floor_ruin": [
+        "dust-layered (#6a4a2a)",
+        "cracked flagstone (#4a3a2a + fracture)",
+        "tar-stained (#2a1a0a streak)"
+      ],
+      "tree_dead": [
+        "leafless silver (#8a7a6a)",
+        "blackened bark (#2a1a0a)",
+        "snapped trunk (jagged top)"
+      ],
+      "field_bones": [
+        "sparse (few skulls)",
+        "dense (dozens)",
+        "piled (skull mountain silhouette)"
+      ],
+      "altar_wild": [
+        "cold (grey)",
+        "bleeding (red runnels)",
+        "active (red flame aura)"
+      ],
+      "gravestone": [
+        "new (clean)",
+        "weathered (moss bits)",
+        "broken (top snapped off)"
+      ]
+    },
+    "variant_mood": "wilds variants should escalate visible decay — variant-01 is the least ruined, variant-03 is the most"
   },
-
   "drifting_market": {
-    "dominant": ["#6a3a4a", "#c2a048", "#3a5a8a"],
-    "accent": ["#e0c4e0", "#f0e088", "#8a2a5a"],
+    "dominant": [
+      "#6a3a4a",
+      "#c2a048",
+      "#3a5a8a"
+    ],
+    "accent": [
+      "#e0c4e0",
+      "#f0e088",
+      "#8a2a5a"
+    ],
     "shadow": "#2a1a2a",
     "highlight": "#fff0e0",
     "mood": "impossible bazaar that appears in different regions on different days — tents stitched from several climates' fabrics, lanterns burning oils no one sells, the merchant queen's palette",
@@ -131,10 +300,17 @@
     "sky_tint": "#c8a8c8",
     "lantern_tint": "#ffb848"
   },
-
   "universal": {
-    "dominant": ["#8b7355", "#5e5142", "#c2b29a"],
-    "accent": ["#c23b22", "#c2a048", "#5e7a96"],
+    "dominant": [
+      "#8b7355",
+      "#5e5142",
+      "#c2b29a"
+    ],
+    "accent": [
+      "#c23b22",
+      "#c2a048",
+      "#5e7a96"
+    ],
     "shadow": "#2a2318",
     "highlight": "#f0e5cd",
     "mood": "anything that must work in any region — coins, tools, generic food — a warm neutral default that reads everywhere",
