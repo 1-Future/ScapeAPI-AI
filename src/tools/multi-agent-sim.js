@@ -36,6 +36,8 @@ try { require('../content/aelgard/moryskah-deep'); } catch (e) {}
 try { require('../content/aelgard/moryskah-density'); } catch (e) {}
 try { require('../content/aelgard/sootworks-deep'); } catch (e) {}
 try { require('../content/aelgard/sootworks-density'); } catch (e) {}
+try { require('../content/aelgard/glass-desert-deep'); } catch (e) {}
+try { require('../content/aelgard/glass-desert-density'); } catch (e) {}
 try { require('../content/aelgard/mid-tier-regions'); } catch (e) {}
 try { require('../content/aelgard/universal-items'); } catch (e) {}
 try { require('../content/aelgard/special-regions'); } catch (e) {}

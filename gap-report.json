@@ -1,45 +1,17 @@
 {
-  "timestamp": "2026-04-15T06:57:49.659Z",
+  "timestamp": "2026-04-15T07:16:23.082Z",
   "thinnestRegion": {
-    "id": "sootworks",
-    "label": "Sootworks",
-    "flavor": "industrial underground, dwarves, clockwork"
+    "id": "inkweald",
+    "label": "Inkweald",
+    "flavor": "surreal dream forest, magic-heavy"
   },
   "all_regions_ranked": [
-    {
-      "region": "glass_desert",
-      "label": "Glass Desert",
-      "methods": 9,
-      "blockedSkills": 16,
-      "gapScore": 12
-    },
     {
       "region": "inkweald",
       "label": "Inkweald",
       "methods": 10,
       "blockedSkills": 16,
       "gapScore": 12
-    },
-    {
-      "region": "saltbrine_reach",
-      "label": "Saltbrine Reach",
-      "methods": 14,
-      "blockedSkills": 14,
-      "gapScore": 16
-    },
-    {
-      "region": "boneyard_wastes",
-      "label": "Boneyard Wastes",
-      "methods": 13,
-      "blockedSkills": 12,
-      "gapScore": 18
-    },
-    {
-      "region": "veilwood",
-      "label": "Veilwood",
-      "methods": 16,
-      "blockedSkills": 12,
-      "gapScore": 19
     },
     {
       "region": "the_wilds",
@@ -63,6 +35,34 @@
       "gapScore": 49
     },
     {
+      "region": "veilwood",
+      "label": "Veilwood",
+      "methods": 56,
+      "blockedSkills": 0,
+      "gapScore": 51
+    },
+    {
+      "region": "boneyard_wastes",
+      "label": "Boneyard Wastes",
+      "methods": 59,
+      "blockedSkills": 0,
+      "gapScore": 53
+    },
+    {
+      "region": "glass_desert",
+      "label": "Glass Desert",
+      "methods": 59,
+      "blockedSkills": 0,
+      "gapScore": 53
+    },
+    {
+      "region": "saltbrine_reach",
+      "label": "Saltbrine Reach",
+      "methods": 62,
+      "blockedSkills": 0,
+      "gapScore": 54
+    },
+    {
       "region": "heartlands",
       "label": "Heartlands",
       "methods": 86,
@@ -71,38 +71,38 @@
     }
   ],
   "analysis": {
-    "region": "sootworks",
-    "label": "Sootworks",
-    "flavor": "industrial underground, dwarves, clockwork",
-    "methodsInRegion": 52,
+    "region": "inkweald",
+    "label": "Inkweald",
+    "flavor": "surreal dream forest, magic-heavy",
+    "methodsInRegion": 10,
     "skillStatus": {
       "attack": {
-        "count": 1,
-        "maxLevel": 99,
-        "status": "trainable"
+        "count": 0,
+        "maxLevel": 0,
+        "status": "hard_blocked"
       },
       "strength": {
-        "count": 3,
-        "maxLevel": 99,
-        "status": "trainable"
+        "count": 0,
+        "maxLevel": 0,
+        "status": "hard_blocked"
       },
       "defence": {
-        "count": 2,
-        "maxLevel": 90,
-        "status": "trainable"
+        "count": 0,
+        "maxLevel": 0,
+        "status": "hard_blocked"
       },
       "hitpoints": {
-        "count": 2,
-        "maxLevel": 80,
-        "status": "trainable"
+        "count": 0,
+        "maxLevel": 0,
+        "status": "hard_blocked"
       },
       "ranged": {
-        "count": 2,
-        "maxLevel": 99,
-        "status": "trainable"
+        "count": 0,
+        "maxLevel": 0,
+        "status": "hard_blocked"
       },
       "prayer": {
-        "count": 3,
+        "count": 2,
         "maxLevel": 99,
         "status": "trainable"
       },
@@ -112,94 +112,136 @@
         "status": "trainable"
       },
       "runecrafting": {
-        "count": 1,
+        "count": 2,
         "maxLevel": 99,
         "status": "trainable"
       },
       "construction": {
-        "count": 2,
-        "maxLevel": 99,
-        "status": "trainable"
+        "count": 0,
+        "maxLevel": 0,
+        "status": "hard_blocked"
       },
       "agility": {
-        "count": 3,
-        "maxLevel": 99,
+        "count": 1,
+        "maxLevel": 80,
         "status": "trainable"
       },
       "herblore": {
-        "count": 2,
-        "maxLevel": 99,
-        "status": "trainable"
+        "count": 0,
+        "maxLevel": 0,
+        "status": "hard_blocked"
       },
       "thieving": {
-        "count": 2,
-        "maxLevel": 99,
-        "status": "trainable"
-      },
-      "crafting": {
-        "count": 4,
-        "maxLevel": 99,
-        "status": "trainable"
-      },
-      "fletching": {
-        "count": 2,
-        "maxLevel": 99,
-        "status": "trainable"
-      },
-      "slayer": {
         "count": 1,
         "maxLevel": 99,
         "status": "trainable"
       },
-      "hunter": {
-        "count": 3,
+      "crafting": {
+        "count": 1,
         "maxLevel": 99,
         "status": "trainable"
+      },
+      "fletching": {
+        "count": 0,
+        "maxLevel": 0,
+        "status": "hard_blocked"
+      },
+      "slayer": {
+        "count": 0,
+        "maxLevel": 0,
+        "status": "hard_blocked"
+      },
+      "hunter": {
+        "count": 0,
+        "maxLevel": 0,
+        "status": "hard_blocked"
       },
       "mining": {
-        "count": 2,
-        "maxLevel": 99,
-        "status": "trainable"
+        "count": 0,
+        "maxLevel": 0,
+        "status": "hard_blocked"
       },
       "smithing": {
-        "count": 2,
-        "maxLevel": 99,
-        "status": "trainable"
+        "count": 0,
+        "maxLevel": 0,
+        "status": "hard_blocked"
       },
       "fishing": {
-        "count": 3,
-        "maxLevel": 99,
-        "status": "trainable"
+        "count": 0,
+        "maxLevel": 0,
+        "status": "hard_blocked"
       },
       "cooking": {
-        "count": 2,
-        "maxLevel": 99,
-        "status": "trainable"
+        "count": 0,
+        "maxLevel": 0,
+        "status": "hard_blocked"
       },
       "firemaking": {
-        "count": 4,
+        "count": 1,
         "maxLevel": 99,
         "status": "trainable"
       },
       "woodcutting": {
-        "count": 2,
-        "maxLevel": 99,
-        "status": "trainable"
+        "count": 0,
+        "maxLevel": 0,
+        "status": "hard_blocked"
       },
       "farming": {
-        "count": 2,
-        "maxLevel": 99,
-        "status": "trainable"
+        "count": 0,
+        "maxLevel": 0,
+        "status": "hard_blocked"
       }
     },
-    "blockedSkills": [],
+    "blockedSkills": [
+      "attack",
+      "strength",
+      "defence",
+      "hitpoints",
+      "ranged",
+      "construction",
+      "herblore",
+      "fletching",
+      "slayer",
+      "hunter",
+      "mining",
+      "smithing",
+      "fishing",
+      "cooking",
+      "woodcutting",
+      "farming"
+    ],
     "lowCapSkills": [],
     "prestigeGoal": {
-      "name": "The Clockwork Heart",
-      "flavor": "engineering / smithing"
-    }
+      "name": "Waking the Dreaming One",
+      "flavor": "magic / moral choice"
+    },
+    "gapScore": 12
   },
-  "suggestions": [],
+  "suggestions": [
+    {
+      "priority": "high",
+      "type": "unblock_skill",
+      "skills": [
+        "attack",
+        "strength",
+        "defence",
+        "hitpoints",
+        "ranged",
+        "construction",
+        "herblore",
+        "fletching",
+        "slayer",
+        "hunter",
+        "mining",
+        "smithing",
+        "fishing",
+        "cooking",
+        "woodcutting",
+        "farming"
+      ],
+      "action": "Add at least one training method for each of: attack, strength, defence, hitpoints, ranged, construction, herblore, fletching, slayer, hunter, mining, smithing, fishing, cooking, woodcutting, farming in the Inkweald region. Match the regional flavor (surreal dream forest, magic-heavy)."
+    }
+  ],
   "example_quest_shape": {
     "description": "A quest definition should be added to src/content/aelgard/<region>-quests.js using rel.defineQuestUnlock(). It should unlock something UNIQUE (area, training method, shop, spellbook, BiS item) — never just XP.",
     "example": "rel.defineQuestUnlock('quest_id', {\n  name: 'Quest Name',\n  unlocks: [\n    { type: 'training_method', id: 'method_id', description: '...' },\n    { type: 'item_equip', id: 'unique_item', description: '...' },\n  ],\n});"
