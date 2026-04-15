@@ -14,11 +14,30 @@
 
 const fs = require('fs');
 const path = require('path');
+const crypto = require('crypto');
 
-const STAGING_ROOT = path.join(__dirname, '..', '..', 'data', 'builder-staging');
+const DATA_DIR = path.join(__dirname, '..', '..', 'data');
+const STAGING_ROOT = path.join(DATA_DIR, 'builder-staging');
 const TRASH_ROOT = path.join(STAGING_ROOT, '_trash');
 const OVERRIDES_FILE = path.join(STAGING_ROOT, '_overrides.json');
+// Canonical override file that applyOverridesAtBoot() reads. Kept in sync
+// with OVERRIDES_FILE on every publish so external readers (e.g. codex
+// regeneration) can point to a stable path outside the staging dir.
+const PUBLISHED_OVERRIDES_FILE = path.join(DATA_DIR, 'builder-overrides.json');
+const SNAPSHOTS_DIR = path.join(STAGING_ROOT, '_snapshots');
+const AUDIT_LOG = path.join(DATA_DIR, 'builder-audit.log');
 const SCHEMAS_DIR = path.join(__dirname, 'schemas');
+
+// Pull in the tilemap editor so its publish runs alongside entity publish.
+// Require is lazy to keep load-order simple and allow tests to stub.
+let _tilemapEditor = null;
+function _getTilemapEditor() {
+  if (!_tilemapEditor) {
+    try { _tilemapEditor = require('./tilemap-editor'); }
+    catch (e) { _tilemapEditor = { publish: () => ({ ok: true, published: 0, regions: [] }) }; }
+  }
+  return _tilemapEditor;
+}
 
 // ── Schemas ───────────────────────────────────────────────────────────────────
 
@@ -284,8 +303,59 @@ function stats() {
 // Collects all staged entities, validates each, writes a consolidated
 // overrides JSON that can be replayed at boot, and marks each staged file
 // as _published:true, _dirty:false.
+//
+// Side effects (in order):
+//   1. Snapshot prior builder-overrides.json into data/builder-staging/_snapshots/
+//   2. Write consolidated overrides to data/builder-staging/_overrides.json AND
+//      data/builder-overrides.json (the canonical path used at boot).
+//   3. Mark each staged entity file as _published:true, _dirty:false.
+//   4. Invoke tilemap-editor.publish() so world edits flow in the same commit.
+//   5. Re-apply overrides to live engine registries (hot-reload).
+//   6. Append an entry to data/builder-audit.log.
 
-function publish() {
+function _hashOverrides(overrides) {
+  const h = crypto.createHash('sha256');
+  h.update(JSON.stringify(overrides || {}));
+  return h.digest('hex');
+}
+
+function _countEntities(overrides) {
+  if (!overrides || !overrides.types) return 0;
+  let n = 0;
+  for (const arr of Object.values(overrides.types)) {
+    if (Array.isArray(arr)) n += arr.length;
+  }
+  return n;
+}
+
+function _snapshotCurrent() {
+  _ensureDir(SNAPSHOTS_DIR);
+  // Prefer the canonical file, fall back to the staging file
+  const src = fs.existsSync(PUBLISHED_OVERRIDES_FILE) ? PUBLISHED_OVERRIDES_FILE
+            : (fs.existsSync(OVERRIDES_FILE) ? OVERRIDES_FILE : null);
+  if (!src) return null;
+  const ts = _now().replace(/[:.]/g, '-');
+  const dst = path.join(SNAPSHOTS_DIR, `overrides.${ts}.json`);
+  try {
+    fs.copyFileSync(src, dst);
+    return dst;
+  } catch (e) {
+    return null;
+  }
+}
+
+function _appendAuditLog(entry) {
+  try {
+    _ensureDir(DATA_DIR);
+    fs.appendFileSync(AUDIT_LOG, JSON.stringify(entry) + '\n');
+    return true;
+  } catch (e) {
+    return false;
+  }
+}
+
+function publish(options = {}) {
+  const playerId = (options && options.playerId) || 'unknown';
   const overrides = { publishedAt: _now(), types: {} };
   const errors = [];
   const marked = [];
@@ -312,10 +382,17 @@ function publish() {
 
   if (errors.length > 0) return { ok: false, errors };
 
-  _ensureDir(STAGING_ROOT);
-  fs.writeFileSync(OVERRIDES_FILE, JSON.stringify(overrides, null, 2));
+  // 1. Snapshot the existing overrides before overwriting
+  const snapshotPath = _snapshotCurrent();
 
-  // Mark each file as published
+  // 2. Persist new overrides (both staging + canonical locations)
+  _ensureDir(STAGING_ROOT);
+  _ensureDir(DATA_DIR);
+  const payload = JSON.stringify(overrides, null, 2);
+  fs.writeFileSync(OVERRIDES_FILE, payload);
+  fs.writeFileSync(PUBLISHED_OVERRIDES_FILE, payload);
+
+  // 3. Mark each file as published
   for (const m of marked) {
     const filePath = _entityPath(m.type, m.id);
     if (fs.existsSync(filePath)) {
@@ -329,16 +406,200 @@ function publish() {
     }
   }
 
-  // Best-effort reload of engine content
+  // 4. Publish tilemap edits alongside entity edits (best-effort)
+  let tilemapResult = { ok: true, published: 0, regions: [] };
+  try {
+    tilemapResult = _getTilemapEditor().publish();
+  } catch (e) {
+    tilemapResult = { ok: false, errors: [String(e && e.message || e)] };
+  }
+
+  // 5. Best-effort reload of engine content
   _tryApplyOverrides(overrides);
 
-  return { ok: true, published: marked.length, overridesFile: OVERRIDES_FILE };
+  // 6. Audit log entry
+  const hash = _hashOverrides(overrides);
+  const auditEntry = {
+    ts: overrides.publishedAt,
+    action: 'publish',
+    playerId,
+    entitiesChanged: marked.length,
+    tilemapRegionsChanged: tilemapResult.published || 0,
+    hashOfOverrides: hash,
+    snapshotPath,
+  };
+  _appendAuditLog(auditEntry);
+
+  return {
+    ok: true,
+    published: marked.length,
+    tilemap: tilemapResult,
+    overridesFile: PUBLISHED_OVERRIDES_FILE,
+    stagingFile: OVERRIDES_FILE,
+    hash,
+    snapshotPath,
+    auditEntry,
+  };
 }
 
 function readOverrides() {
-  if (!fs.existsSync(OVERRIDES_FILE)) return null;
-  try { return JSON.parse(fs.readFileSync(OVERRIDES_FILE, 'utf8')); }
-  catch { return null; }
+  // Prefer canonical file; fall back to staging file
+  for (const p of [PUBLISHED_OVERRIDES_FILE, OVERRIDES_FILE]) {
+    if (fs.existsSync(p)) {
+      try { return JSON.parse(fs.readFileSync(p, 'utf8')); }
+      catch { /* try next */ }
+    }
+  }
+  return null;
+}
+
+// ── Audit log helpers ────────────────────────────────────────────────────────
+
+function readAuditLog(limit = 50) {
+  if (!fs.existsSync(AUDIT_LOG)) return [];
+  try {
+    const lines = fs.readFileSync(AUDIT_LOG, 'utf8').split('\n').filter(Boolean);
+    const entries = [];
+    for (const line of lines) {
+      try { entries.push(JSON.parse(line)); } catch {}
+    }
+    return entries.slice(-Math.max(1, limit));
+  } catch {
+    return [];
+  }
+}
+
+// ── Rollback — restore the most recent snapshot, apply to engine ────────────
+
+function rollback(options = {}) {
+  const playerId = (options && options.playerId) || 'unknown';
+  if (!fs.existsSync(SNAPSHOTS_DIR)) {
+    return { ok: false, error: 'no snapshots available' };
+  }
+  const snapshots = fs.readdirSync(SNAPSHOTS_DIR)
+    .filter(f => f.startsWith('overrides.') && f.endsWith('.json'))
+    .sort();
+  if (snapshots.length === 0) {
+    return { ok: false, error: 'no snapshots available' };
+  }
+  const latest = snapshots[snapshots.length - 1];
+  const snapPath = path.join(SNAPSHOTS_DIR, latest);
+  let data;
+  try {
+    data = JSON.parse(fs.readFileSync(snapPath, 'utf8'));
+  } catch (e) {
+    return { ok: false, error: 'snapshot unreadable: ' + e.message };
+  }
+  // Move the snapshot aside so a second rollback goes further back
+  const consumedDir = path.join(SNAPSHOTS_DIR, '_consumed');
+  _ensureDir(consumedDir);
+  try { fs.renameSync(snapPath, path.join(consumedDir, latest)); } catch {}
+
+  // Write restored data into both overrides locations
+  const payload = JSON.stringify(data, null, 2);
+  fs.writeFileSync(OVERRIDES_FILE, payload);
+  fs.writeFileSync(PUBLISHED_OVERRIDES_FILE, payload);
+
+  // Re-apply to engine
+  _tryApplyOverrides(data);
+
+  // Audit
+  const hash = _hashOverrides(data);
+  const entry = {
+    ts: _now(),
+    action: 'rollback',
+    playerId,
+    entitiesChanged: _countEntities(data),
+    restoredFrom: latest,
+    hashOfOverrides: hash,
+  };
+  _appendAuditLog(entry);
+
+  return { ok: true, restoredFrom: latest, entitiesRestored: _countEntities(data), hash, auditEntry: entry };
+}
+
+// ── Preview — diff against what the codex would look like after publish ─────
+// Cheap, heuristic preview: rather than regenerating every HTML page, we
+// compute the set of (type, id) pairs that would change between the current
+// published overrides and the staged tree, plus a short per-page impact list.
+
+function preview() {
+  const currentPublished = readOverrides() || { types: {} };
+  const currentById = {};
+  for (const [type, arr] of Object.entries(currentPublished.types || {})) {
+    for (const e of (arr || [])) currentById[`${type}/${e.id}`] = e;
+  }
+
+  // Build a candidate "next" overrides set = current ∪ staged-valid-entities
+  const next = { publishedAt: _now(), types: {} };
+  const changed = [];
+  const validationErrors = [];
+
+  for (const type of listSchemas()) {
+    next.types[type] = [];
+    const entries = list(type) || [];
+    for (const meta of entries) {
+      const ent = get(type, meta.id);
+      if (!ent) continue;
+      const v = validate(type, ent);
+      if (!v.ok) {
+        validationErrors.push({ type, id: meta.id, errors: v.errors });
+        continue;
+      }
+      const clean = Object.assign({}, ent);
+      delete clean._dirty; delete clean._published;
+      delete clean._createdAt; delete clean._updatedAt;
+      next.types[type].push(clean);
+      const key = `${type}/${meta.id}`;
+      const before = currentById[key];
+      if (!before || JSON.stringify(before) !== JSON.stringify(clean)) {
+        changed.push({ type, id: meta.id, action: before ? 'update' : 'create' });
+      }
+    }
+  }
+
+  // Rough mapping of entity-types to codex pages they feed.
+  const PAGE_MAP = {
+    quest:             ['quests.html'],
+    item:              ['items.html'],
+    recipe:            ['items.html', 'skills.html'],
+    training_method:   ['skills.html'],
+    monster:           ['regions.html', 'bosses.html'],
+    boss:              ['bosses.html'],
+    npc:               ['regions.html'],
+    area_gate:         ['regions.html'],
+    breakpoint:        ['breakpoints.html'],
+    combination:       ['items.html'],
+    shop:              ['regions.html'],
+    minigame:          ['regions.html'],
+    region:            ['regions.html'],
+  };
+  const affectedPages = new Set(['index.html']); // index always touched
+  for (const c of changed) {
+    for (const p of (PAGE_MAP[c.type] || [])) affectedPages.add(p);
+  }
+
+  // Tilemap diffs (if the editor is present)
+  let tilemapChanged = [];
+  try {
+    const tm = _getTilemapEditor();
+    if (tm && typeof tm.listStagedRegions === 'function') {
+      tilemapChanged = tm.listStagedRegions();
+      if (tilemapChanged.length > 0) affectedPages.add('regions.html');
+    }
+  } catch {}
+
+  return {
+    ok: validationErrors.length === 0,
+    changedEntities: changed,
+    changedTilemaps: tilemapChanged,
+    affectedPages: Array.from(affectedPages).sort(),
+    validationErrors,
+    currentCount: _countEntities(currentPublished),
+    nextCount: _countEntities(next),
+    hashCurrent: _hashOverrides(currentPublished),
+    hashNext: _hashOverrides(next),
+  };
 }
 
 // ── Engine integration ──────────────────────────────────────────────────────
@@ -430,6 +691,8 @@ function _wipeForTests() {
   if (process.env.NODE_ENV !== 'test' && !process.env.SCAPE_BUILDER_ALLOW_WIPE) return false;
   const rm = (p) => { if (fs.existsSync(p)) fs.rmSync(p, { recursive: true, force: true }); };
   rm(STAGING_ROOT);
+  rm(PUBLISHED_OVERRIDES_FILE);
+  rm(AUDIT_LOG);
   _ensureDir(STAGING_ROOT);
   return true;
 }
@@ -443,10 +706,13 @@ module.exports = {
   validate,
   // Publish
   publish, readOverrides, applyOverridesAtBoot,
+  // Audit / rollback / preview
+  readAuditLog, rollback, preview,
   // Stats
   stats,
   // Paths (for tests)
-  STAGING_ROOT, OVERRIDES_FILE, SCHEMAS_DIR,
+  STAGING_ROOT, OVERRIDES_FILE, PUBLISHED_OVERRIDES_FILE,
+  SNAPSHOTS_DIR, AUDIT_LOG, SCHEMAS_DIR,
   // Test utils
   _wipeForTests,
 };

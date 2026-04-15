@@ -4801,6 +4801,16 @@ cmdCtx = {
   send, sendText, broadcast, findPlayer, nextItemId,
   getLevelUpMessage, clans,
 };
+// Apply published builder-staging overrides BEFORE registerAllCommands so
+// DM edits (items, quests, training methods, area gates, breakpoints, etc.)
+// land in the registries the command layer reads.
+try {
+  const _stagingBoot = require('./builder/staging');
+  _stagingBoot.applyOverridesAtBoot();
+} catch (err) {
+  console.warn('[server] Builder overrides (pre-commands) not applied:', err.message);
+}
+
 registerAllCommands(cmdCtx);
 
 // ── burn-v2 wire-in: GE, dialogue, death, area-locked, ironman, audio ────────
