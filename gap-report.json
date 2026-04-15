@@ -1,19 +1,11 @@
 {
-  "timestamp": "2026-04-15T13:59:43.179Z",
+  "timestamp": "2026-04-15T14:06:16.373Z",
   "thinnestRegion": {
-    "id": "sootworks",
-    "label": "Sootworks",
-    "flavor": "industrial underground, dwarves, clockwork"
+    "id": "veilwood",
+    "label": "Veilwood",
+    "flavor": "enchanted elven forest, crystal, druids"
   },
   "all_regions_ranked": [
-    {
-      "region": "sootworks",
-      "label": "Sootworks",
-      "methods": 52,
-      "minigames": 4,
-      "blockedSkills": 0,
-      "gapScore": 49
-    },
     {
       "region": "veilwood",
       "label": "Veilwood",
@@ -63,6 +55,14 @@
       "gapScore": 73
     },
     {
+      "region": "sootworks",
+      "label": "Sootworks",
+      "methods": 136,
+      "minigames": 4,
+      "blockedSkills": 0,
+      "gapScore": 91
+    },
+    {
       "region": "moryskah",
       "label": "Moryskah",
       "methods": 137,
@@ -80,29 +80,29 @@
     }
   ],
   "analysis": {
-    "region": "sootworks",
-    "label": "Sootworks",
-    "flavor": "industrial underground, dwarves, clockwork",
-    "methodsInRegion": 52,
+    "region": "veilwood",
+    "label": "Veilwood",
+    "flavor": "enchanted elven forest, crystal, druids",
+    "methodsInRegion": 56,
     "skillStatus": {
       "attack": {
-        "count": 1,
-        "maxLevel": 99,
-        "status": "trainable"
-      },
-      "strength": {
         "count": 3,
         "maxLevel": 99,
         "status": "trainable"
       },
-      "defence": {
+      "strength": {
         "count": 2,
-        "maxLevel": 90,
+        "maxLevel": 99,
+        "status": "trainable"
+      },
+      "defence": {
+        "count": 3,
+        "maxLevel": 99,
         "status": "trainable"
       },
       "hitpoints": {
-        "count": 2,
-        "maxLevel": 80,
+        "count": 3,
+        "maxLevel": 99,
         "status": "trainable"
       },
       "ranged": {
@@ -116,12 +116,12 @@
         "status": "trainable"
       },
       "magic": {
-        "count": 2,
+        "count": 3,
         "maxLevel": 99,
         "status": "trainable"
       },
       "runecrafting": {
-        "count": 1,
+        "count": 2,
         "maxLevel": 99,
         "status": "trainable"
       },
@@ -131,12 +131,12 @@
         "status": "trainable"
       },
       "agility": {
-        "count": 3,
-        "maxLevel": 99,
+        "count": 2,
+        "maxLevel": 90,
         "status": "trainable"
       },
       "herblore": {
-        "count": 2,
+        "count": 1,
         "maxLevel": 99,
         "status": "trainable"
       },
@@ -146,27 +146,27 @@
         "status": "trainable"
       },
       "crafting": {
-        "count": 4,
-        "maxLevel": 99,
-        "status": "trainable"
-      },
-      "fletching": {
-        "count": 2,
-        "maxLevel": 99,
-        "status": "trainable"
-      },
-      "slayer": {
-        "count": 1,
-        "maxLevel": 99,
-        "status": "trainable"
-      },
-      "hunter": {
         "count": 3,
         "maxLevel": 99,
         "status": "trainable"
       },
-      "mining": {
+      "fletching": {
+        "count": 3,
+        "maxLevel": 99,
+        "status": "trainable"
+      },
+      "slayer": {
         "count": 2,
+        "maxLevel": 99,
+        "status": "trainable"
+      },
+      "hunter": {
+        "count": 4,
+        "maxLevel": 99,
+        "status": "trainable"
+      },
+      "mining": {
+        "count": 1,
         "maxLevel": 99,
         "status": "trainable"
       },
@@ -186,12 +186,12 @@
         "status": "trainable"
       },
       "firemaking": {
-        "count": 4,
+        "count": 3,
         "maxLevel": 99,
         "status": "trainable"
       },
       "woodcutting": {
-        "count": 2,
+        "count": 3,
         "maxLevel": 99,
         "status": "trainable"
       },
@@ -204,17 +204,18 @@
     "blockedSkills": [],
     "lowCapSkills": [],
     "prestigeGoal": {
-      "name": "The Clockwork Heart",
-      "flavor": "engineering / smithing"
+      "name": "Song of the Elves",
+      "flavor": "ritual / endgame quest"
     },
-    "minigames": 4,
+    "minigames": 5,
     "minigameIds": [
-      "sootworks_forge",
-      "sootworks_cinder_parkour",
-      "sootworks_deep_shaft",
-      "sootworks_steam_titan"
+      "spirit_pyre",
+      "veilwood_poacher_rounds",
+      "veilwood_temple_trek",
+      "veilwood_tears_of_the_grove",
+      "veilwood_canopy_kitchen"
     ],
-    "gapScore": 49
+    "gapScore": 51
   },
   "minigames_summary": {
     "total": 40,

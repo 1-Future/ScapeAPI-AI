@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html><head><meta charset="utf-8"><title>Pump Eight Shift-Change Sprint — Aelgard Codex</title>
+<style>
+  body { font-family: ui-monospace, 'Cascadia Code', Consolas, monospace; background:#3e3529; color:#e8dcc0; margin:0 auto; padding:20px; max-width:1200px; }
+  .parchment { background:#e8dcc0; color:#2c1810; padding:30px 40px; border:3px solid #8b6f47; border-radius:4px; box-shadow:0 0 20px rgba(0,0,0,.5); margin:20px 0; }
+  h1 { color:#7a1f1a; border-bottom:2px solid #8b6f47; padding-bottom:10px; }
+  h2 { color:#5a3a1a; margin-top:30px; }
+  h3 { color:#6b4423; }
+  a { color:#7a1f1a; border-bottom:1px dotted #7a1f1a; text-decoration:none; }
+  a:hover { background:#d4c49c; }
+  nav { margin-bottom:20px; }
+  nav a { margin-right:12px; font-weight:bold; }
+  .description { font-style:italic; color:#5a3a1a; padding:10px; background:#d4c49c; border-left:3px solid #8b6f47; margin:10px 0; }
+  table { width:100%; border-collapse:collapse; margin:15px 0; }
+  th, td { text-align:left; padding:6px 10px; border-bottom:1px solid #c4a970; }
+  th { background:#d4c49c; color:#2c1810; }
+  tr:hover { background:#d4c49c; }
+  .tag { display:inline-block; padding:2px 8px; margin:2px; border-radius:3px; font-size:11px; font-weight:bold; }
+  .tag-region { background:#4a6b8a; color:#fff; }
+  .tag-skill  { background:#5a7f4a; color:#fff; }
+  .tag-trans  { background:#8a1f1a; color:#fff; }
+  .tag-major  { background:#a86a2a; color:#fff; }
+  .tag-minor  { background:#6a6a6a; color:#fff; }
+  .tag-afk    { background:#3a5a2a; color:#fff; }
+  .tag-low    { background:#4a7a3a; color:#fff; }
+  .tag-medium { background:#8a7a2a; color:#fff; }
+  .tag-high   { background:#a85a2a; color:#fff; }
+  .tag-maximum{ background:#8a1f1a; color:#fff; }
+  .tag-obscure{ background:#6a4a2a; color:#fff; font-style:italic; }
+  .knob-grid { display:grid; grid-template-columns:repeat(4, 1fr); gap:10px; margin:15px 0; }
+  .knob { background:#d4c49c; padding:10px; border-radius:3px; }
+  .knob .label { font-size:11px; color:#5a3a1a; text-transform:uppercase; font-weight:bold; }
+  .knob .value { font-size:16px; color:#7a1f1a; font-weight:bold; margin-top:4px; }
+  .knob .detail { font-size:11px; color:#3a2810; margin-top:2px; }
+  .stat-grid { display:grid; grid-template-columns:repeat(4, 1fr); gap:10px; margin:15px 0; }
+  .stat-cell { background:#d4c49c; padding:10px; border-radius:3px; text-align:center; }
+  .stat-cell .value { font-size:24px; font-weight:bold; color:#7a1f1a; }
+  .stat-cell .label { font-size:11px; color:#5a3a1a; text-transform:uppercase; }
+  .heat { display:inline-block; width:40px; text-align:center; padding:4px; margin:1px; border-radius:3px; font-weight:bold; font-size:11px; }
+  .heat-0 { background:#c4a970; color:#5a3a1a; }
+  .heat-1 { background:#9ec49a; color:#1a3a1a; }
+  .heat-3 { background:#6a9e6a; color:#fff; }
+  .heat-5 { background:#3a7a3a; color:#fff; }
+  .heat-10 { background:#1a5a1a; color:#fff; }
+  ul.loose li { margin-bottom:8px; }
+  details { margin:8px 0; padding:8px; background:#d4c49c; border-radius:3px; }
+  summary { cursor:pointer; font-weight:bold; }
+  .graph-wrap { overflow:auto; background:#d4c49c; padding:10px; border-radius:3px; }
+  svg { background:#e8dcc0; }
+</style>
+</head>
+<body>
+<nav>
+  <a href="index.html">Home</a>
+  <a href="regions.html">Regions</a>
+  <a href="skills.html">Skills</a>
+  <a href="methods.html">Methods</a>
+  <a href="quests.html">Quests</a>
+  <a href="items.html">Items</a>
+  <a href="recipes.html">Recipes</a>
+  <a href="minigames.html">Minigames</a>
+  <a href="bosses.html">Bosses</a>
+  <a href="npcs.html">NPCs</a>
+  <a href="lore.html">Lore</a>
+  <a href="breakpoints.html">Breakpoints</a>
+  <a href="web.html">Web</a>
+</nav>
+<div class="parchment">
+
+<h1>Pump Eight Shift-Change Sprint</h1>
+<div class="description">Pump Eight only opens between shifts — 05:55 to 06:05 in-game. Wrench in hand, whistle-brass on lanyard. The valves do not wait. One attempt.</div>
+
+<div class="stat-grid">
+  <div class="stat-cell"><div class="value">agility</div><div class="label">Skill</div></div>
+  <div class="stat-cell"><div class="value">75-99</div><div class="label">Level Range</div></div>
+  <div class="stat-cell"><div class="value">285,000</div><div class="label">XP / Hour</div></div>
+  <div class="stat-cell"><div class="value">Sootworks</div><div class="label">Location</div></div>
+</div>
+
+<h2>The 8 Marstead Knobs</h2>
+<div class="knob-grid">
+  <div class="knob"><div class="label">1. XP per Hour</div><div class="value">285,000</div></div>
+  <div class="knob"><div class="label">2. Prerequisites</div><div class="value">yes</div><div class="detail"><span class="tag tag-skill">agility 75</span> <span class="tag tag-skill">strength 60</span> <a href="quest-pump_eight_stops.html"><span class="tag tag-minor">quest: pump_eight_stops</span></a> <a href="quest-the_whistle_and_the_valve.html"><span class="tag tag-minor">quest: the_whistle_and_the_valve</span></a></div></div>
+  <div class="knob"><div class="label">3. Resource Output</div><div class="value">profit</div><div class="detail">1 items/hr</div></div>
+  <div class="knob"><div class="label">4. Banking Frequency</div><div class="value">never</div></div>
+  <div class="knob"><div class="label">5. Cost / Hour</div><div class="value">0 gp</div></div>
+  <div class="knob"><div class="label">6. Danger</div><div class="value">high</div></div>
+  <div class="knob"><div class="label">7. Complexity</div><div class="value">intense</div></div>
+  <div class="knob"><div class="label">8. Attention</div><div class="value"><span class="tag tag-maximum">maximum</span></div></div>
+</div>
+
+<h2>Prerequisites</h2>
+<p>
+  <strong>Skills:</strong> <span class="tag tag-skill">agility 75</span> <span class="tag tag-skill">strength 60</span><br>
+  <strong>Quests:</strong> <a href="quest-pump_eight_stops.html"><span class="tag tag-minor">quest: pump_eight_stops</span></a> <a href="quest-the_whistle_and_the_valve.html"><span class="tag tag-minor">quest: the_whistle_and_the_valve</span></a><br>
+  <strong>Items:</strong> <span class="tag tag-minor">Pumpman&#39;s wrench</span> <span class="tag tag-minor">Whistle-brass</span><br>
+  <strong>Areas:</strong> <span class="tag tag-region">sootworks_pump_station</span><br>
+  
+</p>
+
+
+<h2>Produces</h2><ul class="loose"><li><strong>Marks of grace</strong> — 180/hr</li></ul>
+
+<h2>Breakpoints in Range</h2><ul class="loose"><li><span class="tag tag-major">level 75</span> Deep gearwalk unlocked. 80k agility XP/hr + pumpman seals. The tick-perfect endgame Sootworks course.</li>
+<li><span class="tag tag-major">level 92</span> Hallowed Sepulchre floor 5. The best agility training in the game and one of the best money-makers.</li></ul>
+
+<h2>Alternatives at Same Level</h2>
+
+<table>
+<tr><th>Method</th><th>Levels</th><th>XP/hr</th><th>Attention</th><th>Danger</th></tr>
+<tr><td><a href="method-quirky-sootworks-valve-spin.html"><strong>[Quirky] Spin the Pump Valves</strong></a></td><td>1-99</td><td>1,800</td><td><span class="tag tag-medium">medium</span></td><td>none</td></tr>
+<tr><td><a href="method-quirky-sootworks-pump-whistle-tune.html"><strong>[Quirky] Tune the Pump Whistles</strong></a></td><td>1-99</td><td>1,600</td><td><span class="tag tag-medium">medium</span></td><td>none</td></tr>
+<tr><td><a href="method-quirky-glass-desert-walk-the-edge.html"><strong>[Quirky] Walk the Dune-Edge</strong></a></td><td>1-99</td><td>2,100</td><td><span class="tag tag-medium">medium</span></td><td>low</td></tr>
+<tr><td><a href="method-quirky-inkweald-walk-the-margin.html"><strong>[Quirky] Walk the Margin</strong></a></td><td>1-99</td><td>1,600</td><td><span class="tag tag-medium">medium</span></td><td>none</td></tr>
+<tr><td><a href="method-sootworks-pump-station-course.html"><strong>Pump Station Pipe-Vault Course</strong></a></td><td>20-75</td><td>52,000</td><td><span class="tag tag-medium">medium</span></td><td>medium</td></tr>
+<tr><td><a href="method-boneyard-singing-dunes-course.html"><strong>Singing Dunes — Full Course</strong></a></td><td>25-99</td><td>78,000</td><td><span class="tag tag-medium">medium</span></td><td>low</td></tr>
+<tr><td><a href="method-moryskah-mausoleum-rooftops.html"><strong>Mausoleum Rooftop Course</strong></a></td><td>30-80</td><td>54,000</td><td><span class="tag tag-medium">medium</span></td><td>low</td></tr>
+<tr><td><a href="method-saltbrine-sail-agility.html"><strong>Ship Rigging Course</strong></a></td><td>30-75</td><td>58,000</td><td><span class="tag tag-medium">medium</span></td><td>medium</td></tr>
+<tr><td><a href="method-saltbrine-piratesfall-agility.html"><strong>Piratesfall Rope-Bridge Course</strong></a></td><td>40-90</td><td>62,000</td><td><span class="tag tag-medium">medium</span></td><td>low</td></tr>
+<tr><td><a href="method-inkweald-pageturn-court-agility.html"><strong>Pageturn Court — Page-Vault Course</strong></a></td><td>40-80</td><td>66,000</td><td><span class="tag tag-high">high</span></td><td>low</td></tr>
+<tr><td><a href="method-boneyard-pyramid-agility.html"><strong>Pyramid Agility Course</strong></a></td><td>40-80</td><td>60,000</td><td><span class="tag tag-medium">medium</span></td><td>low</td></tr>
+<tr><td><a href="method-veilwood-druid-agility.html"><strong>Druidic Canopy Course</strong></a></td><td>50-90</td><td>68,000</td><td><span class="tag tag-high">high</span></td><td>low</td></tr>
+<tr><td><a href="method-agility-hallowed-sepulchre.html"><strong>Hallowed Sepulchre</strong></a></td><td>52-99</td><td>80,000</td><td><span class="tag tag-maximum">maximum</span></td><td>medium</td></tr>
+<tr><td><a href="method-agility-wilds-course.html"><strong>Wilderness Agility Course</strong></a></td><td>52-99</td><td>62,000</td><td><span class="tag tag-high">high</span></td><td>extreme</td></tr>
+<tr><td><a href="method-agility-seers-course.html"><strong>Seers Rooftop Course</strong></a></td><td>60-80</td><td>46,000</td><td><span class="tag tag-medium">medium</span></td><td>none</td></tr>
+<tr><td><a href="method-boneyard-dune-vault-run.html"><strong>Dune-Vault Speed Run</strong></a></td><td>60-99</td><td>98,000</td><td><span class="tag tag-high">high</span></td><td>medium</td></tr>
+<tr><td><a href="method-saltbrine-rigging-agility.html"><strong>Rigging-Run Agility</strong></a></td><td>70-99</td><td>78,000</td><td><span class="tag tag-high">high</span></td><td>medium</td></tr>
+<tr><td><a href="method-sootworks-gearwalk-elite.html"><strong>Deep Gearwalk Elite Run</strong></a></td><td>75-99</td><td>80,000</td><td><span class="tag tag-high">high</span></td><td>high</td></tr>
+<tr><td><a href="method-grandmaster-the-pump-eight-mutiny.html"><strong>[Grandmaster Quest] Pump Eight Mutiny — shift-change agility</strong></a></td><td>75-99</td><td>80,000</td><td><span class="tag tag-maximum">maximum</span></td><td>medium</td></tr>
+<tr><td><a href="method-glass-desert-mirrored-spire-climb.html"><strong>Glass-Walker Mirrored Spire Climb</strong></a></td><td>75-99</td><td>92,000</td><td><span class="tag tag-high">high</span></td><td>high</td></tr>
+</table>
+
+<p><a href="skill-agility.html">← agility</a> · <a href="methods.html">all methods</a></p>
+
+</div>
+</body></html>
