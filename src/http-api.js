@@ -19,10 +19,41 @@
 //   POST   /api/builder/validate/:type
 
 const staging = require('./builder/staging');
+const fs = require('fs');
+const path = require('path');
 let tilemapEditor = null;
 try { tilemapEditor = require('./builder/tilemap-editor'); } catch {}
 let _auth = null;
 try { _auth = require('./auth'); } catch {}
+
+// ── Tilemap / renderer endpoints (public, read-only) ───────────────────────────
+// Canonical region JSON files live in data/tilemaps/{region}.json and are
+// served directly. Region ids match file stems exactly (heartlands,
+// saltbrine_reach, the_wilds, boneyard_wastes, etc.).
+const TILEMAPS_DIR = path.join(__dirname, '..', 'data', 'tilemaps');
+const PALETTES_FILE = path.join(__dirname, '..', 'data', 'sprite-palettes.json');
+const SPRITE_MANIFEST_FILE = path.join(__dirname, '..', 'data', 'sprite-manifest.json');
+const VALID_REGION_RE = /^[a-z][a-z0-9_]*$/;
+
+function _listTilemapRegions() {
+  try {
+    return fs.readdirSync(TILEMAPS_DIR)
+      .filter(f => f.endsWith('.json'))
+      .map(f => f.replace(/\.json$/, ''))
+      .sort();
+  } catch { return []; }
+}
+
+function _tilemapPath(regionId) {
+  if (!VALID_REGION_RE.test(regionId)) return null;
+  const p = path.join(TILEMAPS_DIR, `${regionId}.json`);
+  // Resolve to absolute then verify it still lives under TILEMAPS_DIR — blocks
+  // any traversal via %2e%2e or similar.
+  const resolved = path.resolve(p);
+  if (!resolved.startsWith(path.resolve(TILEMAPS_DIR))) return null;
+  if (!fs.existsSync(resolved)) return null;
+  return resolved;
+}
 
 const pendingResponses = new Map(); // requestId → { resolve, timeout }
 const eventQueues = new Map(); // playerName → [messages]
@@ -67,6 +98,60 @@ function setupHttpApi(server, { players, playersByName, commands, sendText, crea
     res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
     res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
     if (req.method === 'OPTIONS') { res.writeHead(200); res.end(); return; }
+
+    // ── Public renderer endpoints ─────────────────────────────────────────────
+    // Read-only JSON over the on-disk tilemap files. No auth — these are the
+    // same JSON the eventual browser client needs to render the world.
+    //   GET /api/tilemap            — { regions: ["heartlands", ...] }
+    //   GET /api/tilemap/:region    — full tilemap JSON for that region
+    //   GET /api/palettes           — sprite-palettes.json (color fallbacks)
+    //   GET /api/sprite-manifest    — sprite manifest (category/id catalog)
+    if (req.method === 'GET' && (req.url === '/api/tilemap' || req.url === '/api/tilemap/')) {
+      res.writeHead(200, { 'Content-Type': 'application/json', 'Cache-Control': 'no-cache' });
+      res.end(JSON.stringify({ regions: _listTilemapRegions() }));
+      return;
+    }
+    if (req.method === 'GET' && req.url.startsWith('/api/tilemap/')) {
+      const regionId = decodeURIComponent(req.url.slice('/api/tilemap/'.length)).split('?')[0];
+      const p = _tilemapPath(regionId);
+      if (!p) {
+        res.writeHead(404, { 'Content-Type': 'application/json' });
+        res.end(JSON.stringify({ error: `unknown region: ${regionId}`, regions: _listTilemapRegions() }));
+        return;
+      }
+      try {
+        // Parse+restringify so we can trust the shape and add the id explicitly.
+        const raw = JSON.parse(fs.readFileSync(p, 'utf8'));
+        // Ensure id matches filename — guards against stale mismatches.
+        if (!raw.id) raw.id = regionId;
+        res.writeHead(200, { 'Content-Type': 'application/json', 'Cache-Control': 'no-cache' });
+        res.end(JSON.stringify(raw));
+      } catch (e) {
+        res.writeHead(500, { 'Content-Type': 'application/json' });
+        res.end(JSON.stringify({ error: `failed to read region: ${e.message}` }));
+      }
+      return;
+    }
+    if (req.method === 'GET' && req.url === '/api/palettes') {
+      try {
+        res.writeHead(200, { 'Content-Type': 'application/json', 'Cache-Control': 'no-cache' });
+        res.end(fs.readFileSync(PALETTES_FILE));
+      } catch (e) {
+        res.writeHead(500, { 'Content-Type': 'application/json' });
+        res.end(JSON.stringify({ error: e.message }));
+      }
+      return;
+    }
+    if (req.method === 'GET' && req.url === '/api/sprite-manifest') {
+      try {
+        res.writeHead(200, { 'Content-Type': 'application/json', 'Cache-Control': 'no-cache' });
+        res.end(fs.readFileSync(SPRITE_MANIFEST_FILE));
+      } catch (e) {
+        res.writeHead(500, { 'Content-Type': 'application/json' });
+        res.end(JSON.stringify({ error: e.message }));
+      }
+      return;
+    }
 
     // ── Builder endpoints (admin-only) ────────────────────────────────────────
     // Only intercept path-based entity routes (/entities/:type[/:id]), where
@@ -404,4 +489,13 @@ async function handleBuilderRequest(req, res) {
   }
 }
 
-module.exports = { setupHttpApi, queueEvent, drainEvents, addNpcPrompt, handleBuilderRequest };
+module.exports = {
+  setupHttpApi,
+  queueEvent,
+  drainEvents,
+  addNpcPrompt,
+  handleBuilderRequest,
+  // Renderer helpers (exported for tests)
+  _listTilemapRegions,
+  _tilemapPath,
+};
