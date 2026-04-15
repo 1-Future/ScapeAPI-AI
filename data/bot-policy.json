@@ -1,0 +1,10 @@
+{
+  "policy": "allow",
+  "banThreshold": 0.9,
+  "licensedPlayers": [],
+  "botZones": [],
+  "priceDiscount": 0.1,
+  "throttleUnlicensed": true,
+  "autoEscalateThreshold": 0.7,
+  "_comment": "Server-wide bot policy. policy = 'ban' | 'allow' | 'licensed' | 'zone_restricted'. Edit and restart to change. See src/engine/bot-detection.js for semantics."
+}
