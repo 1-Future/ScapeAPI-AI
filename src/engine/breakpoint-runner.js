@@ -30,6 +30,24 @@ function emit(event) {
   }
 }
 
+// ── XP modifier hooks ─────────────────────────────────────────────────────────
+// Subscribers receive (player, skill, amount) and return a new amount (or the
+// same amount). Chained — each hook sees the previous hook's output. Used by
+// account-mode plugins (area-locked bonus XP, etc.) to transform XP without
+// touching the base addXp pipeline.
+const xpModifiers = new Set();
+
+function addXpModifier(fn) { xpModifiers.add(fn); return () => xpModifiers.delete(fn); }
+
+function applyXpModifiers(p, skill, amount) {
+  let out = amount;
+  for (const fn of xpModifiers) {
+    try { out = fn(p, skill, out); }
+    catch (e) { console.error('[breakpoint-runner] xp-modifier', e.message); }
+  }
+  return out;
+}
+
 // ── Key & dedup ───────────────────────────────────────────────────────────────
 
 function bpKey(bp) {
@@ -104,7 +122,9 @@ function checkQuestComplete(p, questId) {
 
 function addXpWithBreakpoints(p, skill, amount) {
   const before = player.getLevel(p, skill);
-  const newLevel = player.addXp(p, skill, amount);
+  // Apply any registered XP modifiers (area-locked bonus, etc.)
+  const modified = applyXpModifiers(p, skill, amount);
+  const newLevel = player.addXp(p, skill, modified);
   if (newLevel && newLevel > before) {
     checkSkillLevel(p, skill, newLevel);
   }
@@ -136,6 +156,7 @@ module.exports = {
   subscribe, emit,
   checkSkillLevel, checkQuestComplete,
   addXpWithBreakpoints,
+  addXpModifier, applyXpModifiers,
   bootstrap,
   bpKey,
 };
