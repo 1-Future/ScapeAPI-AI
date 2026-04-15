@@ -28,6 +28,8 @@ try { require('../content/aelgard/heartlands-deep'); } catch (e) {}
 try { require('../content/aelgard/heartlands-density'); } catch (e) {}
 try { require('../content/aelgard/moryskah-deep'); } catch (e) {}
 try { require('../content/aelgard/moryskah-density'); } catch (e) {}
+try { require('../content/aelgard/veilwood-deep'); } catch (e) {}
+try { require('../content/aelgard/veilwood-density'); } catch (e) {}
 try { require('../content/aelgard/mid-tier-regions'); } catch (e) {}
 try { require('../content/aelgard/universal-items'); } catch (e) {}
 try { require('../content/aelgard/special-regions'); } catch (e) {}
