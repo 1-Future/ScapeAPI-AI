@@ -3743,6 +3743,42 @@ function createDefaultContent() {
     });
   }
 
+  // ── Forward combat-achievement events to the player's WebSocket ─────────
+  // Format (per Combat Achievements spec):
+  //   { type: 'combat_achievement', subType, taskId, tier, ... }
+  try {
+    const combatAch = require('./engine/combat-achievements');
+    require('./content/aelgard/combat-achievements-tasks');
+    combatAch.registerListener((ev) => {
+      for (const [ws, pl] of players) {
+        if (pl.id === ev.playerId) {
+          send(ws, {
+            t: 'combat_achievement',
+            subType: ev.subType,
+            taskId: ev.taskId,
+            taskName: ev.taskName,
+            tier: ev.tier,
+            bossId: ev.bossId,
+            points: ev.points,
+            totalPoints: ev.totalPoints,
+            perkId: ev.perkId,
+            perkName: ev.perkName,
+            perkDescription: ev.perkDescription,
+            tick: ev.tick,
+          });
+          if (ev.subType === 'tier_complete') {
+            sendText(ws, `[CA ${ev.tier.toUpperCase()} tier] Perk unlocked: ${ev.perkName} — ${ev.perkDescription}`);
+          } else {
+            sendText(ws, `[CA] ${ev.taskName} (+${ev.points} pts, total ${ev.totalPoints})`);
+          }
+          break;
+        }
+      }
+    });
+  } catch (e) {
+    console.warn('[combat-achievements] not wired:', e.message);
+  }
+
   // Spawn Aelgard entities in the world (after tiles are set up)
   if (heartlands.spawnHeartlands) heartlands.spawnHeartlands();
   const worldLayout = require('./content/aelgard/world-layout');
