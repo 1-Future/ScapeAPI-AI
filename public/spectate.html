@@ -775,6 +775,320 @@
     box-shadow: 0 4px 12px rgba(0,0,0,0.5);
   }
   .help-wrap:hover .help-tooltip { display: block; }
+
+  /* ── burn-v2 spectator panels ───────────────────────────────────────── */
+  /* Parchment-styled layout. No external fonts, no emojis, no libs. */
+  #bv2-shell {
+    position: fixed;
+    inset: 30px 0 0 0; /* below site-header */
+    display: grid;
+    grid-template-columns: 1fr minmax(0, 520px) 260px;
+    grid-template-rows: auto 1fr;
+    pointer-events: none;
+    z-index: 40;
+  }
+  #bv2-shell > * { pointer-events: auto; }
+  #bv2-ribbon {
+    grid-column: 1 / -1;
+    grid-row: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 2px 8px;
+    background: linear-gradient(180deg, #2a2318, #1a1510);
+    border-bottom: 1px solid var(--stone-dark);
+    font-family: var(--mono);
+    font-size: 11px;
+    min-height: 22px;
+    color: var(--parchment);
+    flex-wrap: wrap;
+  }
+  #bv2-ribbon .rb-chip {
+    display: inline-flex; align-items: center; gap: 4px;
+    padding: 1px 8px;
+    background: var(--stone-dark); border: 1px solid var(--stone);
+    border-radius: 3px; color: var(--parchment);
+  }
+  #bv2-ribbon .rb-label { color: #8a7d60; font-size: 10px; }
+  #bv2-ribbon .rb-val { color: var(--parchment); font-weight: bold; }
+  #bv2-ribbon .rb-chip.hcim { border-color: #c00; color: #ff8a80; }
+  #bv2-ribbon .rb-chip.ironman { border-color: #8a7d60; }
+  #bv2-ribbon .rb-chip.ultimate { border-color: #4af; }
+  #bv2-ribbon .rb-chip.death { border-color: var(--stone); }
+  #bv2-ribbon .rb-chip.minigame { border-color: var(--gold-dim); color: var(--gold); }
+  #bv2-ribbon .rb-chip.region { background: #2e2a1e; }
+  #bv2-ribbon .rb-ws { font-size: 9px; padding: 0 4px; border-radius: 2px; }
+  #bv2-ribbon .rb-ws.live { color: #4f4; border: 1px solid #4f4; }
+  #bv2-ribbon .rb-ws.down { color: #f66; border: 1px solid #f66; }
+  #bv2-ribbon .rb-ws.idle { color: #888; border: 1px solid #555; }
+
+  /* Right-side Breakpoint History sidebar */
+  #bp-sidebar {
+    grid-column: 3;
+    grid-row: 2;
+    background: var(--parchment);
+    border-left: 2px solid var(--stone-dark);
+    box-shadow: inset 4px 0 6px rgba(0,0,0,0.18);
+    overflow-y: auto;
+    font-family: var(--mono);
+    color: var(--text);
+    font-size: 11px;
+    padding: 6px 8px;
+    scrollbar-width: thin;
+    scrollbar-color: var(--stone) var(--parchment-dark);
+  }
+  #bp-sidebar::-webkit-scrollbar { width: 8px; }
+  #bp-sidebar::-webkit-scrollbar-track { background: var(--parchment-dark); }
+  #bp-sidebar::-webkit-scrollbar-thumb { background: var(--stone); }
+  #bp-sidebar h3 {
+    font-size: 12px; font-weight: bold; margin: 2px 0 6px 0;
+    color: #3a2e1a; text-transform: uppercase; letter-spacing: 1px;
+    border-bottom: 1px solid rgba(60,50,40,0.3); padding-bottom: 4px;
+  }
+  #bp-sidebar .bp-row {
+    padding: 5px 6px;
+    margin-bottom: 4px;
+    background: var(--parchment-dark);
+    border: 1px solid rgba(60,50,40,0.25);
+    border-radius: 2px;
+    cursor: pointer;
+    position: relative;
+  }
+  #bp-sidebar .bp-row:hover { background: #d8c79a; }
+  #bp-sidebar .bp-row.expanded { background: #dcc893; }
+  #bp-sidebar .bp-line { display: flex; gap: 6px; align-items: center; }
+  #bp-sidebar .bp-badge {
+    display: inline-block; font-size: 9px; font-weight: bold;
+    padding: 0 4px; border-radius: 2px; letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+  #bp-sidebar .bp-badge.minor { background: #9e8b64; color: #1a1510; }
+  #bp-sidebar .bp-badge.major { background: var(--gold-dim); color: #1a1510; }
+  #bp-sidebar .bp-badge.transformative {
+    background: var(--gold); color: #1a0e04;
+    box-shadow: 0 0 4px rgba(255,152,31,0.6);
+  }
+  #bp-sidebar .bp-tick { color: #6e5f46; font-size: 10px; }
+  #bp-sidebar .bp-desc {
+    margin-top: 3px; font-size: 11px; color: #2c2317; line-height: 1.35;
+    overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+  }
+  #bp-sidebar .bp-row.expanded .bp-desc { white-space: normal; }
+  #bp-sidebar .bp-unlocks {
+    display: none; font-size: 10px; color: #554634;
+    margin-top: 4px; padding-top: 4px;
+    border-top: 1px dotted rgba(60,50,40,0.35);
+  }
+  #bp-sidebar .bp-row.expanded .bp-unlocks { display: block; }
+  #bp-sidebar .bp-unlocks b { color: #3a2e1a; }
+  #bp-sidebar .bp-narration {
+    display: none; font-size: 11px; color: #1a1510;
+    margin-top: 4px; padding-top: 4px; font-style: italic;
+    border-top: 1px dotted rgba(60,50,40,0.35);
+  }
+  #bp-sidebar .bp-row.expanded .bp-narration { display: block; }
+  #bp-sidebar .bp-empty {
+    text-align: center; color: #6e5f46; font-style: italic;
+    padding: 10px 4px; font-size: 11px;
+  }
+
+  /* Dialogue panel — floats above chat on desktop, inline on narrow */
+  #dialogue-panel {
+    position: absolute;
+    left: 4px; right: 4px; top: 4px;
+    background: var(--parchment);
+    border: 2px solid var(--stone-dark);
+    border-radius: 3px;
+    padding: 6px 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+    font-family: var(--mono);
+    color: var(--text);
+    font-size: 12px;
+    z-index: 25;
+    max-height: 60%;
+    overflow-y: auto;
+    display: none;
+  }
+  #dialogue-panel.open { display: block; }
+  #dialogue-panel .dp-head {
+    display: flex; align-items: center; gap: 8px;
+    padding-bottom: 4px;
+    border-bottom: 1px solid rgba(60,50,40,0.3);
+    margin-bottom: 4px;
+  }
+  #dialogue-panel .dp-portrait {
+    width: 32px; height: 32px; flex-shrink: 0;
+    background: linear-gradient(135deg, var(--stone-dark), var(--stone-light));
+    border: 2px solid var(--stone);
+    border-radius: 2px;
+    display: flex; align-items: center; justify-content: center;
+    font-weight: bold; color: var(--gold);
+    font-size: 14px; letter-spacing: 1px;
+  }
+  #dialogue-panel .dp-name {
+    font-weight: bold; color: #3a2e1a; font-size: 13px;
+    flex: 1; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+  }
+  #dialogue-panel .dp-status {
+    font-size: 10px; padding: 1px 6px;
+    border-radius: 8px;
+    letter-spacing: 0.5px; text-transform: uppercase;
+  }
+  #dialogue-panel .dp-status.waiting { background: #8a5e00; color: #fff; }
+  #dialogue-panel .dp-status.thinking {
+    background: var(--gold); color: #1a0e04;
+    animation: dp-pulse 1.4s ease-in-out infinite;
+  }
+  #dialogue-panel .dp-status.ended { background: var(--stone); color: var(--parchment); }
+  @keyframes dp-pulse { 50% { opacity: 0.55; } }
+  #dialogue-panel .dp-cadence {
+    font-size: 10px; color: #5a4a35;
+    padding: 3px 4px;
+    background: var(--parchment-dark); border-radius: 2px;
+    margin-bottom: 4px;
+    font-style: italic;
+    line-height: 1.3;
+  }
+  #dialogue-panel .dp-cadence b { color: #3a2e1a; font-style: normal; }
+  #dialogue-panel .dp-history {
+    display: flex; flex-direction: column; gap: 3px;
+  }
+  #dialogue-panel .dp-turn {
+    line-height: 1.4;
+    padding: 2px 4px;
+  }
+  #dialogue-panel .dp-turn.npc { color: #2c2317; }
+  #dialogue-panel .dp-turn.player { color: #1a3e8a; font-style: italic; }
+  #dialogue-panel .dp-turn .dp-role {
+    font-weight: bold;
+    font-size: 10px;
+    letter-spacing: 1px;
+    margin-right: 4px;
+    text-transform: uppercase;
+  }
+
+  /* Inventory Mirror — 28 slot grid (ws-driven) */
+  #inv-mirror {
+    display: none;
+    padding: 4px 8px;
+    background: linear-gradient(180deg, #1a1510, #141010);
+    border-top: 1px solid var(--stone-dark);
+    font-family: var(--mono);
+    color: var(--parchment);
+    font-size: 10px;
+    flex-shrink: 0;
+  }
+  #inv-mirror.show { display: block; }
+  #inv-mirror .im-head {
+    display: flex; justify-content: space-between; align-items: center;
+    margin-bottom: 2px;
+    font-size: 10px; color: var(--gold-dim);
+    letter-spacing: 1px;
+  }
+  #inv-mirror .im-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 1px;
+  }
+  #inv-mirror .im-slot {
+    background: #1f1a14;
+    border: 1px solid var(--stone-dark);
+    height: 24px;
+    font-size: 9px;
+    color: var(--parchment);
+    display: flex; align-items: center; justify-content: center;
+    position: relative;
+    overflow: hidden;
+    border-radius: 1px;
+    text-align: center;
+    line-height: 1;
+    padding: 0 1px;
+  }
+  #inv-mirror .im-slot.empty {
+    background: #0d0a07;
+    border-color: #1a1510;
+    color: transparent;
+  }
+  #inv-mirror .im-slot .im-count {
+    position: absolute; top: 0; right: 2px;
+    font-size: 8px; color: var(--gold);
+    font-weight: bold;
+    text-shadow: 0 0 2px #000;
+  }
+  #inv-mirror .im-slot .im-lbl {
+    font-size: 9px; color: var(--parchment);
+    white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+    max-width: 100%;
+  }
+
+  /* CA progress per tier */
+  #ca-bar {
+    display: none;
+    padding: 2px 8px;
+    background: linear-gradient(180deg, #1e1a14, #151210);
+    border-bottom: 1px solid var(--stone-dark);
+    font-family: var(--mono);
+    font-size: 10px;
+    color: var(--parchment);
+    flex-shrink: 0;
+  }
+  #ca-bar.show { display: flex; }
+  #ca-bar .cab-title {
+    font-weight: bold; color: var(--gold-dim);
+    letter-spacing: 1px; margin-right: 8px; font-size: 10px;
+    white-space: nowrap;
+  }
+  #ca-bar .cab-tiers {
+    flex: 1; display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 4px;
+  }
+  .cab-tier {
+    position: relative;
+    display: flex; flex-direction: column; gap: 1px;
+    min-width: 0;
+  }
+  .cab-tier .cab-label {
+    font-size: 9px; color: #c8b88a; letter-spacing: 0.5px;
+    display: flex; justify-content: space-between;
+  }
+  .cab-tier .cab-trk {
+    height: 5px; background: #0a0806;
+    border: 1px solid var(--stone-dark); border-radius: 2px;
+    overflow: hidden;
+  }
+  .cab-tier .cab-fill {
+    height: 100%; background: var(--gold-dim);
+    transition: width 0.4s ease;
+  }
+  .cab-tier.t-easy  .cab-fill { background: #c8b88a; }
+  .cab-tier.t-medium .cab-fill { background: #d8a055; }
+  .cab-tier.t-hard  .cab-fill { background: var(--gold-dim); }
+  .cab-tier.t-elite .cab-fill { background: var(--gold); }
+  .cab-tier.t-master .cab-fill {
+    background: #e84b4b;
+    box-shadow: 0 0 3px rgba(232,75,75,0.5);
+  }
+  .cab-tier.t-grandmaster .cab-fill {
+    background: linear-gradient(90deg, var(--gold), #ff6060, #a76bff);
+    box-shadow: 0 0 4px rgba(255,152,31,0.6);
+  }
+
+  @media (max-width: 900px) {
+    #bp-sidebar { display: none; }
+  }
+  @media (max-width: 600px) {
+    #bv2-ribbon { font-size: 2.3vw; padding: 0.5vw 1vw; }
+    #bv2-ribbon .rb-label { font-size: 2vw; }
+    #bv2-ribbon .rb-val { font-size: 2.3vw; }
+    #dialogue-panel { font-size: 2.6vw; }
+    #dialogue-panel .dp-name { font-size: 2.8vw; }
+    #inv-mirror { font-size: 2.2vw; }
+    #inv-mirror .im-slot { height: 5vw; font-size: 2vw; }
+    #ca-bar { font-size: 2vw; }
+    .cab-tier .cab-label { font-size: 1.8vw; }
+  }
 </style>
 </head>
 <body>
@@ -797,6 +1111,24 @@
       <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
     </a>
   </div>
+</div>
+<!-- burn-v2 spectator panels: ribbon (top) + breakpoint sidebar (right) -->
+<div id="bv2-ribbon">
+  <span class="rb-chip region" id="rb-region"><span class="rb-label">Region</span><span class="rb-val" id="rb-region-val">--</span></span>
+  <span class="rb-chip" id="rb-subarea" style="display:none"><span class="rb-label">Area</span><span class="rb-val" id="rb-subarea-val">--</span></span>
+  <span class="rb-chip minigame" id="rb-minigame" style="display:none"><span class="rb-label">Minigame</span><span class="rb-val" id="rb-minigame-val">--</span></span>
+  <span class="rb-chip death" id="rb-death"><span class="rb-label">Deaths</span><span class="rb-val" id="rb-death-val">0</span></span>
+  <span class="rb-chip" id="rb-mode" style="display:none"><span class="rb-val" id="rb-mode-val">Normal</span></span>
+  <span class="rb-ws idle" id="rb-ws">WS: connecting</span>
+</div>
+<aside id="bp-sidebar">
+  <h3>Breakpoint History</h3>
+  <div id="bp-list"><div class="bp-empty">Awaiting the first transformative moment...</div></div>
+</aside>
+<!-- CA progress bar -->
+<div id="ca-bar">
+  <span class="cab-title">Combat Achievements</span>
+  <div class="cab-tiers" id="ca-tiers"></div>
 </div>
 <div id="challenge-bar" onclick="document.getElementById('challenge-detail').classList.toggle('show')">
   <span class="cb-dot yellow" id="cb-dot"></span>
@@ -870,8 +1202,27 @@
   <!-- Narrator feed (hidden when empty) -->
   <div id="narrator-pane" class="empty"></div>
 
+  <!-- burn-v2 Inventory Mirror (live, from WS) -->
+  <div id="inv-mirror">
+    <div class="im-head">
+      <span>Inventory Mirror</span>
+      <span id="im-free"><span>Free: </span><span id="im-free-val">28</span>/28</span>
+    </div>
+    <div class="im-grid" id="im-grid"></div>
+  </div>
+
   <!-- Chat pane -->
   <div id="chat-pane" style="position:relative">
+    <!-- burn-v2 Dialogue Panel (floats on top of chat when active) -->
+    <div id="dialogue-panel">
+      <div class="dp-head">
+        <div class="dp-portrait" id="dp-portrait">--</div>
+        <div class="dp-name" id="dp-name">--</div>
+        <div class="dp-status waiting" id="dp-status">waiting for player input</div>
+      </div>
+      <div class="dp-cadence" id="dp-cadence" style="display:none"></div>
+      <div class="dp-history" id="dp-history"></div>
+    </div>
     <button id="mode-toggle" onclick="toggleMode()">DEBUG</button>
     <div id="filter-wrap">
       <button id="filter-btn" onclick="document.getElementById('filter-menu').classList.toggle('show')">Filter</button>
@@ -1942,6 +2293,322 @@ async function pollNarrator(){
   }
 }
 pollNarrator();
+
+// ══════════════════════════════════════════════════════════════════════
+// burn-v2 Spectator WebSocket + new panels
+// dialogue panel, breakpoint history sidebar, inventory mirror, CA bar
+// ══════════════════════════════════════════════════════════════════════
+(function bv2SpectatorInit(){
+  const rbWs=document.getElementById('rb-ws');
+  const rbRegion=document.getElementById('rb-region-val');
+  const rbSubareaChip=document.getElementById('rb-subarea');
+  const rbSubarea=document.getElementById('rb-subarea-val');
+  const rbMinigameChip=document.getElementById('rb-minigame');
+  const rbMinigame=document.getElementById('rb-minigame-val');
+  const rbDeath=document.getElementById('rb-death-val');
+  const rbModeChip=document.getElementById('rb-mode');
+  const rbMode=document.getElementById('rb-mode-val');
+  const dlgPanel=document.getElementById('dialogue-panel');
+  const dlgPortrait=document.getElementById('dp-portrait');
+  const dlgName=document.getElementById('dp-name');
+  const dlgStatus=document.getElementById('dp-status');
+  const dlgCadence=document.getElementById('dp-cadence');
+  const dlgHistory=document.getElementById('dp-history');
+  const bpList=document.getElementById('bp-list');
+  const invMirror=document.getElementById('inv-mirror');
+  const imGrid=document.getElementById('im-grid');
+  const imFree=document.getElementById('im-free-val');
+  const caBar=document.getElementById('ca-bar');
+  const caTiersEl=document.getElementById('ca-tiers');
+
+  function esc(s){return String(s==null?'':s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]))}
+
+  // ── Keep a local buffer of breakpoints keyed by bpKey so repeats update
+  // in place and the latest 30 stay in view.
+  const BP_CAP=30;
+  const bpBuffer=[]; // newest last
+  const bpByKey=new Map(); // bpKey → dom row
+  // Narration map: bpKey (+playerId optional) → narration text from events.json
+  const narrationMap=new Map();
+
+  function setWsStatus(cls,label){
+    rbWs.className='rb-ws '+cls;
+    rbWs.textContent='WS: '+label;
+  }
+
+  function renderDialogue(msg){
+    if(!msg||msg.status==='ended'||!msg.npcName){
+      dlgPanel.classList.remove('open');
+      return;
+    }
+    dlgPanel.classList.add('open');
+    dlgName.textContent=msg.npcName||'Unknown';
+    const initials=(msg.npcName||'?').split(/\s+/).map(w=>w[0]).join('').slice(0,2).toUpperCase();
+    dlgPortrait.textContent=initials||'?';
+    const statusLabels={
+      waiting_for_player:['waiting','waiting for player input'],
+      npc_thinking:['thinking','NPC is thinking'],
+      ended:['ended','ended'],
+    };
+    const sl=statusLabels[msg.status]||['waiting','...'];
+    dlgStatus.className='dp-status '+sl[0];
+    dlgStatus.textContent=sl[1];
+    // Cadence from npc-bibles.json (async, cached)
+    loadCadence(msg.npcId).then(cad=>{
+      if(cad){
+        dlgCadence.style.display='block';
+        dlgCadence.innerHTML='<b>Voice:</b> '+esc(cad);
+      }else{
+        dlgCadence.style.display='none';
+      }
+    }).catch(()=>{dlgCadence.style.display='none'});
+    // History (last 5)
+    const turns=Array.isArray(msg.history)?msg.history.slice(-5):[];
+    dlgHistory.innerHTML=turns.map(t=>{
+      const role=t.role==='player'?'Player':(msg.npcName||'NPC');
+      const cls=t.role==='player'?'player':'npc';
+      return '<div class="dp-turn '+cls+'"><span class="dp-role">'+esc(role)+':</span>'+esc(t.text||'')+'</div>';
+    }).join('');
+  }
+
+  // Lazy-load cadence summaries from /data/npc-bibles.json with a cache.
+  let _biblesPromise=null;
+  const _bibleCache=new Map();
+  function loadBibles(){
+    if(_biblesPromise)return _biblesPromise;
+    _biblesPromise=fetch('/data/npc-bibles.json',{cache:'force-cache'}).then(r=>r.ok?r.json():null).catch(()=>null);
+    return _biblesPromise;
+  }
+  async function loadCadence(npcId){
+    if(!npcId)return null;
+    if(_bibleCache.has(npcId))return _bibleCache.get(npcId);
+    const data=await loadBibles();
+    let cad=null;
+    if(data&&Array.isArray(data.npcs)){
+      const npc=data.npcs.find(n=>n.id===npcId);
+      if(npc&&npc.voice&&npc.voice.cadence)cad=npc.voice.cadence;
+    }
+    _bibleCache.set(npcId,cad);
+    return cad;
+  }
+
+  function renderBreakpoint(msg){
+    if(!msg||!msg.bpKey)return;
+    let row=bpByKey.get(msg.bpKey);
+    if(!row){
+      row=document.createElement('div');
+      row.className='bp-row';
+      row.addEventListener('click',()=>row.classList.toggle('expanded'));
+      // Remove empty placeholder if present
+      const empty=bpList.querySelector('.bp-empty');
+      if(empty)empty.remove();
+      bpByKey.set(msg.bpKey,row);
+      bpBuffer.push(msg.bpKey);
+      while(bpBuffer.length>BP_CAP){
+        const old=bpBuffer.shift();
+        const oldRow=bpByKey.get(old);
+        if(oldRow&&oldRow.parentNode)oldRow.parentNode.removeChild(oldRow);
+        bpByKey.delete(old);
+      }
+      bpList.appendChild(row);
+    }
+    const imp=msg.importance||'minor';
+    const tag=imp.toUpperCase();
+    const tick=typeof msg.tick==='number'?msg.tick:'';
+    const when=msg.ts?new Date(msg.ts).toLocaleTimeString():'';
+    const unlocks=Array.isArray(msg.unlocks)?msg.unlocks:[];
+    const unlocksHtml=unlocks.length
+      ? '<div class="bp-unlocks"><b>Unlocks:</b> '+unlocks.map(esc).join(', ')+'</div>'
+      : '<div class="bp-unlocks"><b>Unlocks:</b> <i>nothing tangible</i></div>';
+    const narrationKey=msg.bpKey+'::'+(msg.playerId||'');
+    const narration=narrationMap.get(narrationKey)||narrationMap.get(msg.bpKey)||'';
+    const narrationHtml=narration
+      ? '<div class="bp-narration">"'+esc(narration)+'"</div>'
+      : '<div class="bp-narration"><i>(click to see narration once written)</i></div>';
+    row.innerHTML=''+
+      '<div class="bp-line">'+
+        '<span class="bp-badge '+imp+'">'+esc(tag)+'</span>'+
+        '<span class="bp-tick">'+(when?esc(when):'')+(tick!==''?' t'+esc(tick):'')+'</span>'+
+      '</div>'+
+      '<div class="bp-desc">'+esc(msg.description||msg.bpKey||'(no description)')+'</div>'+
+      unlocksHtml+
+      narrationHtml;
+    // Auto-scroll to bottom if we're already near it
+    if(bpList.scrollTop+bpList.clientHeight>=bpList.scrollHeight-40){
+      requestAnimationFrame(()=>{bpList.parentElement.scrollTop=bpList.parentElement.scrollHeight});
+    }
+  }
+
+  function renderInventory(msg){
+    if(!msg||!Array.isArray(msg.slots))return;
+    invMirror.classList.add('show');
+    const html=[];
+    for(let i=0;i<28;i++){
+      const s=msg.slots[i];
+      if(!s){html.push('<div class="im-slot empty"></div>');continue}
+      const abbr=(s.name||'').split(/\s+/).map(w=>w[0]).join('').slice(0,4).toUpperCase();
+      const count=s.count>1?'<span class="im-count">'+esc(String(s.count))+'</span>':'';
+      html.push('<div class="im-slot" title="'+esc(s.name||'')+(s.count>1?' x'+s.count:'')+'">'+count+'<span class="im-lbl">'+esc(abbr||s.name||'')+'</span></div>');
+    }
+    imGrid.innerHTML=html.join('');
+    imFree.textContent=typeof msg.freeSlots==='number'?String(msg.freeSlots):'--';
+  }
+
+  function renderState(msg){
+    if(!msg)return;
+    if(msg.region){
+      rbRegion.textContent=msg.region.name||msg.region.id||'--';
+      if(msg.region.subArea){
+        rbSubareaChip.style.display='';
+        rbSubarea.textContent=msg.region.subArea;
+      }else{
+        rbSubareaChip.style.display='none';
+      }
+    }
+    if(msg.minigame){
+      rbMinigameChip.style.display='';
+      const mgWave=msg.minigame.wave!=null?' w'+msg.minigame.wave:'';
+      const mgPhase=msg.minigame.phase?' — '+msg.minigame.phase:'';
+      rbMinigame.textContent=(msg.minigame.name||msg.minigame.id||'minigame')+mgWave+mgPhase;
+    }else{
+      rbMinigameChip.style.display='none';
+    }
+    rbDeath.textContent=typeof msg.deathCount==='number'?String(msg.deathCount):'0';
+    const mode=msg.accountMode;
+    rbModeChip.classList.remove('hcim','ironman','ultimate');
+    if(mode==='hcim'){rbModeChip.style.display='';rbModeChip.classList.add('hcim');rbMode.textContent='Hardcore Ironman'}
+    else if(mode==='uim'){rbModeChip.style.display='';rbModeChip.classList.add('ultimate');rbMode.textContent='Ultimate Ironman'}
+    else if(mode==='ironman'){rbModeChip.style.display='';rbModeChip.classList.add('ironman');rbMode.textContent='Ironman'}
+    else{rbModeChip.style.display='none'}
+    // CA bar
+    if(msg.ca&&Array.isArray(msg.ca.tiers)&&msg.ca.tiers.length){
+      caBar.classList.add('show');
+      caTiersEl.innerHTML=msg.ca.tiers.map(t=>{
+        const pct=t.total>0?Math.round(t.complete/t.total*100):0;
+        const label=t.tier.charAt(0).toUpperCase()+t.tier.slice(1);
+        return ''+
+          '<div class="cab-tier t-'+esc(t.tier)+'">'+
+            '<div class="cab-label"><span>'+esc(label)+'</span><span>'+t.complete+'/'+t.total+'</span></div>'+
+            '<div class="cab-trk"><div class="cab-fill" style="width:'+pct+'%"></div></div>'+
+          '</div>';
+      }).join('');
+    }
+  }
+
+  function renderCombatAchievement(msg){
+    if(!msg)return;
+    // Flash an inline toast into the chat-log using existing cmsg style
+    try{
+      const line='CA — '+(msg.tier||'?')+' — '+(msg.name||msg.taskId||'?');
+      if(typeof addCleanMsg==='function'){
+        addCleanMsg('<span class="tag">[CA]</span> '+esc(msg.name||msg.taskId||'')+' <span class="cb">('+esc(msg.tier||'?')+')</span>','complete');
+      }
+      // Also re-draw the CA bar if snapshot arrives shortly — state_snapshot fires on its interval.
+    }catch{}
+  }
+
+  // ── Poll /events.json for narration text and stitch it to sidebar rows.
+  // Existing narrator pane already renders these full-width; here we just
+  // index by bpKey so expanded sidebar rows can show the narration.
+  async function pollNarrations(){
+    while(true){
+      try{
+        const r=await fetch('/events.json?t='+Date.now(),{cache:'no-store'});
+        if(r.ok){
+          const data=await r.json();
+          const entries=Array.isArray(data.entries)?data.entries:[];
+          for(const e of entries){
+            if(!e||!e.bpKey||!e.narration)continue;
+            narrationMap.set(e.bpKey+'::'+(e.playerId||''),e.narration);
+            narrationMap.set(e.bpKey,e.narration);
+            const row=bpByKey.get(e.bpKey);
+            if(row){
+              const n=row.querySelector('.bp-narration');
+              if(n)n.innerHTML='"'+esc(e.narration)+'"';
+            }
+          }
+        }
+      }catch{}
+      await new Promise(r=>setTimeout(r,4000));
+    }
+  }
+
+  // ── HTTP fallback when WS isn't reachable — poll /spectate/state every 5s.
+  let usingFallback=false;
+  async function pollSpectateState(){
+    while(usingFallback){
+      try{
+        const r=await fetch('/spectate/state?t='+Date.now(),{cache:'no-store'});
+        if(r.ok){
+          const data=await r.json();
+          if(Array.isArray(data.players)&&data.players.length){
+            const first=data.players[0];
+            if(first.state)renderState(first.state);
+            if(first.inventory)renderInventory(first.inventory);
+            if(first.dialogue)renderDialogue(first.dialogue);
+            else renderDialogue({status:'ended'});
+            if(Array.isArray(first.breakpointHistory)){
+              for(const bp of first.breakpointHistory)renderBreakpoint(bp);
+            }
+          }
+        }
+      }catch{}
+      await new Promise(r=>setTimeout(r,5000));
+    }
+  }
+
+  // ── WebSocket connection with auto-reconnect backoff.
+  let ws=null;
+  let reconnectDelay=1000;
+  function connectWs(){
+    const proto=location.protocol==='https:'?'wss:':'ws:';
+    const url=proto+'//'+location.host+'/ws/spectate';
+    setWsStatus('idle','connecting');
+    try{ws=new WebSocket(url)}catch(e){fallback();return}
+    ws.addEventListener('open',()=>{
+      setWsStatus('live','live');
+      reconnectDelay=1000;
+      usingFallback=false;
+    });
+    ws.addEventListener('close',()=>{
+      setWsStatus('down','disconnected');
+      fallback();
+      setTimeout(connectWs,reconnectDelay);
+      reconnectDelay=Math.min(reconnectDelay*2,10000);
+    });
+    ws.addEventListener('error',()=>{
+      setWsStatus('down','error');
+    });
+    ws.addEventListener('message',ev=>{
+      let msg=null;
+      try{msg=JSON.parse(ev.data)}catch{return}
+      handleMessage(msg);
+    });
+  }
+  function fallback(){
+    if(usingFallback)return;
+    usingFallback=true;
+    pollSpectateState();
+  }
+  function handleMessage(msg){
+    if(!msg||typeof msg!=='object')return;
+    switch(msg.type){
+      case 'hello': break;
+      case 'dialogue_update': renderDialogue(msg); break;
+      case 'breakpoint_hit': renderBreakpoint(msg); break;
+      case 'inventory': renderInventory(msg); break;
+      case 'combat_achievement': renderCombatAchievement(msg); break;
+      case 'state_snapshot': renderState(msg); break;
+      default: break;
+    }
+  }
+
+  // Expose minimal hook for debugging / future use.
+  window.__bv2Spectate={renderDialogue,renderBreakpoint,renderInventory,renderState,renderCombatAchievement};
+
+  connectWs();
+  pollNarrations();
+})();
 
 startPlayback();
 </script>
