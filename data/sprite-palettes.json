@@ -1,0 +1,146 @@
+{
+  "_comment": "Per-region colour palette guidance for the sprite artist (human or AI). Every sprite in a region should read coherently against these colours. Palettes are suggestive, not prescriptive — breakpoints and boss fights can stray, but ambient tiles and common NPCs should sit inside the region's bands. Low-res pixel art, 16-24 colours per region, readable at 32px.",
+  "_version": "1.0.0",
+  "_consumed_by": ["scripts/gen-sprite-manifest.js", "src/world/sprite-registry.js"],
+
+  "heartlands": {
+    "dominant": ["#5a7e3d", "#9b8154", "#d4c4a0"],
+    "accent": ["#c23b22", "#f5d76e", "#4a6ea7"],
+    "shadow": "#2e3b1f",
+    "highlight": "#f3ecd6",
+    "mood": "warm neutrals, sunlit afternoons, hay and honey, gentle wind",
+    "avoid": "saturated purples, neons, abyssal black",
+    "reference": "English midlands in late summer — hedges, thatched roofs, cobble paths",
+    "water_tint": "#5888a8",
+    "sky_tint": "#bcd6ea"
+  },
+
+  "moryskah": {
+    "dominant": ["#2a3432", "#4d5849", "#6b5d4a"],
+    "accent": ["#8a2a2a", "#c2a15a", "#3a2550"],
+    "shadow": "#12161a",
+    "highlight": "#a8b0a0",
+    "mood": "damp, mossed stone, fog at knee height, candlelight through shutters, the feeling that dusk came early",
+    "avoid": "bright yellow grass, saturated skies, cheerful reds",
+    "reference": "eastern european folk horror — graveyards with herb gardens, bog witch huts, patched-roof inns",
+    "water_tint": "#3d4a3e",
+    "sky_tint": "#56606a",
+    "mist_tint": "#7d8178"
+  },
+
+  "sootworks": {
+    "dominant": ["#1f1d1b", "#4a3d32", "#806050"],
+    "accent": ["#e8682a", "#c95820", "#d4b483"],
+    "shadow": "#0d0a08",
+    "highlight": "#ffb060",
+    "mood": "ember-lit industrial — coal dust, iron filings, the constant glow of molten bars and forge chimneys against a starless sky",
+    "avoid": "green grass, pastoral blues, natural daylight",
+    "reference": "Sheffield steelworks at 1am, OSRS Keldagrim filtered through Dwarf Fortress",
+    "water_tint": "#2a3038",
+    "sky_tint": "#3a332c",
+    "ember_tint": "#ff7a1c"
+  },
+
+  "saltbrine": {
+    "dominant": ["#4e6c7a", "#c1b49a", "#7a8a7a"],
+    "accent": ["#cc7a3a", "#4a8a8a", "#2a3a4e"],
+    "shadow": "#1a2631",
+    "highlight": "#eae3cf",
+    "mood": "wind-flattened, salt-bleached, tar-smelling — piers, pulled-up boats, gulls, the light that only exists at coasts",
+    "avoid": "forest greens, deep desert oranges, anything that reads inland",
+    "reference": "Cornish fishing village meets OSRS Port Phasmatys — pirates welcome, dockmasters tired",
+    "water_tint": "#3e6a7a",
+    "sky_tint": "#a8c0cc",
+    "fog_tint": "#c0c8c8"
+  },
+
+  "veilwood": {
+    "dominant": ["#2c4a2e", "#4d3a28", "#8a6a4a"],
+    "accent": ["#e8d274", "#6ec06e", "#f4e1b8"],
+    "shadow": "#131e14",
+    "highlight": "#c8f0c0",
+    "mood": "broadleaf forest pierced by shafts of afternoon sun — mossy roots, elven banners, the feeling a stag is about to step into the clearing",
+    "avoid": "geometric urban shapes, industrial greys, water that looks like a puddle",
+    "reference": "OSRS Tirannwn + Princess Mononoke's deep-forest palette — living wood, not set-dressed wood",
+    "water_tint": "#3a5a4a",
+    "sky_tint": "#7a9a70",
+    "sunbeam_tint": "#f8e9a0"
+  },
+
+  "boneyard": {
+    "dominant": ["#d4b880", "#a07c4a", "#c0a070"],
+    "accent": ["#8a3a2a", "#e4c880", "#3a5a6a"],
+    "shadow": "#4e361c",
+    "highlight": "#faedcb",
+    "mood": "sun-bleached desert — bones whitened by heat, sandstone warm to touch, nomad tents, oasis water the colour of a promise",
+    "avoid": "cold blues, dense forest greens, any slate grey",
+    "reference": "OSRS Kharidian Desert + western-movie horizons — heat shimmer, scorpions in shadows, pyramids on horizons",
+    "water_tint": "#3a6a7a",
+    "sky_tint": "#e0c6a0",
+    "heat_shimmer": "#fff2cc"
+  },
+
+  "inkweald": {
+    "dominant": ["#3a2a5a", "#8a74c2", "#c0a0e0"],
+    "accent": ["#e8c0d8", "#4a4a8a", "#fae0ff"],
+    "shadow": "#1e1230",
+    "highlight": "#fff6ff",
+    "mood": "violet dream-grass under a pale moon — brass instruments catch starlight wrong, ponds reflect the wrong sky, thoughts bloom into flowers",
+    "avoid": "earthy browns, pragmatic industrial colours, warm sunlight",
+    "reference": "Alan Wake surrealism + Studio Ghibli dream sequences — everything looks like it was remembered rather than seen",
+    "water_tint": "#5a4a8a",
+    "sky_tint": "#6a5a8a",
+    "bloom_tint": "#e8a8ff"
+  },
+
+  "glass_desert": {
+    "dominant": ["#d8b890", "#8a90a0", "#e0d0c0"],
+    "accent": ["#a8d8e8", "#e8c8a8", "#5a6a8a"],
+    "shadow": "#5a4a3a",
+    "highlight": "#fffdf5",
+    "mood": "heat-fused silica plains — crystal spires catch sun, glass underfoot crunches, the air wobbles at noon, mirages suggest water that isn't there",
+    "avoid": "wet-looking surfaces, forest darkness, anything matte",
+    "reference": "OSRS Desert Treasure 2 crystal caverns + Dune Part 2 sand palette with glass refraction",
+    "water_tint": "#8ac0d8",
+    "sky_tint": "#f0e0c8",
+    "crystal_tint": "#a8e4f4"
+  },
+
+  "wilds": {
+    "dominant": ["#4a3a2a", "#2a1a0a", "#6a4a2a"],
+    "accent": ["#c02020", "#a04020", "#404040"],
+    "shadow": "#1a0a06",
+    "highlight": "#d0b090",
+    "mood": "dead-grass wasteland, burned bridges, places where old gods used to stand and nothing now grows, player-skull on the horizon",
+    "avoid": "cheerful accents, clean architecture, green anything",
+    "reference": "OSRS wilderness — low-budget hell, ruins rather than gothic, lava pits rather than volcanoes",
+    "water_tint": "#4a2a2a",
+    "sky_tint": "#4a3a30",
+    "blood_tint": "#8a1a1a"
+  },
+
+  "drifting_market": {
+    "dominant": ["#6a3a4a", "#c2a048", "#3a5a8a"],
+    "accent": ["#e0c4e0", "#f0e088", "#8a2a5a"],
+    "shadow": "#2a1a2a",
+    "highlight": "#fff0e0",
+    "mood": "impossible bazaar that appears in different regions on different days — tents stitched from several climates' fabrics, lanterns burning oils no one sells, the merchant queen's palette",
+    "avoid": "geographically coherent palettes — the point is that it doesn't belong",
+    "reference": "Moving Market from Howl's Moving Castle + Spirited Away bathhouse colour riots",
+    "water_tint": "#4a6a8a",
+    "sky_tint": "#c8a8c8",
+    "lantern_tint": "#ffb848"
+  },
+
+  "universal": {
+    "dominant": ["#8b7355", "#5e5142", "#c2b29a"],
+    "accent": ["#c23b22", "#c2a048", "#5e7a96"],
+    "shadow": "#2a2318",
+    "highlight": "#f0e5cd",
+    "mood": "anything that must work in any region — coins, tools, generic food — a warm neutral default that reads everywhere",
+    "avoid": "palette choices that cue a specific region",
+    "reference": "OSRS inventory iconography — warm, tactile, readable at 32px",
+    "water_tint": "#5888a8",
+    "sky_tint": "#bcd6ea"
+  }
+}
