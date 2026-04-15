@@ -1,0 +1,57 @@
+{
+  "generatedAt": "2026-04-15T12:51:32.324Z",
+  "runtimeMs": 235.56100010871887,
+  "data": {
+    "ge": {
+      "avgTick": 0.005802999973297119,
+      "p95": 0.02090001106262207,
+      "p99": 0.05019998550415039,
+      "matchesPerSec": 834933.6062894568,
+      "totalOpen": 20000,
+      "placedBuys": 10000,
+      "placedSells": 10000,
+      "placeFails": 0,
+      "placeMs": 15.171800136566162,
+      "runMs": 5.802999973297119,
+      "memDelta": 1.25030517578125
+    },
+    "players": {
+      "avg": 0.003674299955368042,
+      "p50": 0.0028998851776123047,
+      "p95": 0.00970005989074707,
+      "p99": 0.020600080490112305,
+      "maxTick": 0.1830000877380371,
+      "overBudget": 0,
+      "totalMs": 3.674299955368042,
+      "memDelta": 0.07669830322265625
+    },
+    "persist": {
+      "saveMs": 12.876299858093262,
+      "loadMs": 19.057199954986572,
+      "totalMB": 5.721047401428223,
+      "geOrders": 20000,
+      "clanCount": 50,
+      "graveCount": 500,
+      "playerCount": 100,
+      "fileSizes": {
+        "clans.json": 121050,
+        "ge.json": 4722307,
+        "graves.json": 130064,
+        "players-bench.json": 1025532
+      },
+      "memDelta": 2.7733154296875
+    },
+    "bp": {
+      "evsPerSec": 674841.2431978753,
+      "emitMs": 14.818300008773804,
+      "memPerSub": 0.3135234375,
+      "hits": 10000000,
+      "baseline": 0,
+      "listenersAfterSub": 1000,
+      "listenersAfterLeak": 0,
+      "noLeak": true,
+      "memDelta": 0.30617523193359375
+    }
+  },
+  "perfBugs": []
+}
