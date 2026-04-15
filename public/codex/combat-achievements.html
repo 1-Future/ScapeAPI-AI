@@ -1,0 +1,1948 @@
+<!DOCTYPE html>
+<html><head><meta charset="utf-8"><title>Combat Achievements — Aelgard Codex</title>
+<style>
+  body {
+    font-family: ui-monospace, 'Cascadia Code', 'Consolas', monospace;
+    background: #3e3529;
+    color: #e8dcc0;
+    margin: 0;
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  .parchment {
+    background: #e8dcc0;
+    color: #2c1810;
+    padding: 30px 40px;
+    border: 3px solid #8b6f47;
+    border-radius: 4px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.5);
+    margin: 20px 0;
+  }
+  h1 {
+    color: #7a1f1a;
+    border-bottom: 2px solid #8b6f47;
+    padding-bottom: 10px;
+  }
+  h2 { color: #5a3a1a; margin-top: 30px; }
+  h3 { color: #6b4423; }
+  a { color: #7a1f1a; text-decoration: none; border-bottom: 1px dotted #7a1f1a; }
+  a:hover { background: #d4c49c; }
+  nav { margin-bottom: 20px; }
+  nav a { margin-right: 15px; font-weight: bold; }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 15px 0;
+  }
+  th, td {
+    text-align: left;
+    padding: 6px 10px;
+    border-bottom: 1px solid #c4a970;
+  }
+  th { background: #d4c49c; color: #2c1810; }
+  tr:hover { background: #d4c49c; }
+  .tag {
+    display: inline-block;
+    padding: 2px 8px;
+    margin: 2px;
+    border-radius: 3px;
+    font-size: 11px;
+    font-weight: bold;
+  }
+  .tag-region { background: #4a6b8a; color: #fff; }
+  .tag-skill  { background: #5a7f4a; color: #fff; }
+  .tag-trans  { background: #8a1f1a; color: #fff; }
+  .tag-major  { background: #a86a2a; color: #fff; }
+  .tag-minor  { background: #6a6a6a; color: #fff; }
+  .tag-afk    { background: #3a5a2a; color: #fff; }
+  .tag-low    { background: #4a7a3a; color: #fff; }
+  .tag-medium { background: #8a7a2a; color: #fff; }
+  .tag-high   { background: #a85a2a; color: #fff; }
+  .tag-maximum{ background: #8a1f1a; color: #fff; }
+  .tag-obscure{ background: #6a4a2a; color: #fff; font-style: italic; }
+  .stat-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    margin: 15px 0;
+  }
+  .stat-cell {
+    background: #d4c49c;
+    padding: 10px;
+    border-radius: 3px;
+    text-align: center;
+  }
+  .stat-cell .value {
+    font-size: 24px;
+    font-weight: bold;
+    color: #7a1f1a;
+  }
+  .stat-cell .label {
+    font-size: 11px;
+    color: #5a3a1a;
+    text-transform: uppercase;
+  }
+  .description {
+    font-style: italic;
+    color: #5a3a1a;
+    margin: 10px 0;
+    padding: 10px;
+    background: #d4c49c;
+    border-left: 3px solid #8b6f47;
+  }
+  ul.loose li { margin-bottom: 8px; }
+  details {
+    margin: 10px 0;
+    padding: 10px;
+    background: #d4c49c;
+    border-radius: 3px;
+  }
+  summary { cursor: pointer; font-weight: bold; }
+</style>
+</head>
+<body>
+<nav>
+  <a href="index.html">Home</a>
+  <a href="regions.html">Regions</a>
+  <a href="skills.html">Skills</a>
+  <a href="quests.html">Quests</a>
+  <a href="breakpoints.html">Breakpoints</a>
+  <a href="items.html">Items</a>
+  <a href="combat-achievements.html">Combat Achievements</a>
+</nav>
+<div class="parchment">
+<h1>Combat Achievements</h1>
+<div class="description">
+Per-boss restriction tasks that cumulate into tier totals.
+Complete each tier's points threshold to unlock a permanent perk.
+Tasks are permanent — once complete, always complete (manifesto P06).
+</div>
+
+<div class="stat-grid">
+  <div class="stat-cell"><div class="value">246</div><div class="label">Total tasks</div></div>
+  <div class="stat-cell"><div class="value">34</div><div class="label">Bosses</div></div>
+  <div class="stat-cell"><div class="value">6</div><div class="label">Tiers</div></div>
+  <div class="stat-cell"><div class="value">6</div><div class="label">Perks</div></div>
+</div>
+
+<h2>Tiers &amp; Perks</h2>
+<table>
+  <tr><th>Tier</th><th>Points</th><th>Tasks</th><th>Perk</th><th>Effect</th></tr>
+  <tr>
+    <td><span class="tag tag-minor">easy</span></td>
+    <td><strong>33</strong> pts</td>
+    <td>25</td>
+    <td><strong>Steady Hand</strong></td>
+    <td>+1% melee accuracy vs bosses (permanent).</td>
+  </tr>
+  <tr>
+    <td><span class="tag tag-minor">medium</span></td>
+    <td><strong>75</strong> pts</td>
+    <td>48</td>
+    <td><strong>Market Whisperer</strong></td>
+    <td>Daily Grand Exchange rate +5%.</td>
+  </tr>
+  <tr>
+    <td><span class="tag tag-minor">hard</span></td>
+    <td><strong>200</strong> pts</td>
+    <td>55</td>
+    <td><strong>Faithful Restoration</strong></td>
+    <td>Bonus prayer point regen when below 30%.</td>
+  </tr>
+  <tr>
+    <td><span class="tag tag-major">elite</span></td>
+    <td><strong>400</strong> pts</td>
+    <td>58</td>
+    <td><strong>Phoenix Pulse</strong></td>
+    <td>One-time heal on near-death per combat encounter.</td>
+  </tr>
+  <tr>
+    <td><span class="tag tag-major">master</span></td>
+    <td><strong>700</strong> pts</td>
+    <td>33</td>
+    <td><strong>Ghommal&#39;s Key</strong></td>
+    <td>Unique teleport to any discovered boss lair.</td>
+  </tr>
+  <tr>
+    <td><span class="tag tag-trans">grandmaster</span></td>
+    <td><strong>1200</strong> pts</td>
+    <td>27</td>
+    <td><strong>Ghommal&#39;s Legacy</strong></td>
+    <td>Cosmetic cape, title, and one unique boss encounter.</td>
+  </tr></table><h2>Tasks by Category</h2><table><tr><th>Category</th><th>Count</th><th>Description</th></tr><tr><td><span class="tag tag-skill">kc</span></td><td>86</td><td>Kill count milestones. Acknowledge the grind.</td></tr><tr><td><span class="tag tag-skill">perfection</span></td><td>41</td><td>Flawless — no damage combined with restrictions.</td></tr><tr><td><span class="tag tag-skill">speed</span></td><td>30</td><td>Under-time kills — demand focus.</td></tr><tr><td><span class="tag tag-skill">restriction</span></td><td>29</td><td>&quot;Without X&quot; tasks (no prayer, no food, no damage).</td></tr><tr><td><span class="tag tag-skill">gear</span></td><td>28</td><td>Restricted equipment (tier cap, style lock).</td></tr><tr><td><span class="tag tag-skill">mechanic</span></td><td>17</td><td>Master a specific phase or mechanic.</td></tr><tr><td><span class="tag tag-skill">solo</span></td><td>15</td><td>Solo a normally-partied boss.</td></tr></table>
+<h2 id="tier-easy">Easy Tier — 25 tasks</h2>
+<div class="description"><strong>Perk:</strong> Steady Hand — +1% melee accuracy vs bosses (permanent).<br>
+<strong>Threshold:</strong> 33 total combat achievement points.</div>
+<table>
+  <tr><th>Boss</th><th>Task</th><th>Category</th><th>Description</th><th>Injects</th></tr>
+  <tr>
+    <td><strong>bryophyta_heartlands</strong></td>
+    <td><strong>Moss Boss</strong><br><small>ca_bryo_kill_1</small></td>
+    <td><span class="tag tag-skill">kc</span></td>
+    <td>Defeat Bryophyta.</td>
+    <td><small>1</small></td>
+  </tr>
+  <tr>
+    <td><strong>bryophyta_heartlands</strong></td>
+    <td><strong>Moss Harvester</strong><br><small>ca_bryo_kill_10</small></td>
+    <td><span class="tag tag-skill">kc</span></td>
+    <td>Defeat Bryophyta 10 times.</td>
+    <td><small>1, 11</small></td>
+  </tr>
+  <tr>
+    <td><strong>bryophyta_heartlands</strong></td>
+    <td><strong>Versatile Moss</strong><br><small>ca_bryo_any_style</small></td>
+    <td><span class="tag tag-skill">gear</span></td>
+    <td>Defeat Bryophyta once per combat style.</td>
+    <td><small>7, 14, 16</small></td>
+  </tr>
+  <tr>
+    <td><strong>dagannoth_prime</strong></td>
+    <td><strong>Prime Time</strong><br><small>ca_prime_kill_1</small></td>
+    <td><span class="tag tag-skill">kc</span></td>
+    <td>Defeat Dagannoth Prime.</td>
+    <td><small>1</small></td>
+  </tr>
+  <tr>
+    <td><strong>dagannoth_prime</strong></td>
+    <td><strong>Prime Rival</strong><br><small>ca_prime_first_kill_10</small></td>
+    <td><span class="tag tag-skill">mechanic</span></td>
+    <td>Defeat Dagannoth Prime before completing Dragon Slayer I equivalent.</td>
+    <td><small>4, 14</small></td>
+  </tr>
+  <tr>
+    <td><strong>dagannoth_rex</strong></td>
+    <td><strong>Rex Down</strong><br><small>ca_rex_kill_1</small></td>
+    <td><span class="tag tag-skill">kc</span></td>
+    <td>Defeat Dagannoth Rex.</td>
+    <td><small>1</small></td>
+  </tr>
+  <tr>
+    <td><strong>dagannoth_rex</strong></td>
+    <td><strong>Rex Regular</strong><br><small>ca_rex_kill_10</small></td>
+    <td><span class="tag tag-skill">kc</span></td>
+    <td>Defeat Dagannoth Rex 10 times.</td>
+    <td><small>1, 11</small></td>
+  </tr>
+  <tr>
+    <td><strong>dagannoth_rex</strong></td>
+    <td><strong>Rex Rival</strong><br><small>ca_rex_first_kill_10</small></td>
+    <td><span class="tag tag-skill">mechanic</span></td>
+    <td>Defeat Dagannoth Rex before completing Dragon Slayer I equivalent.</td>
+    <td><small>4, 14</small></td>
+  </tr>
+  <tr>
+    <td><strong>dagannoth_supreme</strong></td>
+    <td><strong>Supreme Victory</strong><br><small>ca_supreme_kill_1</small></td>
+    <td><span class="tag tag-skill">kc</span></td>
+    <td>Defeat Dagannoth Supreme.</td>
+    <td><small>1</small></td>
+  </tr>
+  <tr>
+    <td><strong>dagannoth_supreme</strong></td>
+    <td><strong>Supreme Rival</strong><br><small>ca_supreme_first_kill_10</small></td>
+    <td><span class="tag tag-skill">mechanic</span></td>
+    <td>Defeat Dagannoth Supreme before completing Dragon Slayer I equivalent.</td>
+    <td><small>4, 14</small></td>
+  </tr>
+  <tr>
+    <td><strong>forgefather_duran</strong></td>
+    <td><strong>Smith, Meet Hammer</strong><br><small>ca_duran_kill_1</small></td>
+    <td><span class="tag tag-skill">kc</span></td>
+    <td>Defeat Forgefather Duran.</td>
+    <td><small>1, 11, 18</small></td>
+  </tr>
+  <tr>
+    <td><strong>forgefather_duran</strong></td>
+    <td><strong>Duran Regular</strong><br><small>ca_duran_kill_10</small></td>
+    <td><span class="tag tag-skill">kc</span></td>
+    <td>Defeat Forgefather Duran 10 times.</td>
+    <td><small>1, 11</small></td>
+  </tr>
+  <tr>
+    <td><strong>forgefather_duran</strong></td>
+    <td><strong>Old-School Brawl</strong><br><small>ca_duran_melee_only</small></td>
+    <td><span class="tag tag-skill">gear</span></td>
+    <td>Defeat Forgefather Duran using only melee.</td>
+    <td><small>7, 14, 16</small></td>
+  </tr>
+  <tr>
+    <td><strong>forgefather_duran</strong></td>
+    <td><strong>Versatile Smith</strong><br><small>ca_duran_any_style</small></td>
+    <td><span class="tag tag-skill">gear</span></td>
+    <td>Defeat Forgefather Duran once per combat style (melee, ranged, magic).</td>
+    <td><small>7, 14, 16</small></td>
+  </tr>
+  <tr>
+    <td><strong>giant_mole</strong></td>
+    <td><strong>Mole Hunter</strong><br><small>ca_mole_kill_1</small></td>
+    <td><span class="tag tag-skill">kc</span></td>
+    <td>Defeat the Giant Mole.</td>
+    <td><small>1, 11</small></td>
+  </tr>
+  <tr>
+    <td><strong>giant_mole</strong></td>
+    <td><strong>Whack-a-Mole</strong><br><small>ca_mole_kill_10</small></td>
+    <td><span class="tag tag-skill">kc</span></td>
+    <td>Defeat the Giant Mole 10 times.</td>
+    <td><small>1, 11</small></td>
+  </tr>
+  <tr>
+    <td><strong>giant_mole</strong></td>
+    <td><strong>Versatile Mole</strong><br><small>ca_mole_any_style</small></td>
+    <td><span class="tag tag-skill">gear</span></td>
+    <td>Defeat the Giant Mole once per combat style.</td>
+    <td><small>7, 14, 16</small></td>
+  </tr>
+  <tr>
+    <td><strong>kraken_saltbrine</strong></td>
+    <td><strong>Kraken Slayer</strong><br><small>ca_kraken_kill_1</small></td>
+    <td><span class="tag tag-skill">kc</span></td>
+    <td>Defeat the Kraken.</td>
+    <td><small>1</small></td>
+  </tr>
+  <tr>
+    <td><strong>obor_heartlands</strong></td>
+    <td><strong>Giant Slayer</strong><br><small>ca_obor_kill_1</small></td>
+    <td><span class="tag tag-skill">kc</span></td>
+    <td>Defeat Obor.</td>
+    <td><small>1</small></td>
+  </tr>
+  <tr>
+    <td><strong>obor_heartlands</strong></td>
+    <td><strong>Giant Bane</strong><br><small>ca_obor_kill_10</small></td>
+    <td><span class="tag tag-skill">kc</span></td>
+    <td>Defeat Obor 10 times.</td>
+    <td><small>1, 11</small></td>
+  </tr>
+  <tr>
+    <td><strong>obor_heartlands</strong></td>
+    <td><strong>Versatile Giant</strong><br><small>ca_obor_any_style</small></td>
+    <td><span class="tag tag-skill">gear</span></td>
+    <td>Defeat Obor once per combat style.</td>
+    <td><small>7, 14, 16</small></td>
+  </tr>
+  <tr>
+    <td><strong>pirate_captain</strong></td>
+    <td><strong>Walk the Plank</strong><br><small>ca_pirate_kill_1</small></td>
+    <td><span class="tag tag-skill">kc</span></td>
+    <td>Defeat the Pirate Captain.</td>
+    <td><small>1</small></td>
+  </tr>
+  <tr>
+    <td><strong>pirate_captain</strong></td>
+    <td><strong>Scourge of the Seas</strong><br><small>ca_pirate_kill_25</small></td>
+    <td><span class="tag tag-skill">kc</span></td>
+    <td>Defeat the Pirate Captain 25 times.</td>
+    <td><small>1, 11</small></td>
+  </tr>
+  <tr>
+    <td><strong>pirate_captain</strong></td>
+    <td><strong>Saltwater Spellcaster</strong><br><small>ca_pirate_mage_only</small></td>
+    <td><span class="tag tag-skill">gear</span></td>
+    <td>Defeat the Pirate Captain using only magic.</td>
+    <td><small>7, 16</small></td>
+  </tr>
+  <tr>
+    <td><strong>pirate_captain</strong></td>
+    <td><strong>Versatile Pirate</strong><br><small>ca_pirate_any_style</small></td>
+    <td><span class="tag tag-skill">gear</span></td>
+    <td>Defeat the Pirate Captain once per combat style.</td>
+    <td><small>7, 14, 16</small></td>
+  </tr></table>
+<h2 id="tier-medium">Medium Tier — 48 tasks</h2>
+<div class="description"><strong>Perk:</strong> Market Whisperer — Daily Grand Exchange rate +5%.<br>
+<strong>Threshold:</strong> 75 total combat achievement points.</div>
+<table>
+  <tr><th>Boss</th><th>Task</th><th>Category</th><th>Description</th><th>Injects</th></tr>
+  <tr>
+    <td><strong>bryophyta_heartlands</strong></td>
+    <td><strong>Moss Mower</strong><br><small>ca_bryo_speed_60</small></td>
+    <td><span class="tag tag-skill">speed</span></td>
+    <td>Defeat Bryophyta in under 60 seconds.</td>
+    <td><small>12</small></td>
+  </tr>
+  <tr>
+    <td><strong>bryophyta_heartlands</strong></td>
+    <td><strong>Scorched Earth</strong><br><small>ca_bryo_fire_only</small></td>
+    <td><span class="tag tag-skill">gear</span></td>
+    <td>Defeat Bryophyta using only fire spells.</td>
+    <td><small>7, 14</small></td>
+  </tr>
+  <tr>
+    <td><strong>bryophyta_heartlands</strong></td>
+    <td><strong>Undevout Gardener</strong><br><small>ca_bryo_no_pray</small></td>
+    <td><span class="tag tag-skill">restriction</span></td>
+    <td>Defeat Bryophyta without using prayer.</td>
+    <td><small>4, 5</small></td>
+  </tr>
+  <tr>
+    <td><strong>bryophyta_heartlands</strong></td>
+    <td><strong>Mossbane</strong><br><small>ca_bryo_kill_50</small></td>
+    <td><span class="tag tag-skill">kc</span></td>
+    <td>Defeat Bryophyta 50 times.</td>
+    <td><small>1, 11</small></td>
+  </tr>
+  <tr>
+    <td><strong>dagannoth_prime</strong></td>
+    <td><strong>Prime Regular</strong><br><small>ca_prime_kill_10</small></td>
+    <td><span class="tag tag-skill">kc</span></td>
+    <td>Defeat Dagannoth Prime 10 times.</td>
+    <td><small>1, 11</small></td>
+  </tr>
+  <tr>
+    <td><strong>dagannoth_prime</strong></td>
+    <td><strong>Pincushion Prime</strong><br><small>ca_prime_range_only</small></td>
+    <td><span class="tag tag-skill">gear</span></td>
+    <td>Defeat Dagannoth Prime using only ranged.</td>
+    <td><small>7, 14</small></td>
+  </tr>
+  <tr>
+    <td><strong>dagannoth_prime</strong></td>
+    <td><strong>Prime Veteran</strong><br><small>ca_prime_kill_100</small></td>
+    <td><span class="tag tag-skill">kc</span></td>
+    <td>Defeat Dagannoth Prime 100 times.</td>
+    <td><small>1, 11</small></td>
+  </tr>
+  <tr>
+    <td><strong>dagannoth_rex</strong></td>
+    <td><strong>Proper Protection</strong><br><small>ca_rex_magic_only</small></td>
+    <td><span class="tag tag-skill">gear</span></td>
+    <td>Defeat Dagannoth Rex using only magic (his weakness).</td>
+    <td><small>7, 14, 16</small></td>
+  </tr>
+  <tr>
+    <td><strong>dagannoth_rex</strong></td>
+    <td><strong>Rex Veteran</strong><br><small>ca_rex_kill_100</small></td>
+    <td><span class="tag tag-skill">kc</span></td>
+    <td>Defeat Dagannoth Rex 100 times.</td>
+    <td><small>1, 11</small></td>
+  </tr>
+  <tr>
+    <td><strong>dagannoth_supreme</strong></td>
+    <td><strong>Supreme Regular</strong><br><small>ca_supreme_kill_10</small></td>
+    <td><span class="tag tag-skill">kc</span></td>
+    <td>Defeat Dagannoth Supreme 10 times.</td>
+    <td><small>1, 11</small></td>
+  </tr>
+  <tr>
+    <td><strong>dagannoth_supreme</strong></td>
+    <td><strong>Close Supreme</strong><br><small>ca_supreme_melee</small></td>
+    <td><span class="tag tag-skill">gear</span></td>
+    <td>Defeat Dagannoth Supreme using only melee.</td>
+    <td><small>7, 14</small></td>
+  </tr>
+  <tr>
+    <td><strong>dagannoth_supreme</strong></td>
+    <td><strong>Supreme Veteran</strong><br><small>ca_supreme_kill_100</small></td>
+    <td><span class="tag tag-skill">kc</span></td>
+    <td>Defeat Dagannoth Supreme 100 times.</td>
+    <td><small>1, 11</small></td>
+  </tr>
+  <tr>
+    <td><strong>forgefather_duran</strong></td>
+    <td><strong>Unfaithful Apprentice</strong><br><small>ca_duran_no_prayer</small></td>
+    <td><span class="tag tag-skill">restriction</span></td>
+    <td>Defeat Forgefather Duran without using prayer.</td>
+    <td><small>4, 5, 10</small></td>
+  </tr>
+  <tr>
+    <td><strong>forgefather_duran</strong></td>
+    <td><strong>Speed Smithing</strong><br><small>ca_duran_speed_60</small></td>
+    <td><span class="tag tag-skill">speed</span></td>
+    <td>Defeat Forgefather Duran in under 60 seconds.</td>
+    <td><small>12, 13</small></td>
+  </tr>
+  <tr>
+    <td><strong>giant_mole</strong></td>
+    <td><strong>Hollow Belly</strong><br><small>ca_mole_no_food</small></td>
+    <td><span class="tag tag-skill">restriction</span></td>
+    <td>Defeat the Giant Mole without eating food.</td>
+    <td><small>5, 10</small></td>
+  </tr>
+  <tr>
+    <td><strong>giant_mole</strong></td>
+    <td><strong>Mole on the Move</strong><br><small>ca_mole_speed_90</small></td>
+    <td><span class="tag tag-skill">speed</span></td>
+    <td>Defeat the Giant Mole in under 90 seconds.</td>
+    <td><small>12</small></td>
+  </tr>
+  <tr>
+    <td><strong>giant_mole</strong></td>
+    <td><strong>Mithril Mole</strong><br><small>ca_mole_t60_melee</small></td>
+    <td><span class="tag tag-skill">gear</span></td>
+    <td>Defeat the Giant Mole using only tier-60 melee gear.</td>
+    <td><small>7, 16</small></td>
+  </tr>
+  <tr>
+    <td><strong>kalphite_queen</strong></td>
+    <td><strong>Bug Squasher</strong><br><small>ca_kq_kill_1</small></td>
+    <td><span class="tag tag-skill">kc</span></td>
+    <td>Defeat the Kalphite Queen.</td>
+    <td><small>1</small></td>
+  </tr>
+  <tr>
+    <td><strong>kalphite_queen</strong></td>
+    <td><strong>Bug Exterminator</strong><br><small>ca_kq_kill_10</small></td>
+    <td><span class="tag tag-skill">kc</span></td>
+    <td>Defeat the Kalphite Queen 10 times.</td>
+    <td><small>1, 11</small></td>
+  </tr>
+  <tr>
+    <td><strong>kalphite_queen</strong></td>
+    <td><strong>Crush Phase</strong><br><small>ca_kq_phase1_crush</small></td>
+    <td><span class="tag tag-skill">gear</span></td>
+    <td>Defeat phase 1 using only crush weapons.</td>
+    <td><small>4, 7, 16</small></td>
+  </tr>
+  <tr>
+    <td><strong>kalphite_queen</strong></td>
+    <td><strong>Solo Sovereign</strong><br><small>ca_kq_solo</small></td>
+    <td><span class="tag tag-skill">solo</span></td>
+    <td>Defeat the Kalphite Queen solo.</td>
+    <td><small>9, 14</small></td>
+  </tr>
+  <tr>
+    <td><strong>kraken_saltbrine</strong></td>
+    <td><strong>Kraken Crusher</strong><br><small>ca_kraken_kill_100</small></td>
+    <td><span class="tag tag-skill">kc</span></td>
+    <td>Defeat the Kraken 100 times.</td>
+    <td><small>1, 11</small></td>
+  </tr>
+  <tr>
+    <td><strong>kraken_saltbrine</strong></td>
+    <td><strong>Trident Training</strong><br><small>ca_kraken_t70_mage</small></td>
+    <td><span class="tag tag-skill">gear</span></td>
+    <td>Defeat the Kraken using only a tier-70 magic staff.</td>
+    <td><small>7, 16</small></td>
+  </tr>
+  <tr>
+    <td><strong>kraken_saltbrine</strong></td>
+    <td><strong>Quick Tentacles</strong><br><small>ca_kraken_speed_30</small></td>
+    <td><span class="tag tag-skill">speed</span></td>
+    <td>Defeat the Kraken in under 30 seconds.</td>
+    <td><small>12</small></td>
+  </tr>
+  <tr>
+    <td><strong>kraken_saltbrine</strong></td>
+    <td><strong>Faithless Fisher</strong><br><small>ca_kraken_no_pray</small></td>
+    <td><span class="tag tag-skill">restriction</span></td>
+    <td>Defeat the Kraken without using prayer.</td>
+    <td><small>4, 5</small></td>
+  </tr>
+  <tr>
+    <td><strong>obor_heartlands</strong></td>
+    <td><strong>Faithless Slayer</strong><br><small>ca_obor_no_prayer</small></td>
+    <td><span class="tag tag-skill">restriction</span></td>
+    <td>Defeat Obor without using prayer.</td>
+    <td><small>4, 5</small></td>
+  </tr>
+  <tr>
+    <td><strong>obor_heartlands</strong></td>
+    <td><strong>Giant Stalker</strong><br><small>ca_obor_kill_50</small></td>
+    <td><span class="tag tag-skill">kc</span></td>
+    <td>Defeat Obor 50 times.</td>
+    <td><small>1, 11</small></td>
+  </tr>
+  <tr>
+    <td><strong>obor_heartlands</strong></td>
+    <td><strong>Speed Slayer</strong><br><small>ca_obor_speed_60</small></td>
+    <td><span class="tag tag-skill">speed</span></td>
+    <td>Defeat Obor in under 60 seconds.</td>
+    <td><small>12</small></td>
+  </tr>
+  <tr>
+    <td><strong>obor_heartlands</strong></td>
+    <td><strong>Spellsword</strong><br><small>ca_obor_mage_only</small></td>
+    <td><span class="tag tag-skill">gear</span></td>
+    <td>Defeat Obor using only magic.</td>
+    <td><small>7, 14, 16</small></td>
+  </tr>
+  <tr>
+    <td><strong>pirate_captain</strong></td>
+    <td><strong>Admiral</strong><br><small>ca_pirate_kill_100</small></td>
+    <td><span class="tag tag-skill">kc</span></td>
+    <td>Defeat the Pirate Captain 100 times.</td>
+    <td><small>1, 11</small></td>
+  </tr>
+  <tr>
+    <td><strong>pirate_captain</strong></td>
+    <td><strong>Scurvy Slayer</strong><br><small>ca_pirate_no_food</small></td>
+    <td><span class="tag tag-skill">restriction</span></td>
+    <td>Defeat the Pirate Captain without eating.</td>
+    <td><small>5, 10</small></td>
+  </tr>
+  <tr>
+    <td><strong>pirate_captain</strong></td>
+    <td><strong>Dry Docks</strong><br><small>ca_pirate_no_damage</small></td>
+    <td><span class="tag tag-skill">perfection</span></td>
+    <td>Defeat the Pirate Captain without taking damage.</td>
+    <td><small>10, 13</small></td>
+  </tr>
+  <tr>
+    <td><strong>pirate_captain</strong></td>
+    <td><strong>Keelhauled</strong><br><small>ca_pirate_speed_60</small></td>
+    <td><span class="tag tag-skill">speed</span></td>
+    <td>Defeat the Pirate Captain in under 60 seconds.</td>
+    <td><small>12</small></td>
+  </tr>
+  <tr>
+    <td><strong>sarachnis_moryskah</strong></td>
+    <td><strong>Web Weaver</strong><br><small>ca_sara_kill_1</small></td>
+    <td><span class="tag tag-skill">kc</span></td>
+    <td>Defeat Sarachnis.</td>
+    <td><small>1</small></td>
+  </tr>
+  <tr>
+    <td><strong>sarachnis_moryskah</strong></td>
+    <td><strong>Fasted Web</strong><br><small>ca_sara_no_food</small></td>
+    <td><span class="tag tag-skill">restriction</span></td>
+    <td>Defeat Sarachnis without eating.</td>
+    <td><small>5, 10</small></td>
+  </tr>
+  <tr>
+    <td><strong>sarachnis_moryskah</strong></td>
+    <td><strong>Modest Silks</strong><br><small>ca_sara_t60_gear</small></td>
+    <td><span class="tag tag-skill">gear</span></td>
+    <td>Defeat Sarachnis using only tier-60 gear or lower.</td>
+    <td><small>7, 16</small></td>
+  </tr>
+  <tr>
+    <td><strong>skotizo_moryskah</strong></td>
+    <td><strong>Totem Breaker</strong><br><small>ca_skot_kill_1</small></td>
+    <td><span class="tag tag-skill">kc</span></td>
+    <td>Defeat Skotizo.</td>
+    <td><small>1</small></td>
+  </tr>
+  <tr>
+    <td><strong>skotizo_moryskah</strong></td>
+    <td><strong>Ranged Ritual</strong><br><small>ca_skot_range_only</small></td>
+    <td><span class="tag tag-skill">gear</span></td>
+    <td>Defeat Skotizo using only ranged.</td>
+    <td><small>7, 16</small></td>
+  </tr>
+  <tr>
+    <td><strong>the_veilmother</strong></td>
+    <td><strong>Timber!</strong><br><small>ca_veil_kill_1</small></td>
+    <td><span class="tag tag-skill">kc</span></td>
+    <td>Defeat The Veilmother.</td>
+    <td><small>1</small></td>
+  </tr>
+  <tr>
+    <td><strong>the_veilmother</strong></td>
+    <td><strong>Quick Clearing</strong><br><small>ca_veil_speed_120</small></td>
+    <td><span class="tag tag-skill">speed</span></td>
+    <td>Defeat The Veilmother in under 2 minutes.</td>
+    <td><small>12</small></td>
+  </tr>
+  <tr>
+    <td><strong>the_veilmother</strong></td>
+    <td><strong>Lone Lumberjack</strong><br><small>ca_veil_solo</small></td>
+    <td><span class="tag tag-skill">solo</span></td>
+    <td>Defeat The Veilmother solo.</td>
+    <td><small>9</small></td>
+  </tr>
+  <tr>
+    <td><strong>vorath</strong></td>
+    <td><strong>Forge Breaker</strong><br><small>ca_vorath_kill_1</small></td>
+    <td><span class="tag tag-skill">kc</span></td>
+    <td>Defeat Vorath.</td>
+    <td><small>1</small></td>
+  </tr>
+  <tr>
+    <td><strong>vorath</strong></td>
+    <td><strong>Solo Smith</strong><br><small>ca_vorath_solo</small></td>
+    <td><span class="tag tag-skill">solo</span></td>
+    <td>Defeat Vorath solo.</td>
+    <td><small>9</small></td>
+  </tr>
+  <tr>
+    <td><strong>vorath</strong></td>
+    <td><strong>Adamant Tier</strong><br><small>ca_vorath_t70</small></td>
+    <td><span class="tag tag-skill">gear</span></td>
+    <td>Defeat Vorath using only tier-70 or lower gear.</td>
+    <td><small>7, 16</small></td>
+  </tr>
+  <tr>
+    <td><strong>vorkath</strong></td>
+    <td><strong>Dragon Slayer III</strong><br><small>ca_vorkath_kill_1</small></td>
+    <td><span class="tag tag-skill">kc</span></td>
+    <td>Defeat Vorkath.</td>
+    <td><small>1</small></td>
+  </tr>
+  <tr>
+    <td><strong>vorkath</strong></td>
+    <td><strong>Vorkath Regular</strong><br><small>ca_vorkath_kill_50</small></td>
+    <td><span class="tag tag-skill">kc</span></td>
+    <td>Defeat Vorkath 50 times.</td>
+    <td><small>1, 11</small></td>
+  </tr>
+  <tr>
+    <td><strong>zulrah</strong></td>
+    <td><strong>Snake Charmer</strong><br><small>ca_zulrah_kill_1</small></td>
+    <td><span class="tag tag-skill">kc</span></td>
+    <td>Defeat Zulrah.</td>
+    <td><small>1</small></td>
+  </tr>
+  <tr>
+    <td><strong>zulrah</strong></td>
+    <td><strong>Serpent Farmer</strong><br><small>ca_zulrah_kill_50</small></td>
+    <td><span class="tag tag-skill">kc</span></td>
+    <td>Defeat Zulrah 50 times.</td>
+    <td><small>1, 11</small></td>
+  </tr></table>
+<h2 id="tier-hard">Hard Tier — 55 tasks</h2>
+<div class="description"><strong>Perk:</strong> Faithful Restoration — Bonus prayer point regen when below 30%.<br>
+<strong>Threshold:</strong> 200 total combat achievement points.</div>
+<table>
+  <tr><th>Boss</th><th>Task</th><th>Category</th><th>Description</th><th>Injects</th></tr>
+  <tr>
+    <td><strong>bryophyta_heartlands</strong></td>
+    <td><strong>Moss-free</strong><br><small>ca_bryo_no_damage</small></td>
+    <td><span class="tag tag-skill">perfection</span></td>
+    <td>Defeat Bryophyta without taking damage.</td>
+    <td><small>10, 13</small></td>
+  </tr>
+  <tr>
+    <td><strong>cerberus</strong></td>
+    <td><strong>Puppy Problems</strong><br><small>ca_cerb_kill_1</small></td>
+    <td><span class="tag tag-skill">kc</span></td>
+    <td>Defeat Cerberus.</td>
+    <td><small>1</small></td>
+  </tr>
+  <tr>
+    <td><strong>cerberus</strong></td>
+    <td><strong>Cerberus Veteran</strong><br><small>ca_cerb_kill_100</small></td>
+    <td><span class="tag tag-skill">kc</span></td>
+    <td>Defeat Cerberus 100 times.</td>
+    <td><small>1, 11</small></td>
+  </tr>
+  <tr>
+    <td><strong>cerberus</strong></td>
+    <td><strong>Quick Walkies</strong><br><small>ca_cerb_speed_90</small></td>
+    <td><span class="tag tag-skill">speed</span></td>
+    <td>Defeat Cerberus in under 90 seconds.</td>
+    <td><small>12</small></td>
+  </tr>
+  <tr>
+    <td><strong>commander_zilyana</strong></td>
+    <td><strong>Holy Crusade</strong><br><small>ca_zilyana_kill_1</small></td>
+    <td><span class="tag tag-skill">kc</span></td>
+    <td>Defeat Commander Zilyana.</td>
+    <td><small>1</small></td>
+  </tr>
+  <tr>
+    <td><strong>commander_zilyana</strong></td>
+    <td><strong>Zilyana Veteran</strong><br><small>ca_zilyana_kill_100</small></td>
+    <td><span class="tag tag-skill">kc</span></td>
+    <td>Defeat Commander Zilyana 100 times.</td>
+    <td><small>1, 11</small></td>
+  </tr>
+  <tr>
+    <td><strong>crystal_wyrm</strong></td>
+    <td><strong>Crystal Clear</strong><br><small>ca_wyrm_kill_1</small></td>
+    <td><span class="tag tag-skill">kc</span></td>
+    <td>Defeat the Crystal Wyrm.</td>
+    <td><small>1</small></td>
+  </tr>
+  <tr>
+    <td><strong>crystal_wyrm</strong></td>
+    <td><strong>Crystal Cutter</strong><br><small>ca_wyrm_kill_10</small></td>
+    <td><span class="tag tag-skill">kc</span></td>
+    <td>Defeat the Crystal Wyrm 10 times.</td>
+    <td><small>1, 11</small></td>
+  </tr>
+  <tr>
+    <td><strong>crystal_wyrm</strong></td>
+    <td><strong>Crystal Speed</strong><br><small>ca_wyrm_speed_180</small></td>
+    <td><span class="tag tag-skill">speed</span></td>
+    <td>Defeat the Crystal Wyrm in under 3 minutes.</td>
+    <td><small>12</small></td>
+  </tr>
+  <tr>
+    <td><strong>dagannoth_prime</strong></td>
+    <td><strong>Unbeliever Prime</strong><br><small>ca_prime_no_pray</small></td>
+    <td><span class="tag tag-skill">restriction</span></td>
+    <td>Defeat Dagannoth Prime without using Protect from Magic.</td>
+    <td><small>4, 5</small></td>
+  </tr>
+  <tr>
+    <td><strong>dagannoth_prime</strong></td>
+    <td><strong>Swift Prime</strong><br><small>ca_prime_speed_45</small></td>
+    <td><span class="tag tag-skill">speed</span></td>
+    <td>Defeat Dagannoth Prime in under 45 seconds.</td>
+    <td><small>12</small></td>
+  </tr>
+  <tr>
+    <td><strong>dagannoth_rex</strong></td>
+    <td><strong>Unbroken Prayer</strong><br><small>ca_rex_no_protect</small></td>
+    <td><span class="tag tag-skill">restriction</span></td>
+    <td>Defeat Dagannoth Rex without using Protect from Melee.</td>
+    <td><small>4, 5</small></td>
+  </tr>
+  <tr>
+    <td><strong>dagannoth_rex</strong></td>
+    <td><strong>Rapid Reptile</strong><br><small>ca_rex_speed_45</small></td>
+    <td><span class="tag tag-skill">speed</span></td>
+    <td>Defeat Dagannoth Rex in under 45 seconds.</td>
+    <td><small>12</small></td>
+  </tr>
+  <tr>
+    <td><strong>dagannoth_supreme</strong></td>
+    <td><strong>Uncovered Supreme</strong><br><small>ca_supreme_no_pray</small></td>
+    <td><span class="tag tag-skill">restriction</span></td>
+    <td>Defeat Dagannoth Supreme without using Protect from Missiles.</td>
+    <td><small>4, 5</small></td>
+  </tr>
+  <tr>
+    <td><strong>dagannoth_supreme</strong></td>
+    <td><strong>Kings in a Row</strong><br><small>ca_dks_trip</small></td>
+    <td><span class="tag tag-skill">mechanic</span></td>
+    <td>Defeat all three Dagannoth Kings in a single trip.</td>
+    <td><small>8, 9, 14</small></td>
+  </tr>
+  <tr>
+    <td><strong>duke_sucellus_sootworks</strong></td>
+    <td><strong>Dethrone the Duke</strong><br><small>ca_duke_kill_1</small></td>
+    <td><span class="tag tag-skill">kc</span></td>
+    <td>Defeat Duke Sucellus.</td>
+    <td><small>1</small></td>
+  </tr>
+  <tr>
+    <td><strong>duke_sucellus_sootworks</strong></td>
+    <td><strong>Solo Duke</strong><br><small>ca_duke_solo</small></td>
+    <td><span class="tag tag-skill">solo</span></td>
+    <td>Defeat Duke Sucellus solo.</td>
+    <td><small>9</small></td>
+  </tr>
+  <tr>
+    <td><strong>forgefather_duran</strong></td>
+    <td><strong>Flawless Forge</strong><br><small>ca_duran_no_damage</small></td>
+    <td><span class="tag tag-skill">perfection</span></td>
+    <td>Defeat Forgefather Duran without taking damage.</td>
+    <td><small>4, 10, 13</small></td>
+  </tr>
+  <tr>
+    <td><strong>forgefather_duran</strong></td>
+    <td><strong>Duran Veteran</strong><br><small>ca_duran_kill_100</small></td>
+    <td><span class="tag tag-skill">kc</span></td>
+    <td>Defeat Forgefather Duran 100 times.</td>
+    <td><small>1, 11</small></td>
+  </tr>
+  <tr>
+    <td><strong>general_graardor</strong></td>
+    <td><strong>War is Over</strong><br><small>ca_graardor_kill_1</small></td>
+    <td><span class="tag tag-skill">kc</span></td>
+    <td>Defeat General Graardor.</td>
+    <td><small>1</small></td>
+  </tr>
+  <tr>
+    <td><strong>general_graardor</strong></td>
+    <td><strong>Bandos Veteran</strong><br><small>ca_graardor_kill_100</small></td>
+    <td><span class="tag tag-skill">kc</span></td>
+    <td>Defeat General Graardor 100 times.</td>
+    <td><small>1, 11</small></td>
+  </tr>
+  <tr>
+    <td><strong>giant_mole</strong></td>
+    <td><strong>Mole Master</strong><br><small>ca_mole_kill_100</small></td>
+    <td><span class="tag tag-skill">kc</span></td>
+    <td>Defeat the Giant Mole 100 times.</td>
+    <td><small>1, 11</small></td>
+  </tr>
+  <tr>
+    <td><strong>giant_mole</strong></td>
+    <td><strong>Above Ground</strong><br><small>ca_mole_no_dig</small></td>
+    <td><span class="tag tag-skill">mechanic</span></td>
+    <td>Defeat the Giant Mole without letting it burrow.</td>
+    <td><small>4, 12, 13</small></td>
+  </tr>
+  <tr>
+    <td><strong>kalphite_queen</strong></td>
+    <td><strong>Apiary Archlord</strong><br><small>ca_kq_kill_100</small></td>
+    <td><span class="tag tag-skill">kc</span></td>
+    <td>Defeat the Kalphite Queen 100 times.</td>
+    <td><small>1, 11</small></td>
+  </tr>
+  <tr>
+    <td><strong>kalphite_queen</strong></td>
+    <td><strong>Hive Hurry</strong><br><small>ca_kq_speed_150</small></td>
+    <td><span class="tag tag-skill">speed</span></td>
+    <td>Defeat the Kalphite Queen in under 2:30.</td>
+    <td><small>12</small></td>
+  </tr>
+  <tr>
+    <td><strong>kraken_saltbrine</strong></td>
+    <td><strong>Kraken Captain</strong><br><small>ca_kraken_kill_500</small></td>
+    <td><span class="tag tag-skill">kc</span></td>
+    <td>Defeat the Kraken 500 times.</td>
+    <td><small>1, 11</small></td>
+  </tr>
+  <tr>
+    <td><strong>kraken_saltbrine</strong></td>
+    <td><strong>Dry Docks</strong><br><small>ca_kraken_no_damage</small></td>
+    <td><span class="tag tag-skill">perfection</span></td>
+    <td>Defeat the Kraken without taking damage.</td>
+    <td><small>10, 13</small></td>
+  </tr>
+  <tr>
+    <td><strong>kreearra</strong></td>
+    <td><strong>Bird Down</strong><br><small>ca_kree_kill_1</small></td>
+    <td><span class="tag tag-skill">kc</span></td>
+    <td>Defeat Kree&#39;arra.</td>
+    <td><small>1</small></td>
+  </tr>
+  <tr>
+    <td><strong>kreearra</strong></td>
+    <td><strong>Skyborn Veteran</strong><br><small>ca_kree_kill_100</small></td>
+    <td><span class="tag tag-skill">kc</span></td>
+    <td>Defeat Kree&#39;arra 100 times.</td>
+    <td><small>1, 11</small></td>
+  </tr>
+  <tr>
+    <td><strong>kril_tsutsaroth</strong></td>
+    <td><strong>Demon Fall</strong><br><small>ca_kril_kill_1</small></td>
+    <td><span class="tag tag-skill">kc</span></td>
+    <td>Defeat K&#39;ril Tsutsaroth.</td>
+    <td><small>1</small></td>
+  </tr>
+  <tr>
+    <td><strong>kril_tsutsaroth</strong></td>
+    <td><strong>Kril Veteran</strong><br><small>ca_kril_kill_100</small></td>
+    <td><span class="tag tag-skill">kc</span></td>
+    <td>Defeat K&#39;ril Tsutsaroth 100 times.</td>
+    <td><small>1, 11</small></td>
+  </tr>
+  <tr>
+    <td><strong>obor_heartlands</strong></td>
+    <td><strong>Giant Evader</strong><br><small>ca_obor_no_damage</small></td>
+    <td><span class="tag tag-skill">perfection</span></td>
+    <td>Defeat Obor without taking damage.</td>
+    <td><small>10, 13</small></td>
+  </tr>
+  <tr>
+    <td><strong>phantom_muspah_inkweald</strong></td>
+    <td><strong>Muspah Down</strong><br><small>ca_muspah_kill_1</small></td>
+    <td><span class="tag tag-skill">kc</span></td>
+    <td>Defeat the Phantom Muspah.</td>
+    <td><small>1</small></td>
+  </tr>
+  <tr>
+    <td><strong>sarachnis_moryskah</strong></td>
+    <td><strong>Sarachnis Veteran</strong><br><small>ca_sara_kill_100</small></td>
+    <td><span class="tag tag-skill">kc</span></td>
+    <td>Defeat Sarachnis 100 times.</td>
+    <td><small>1, 11</small></td>
+  </tr>
+  <tr>
+    <td><strong>sarachnis_moryskah</strong></td>
+    <td><strong>Quick Crawler</strong><br><small>ca_sara_speed_60</small></td>
+    <td><span class="tag tag-skill">speed</span></td>
+    <td>Defeat Sarachnis in under 60 seconds.</td>
+    <td><small>12</small></td>
+  </tr>
+  <tr>
+    <td><strong>sarachnis_moryskah</strong></td>
+    <td><strong>Single-Style</strong><br><small>ca_sara_no_switch</small></td>
+    <td><span class="tag tag-skill">restriction</span></td>
+    <td>Defeat Sarachnis without switching attack styles.</td>
+    <td><small>4, 5, 16</small></td>
+  </tr>
+  <tr>
+    <td><strong>skotizo_moryskah</strong></td>
+    <td><strong>Totem Thresher</strong><br><small>ca_skot_kill_25</small></td>
+    <td><span class="tag tag-skill">kc</span></td>
+    <td>Defeat Skotizo 25 times.</td>
+    <td><small>1, 11</small></td>
+  </tr>
+  <tr>
+    <td><strong>skotizo_moryskah</strong></td>
+    <td><strong>Totem Untouched</strong><br><small>ca_skot_no_damage</small></td>
+    <td><span class="tag tag-skill">perfection</span></td>
+    <td>Defeat Skotizo without taking damage.</td>
+    <td><small>10, 13</small></td>
+  </tr>
+  <tr>
+    <td><strong>skotizo_moryskah</strong></td>
+    <td><strong>Unshielded Soul</strong><br><small>ca_skot_no_pray</small></td>
+    <td><span class="tag tag-skill">restriction</span></td>
+    <td>Defeat Skotizo without using prayer.</td>
+    <td><small>4, 5</small></td>
+  </tr>
+  <tr>
+    <td><strong>the_glass_tyrant</strong></td>
+    <td><strong>Shattered</strong><br><small>ca_glass_kill_1</small></td>
+    <td><span class="tag tag-skill">kc</span></td>
+    <td>Defeat The Glass Tyrant.</td>
+    <td><small>1</small></td>
+  </tr>
+  <tr>
+    <td><strong>the_nightmare</strong></td>
+    <td><strong>Wake Up Call</strong><br><small>ca_nm_kill_1</small></td>
+    <td><span class="tag tag-skill">kc</span></td>
+    <td>Defeat The Nightmare.</td>
+    <td><small>1</small></td>
+  </tr>
+  <tr>
+    <td><strong>the_soot_king</strong></td>
+    <td><strong>King Dethroned</strong><br><small>ca_soot_kill_1</small></td>
+    <td><span class="tag tag-skill">kc</span></td>
+    <td>Defeat the Soot King.</td>
+    <td><small>1</small></td>
+  </tr>
+  <tr>
+    <td><strong>the_soot_king</strong></td>
+    <td><strong>Solo Sovereign</strong><br><small>ca_soot_solo</small></td>
+    <td><span class="tag tag-skill">solo</span></td>
+    <td>Defeat the Soot King solo.</td>
+    <td><small>9</small></td>
+  </tr>
+  <tr>
+    <td><strong>the_veilmother</strong></td>
+    <td><strong>Forest Fell</strong><br><small>ca_veil_kill_50</small></td>
+    <td><span class="tag tag-skill">kc</span></td>
+    <td>Defeat The Veilmother 50 times.</td>
+    <td><small>1, 11</small></td>
+  </tr>
+  <tr>
+    <td><strong>the_veilmother</strong></td>
+    <td><strong>Untangled</strong><br><small>ca_veil_no_damage</small></td>
+    <td><span class="tag tag-skill">perfection</span></td>
+    <td>Defeat The Veilmother without taking damage.</td>
+    <td><small>10, 13</small></td>
+  </tr>
+  <tr>
+    <td><strong>the_veilmother</strong></td>
+    <td><strong>No Roots</strong><br><small>ca_veil_no_root</small></td>
+    <td><span class="tag tag-skill">mechanic</span></td>
+    <td>Defeat The Veilmother without being rooted.</td>
+    <td><small>4, 12</small></td>
+  </tr>
+  <tr>
+    <td><strong>the_veilmother</strong></td>
+    <td><strong>Scorched Canopy</strong><br><small>ca_veil_fire</small></td>
+    <td><span class="tag tag-skill">gear</span></td>
+    <td>Defeat The Veilmother using only fire spells.</td>
+    <td><small>7, 14, 16</small></td>
+  </tr>
+  <tr>
+    <td><strong>vorath</strong></td>
+    <td><strong>Forge Veteran</strong><br><small>ca_vorath_kill_100</small></td>
+    <td><span class="tag tag-skill">kc</span></td>
+    <td>Defeat Vorath 100 times.</td>
+    <td><small>1, 11</small></td>
+  </tr>
+  <tr>
+    <td><strong>vorath</strong></td>
+    <td><strong>Hammer Down</strong><br><small>ca_vorath_speed_90</small></td>
+    <td><span class="tag tag-skill">speed</span></td>
+    <td>Defeat Vorath in under 90 seconds.</td>
+    <td><small>12</small></td>
+  </tr>
+  <tr>
+    <td><strong>vorath</strong></td>
+    <td><strong>No Fancy Footwork</strong><br><small>ca_vorath_no_dodge</small></td>
+    <td><span class="tag tag-skill">mechanic</span></td>
+    <td>Defeat Vorath without dodging the forge blast (use gear).</td>
+    <td><small>4, 7, 13</small></td>
+  </tr>
+  <tr>
+    <td><strong>vorkath</strong></td>
+    <td><strong>Vorkath Expert</strong><br><small>ca_vorkath_kill_200</small></td>
+    <td><span class="tag tag-skill">kc</span></td>
+    <td>Defeat Vorkath 200 times.</td>
+    <td><small>1, 11</small></td>
+  </tr>
+  <tr>
+    <td><strong>vorkath</strong></td>
+    <td><strong>Speed Dragon</strong><br><small>ca_vorkath_speed_120</small></td>
+    <td><span class="tag tag-skill">speed</span></td>
+    <td>Defeat Vorkath in under 2 minutes.</td>
+    <td><small>12</small></td>
+  </tr>
+  <tr>
+    <td><strong>zulrah</strong></td>
+    <td><strong>Serpent Expert</strong><br><small>ca_zulrah_kill_200</small></td>
+    <td><span class="tag tag-skill">kc</span></td>
+    <td>Defeat Zulrah 200 times.</td>
+    <td><small>1, 11</small></td>
+  </tr>
+  <tr>
+    <td><strong>zulrah</strong></td>
+    <td><strong>Speed Snake</strong><br><small>ca_zulrah_speed_90</small></td>
+    <td><span class="tag tag-skill">speed</span></td>
+    <td>Defeat Zulrah in under 90 seconds.</td>
+    <td><small>12</small></td>
+  </tr>
+  <tr>
+    <td><strong>zulrah</strong></td>
+    <td><strong>No Escape</strong><br><small>ca_zulrah_no_teleport</small></td>
+    <td><span class="tag tag-skill">restriction</span></td>
+    <td>Defeat Zulrah without using the tanning escape teleport.</td>
+    <td><small>5, 10</small></td>
+  </tr></table>
+<h2 id="tier-elite">Elite Tier — 58 tasks</h2>
+<div class="description"><strong>Perk:</strong> Phoenix Pulse — One-time heal on near-death per combat encounter.<br>
+<strong>Threshold:</strong> 400 total combat achievement points.</div>
+<table>
+  <tr><th>Boss</th><th>Task</th><th>Category</th><th>Description</th><th>Injects</th></tr>
+  <tr>
+    <td><strong>cerberus</strong></td>
+    <td><strong>Ghost Switcher</strong><br><small>ca_cerb_ghost_prayer</small></td>
+    <td><span class="tag tag-skill">mechanic</span></td>
+    <td>Defeat Cerberus while flicking prayers correctly for every ghost (no chip damage from souls).</td>
+    <td><small>4, 12, 13</small></td>
+  </tr>
+  <tr>
+    <td><strong>cerberus</strong></td>
+    <td><strong>Starved Paw</strong><br><small>ca_cerb_no_food</small></td>
+    <td><span class="tag tag-skill">restriction</span></td>
+    <td>Defeat Cerberus without eating.</td>
+    <td><small>5, 10</small></td>
+  </tr>
+  <tr>
+    <td><strong>commander_zilyana</strong></td>
+    <td><strong>Speed of Light</strong><br><small>ca_zilyana_speed_60</small></td>
+    <td><span class="tag tag-skill">speed</span></td>
+    <td>Defeat Commander Zilyana in under 60 seconds.</td>
+    <td><small>12</small></td>
+  </tr>
+  <tr>
+    <td><strong>commander_zilyana</strong></td>
+    <td><strong>Solo Saradominist</strong><br><small>ca_zilyana_solo</small></td>
+    <td><span class="tag tag-skill">solo</span></td>
+    <td>Defeat Commander Zilyana solo.</td>
+    <td><small>9</small></td>
+  </tr>
+  <tr>
+    <td><strong>commander_zilyana</strong></td>
+    <td><strong>Arrows of Faith</strong><br><small>ca_zilyana_range_only</small></td>
+    <td><span class="tag tag-skill">gear</span></td>
+    <td>Defeat Commander Zilyana using only ranged (her weakness).</td>
+    <td><small>7, 16</small></td>
+  </tr>
+  <tr>
+    <td><strong>corporeal_beast</strong></td>
+    <td><strong>Beast Slain</strong><br><small>ca_corp_kill_1</small></td>
+    <td><span class="tag tag-skill">kc</span></td>
+    <td>Defeat the Corporeal Beast.</td>
+    <td><small>1</small></td>
+  </tr>
+  <tr>
+    <td><strong>corporeal_beast</strong></td>
+    <td><strong>Corp Regular</strong><br><small>ca_corp_kill_10</small></td>
+    <td><span class="tag tag-skill">kc</span></td>
+    <td>Defeat the Corporeal Beast 10 times.</td>
+    <td><small>1, 11</small></td>
+  </tr>
+  <tr>
+    <td><strong>corporeal_beast</strong></td>
+    <td><strong>Solo Corp</strong><br><small>ca_corp_solo</small></td>
+    <td><span class="tag tag-skill">solo</span></td>
+    <td>Defeat the Corporeal Beast solo.</td>
+    <td><small>9, 14</small></td>
+  </tr>
+  <tr>
+    <td><strong>corporeal_beast</strong></td>
+    <td><strong>Spear of Zamorak</strong><br><small>ca_corp_spec_spear</small></td>
+    <td><span class="tag tag-skill">gear</span></td>
+    <td>Defeat the Corporeal Beast using only a spear-type weapon.</td>
+    <td><small>7, 16</small></td>
+  </tr>
+  <tr>
+    <td><strong>crystal_wyrm</strong></td>
+    <td><strong>Crystal Connoisseur</strong><br><small>ca_wyrm_kill_100</small></td>
+    <td><span class="tag tag-skill">kc</span></td>
+    <td>Defeat the Crystal Wyrm 100 times.</td>
+    <td><small>1, 11</small></td>
+  </tr>
+  <tr>
+    <td><strong>crystal_wyrm</strong></td>
+    <td><strong>No Cover</strong><br><small>ca_wyrm_no_pillar</small></td>
+    <td><span class="tag tag-skill">mechanic</span></td>
+    <td>Defeat the Crystal Wyrm without hiding behind a pillar.</td>
+    <td><small>4, 10, 13</small></td>
+  </tr>
+  <tr>
+    <td><strong>crystal_wyrm</strong></td>
+    <td><strong>Crystal Perfection</strong><br><small>ca_wyrm_no_damage</small></td>
+    <td><span class="tag tag-skill">perfection</span></td>
+    <td>Defeat the Crystal Wyrm without taking damage.</td>
+    <td><small>10, 13</small></td>
+  </tr>
+  <tr>
+    <td><strong>crystal_wyrm</strong></td>
+    <td><strong>No Chill</strong><br><small>ca_wyrm_no_storm</small></td>
+    <td><span class="tag tag-skill">mechanic</span></td>
+    <td>Defeat the Crystal Wyrm without taking damage from the ice storm.</td>
+    <td><small>4, 12, 13</small></td>
+  </tr>
+  <tr>
+    <td><strong>dagannoth_prime</strong></td>
+    <td><strong>Untouched Prime</strong><br><small>ca_prime_no_damage</small></td>
+    <td><span class="tag tag-skill">perfection</span></td>
+    <td>Defeat Dagannoth Prime without taking damage.</td>
+    <td><small>10, 13</small></td>
+  </tr>
+  <tr>
+    <td><strong>dagannoth_rex</strong></td>
+    <td><strong>Flawless Rex</strong><br><small>ca_rex_no_damage</small></td>
+    <td><span class="tag tag-skill">perfection</span></td>
+    <td>Defeat Dagannoth Rex without taking damage.</td>
+    <td><small>10, 13</small></td>
+  </tr>
+  <tr>
+    <td><strong>dagannoth_supreme</strong></td>
+    <td><strong>Untouched Supreme</strong><br><small>ca_supreme_no_damage</small></td>
+    <td><span class="tag tag-skill">perfection</span></td>
+    <td>Defeat Dagannoth Supreme without taking damage.</td>
+    <td><small>10, 13</small></td>
+  </tr>
+  <tr>
+    <td><strong>duke_sucellus_sootworks</strong></td>
+    <td><strong>Duke Veteran</strong><br><small>ca_duke_kill_100</small></td>
+    <td><span class="tag tag-skill">kc</span></td>
+    <td>Defeat Duke Sucellus 100 times.</td>
+    <td><small>1, 11</small></td>
+  </tr>
+  <tr>
+    <td><strong>duke_sucellus_sootworks</strong></td>
+    <td><strong>Ducal Speed</strong><br><small>ca_duke_speed_90</small></td>
+    <td><span class="tag tag-skill">speed</span></td>
+    <td>Defeat Duke Sucellus in under 90 seconds.</td>
+    <td><small>12</small></td>
+  </tr>
+  <tr>
+    <td><strong>duke_sucellus_sootworks</strong></td>
+    <td><strong>Rune Ducal</strong><br><small>ca_duke_t80</small></td>
+    <td><span class="tag tag-skill">gear</span></td>
+    <td>Defeat Duke Sucellus using only tier-80 or lower gear.</td>
+    <td><small>7, 16</small></td>
+  </tr>
+  <tr>
+    <td><strong>duke_sucellus_sootworks</strong></td>
+    <td><strong>Unshielded Duke</strong><br><small>ca_duke_no_pray</small></td>
+    <td><span class="tag tag-skill">restriction</span></td>
+    <td>Defeat Duke Sucellus without using prayer.</td>
+    <td><small>4, 5</small></td>
+  </tr>
+  <tr>
+    <td><strong>general_graardor</strong></td>
+    <td><strong>Blitz Bandos</strong><br><small>ca_graardor_speed_60</small></td>
+    <td><span class="tag tag-skill">speed</span></td>
+    <td>Defeat General Graardor in under 60 seconds.</td>
+    <td><small>12</small></td>
+  </tr>
+  <tr>
+    <td><strong>general_graardor</strong></td>
+    <td><strong>Solo Bandosian</strong><br><small>ca_graardor_solo</small></td>
+    <td><span class="tag tag-skill">solo</span></td>
+    <td>Defeat General Graardor solo.</td>
+    <td><small>9</small></td>
+  </tr>
+  <tr>
+    <td><strong>general_graardor</strong></td>
+    <td><strong>Mage Makes War</strong><br><small>ca_graardor_mage_only</small></td>
+    <td><span class="tag tag-skill">gear</span></td>
+    <td>Defeat General Graardor using only magic (his weakness).</td>
+    <td><small>7, 16</small></td>
+  </tr>
+  <tr>
+    <td><strong>general_graardor</strong></td>
+    <td><strong>Iron Stomach</strong><br><small>ca_graardor_no_food</small></td>
+    <td><span class="tag tag-skill">restriction</span></td>
+    <td>Defeat General Graardor without eating.</td>
+    <td><small>5, 10</small></td>
+  </tr>
+  <tr>
+    <td><strong>hollow_choir_conductor</strong></td>
+    <td><strong>Choir Silenced</strong><br><small>ca_choir_kill_1</small></td>
+    <td><span class="tag tag-skill">kc</span></td>
+    <td>Defeat the Hollow Choir Conductor.</td>
+    <td><small>1</small></td>
+  </tr>
+  <tr>
+    <td><strong>inkweald_muse</strong></td>
+    <td><strong>Muse Silenced</strong><br><small>ca_muse_kill_1</small></td>
+    <td><span class="tag tag-skill">kc</span></td>
+    <td>Defeat the Inkweald Muse.</td>
+    <td><small>1</small></td>
+  </tr>
+  <tr>
+    <td><strong>inkweald_muse</strong></td>
+    <td><strong>Solo Silencer</strong><br><small>ca_muse_solo</small></td>
+    <td><span class="tag tag-skill">solo</span></td>
+    <td>Defeat the Inkweald Muse solo.</td>
+    <td><small>9</small></td>
+  </tr>
+  <tr>
+    <td><strong>kalphite_queen</strong></td>
+    <td><strong>Untouched Queen</strong><br><small>ca_kq_no_damage</small></td>
+    <td><span class="tag tag-skill">perfection</span></td>
+    <td>Defeat the Kalphite Queen without taking damage.</td>
+    <td><small>10, 13</small></td>
+  </tr>
+  <tr>
+    <td><strong>kreearra</strong></td>
+    <td><strong>Aviation Ban</strong><br><small>ca_kree_speed_60</small></td>
+    <td><span class="tag tag-skill">speed</span></td>
+    <td>Defeat Kree&#39;arra in under 60 seconds.</td>
+    <td><small>12</small></td>
+  </tr>
+  <tr>
+    <td><strong>kreearra</strong></td>
+    <td><strong>Solo Skybreaker</strong><br><small>ca_kree_solo</small></td>
+    <td><span class="tag tag-skill">solo</span></td>
+    <td>Defeat Kree&#39;arra solo.</td>
+    <td><small>9</small></td>
+  </tr>
+  <tr>
+    <td><strong>kreearra</strong></td>
+    <td><strong>Spellbreaker</strong><br><small>ca_kree_mage_only</small></td>
+    <td><span class="tag tag-skill">gear</span></td>
+    <td>Defeat Kree&#39;arra using only magic (her weakness).</td>
+    <td><small>7, 16</small></td>
+  </tr>
+  <tr>
+    <td><strong>kreearra</strong></td>
+    <td><strong>Faithless Flier</strong><br><small>ca_kree_no_pray</small></td>
+    <td><span class="tag tag-skill">restriction</span></td>
+    <td>Defeat Kree&#39;arra without using prayer.</td>
+    <td><small>4, 5</small></td>
+  </tr>
+  <tr>
+    <td><strong>kril_tsutsaroth</strong></td>
+    <td><strong>Quick Exorcism</strong><br><small>ca_kril_speed_60</small></td>
+    <td><span class="tag tag-skill">speed</span></td>
+    <td>Defeat K&#39;ril Tsutsaroth in under 60 seconds.</td>
+    <td><small>12</small></td>
+  </tr>
+  <tr>
+    <td><strong>kril_tsutsaroth</strong></td>
+    <td><strong>Solo Exorcist</strong><br><small>ca_kril_solo</small></td>
+    <td><span class="tag tag-skill">solo</span></td>
+    <td>Defeat K&#39;ril Tsutsaroth solo.</td>
+    <td><small>9</small></td>
+  </tr>
+  <tr>
+    <td><strong>kril_tsutsaroth</strong></td>
+    <td><strong>Demonbane</strong><br><small>ca_kril_arclight</small></td>
+    <td><span class="tag tag-skill">gear</span></td>
+    <td>Defeat K&#39;ril Tsutsaroth using a demonbane weapon (Arclight-equivalent).</td>
+    <td><small>7, 16</small></td>
+  </tr>
+  <tr>
+    <td><strong>kril_tsutsaroth</strong></td>
+    <td><strong>Prayerless Pit</strong><br><small>ca_kril_no_pray</small></td>
+    <td><span class="tag tag-skill">restriction</span></td>
+    <td>Defeat K&#39;ril Tsutsaroth without using prayer.</td>
+    <td><small>4, 5</small></td>
+  </tr>
+  <tr>
+    <td><strong>phantom_muspah_inkweald</strong></td>
+    <td><strong>Muspah Veteran</strong><br><small>ca_muspah_kill_100</small></td>
+    <td><span class="tag tag-skill">kc</span></td>
+    <td>Defeat the Phantom Muspah 100 times.</td>
+    <td><small>1, 11</small></td>
+  </tr>
+  <tr>
+    <td><strong>sarachnis_moryskah</strong></td>
+    <td><strong>Webless</strong><br><small>ca_sara_no_damage</small></td>
+    <td><span class="tag tag-skill">perfection</span></td>
+    <td>Defeat Sarachnis without taking damage.</td>
+    <td><small>10, 13</small></td>
+  </tr>
+  <tr>
+    <td><strong>skotizo_moryskah</strong></td>
+    <td><strong>No Altar Aid</strong><br><small>ca_skot_no_altar</small></td>
+    <td><span class="tag tag-skill">mechanic</span></td>
+    <td>Defeat Skotizo without destroying any of his totems.</td>
+    <td><small>4, 10, 13</small></td>
+  </tr>
+  <tr>
+    <td><strong>skotizo_moryskah</strong></td>
+    <td><strong>Swift Crusher</strong><br><small>ca_skot_solo_speed</small></td>
+    <td><span class="tag tag-skill">speed</span></td>
+    <td>Defeat Skotizo solo in under 2 minutes.</td>
+    <td><small>9, 12</small></td>
+  </tr>
+  <tr>
+    <td><strong>the_glass_tyrant</strong></td>
+    <td><strong>Glass Breaker</strong><br><small>ca_glass_kill_50</small></td>
+    <td><span class="tag tag-skill">kc</span></td>
+    <td>Defeat The Glass Tyrant 50 times.</td>
+    <td><small>1, 11</small></td>
+  </tr>
+  <tr>
+    <td><strong>the_glass_tyrant</strong></td>
+    <td><strong>Prism Speedkill</strong><br><small>ca_glass_speed_180</small></td>
+    <td><span class="tag tag-skill">speed</span></td>
+    <td>Defeat The Glass Tyrant in under 3 minutes.</td>
+    <td><small>12</small></td>
+  </tr>
+  <tr>
+    <td><strong>the_glass_tyrant</strong></td>
+    <td><strong>Pierced Crystal</strong><br><small>ca_glass_range_only</small></td>
+    <td><span class="tag tag-skill">gear</span></td>
+    <td>Defeat The Glass Tyrant using only ranged.</td>
+    <td><small>7, 16</small></td>
+  </tr>
+  <tr>
+    <td><strong>the_glass_tyrant</strong></td>
+    <td><strong>Glass Belly</strong><br><small>ca_glass_no_food</small></td>
+    <td><span class="tag tag-skill">restriction</span></td>
+    <td>Defeat The Glass Tyrant without eating.</td>
+    <td><small>5, 10</small></td>
+  </tr>
+  <tr>
+    <td><strong>the_nightmare</strong></td>
+    <td><strong>Nightmare Regular</strong><br><small>ca_nm_kill_50</small></td>
+    <td><span class="tag tag-skill">kc</span></td>
+    <td>Defeat The Nightmare 50 times.</td>
+    <td><small>1, 11</small></td>
+  </tr>
+  <tr>
+    <td><strong>the_nightmare</strong></td>
+    <td><strong>Dream Team</strong><br><small>ca_nm_5man</small></td>
+    <td><span class="tag tag-skill">mechanic</span></td>
+    <td>Defeat The Nightmare with exactly 5 players.</td>
+    <td><small>4, 9, 14</small></td>
+  </tr>
+  <tr>
+    <td><strong>the_nightmare</strong></td>
+    <td><strong>Rapid REM</strong><br><small>ca_nm_speed_5m</small></td>
+    <td><span class="tag tag-skill">speed</span></td>
+    <td>Defeat The Nightmare in under 5 minutes.</td>
+    <td><small>12</small></td>
+  </tr>
+  <tr>
+    <td><strong>the_soot_king</strong></td>
+    <td><strong>Sootless Kingdom</strong><br><small>ca_soot_kill_50</small></td>
+    <td><span class="tag tag-skill">kc</span></td>
+    <td>Defeat the Soot King 50 times.</td>
+    <td><small>1, 11</small></td>
+  </tr>
+  <tr>
+    <td><strong>the_soot_king</strong></td>
+    <td><strong>Regicide</strong><br><small>ca_soot_speed_150</small></td>
+    <td><span class="tag tag-skill">speed</span></td>
+    <td>Defeat the Soot King in under 2:30.</td>
+    <td><small>12</small></td>
+  </tr>
+  <tr>
+    <td><strong>the_soot_king</strong></td>
+    <td><strong>Throneless Feast</strong><br><small>ca_soot_no_food</small></td>
+    <td><span class="tag tag-skill">restriction</span></td>
+    <td>Defeat the Soot King without eating.</td>
+    <td><small>5, 10</small></td>
+  </tr>
+  <tr>
+    <td><strong>the_soot_king</strong></td>
+    <td><strong>Sorcerer Sovereign</strong><br><small>ca_soot_mage</small></td>
+    <td><span class="tag tag-skill">gear</span></td>
+    <td>Defeat the Soot King using only magic.</td>
+    <td><small>7, 16</small></td>
+  </tr>
+  <tr>
+    <td><strong>the_whisperer_inkweald</strong></td>
+    <td><strong>First Whisper</strong><br><small>ca_whisper_kill_1</small></td>
+    <td><span class="tag tag-skill">kc</span></td>
+    <td>Defeat The Whisperer.</td>
+    <td><small>1</small></td>
+  </tr>
+  <tr>
+    <td><strong>vardorvis_sootworks</strong></td>
+    <td><strong>Axeman Felled</strong><br><small>ca_vard_kill_1</small></td>
+    <td><span class="tag tag-skill">kc</span></td>
+    <td>Defeat Vardorvis.</td>
+    <td><small>1</small></td>
+  </tr>
+  <tr>
+    <td><strong>veldrak</strong></td>
+    <td><strong>Dragon Ender</strong><br><small>ca_veldrak_kill_1</small></td>
+    <td><span class="tag tag-skill">kc</span></td>
+    <td>Defeat Veldrak, the Last Dragon.</td>
+    <td><small>1</small></td>
+  </tr>
+  <tr>
+    <td><strong>vorath</strong></td>
+    <td><strong>Anvil Untouched</strong><br><small>ca_vorath_no_damage</small></td>
+    <td><span class="tag tag-skill">perfection</span></td>
+    <td>Defeat Vorath without taking damage.</td>
+    <td><small>10, 13</small></td>
+  </tr>
+  <tr>
+    <td><strong>vorkath</strong></td>
+    <td><strong>Perfect Dragon</strong><br><small>ca_vorkath_no_damage</small></td>
+    <td><span class="tag tag-skill">perfection</span></td>
+    <td>Defeat Vorkath without taking damage.</td>
+    <td><small>4, 10, 13</small></td>
+  </tr>
+  <tr>
+    <td><strong>vorkath</strong></td>
+    <td><strong>Starving Slayer</strong><br><small>ca_vorkath_no_food</small></td>
+    <td><span class="tag tag-skill">restriction</span></td>
+    <td>Defeat Vorkath without eating any food.</td>
+    <td><small>5, 10</small></td>
+  </tr>
+  <tr>
+    <td><strong>zulrah</strong></td>
+    <td><strong>Perfect Serpent</strong><br><small>ca_zulrah_no_damage</small></td>
+    <td><span class="tag tag-skill">perfection</span></td>
+    <td>Defeat Zulrah without taking damage.</td>
+    <td><small>4, 10, 13</small></td>
+  </tr></table>
+<h2 id="tier-master">Master Tier — 33 tasks</h2>
+<div class="description"><strong>Perk:</strong> Ghommal&#39;s Key — Unique teleport to any discovered boss lair.<br>
+<strong>Threshold:</strong> 700 total combat achievement points.</div>
+<table>
+  <tr><th>Boss</th><th>Task</th><th>Category</th><th>Description</th><th>Injects</th></tr>
+  <tr>
+    <td><strong>cerberus</strong></td>
+    <td><strong>Cerberus Master</strong><br><small>ca_cerb_kill_500</small></td>
+    <td><span class="tag tag-skill">kc</span></td>
+    <td>Defeat Cerberus 500 times.</td>
+    <td><small>1, 11</small></td>
+  </tr>
+  <tr>
+    <td><strong>cerberus</strong></td>
+    <td><strong>Faithless Kennel</strong><br><small>ca_cerb_no_prayer</small></td>
+    <td><span class="tag tag-skill">restriction</span></td>
+    <td>Defeat Cerberus without using prayer.</td>
+    <td><small>4, 5</small></td>
+  </tr>
+  <tr>
+    <td><strong>commander_zilyana</strong></td>
+    <td><strong>Light Without Burn</strong><br><small>ca_zilyana_no_damage</small></td>
+    <td><span class="tag tag-skill">perfection</span></td>
+    <td>Defeat Commander Zilyana without taking damage.</td>
+    <td><small>10, 13</small></td>
+  </tr>
+  <tr>
+    <td><strong>commander_zilyana</strong></td>
+    <td><strong>Pagan Commander</strong><br><small>ca_zilyana_no_prayer</small></td>
+    <td><span class="tag tag-skill">restriction</span></td>
+    <td>Defeat Commander Zilyana without using prayer.</td>
+    <td><small>4, 5</small></td>
+  </tr>
+  <tr>
+    <td><strong>corporeal_beast</strong></td>
+    <td><strong>Corp Veteran</strong><br><small>ca_corp_kill_100</small></td>
+    <td><span class="tag tag-skill">kc</span></td>
+    <td>Defeat the Corporeal Beast 100 times.</td>
+    <td><small>1, 11</small></td>
+  </tr>
+  <tr>
+    <td><strong>corporeal_beast</strong></td>
+    <td><strong>Fasting Beast</strong><br><small>ca_corp_no_food</small></td>
+    <td><span class="tag tag-skill">restriction</span></td>
+    <td>Defeat the Corporeal Beast without eating.</td>
+    <td><small>5, 10</small></td>
+  </tr>
+  <tr>
+    <td><strong>corporeal_beast</strong></td>
+    <td><strong>Focused Beast</strong><br><small>ca_corp_no_dark_core</small></td>
+    <td><span class="tag tag-skill">mechanic</span></td>
+    <td>Defeat the Corporeal Beast without the dark core splitting more than once.</td>
+    <td><small>4, 12, 13</small></td>
+  </tr>
+  <tr>
+    <td><strong>duke_sucellus_sootworks</strong></td>
+    <td><strong>Untouched Duke</strong><br><small>ca_duke_no_damage</small></td>
+    <td><span class="tag tag-skill">perfection</span></td>
+    <td>Defeat Duke Sucellus without taking damage.</td>
+    <td><small>10, 13</small></td>
+  </tr>
+  <tr>
+    <td><strong>general_graardor</strong></td>
+    <td><strong>Un-Stomped</strong><br><small>ca_graardor_no_damage</small></td>
+    <td><span class="tag tag-skill">perfection</span></td>
+    <td>Defeat General Graardor without taking damage.</td>
+    <td><small>10, 13</small></td>
+  </tr>
+  <tr>
+    <td><strong>hollow_choir_conductor</strong></td>
+    <td><strong>Choir Dismissed</strong><br><small>ca_choir_kill_25</small></td>
+    <td><span class="tag tag-skill">kc</span></td>
+    <td>Defeat the Hollow Choir Conductor 25 times.</td>
+    <td><small>1, 11</small></td>
+  </tr>
+  <tr>
+    <td><strong>hollow_choir_conductor</strong></td>
+    <td><strong>Minimal Choir</strong><br><small>ca_choir_trio</small></td>
+    <td><span class="tag tag-skill">mechanic</span></td>
+    <td>Defeat the Hollow Choir Conductor with only 3 players.</td>
+    <td><small>4, 9, 14</small></td>
+  </tr>
+  <tr>
+    <td><strong>hollow_choir_conductor</strong></td>
+    <td><strong>Rapid Requiem</strong><br><small>ca_choir_speed_240</small></td>
+    <td><span class="tag tag-skill">speed</span></td>
+    <td>Defeat the Hollow Choir Conductor in under 4 minutes.</td>
+    <td><small>12</small></td>
+  </tr>
+  <tr>
+    <td><strong>inkweald_muse</strong></td>
+    <td><strong>Tongue Tied</strong><br><small>ca_muse_kill_50</small></td>
+    <td><span class="tag tag-skill">kc</span></td>
+    <td>Defeat the Inkweald Muse 50 times.</td>
+    <td><small>1, 11</small></td>
+  </tr>
+  <tr>
+    <td><strong>inkweald_muse</strong></td>
+    <td><strong>Quick Silence</strong><br><small>ca_muse_speed_120</small></td>
+    <td><span class="tag tag-skill">speed</span></td>
+    <td>Defeat the Inkweald Muse in under 2 minutes.</td>
+    <td><small>12</small></td>
+  </tr>
+  <tr>
+    <td><strong>inkweald_muse</strong></td>
+    <td><strong>No Echo</strong><br><small>ca_muse_no_repeat</small></td>
+    <td><span class="tag tag-skill">mechanic</span></td>
+    <td>Defeat the Inkweald Muse without any phrase repeating twice.</td>
+    <td><small>4, 12, 13</small></td>
+  </tr>
+  <tr>
+    <td><strong>inkweald_muse</strong></td>
+    <td><strong>Unwhispered</strong><br><small>ca_muse_no_prayer</small></td>
+    <td><span class="tag tag-skill">restriction</span></td>
+    <td>Defeat the Inkweald Muse without using prayer.</td>
+    <td><small>4, 5</small></td>
+  </tr>
+  <tr>
+    <td><strong>kreearra</strong></td>
+    <td><strong>Unruffled</strong><br><small>ca_kree_no_damage</small></td>
+    <td><span class="tag tag-skill">perfection</span></td>
+    <td>Defeat Kree&#39;arra without taking damage.</td>
+    <td><small>10, 13</small></td>
+  </tr>
+  <tr>
+    <td><strong>kril_tsutsaroth</strong></td>
+    <td><strong>Unscathed Soul</strong><br><small>ca_kril_no_damage</small></td>
+    <td><span class="tag tag-skill">perfection</span></td>
+    <td>Defeat K&#39;ril Tsutsaroth without taking damage.</td>
+    <td><small>10, 13</small></td>
+  </tr>
+  <tr>
+    <td><strong>phantom_muspah_inkweald</strong></td>
+    <td><strong>Unphantomed</strong><br><small>ca_muspah_no_damage</small></td>
+    <td><span class="tag tag-skill">perfection</span></td>
+    <td>Defeat the Phantom Muspah without taking damage.</td>
+    <td><small>10, 13</small></td>
+  </tr>
+  <tr>
+    <td><strong>sol_heredit_colosseum</strong></td>
+    <td><strong>Colosseum Champion</strong><br><small>ca_sol_kill_1</small></td>
+    <td><span class="tag tag-skill">kc</span></td>
+    <td>Defeat Sol Heredit.</td>
+    <td><small>1, 13</small></td>
+  </tr>
+  <tr>
+    <td><strong>the_glass_tyrant</strong></td>
+    <td><strong>Solo Refraction</strong><br><small>ca_glass_solo_nod</small></td>
+    <td><span class="tag tag-skill">solo</span></td>
+    <td>Defeat The Glass Tyrant solo without taking damage.</td>
+    <td><small>9, 10, 13</small></td>
+  </tr>
+  <tr>
+    <td><strong>the_glass_tyrant</strong></td>
+    <td><strong>No Refraction</strong><br><small>ca_glass_no_prism</small></td>
+    <td><span class="tag tag-skill">mechanic</span></td>
+    <td>Defeat The Glass Tyrant without being hit by a prism reflection.</td>
+    <td><small>4, 12, 13</small></td>
+  </tr>
+  <tr>
+    <td><strong>the_nightmare</strong></td>
+    <td><strong>Sweet Dreams</strong><br><small>ca_nm_no_damage</small></td>
+    <td><span class="tag tag-skill">perfection</span></td>
+    <td>Defeat The Nightmare without any player taking damage.</td>
+    <td><small>4, 10, 13</small></td>
+  </tr>
+  <tr>
+    <td><strong>the_nightmare</strong></td>
+    <td><strong>Perfect Phase 3</strong><br><small>ca_nm_phase3_perfect</small></td>
+    <td><span class="tag tag-skill">perfection</span></td>
+    <td>Defeat phase 3 without taking chip damage.</td>
+    <td><small>4, 10, 13</small></td>
+  </tr>
+  <tr>
+    <td><strong>the_nightmare</strong></td>
+    <td><strong>Solo Nightmare</strong><br><small>ca_nm_solo</small></td>
+    <td><span class="tag tag-skill">solo</span></td>
+    <td>Defeat The Nightmare solo.</td>
+    <td><small>9</small></td>
+  </tr>
+  <tr>
+    <td><strong>the_soot_king</strong></td>
+    <td><strong>Pristine Coronation</strong><br><small>ca_soot_no_damage</small></td>
+    <td><span class="tag tag-skill">perfection</span></td>
+    <td>Defeat the Soot King without taking damage.</td>
+    <td><small>10, 13</small></td>
+  </tr>
+  <tr>
+    <td><strong>the_whisperer_inkweald</strong></td>
+    <td><strong>Whisper Silencer</strong><br><small>ca_whisper_kill_50</small></td>
+    <td><span class="tag tag-skill">kc</span></td>
+    <td>Defeat The Whisperer 50 times.</td>
+    <td><small>1, 11</small></td>
+  </tr>
+  <tr>
+    <td><strong>vardorvis_sootworks</strong></td>
+    <td><strong>Vardorvis Veteran</strong><br><small>ca_vard_kill_50</small></td>
+    <td><span class="tag tag-skill">kc</span></td>
+    <td>Defeat Vardorvis 50 times.</td>
+    <td><small>1, 11</small></td>
+  </tr>
+  <tr>
+    <td><strong>veldrak</strong></td>
+    <td><strong>Dragon Veteran</strong><br><small>ca_veldrak_kill_50</small></td>
+    <td><span class="tag tag-skill">kc</span></td>
+    <td>Defeat Veldrak 50 times.</td>
+    <td><small>1, 11</small></td>
+  </tr>
+  <tr>
+    <td><strong>veldrak</strong></td>
+    <td><strong>Dragon Speed Kill</strong><br><small>ca_veldrak_speed_300</small></td>
+    <td><span class="tag tag-skill">speed</span></td>
+    <td>Defeat Veldrak in under 5 minutes.</td>
+    <td><small>12</small></td>
+  </tr>
+  <tr>
+    <td><strong>veldrak</strong></td>
+    <td><strong>Unfed Dragon Slayer</strong><br><small>ca_veldrak_no_food</small></td>
+    <td><span class="tag tag-skill">restriction</span></td>
+    <td>Defeat Veldrak without eating any food.</td>
+    <td><small>5, 10</small></td>
+  </tr>
+  <tr>
+    <td><strong>vorkath</strong></td>
+    <td><strong>Vorkath Master</strong><br><small>ca_vorkath_kill_1000</small></td>
+    <td><span class="tag tag-skill">kc</span></td>
+    <td>Defeat Vorkath 1000 times.</td>
+    <td><small>1, 11</small></td>
+  </tr>
+  <tr>
+    <td><strong>zulrah</strong></td>
+    <td><strong>Serpent Sovereign</strong><br><small>ca_zulrah_kill_1000</small></td>
+    <td><span class="tag tag-skill">kc</span></td>
+    <td>Defeat Zulrah 1000 times.</td>
+    <td><small>1, 11</small></td>
+  </tr></table>
+<h2 id="tier-grandmaster">Grandmaster Tier — 27 tasks</h2>
+<div class="description"><strong>Perk:</strong> Ghommal&#39;s Legacy — Cosmetic cape, title, and one unique boss encounter.<br>
+<strong>Threshold:</strong> 1200 total combat achievement points.</div>
+<table>
+  <tr><th>Boss</th><th>Task</th><th>Category</th><th>Description</th><th>Injects</th></tr>
+  <tr>
+    <td><strong>commander_zilyana</strong></td>
+    <td><strong>Solo Saradomin Pure</strong><br><small>ca_zil_solo_no_damage</small></td>
+    <td><span class="tag tag-skill">perfection</span></td>
+    <td>Defeat Commander Zilyana solo without taking damage.</td>
+    <td><small>9, 10, 13</small></td>
+  </tr>
+  <tr>
+    <td><strong>corporeal_beast</strong></td>
+    <td><strong>Untouched Corp</strong><br><small>ca_corp_solo_no_damage</small></td>
+    <td><span class="tag tag-skill">perfection</span></td>
+    <td>Defeat the Corporeal Beast solo without taking damage.</td>
+    <td><small>9, 10, 13</small></td>
+  </tr>
+  <tr>
+    <td><strong>corporeal_beast</strong></td>
+    <td><strong>Lonely Fasting Beast</strong><br><small>ca_corp_solo_no_food</small></td>
+    <td><span class="tag tag-skill">restriction</span></td>
+    <td>Defeat the Corporeal Beast solo without eating any food.</td>
+    <td><small>5, 10, 13</small></td>
+  </tr>
+  <tr>
+    <td><strong>crystal_wyrm</strong></td>
+    <td><strong>Unchilled Crystal</strong><br><small>ca_wyrm_no_damage_storm</small></td>
+    <td><span class="tag tag-skill">perfection</span></td>
+    <td>Defeat the Crystal Wyrm without taking damage from the ice storm OR its basic attack.</td>
+    <td><small>4, 10, 13</small></td>
+  </tr>
+  <tr>
+    <td><strong>general_graardor</strong></td>
+    <td><strong>Solo Bandos Pure</strong><br><small>ca_graar_solo_no_damage</small></td>
+    <td><span class="tag tag-skill">perfection</span></td>
+    <td>Defeat General Graardor solo without taking damage.</td>
+    <td><small>9, 10, 13</small></td>
+  </tr>
+  <tr>
+    <td><strong>hollow_choir_conductor</strong></td>
+    <td><strong>No Encore</strong><br><small>ca_choir_no_singer</small></td>
+    <td><span class="tag tag-skill">mechanic</span></td>
+    <td>Defeat the Hollow Choir Conductor without any singer being summoned twice.</td>
+    <td><small>4, 12, 13</small></td>
+  </tr>
+  <tr>
+    <td><strong>hollow_choir_conductor</strong></td>
+    <td><strong>Solo Conductor</strong><br><small>ca_choir_solo</small></td>
+    <td><span class="tag tag-skill">solo</span></td>
+    <td>Defeat the Hollow Choir Conductor solo.</td>
+    <td><small>9, 13</small></td>
+  </tr>
+  <tr>
+    <td><strong>hollow_choir_conductor</strong></td>
+    <td><strong>Silent Soul</strong><br><small>ca_choir_no_damage</small></td>
+    <td><span class="tag tag-skill">perfection</span></td>
+    <td>Defeat the Hollow Choir Conductor without taking damage.</td>
+    <td><small>10, 13</small></td>
+  </tr>
+  <tr>
+    <td><strong>inkweald_muse</strong></td>
+    <td><strong>Untouched Poet</strong><br><small>ca_muse_no_damage</small></td>
+    <td><span class="tag tag-skill">perfection</span></td>
+    <td>Defeat the Inkweald Muse without taking damage.</td>
+    <td><small>10, 13</small></td>
+  </tr>
+  <tr>
+    <td><strong>kreearra</strong></td>
+    <td><strong>Solo Armadyl Pure</strong><br><small>ca_kree_solo_no_damage</small></td>
+    <td><span class="tag tag-skill">perfection</span></td>
+    <td>Defeat Kree&#39;arra solo without taking damage.</td>
+    <td><small>9, 10, 13</small></td>
+  </tr>
+  <tr>
+    <td><strong>kril_tsutsaroth</strong></td>
+    <td><strong>Solo Zamorak Pure</strong><br><small>ca_kril_solo_no_damage</small></td>
+    <td><span class="tag tag-skill">perfection</span></td>
+    <td>Defeat K&#39;ril Tsutsaroth solo without taking damage.</td>
+    <td><small>9, 10, 13</small></td>
+  </tr>
+  <tr>
+    <td><strong>sol_heredit_colosseum</strong></td>
+    <td><strong>Colosseum Veteran</strong><br><small>ca_sol_kill_10</small></td>
+    <td><span class="tag tag-skill">kc</span></td>
+    <td>Defeat Sol Heredit 10 times.</td>
+    <td><small>1, 11, 13</small></td>
+  </tr>
+  <tr>
+    <td><strong>sol_heredit_colosseum</strong></td>
+    <td><strong>Undefeated</strong><br><small>ca_sol_no_damage</small></td>
+    <td><span class="tag tag-skill">perfection</span></td>
+    <td>Defeat Sol Heredit without taking damage.</td>
+    <td><small>4, 10, 13</small></td>
+  </tr>
+  <tr>
+    <td><strong>sol_heredit_colosseum</strong></td>
+    <td><strong>Single-Style Champion</strong><br><small>ca_sol_no_switches</small></td>
+    <td><span class="tag tag-skill">restriction</span></td>
+    <td>Defeat Sol Heredit without switching attack style during the fight.</td>
+    <td><small>4, 13, 16</small></td>
+  </tr>
+  <tr>
+    <td><strong>sol_heredit_colosseum</strong></td>
+    <td><strong>Fasting Champion</strong><br><small>ca_sol_no_food</small></td>
+    <td><span class="tag tag-skill">restriction</span></td>
+    <td>Defeat Sol Heredit without eating any food.</td>
+    <td><small>5, 10, 13</small></td>
+  </tr>
+  <tr>
+    <td><strong>the_glass_tyrant</strong></td>
+    <td><strong>Shatter Sprint</strong><br><small>ca_glass_speed_60</small></td>
+    <td><span class="tag tag-skill">speed</span></td>
+    <td>Defeat The Glass Tyrant in under 60 seconds.</td>
+    <td><small>12, 13</small></td>
+  </tr>
+  <tr>
+    <td><strong>the_nightmare</strong></td>
+    <td><strong>Untouched Dreamer</strong><br><small>ca_nm_solo_no_damage</small></td>
+    <td><span class="tag tag-skill">perfection</span></td>
+    <td>Defeat The Nightmare solo without taking damage.</td>
+    <td><small>9, 10, 13</small></td>
+  </tr>
+  <tr>
+    <td><strong>the_nightmare</strong></td>
+    <td><strong>Speed REM</strong><br><small>ca_nm_under_3m</small></td>
+    <td><span class="tag tag-skill">speed</span></td>
+    <td>Defeat The Nightmare in under 3 minutes.</td>
+    <td><small>12</small></td>
+  </tr>
+  <tr>
+    <td><strong>the_whisperer_inkweald</strong></td>
+    <td><strong>Silent Shadow</strong><br><small>ca_whisper_no_damage</small></td>
+    <td><span class="tag tag-skill">perfection</span></td>
+    <td>Defeat The Whisperer without taking damage.</td>
+    <td><small>10, 13</small></td>
+  </tr>
+  <tr>
+    <td><strong>vardorvis_sootworks</strong></td>
+    <td><strong>Unfelled</strong><br><small>ca_vard_no_damage</small></td>
+    <td><span class="tag tag-skill">perfection</span></td>
+    <td>Defeat Vardorvis without taking damage.</td>
+    <td><small>10, 13</small></td>
+  </tr>
+  <tr>
+    <td><strong>veldrak</strong></td>
+    <td><strong>Dragon Sovereign</strong><br><small>ca_veldrak_kill_250</small></td>
+    <td><span class="tag tag-skill">kc</span></td>
+    <td>Defeat Veldrak 250 times.</td>
+    <td><small>1, 11</small></td>
+  </tr>
+  <tr>
+    <td><strong>veldrak</strong></td>
+    <td><strong>Dragon Duo</strong><br><small>ca_veldrak_duo</small></td>
+    <td><span class="tag tag-skill">solo</span></td>
+    <td>Defeat Veldrak with only 2 players.</td>
+    <td><small>9, 14</small></td>
+  </tr>
+  <tr>
+    <td><strong>veldrak</strong></td>
+    <td><strong>Dragon Untouched</strong><br><small>ca_veldrak_no_damage</small></td>
+    <td><span class="tag tag-skill">perfection</span></td>
+    <td>Defeat Veldrak without taking damage.</td>
+    <td><small>4, 10, 13</small></td>
+  </tr>
+  <tr>
+    <td><strong>veldrak</strong></td>
+    <td><strong>Solo Unscathed Dragon</strong><br><small>ca_veldrak_solo_no_damage</small></td>
+    <td><span class="tag tag-skill">perfection</span></td>
+    <td>Defeat Veldrak solo without taking damage.</td>
+    <td><small>9, 10, 13</small></td>
+  </tr>
+  <tr>
+    <td><strong>veldrak</strong></td>
+    <td><strong>Bare-Handed Dragon</strong><br><small>ca_veldrak_no_gear</small></td>
+    <td><span class="tag tag-skill">gear</span></td>
+    <td>Defeat Veldrak without wearing tier-85+ gear.</td>
+    <td><small>7, 16</small></td>
+  </tr>
+  <tr>
+    <td><strong>vorkath</strong></td>
+    <td><strong>Perfect Dragon x50</strong><br><small>ca_vorkath_perfect_50</small></td>
+    <td><span class="tag tag-skill">perfection</span></td>
+    <td>Defeat Vorkath 50 times without taking damage in any of those kills.</td>
+    <td><small>4, 10, 11, 13</small></td>
+  </tr>
+  <tr>
+    <td><strong>zulrah</strong></td>
+    <td><strong>Perfect Serpent x50</strong><br><small>ca_zulrah_perfect_50</small></td>
+    <td><span class="tag tag-skill">perfection</span></td>
+    <td>Defeat Zulrah 50 times without taking damage in any of those kills.</td>
+    <td><small>4, 10, 11, 13</small></td>
+  </tr></table><h2>Tasks by Boss</h2><ul class="loose"><li><strong>bryophyta_heartlands</strong> — 8 tasks (easy×3 · medium×4 · hard×1)</li><li><strong>cerberus</strong> — 7 tasks (hard×3 · elite×2 · master×2)</li><li><strong>commander_zilyana</strong> — 8 tasks (hard×2 · elite×3 · master×2 · grandmaster×1)</li><li><strong>corporeal_beast</strong> — 9 tasks (elite×4 · master×3 · grandmaster×2)</li><li><strong>crystal_wyrm</strong> — 8 tasks (hard×3 · elite×4 · grandmaster×1)</li><li><strong>dagannoth_prime</strong> — 8 tasks (easy×2 · medium×3 · hard×2 · elite×1)</li><li><strong>dagannoth_rex</strong> — 8 tasks (easy×3 · medium×2 · hard×2 · elite×1)</li><li><strong>dagannoth_supreme</strong> — 8 tasks (easy×2 · medium×3 · hard×2 · elite×1)</li><li><strong>duke_sucellus_sootworks</strong> — 7 tasks (hard×2 · elite×4 · master×1)</li><li><strong>forgefather_duran</strong> — 8 tasks (easy×4 · medium×2 · hard×2)</li><li><strong>general_graardor</strong> — 8 tasks (hard×2 · elite×4 · master×1 · grandmaster×1)</li><li><strong>giant_mole</strong> — 8 tasks (easy×3 · medium×3 · hard×2)</li><li><strong>hollow_choir_conductor</strong> — 7 tasks (elite×1 · master×3 · grandmaster×3)</li><li><strong>inkweald_muse</strong> — 7 tasks (elite×2 · master×4 · grandmaster×1)</li><li><strong>kalphite_queen</strong> — 7 tasks (medium×4 · hard×2 · elite×1)</li><li><strong>kraken_saltbrine</strong> — 7 tasks (easy×1 · medium×4 · hard×2)</li><li><strong>kreearra</strong> — 8 tasks (hard×2 · elite×4 · master×1 · grandmaster×1)</li><li><strong>kril_tsutsaroth</strong> — 8 tasks (hard×2 · elite×4 · master×1 · grandmaster×1)</li><li><strong>obor_heartlands</strong> — 8 tasks (easy×3 · medium×4 · hard×1)</li><li><strong>phantom_muspah_inkweald</strong> — 3 tasks (hard×1 · elite×1 · master×1)</li><li><strong>pirate_captain</strong> — 8 tasks (easy×4 · medium×4)</li><li><strong>sarachnis_moryskah</strong> — 7 tasks (medium×3 · hard×3 · elite×1)</li><li><strong>skotizo_moryskah</strong> — 7 tasks (medium×2 · hard×3 · elite×2)</li><li><strong>sol_heredit_colosseum</strong> — 5 tasks (master×1 · grandmaster×4)</li><li><strong>the_glass_tyrant</strong> — 8 tasks (hard×1 · elite×4 · master×2 · grandmaster×1)</li><li><strong>the_nightmare</strong> — 9 tasks (hard×1 · elite×3 · master×3 · grandmaster×2)</li><li><strong>the_soot_king</strong> — 7 tasks (hard×2 · elite×4 · master×1)</li><li><strong>the_veilmother</strong> — 7 tasks (medium×3 · hard×4)</li><li><strong>the_whisperer_inkweald</strong> — 3 tasks (elite×1 · master×1 · grandmaster×1)</li><li><strong>vardorvis_sootworks</strong> — 3 tasks (elite×1 · master×1 · grandmaster×1)</li><li><strong>veldrak</strong> — 9 tasks (elite×1 · master×3 · grandmaster×5)</li><li><strong>vorath</strong> — 7 tasks (medium×3 · hard×3 · elite×1)</li><li><strong>vorkath</strong> — 8 tasks (medium×2 · hard×2 · elite×2 · master×1 · grandmaster×1)</li><li><strong>zulrah</strong> — 8 tasks (medium×2 · hard×3 · elite×1 · master×1 · grandmaster×1)</li></ul><h2>Scape-Builder-Injects audit</h2>
+<div class="description">Every task lists the injects (design-principle numbers) it exercises. Codex surfaces them for audit.</div>
+<ol>
+  <li>Downtime-is-earned — task requires prior effort (kc ladders).</li>
+  <li>Breakpoint-visible — perk-granting tiers are staircases.</li>
+  <li>Self-direction — tasks are a menu, not a checklist.</li>
+  <li>Unique-mechanic — restriction tasks push mechanic mastery.</li>
+  <li>Risk-before-reward — restriction/speed tasks raise risk.</li>
+  <li>Permanence — once complete, always complete.</li>
+  <li>Encounter-itemization — gear restrictions surface tier-specific gear.</li>
+  <li>Dependency-web — unlocks chained perks.</li>
+  <li>Skill-combination — no single-skill completion.</li>
+  <li>Permadeath-respect — elite/master require near-flawless play.</li>
+  <li>Grinding-legitimate — kc tasks acknowledge grind.</li>
+  <li>Attention-tax — speed tasks demand focus.</li>
+  <li>MAX-focus-content — perfection tasks ≈ Inferno-style.</li>
+  <li>PvM-variety — tasks cover kill/speed/solo/gear/mechanic.</li>
+  <li>Economy-respect — perk rewards (not more GP).</li>
+  <li>Build-variety — gear tasks encourage alt builds.</li>
+  <li>Community-legitimacy — server-first / tier completions showcase.</li>
+  <li>Humanism — permanent perks respect player time.</li>
+</ol>
+</div>
+</body></html>

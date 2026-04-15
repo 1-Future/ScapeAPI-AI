@@ -47,6 +47,11 @@ let PRESTIGE_GOALS = {};
 try { PRESTIGE_GOALS = require('../content/aelgard/cross-region-web').PRESTIGE_GOALS || {}; } catch (e) {}
 let quirky = null;
 try { quirky = require('../content/aelgard/quirky-interactions'); } catch (e) {}
+let combatAchievements = null;
+try {
+  combatAchievements = require('../engine/combat-achievements');
+  require('../content/aelgard/combat-achievements-tasks');
+} catch (e) { /* optional */ }
 
 // ── Output directory ──────────────────────────────────────────────────────────
 const OUT_DIR = path.join(__dirname, '..', '..', 'public', 'codex');
@@ -174,6 +179,7 @@ function page(title, body) {
   <a href="quests.html">Quests</a>
   <a href="breakpoints.html">Breakpoints</a>
   <a href="items.html">Items</a>
+  <a href="combat-achievements.html">Combat Achievements</a>
 </nav>
 <div class="parchment">
 ${body}
@@ -571,6 +577,141 @@ function writeItems() {
 }
 
 // ══════════════════════════════════════════════════════════════════════════════
+// COMBAT ACHIEVEMENTS PAGE
+// ══════════════════════════════════════════════════════════════════════════════
+
+function writeCombatAchievements() {
+  if (!combatAchievements) {
+    console.log('  (skip) combat-achievements not available');
+    return;
+  }
+  const ca = combatAchievements;
+  const reg = ca.registry();
+  const perks = ca.tierPerks;
+
+  // Headline stats
+  let body = `<h1>Combat Achievements</h1>
+<div class="description">
+Per-boss restriction tasks that cumulate into tier totals.
+Complete each tier's points threshold to unlock a permanent perk.
+Tasks are permanent — once complete, always complete (manifesto P06).
+</div>
+
+<div class="stat-grid">
+  <div class="stat-cell"><div class="value">${reg.totalTasks}</div><div class="label">Total tasks</div></div>
+  <div class="stat-cell"><div class="value">${reg.totalBosses}</div><div class="label">Bosses</div></div>
+  <div class="stat-cell"><div class="value">${ca.TIERS.length}</div><div class="label">Tiers</div></div>
+  <div class="stat-cell"><div class="value">6</div><div class="label">Perks</div></div>
+</div>
+
+<h2>Tiers &amp; Perks</h2>
+<table>
+  <tr><th>Tier</th><th>Points</th><th>Tasks</th><th>Perk</th><th>Effect</th></tr>`;
+  for (const tier of ca.TIERS) {
+    const perk = perks[tier];
+    const count = reg.byTier[tier] || 0;
+    const tag = tier === 'grandmaster' ? 'tag-trans'
+              : (tier === 'master' || tier === 'elite') ? 'tag-major'
+              : 'tag-minor';
+    body += `
+  <tr>
+    <td><span class="tag ${tag}">${tier}</span></td>
+    <td><strong>${ca.pointsForTier[tier]}</strong> pts</td>
+    <td>${count}</td>
+    <td><strong>${escapeHtml(perk.name)}</strong></td>
+    <td>${escapeHtml(perk.description)}</td>
+  </tr>`;
+  }
+  body += '</table>';
+
+  // Category breakdown
+  const byCat = {};
+  for (const t of ca.listAllTasks()) byCat[t.category] = (byCat[t.category] || 0) + 1;
+  body += '<h2>Tasks by Category</h2><table><tr><th>Category</th><th>Count</th><th>Description</th></tr>';
+  const catDesc = {
+    kc: 'Kill count milestones. Acknowledge the grind.',
+    restriction: '"Without X" tasks (no prayer, no food, no damage).',
+    speed: 'Under-time kills — demand focus.',
+    mechanic: 'Master a specific phase or mechanic.',
+    gear: 'Restricted equipment (tier cap, style lock).',
+    solo: 'Solo a normally-partied boss.',
+    perfection: 'Flawless — no damage combined with restrictions.',
+  };
+  for (const [cat, n] of Object.entries(byCat).sort((a, b) => b[1] - a[1])) {
+    body += `<tr><td><span class="tag tag-skill">${cat}</span></td><td>${n}</td><td>${escapeHtml(catDesc[cat] || '')}</td></tr>`;
+  }
+  body += '</table>';
+
+  // Per-tier task table
+  for (const tier of ca.TIERS) {
+    const tasks = ca.listTasksForTier(tier).sort((a, b) => a.bossId.localeCompare(b.bossId));
+    if (tasks.length === 0) continue;
+    const perk = perks[tier];
+    body += `
+<h2 id="tier-${tier}">${tier[0].toUpperCase() + tier.slice(1)} Tier — ${tasks.length} tasks</h2>
+<div class="description"><strong>Perk:</strong> ${escapeHtml(perk.name)} — ${escapeHtml(perk.description)}<br>
+<strong>Threshold:</strong> ${ca.pointsForTier[tier]} total combat achievement points.</div>
+<table>
+  <tr><th>Boss</th><th>Task</th><th>Category</th><th>Description</th><th>Injects</th></tr>`;
+    for (const t of tasks) {
+      body += `
+  <tr>
+    <td><strong>${escapeHtml(t.bossId)}</strong></td>
+    <td><strong>${escapeHtml(t.name)}</strong><br><small>${escapeHtml(t.id)}</small></td>
+    <td><span class="tag tag-skill">${t.category}</span></td>
+    <td>${escapeHtml(t.description)}</td>
+    <td><small>${(t.injects || []).join(', ')}</small></td>
+  </tr>`;
+    }
+    body += '</table>';
+  }
+
+  // Per-boss index
+  const byBoss = {};
+  for (const t of ca.listAllTasks()) {
+    if (!byBoss[t.bossId]) byBoss[t.bossId] = [];
+    byBoss[t.bossId].push(t);
+  }
+  body += '<h2>Tasks by Boss</h2><ul class="loose">';
+  const bosses = Object.keys(byBoss).sort();
+  for (const b of bosses) {
+    const list = byBoss[b];
+    const tierSummary = ca.TIERS.map(tier => {
+      const n = list.filter(t => t.tier === tier).length;
+      return n > 0 ? `${tier}×${n}` : null;
+    }).filter(Boolean).join(' · ');
+    body += `<li><strong>${escapeHtml(b)}</strong> — ${list.length} tasks (${tierSummary})</li>`;
+  }
+  body += '</ul>';
+
+  // Scape-Builder-Injects audit key
+  body += `<h2>Scape-Builder-Injects audit</h2>
+<div class="description">Every task lists the injects (design-principle numbers) it exercises. Codex surfaces them for audit.</div>
+<ol>
+  <li>Downtime-is-earned — task requires prior effort (kc ladders).</li>
+  <li>Breakpoint-visible — perk-granting tiers are staircases.</li>
+  <li>Self-direction — tasks are a menu, not a checklist.</li>
+  <li>Unique-mechanic — restriction tasks push mechanic mastery.</li>
+  <li>Risk-before-reward — restriction/speed tasks raise risk.</li>
+  <li>Permanence — once complete, always complete.</li>
+  <li>Encounter-itemization — gear restrictions surface tier-specific gear.</li>
+  <li>Dependency-web — unlocks chained perks.</li>
+  <li>Skill-combination — no single-skill completion.</li>
+  <li>Permadeath-respect — elite/master require near-flawless play.</li>
+  <li>Grinding-legitimate — kc tasks acknowledge grind.</li>
+  <li>Attention-tax — speed tasks demand focus.</li>
+  <li>MAX-focus-content — perfection tasks ≈ Inferno-style.</li>
+  <li>PvM-variety — tasks cover kill/speed/solo/gear/mechanic.</li>
+  <li>Economy-respect — perk rewards (not more GP).</li>
+  <li>Build-variety — gear tasks encourage alt builds.</li>
+  <li>Community-legitimacy — server-first / tier completions showcase.</li>
+  <li>Humanism — permanent perks respect player time.</li>
+</ol>`;
+
+  fs.writeFileSync(path.join(OUT_DIR, 'combat-achievements.html'), page('Combat Achievements', body));
+}
+
+// ══════════════════════════════════════════════════════════════════════════════
 // GENERATE EVERYTHING
 // ══════════════════════════════════════════════════════════════════════════════
 
@@ -581,6 +722,7 @@ writeSkills();         console.log('  ✓ skills.html + 23 skill pages');
 writeQuests();         console.log('  ✓ quests.html');
 writeBreakpoints();    console.log('  ✓ breakpoints.html');
 writeItems();          console.log('  ✓ items.html');
+writeCombatAchievements(); console.log('  ✓ combat-achievements.html');
 
 // Count files
 const files = fs.readdirSync(OUT_DIR).filter(f => f.endsWith('.html'));
