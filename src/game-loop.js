@@ -11,6 +11,8 @@ const items = require('./data/items');
 const actions = require('./engine/actions');
 const events = require('./engine/events');
 const objects = require('./world/objects');
+let pets = null;
+try { pets = require('./engine/pets'); } catch (_) { pets = null; }
 
 // Helper: get skill level
 function getLevel(p, skill) {
@@ -240,6 +242,11 @@ function playerWorldTick(p, currentTick, sendFn) {
 
   // Process tick-based actions
   actions.processTick(p, currentTick);
+
+  // Pet companion tick — follower path-follow + affinity drip while summoned.
+  if (pets && typeof pets.tick === 'function') {
+    try { pets.tick(p, currentTick); } catch (e) { /* non-fatal */ }
+  }
 }
 
 module.exports = {

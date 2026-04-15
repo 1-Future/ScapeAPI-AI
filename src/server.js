@@ -46,6 +46,34 @@ const ge = require('./data/ge');
 const actions = require('./engine/actions');
 const registerAllCommands = require('./commands/all');
 
+// Pet companion runtime — loads pet definitions + installs /pet commands
+const pets = require('./engine/pets');
+const petsCommands = require('./engine/pets-commands');
+try { require('./content/aelgard/pets-extended'); } catch (err) {
+  console.warn('[server] pets-extended failed to load:', err.message);
+}
+petsCommands.register({ commands, pets, items });
+// Wire engine events so kills/skill actions can roll pets without touching
+// the call sites directly. Combat_start / combat_end are not currently emitted
+// — the wrappers in server.js / commands/all.js fire npc_kill which we also
+// consume here for boss-pet rolls.
+pets.register({ events: { on: events.on } });
+events.on('npc_kill', 'pets:roll-on-kill', ({ player, npc }) => {
+  if (!player || !npc) return;
+  const sourceId = npc.defId || (npc.name || '').toLowerCase().replace(/\s+/g, '_');
+  const rolled = pets.onLootDrop(player, sourceId, []);
+  if (rolled.awardedPets && rolled.awardedPets.length) {
+    for (const petId of rolled.awardedPets) {
+      const def = pets.getPetDef(petId);
+      if (def) console.log(`[pets] ${player.name || player.id} unlocked ${def.name} from ${sourceId}`);
+    }
+  }
+});
+events.on('skill_action', 'pets:roll-on-skill', ({ player, skill }) => {
+  if (!player || !skill) return;
+  pets.onSkillAction(player, skill, {});
+});
+
 // ── State ─────────────────────────────────────────────────────────────────────
 const PORT = 2223;
 const players = new Map(); // ws → player
