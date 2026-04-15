@@ -35,6 +35,8 @@ require('../content/aelgard/breakpoints');
 try { require('../content/aelgard/skill-web'); } catch (e) { /* optional */ }
 try { require('../content/aelgard/heartlands-deep'); } catch (e) { /* optional */ }
 try { require('../content/aelgard/heartlands-density'); } catch (e) { /* optional */ }
+try { require('../content/aelgard/heartlands-tertiary'); } catch (e) { /* optional */ }
+try { require('../content/aelgard/heartlands-easter-eggs'); } catch (e) { /* optional */ }
 try { require('../content/aelgard/moryskah-deep'); } catch (e) { /* optional */ }
 try { require('../content/aelgard/moryskah-density'); } catch (e) { /* optional */ }
 try { require('../content/aelgard/sootworks-deep'); } catch (e) { /* optional */ }
