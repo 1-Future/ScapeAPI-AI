@@ -4800,7 +4800,6 @@ cmdCtx = {
 };
 registerAllCommands(cmdCtx);
 
-<<<<<<< HEAD
 // ── burn-v2 wire-in: GE, dialogue, death, area-locked, ironman, audio ────────
 // Each subsystem exposes a register()/attach() that installs its own
 // commands, tick hooks, and event listeners without touching inline registers.
