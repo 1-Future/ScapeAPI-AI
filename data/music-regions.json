@@ -1,0 +1,112 @@
+{
+  "_comment": "Region to music-cue mapping. Inspired by bootscape's music.dbtable + musicregion.dbtable system (/tmp/scape-repos/bootscape/Server/content/scripts/music/configs/), reshaped to reference cue IDs already present in data/audio-manifest.json. The audio engine reads this table when a player's tile coordinate crosses a region boundary and crossfades to the matching cue. Each entry uses the existing engine area IDs from src/content/aelgard/world-layout.js. The 'unlock_level' echoes bootscape's unlock column: 0 = always available, 1 = unlocked on first entry, N = requires reaching that level in the linked region stat.",
+  "_source": "bootscape/Server/content/scripts/music/configs/musicregion.dbtable (structural), data/audio-manifest.json (cue IDs)",
+  "_version": "1.0.0",
+  "conventions": {
+    "region_key": "matches rel.defineAreaGate region ID",
+    "time_of_day": "day | night | any",
+    "cue_id": "must exist in data/audio-manifest.json music[] array",
+    "unlock_level": "0 = default, 1 = first-visit unlock, >1 = progression unlock"
+  },
+  "regions": {
+    "heartlands": {
+      "default_day": "heartlands-main-day",
+      "default_night": "heartlands-main-night",
+      "variants": [
+        { "sub_area": "heartlands_market", "cue": "heartlands-market-variant", "time": "day", "unlock_level": 0 },
+        { "sub_area": "heartlands_church", "cue": "heartlands-church", "time": "any", "unlock_level": 0 },
+        { "sub_area": "heartlands_bank", "cue": "bank-interior", "time": "any", "unlock_level": 0 },
+        { "sub_area": "heartlands_grand_exchange", "cue": "grand-exchange", "time": "any", "unlock_level": 0 },
+        { "sub_area": "heartlands_player_house", "cue": "home-pleasant-house", "time": "any", "unlock_level": 1 }
+      ]
+    },
+    "moryskah": {
+      "default_day": "moryskah-dirge",
+      "default_night": "moryskah-dirge",
+      "variants": [
+        { "sub_area": "moryskah_witch_garden", "cue": "moryskah-witch-garden", "time": "any", "unlock_level": 0 },
+        { "sub_area": "moryskah_catacomb", "cue": "moryskah-catacomb", "time": "any", "unlock_level": 1 }
+      ]
+    },
+    "veilwood": {
+      "default_day": "veilwood-canopy",
+      "default_night": "veilwood-glade-night",
+      "variants": []
+    },
+    "sootworks": {
+      "default_day": "sootworks-forge",
+      "default_night": "sootworks-forge",
+      "variants": [
+        { "sub_area": "sootworks_deep_mine", "cue": "sootworks-deep-mine", "time": "any", "unlock_level": 25 }
+      ]
+    },
+    "saltbrine": {
+      "default_day": "saltbrine-harbour",
+      "default_night": "saltbrine-harbour",
+      "variants": [
+        { "sub_area": "saltbrine_open_sea", "cue": "saltbrine-open-sea", "time": "any", "unlock_level": 0 },
+        { "sub_area": "saltbrine_wreck", "cue": "saltbrine-wreck", "time": "any", "unlock_level": 1 }
+      ]
+    },
+    "boneyard_wastes": {
+      "default_day": "boneyard-desert-day",
+      "default_night": "boneyard-desert-night",
+      "variants": [
+        { "sub_area": "boneyard_oasis", "cue": "boneyard-oasis", "time": "any", "unlock_level": 0 }
+      ]
+    },
+    "inkweald": {
+      "default_day": "inkweald-dream",
+      "default_night": "inkweald-dream",
+      "variants": [
+        { "sub_area": "inkweald_muse_glade", "cue": "inkweald-muse-glade", "time": "any", "unlock_level": 1 }
+      ]
+    },
+    "glass_desert": {
+      "default_day": "glass-desert-prism",
+      "default_night": "glass-desert-prism",
+      "variants": [
+        { "sub_area": "glass_desert_shardfall", "cue": "glass-desert-shardfall", "time": "any", "unlock_level": 1 }
+      ]
+    },
+    "wilds": {
+      "default_day": "the-wilds-dread",
+      "default_night": "the-wilds-deep",
+      "variants": []
+    },
+    "drifting_market": {
+      "default_day": "drifting-market-shanty",
+      "default_night": "drifting-market-shanty",
+      "variants": []
+    }
+  },
+  "dungeon_defaults": {
+    "shallow": "dungeon-generic-shallow",
+    "deep": "dungeon-generic-deep"
+  },
+  "boss_cues": {
+    "crystal_wyrm": "boss-crystal-wyrm",
+    "lord_malachar": "boss-lord-malachar",
+    "count_malachar": "boss-lord-malachar",
+    "the_nightmare": "boss-the-nightmare",
+    "giant_mole": "boss-giant-mole",
+    "tempoross": "boss-tempoross",
+    "skotizo": "boss-skotizo",
+    "worldtree_heart": "boss-worldtree-heart",
+    "crucible_forgemaster": "boss-crucible-forgemaster",
+    "engine_architect": "boss-engine-architect",
+    "sunken_sea_priest": "boss-sunken-sea-priest"
+  },
+  "minigame_cues": {
+    "pest_control": "the-wilds-dread",
+    "spirit_pyre": "veilwood-canopy",
+    "castle_wars": "the-wilds-dread",
+    "guardians_rift": "inkweald-dream",
+    "barbarian_assault": "saltbrine-harbour",
+    "sootworks_forge": "sootworks-forge",
+    "marchlands": "the-wilds-dread",
+    "ramparts": "saltbrine-harbour",
+    "deadhold": "moryskah-catacomb",
+    "the_ascendancy": "inkweald-dream"
+  }
+}

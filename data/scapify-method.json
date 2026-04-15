@@ -1,0 +1,100 @@
+{
+  "_comment": "The Scapify Method: an 8-step filter for translating any game concept into an Aelgard-native design. Ported from /tmp/scape-repos/ScapifyDatSheet/SCAPIFY.md. The builder AI can feed this JSON to Claude alongside a raw idea to produce a structured design spec in the same shape as existing minigames, bosses, and raids. Steps 1 through 8 MUST be satisfied in order; if a step breaks the idea, do not skip -- rethink.",
+  "_source": "ScapifyDatSheet/SCAPIFY.md (burn v2 salvage)",
+  "_version": "1.0.0",
+  "steps": [
+    {
+      "id": 1,
+      "name": "Strip to the Core Loop",
+      "instruction": "Remove IP, graphics, platform. Write one sentence: 'The player does X to achieve Y under constraint Z.'",
+      "output": "core_loop_sentence"
+    },
+    {
+      "id": 2,
+      "name": "Translate to Point-and-Click",
+      "instruction": "Rewrite so it works with mouse and tick-based (0.6s) timing. Replace twitch mechanics with decision-making under pressure: prayer switching, gear swaps, tile positioning, resource management.",
+      "output": "pac_interaction_loop"
+    },
+    {
+      "id": 3,
+      "name": "Hook Into the Skill System",
+      "instruction": "Define entry requirements (skills + quests), skill integration DURING play, and XP rewards. Never make it BIS XP/hr.",
+      "output": {
+        "entry_requirements": "skills + quests",
+        "skill_integration": "skills used during play",
+        "xp_rewards": "rate vs existing methods"
+      }
+    },
+    {
+      "id": 4,
+      "name": "Design the Grind",
+      "instruction": "Define currency + shop + unique drops + pet + collection log slots. Reward must justify repetition but not devalue existing content. Pet drop sweet spot 1/3000-1/5000.",
+      "output": {
+        "points_shop": "currency + items",
+        "unique_drops": "BIS/niche items + rates",
+        "pet": "pet + rate",
+        "completionist_hooks": "collection log, diaries, combat achievements"
+      }
+    },
+    {
+      "id": 5,
+      "name": "Add Stakes",
+      "instruction": "Define death mechanics, entry cost, failure penalty, scaling pressure. Even safe content needs opportunity cost or time investment.",
+      "output": {
+        "death_mechanics": "safe/risk/HCIM",
+        "entry_cost": "coins/items",
+        "failure_penalty": "what is lost on wipe",
+        "scaling_pressure": "how difficulty ramps"
+      }
+    },
+    {
+      "id": 6,
+      "name": "Shape the Social Model",
+      "instruction": "Define team size, matchmaking, role differentiation, carry potential, social friction. This decides long-term health.",
+      "output": {
+        "team_size": "solo/duo/5-man/mass",
+        "matchmaking": "lobby/world/instanced",
+        "role_differentiation": "same-role vs distinct roles",
+        "carry_potential": "can one skilled player carry",
+        "social_friction": "how hard to start a game"
+      }
+    },
+    {
+      "id": 7,
+      "name": "Find the Cousin",
+      "instruction": "Name 1-3 existing Aelgard/OSRS pieces that share DNA. Explain shared DNA and divergence. No cousin = not Aelgard-native; revisit 2-3.",
+      "output": "cousins_list + divergence_notes"
+    },
+    {
+      "id": 8,
+      "name": "Name It Like Jagex Would",
+      "instruction": "Short, punchy, wordplay or alliteration or medieval/fantasy flavour. Never reference source material directly. Good: 'Soul Wars', 'Tempoross', 'Guardians of the Rift'. Bad: 'MOBA Arena', 'Zombie Survival Mode'.",
+      "output": "final_name"
+    }
+  ],
+  "output_schema": {
+    "inspired_by": "string (source game)",
+    "cousin_content": "array of existing pieces",
+    "core_loop": "single sentence",
+    "team_size": "solo/duo/5v5/mass",
+    "skill_integration": "object mapping skill to role",
+    "requirements": "object of stats and quests",
+    "rewards": "object with currency, shop, uniques, pet, completionist",
+    "stakes": "object with death, entry, failure, scaling",
+    "pitch": "2-3 sentence elevator pitch"
+  },
+  "pass_criteria": {
+    "cousin_exists": "must name at least 1 existing piece of content that shares DNA",
+    "point_and_click_native": "no mechanics require twitch reflexes",
+    "skill_integrated": "at least one skill used DURING play, not just to enter",
+    "reward_non_devaluing": "unique drops fill gaps, do not replace existing BIS",
+    "scaling_pressure_defined": "how difficulty ramps must be explicit",
+    "named_like_jagex": "name passes the 'teleport list' test - would a player click it"
+  },
+  "registered_outputs": [
+    { "concept": "Marchlands", "inspired_by": "League of Legends / MOBA", "file": "src/content/aelgard/minigames-scapified.js" },
+    { "concept": "Ramparts", "inspired_by": "Defend Your Castle (Flash 2003)", "file": "src/content/aelgard/minigames-scapified.js" },
+    { "concept": "Deadhold", "inspired_by": "CoD Zombies (Treyarch)", "file": "src/content/aelgard/minigames-scapified.js" },
+    { "concept": "The Ascendancy", "inspired_by": "Vampire Survivors", "file": "src/content/aelgard/minigames-scapified.js" }
+  ]
+}
