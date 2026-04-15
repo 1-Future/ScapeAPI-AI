@@ -20,6 +20,7 @@ const rel = require('../data/relationships');
 
 require('../content/aelgard/area-gates');
 require('../content/aelgard/quest-unlocks');
+try { require('../content/aelgard/quests-series-extensions'); } catch (e) {}
 require('../content/aelgard/item-ecosystem');
 require('../content/aelgard/training-knobs');
 require('../content/aelgard/breakpoints');

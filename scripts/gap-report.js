@@ -26,6 +26,7 @@ const rel = require('../src/data/relationships');
 // Load all content files
 require('../src/content/aelgard/area-gates');
 require('../src/content/aelgard/quest-unlocks');
+try { require('../src/content/aelgard/quests-series-extensions'); } catch (e) {}
 require('../src/content/aelgard/item-ecosystem');
 require('../src/content/aelgard/training-knobs');
 require('../src/content/aelgard/breakpoints');
