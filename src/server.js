@@ -3999,6 +3999,36 @@ const server = http.createServer(async (req, res) => {
     if (serveHTML('play.html')) return;
   }
 
+  // Play 2D — the canvas renderer prototype (burn-v2). No auth required.
+  if (req.url === '/play2d' || req.url === '/play2d.html' || req.url.startsWith('/play2d?')) {
+    if (serveHTML('play2d.html')) return;
+  }
+
+  // Public JS bundle — served from public/js/ for the 2D renderer and friends.
+  // Path whitelisted to .js to keep the surface small.
+  if (req.url.startsWith('/js/') && req.url.endsWith('.js')) {
+    const rel = req.url.slice(1); // strip leading '/'
+    // Reject any '..' / backslash segment attempt.
+    if (rel.includes('..') || rel.includes('\\')) {
+      res.writeHead(400, { 'Content-Type': 'text/plain' });
+      res.end('bad path'); return;
+    }
+    const jsPath = require('path').join(publicDir, rel);
+    const resolved = require('path').resolve(jsPath);
+    if (!resolved.startsWith(require('path').resolve(publicDir))) {
+      res.writeHead(403, { 'Content-Type': 'text/plain' });
+      res.end('forbidden'); return;
+    }
+    if (require('fs').existsSync(resolved)) {
+      res.writeHead(200, {
+        'Content-Type': 'application/javascript; charset=utf-8',
+        'Cache-Control': 'no-cache',
+      });
+      res.end(require('fs').readFileSync(resolved));
+      return;
+    }
+  }
+
   // Codex — browsable encyclopedia (primary human interface)
   // Multi-page structure at public/codex/ — serve any .html file under that path
   // Redirect /codex → /codex/ so relative links (href="regions.html") resolve correctly

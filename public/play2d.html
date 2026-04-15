@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Scape — Play 2D (prototype)</title>
+<style>
+  :root {
+    --parchment: #c8b88a;
+    --parchment-dark: #b0a070;
+    --stone: #5c5445;
+    --stone-dark: #3a352e;
+    --stone-light: #7a7060;
+    --gold: #ff981f;
+    --gold-dim: #c8842a;
+    --text: #000;
+    --mono: 'Courier New', 'Consolas', monospace;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    background: #000;
+    font-family: var(--mono);
+    min-height: 100dvh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: #ccc;
+  }
+
+  /* ── Site header ─────────────────────────────────────── */
+  #site-header {
+    display: flex;
+    align-items: center;
+    background: var(--stone-dark);
+    height: 30px;
+    padding: 0 10px;
+    font-size: 12px;
+    flex-shrink: 0;
+    border-bottom: 1px solid var(--stone);
+    width: 100%;
+  }
+  #site-header .logo {
+    color: var(--gold);
+    font-weight: bold;
+    font-size: 14px;
+    margin-right: 16px;
+    text-decoration: none;
+    letter-spacing: 2px;
+  }
+  #site-header nav { display: flex; flex: 1; }
+  #site-header nav a {
+    color: #aaa;
+    text-decoration: none;
+    padding: 0 10px;
+    line-height: 30px;
+  }
+  #site-header nav a:hover { color: #fff; }
+  #site-header nav a.active { color: var(--gold); }
+  #site-header .gh-link {
+    color: #aaa; text-decoration: none; font-size: 16px; margin-left: auto;
+  }
+  #site-header .gh-link:hover { color: #fff; }
+
+  /* ── Layout frame ─────────────────────────────────────── */
+  .frame {
+    width: 100%;
+    max-width: 1080px;
+    background: var(--parchment);
+    flex: 1;
+    padding: 18px 18px 22px;
+    color: var(--text);
+    border-left: 2px solid var(--stone-dark);
+    border-right: 2px solid var(--stone-dark);
+  }
+
+  h1 {
+    color: var(--stone-dark);
+    font-size: 18px;
+    margin-bottom: 6px;
+    border-bottom: 2px solid var(--parchment-dark);
+    padding-bottom: 4px;
+  }
+  .sub {
+    color: #4a3e30;
+    font-size: 12px;
+    margin-bottom: 12px;
+  }
+
+  /* ── Controls strip ───────────────────────────────────── */
+  #controls {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    align-items: center;
+    background: var(--parchment-dark);
+    border: 1px solid var(--stone);
+    padding: 6px 10px;
+    font-size: 12px;
+    margin-bottom: 10px;
+  }
+  #controls label { color: var(--stone-dark); font-weight: bold; margin-right: 4px; }
+  #controls select {
+    background: var(--parchment);
+    color: var(--text);
+    border: 1px solid var(--stone);
+    padding: 2px 6px;
+    font-family: var(--mono);
+    font-size: 12px;
+  }
+  .layer-toggles { display: flex; gap: 6px; flex-wrap: wrap; }
+  .layer-toggle {
+    padding: 2px 8px;
+    border: 1px solid var(--stone);
+    background: var(--parchment);
+    color: var(--stone-dark);
+    cursor: pointer;
+    font-family: var(--mono);
+    font-size: 11px;
+    user-select: none;
+  }
+  .layer-toggle.on {
+    background: var(--stone-dark);
+    color: var(--gold);
+    border-color: var(--gold-dim);
+  }
+  .keybinds {
+    color: #4a3e30;
+    font-size: 11px;
+    margin-left: auto;
+  }
+
+  /* ── Canvas shell ─────────────────────────────────────── */
+  #canvas-shell {
+    background: #1a1510;
+    border: 2px solid var(--stone-dark);
+    padding: 6px;
+    position: relative;
+  }
+  #world-canvas {
+    display: block;
+    width: 100%;
+    height: 640px;
+    background: #0a0805;
+    image-rendering: pixelated;
+    image-rendering: -moz-crisp-edges;
+    image-rendering: crisp-edges;
+    outline: none;
+  }
+  #hud {
+    position: absolute;
+    left: 12px;
+    top: 12px;
+    background: rgba(26, 21, 16, 0.82);
+    color: #efb366;
+    font-family: var(--mono);
+    font-size: 11px;
+    padding: 4px 8px;
+    border: 1px solid var(--gold-dim);
+    pointer-events: none;
+    white-space: pre;
+  }
+  #status {
+    font-size: 11px;
+    color: #4a3e30;
+    margin-top: 6px;
+  }
+  #status.err { color: #8a1a1a; }
+
+  .legend {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+    gap: 4px;
+    margin-top: 10px;
+    font-size: 11px;
+  }
+  .legend-row { display: flex; align-items: center; gap: 6px; color: var(--stone-dark); }
+  .legend-sw { width: 14px; height: 14px; border: 1px solid var(--stone-dark); flex-shrink: 0; }
+
+</style>
+</head>
+<body>
+<div id="site-header">
+  <a class="logo" href="/">SCAPE</a>
+  <nav>
+    <a href="/">Watch</a>
+    <a href="/play">Play</a>
+    <a href="/play2d" class="active">Play 2D</a>
+    <a href="/guide">Guide</a>
+    <a href="/about">About</a>
+    <a href="/builder">Builder</a>
+    <a href="https://discord.gg/rMJsb72PkW" target="_blank">Contribute</a>
+  </nav>
+  <a class="gh-link" href="https://github.com/1-Future/ScapeAPI-AI" target="_blank" title="GitHub" aria-label="GitHub">GH</a>
+</div>
+
+<div class="frame">
+  <h1>Play 2D — renderer prototype</h1>
+  <div class="sub">Canvas view of the 9 tile regions. Sprites fall back to palette colors when PNGs are missing. Pre-production.</div>
+
+  <div id="controls">
+    <div>
+      <label for="region-select">Region:</label>
+      <select id="region-select" aria-label="region"></select>
+    </div>
+    <div class="layer-toggles" id="layer-toggles">
+      <button class="layer-toggle on" data-layer="tiles">tiles</button>
+      <button class="layer-toggle on" data-layer="walls">walls</button>
+      <button class="layer-toggle on" data-layer="entities">entities</button>
+      <button class="layer-toggle on" data-layer="npcs">NPCs</button>
+      <button class="layer-toggle on" data-layer="landmarks">landmarks</button>
+      <button class="layer-toggle" data-layer="grid">grid</button>
+    </div>
+    <span class="keybinds">WASD pan &middot; Q/E zoom &middot; R reset</span>
+  </div>
+
+  <div id="canvas-shell">
+    <canvas id="world-canvas" width="1024" height="640" tabindex="0"></canvas>
+    <div id="hud">region: -
+tile: -
+cam: (0,0) z=1x</div>
+  </div>
+  <div id="status">Loading Heartlands...</div>
+
+  <div class="legend" id="legend"></div>
+</div>
+
+<script src="/js/region-loader.js"></script>
+<script src="/js/renderer.js"></script>
+<script>
+(function bootstrap() {
+  'use strict';
+  const canvas = document.getElementById('world-canvas');
+  const statusEl = document.getElementById('status');
+  const hudEl = document.getElementById('hud');
+  const regionSelect = document.getElementById('region-select');
+  const toggles = document.querySelectorAll('.layer-toggle');
+  const legendEl = document.getElementById('legend');
+
+  // Match canvas backing buffer to its CSS size so pixel art stays crisp.
+  function sizeCanvas() {
+    const r = canvas.getBoundingClientRect();
+    const dpr = window.devicePixelRatio || 1;
+    canvas.width = Math.floor(r.width * dpr);
+    canvas.height = Math.floor(r.height * dpr);
+  }
+  sizeCanvas();
+  window.addEventListener('resize', () => { sizeCanvas(); renderer.render(); });
+
+  const renderer = new window.TileRenderer(canvas);
+  const loader = new window.RegionLoader('');
+
+  let currentRegion = null;
+  const initialLayers = { tiles: true, walls: true, entities: true, npcs: true, landmarks: true, grid: false };
+  for (const [k, v] of Object.entries(initialLayers)) renderer.toggleLayer(k, v);
+
+  function setStatus(msg, isErr) {
+    statusEl.textContent = msg;
+    statusEl.className = isErr ? 'err' : '';
+  }
+
+  function buildLegend(tilemap, palette) {
+    legendEl.innerHTML = '';
+    const legend = tilemap.tile_legend || {};
+    for (const [code, info] of Object.entries(legend)) {
+      const col = renderer.colorForTile(tilemap.id, code, info);
+      const row = document.createElement('div');
+      row.className = 'legend-row';
+      const sw = document.createElement('div');
+      sw.className = 'legend-sw';
+      sw.style.background = col;
+      const label = document.createElement('span');
+      label.textContent = `${code}: ${info.name || '?'}${info.walkable ? '' : ' (blocked)'}`;
+      row.appendChild(sw);
+      row.appendChild(label);
+      legendEl.appendChild(row);
+    }
+  }
+
+  async function loadRegion(regionId) {
+    setStatus(`Loading ${regionId}...`);
+    try {
+      const tilemap = await loader.fetchTilemap(regionId);
+      const palette = await loader.fetchPalette(regionId);
+      renderer.loadRegion(tilemap, palette);
+      currentRegion = regionId;
+      buildLegend(tilemap, palette);
+      renderer.render();
+      setStatus(`Loaded ${tilemap.name || regionId} — ${tilemap.width}x${tilemap.height}, ${(tilemap.landmarks || []).length} landmarks, ${Object.keys(tilemap.spawn_points || {}).length} spawns`);
+    } catch (e) {
+      setStatus(`Error loading ${regionId}: ${e.message}`, true);
+    }
+  }
+
+  async function populateRegions() {
+    try {
+      const list = await loader.fetchRegionList();
+      regionSelect.innerHTML = '';
+      for (const r of list) {
+        const opt = document.createElement('option');
+        opt.value = r;
+        opt.textContent = r;
+        regionSelect.appendChild(opt);
+      }
+      const def = list.includes('heartlands') ? 'heartlands' : list[0];
+      if (def) { regionSelect.value = def; loadRegion(def); }
+    } catch (e) {
+      setStatus('Could not fetch region list — running against static tilemaps. ' + e.message, true);
+    }
+  }
+
+  regionSelect.addEventListener('change', () => loadRegion(regionSelect.value));
+
+  toggles.forEach(btn => {
+    btn.addEventListener('click', () => {
+      btn.classList.toggle('on');
+      renderer.toggleLayer(btn.dataset.layer, btn.classList.contains('on'));
+      renderer.render();
+    });
+  });
+
+  // ── Input: WASD pan, Q/E zoom, R reset ─────────────────────────────────
+  const keys = Object.create(null);
+  canvas.addEventListener('keydown', e => {
+    keys[e.key.toLowerCase()] = true;
+    if (['w','a','s','d','q','e','r',' '].includes(e.key.toLowerCase())) e.preventDefault();
+    if (e.key.toLowerCase() === 'r') { renderer.resetView(); renderer.render(); }
+  });
+  canvas.addEventListener('keyup', e => { keys[e.key.toLowerCase()] = false; });
+  canvas.addEventListener('click', () => canvas.focus());
+  canvas.focus();
+
+  let lastT = performance.now();
+  function frame(now) {
+    const dt = Math.min(0.1, (now - lastT) / 1000); lastT = now;
+    const panPx = 320 * dt;
+    if (keys['w']) renderer.panPixels(0, -panPx);
+    if (keys['s']) renderer.panPixels(0, panPx);
+    if (keys['a']) renderer.panPixels(-panPx, 0);
+    if (keys['d']) renderer.panPixels(panPx, 0);
+    if (keys['q']) renderer.zoomBy(1 / (1 + dt * 0.8));
+    if (keys['e']) renderer.zoomBy(1 + dt * 0.8);
+    renderer.render();
+    const cam = renderer.getCamera();
+    hudEl.textContent = `region: ${currentRegion || '-'}\ntile: ${cam.cx},${cam.cy}\ncam: (${cam.x.toFixed(0)},${cam.y.toFixed(0)}) z=${cam.zoom.toFixed(2)}x`;
+    requestAnimationFrame(frame);
+  }
+  requestAnimationFrame(frame);
+
+  populateRegions();
+})();
+</script>
+</body>
+</html>
