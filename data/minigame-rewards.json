@@ -1,0 +1,140 @@
+{
+  "_comment": "Aggregate reward catalog for all ten Aelgard minigames (six original + four scapified). Compiled from src/content/aelgard/minigames.js, minigames-scapified.js, and /tmp/scape-repos/ScapifyDatSheet/designs/*.md. Used by the UI to render minigame reward tables and by the completionist tracker to count collection log slots.",
+  "_source": "minigames.js + minigames-scapified.js + ScapifyDatSheet/designs/",
+  "_version": "1.0.0",
+  "minigames": {
+    "pest_control": {
+      "region": "Heartlands",
+      "currency": "pest_control_points",
+      "unique_rewards": [
+        { "id": "void_knight_top", "type": "armour", "rate": "shop_purchase" },
+        { "id": "void_knight_robe", "type": "armour", "rate": "shop_purchase" },
+        { "id": "void_knight_gloves", "type": "armour", "rate": "shop_purchase" },
+        { "id": "void_melee_helm", "type": "armour", "rate": "shop_purchase" },
+        { "id": "void_ranger_helm", "type": "armour", "rate": "shop_purchase" },
+        { "id": "void_mage_helm", "type": "armour", "rate": "shop_purchase" }
+      ],
+      "collection_log_slots": 6,
+      "pet": null
+    },
+    "sootworks_forge": {
+      "region": "Sootworks",
+      "currency": null,
+      "unique_rewards": [],
+      "collection_log_slots": 0,
+      "pet": null,
+      "perk": "half_coal_smelting"
+    },
+    "spirit_pyre": {
+      "region": "Veilwood",
+      "currency": "pyre_points",
+      "unique_rewards": [
+        { "id": "pyromancer_hat", "type": "armour", "rate": "shop_purchase" },
+        { "id": "pyromancer_top", "type": "armour", "rate": "shop_purchase" },
+        { "id": "pyromancer_legs", "type": "armour", "rate": "shop_purchase" },
+        { "id": "pyromancer_boots", "type": "armour", "rate": "shop_purchase" },
+        { "id": "bruma_torch", "type": "tool", "rate": "shop_purchase" }
+      ],
+      "collection_log_slots": 6,
+      "pet": { "id": "phoenix", "rate": 5000 }
+    },
+    "castle_wars": {
+      "region": "Wilds",
+      "currency": "castle_wars_tickets",
+      "unique_rewards": [
+        { "id": "decorative_armour_gold_body", "type": "armour", "rate": "shop_purchase" },
+        { "id": "castle_wars_halo", "type": "armour", "rate": "shop_purchase" }
+      ],
+      "collection_log_slots": 2,
+      "pet": null
+    },
+    "guardians_rift": {
+      "region": "Inkweald",
+      "currency": "abyssal_pearls",
+      "unique_rewards": [
+        { "id": "hat_of_the_eye", "type": "armour", "rate": "shop_purchase" },
+        { "id": "robe_top_of_the_eye", "type": "armour", "rate": "shop_purchase" },
+        { "id": "robe_bottom_of_the_eye", "type": "armour", "rate": "shop_purchase" },
+        { "id": "boots_of_the_eye", "type": "armour", "rate": "shop_purchase" }
+      ],
+      "collection_log_slots": 5,
+      "pet": { "id": "needle", "rate": 5000 }
+    },
+    "barbarian_assault": {
+      "region": "Saltbrine",
+      "currency": "honour_points",
+      "unique_rewards": [
+        { "id": "fighter_torso", "type": "armour", "rate": "shop_purchase" },
+        { "id": "penance_skirt", "type": "armour", "rate": "shop_purchase" }
+      ],
+      "collection_log_slots": 3,
+      "pet": { "id": "penance_queen", "rate": 4000 }
+    },
+    "marchlands": {
+      "region": "Wilds",
+      "currency": "siege_marks",
+      "unique_rewards": [
+        { "id": "siege_commander_helm", "type": "cosmetic", "rate": "shop_purchase" },
+        { "id": "siege_commander_cape", "type": "cosmetic", "rate": "shop_purchase" },
+        { "id": "battering_ram", "type": "weapon", "rate": "shop_purchase" },
+        { "id": "rampart_shield", "type": "armour", "rate": "shop_purchase" },
+        { "id": "banner_of_conquest", "type": "cosmetic", "rate": "shop_purchase" },
+        { "id": "war_paint_kit", "type": "cosmetic", "rate": "shop_purchase" }
+      ],
+      "collection_log_slots": 7,
+      "pet": { "id": "siegeling", "rate_win": 4000, "rate_loss": 12000 }
+    },
+    "ramparts": {
+      "region": "Saltbrine",
+      "currency": "fortification_tokens",
+      "unique_rewards": [
+        { "id": "rampart_shield", "type": "armour", "rate": 200, "unlock_condition": "wave 20+" },
+        { "id": "battlement_ring", "type": "jewellery", "rate": 400, "unlock_condition": "wave 30+" },
+        { "id": "trebuchet_kit", "type": "cosmetic", "rate": "shop_purchase" },
+        { "id": "builder_toolkit", "type": "consumable", "rate": "shop_purchase" },
+        { "id": "fortified_rations", "type": "consumable", "rate": "shop_purchase" },
+        { "id": "ammunition_crate", "type": "consumable", "rate": "shop_purchase" }
+      ],
+      "collection_log_slots": 6,
+      "pet": { "id": "chonk_siege_golem", "rate": 4000, "unlock_condition": "wave 15+" }
+    },
+    "deadhold": {
+      "region": "Moryskah",
+      "currency": "dread_tokens",
+      "unique_rewards": [
+        { "id": "dreadbone_crossbow", "type": "weapon", "rate": 400 },
+        { "id": "barricader_bulwark", "type": "armour", "rate": 600 },
+        { "id": "zombie_champion_cape", "type": "armour", "rate": 1000, "unlock_condition": "wave 30+" },
+        { "id": "undead_slayer_sigil", "type": "armour", "rate": "shop_purchase" },
+        { "id": "dreadforge_hammer", "type": "tool", "rate": "shop_purchase" },
+        { "id": "barricade_kit", "type": "consumable", "rate": "shop_purchase" },
+        { "id": "siege_brew_4", "type": "potion", "rate": "shop_purchase" }
+      ],
+      "collection_log_slots": 8,
+      "pet": { "id": "nibbles_zombie_rat", "rate": 4000 }
+    },
+    "the_ascendancy": {
+      "region": "Inkweald",
+      "currency": "remnant_shards",
+      "unique_rewards": [
+        { "id": "tide_of_ruin", "type": "weapon", "rate": 400, "unlock_condition": "wave 50+" },
+        { "id": "remnant_sigil", "type": "armour", "rate": 200, "unlock_condition": "wave 50+" },
+        { "id": "tattered_remains_hood", "type": "armour", "rate": "shop_purchase" },
+        { "id": "tattered_remains_robe", "type": "armour", "rate": "shop_purchase" },
+        { "id": "tattered_remains_legs", "type": "armour", "rate": "shop_purchase" },
+        { "id": "tattered_remains_boots", "type": "armour", "rate": "shop_purchase" },
+        { "id": "surge_rune_pack", "type": "consumable", "rate": "shop_purchase" },
+        { "id": "remnant_reroll_token", "type": "consumable", "rate": "shop_purchase" },
+        { "id": "remnant_imbue_scroll", "type": "consumable", "rate": "shop_purchase" }
+      ],
+      "collection_log_slots": 12,
+      "pet": { "id": "scrap", "rate": 4000, "unlock_condition": "wave 25+" }
+    }
+  },
+  "totals": {
+    "minigames": 10,
+    "collection_log_slots": 55,
+    "pets": 7,
+    "unique_currencies": 9
+  }
+}

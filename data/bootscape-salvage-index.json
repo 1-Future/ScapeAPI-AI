@@ -1,0 +1,76 @@
+{
+  "_comment": "Index of source assets surveyed during the burn v2 seed salvage sweep. Records what was looked at, what was ported, what was skipped and why. Machine-readable counterpart to reports/bootscape-salvage.md.",
+  "_version": "1.0.0",
+  "_generated_at": "2026-04-15",
+  "sources": {
+    "bootscape": {
+      "path": "/tmp/scape-repos/bootscape",
+      "kind": "OSRS-era Jagex client + server in TypeScript + RS2 scripts",
+      "top_level": ["Client-TS", "Server"],
+      "surveyed": [
+        { "path": "Server/content/scripts/drop tables", "kind": "RS2 scripts", "action": "PORTED: 10 drop tables -> src/content/aelgard/drop-tables-bootscape.js", "notes": "chicken, cow, goblin, hill_giant already defined in data/droptables.js. Added man, woman, farmer, giant_rat, skeleton, unicorn, werewolf, zombie, pirate, moss_giant." },
+        { "path": "Server/content/scripts/music/configs", "kind": "dbtable/dbrow", "action": "STRUCTURAL PORT: music-regions.json", "notes": "OSRS track names not useful since our audio-manifest.json ships an authored Aelgard cue set. Borrowed the region-to-cue mapping table structure only." },
+        { "path": "Server/content/scripts/quests", "kind": "RS2 quest scripts", "action": "SKIPPED", "notes": "59 RS2 quest scripts (quest_arena through quest_zombie). Our src/content/aelgard/quests-*.js already defines 69 Aelgard-native quests. Porting OSRS quests would duplicate and off-theme the setting." },
+        { "path": "Server/content/scripts/shop", "kind": "RS2 shop scripts", "action": "SKIPPED", "notes": "RS2 scripts, not data. Our src/content/aelgard/shops-expanded.js already covers Aelgard shops." },
+        { "path": "Server/content/scripts/areas", "kind": "per-area RS2 scripts", "action": "SKIPPED", "notes": "Area names are OSRS (alkharid, ardougne, camelot, falador, draynor, varrock, etc). Aelgard uses its own regions (heartlands, moryskah, etc). Port would be off-theme." },
+        { "path": "Server/content/scripts/skill_*", "kind": "RS2 skill scripts", "action": "SKIPPED", "notes": "Our data/relationships.js + content/aelgard/training-methods.js + skill-web.js are complete. Skill scripts are implementation, not data." },
+        { "path": "Server/content/pack/*.pack", "kind": "binary packs (loc, npc, obj, model, anim, seq)", "action": "SKIPPED", "notes": "Binary asset packs. Cannot be parsed without the bootscape toolchain and would be OSRS-themed regardless." },
+        { "path": "Server/content/scripts/levelup/configs/levelup.dbtable", "kind": "dbtable", "action": "SKIPPED", "notes": "Contains a level-up interface schema, not data. Our engine handles level-ups via src/engine/breakpoint-runner.js hooked to rel.defineBreakpoint()." },
+        { "path": "Client-TS/src/*", "kind": "3D client source", "action": "SKIPPED", "notes": "Client-side rendering code, unrelated to server-authoritative data." }
+      ]
+    },
+    "openscape_data": {
+      "path": "/tmp/scape-repos/OpenScape/data",
+      "kind": "MiniScape tile editor output",
+      "surveyed": [
+        { "file": "appearances.json", "action": "SKIPPED", "notes": "Empty {} in source." },
+        { "file": "colors.json", "action": "SKIPPED", "notes": "Empty {}." },
+        { "file": "names.json", "action": "SKIPPED", "notes": "Empty {}." },
+        { "file": "friends.json", "action": "SKIPPED", "notes": "Empty {}." },
+        { "file": "positions.json", "action": "SKIPPED", "notes": "Empty {}." },
+        { "file": "walls.json", "action": "SKIPPED", "notes": "Tile-keyed wall indices from a MiniScape session, no semantic meaning outside that world." },
+        { "file": "wall_textures.json", "action": "SKIPPED", "notes": "Same." },
+        { "file": "roofs.json", "action": "SKIPPED", "notes": "Same." },
+        { "file": "heights.json", "action": "SKIPPED", "notes": "Per-tile height field from a specific MiniScape build. Not portable." },
+        { "file": "variants.json", "action": "SKIPPED", "notes": "Per-tile wall variant indices." },
+        { "file": "doors.json", "action": "SKIPPED", "notes": "8 specific door positions keyed to a MiniScape world." },
+        { "file": "lots.json", "action": "SKIPPED", "notes": "Named player lots with tile lists from a live MiniScape session. Not applicable to Aelgard." }
+      ]
+    },
+    "scapify_datsheet": {
+      "path": "/tmp/scape-repos/ScapifyDatSheet",
+      "kind": "design method + idea collection",
+      "surveyed": [
+        { "file": "SCAPIFY.md", "action": "PORTED: data/scapify-method.json", "notes": "8-step design method for translating any game into Aelgard-native content. Now consumable by the builder AI as structured JSON." },
+        { "file": "IDEAS.md", "action": "PORTED via individual designs", "notes": "The four designs are the content; IDEAS.md is just summaries." },
+        { "file": "designs/marchlands.md", "action": "PORTED: minigames-scapified.js", "notes": "5v5 MOBA lane push. Fills the team-PvP gap Castle Wars does not cover." },
+        { "file": "designs/ramparts.md", "action": "PORTED: minigames-scapified.js", "notes": "Solo/duo siege tower defense. Fills the solo-scaling-wave gap." },
+        { "file": "designs/deadhold.md", "action": "PORTED: minigames-scapified.js", "notes": "Co-op undead survival fortress. Fills the group-skill-survival gap." },
+        { "file": "designs/ascendancy.md", "action": "PORTED: minigames-scapified.js", "notes": "Roguelike wave combat. Fills the build-diversity run-based gap." },
+        { "file": "README.md", "action": "SKIPPED", "notes": "Repo intro, no game data." }
+      ]
+    }
+  },
+  "port_summary": {
+    "new_minigames": 4,
+    "new_drop_tables": 10,
+    "new_data_files": 6,
+    "new_items": 40,
+    "new_npcs": 4,
+    "new_quest_unlocks": 4,
+    "file_list": [
+      "data/scapify-method.json",
+      "data/minigame-rewards.json",
+      "data/music-regions.json",
+      "data/bootscape-salvage-index.json",
+      "src/content/aelgard/minigames-scapified.js",
+      "src/content/aelgard/drop-tables-bootscape.js"
+    ]
+  },
+  "rejection_criteria": [
+    "Name is OSRS-specific (Alkharid, Falador, Varrock) and would off-theme Aelgard",
+    "Asset is a binary blob (cache.pack) requiring bootscape toolchain",
+    "Content already exists in richer form in data/* or src/content/aelgard/*",
+    "Content is engine implementation (RS2 scripts), not authorable data"
+  ]
+}
