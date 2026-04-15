@@ -43,6 +43,10 @@ try { require('../content/aelgard/inkweald-density'); } catch (e) {}
 try { require('../content/aelgard/mid-tier-regions'); } catch (e) {}
 try { require('../content/aelgard/universal-items'); } catch (e) {}
 try { require('../content/aelgard/special-regions'); } catch (e) {}
+// burn-v2: mega monster expansion (110 monsters, 100+ drop items)
+try { require('../content/aelgard/items-blitz3'); } catch (e) {}
+try { require('../content/aelgard/monsters-mega'); } catch (e) {}
+try { require('../content/aelgard/droptables-mega'); } catch (e) {}
 let PRESTIGE_GOALS = {};
 try { PRESTIGE_GOALS = require('../content/aelgard/cross-region-web').PRESTIGE_GOALS || {}; } catch (e) {}
 let quirky = null;
