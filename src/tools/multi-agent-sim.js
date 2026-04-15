@@ -51,6 +51,10 @@ try { require('../content/aelgard/universal-items'); } catch (e) {}
 try { require('../content/aelgard/special-regions'); } catch (e) {}
 try { require('../content/aelgard/cross-region-web'); } catch (e) {}
 try { require('../content/aelgard/quirky-interactions'); } catch (e) {}
+// burn-v2: mega monster expansion (110 monsters, 100+ drop items)
+try { require('../content/aelgard/items-blitz3'); } catch (e) {}
+try { require('../content/aelgard/monsters-mega'); } catch (e) {}
+try { require('../content/aelgard/droptables-mega'); } catch (e) {}
 
 // ── XP Table ─────────────────────────────────────────────────────────────────
 const XP_TABLE = [0];

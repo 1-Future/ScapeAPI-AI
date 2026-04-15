@@ -3645,6 +3645,9 @@ function createDefaultContent() {
   require('./content/aelgard/items-blitz');          // 200+ items: smithing products, food, dragonhide, teleport jewellery, skilling outfits, capes, gloves, boots, shields, amulets
   require('./content/aelgard/monsters-blitz');       // 70+ more monsters: dungeon creatures, expanded slayer tower, dragons, wilderness bosses
   require('./content/aelgard/monsters-blitz2');      // 90+ more monsters: city variants, cave systems, deep dungeons, wilderness bosses
+  require('./content/aelgard/items-blitz3');         // burn-v2: gap items for mega drop tables
+  require('./content/aelgard/monsters-mega');        // burn-v2: 110 named monsters with full drop tables across all 9 regions
+  require('./content/aelgard/droptables-mega');      // burn-v2: reverse index + collection-log reverse lookup for mega monsters
   require('./content/aelgard/droptables-expanded');  // Fill missing drop tables for all monsters
   require('./content/aelgard/items-blitz2');         // 247 items: obsidian, godwars, prayer, slayer equip, potions, farming, treasure trail, utility
   require('./content/aelgard/quests-blitz');          // 30 quests: skill intros, lore chains, multi-region adventures, combat challenges, group quests
