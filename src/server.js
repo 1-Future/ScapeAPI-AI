@@ -3730,6 +3730,13 @@ function createDefaultContent() {
           break;
         }
       }
+      // Fan out to spectators (burn-v2) — additive, never blocks.
+      try {
+        if (globalThis.spectate && globalThis.spectate.broadcast) {
+          const msg = require('./engine/spectate-bridge').buildBreakpointHit(ev);
+          globalThis.spectate.broadcast(msg);
+        }
+      } catch {}
       // Fire-and-forget: Claude generates flavor text, appends to events.json.
       // Never blocks the tick loop; errors are logged by the narrator module.
       narrator.handleBreakpoint(ev);
@@ -3996,6 +4003,28 @@ const server = http.createServer(async (req, res) => {
     return;
   }
 
+  // Spectator state (burn-v2) — HTTP fallback when WS is not available.
+  // Returns a snapshot of the first logged-in player, mirroring the shapes
+  // the WebSocket broadcast (see src/engine/spectate-bridge.js).
+  if (req.url === '/spectate/state' || req.url.startsWith('/spectate/state?')) {
+    res.writeHead(200, { 'Content-Type': 'application/json', 'Cache-Control': 'no-cache' });
+    let body = { players: [] };
+    try {
+      for (const [, p] of players) {
+        body.players.push({
+          state: spectateBridge.buildStateSnapshot(p),
+          inventory: spectateBridge.buildInventory(p),
+          dialogue: p.activeDialogue ? spectateBridge.buildDialogueUpdate(p) : null,
+          breakpointHistory: Array.isArray(p.breakpointHistory)
+            ? p.breakpointHistory.slice(-30).map(ev => spectateBridge.buildBreakpointHit(ev))
+            : [],
+        });
+      }
+    } catch (e) { body.error = e.message; }
+    res.end(JSON.stringify(body));
+    return;
+  }
+
   // Serve live.log for spectator
   if (req.url === '/spectate-data') {
     // Track viewer
@@ -4172,13 +4201,110 @@ const server = http.createServer(async (req, res) => {
     return;
   }
 
+  // Serve selected /data/*.json files (read-only whitelist) so the spectator
+  // can fetch npc-bibles.json for cadence summaries without a PG round-trip.
+  if (req.method === 'GET' && req.url.startsWith('/data/')) {
+    const ALLOWED = new Set([
+      '/data/npc-bibles.json',
+      '/data/lore.json',
+      '/data/quest-narratives.json',
+    ]);
+    const clean = req.url.split('?')[0];
+    if (ALLOWED.has(clean)) {
+      const dataPath = require('path').join(__dirname, '..', clean.slice(1));
+      if (require('fs').existsSync(dataPath)) {
+        res.writeHead(200, { 'Content-Type': 'application/json', 'Cache-Control': 'public, max-age=60' });
+        res.end(require('fs').readFileSync(dataPath));
+        return;
+      }
+    }
+  }
+
   res.writeHead(200, { 'Content-Type': 'text/plain' });
   res.end('Scape — ws://localhost:2223 or open in browser');
 });
 
 const wss = new WebSocket.Server({ server });
 
-wss.on('connection', (ws) => {
+// ── Spectator WebSocket fan-out (burn-v2) ─────────────────────────────────
+// Spectators connect to ws://host/ws/spectate. We keep them in a Set and
+// push additive messages (dialogue_update, breakpoint_hit, inventory,
+// combat_achievement, state_snapshot) without routing through the command
+// parser. See src/engine/spectate-bridge.js for the wire shapes.
+const spectateBridge = require('./engine/spectate-bridge');
+const spectatorSockets = new Set();
+function broadcastSpectate(msg) {
+  if (!msg) return;
+  let text;
+  try { text = JSON.stringify(msg); } catch { return; }
+  for (const s of spectatorSockets) {
+    if (s.readyState === WebSocket.OPEN) {
+      try { s.send(text); } catch {}
+    }
+  }
+}
+// Throttle inventory + state_snapshot broadcasts per player to avoid spam.
+const _lastSpectateBroadcast = new Map(); // key = `${type}:${playerId}` → ts ms
+function shouldBroadcast(key, minMs) {
+  const now = Date.now();
+  const prev = _lastSpectateBroadcast.get(key) || 0;
+  if (now - prev < minMs) return false;
+  _lastSpectateBroadcast.set(key, now);
+  return true;
+}
+// Broadcast helpers — exposed on globalThis.spectate so any plugin or engine
+// subsystem can call into them without wiring a direct import.
+globalThis.spectate = {
+  broadcast: broadcastSpectate,
+  dialogueChanged(player) {
+    if (!player) return;
+    broadcastSpectate(spectateBridge.buildDialogueUpdate(player));
+  },
+  inventoryChanged(player, { immediate = false } = {}) {
+    if (!player) return;
+    if (!immediate && !shouldBroadcast(`inv:${player.id}`, 400)) return;
+    broadcastSpectate(spectateBridge.buildInventory(player));
+  },
+  combatAchievement(payload) {
+    broadcastSpectate(spectateBridge.buildCombatAchievement(payload || {}));
+  },
+  stateSnapshot(player) {
+    if (!player) return;
+    if (!shouldBroadcast(`state:${player.id}`, 1500)) return;
+    broadcastSpectate(spectateBridge.buildStateSnapshot(player));
+  },
+};
+// Periodic state_snapshot for all logged-in players (low frequency).
+setInterval(() => {
+  for (const [, p] of players) {
+    if (!p) continue;
+    try { broadcastSpectate(spectateBridge.buildStateSnapshot(p)); } catch {}
+  }
+}, 2000);
+
+wss.on('connection', (ws, req) => {
+  // Route spectators (read-only) away from the player command pipeline.
+  const reqUrl = (req && req.url) || '';
+  if (reqUrl === '/ws/spectate' || reqUrl.startsWith('/ws/spectate?')) {
+    spectatorSockets.add(ws);
+    try {
+      ws.send(JSON.stringify({ type: 'hello', role: 'spectator', ts: Date.now() }));
+      // Send an initial snapshot per logged-in player so the panels populate
+      // immediately on connect instead of waiting for a tick.
+      for (const [, p] of players) {
+        try {
+          ws.send(JSON.stringify(spectateBridge.buildStateSnapshot(p)));
+          ws.send(JSON.stringify(spectateBridge.buildInventory(p)));
+          if (p.activeDialogue) ws.send(JSON.stringify(spectateBridge.buildDialogueUpdate(p)));
+        } catch {}
+      }
+    } catch {}
+    ws.on('close', () => spectatorSockets.delete(ws));
+    ws.on('error', () => spectatorSockets.delete(ws));
+    ws.on('message', () => { /* spectators can't speak — ignore. */ });
+    return;
+  }
+
   sendText(ws, 'Welcome to Scape! Type `login [name]` to start.');
 
   ws.on('message', (data) => {
