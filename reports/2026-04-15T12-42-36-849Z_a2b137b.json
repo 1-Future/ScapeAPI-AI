@@ -1,0 +1,125 @@
+{
+  "timestamp": "2026-04-15T12:42:36.808Z",
+  "git": {
+    "commit": "a2b137bb128c835e200fc23216d4536ce1df54cc",
+    "branch": "main"
+  },
+  "relationship_stats": {
+    "areaGates": 31,
+    "questUnlocks": 69,
+    "trainingMethods": 262,
+    "combinations": 69,
+    "degradableItems": 7,
+    "encounterBisTables": 4,
+    "breakpoints": 142,
+    "itemSources": 456,
+    "itemUses": 80,
+    "minigames": 0
+  },
+  "regions": {
+    "Glass Desert": {
+      "methods": 61,
+      "items": 138,
+      "recipes": 24,
+      "skills": "23/23",
+      "selfSuff": "19/23",
+      "goal": "+ OK",
+      "score": 97
+    },
+    "Heartlands": {
+      "methods": 91,
+      "items": 78,
+      "recipes": 15,
+      "skills": "23/23",
+      "selfSuff": "18/23",
+      "goal": "+ OK",
+      "score": 96
+    },
+    "The Wilds": {
+      "methods": 102,
+      "items": 95,
+      "recipes": 15,
+      "skills": "23/23",
+      "selfSuff": "18/23",
+      "goal": "+ OK",
+      "score": 96
+    },
+    "Boneyard Wastes": {
+      "methods": 62,
+      "items": 91,
+      "recipes": 25,
+      "skills": "23/23",
+      "selfSuff": "15/23",
+      "goal": "+ OK",
+      "score": 93
+    },
+    "Sootworks": {
+      "methods": 55,
+      "items": 109,
+      "recipes": 15,
+      "skills": "23/23",
+      "selfSuff": "15/23",
+      "goal": "+ OK",
+      "score": 93
+    },
+    "Veilwood": {
+      "methods": 60,
+      "items": 95,
+      "recipes": 15,
+      "skills": "23/23",
+      "selfSuff": "14/23",
+      "goal": "+ OK",
+      "score": 92
+    },
+    "Saltbrine Reach": {
+      "methods": 65,
+      "items": 104,
+      "recipes": 17,
+      "skills": "23/23",
+      "selfSuff": "14/23",
+      "goal": "+ OK",
+      "score": 92
+    },
+    "Inkweald": {
+      "methods": 59,
+      "items": 80,
+      "recipes": 12,
+      "skills": "23/23",
+      "selfSuff": "16/23",
+      "goal": "+ OK",
+      "score": 91
+    },
+    "Moryskah": {
+      "methods": 45,
+      "items": 83,
+      "recipes": 9,
+      "skills": "23/23",
+      "selfSuff": "11/23",
+      "goal": "+ OK",
+      "score": 84
+    }
+  },
+  "summary": {
+    "avg": 93,
+    "best": 97,
+    "worst": 84
+  },
+  "sim": {
+    "verdict": "non-degenerate",
+    "avgSim": 27,
+    "mostSimilar": 61,
+    "mostDifferent": 8.1
+  },
+  "diff": {
+    "previous_file": "2026-04-15T07-19-30-014Z_09c4494.json",
+    "regressions": [],
+    "improvements": [
+      {
+        "region": "The Wilds",
+        "from": 57,
+        "to": 96,
+        "delta": 39
+      }
+    ]
+  }
+}
