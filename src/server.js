@@ -4042,6 +4042,12 @@ const server = http.createServer(async (req, res) => {
     if (serveHTML('dashboard.html')) return;
   }
 
+  // Admin dashboard — admin or owner only
+  if (req.url === '/admin' || req.url.startsWith('/admin?') || req.url === '/admin.html') {
+    if (!requireRole('admin')) return;
+    if (serveHTML('admin.html')) return;
+  }
+
   // ── Unified Builder — builder+ role required ──
   if (req.url === '/builder' || req.url.startsWith('/builder?')) {
     if (!requireRole('builder')) return;
@@ -4359,7 +4365,61 @@ setInterval(() => {
   }
 }, 2000);
 
+// ── Admin WebSocket fan-out (burn-v2 admin dashboard) ─────────────────────
+// Admins connect to ws://host/ws/admin after authenticating with the session
+// cookie. They receive admin_overview_tick (every 5s), admin_new_report,
+// and admin_alert messages. Read-only — commands still go through
+// /api/admin/* HTTP endpoints.
+const adminSockets = new Set();
+function broadcastAdmin(msg) {
+  if (!msg) return;
+  let text;
+  try { text = JSON.stringify(msg); } catch { return; }
+  for (const s of adminSockets) {
+    if (s.readyState === WebSocket.OPEN) {
+      try { s.send(text); } catch {}
+    }
+  }
+}
+events.on('admin:overview_tick', 'server:admin-ws:overview', (data) => {
+  broadcastAdmin({ type: 'admin_overview_tick', ...data });
+});
+events.on('admin:new_report', 'server:admin-ws:new_report', (data) => {
+  broadcastAdmin({ type: 'admin_new_report', ...data });
+});
+events.on('admin:alert', 'server:admin-ws:alert', (data) => {
+  broadcastAdmin({ type: 'admin_alert', ...data });
+});
+events.on('admin:event_scheduled', 'server:admin-ws:event-sched', (data) => {
+  broadcastAdmin({ type: 'admin_event_scheduled', event: data });
+});
+events.on('admin:config_updated', 'server:admin-ws:config', (data) => {
+  broadcastAdmin({ type: 'admin_config_updated', ...data });
+});
+
 wss.on('connection', (ws, req) => {
+  // Route admins to their own read-only channel.
+  const _reqUrl0 = (req && req.url) || '';
+  if (_reqUrl0 === '/ws/admin' || _reqUrl0.startsWith('/ws/admin?')) {
+    // Gate on session cookie.
+    const session = auth.getSession(req);
+    if (!auth.hasRole(session, 'admin')) {
+      try { ws.send(JSON.stringify({ type: 'error', error: 'admin required' })); } catch {}
+      try { ws.close(); } catch {}
+      return;
+    }
+    adminSockets.add(ws);
+    try {
+      ws.send(JSON.stringify({ type: 'hello', role: session.role, name: session.name, ts: Date.now() }));
+      const adminApi = require('./engine/admin-api');
+      ws.send(JSON.stringify({ type: 'admin_overview_tick', ...adminApi.getOverview() }));
+    } catch {}
+    ws.on('close', () => adminSockets.delete(ws));
+    ws.on('error', () => adminSockets.delete(ws));
+    ws.on('message', () => { /* admins push via HTTP. */ });
+    return;
+  }
+
   // Route spectators (read-only) away from the player command pipeline.
   const reqUrl = (req && req.url) || '';
   if (reqUrl === '/ws/spectate' || reqUrl.startsWith('/ws/spectate?')) {
@@ -5064,6 +5124,32 @@ persistence.startAutoSave();
 
 // HTTP API for Claude Code / external tools
 setupHttpApi(server, { players, playersByName, commands, sendText, createPlayer, combatLevel, getLevel, totalLevel, tick, tiles, npcs, invFreeSlots });
+
+// Admin dashboard API — aggregation + alerts
+let _adminApiRef = null;
+try {
+  _adminApiRef = require('./engine/admin-api');
+  _adminApiRef.init({
+    players,
+    playersByName,
+    tick,
+    getClanList: () => { try { return require('./engine/clan').listClans(); } catch { return []; } },
+    getMarketStats: (itemId) => ge.getMarketStats ? ge.getMarketStats(itemId) : null,
+    startTime: Date.now(),
+  });
+  _adminApiRef.startOverviewPush(5000);
+  // Record tick duration for P50/P99: preTick sets start, postTick diffs.
+  let _tickStart = 0;
+  tick.registerPhase('preTick', 'admin-api:tick-start', () => { _tickStart = Date.now(); });
+  tick.registerPhase('postTick', 'admin-api:tick-end', () => {
+    if (_tickStart > 0) {
+      try { _adminApiRef.recordTickSample(Date.now() - _tickStart); } catch {}
+    }
+  });
+  console.log('[server] Admin API initialised');
+} catch (err) {
+  console.warn('[server] Admin API init failed:', err.message);
+}
 
 // Load builder content from Postgres into the engine
 const contentLoader = require('./engine/content-loader');

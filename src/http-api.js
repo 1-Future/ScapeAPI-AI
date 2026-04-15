@@ -23,6 +23,8 @@ let tilemapEditor = null;
 try { tilemapEditor = require('./builder/tilemap-editor'); } catch {}
 let _auth = null;
 try { _auth = require('./auth'); } catch {}
+let _adminApi = null;
+try { _adminApi = require('./engine/admin-api'); } catch {}
 
 const pendingResponses = new Map(); // requestId → { resolve, timeout }
 const eventQueues = new Map(); // playerName → [messages]
@@ -67,6 +69,12 @@ function setupHttpApi(server, { players, playersByName, commands, sendText, crea
     res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
     res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
     if (req.method === 'OPTIONS') { res.writeHead(200); res.end(); return; }
+
+    // ── Admin endpoints (admin/owner-only) ────────────────────────────────────
+    if (req.url.startsWith('/api/admin/')) {
+      handleAdminRequest(req, res);
+      return;
+    }
 
     // ── Builder endpoints (admin-only) ────────────────────────────────────────
     // Only intercept path-based entity routes (/entities/:type[/:id]), where
@@ -404,4 +412,159 @@ async function handleBuilderRequest(req, res) {
   }
 }
 
-module.exports = { setupHttpApi, queueEvent, drainEvents, addNpcPrompt, handleBuilderRequest };
+// ══════════════════════════════════════════════════════════════════════════════
+// ADMIN API — the server admin dashboard (public/admin.html).
+// Gated on session.role === 'admin' || session.role === 'owner'.
+// ══════════════════════════════════════════════════════════════════════════════
+
+function _requireAdminOrOwner(req, res) {
+  if (!_auth) return true; // auth unavailable — allow for dev mode
+  const session = _auth.getSession(req);
+  if (session && (session.role === 'admin' || session.role === 'owner')) return true;
+  if (_auth.hasRole && _auth.hasRole(session, 'admin')) return true;
+  _json(res, { error: 'Admin or owner role required' }, 403);
+  return false;
+}
+
+function _requireOwner(req, res) {
+  if (!_auth) return true;
+  const session = _auth.getSession(req);
+  if (session && session.role === 'owner') return true;
+  _json(res, { error: 'Owner role required' }, 403);
+  return false;
+}
+
+async function handleAdminRequest(req, res) {
+  try {
+    if (!_requireAdminOrOwner(req, res)) return;
+    if (!_adminApi) return _json(res, { error: 'Admin API not available' }, 503);
+
+    const urlObj = new URL(req.url, 'http://local');
+    const url = urlObj.pathname;
+    const method = req.method;
+    const session = _auth ? _auth.getSession(req) : null;
+    const actor = session && session.name ? session.name : 'unknown';
+
+    // ── Overview ─────────────────────────────────────────────────────────
+    if (method === 'GET' && url === '/api/admin/overview') {
+      return _json(res, _adminApi.getOverview());
+    }
+
+    // ── Players ──────────────────────────────────────────────────────────
+    if (method === 'GET' && url === '/api/admin/players') {
+      const q = urlObj.searchParams.get('q') || '';
+      const limit = Number(urlObj.searchParams.get('limit')) || 100;
+      return _json(res, { ok: true, players: _adminApi.listPlayers({ q, limit }) });
+    }
+    let m = url.match(/^\/api\/admin\/players\/([^/]+)$/);
+    if (method === 'GET' && m) {
+      const card = _adminApi.getPlayerCard(decodeURIComponent(m[1]));
+      if (!card) return _json(res, { error: 'Player not found' }, 404);
+      return _json(res, card);
+    }
+
+    // ── Moderation queue ────────────────────────────────────────────────
+    if (method === 'GET' && url === '/api/admin/mod-queue') {
+      return _json(res, { ok: true, ..._adminApi.getModQueue() });
+    }
+
+    // ── Bot leaderboard ─────────────────────────────────────────────────
+    if (method === 'GET' && url === '/api/admin/bot-leaderboard') {
+      const limit = Number(urlObj.searchParams.get('limit')) || 20;
+      return _json(res, _adminApi.getBotLeaderboard(limit));
+    }
+
+    // ── Trade log ───────────────────────────────────────────────────────
+    if (method === 'GET' && url === '/api/admin/trade-log') {
+      const limit = Number(urlObj.searchParams.get('limit')) || 50;
+      return _json(res, _adminApi.getTradeLog(limit));
+    }
+
+    // ── Audit log ───────────────────────────────────────────────────────
+    if (method === 'GET' && url === '/api/admin/audit-log') {
+      const since = Number(urlObj.searchParams.get('since')) || 0;
+      const limit = Number(urlObj.searchParams.get('limit')) || 200;
+      return _json(res, _adminApi.getAuditLog({ since, limit }));
+    }
+
+    // ── Events ──────────────────────────────────────────────────────────
+    if (method === 'GET' && url === '/api/admin/events') {
+      return _json(res, { ok: true, events: _adminApi.listEvents() });
+    }
+    if (method === 'POST' && url === '/api/admin/event') {
+      const body = await _readBody(req);
+      const result = _adminApi.scheduleEvent({ ...body, by: actor });
+      return _json(res, result, result.ok ? 201 : 400);
+    }
+    m = url.match(/^\/api\/admin\/event\/(\d+)$/);
+    if (method === 'DELETE' && m) {
+      const result = _adminApi.cancelEvent(Number(m[1]), actor);
+      return _json(res, result, result.ok ? 200 : 404);
+    }
+
+    // ── Config (bot-policy, channel-config, server-rules) ───────────────
+    m = url.match(/^\/api\/admin\/config\/([a-z0-9\-_]+)$/i);
+    if (method === 'GET' && m) {
+      const v = _adminApi.getConfig(m[1]);
+      if (v == null) return _json(res, { error: `Unknown key: ${m[1]}` }, 404);
+      return _json(res, { ok: true, key: m[1], value: v });
+    }
+    if (method === 'PUT' && m) {
+      const body = await _readBody(req);
+      const result = _adminApi.updateConfig(m[1], body, actor);
+      return _json(res, result, result.ok ? 200 : 400);
+    }
+
+    // ── Clans ───────────────────────────────────────────────────────────
+    if (method === 'GET' && url === '/api/admin/clans') {
+      const limit = Number(urlObj.searchParams.get('limit')) || 50;
+      return _json(res, _adminApi.getClans({ limit }));
+    }
+
+    // ── Content summary ─────────────────────────────────────────────────
+    if (method === 'GET' && url === '/api/admin/content') {
+      return _json(res, { ok: true, ..._adminApi.getContentSummary() });
+    }
+
+    // ── Role grant (owner only) ─────────────────────────────────────────
+    //   POST /api/admin/role/grant   { user, role }
+    if (method === 'POST' && url === '/api/admin/role/grant') {
+      if (!_requireOwner(req, res)) return;
+      const body = await _readBody(req);
+      const user = String(body.user || '').trim();
+      const role = String(body.role || '').trim();
+      if (!user || !role) return _json(res, { error: 'Need user and role' }, 400);
+      if (!_auth || !_auth.setRole) return _json(res, { error: 'Auth not available' }, 503);
+      const validRoles = _auth.ROLES || ['player', 'builder', 'admin'];
+      if (!validRoles.includes(role)) {
+        return _json(res, { error: `Invalid role. Must be: ${validRoles.join(', ')}` }, 400);
+      }
+      const ok = _auth.setRole(user, role);
+      if (!ok) return _json(res, { error: 'User not found' }, 404);
+      // Log the promotion.
+      try {
+        const fs = require('fs');
+        const path = require('path');
+        const persistence = require('./engine/persistence');
+        fs.mkdirSync(persistence.DATA_DIR, { recursive: true });
+        fs.appendFileSync(
+          path.join(persistence.DATA_DIR, 'mod-audit.log'),
+          JSON.stringify({
+            ts: Date.now(),
+            action: 'role_grant_http',
+            actor: { name: actor },
+            target: { name: user },
+            payload: { role },
+          }) + '\n'
+        );
+      } catch {}
+      return _json(res, { ok: true, user, role });
+    }
+
+    return _json(res, { error: 'Not found' }, 404);
+  } catch (err) {
+    return _json(res, { error: err.message || String(err) }, 500);
+  }
+}
+
+module.exports = { setupHttpApi, queueEvent, drainEvents, addNpcPrompt, handleBuilderRequest, handleAdminRequest };

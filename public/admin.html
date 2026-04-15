@@ -1,0 +1,1219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Scape — Admin Dashboard</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600;700&family=IM+Fell+English:ital@0;1&display=swap');
+
+*{margin:0;padding:0;box-sizing:border-box}
+
+:root{
+  --stone:#0e0e1a;
+  --stone-mid:#151525;
+  --stone-light:#1a1a2e;
+  --parchment:#d4c5a0;
+  --parchment-bright:#e8dcb8;
+  --parchment-dim:#9e8e6a;
+  --parchment-dark:#6b5e42;
+  --gold:#b8860b;
+  --gold-bright:#daa520;
+  --gold-dim:#8b6508;
+  --red:#c0392b;
+  --red-glow:#e74c3c;
+  --green:#27ae60;
+  --green-glow:#2ecc71;
+  --blue:#2980b9;
+  --blue-glow:#3498db;
+  --yellow:#d4a017;
+  --yellow-glow:#f1c40f;
+  --grey:#555;
+  --panel-bg:linear-gradient(135deg, #1a1a2e 0%, #16162a 50%, #121226 100%);
+  --parchment-bg:linear-gradient(135deg, rgba(184,134,11,0.06) 0%, rgba(139,101,8,0.03) 100%);
+  --panel-border:1px solid var(--gold-dim);
+  --font:'JetBrains Mono', monospace;
+  --serif:'IM Fell English', serif;
+}
+
+html{font-size:13px}
+body{
+  background:var(--stone);
+  color:var(--parchment);
+  font-family:var(--font);
+  min-height:100vh;
+  line-height:1.5;
+}
+
+/* Parchment noise overlay */
+body::before{
+  content:'';position:fixed;inset:0;
+  background:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
+  pointer-events:none;z-index:9999;
+}
+
+/* Site header */
+#site-header{
+  position:sticky;top:0;left:0;right:0;
+  display:flex;align-items:center;
+  background:#3a352e;height:30px;padding:0 10px;
+  font-size:12px;border-bottom:1px solid #5c5445;z-index:100;
+  font-family:'Courier New',monospace;
+}
+#site-header .logo{color:var(--gold-bright);font-weight:bold;font-size:14px;margin-right:16px;text-decoration:none;letter-spacing:2px}
+#site-header nav{display:flex;gap:0;flex:1}
+#site-header nav a{color:#aaa;text-decoration:none;padding:0 10px;line-height:30px;transition:color 0.15s}
+#site-header nav a:hover{color:#fff}
+#site-header nav a.active{color:var(--gold-bright)}
+#site-header .role-tag{
+  color:var(--gold-bright);font-weight:bold;padding:0 10px;
+  background:rgba(184,134,11,0.12);margin-right:10px;border-radius:3px;
+  font-size:11px;letter-spacing:1px;text-transform:uppercase;
+}
+#site-header .ws-dot{
+  width:8px;height:8px;border-radius:50%;background:var(--grey);
+  display:inline-block;margin-right:6px;transition:background 0.3s;
+}
+#site-header .ws-dot.ok{background:var(--green);box-shadow:0 0 6px var(--green-glow)}
+#site-header .ws-dot.err{background:var(--red);box-shadow:0 0 6px var(--red-glow)}
+
+/* Page header */
+header.page-hdr{
+  background:linear-gradient(180deg, #1e1a12 0%, #151020 100%);
+  border-bottom:2px solid var(--gold);
+  padding:14px 24px;
+  display:flex;align-items:center;justify-content:space-between;
+  position:sticky;top:30px;z-index:90;
+  box-shadow:0 4px 20px rgba(0,0,0,0.5);
+}
+header.page-hdr h1{
+  font-family:var(--serif);
+  font-size:1.6rem;font-weight:400;
+  color:var(--gold-bright);letter-spacing:3px;
+  text-shadow:0 0 10px rgba(218,165,32,0.3);
+}
+.uptime-bar{
+  display:flex;align-items:center;gap:16px;
+  font-size:0.78rem;color:var(--parchment-dim);
+}
+.uptime-bar .metric{display:flex;align-items:center;gap:6px}
+.uptime-bar .metric strong{color:var(--parchment-bright)}
+
+/* Nav tabs */
+nav.tabs{
+  display:flex;gap:2px;padding:0 24px;
+  background:var(--stone-mid);border-bottom:1px solid var(--gold-dim);
+  overflow-x:auto;
+}
+nav.tabs button{
+  font-family:var(--font);font-size:0.82rem;font-weight:500;
+  color:var(--parchment-dim);background:transparent;border:none;
+  padding:12px 18px;cursor:pointer;position:relative;
+  transition:color 0.2s;letter-spacing:1px;text-transform:uppercase;
+  white-space:nowrap;
+}
+nav.tabs button:hover{color:var(--parchment)}
+nav.tabs button.active{color:var(--gold-bright)}
+nav.tabs button.active::after{
+  content:'';position:absolute;bottom:0;left:0;right:0;
+  height:2px;background:var(--gold-bright);box-shadow:0 0 8px var(--gold);
+}
+nav.tabs button .count-badge{
+  display:inline-block;margin-left:6px;min-width:18px;
+  padding:1px 6px;font-size:0.7rem;border-radius:9px;
+  background:rgba(184,134,11,0.22);color:var(--parchment-bright);
+}
+nav.tabs button.alerts .count-badge{background:rgba(192,57,43,0.35);color:#fff}
+
+/* Main content */
+main{max-width:1500px;margin:0 auto;padding:24px;}
+.tab-panel{display:none}
+.tab-panel.active{display:block}
+
+/* Panels */
+.panel{
+  background:var(--panel-bg);border:var(--panel-border);border-radius:4px;
+  margin-bottom:20px;overflow:hidden;
+  box-shadow:0 2px 12px rgba(0,0,0,0.3), inset 0 1px 0 rgba(184,134,11,0.1);
+}
+.panel-header{
+  background:linear-gradient(90deg, rgba(184,134,11,0.15) 0%, transparent 100%);
+  border-bottom:1px solid var(--gold-dim);padding:10px 16px;
+  display:flex;align-items:center;justify-content:space-between;
+}
+.panel-header h2{
+  font-family:var(--serif);font-size:1.1rem;font-weight:400;
+  color:var(--gold-bright);letter-spacing:1.5px;
+}
+.panel-header .panel-actions{display:flex;gap:6px;align-items:center}
+.panel-body{padding:14px 16px;}
+
+/* Stat grid for overview */
+.stat-grid{
+  display:grid;grid-template-columns:repeat(auto-fill, minmax(180px, 1fr));
+  gap:12px;
+}
+.stat-card{
+  background:var(--parchment-bg);
+  border:1px solid rgba(184,134,11,0.25);border-radius:4px;
+  padding:12px 14px;
+}
+.stat-card .stat-label{
+  font-size:0.7rem;color:var(--parchment-dim);
+  text-transform:uppercase;letter-spacing:1px;margin-bottom:6px;
+}
+.stat-card .stat-value{
+  font-size:1.4rem;font-weight:600;color:var(--gold-bright);
+}
+.stat-card.good .stat-value{color:var(--green-glow)}
+.stat-card.warn .stat-value{color:var(--yellow-glow)}
+.stat-card.bad .stat-value{color:var(--red-glow)}
+.stat-card .stat-sub{
+  margin-top:4px;font-size:0.7rem;color:var(--parchment-dim);
+}
+
+/* Filter bar */
+.filter-bar{
+  display:flex;gap:10px;align-items:center;flex-wrap:wrap;
+  margin-bottom:12px;
+}
+.filter-bar input, .filter-bar select, .filter-bar button{
+  font-family:var(--font);font-size:0.82rem;
+  background:var(--stone);color:var(--parchment);
+  border:1px solid var(--gold-dim);padding:6px 10px;border-radius:3px;
+  outline:none;
+}
+.filter-bar input{min-width:200px}
+.filter-bar input:focus, .filter-bar select:focus{
+  border-color:var(--gold);box-shadow:0 0 4px rgba(184,134,11,0.3);
+}
+
+/* Buttons (uniform) */
+.btn{
+  font-family:var(--font);font-size:0.78rem;font-weight:500;
+  background:linear-gradient(180deg, rgba(184,134,11,0.18), rgba(139,101,8,0.24));
+  color:var(--parchment-bright);
+  border:1px solid var(--gold-dim);padding:5px 12px;border-radius:3px;
+  cursor:pointer;letter-spacing:0.5px;text-transform:uppercase;
+  transition:all 0.15s;
+}
+.btn:hover{
+  background:linear-gradient(180deg, rgba(218,165,32,0.28), rgba(184,134,11,0.32));
+  border-color:var(--gold);color:var(--gold-bright);
+}
+.btn:disabled{opacity:0.5;cursor:not-allowed}
+.btn.danger{border-color:rgba(192,57,43,0.5);color:var(--red-glow)}
+.btn.danger:hover{background:rgba(192,57,43,0.25);color:#fff;border-color:var(--red)}
+.btn.success{border-color:rgba(39,174,96,0.5);color:var(--green-glow)}
+.btn.success:hover{background:rgba(39,174,96,0.25);color:#fff;border-color:var(--green)}
+
+/* Tables */
+table{width:100%;border-collapse:collapse;font-size:0.82rem}
+th{
+  text-align:left;padding:8px 12px;font-weight:600;
+  color:var(--gold);border-bottom:2px solid var(--gold-dim);
+  font-size:0.7rem;text-transform:uppercase;letter-spacing:1px;
+  white-space:nowrap;
+  background:rgba(184,134,11,0.05);
+}
+td{
+  padding:6px 12px;border-bottom:1px solid rgba(184,134,11,0.1);
+  vertical-align:top;
+}
+tr:nth-child(even) td{background:rgba(184,134,11,0.03)}
+tr:hover td{background:rgba(184,134,11,0.08)}
+tr.clickable{cursor:pointer}
+tr.clickable:hover td:first-child{color:var(--gold-bright)}
+
+/* Badges */
+.badge{
+  display:inline-block;font-size:0.68rem;font-weight:600;
+  padding:2px 8px;border-radius:10px;
+  text-transform:uppercase;letter-spacing:0.5px;white-space:nowrap;
+}
+.badge.pending{background:rgba(212,160,23,0.2);color:var(--yellow-glow);border:1px solid rgba(212,160,23,0.4)}
+.badge.upheld{background:rgba(192,57,43,0.2);color:var(--red-glow);border:1px solid rgba(192,57,43,0.4)}
+.badge.dismissed{background:rgba(85,85,85,0.25);color:var(--parchment-dim);border:1px solid rgba(85,85,85,0.5)}
+.badge.escalated{background:rgba(41,128,185,0.2);color:var(--blue-glow);border:1px solid rgba(41,128,185,0.4)}
+.badge.approved,.badge.ok{background:rgba(39,174,96,0.2);color:var(--green-glow);border:1px solid rgba(39,174,96,0.4)}
+.badge.denied{background:rgba(192,57,43,0.2);color:var(--red-glow);border:1px solid rgba(192,57,43,0.4)}
+.badge.admin{background:rgba(218,165,32,0.2);color:var(--gold-bright);border:1px solid rgba(184,134,11,0.4)}
+.badge.owner{background:rgba(218,165,32,0.35);color:#fff;border:1px solid var(--gold);text-shadow:0 0 4px var(--gold)}
+.badge.high{background:rgba(192,57,43,0.3);color:#fff;border:1px solid var(--red)}
+.badge.med{background:rgba(212,160,23,0.25);color:var(--yellow-glow);border:1px solid rgba(212,160,23,0.5)}
+.badge.low{background:rgba(85,85,85,0.25);color:var(--parchment-dim);border:1px solid rgba(85,85,85,0.5)}
+
+/* Alerts toast */
+.toast-stack{
+  position:fixed;top:80px;right:20px;width:360px;
+  display:flex;flex-direction:column;gap:8px;z-index:2000;
+  pointer-events:none;
+}
+.toast{
+  pointer-events:auto;
+  background:var(--panel-bg);border:1px solid var(--gold-dim);
+  padding:10px 14px;border-radius:4px;font-size:0.8rem;
+  box-shadow:0 4px 20px rgba(0,0,0,0.6);
+  animation:slideIn 0.25s ease-out;
+}
+.toast.critical{border-color:var(--red);box-shadow:0 4px 20px rgba(192,57,43,0.4)}
+.toast.warn{border-color:var(--yellow);box-shadow:0 4px 20px rgba(212,160,23,0.3)}
+.toast .toast-title{
+  font-weight:600;color:var(--gold-bright);
+  text-transform:uppercase;letter-spacing:1px;font-size:0.7rem;
+  margin-bottom:4px;
+}
+@keyframes slideIn{from{transform:translateX(30px);opacity:0}to{transform:translateX(0);opacity:1}}
+
+/* Modal */
+.modal-backdrop{
+  position:fixed;inset:0;background:rgba(0,0,0,0.75);
+  display:none;align-items:center;justify-content:center;z-index:3000;
+  padding:20px;
+}
+.modal-backdrop.open{display:flex}
+.modal{
+  background:var(--panel-bg);border:1px solid var(--gold);border-radius:6px;
+  max-width:900px;width:100%;max-height:90vh;overflow-y:auto;
+  box-shadow:0 8px 40px rgba(0,0,0,0.8);
+}
+.modal-hdr{
+  padding:14px 18px;border-bottom:1px solid var(--gold-dim);
+  display:flex;justify-content:space-between;align-items:center;
+  background:linear-gradient(90deg, rgba(184,134,11,0.2) 0%, transparent 100%);
+}
+.modal-hdr h3{
+  font-family:var(--serif);font-size:1.2rem;font-weight:400;
+  color:var(--gold-bright);letter-spacing:2px;
+}
+.modal-body{padding:16px 18px}
+.modal-close{
+  font-size:1.4rem;color:var(--parchment-dim);cursor:pointer;
+  background:none;border:none;line-height:1;padding:4px 8px;
+}
+.modal-close:hover{color:var(--red-glow)}
+
+/* Empty state */
+.empty{
+  padding:30px;text-align:center;color:var(--parchment-dark);
+  font-style:italic;
+}
+
+/* Progress bar */
+.bar{
+  background:rgba(184,134,11,0.1);border:1px solid rgba(184,134,11,0.3);
+  border-radius:3px;height:10px;overflow:hidden;position:relative;
+  min-width:80px;
+}
+.bar-fill{
+  background:linear-gradient(90deg, var(--gold-dim), var(--gold-bright));
+  height:100%;transition:width 0.3s;
+}
+.bar-fill.warn{background:linear-gradient(90deg, var(--yellow), var(--yellow-glow))}
+.bar-fill.bad{background:linear-gradient(90deg, var(--red), var(--red-glow))}
+
+/* Text boxes */
+textarea, input[type="text"].wide, input[type="number"].wide{
+  font-family:var(--font);font-size:0.82rem;
+  background:var(--stone);color:var(--parchment);
+  border:1px solid var(--gold-dim);padding:6px 10px;border-radius:3px;
+  outline:none;resize:vertical;width:100%;
+}
+textarea:focus, input.wide:focus{border-color:var(--gold)}
+
+/* Code block (for audit payloads) */
+.code{
+  font-size:0.72rem;color:var(--parchment-dim);
+  background:rgba(14,14,26,0.7);padding:6px 8px;border-radius:3px;
+  border:1px solid rgba(184,134,11,0.15);
+  white-space:pre-wrap;word-break:break-all;
+  max-height:160px;overflow-y:auto;
+}
+
+/* Columns */
+.cols{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.cols-3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px}
+@media(max-width:900px){.cols,.cols-3{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+
+<div id="site-header">
+  <a class="logo" href="/">SCAPE</a>
+  <nav>
+    <a href="/">Watch</a>
+    <a href="/play">Play</a>
+    <a href="/guide">Guide</a>
+    <a href="/about">About</a>
+    <a href="/builder">Builder</a>
+    <a href="/dashboard">Dashboard</a>
+    <a href="/admin" class="active">Admin</a>
+  </nav>
+  <span class="role-tag" id="role-tag">loading...</span>
+  <span><span class="ws-dot" id="ws-dot"></span><span id="ws-status">offline</span></span>
+</div>
+
+<header class="page-hdr">
+  <h1>Admin Dashboard</h1>
+  <div class="uptime-bar">
+    <div class="metric"><span>Uptime</span><strong id="stat-uptime">--</strong></div>
+    <div class="metric"><span>Tick</span><strong id="stat-tick">--</strong></div>
+    <div class="metric"><span>Players</span><strong id="stat-players">--</strong></div>
+    <div class="metric"><span>P50</span><strong id="stat-p50">--</strong></div>
+    <div class="metric"><span>P99</span><strong id="stat-p99">--</strong></div>
+  </div>
+</header>
+
+<nav class="tabs">
+  <button data-tab="overview" class="active">Overview</button>
+  <button data-tab="players">Players</button>
+  <button data-tab="moderation">Moderation <span class="count-badge" id="badge-mod">0</span></button>
+  <button data-tab="bots">Bot Detection <span class="count-badge" id="badge-bots">0</span></button>
+  <button data-tab="trade">Trades / GE</button>
+  <button data-tab="content">Content</button>
+  <button data-tab="clans">Clans</button>
+  <button data-tab="events">Events</button>
+  <button data-tab="config">Config</button>
+  <button data-tab="audit">Audit Log</button>
+</nav>
+
+<main>
+
+  <!-- OVERVIEW -->
+  <div class="tab-panel active" id="tab-overview">
+    <div class="panel">
+      <div class="panel-header"><h2>Server Overview</h2>
+        <div class="panel-actions"><button class="btn" onclick="refreshOverview()">Refresh</button></div>
+      </div>
+      <div class="panel-body">
+        <div class="stat-grid" id="overview-grid"></div>
+      </div>
+    </div>
+
+    <div class="cols">
+      <div class="panel">
+        <div class="panel-header"><h2>Tick Health</h2></div>
+        <div class="panel-body" id="tick-health"><div class="empty">No tick samples yet.</div></div>
+      </div>
+      <div class="panel">
+        <div class="panel-header"><h2>Recent Alerts</h2></div>
+        <div class="panel-body" id="recent-alerts"><div class="empty">No alerts.</div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PLAYERS -->
+  <div class="tab-panel" id="tab-players">
+    <div class="panel">
+      <div class="panel-header"><h2>Live Players</h2></div>
+      <div class="panel-body">
+        <div class="filter-bar">
+          <input id="player-search" type="text" placeholder="Search name or id..." oninput="searchPlayers()">
+          <button class="btn" onclick="searchPlayers()">Search</button>
+          <span style="color:var(--parchment-dim);font-size:0.75rem;">Click a row for full card.</span>
+        </div>
+        <div id="player-table-wrap"><div class="empty">Loading...</div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODERATION -->
+  <div class="tab-panel" id="tab-moderation">
+    <div class="panel">
+      <div class="panel-header"><h2>Pending Reports</h2>
+        <div class="panel-actions"><button class="btn" onclick="refreshModQueue()">Refresh</button></div>
+      </div>
+      <div class="panel-body" id="reports-body"><div class="empty">Loading...</div></div>
+    </div>
+    <div class="panel">
+      <div class="panel-header"><h2>Pending Appeals</h2></div>
+      <div class="panel-body" id="appeals-body"><div class="empty">Loading...</div></div>
+    </div>
+    <div class="panel">
+      <div class="panel-header"><h2>Active Strikes</h2></div>
+      <div class="panel-body" id="strikes-body"><div class="empty">Loading...</div></div>
+    </div>
+  </div>
+
+  <!-- BOT DETECTION -->
+  <div class="tab-panel" id="tab-bots">
+    <div class="panel">
+      <div class="panel-header"><h2>Top Bot Scores</h2>
+        <div class="panel-actions">
+          <span id="bot-policy-display" style="font-size:0.75rem;color:var(--parchment-dim);"></span>
+          <button class="btn" onclick="refreshBots()">Refresh</button>
+        </div>
+      </div>
+      <div class="panel-body" id="bot-leaderboard"><div class="empty">Loading...</div></div>
+    </div>
+    <div class="cols">
+      <div class="panel">
+        <div class="panel-header"><h2>Escalations</h2></div>
+        <div class="panel-body" id="bot-escalations"><div class="empty">None.</div></div>
+      </div>
+      <div class="panel">
+        <div class="panel-header"><h2>Active Honeypots</h2></div>
+        <div class="panel-body" id="bot-honeypots"><div class="empty">None placed.</div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- TRADES / GE -->
+  <div class="tab-panel" id="tab-trade">
+    <div class="panel">
+      <div class="panel-header"><h2>Recent Trades (Audit)</h2>
+        <div class="panel-actions"><button class="btn" onclick="refreshTrade()">Refresh</button></div>
+      </div>
+      <div class="panel-body" id="trade-history"><div class="empty">Loading...</div></div>
+    </div>
+    <div class="panel">
+      <div class="panel-header"><h2>GE Top Volume (24h)</h2></div>
+      <div class="panel-body" id="ge-volume"><div class="empty">Loading...</div></div>
+    </div>
+  </div>
+
+  <!-- CONTENT -->
+  <div class="tab-panel" id="tab-content">
+    <div class="panel">
+      <div class="panel-header"><h2>Content Status</h2>
+        <div class="panel-actions">
+          <a href="/builder" class="btn">Open Builder</a>
+          <button class="btn" onclick="refreshContent()">Refresh</button>
+        </div>
+      </div>
+      <div class="panel-body" id="content-body"><div class="empty">Loading...</div></div>
+    </div>
+  </div>
+
+  <!-- CLANS -->
+  <div class="tab-panel" id="tab-clans">
+    <div class="panel">
+      <div class="panel-header"><h2>Clans</h2>
+        <div class="panel-actions"><button class="btn" onclick="refreshClans()">Refresh</button></div>
+      </div>
+      <div class="panel-body" id="clans-body"><div class="empty">Loading...</div></div>
+    </div>
+  </div>
+
+  <!-- EVENTS -->
+  <div class="tab-panel" id="tab-events">
+    <div class="panel">
+      <div class="panel-header"><h2>Schedule Server Event</h2></div>
+      <div class="panel-body">
+        <div class="cols">
+          <div>
+            <label style="font-size:0.75rem;color:var(--parchment-dim);text-transform:uppercase;letter-spacing:1px;">Kind</label>
+            <select id="ev-kind" class="wide" style="width:100%;font-family:var(--font);font-size:0.82rem;background:var(--stone);color:var(--parchment);border:1px solid var(--gold-dim);padding:6px 10px;border-radius:3px;">
+              <option value="xp_weekend">XP Weekend</option>
+              <option value="boss_spawn">Boss Spawn</option>
+              <option value="item_giveaway">Item Giveaway</option>
+              <option value="double_drops">Double Drops</option>
+              <option value="broadcast">Broadcast</option>
+            </select>
+            <div style="margin-top:10px;">
+              <label style="font-size:0.75rem;color:var(--parchment-dim);text-transform:uppercase;letter-spacing:1px;">When (delay from now, minutes)</label>
+              <input type="number" id="ev-delay" value="60" class="wide">
+            </div>
+          </div>
+          <div>
+            <label style="font-size:0.75rem;color:var(--parchment-dim);text-transform:uppercase;letter-spacing:1px;">Payload (JSON)</label>
+            <textarea id="ev-payload" rows="5" placeholder='{"multiplier":2}'></textarea>
+            <button class="btn success" style="margin-top:8px;" onclick="scheduleEvent()">Schedule</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="panel">
+      <div class="panel-header"><h2>Scheduled</h2>
+        <div class="panel-actions"><button class="btn" onclick="refreshEvents()">Refresh</button></div>
+      </div>
+      <div class="panel-body" id="events-body"><div class="empty">Loading...</div></div>
+    </div>
+  </div>
+
+  <!-- CONFIG -->
+  <div class="tab-panel" id="tab-config">
+    <div class="panel">
+      <div class="panel-header"><h2>Bot Policy</h2>
+        <div class="panel-actions"><button class="btn" onclick="loadConfig('bot-policy')">Reload</button></div>
+      </div>
+      <div class="panel-body"><textarea id="cfg-bot-policy" rows="10"></textarea>
+        <button class="btn success" style="margin-top:8px;" onclick="saveConfig('bot-policy')">Save bot-policy</button>
+      </div>
+    </div>
+    <div class="panel">
+      <div class="panel-header"><h2>Channel Config</h2>
+        <div class="panel-actions"><button class="btn" onclick="loadConfig('channel-config')">Reload</button></div>
+      </div>
+      <div class="panel-body"><textarea id="cfg-channel-config" rows="10"></textarea>
+        <button class="btn success" style="margin-top:8px;" onclick="saveConfig('channel-config')">Save channel-config</button>
+      </div>
+    </div>
+    <div class="panel">
+      <div class="panel-header"><h2>Server Rules</h2>
+        <div class="panel-actions"><button class="btn" onclick="loadConfig('server-rules')">Reload</button></div>
+      </div>
+      <div class="panel-body"><textarea id="cfg-server-rules" rows="10"></textarea>
+        <button class="btn success" style="margin-top:8px;" onclick="saveConfig('server-rules')">Save server-rules</button>
+      </div>
+    </div>
+    <div class="panel">
+      <div class="panel-header"><h2>Role Grant (Owner Only)</h2></div>
+      <div class="panel-body">
+        <div class="filter-bar">
+          <input type="text" id="role-user" placeholder="Username...">
+          <select id="role-role" style="font-family:var(--font);font-size:0.82rem;background:var(--stone);color:var(--parchment);border:1px solid var(--gold-dim);padding:6px 10px;border-radius:3px;">
+            <option value="player">player</option>
+            <option value="builder">builder</option>
+            <option value="admin">admin</option>
+          </select>
+          <button class="btn danger" onclick="grantRole()">Grant</button>
+        </div>
+        <div id="role-feedback" style="margin-top:10px;font-size:0.8rem;"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- AUDIT -->
+  <div class="tab-panel" id="tab-audit">
+    <div class="panel">
+      <div class="panel-header"><h2>Audit Log (mod + builder)</h2>
+        <div class="panel-actions">
+          <label style="font-size:0.75rem;color:var(--parchment-dim);">Since (ms)</label>
+          <input type="number" id="audit-since" value="0" style="width:160px;font-family:var(--font);font-size:0.82rem;background:var(--stone);color:var(--parchment);border:1px solid var(--gold-dim);padding:4px 8px;border-radius:3px;">
+          <button class="btn" onclick="refreshAudit()">Refresh</button>
+        </div>
+      </div>
+      <div class="panel-body" id="audit-body"><div class="empty">Loading...</div></div>
+    </div>
+  </div>
+
+</main>
+
+<!-- Toast stack -->
+<div class="toast-stack" id="toast-stack"></div>
+
+<!-- Player card modal -->
+<div class="modal-backdrop" id="card-modal">
+  <div class="modal">
+    <div class="modal-hdr">
+      <h3 id="card-title">Player</h3>
+      <button class="modal-close" onclick="closeModal('card-modal')">&times;</button>
+    </div>
+    <div class="modal-body" id="card-body"></div>
+  </div>
+</div>
+
+<script>
+// ── State ──────────────────────────────────────────────────────────────
+const state = {
+  role: null,
+  ws: null,
+  wsReconnectTimer: null,
+  alerts: [],          // last 50 alerts
+  overview: null,
+  modCount: 0,
+  botFlagCount: 0,
+};
+
+// ── Helpers ────────────────────────────────────────────────────────────
+function $(id) { return document.getElementById(id); }
+function esc(s) {
+  if (s == null) return '';
+  return String(s).replace(/[&<>"']/g, c => ({
+    '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'
+  }[c]));
+}
+function fmtDur(ms) {
+  const s = (ms / 1000) | 0;
+  if (s < 60) return s + 's';
+  const m = (s / 60) | 0;
+  if (m < 60) return m + 'm' + (s % 60) + 's';
+  const h = (m / 60) | 0;
+  if (h < 24) return h + 'h' + (m % 60) + 'm';
+  const d = (h / 24) | 0;
+  return d + 'd' + (h % 24) + 'h';
+}
+function fmtTs(ms) {
+  if (!ms) return '-';
+  return new Date(ms).toISOString().replace('T', ' ').substring(0, 19);
+}
+function fmtScore(n) {
+  if (n == null) return '-';
+  return Number(n).toFixed(3);
+}
+
+async function api(path, opts) {
+  try {
+    const res = await fetch(path, Object.assign({ credentials: 'same-origin' }, opts || {}));
+    if (res.status === 403) {
+      alert('Forbidden — admin or owner role required.');
+      window.location.href = '/login?next=' + encodeURIComponent('/admin');
+      return null;
+    }
+    return await res.json();
+  } catch (e) {
+    console.error('api error', path, e);
+    return { error: e.message };
+  }
+}
+
+function toast(payload) {
+  const sev = payload.severity || 'warn';
+  const wrap = $('toast-stack');
+  const el = document.createElement('div');
+  el.className = 'toast ' + sev;
+  el.innerHTML = '<div class="toast-title">' + esc(payload.kind || 'alert') + ' &middot; ' + esc(sev) + '</div>' +
+                 '<div>' + esc(JSON.stringify(payload).substring(0, 200)) + '</div>';
+  wrap.appendChild(el);
+  setTimeout(() => { el.remove(); }, 12000);
+}
+
+function confirmAction(msg) {
+  return window.confirm(msg);
+}
+
+// ── Tabs ───────────────────────────────────────────────────────────────
+document.querySelectorAll('nav.tabs button').forEach(btn => {
+  btn.onclick = () => {
+    document.querySelectorAll('nav.tabs button').forEach(b => b.classList.remove('active'));
+    document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+    btn.classList.add('active');
+    const tab = btn.dataset.tab;
+    $('tab-' + tab).classList.add('active');
+    onTabShown(tab);
+  };
+});
+
+function onTabShown(tab) {
+  if (tab === 'overview') refreshOverview();
+  else if (tab === 'players') searchPlayers();
+  else if (tab === 'moderation') refreshModQueue();
+  else if (tab === 'bots') refreshBots();
+  else if (tab === 'trade') refreshTrade();
+  else if (tab === 'content') refreshContent();
+  else if (tab === 'clans') refreshClans();
+  else if (tab === 'events') refreshEvents();
+  else if (tab === 'config') { ['bot-policy','channel-config','server-rules'].forEach(loadConfig); }
+  else if (tab === 'audit') refreshAudit();
+}
+
+// ── Overview ───────────────────────────────────────────────────────────
+async function refreshOverview() {
+  const data = await api('/api/admin/overview');
+  if (!data || !data.ok) return;
+  state.overview = data;
+  $('stat-uptime').textContent = fmtDur(data.uptimeMs);
+  $('stat-tick').textContent = data.tick;
+  $('stat-players').textContent = data.players.connected + '/' + data.players.sessions;
+  $('stat-p50').textContent = data.tickHealth.p50 + 'ms';
+  $('stat-p99').textContent = data.tickHealth.p99 + 'ms';
+  $('badge-mod').textContent = data.moderation.pendingReports + data.moderation.pendingAppeals;
+  $('badge-bots').textContent = data.bots.flagged;
+  state.modCount = data.moderation.pendingReports + data.moderation.pendingAppeals;
+  state.botFlagCount = data.bots.flagged;
+
+  const cards = [
+    { label: 'Uptime', value: fmtDur(data.uptimeMs) },
+    { label: 'Current Tick', value: data.tick },
+    { label: 'Connected Players', value: data.players.connected, cls: data.players.connected > 0 ? 'good' : '' },
+    { label: 'Active Sessions', value: data.players.sessions, sub: data.players.httpOnly + ' HTTP-only' },
+    { label: 'Tick P50', value: data.tickHealth.p50 + 'ms', cls: data.tickHealth.p50 < 100 ? 'good' : 'warn' },
+    { label: 'Tick P99', value: data.tickHealth.p99 + 'ms', cls: data.tickHealth.p99 < 200 ? 'good' : 'warn' },
+    { label: 'Pending Reports', value: data.moderation.pendingReports, cls: data.moderation.pendingReports > 0 ? 'warn' : 'good' },
+    { label: 'Pending Appeals', value: data.moderation.pendingAppeals, cls: data.moderation.pendingAppeals > 0 ? 'warn' : 'good' },
+    { label: 'Flagged Bots', value: data.bots.flagged, sub: data.bots.escalated + ' escalated', cls: data.bots.flagged > 0 ? 'warn' : 'good' },
+    { label: 'Policy', value: data.bots.policy },
+    { label: 'Clans', value: data.clans },
+    { label: 'Scheduled Events', value: data.events },
+  ];
+  $('overview-grid').innerHTML = cards.map(c =>
+    '<div class="stat-card ' + (c.cls || '') + '">' +
+      '<div class="stat-label">' + esc(c.label) + '</div>' +
+      '<div class="stat-value">' + esc(c.value) + '</div>' +
+      (c.sub ? '<div class="stat-sub">' + esc(c.sub) + '</div>' : '') +
+    '</div>'
+  ).join('');
+
+  // Tick-health detail
+  const tk = data.tickHealth;
+  $('tick-health').innerHTML = tk.samples === 0 ? '<div class="empty">No samples.</div>' :
+    '<div>Samples: <strong>' + tk.samples + '</strong></div>' +
+    '<div>Mean: <strong>' + tk.mean + 'ms</strong></div>' +
+    '<div>P50: <strong>' + tk.p50 + 'ms</strong></div>' +
+    '<div>P99: <strong>' + tk.p99 + 'ms</strong></div>';
+
+  // Alerts list
+  if (state.alerts.length === 0) {
+    $('recent-alerts').innerHTML = '<div class="empty">No alerts in this session.</div>';
+  } else {
+    $('recent-alerts').innerHTML = state.alerts.slice(-10).reverse().map(a =>
+      '<div style="padding:6px 0;border-bottom:1px dotted rgba(184,134,11,0.15);">' +
+        '<span class="badge ' + (a.severity === 'critical' ? 'high' : 'med') + '">' + esc(a.kind) + '</span> ' +
+        '<span style="color:var(--parchment-dim);font-size:0.75rem;margin-left:8px;">' + fmtTs(a.ts) + '</span>' +
+        '<div style="font-size:0.78rem;margin-top:2px;">' + esc(JSON.stringify(a).substring(0, 200)) + '</div>' +
+      '</div>'
+    ).join('');
+  }
+}
+
+// ── Players ────────────────────────────────────────────────────────────
+async function searchPlayers() {
+  const q = $('player-search').value;
+  const data = await api('/api/admin/players?q=' + encodeURIComponent(q));
+  if (!data || !data.ok) return;
+  const rows = data.players;
+  if (!rows.length) {
+    $('player-table-wrap').innerHTML = '<div class="empty">No players match.</div>';
+    return;
+  }
+  const html = '<table><thead><tr>' +
+    '<th>Name</th><th>Role</th><th>Pos</th><th>HP</th><th>Busy</th><th>Strikes</th><th>Bot</th><th>Mod</th>' +
+    '</tr></thead><tbody>' +
+    rows.map(p => {
+      const modBadge = p.moderationState && p.moderationState.banned ? '<span class="badge upheld">banned</span>'
+                     : p.moderationState && p.moderationState.tempbanned ? '<span class="badge escalated">tempban</span>'
+                     : p.moderationState && p.moderationState.muted ? '<span class="badge pending">muted</span>'
+                     : '<span class="badge ok">ok</span>';
+      return '<tr class="clickable" onclick="openPlayerCard(\'' + esc(p.name || p.id) + '\')">' +
+        '<td>' + esc(p.name || '(anon)') + '</td>' +
+        '<td><span class="badge ' + (p.role || 'low') + '">' + esc(p.role) + '</span></td>' +
+        '<td>' + p.x + ',' + p.y + ' L' + p.layer + '</td>' +
+        '<td>' + p.hp + '/' + p.maxHp + '</td>' +
+        '<td>' + (p.busy ? 'yes' : '-') + '</td>' +
+        '<td>' + p.strikes + '</td>' +
+        '<td>' + fmtScore(p.botScore) + '</td>' +
+        '<td>' + modBadge + '</td>' +
+        '</tr>';
+    }).join('') + '</tbody></table>';
+  $('player-table-wrap').innerHTML = html;
+}
+
+async function openPlayerCard(nameOrId) {
+  const card = await api('/api/admin/players/' + encodeURIComponent(nameOrId));
+  if (!card || !card.ok) {
+    alert('Player not found.');
+    return;
+  }
+  $('card-title').textContent = card.name + ' — ' + card.role;
+  const bankItems = (card.bank || []).slice(0, 40).map(i =>
+    '<li>' + esc(i.name) + ' &times; ' + i.count + '</li>'
+  ).join('');
+  const invItems = (card.inventory || []).filter(s => s).map(i =>
+    '<li>' + esc(i.name) + ' &times; ' + i.count + '</li>'
+  ).join('') || '<li style="color:var(--parchment-dim);">empty</li>';
+  const chatLines = (card.recentChat || []).slice(-15).map(c =>
+    '<li style="font-size:0.75rem;">t=' + (c.tick || 0) + ': ' + esc(c.msg) + '</li>'
+  ).join('') || '<li style="color:var(--parchment-dim);">no chat buffered</li>';
+  const combatLines = (card.combatLog || []).slice(-15).map(c =>
+    '<li style="font-size:0.75rem;">t=' + (c.tick || 0) + ' ' + esc(c.kind) + '</li>'
+  ).join('') || '<li style="color:var(--parchment-dim);">no combat log</li>';
+  const strikes = (card.strikes || []).map(s =>
+    '<li>' + esc(s.ruleId || '?') + ' &mdash; ' + esc(s.action || '?') + ' &mdash; ' + esc(s.reason || '') + ' <span class="badge ' + (s.active === false ? 'dismissed' : 'upheld') + '">' + (s.active === false ? 'lifted' : 'active') + '</span></li>'
+  ).join('') || '<li style="color:var(--parchment-dim);">no strikes</li>';
+
+  $('card-body').innerHTML =
+    '<div class="cols">' +
+      '<div>' +
+        '<div class="stat-card"><div class="stat-label">Bank Value</div><div class="stat-value">' + (card.bankValue || 0).toLocaleString() + '</div></div>' +
+        '<div class="stat-card" style="margin-top:6px;"><div class="stat-label">Total Levels</div><div class="stat-value">' + (card.skillTotals || '-') + '</div></div>' +
+        '<div class="stat-card" style="margin-top:6px;"><div class="stat-label">Bot Score</div><div class="stat-value">' + fmtScore(card.botSignals && card.botSignals.score) + '</div></div>' +
+      '</div>' +
+      '<div>' +
+        '<h4 style="color:var(--gold-bright);margin-bottom:4px;">Inventory</h4><ul style="list-style:none;padding-left:0;max-height:140px;overflow-y:auto;">' + invItems + '</ul>' +
+        '<h4 style="color:var(--gold-bright);margin:10px 0 4px;">Bank (top 40)</h4><ul style="list-style:none;padding-left:0;max-height:140px;overflow-y:auto;">' + bankItems + '</ul>' +
+      '</div>' +
+    '</div>' +
+    '<h4 style="color:var(--gold-bright);margin:12px 0 4px;">Strike History</h4>' +
+    '<ul style="list-style:none;padding-left:0;">' + strikes + '</ul>' +
+    '<h4 style="color:var(--gold-bright);margin:12px 0 4px;">Recent Chat</h4>' +
+    '<ul style="list-style:none;padding-left:0;background:rgba(14,14,26,0.5);padding:8px;border-radius:3px;max-height:180px;overflow-y:auto;">' + chatLines + '</ul>' +
+    '<h4 style="color:var(--gold-bright);margin:12px 0 4px;">Combat Log</h4>' +
+    '<ul style="list-style:none;padding-left:0;background:rgba(14,14,26,0.5);padding:8px;border-radius:3px;max-height:180px;overflow-y:auto;">' + combatLines + '</ul>';
+  $('card-modal').classList.add('open');
+}
+
+// ── Moderation ────────────────────────────────────────────────────────
+async function refreshModQueue() {
+  const data = await api('/api/admin/mod-queue');
+  if (!data || !data.ok) return;
+  renderReports(data.reports);
+  renderAppeals(data.appeals);
+  renderStrikes(data.strikes);
+}
+function renderReports(reports) {
+  if (!reports || !reports.length) {
+    $('reports-body').innerHTML = '<div class="empty">No pending reports.</div>';
+    return;
+  }
+  const html = '<table><thead><tr><th>ID</th><th>Target</th><th>Rule</th><th>Reason</th><th>Filed</th><th>Actions</th></tr></thead><tbody>' +
+    reports.map(r =>
+      '<tr><td>' + esc(r.id) + '</td>' +
+      '<td>' + esc(r.targetId) + '</td>' +
+      '<td>' + esc(r.ruleId) + '</td>' +
+      '<td>' + esc(r.reason || '') + '</td>' +
+      '<td>' + fmtTs(r.filedAt) + '</td>' +
+      '<td style="white-space:nowrap;">' +
+        '<button class="btn success" onclick="resolveReport(\'' + esc(r.id) + '\',\'upheld\')">Uphold</button> ' +
+        '<button class="btn" onclick="resolveReport(\'' + esc(r.id) + '\',\'dismissed\')">Dismiss</button> ' +
+        '<button class="btn danger" onclick="resolveReport(\'' + esc(r.id) + '\',\'escalated\')">Escalate</button>' +
+      '</td></tr>'
+    ).join('') + '</tbody></table>';
+  $('reports-body').innerHTML = html;
+}
+function renderAppeals(appeals) {
+  if (!appeals || !appeals.length) {
+    $('appeals-body').innerHTML = '<div class="empty">No pending appeals.</div>';
+    return;
+  }
+  const html = '<table><thead><tr><th>ID</th><th>Player</th><th>Strike</th><th>Rule</th><th>Reason</th><th>Actions</th></tr></thead><tbody>' +
+    appeals.map(a =>
+      '<tr><td>' + esc(a.id) + '</td>' +
+      '<td>' + esc(a.playerName || a.playerId) + '</td>' +
+      '<td>' + esc(a.strikeId) + '</td>' +
+      '<td>' + esc(a.ruleId) + '</td>' +
+      '<td>' + esc(a.reason || '') + '</td>' +
+      '<td>' +
+        '<button class="btn success" onclick="reviewAppeal(\'' + esc(a.id) + '\',\'approved\')">Approve</button> ' +
+        '<button class="btn danger" onclick="reviewAppeal(\'' + esc(a.id) + '\',\'denied\')">Deny</button>' +
+      '</td></tr>'
+    ).join('') + '</tbody></table>';
+  $('appeals-body').innerHTML = html;
+}
+function renderStrikes(strikes) {
+  if (!strikes || !strikes.length) {
+    $('strikes-body').innerHTML = '<div class="empty">No active strikes.</div>';
+    return;
+  }
+  const html = '<table><thead><tr><th>ID</th><th>Player</th><th>Rule</th><th>Action</th><th>Applied</th><th>Expires</th></tr></thead><tbody>' +
+    strikes.slice(0, 30).map(s =>
+      '<tr><td>' + esc(s.id) + '</td>' +
+      '<td>' + esc(s.playerName || s.playerId) + '</td>' +
+      '<td>' + esc(s.ruleId) + '</td>' +
+      '<td><span class="badge ' + (s.action === 'ban' ? 'upheld' : 'pending') + '">' + esc(s.action) + '</span></td>' +
+      '<td>' + fmtTs(s.appliedAt) + '</td>' +
+      '<td>' + (s.expiresAt ? fmtTs(s.expiresAt) : 'never') + '</td></tr>'
+    ).join('') + '</tbody></table>';
+  $('strikes-body').innerHTML = html;
+}
+async function resolveReport(id, resolution) {
+  if (!confirmAction('Really ' + resolution + ' report ' + id + '?')) return;
+  // This re-uses the /cmd endpoint with an admin command; the mod-commands.js
+  // path handles the verb. Expose a dedicated endpoint later if needed.
+  const result = await api('/cmd', {
+    method: 'POST', headers: {'Content-Type':'application/json'},
+    body: JSON.stringify({
+      player: (state.role && state.role.name) || 'admin',
+      command: 'admin reports review ' + id + ' ' + resolution,
+    }),
+  });
+  alert((result && result.response) || JSON.stringify(result));
+  refreshModQueue();
+}
+async function reviewAppeal(id, decision) {
+  if (!confirmAction('Really ' + decision + ' appeal ' + id + '?')) return;
+  const result = await api('/cmd', {
+    method: 'POST', headers: {'Content-Type':'application/json'},
+    body: JSON.stringify({
+      player: (state.role && state.role.name) || 'admin',
+      command: 'admin appeals review ' + id + ' ' + decision,
+    }),
+  });
+  alert((result && result.response) || JSON.stringify(result));
+  refreshModQueue();
+}
+
+// ── Bot Detection ──────────────────────────────────────────────────────
+async function refreshBots() {
+  const data = await api('/api/admin/bot-leaderboard?limit=20');
+  if (!data || !data.ok) return;
+  if (data.policy) $('bot-policy-display').textContent = 'policy: ' + data.policy.policy + ' / threshold: ' + data.policy.banThreshold;
+  const rows = data.leaderboard;
+  if (!rows.length) {
+    $('bot-leaderboard').innerHTML = '<div class="empty">No bot scores available.</div>';
+  } else {
+    const html = '<table><thead><tr><th>Player</th><th>Score</th><th>Honeypots</th><th>Escalated</th><th>Signals</th></tr></thead><tbody>' +
+      rows.map(r => {
+        const barFill = (r.score * 100).toFixed(1);
+        const cls = r.score >= 0.8 ? 'bad' : r.score >= 0.5 ? 'warn' : '';
+        const signals = r.breakdown ? Object.entries(r.breakdown).filter(([k,v]) => v > 0.3).map(([k,v]) => k + ':' + v.toFixed(2)).join(', ') : '-';
+        return '<tr><td>' + esc(r.playerName || r.playerId) + '</td>' +
+          '<td><div class="bar"><div class="bar-fill ' + cls + '" style="width:' + barFill + '%"></div></div> ' + fmtScore(r.score) + '</td>' +
+          '<td>' + r.honeypotHits + '</td>' +
+          '<td>' + (r.escalated ? '<span class="badge upheld">yes</span>' : '-') + '</td>' +
+          '<td style="font-size:0.72rem;color:var(--parchment-dim);">' + esc(signals) + '</td></tr>';
+      }).join('') + '</tbody></table>';
+    $('bot-leaderboard').innerHTML = html;
+  }
+
+  const esc_list = data.escalations || [];
+  if (!esc_list.length) $('bot-escalations').innerHTML = '<div class="empty">No escalations.</div>';
+  else $('bot-escalations').innerHTML = esc_list.slice(0, 10).map(e =>
+    '<div style="padding:4px 0;border-bottom:1px dotted rgba(184,134,11,0.15);">' +
+      '<strong>' + esc(e.playerName || e.playerId) + '</strong> score ' + fmtScore(e.score) +
+      ' &mdash; ' + esc(e.reason) + ' <span style="color:var(--parchment-dim);font-size:0.72rem;">(t=' + e.tick + ')</span>' +
+    '</div>').join('');
+
+  const hp = data.honeypots || [];
+  if (!hp.length) $('bot-honeypots').innerHTML = '<div class="empty">None placed.</div>';
+  else $('bot-honeypots').innerHTML = '<ul style="list-style:none;padding:0;">' + hp.map(h =>
+    '<li>#' + h.id + ' <strong>' + esc(h.kind) + '</strong> at (' + h.x + ',' + h.y + ') &mdash; ' + (h.triggered || 0) + ' hits</li>'
+  ).join('') + '</ul>';
+}
+
+// ── Trade ──────────────────────────────────────────────────────────────
+async function refreshTrade() {
+  const data = await api('/api/admin/trade-log?limit=50');
+  if (!data || !data.ok) return;
+  const hist = data.trades || [];
+  if (!hist.length) $('trade-history').innerHTML = '<div class="empty">No trades yet.</div>';
+  else {
+    $('trade-history').innerHTML = '<table><thead><tr><th>Time</th><th>Initiator</th><th>Target</th><th>Sent</th><th>Received</th></tr></thead><tbody>' +
+      hist.slice(0, 30).map(t =>
+        '<tr>' +
+        '<td>' + fmtTs(t.completedAt || t.startedAt) + '</td>' +
+        '<td>' + esc((t.initiator && t.initiator.name) || (t.initiator && t.initiator.id)) + '</td>' +
+        '<td>' + esc((t.target && t.target.name) || (t.target && t.target.id)) + '</td>' +
+        '<td>' + esc(JSON.stringify((t.initiator && t.initiator.items) || [])) + ' &mdash; ' + ((t.initiator && t.initiator.coins) || 0) + 'c</td>' +
+        '<td>' + esc(JSON.stringify((t.target && t.target.items) || [])) + ' &mdash; ' + ((t.target && t.target.coins) || 0) + 'c</td>' +
+        '</tr>'
+      ).join('') + '</tbody></table>';
+  }
+  const vol = data.topVolume || [];
+  if (!vol.length) $('ge-volume').innerHTML = '<div class="empty">No GE trades in 24h.</div>';
+  else $('ge-volume').innerHTML = '<table><thead><tr><th>Item</th><th>Volume</th><th>Coins Moved</th><th>Trades</th></tr></thead><tbody>' +
+    vol.map(v => '<tr><td>#' + v.itemId + '</td><td>' + v.vol24h.toLocaleString() + '</td><td>' + v.coinsMoved.toLocaleString() + '</td><td>' + v.trades + '</td></tr>').join('') +
+    '</tbody></table>';
+}
+
+// ── Content ────────────────────────────────────────────────────────────
+async function refreshContent() {
+  const data = await api('/api/admin/content');
+  if (!data || !data.ok) return;
+  let html = '<div class="stat-grid">' +
+    '<div class="stat-card"><div class="stat-label">Staged Overrides</div><div class="stat-value ' + (data.stagedOverrides > 0 ? 'warn' : 'good') + '">' + (data.stagedOverrides || 0) + '</div></div>' +
+    '<div class="stat-card"><div class="stat-label">Total Entities</div><div class="stat-value">' + (data.totalEntities || 0) + '</div></div>' +
+    '<div class="stat-card"><div class="stat-label">Entity Types</div><div class="stat-value">' + (data.entityTypes || 0) + '</div></div>' +
+    '<div class="stat-card"><div class="stat-label">Codex Updated</div><div class="stat-value" style="font-size:0.9rem;">' + (data.codexMtime ? fmtTs(data.codexMtime) : '-') + '</div></div>' +
+    '</div>';
+  if (data.perType) {
+    html += '<h4 style="color:var(--gold-bright);margin:14px 0 6px;letter-spacing:1px;">By Type</h4>';
+    html += '<table><thead><tr><th>Type</th><th>Count</th><th>Dirty</th><th>Published</th></tr></thead><tbody>';
+    for (const [k, v] of Object.entries(data.perType)) {
+      html += '<tr><td>' + esc(k) + '</td><td>' + v.count + '</td><td>' + v.dirty + '</td><td>' + v.published + '</td></tr>';
+    }
+    html += '</tbody></table>';
+  }
+  $('content-body').innerHTML = html;
+}
+
+// ── Clans ──────────────────────────────────────────────────────────────
+async function refreshClans() {
+  const data = await api('/api/admin/clans');
+  if (!data || !data.ok) return;
+  const rows = data.clans || [];
+  if (!rows.length) {
+    $('clans-body').innerHTML = '<div class="empty">No clans founded yet.</div>';
+    return;
+  }
+  $('clans-body').innerHTML = '<table><thead><tr><th>Name</th><th>Motto</th><th>Members</th><th>Territory</th><th>Citadel</th><th>Treasury</th></tr></thead><tbody>' +
+    rows.map(c => '<tr>' +
+      '<td><strong>' + esc(c.name) + '</strong></td>' +
+      '<td style="color:var(--parchment-dim);font-size:0.75rem;">' + esc(c.motto) + '</td>' +
+      '<td>' + c.memberCount + '</td>' +
+      '<td>' + (c.territory.length ? c.territory.map(esc).join(', ') : '-') + '</td>' +
+      '<td>tier ' + c.citadelTier + '</td>' +
+      '<td>' + (c.treasuryCoins || 0).toLocaleString() + 'c</td>' +
+    '</tr>').join('') + '</tbody></table>';
+}
+
+// ── Events ─────────────────────────────────────────────────────────────
+async function refreshEvents() {
+  const data = await api('/api/admin/events');
+  if (!data || !data.ok) return;
+  const rows = (data.events || []).filter(e => e.status !== 'cancelled').slice().reverse();
+  if (!rows.length) {
+    $('events-body').innerHTML = '<div class="empty">No events scheduled.</div>';
+    return;
+  }
+  $('events-body').innerHTML = '<table><thead><tr><th>ID</th><th>Kind</th><th>When</th><th>Payload</th><th>By</th><th>Actions</th></tr></thead><tbody>' +
+    rows.map(e => '<tr>' +
+      '<td>' + e.id + '</td>' +
+      '<td>' + esc(e.kind) + '</td>' +
+      '<td>' + fmtTs(e.at) + '</td>' +
+      '<td><div class="code">' + esc(JSON.stringify(e.payload || {})) + '</div></td>' +
+      '<td>' + esc(e.createdBy) + '</td>' +
+      '<td>' + (e.status === 'scheduled'
+        ? '<button class="btn danger" onclick="cancelEvent(' + e.id + ')">Cancel</button>'
+        : '<span class="badge dismissed">' + esc(e.status) + '</span>') +
+      '</td>' +
+    '</tr>').join('') + '</tbody></table>';
+}
+async function scheduleEvent() {
+  const kind = $('ev-kind').value;
+  const delay = Math.max(0, Number($('ev-delay').value) || 0);
+  const at = Date.now() + delay * 60_000;
+  let payload = {};
+  try { payload = $('ev-payload').value.trim() ? JSON.parse($('ev-payload').value) : {}; }
+  catch (e) { alert('Invalid JSON payload: ' + e.message); return; }
+  if (!confirmAction('Schedule ' + kind + ' in ' + delay + ' minutes?')) return;
+  const res = await api('/api/admin/event', {
+    method: 'POST', headers: {'Content-Type':'application/json'},
+    body: JSON.stringify({ kind, at, payload }),
+  });
+  if (res && res.ok) { refreshEvents(); alert('Event scheduled.'); }
+  else alert('Failed: ' + (res && res.reason ? res.reason : JSON.stringify(res)));
+}
+async function cancelEvent(id) {
+  if (!confirmAction('Cancel event ' + id + '?')) return;
+  const res = await api('/api/admin/event/' + id, { method: 'DELETE' });
+  refreshEvents();
+  alert(res && res.ok ? 'Cancelled.' : 'Failed: ' + JSON.stringify(res));
+}
+
+// ── Config ─────────────────────────────────────────────────────────────
+async function loadConfig(key) {
+  const el = $('cfg-' + key);
+  if (!el) return;
+  const data = await api('/api/admin/config/' + key);
+  if (data && data.ok) el.value = JSON.stringify(data.value, null, 2);
+  else el.value = '// ' + (data && data.error ? data.error : 'not found');
+}
+async function saveConfig(key) {
+  const el = $('cfg-' + key);
+  let val;
+  try { val = JSON.parse(el.value); }
+  catch (e) { alert('Invalid JSON: ' + e.message); return; }
+  if (!confirmAction('Save ' + key + '? This will be persisted and may affect live players.')) return;
+  const res = await api('/api/admin/config/' + key, {
+    method: 'PUT', headers: {'Content-Type':'application/json'},
+    body: JSON.stringify(val),
+  });
+  if (res && res.ok) alert(key + ' saved.');
+  else alert('Failed: ' + (res && res.reason ? res.reason : JSON.stringify(res)));
+}
+async function grantRole() {
+  const user = $('role-user').value.trim();
+  const role = $('role-role').value;
+  if (!user || !role) { alert('Need user + role'); return; }
+  if (!confirmAction('Grant role "' + role + '" to "' + user + '"? Owner only.')) return;
+  const res = await api('/api/admin/role/grant', {
+    method: 'POST', headers: {'Content-Type':'application/json'},
+    body: JSON.stringify({ user, role }),
+  });
+  const fb = $('role-feedback');
+  if (res && res.ok) fb.innerHTML = '<span style="color:var(--green-glow);">Granted ' + esc(role) + ' to ' + esc(user) + '.</span>';
+  else fb.innerHTML = '<span style="color:var(--red-glow);">Failed: ' + esc(res && res.error ? res.error : 'unknown') + '</span>';
+}
+
+// ── Audit ──────────────────────────────────────────────────────────────
+async function refreshAudit() {
+  const since = $('audit-since').value || 0;
+  const data = await api('/api/admin/audit-log?since=' + since + '&limit=200');
+  if (!data || !data.ok) return;
+  const rows = data.entries || [];
+  if (!rows.length) {
+    $('audit-body').innerHTML = '<div class="empty">No entries.</div>';
+    return;
+  }
+  $('audit-body').innerHTML = '<table><thead><tr><th>Time</th><th>Source</th><th>Action</th><th>Actor</th><th>Target</th><th>Payload</th></tr></thead><tbody>' +
+    rows.slice(0, 100).map(e =>
+      '<tr>' +
+        '<td style="font-size:0.72rem;">' + fmtTs(e.ts) + '</td>' +
+        '<td><span class="badge low">' + esc(e._source || '-') + '</span></td>' +
+        '<td><strong>' + esc(e.action) + '</strong></td>' +
+        '<td>' + esc(e.actor && (e.actor.name || e.actor.id)) + '</td>' +
+        '<td>' + esc(e.target && (e.target.name || e.target.id)) + '</td>' +
+        '<td><div class="code">' + esc(JSON.stringify(e.payload || {})) + '</div></td>' +
+      '</tr>'
+    ).join('') + '</tbody></table>';
+}
+
+// ── Modals ─────────────────────────────────────────────────────────────
+function closeModal(id) { $(id).classList.remove('open'); }
+document.querySelectorAll('.modal-backdrop').forEach(b => {
+  b.addEventListener('click', (e) => { if (e.target === b) b.classList.remove('open'); });
+});
+
+// ── WebSocket live updates ─────────────────────────────────────────────
+function wsConnect() {
+  if (state.ws) { try { state.ws.close(); } catch {} }
+  const proto = location.protocol === 'https:' ? 'wss:' : 'ws:';
+  const url = proto + '//' + location.host + '/ws/admin';
+  try {
+    state.ws = new WebSocket(url);
+  } catch (e) {
+    $('ws-dot').className = 'ws-dot err';
+    $('ws-status').textContent = 'failed';
+    return;
+  }
+  state.ws.addEventListener('open', () => {
+    $('ws-dot').className = 'ws-dot ok';
+    $('ws-status').textContent = 'live';
+  });
+  state.ws.addEventListener('close', () => {
+    $('ws-dot').className = 'ws-dot err';
+    $('ws-status').textContent = 'offline';
+    if (state.wsReconnectTimer) clearTimeout(state.wsReconnectTimer);
+    state.wsReconnectTimer = setTimeout(wsConnect, 3000);
+  });
+  state.ws.addEventListener('error', () => {
+    $('ws-dot').className = 'ws-dot err';
+    $('ws-status').textContent = 'error';
+  });
+  state.ws.addEventListener('message', (ev) => {
+    let msg;
+    try { msg = JSON.parse(ev.data); } catch { return; }
+    if (msg.type === 'admin_overview_tick') {
+      state.overview = msg;
+      $('stat-uptime').textContent = fmtDur(msg.uptimeMs || 0);
+      $('stat-tick').textContent = msg.tick;
+      if (msg.players) $('stat-players').textContent = msg.players.connected + '/' + msg.players.sessions;
+      if (msg.tickHealth) {
+        $('stat-p50').textContent = msg.tickHealth.p50 + 'ms';
+        $('stat-p99').textContent = msg.tickHealth.p99 + 'ms';
+      }
+      if (msg.moderation) $('badge-mod').textContent = msg.moderation.pendingReports + msg.moderation.pendingAppeals;
+      if (msg.bots) $('badge-bots').textContent = msg.bots.flagged;
+    } else if (msg.type === 'admin_new_report') {
+      toast({ kind: 'new report', severity: 'warn' });
+      refreshModQueue();
+    } else if (msg.type === 'admin_alert') {
+      state.alerts.push(msg);
+      if (state.alerts.length > 50) state.alerts.shift();
+      toast(msg);
+    } else if (msg.type === 'admin_event_scheduled') {
+      refreshEvents();
+    } else if (msg.type === 'admin_config_updated') {
+      toast({ kind: 'config updated: ' + msg.key, severity: 'warn' });
+    } else if (msg.type === 'hello') {
+      state.role = { role: msg.role, name: msg.name };
+      $('role-tag').textContent = msg.role + ' ' + (msg.name || '');
+    } else if (msg.type === 'error') {
+      alert('WS error: ' + msg.error);
+    }
+  });
+}
+
+// ── Boot ───────────────────────────────────────────────────────────────
+async function boot() {
+  const me = await api('/api/auth/me');
+  if (!me || !me.authenticated) {
+    window.location.href = '/login?next=' + encodeURIComponent('/admin');
+    return;
+  }
+  state.role = me;
+  $('role-tag').textContent = me.role + ' ' + (me.name || '');
+  if (me.role !== 'admin' && me.role !== 'owner') {
+    alert('Admin or owner role required.');
+    window.location.href = '/';
+    return;
+  }
+  refreshOverview();
+  wsConnect();
+  setInterval(refreshOverview, 15000);
+}
+boot();
+</script>
+</body>
+</html>
