@@ -1,18 +1,11 @@
 {
-  "timestamp": "2026-04-15T07:19:17.007Z",
+  "timestamp": "2026-04-15T12:20:21.084Z",
   "thinnestRegion": {
-    "id": "the_wilds",
-    "label": "The Wilds",
-    "flavor": "PvP zone, lawless, risk/reward"
+    "id": "moryskah",
+    "label": "Moryskah",
+    "flavor": "gothic swamp, undead, vampires"
   },
   "all_regions_ranked": [
-    {
-      "region": "the_wilds",
-      "label": "The Wilds",
-      "methods": 31,
-      "blockedSkills": 0,
-      "gapScore": 39
-    },
     {
       "region": "moryskah",
       "label": "Moryskah",
@@ -68,16 +61,23 @@
       "methods": 86,
       "blockedSkills": 0,
       "gapScore": 66
+    },
+    {
+      "region": "the_wilds",
+      "label": "The Wilds",
+      "methods": 100,
+      "blockedSkills": 0,
+      "gapScore": 73
     }
   ],
   "analysis": {
-    "region": "the_wilds",
-    "label": "The Wilds",
-    "flavor": "PvP zone, lawless, risk/reward",
-    "methodsInRegion": 31,
+    "region": "moryskah",
+    "label": "Moryskah",
+    "flavor": "gothic swamp, undead, vampires",
+    "methodsInRegion": 41,
     "skillStatus": {
       "attack": {
-        "count": 2,
+        "count": 4,
         "maxLevel": 99,
         "status": "trainable"
       },
@@ -87,32 +87,32 @@
         "status": "trainable"
       },
       "defence": {
-        "count": 1,
+        "count": 2,
         "maxLevel": 99,
         "status": "trainable"
       },
       "hitpoints": {
-        "count": 1,
-        "maxLevel": 70,
+        "count": 2,
+        "maxLevel": 99,
         "status": "trainable"
       },
       "ranged": {
-        "count": 1,
+        "count": 2,
         "maxLevel": 99,
         "status": "trainable"
       },
       "prayer": {
-        "count": 2,
+        "count": 3,
         "maxLevel": 99,
         "status": "trainable"
       },
       "magic": {
-        "count": 2,
+        "count": 3,
         "maxLevel": 99,
         "status": "trainable"
       },
       "runecrafting": {
-        "count": 3,
+        "count": 2,
         "maxLevel": 99,
         "status": "trainable"
       },
@@ -122,18 +122,18 @@
         "status": "trainable"
       },
       "agility": {
-        "count": 1,
+        "count": 3,
         "maxLevel": 99,
         "status": "trainable"
       },
       "herblore": {
         "count": 1,
-        "maxLevel": 99,
+        "maxLevel": 85,
         "status": "trainable"
       },
       "thieving": {
         "count": 1,
-        "maxLevel": 99,
+        "maxLevel": 80,
         "status": "trainable"
       },
       "crafting": {
@@ -153,7 +153,7 @@
       },
       "hunter": {
         "count": 1,
-        "maxLevel": 99,
+        "maxLevel": 70,
         "status": "trainable"
       },
       "mining": {
@@ -177,17 +177,17 @@
         "status": "trainable"
       },
       "firemaking": {
-        "count": 1,
+        "count": 3,
         "maxLevel": 99,
         "status": "trainable"
       },
       "woodcutting": {
-        "count": 1,
+        "count": 2,
         "maxLevel": 99,
         "status": "trainable"
       },
       "farming": {
-        "count": 2,
+        "count": 1,
         "maxLevel": 99,
         "status": "trainable"
       }
@@ -195,10 +195,10 @@
     "blockedSkills": [],
     "lowCapSkills": [],
     "prestigeGoal": {
-      "name": "Coronation of the Revenant King",
-      "flavor": "PvP-risk survival"
+      "name": "The Barrows Brothers Challenge",
+      "flavor": "combat / prayer-switching"
     },
-    "gapScore": 38.5
+    "gapScore": 43.5
   },
   "suggestions": [],
   "example_quest_shape": {

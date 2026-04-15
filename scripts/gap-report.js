@@ -46,6 +46,8 @@ try { require('../src/content/aelgard/glass-desert-deep'); } catch (e) {}
 try { require('../src/content/aelgard/glass-desert-density'); } catch (e) {}
 try { require('../src/content/aelgard/inkweald-deep'); } catch (e) {}
 try { require('../src/content/aelgard/inkweald-density'); } catch (e) {}
+try { require('../src/content/aelgard/wilds-deep'); } catch (e) {}
+try { require('../src/content/aelgard/wilds-density'); } catch (e) {}
 try { require('../src/content/aelgard/mid-tier-regions'); } catch (e) {}
 try { require('../src/content/aelgard/universal-items'); } catch (e) {}
 try { require('../src/content/aelgard/special-regions'); } catch (e) {}
