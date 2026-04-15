@@ -1,0 +1,9 @@
+{
+  "_comment": "Chat filter word list and URL allow list. The profanity array is intentionally empty in public checkins; operators populate it from a private source on the live server. Keeping this file present ensures the loader never crashes on a fresh clone.",
+  "profanity": [],
+  "urlAllowList": [
+    "sc4p3.com",
+    "scape.wiki",
+    "github.com/1-Future/ScapeAPI-AI"
+  ]
+}

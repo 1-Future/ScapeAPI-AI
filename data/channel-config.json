@@ -1,0 +1,68 @@
+{
+  "_comment": "Server-side defaults for the 14-channel communication system. Consumed by src/engine/channels.js on boot. Toggles mirror the per-world switches documented in build-your-own-scape/docs/communication.md.",
+  "version": 1,
+  "toggles": {
+    "public": true,
+    "private": true,
+    "clan": true,
+    "clan-broadcast": true,
+    "trade": true,
+    "help": true,
+    "pvp": true,
+    "region": true,
+    "friends": true,
+    "staff": true,
+    "group-ironman": true,
+    "quickchat": true,
+    "event": true,
+    "announce": true
+  },
+  "proximityTiles": 20,
+  "autoMute": {
+    "filteredMessagesBeforeMute": 3,
+    "muteDurationSeconds": 300
+  },
+  "rateLimits": {
+    "default": { "messages": 5, "windowMs": 10000 },
+    "trade":   { "messages": 3, "windowMs": 30000 },
+    "announce":{ "messages": 5, "windowMs": 60000 },
+    "clan-broadcast": { "messages": 2, "windowMs": 60000 }
+  },
+  "characterLimits": {
+    "default": 240,
+    "public": 80,
+    "trade": 160,
+    "pvp": 120,
+    "clan": 200,
+    "region": 180,
+    "quickchat": 240,
+    "announce": 300
+  },
+  "retentionDays": {
+    "public": 7,
+    "region": 7,
+    "quickchat": 7,
+    "private": 30,
+    "clan": 30,
+    "friends": 30,
+    "group-ironman": 30,
+    "event": 14,
+    "help": 14,
+    "trade": 14,
+    "pvp": 14,
+    "clan-broadcast": 90,
+    "staff": 365,
+    "announce": 365
+  },
+  "logDir": "data/chat-logs",
+  "filter": {
+    "path": "data/chat-filter.json",
+    "linkAllowList": [
+      "sc4p3.com",
+      "scape.wiki",
+      "github.com/1-Future/ScapeAPI-AI"
+    ]
+  },
+  "friendsFile": "data/friends-lists.json",
+  "settingsFile": "data/channel-settings.json"
+}
