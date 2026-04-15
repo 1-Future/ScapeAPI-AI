@@ -1,0 +1,1413 @@
+{
+  "meta": {
+    "generatedAt": "2026-04-15T12:51:38.457Z",
+    "archetypeCount": 9,
+    "ticksPerArchetype": 10000,
+    "totalTicks": 90000,
+    "elapsedMs": 275,
+    "decisionInterval": 50,
+    "ticksPerHour": 6000
+  },
+  "thresholds": {
+    "unique_to_one_count": 29,
+    "unique_to_one_target": 100,
+    "unique_to_one_pass": false,
+    "average_similarity": 0.1819,
+    "average_similarity_max": 0.4,
+    "average_similarity_pass": true,
+    "max_total_level": 265,
+    "max_total_level_cap": 2100,
+    "max_total_level_pass": true,
+    "every_archetype_transformative": false,
+    "archetypes_without_transformative": [
+      "AFK Andy",
+      "Skiller"
+    ]
+  },
+  "archetypes": {
+    "Efficiency Andy": {
+      "description": "Max XP/hr. Follows the optimal meta. No distractions.",
+      "ticksPlayed": 10000,
+      "finalLevels": {
+        "attack": 1,
+        "strength": 1,
+        "defence": 1,
+        "hitpoints": 10,
+        "ranged": 1,
+        "prayer": 68,
+        "magic": 1,
+        "runecrafting": 1,
+        "construction": 1,
+        "agility": 1,
+        "herblore": 1,
+        "thieving": 1,
+        "crafting": 1,
+        "fletching": 1,
+        "slayer": 1,
+        "hunter": 1,
+        "mining": 1,
+        "smithing": 1,
+        "fishing": 1,
+        "cooking": 1,
+        "firemaking": 1,
+        "woodcutting": 1,
+        "farming": 1
+      },
+      "totalLevel": 99,
+      "maxedSkills": 0,
+      "methodsUsedCount": 1,
+      "methodsShared": 1,
+      "methodsUnique": 0,
+      "uniqueMethodIds": [],
+      "breakpointsTotal": 4,
+      "breakpointsTransformative": 1,
+      "breakpointsMajor": 1,
+      "skillUps": 67,
+      "areasEntered": 1,
+      "regionsVisited": [
+        "heartlands",
+        "the_wilds"
+      ],
+      "methodSwitches": 0,
+      "monstersKilledEstimate": 0,
+      "monsterTypeDiversity": 0,
+      "questsCompleted": 0,
+      "questList": [],
+      "candyMoments": [
+        {
+          "tick": 0,
+          "what": "wilds_chaos_altar_prayer",
+          "description": "Entered high-stakes method Chaos Altar Prayer"
+        },
+        {
+          "tick": 794,
+          "what": "prayer_43",
+          "description": "All three protection prayers. This is THE breakpoint. Bosses that were impossible become farmable. The game permanently changes."
+        }
+      ],
+      "stuck": false,
+      "stuckTicks": 0,
+      "stuckReasons": [],
+      "startRegion": "heartlands",
+      "prestigeGoal": "The Grand Feast",
+      "prestigeReached": false,
+      "prestigeReachedAt": null,
+      "divergenceScore": 0.9904,
+      "avgSimilarityToOthers": 0.0096,
+      "topSkills": [
+        {
+          "skill": "prayer",
+          "hours": 1.6666666666665164
+        },
+        {
+          "skill": "attack",
+          "hours": 0
+        },
+        {
+          "skill": "strength",
+          "hours": 0
+        },
+        {
+          "skill": "defence",
+          "hours": 0
+        },
+        {
+          "skill": "hitpoints",
+          "hours": 0
+        }
+      ],
+      "firstBreakpoints": [
+        {
+          "tick": 28,
+          "skill": "prayer",
+          "level": 13,
+          "importance": "minor",
+          "description": "Protect Item. You keep one more item on death. PvP and PvM risk calculation changes."
+        },
+        {
+          "tick": 433,
+          "skill": "prayer",
+          "level": 37,
+          "importance": "major",
+          "description": "Protect from Magic. The first protection prayer. Mages in PvP can no longer freeze-kill you."
+        },
+        {
+          "tick": 794,
+          "skill": "prayer",
+          "level": 43,
+          "importance": "transformative",
+          "description": "All three protection prayers. This is THE breakpoint. Bosses that were impossible become farmable. The game permanently changes."
+        },
+        {
+          "tick": 4321,
+          "skill": "prayer",
+          "level": 60,
+          "importance": "minor",
+          "description": "Chivalry. 15% attack, 18% strength, 15% defence boost. Massive DPS increase if you can sustain the drain."
+        }
+      ]
+    },
+    "AFK Andy": {
+      "description": "Only afk/low attention methods. Playing while watching TV.",
+      "ticksPlayed": 10000,
+      "finalLevels": {
+        "attack": 1,
+        "strength": 1,
+        "defence": 1,
+        "hitpoints": 10,
+        "ranged": 1,
+        "prayer": 1,
+        "magic": 1,
+        "runecrafting": 1,
+        "construction": 1,
+        "agility": 1,
+        "herblore": 1,
+        "thieving": 1,
+        "crafting": 1,
+        "fletching": 1,
+        "slayer": 1,
+        "hunter": 1,
+        "mining": 1,
+        "smithing": 1,
+        "fishing": 1,
+        "cooking": 58,
+        "firemaking": 1,
+        "woodcutting": 1,
+        "farming": 1
+      },
+      "totalLevel": 89,
+      "maxedSkills": 0,
+      "methodsUsedCount": 2,
+      "methodsShared": 1,
+      "methodsUnique": 1,
+      "uniqueMethodIds": [
+        "veilwood_hunters_grove_cooking"
+      ],
+      "breakpointsTotal": 1,
+      "breakpointsTransformative": 0,
+      "breakpointsMajor": 0,
+      "skillUps": 57,
+      "areasEntered": 2,
+      "regionsVisited": [
+        "heartlands",
+        "boneyard_salted_cookery",
+        "veilwood_hunters_grove"
+      ],
+      "methodSwitches": 1,
+      "monstersKilledEstimate": 0,
+      "monsterTypeDiversity": 0,
+      "questsCompleted": 0,
+      "questList": [],
+      "candyMoments": [],
+      "stuck": false,
+      "stuckTicks": 0,
+      "stuckReasons": [],
+      "startRegion": "heartlands",
+      "prestigeGoal": "The Grand Feast",
+      "prestigeReached": false,
+      "prestigeReachedAt": null,
+      "divergenceScore": 0.9905,
+      "avgSimilarityToOthers": 0.0095,
+      "topSkills": [
+        {
+          "skill": "cooking",
+          "hours": 1.6666666666665164
+        },
+        {
+          "skill": "attack",
+          "hours": 0
+        },
+        {
+          "skill": "strength",
+          "hours": 0
+        },
+        {
+          "skill": "defence",
+          "hours": 0
+        },
+        {
+          "skill": "hitpoints",
+          "hours": 0
+        }
+      ],
+      "firstBreakpoints": [
+        {
+          "tick": 1668,
+          "skill": "cooking",
+          "level": 40,
+          "importance": "minor",
+          "description": "Lobsters without burning (at the Cooking Guild). Reliable mid-game food production."
+        }
+      ]
+    },
+    "Money Maker": {
+      "description": "Max gp/hr. Profit-weighted. Will buy XP when needed.",
+      "ticksPlayed": 10000,
+      "finalLevels": {
+        "attack": 4,
+        "strength": 1,
+        "defence": 1,
+        "hitpoints": 10,
+        "ranged": 4,
+        "prayer": 43,
+        "magic": 46,
+        "runecrafting": 5,
+        "construction": 5,
+        "agility": 10,
+        "herblore": 5,
+        "thieving": 1,
+        "crafting": 4,
+        "fletching": 1,
+        "slayer": 1,
+        "hunter": 1,
+        "mining": 15,
+        "smithing": 15,
+        "fishing": 1,
+        "cooking": 13,
+        "firemaking": 11,
+        "woodcutting": 1,
+        "farming": 2
+      },
+      "totalLevel": 200,
+      "maxedSkills": 0,
+      "methodsUsedCount": 17,
+      "methodsShared": 17,
+      "methodsUnique": 0,
+      "uniqueMethodIds": [],
+      "breakpointsTotal": 11,
+      "breakpointsTransformative": 1,
+      "breakpointsMajor": 3,
+      "skillUps": 168,
+      "areasEntered": 6,
+      "regionsVisited": [
+        "heartlands",
+        "the_wilds",
+        "boneyard_veiled_grave",
+        "boneyard_smelters_bones",
+        "inkweald_half_light_range",
+        "boneyard_sun_bleach_pits",
+        "inkweald_backseam_camps"
+      ],
+      "methodSwitches": 54,
+      "monstersKilledEstimate": 289,
+      "monsterTypeDiversity": 5,
+      "questsCompleted": 3,
+      "questList": [
+        "druidic_ritual",
+        "The Water-Numbered Wind",
+        "enter_the_abyss"
+      ],
+      "candyMoments": [
+        {
+          "tick": 0,
+          "what": "wilds_chaos_altar_prayer",
+          "description": "Entered high-stakes method Chaos Altar Prayer"
+        },
+        {
+          "tick": 2832,
+          "what": "prayer_43",
+          "description": "All three protection prayers. This is THE breakpoint. Bosses that were impossible become farmable. The game permanently changes."
+        }
+      ],
+      "stuck": false,
+      "stuckTicks": 0,
+      "stuckReasons": [],
+      "startRegion": "heartlands",
+      "prestigeGoal": "The Grand Feast",
+      "prestigeReached": false,
+      "prestigeReachedAt": null,
+      "divergenceScore": 0.7073,
+      "avgSimilarityToOthers": 0.2927,
+      "topSkills": [
+        {
+          "skill": "magic",
+          "hours": 0.774999999999948
+        },
+        {
+          "skill": "mining",
+          "hours": 0.3083333333333326
+        },
+        {
+          "skill": "prayer",
+          "hours": 0.3000000000000002
+        },
+        {
+          "skill": "agility",
+          "hours": 0.1500000000000001
+        },
+        {
+          "skill": "smithing",
+          "hours": 0.0333333333333333
+        }
+      ],
+      "firstBreakpoints": [
+        {
+          "tick": 28,
+          "skill": "prayer",
+          "level": 13,
+          "importance": "minor",
+          "description": "Protect Item. You keep one more item on death. PvP and PvM risk calculation changes."
+        },
+        {
+          "tick": 167,
+          "skill": "herblore",
+          "level": 3,
+          "importance": "minor",
+          "description": "Attack potions. Your first potion. Herblore stops being a mystery."
+        },
+        {
+          "tick": 1266,
+          "skill": "prayer",
+          "level": 37,
+          "importance": "major",
+          "description": "Protect from Magic. The first protection prayer. Mages in PvP can no longer freeze-kill you."
+        },
+        {
+          "tick": 2832,
+          "skill": "prayer",
+          "level": 43,
+          "importance": "transformative",
+          "description": "All three protection prayers. This is THE breakpoint. Bosses that were impossible become farmable. The game permanently changes."
+        },
+        {
+          "tick": 2963,
+          "skill": "agility",
+          "level": 10,
+          "importance": "minor",
+          "description": "Run energy restores faster. The world stops feeling sluggish."
+        }
+      ]
+    },
+    "PvM Rusher": {
+      "description": "Rush combat + prayer + herblore. Wants to boss ASAP.",
+      "ticksPlayed": 10000,
+      "finalLevels": {
+        "attack": 5,
+        "strength": 1,
+        "defence": 1,
+        "hitpoints": 10,
+        "ranged": 4,
+        "prayer": 45,
+        "magic": 48,
+        "runecrafting": 1,
+        "construction": 1,
+        "agility": 1,
+        "herblore": 5,
+        "thieving": 1,
+        "crafting": 1,
+        "fletching": 1,
+        "slayer": 1,
+        "hunter": 1,
+        "mining": 1,
+        "smithing": 1,
+        "fishing": 1,
+        "cooking": 1,
+        "firemaking": 1,
+        "woodcutting": 1,
+        "farming": 1
+      },
+      "totalLevel": 134,
+      "maxedSkills": 0,
+      "methodsUsedCount": 8,
+      "methodsShared": 8,
+      "methodsUnique": 0,
+      "uniqueMethodIds": [],
+      "breakpointsTotal": 9,
+      "breakpointsTransformative": 1,
+      "breakpointsMajor": 3,
+      "skillUps": 102,
+      "areasEntered": 1,
+      "regionsVisited": [
+        "heartlands",
+        "inkweald_half_light_range"
+      ],
+      "methodSwitches": 25,
+      "monstersKilledEstimate": 370,
+      "monsterTypeDiversity": 5,
+      "questsCompleted": 2,
+      "questList": [
+        "moryskah_haunting",
+        "druidic_ritual"
+      ],
+      "candyMoments": [
+        {
+          "tick": 3219,
+          "what": "prayer_43",
+          "description": "All three protection prayers. This is THE breakpoint. Bosses that were impossible become farmable. The game permanently changes."
+        }
+      ],
+      "stuck": false,
+      "stuckTicks": 0,
+      "stuckReasons": [],
+      "startRegion": "heartlands",
+      "prestigeGoal": "The Grand Feast",
+      "prestigeReached": false,
+      "prestigeReachedAt": null,
+      "divergenceScore": 0.783,
+      "avgSimilarityToOthers": 0.217,
+      "topSkills": [
+        {
+          "skill": "magic",
+          "hours": 0.9749999999999259
+        },
+        {
+          "skill": "prayer",
+          "hours": 0.6166666666666321
+        },
+        {
+          "skill": "attack",
+          "hours": 0.0333333333333333
+        },
+        {
+          "skill": "hitpoints",
+          "hours": 0.01666666666666669
+        },
+        {
+          "skill": "ranged",
+          "hours": 0.008333333333333331
+        }
+      ],
+      "firstBreakpoints": [
+        {
+          "tick": 109,
+          "skill": "prayer",
+          "level": 13,
+          "importance": "minor",
+          "description": "Protect Item. You keep one more item on death. PvP and PvM risk calculation changes."
+        },
+        {
+          "tick": 367,
+          "skill": "herblore",
+          "level": 3,
+          "importance": "minor",
+          "description": "Attack potions. Your first potion. Herblore stops being a mystery."
+        },
+        {
+          "tick": 1847,
+          "skill": "prayer",
+          "level": 37,
+          "importance": "major",
+          "description": "Protect from Magic. The first protection prayer. Mages in PvP can no longer freeze-kill you."
+        },
+        {
+          "tick": 3219,
+          "skill": "prayer",
+          "level": 43,
+          "importance": "transformative",
+          "description": "All three protection prayers. This is THE breakpoint. Bosses that were impossible become farmable. The game permanently changes."
+        },
+        {
+          "tick": 3588,
+          "skill": "magic",
+          "level": 7,
+          "importance": "minor",
+          "description": "Lvl-1 Enchant. Sapphire jewelry becomes Ring of Recoil. First taste of enchanting."
+        }
+      ]
+    },
+    "Skiller": {
+      "description": "No combat ever. Pure skilling account. Level 3 hp forever.",
+      "ticksPlayed": 10000,
+      "finalLevels": {
+        "attack": 1,
+        "strength": 1,
+        "defence": 1,
+        "hitpoints": 10,
+        "ranged": 1,
+        "prayer": 1,
+        "magic": 1,
+        "runecrafting": 6,
+        "construction": 5,
+        "agility": 12,
+        "herblore": 5,
+        "thieving": 3,
+        "crafting": 4,
+        "fletching": 1,
+        "slayer": 1,
+        "hunter": 3,
+        "mining": 44,
+        "smithing": 15,
+        "fishing": 4,
+        "cooking": 19,
+        "firemaking": 11,
+        "woodcutting": 1,
+        "farming": 5
+      },
+      "totalLevel": 155,
+      "maxedSkills": 0,
+      "methodsUsedCount": 15,
+      "methodsShared": 15,
+      "methodsUnique": 0,
+      "uniqueMethodIds": [],
+      "breakpointsTotal": 5,
+      "breakpointsTransformative": 0,
+      "breakpointsMajor": 1,
+      "skillUps": 123,
+      "areasEntered": 4,
+      "regionsVisited": [
+        "heartlands",
+        "the_wilds",
+        "boneyard_smelters_bones",
+        "boneyard_sun_bleach_pits",
+        "inkweald_backseam_camps"
+      ],
+      "methodSwitches": 41,
+      "monstersKilledEstimate": 0,
+      "monsterTypeDiversity": 0,
+      "questsCompleted": 1,
+      "questList": [
+        "druidic_ritual"
+      ],
+      "candyMoments": [
+        {
+          "tick": 3100,
+          "what": "wilds_rune_essence",
+          "description": "Entered high-stakes method Wilderness Pure Essence"
+        }
+      ],
+      "stuck": false,
+      "stuckTicks": 0,
+      "stuckReasons": [],
+      "startRegion": "heartlands",
+      "prestigeGoal": "The Grand Feast",
+      "prestigeReached": false,
+      "prestigeReachedAt": null,
+      "divergenceScore": 0.806,
+      "avgSimilarityToOthers": 0.194,
+      "topSkills": [
+        {
+          "skill": "mining",
+          "hours": 1.316666666666555
+        },
+        {
+          "skill": "agility",
+          "hours": 0.20000000000000293
+        },
+        {
+          "skill": "smithing",
+          "hours": 0.0333333333333333
+        },
+        {
+          "skill": "farming",
+          "hours": 0.024999999999999974
+        },
+        {
+          "skill": "cooking",
+          "hours": 0.01666666666666669
+        }
+      ],
+      "firstBreakpoints": [
+        {
+          "tick": 117,
+          "skill": "herblore",
+          "level": 3,
+          "importance": "minor",
+          "description": "Attack potions. Your first potion. Herblore stops being a mystery."
+        },
+        {
+          "tick": 1063,
+          "skill": "agility",
+          "level": 10,
+          "importance": "minor",
+          "description": "Run energy restores faster. The world stops feeling sluggish."
+        },
+        {
+          "tick": 2954,
+          "skill": "mining",
+          "level": 15,
+          "importance": "minor",
+          "description": "Iron ore. First ore worth smelting solo. Power-mining iron becomes the go-to training method for years."
+        },
+        {
+          "tick": 4337,
+          "skill": "mining",
+          "level": 30,
+          "importance": "major",
+          "description": "Coal. The key ingredient for steel, mithril, adamant, and rune bars. Opens the Smithing web."
+        },
+        {
+          "tick": 4635,
+          "skill": "smithing",
+          "level": 15,
+          "importance": "minor",
+          "description": "Iron bars. The 50% fail chance creates early frustration that Ring of Forging solves — your first \"I need another skill.\""
+        }
+      ]
+    },
+    "Quester": {
+      "description": "Quest cape run. Prioritizes skill levels that quests need.",
+      "ticksPlayed": 10000,
+      "finalLevels": {
+        "attack": 2,
+        "strength": 1,
+        "defence": 1,
+        "hitpoints": 10,
+        "ranged": 1,
+        "prayer": 43,
+        "magic": 43,
+        "runecrafting": 1,
+        "construction": 1,
+        "agility": 11,
+        "herblore": 5,
+        "thieving": 1,
+        "crafting": 4,
+        "fletching": 1,
+        "slayer": 1,
+        "hunter": 1,
+        "mining": 15,
+        "smithing": 15,
+        "fishing": 4,
+        "cooking": 19,
+        "firemaking": 1,
+        "woodcutting": 1,
+        "farming": 1
+      },
+      "totalLevel": 183,
+      "maxedSkills": 0,
+      "methodsUsedCount": 12,
+      "methodsShared": 12,
+      "methodsUnique": 0,
+      "uniqueMethodIds": [],
+      "breakpointsTotal": 11,
+      "breakpointsTransformative": 1,
+      "breakpointsMajor": 3,
+      "skillUps": 151,
+      "areasEntered": 2,
+      "regionsVisited": [
+        "heartlands",
+        "the_wilds",
+        "boneyard_smelters_bones"
+      ],
+      "methodSwitches": 38,
+      "monstersKilledEstimate": 204,
+      "monsterTypeDiversity": 4,
+      "questsCompleted": 2,
+      "questList": [
+        "moryskah_haunting",
+        "druidic_ritual"
+      ],
+      "candyMoments": [
+        {
+          "tick": 4519,
+          "what": "prayer_43",
+          "description": "All three protection prayers. This is THE breakpoint. Bosses that were impossible become farmable. The game permanently changes."
+        }
+      ],
+      "stuck": false,
+      "stuckTicks": 0,
+      "stuckReasons": [],
+      "startRegion": "heartlands",
+      "prestigeGoal": "The Grand Feast",
+      "prestigeReached": false,
+      "prestigeReachedAt": null,
+      "divergenceScore": 0.7008,
+      "avgSimilarityToOthers": 0.2992,
+      "topSkills": [
+        {
+          "skill": "magic",
+          "hours": 0.5666666666666376
+        },
+        {
+          "skill": "prayer",
+          "hours": 0.5083333333333107
+        },
+        {
+          "skill": "mining",
+          "hours": 0.3083333333333326
+        },
+        {
+          "skill": "agility",
+          "hours": 0.19166666666666912
+        },
+        {
+          "skill": "smithing",
+          "hours": 0.0333333333333333
+        }
+      ],
+      "firstBreakpoints": [
+        {
+          "tick": 209,
+          "skill": "prayer",
+          "level": 13,
+          "importance": "minor",
+          "description": "Protect Item. You keep one more item on death. PvP and PvM risk calculation changes."
+        },
+        {
+          "tick": 367,
+          "skill": "herblore",
+          "level": 3,
+          "importance": "minor",
+          "description": "Attack potions. Your first potion. Herblore stops being a mystery."
+        },
+        {
+          "tick": 1363,
+          "skill": "agility",
+          "level": 10,
+          "importance": "minor",
+          "description": "Run energy restores faster. The world stops feeling sluggish."
+        },
+        {
+          "tick": 3047,
+          "skill": "prayer",
+          "level": 37,
+          "importance": "major",
+          "description": "Protect from Magic. The first protection prayer. Mages in PvP can no longer freeze-kill you."
+        },
+        {
+          "tick": 4519,
+          "skill": "prayer",
+          "level": 43,
+          "importance": "transformative",
+          "description": "All three protection prayers. This is THE breakpoint. Bosses that were impossible become farmable. The game permanently changes."
+        }
+      ]
+    },
+    "Ironman": {
+      "description": "Cannot buy inputs. Must self-supply via own skills.",
+      "ticksPlayed": 10000,
+      "finalLevels": {
+        "attack": 1,
+        "strength": 1,
+        "defence": 1,
+        "hitpoints": 10,
+        "ranged": 1,
+        "prayer": 43,
+        "magic": 34,
+        "runecrafting": 1,
+        "construction": 1,
+        "agility": 10,
+        "herblore": 1,
+        "thieving": 1,
+        "crafting": 1,
+        "fletching": 1,
+        "slayer": 1,
+        "hunter": 1,
+        "mining": 30,
+        "smithing": 1,
+        "fishing": 1,
+        "cooking": 1,
+        "firemaking": 1,
+        "woodcutting": 1,
+        "farming": 2
+      },
+      "totalLevel": 146,
+      "maxedSkills": 0,
+      "methodsUsedCount": 9,
+      "methodsShared": 9,
+      "methodsUnique": 0,
+      "uniqueMethodIds": [],
+      "breakpointsTotal": 9,
+      "breakpointsTransformative": 1,
+      "breakpointsMajor": 3,
+      "skillUps": 114,
+      "areasEntered": 1,
+      "regionsVisited": [
+        "heartlands",
+        "veilwood_whisper_glade"
+      ],
+      "methodSwitches": 14,
+      "monstersKilledEstimate": 83,
+      "monsterTypeDiversity": 4,
+      "questsCompleted": 1,
+      "questList": [
+        "moryskah_haunting"
+      ],
+      "candyMoments": [
+        {
+          "tick": 150,
+          "what": "quirky_veilwood_forest_listen",
+          "description": "Discovered low-XP flavor method [Quirky] Listen to What the Forest Said (magic)"
+        },
+        {
+          "tick": 150,
+          "what": "quirky_veilwood_forest_listen",
+          "description": "Quirky interaction: [Quirky] Listen to What the Forest Said"
+        },
+        {
+          "tick": 8769,
+          "what": "prayer_43",
+          "description": "All three protection prayers. This is THE breakpoint. Bosses that were impossible become farmable. The game permanently changes."
+        }
+      ],
+      "stuck": false,
+      "stuckTicks": 0,
+      "stuckReasons": [],
+      "startRegion": "heartlands",
+      "prestigeGoal": "The Grand Feast",
+      "prestigeReached": false,
+      "prestigeReachedAt": null,
+      "divergenceScore": 0.8107,
+      "avgSimilarityToOthers": 0.1893,
+      "topSkills": [
+        {
+          "skill": "prayer",
+          "hours": 0.5083333333333107
+        },
+        {
+          "skill": "mining",
+          "hours": 0.5083333333333107
+        },
+        {
+          "skill": "magic",
+          "hours": 0.47499999999998094
+        },
+        {
+          "skill": "agility",
+          "hours": 0.1500000000000001
+        },
+        {
+          "skill": "attack",
+          "hours": 0.008333333333333331
+        }
+      ],
+      "firstBreakpoints": [
+        {
+          "tick": 259,
+          "skill": "prayer",
+          "level": 13,
+          "importance": "minor",
+          "description": "Protect Item. You keep one more item on death. PvP and PvM risk calculation changes."
+        },
+        {
+          "tick": 1113,
+          "skill": "agility",
+          "level": 10,
+          "importance": "minor",
+          "description": "Run energy restores faster. The world stops feeling sluggish."
+        },
+        {
+          "tick": 3204,
+          "skill": "mining",
+          "level": 15,
+          "importance": "minor",
+          "description": "Iron ore. First ore worth smelting solo. Power-mining iron becomes the go-to training method for years."
+        },
+        {
+          "tick": 4437,
+          "skill": "mining",
+          "level": 30,
+          "importance": "major",
+          "description": "Coal. The key ingredient for steel, mithril, adamant, and rune bars. Opens the Smithing web."
+        },
+        {
+          "tick": 6020,
+          "skill": "magic",
+          "level": 7,
+          "importance": "minor",
+          "description": "Lvl-1 Enchant. Sapphire jewelry becomes Ring of Recoil. First taste of enchanting."
+        }
+      ]
+    },
+    "Candy Looper": {
+      "description": "Distracted. Random-weighted picks. \"Ooh a piece of candy.\"",
+      "ticksPlayed": 10000,
+      "finalLevels": {
+        "attack": 6,
+        "strength": 1,
+        "defence": 3,
+        "hitpoints": 13,
+        "ranged": 9,
+        "prayer": 44,
+        "magic": 28,
+        "runecrafting": 9,
+        "construction": 12,
+        "agility": 7,
+        "herblore": 20,
+        "thieving": 3,
+        "crafting": 14,
+        "fletching": 5,
+        "slayer": 4,
+        "hunter": 12,
+        "mining": 7,
+        "smithing": 15,
+        "fishing": 2,
+        "cooking": 24,
+        "firemaking": 19,
+        "woodcutting": 1,
+        "farming": 7
+      },
+      "totalLevel": 265,
+      "maxedSkills": 0,
+      "methodsUsedCount": 56,
+      "methodsShared": 28,
+      "methodsUnique": 28,
+      "uniqueMethodIds": [
+        "prayer_bones_altar",
+        "quirky_wilds_revenant_ward",
+        "quirky_wilds_fallen_statue_climb",
+        "prayer_wilds_chaos_altar",
+        "quirky_heartlands_scarecrow_kick",
+        "veilwood_glass_leaf_knapping",
+        "quirky_heartlands_library_study",
+        "smithing_bronze_bars",
+        "boneyard_splinter_bone_shaft",
+        "heartlands_slayer_turael",
+        "quirky_heartlands_practice_dummy",
+        "defence_sand_crabs_def",
+        "quirky_heartlands_draynor_pump",
+        "quirky_heartlands_market_chisel",
+        "heartlands_apothecary_mixing",
+        "fishing_shrimp",
+        "ranged_safe_spot_ogres",
+        "inkweald_dreamless_rest_hp",
+        "crafting_gold_jewelry",
+        "boneyard_burnt_library_reading"
+      ],
+      "breakpointsTotal": 9,
+      "breakpointsTransformative": 1,
+      "breakpointsMajor": 2,
+      "skillUps": 233,
+      "areasEntered": 16,
+      "regionsVisited": [
+        "heartlands",
+        "veilwood_whisper_glade",
+        "veilwood_threshold_wardens",
+        "boneyard_salted_cookery",
+        "the_wilds",
+        "veilwood_glass_leaf_glades",
+        "inkweald_backseam_camps",
+        "boneyard_sun_bleach_pits",
+        "veilwood_range",
+        "boneyard_the_splinter",
+        "boneyard_smelters_bones",
+        "inkweald_half_light_range",
+        "boneyard_veiled_grave",
+        "inkweald_threshold_of_names",
+        "boneyard_burnt_library",
+        "inkweald_backwards_garden",
+        "boneyard_boil_pits"
+      ],
+      "methodSwitches": 191,
+      "monstersKilledEstimate": 59,
+      "monsterTypeDiversity": 20,
+      "questsCompleted": 8,
+      "questList": [
+        "moryskah_haunting",
+        "druidic_ritual",
+        "The Slayer's First Mark",
+        "The Water-Numbered Wind",
+        "By Page, By Margin, By Self",
+        "The Burnt Library Index",
+        "The Backwards Garden",
+        "enter_the_abyss"
+      ],
+      "candyMoments": [
+        {
+          "tick": 50,
+          "what": "quirky_veilwood_forest_listen",
+          "description": "Discovered low-XP flavor method [Quirky] Listen to What the Forest Said (magic)"
+        },
+        {
+          "tick": 50,
+          "what": "quirky_veilwood_forest_listen",
+          "description": "Quirky interaction: [Quirky] Listen to What the Forest Said"
+        },
+        {
+          "tick": 250,
+          "what": "quirky_wilds_revenant_ward",
+          "description": "Discovered low-XP flavor method [Quirky] Place a Revenant Ward (prayer)"
+        },
+        {
+          "tick": 250,
+          "what": "quirky_wilds_revenant_ward",
+          "description": "Entered high-stakes method [Quirky] Place a Revenant Ward"
+        },
+        {
+          "tick": 250,
+          "what": "quirky_wilds_revenant_ward",
+          "description": "Quirky interaction: [Quirky] Place a Revenant Ward"
+        },
+        {
+          "tick": 300,
+          "what": "quirky_wilds_fallen_statue_climb",
+          "description": "Discovered low-XP flavor method [Quirky] Climb the Fallen Statue (agility)"
+        },
+        {
+          "tick": 300,
+          "what": "quirky_wilds_fallen_statue_climb",
+          "description": "Entered high-stakes method [Quirky] Climb the Fallen Statue"
+        },
+        {
+          "tick": 300,
+          "what": "quirky_wilds_fallen_statue_climb",
+          "description": "Quirky interaction: [Quirky] Climb the Fallen Statue"
+        },
+        {
+          "tick": 400,
+          "what": "prayer_wilds_chaos_altar",
+          "description": "Entered high-stakes method Chaos Altar (Wilderness)"
+        },
+        {
+          "tick": 450,
+          "what": "quirky_heartlands_scarecrow_kick",
+          "description": "Discovered low-XP flavor method [Quirky] Kick the Scarecrow (attack)"
+        }
+      ],
+      "stuck": false,
+      "stuckTicks": 0,
+      "stuckReasons": [],
+      "startRegion": "heartlands",
+      "prestigeGoal": "The Grand Feast",
+      "prestigeReached": false,
+      "prestigeReachedAt": null,
+      "divergenceScore": 0.8372,
+      "avgSimilarityToOthers": 0.1628,
+      "topSkills": [
+        {
+          "skill": "prayer",
+          "hours": 0.38333333333332437
+        },
+        {
+          "skill": "magic",
+          "hours": 0.32499999999999746
+        },
+        {
+          "skill": "agility",
+          "hours": 0.20833333333333673
+        },
+        {
+          "skill": "mining",
+          "hours": 0.09166666666666627
+        },
+        {
+          "skill": "attack",
+          "hours": 0.08333333333333316
+        }
+      ],
+      "firstBreakpoints": [
+        {
+          "tick": 407,
+          "skill": "prayer",
+          "level": 13,
+          "importance": "minor",
+          "description": "Protect Item. You keep one more item on death. PvP and PvM risk calculation changes."
+        },
+        {
+          "tick": 967,
+          "skill": "herblore",
+          "level": 3,
+          "importance": "minor",
+          "description": "Attack potions. Your first potion. Herblore stops being a mystery."
+        },
+        {
+          "tick": 2977,
+          "skill": "smithing",
+          "level": 15,
+          "importance": "minor",
+          "description": "Iron bars. The 50% fail chance creates early frustration that Ring of Forging solves — your first \"I need another skill.\""
+        },
+        {
+          "tick": 4283,
+          "skill": "prayer",
+          "level": 37,
+          "importance": "major",
+          "description": "Protect from Magic. The first protection prayer. Mages in PvP can no longer freeze-kill you."
+        },
+        {
+          "tick": 5211,
+          "skill": "crafting",
+          "level": 10,
+          "importance": "minor",
+          "description": "Spinning flax into bowstrings. Your first cross-skill connection. Crafting feeds Fletching."
+        }
+      ]
+    },
+    "Casual": {
+      "description": "Plays 1-2 hour sessions. Won't touch max-attention content.",
+      "ticksPlayed": 10000,
+      "finalLevels": {
+        "attack": 3,
+        "strength": 1,
+        "defence": 1,
+        "hitpoints": 10,
+        "ranged": 3,
+        "prayer": 43,
+        "magic": 42,
+        "runecrafting": 1,
+        "construction": 1,
+        "agility": 10,
+        "herblore": 5,
+        "thieving": 1,
+        "crafting": 4,
+        "fletching": 1,
+        "slayer": 1,
+        "hunter": 1,
+        "mining": 15,
+        "smithing": 15,
+        "fishing": 4,
+        "cooking": 9,
+        "firemaking": 1,
+        "woodcutting": 1,
+        "farming": 2
+      },
+      "totalLevel": 175,
+      "maxedSkills": 0,
+      "methodsUsedCount": 16,
+      "methodsShared": 16,
+      "methodsUnique": 0,
+      "uniqueMethodIds": [],
+      "breakpointsTotal": 10,
+      "breakpointsTransformative": 1,
+      "breakpointsMajor": 2,
+      "skillUps": 143,
+      "areasEntered": 6,
+      "regionsVisited": [
+        "heartlands",
+        "veilwood_threshold_wardens",
+        "boneyard_salted_cookery",
+        "boneyard_smelters_bones",
+        "veilwood_range",
+        "boneyard_veiled_grave",
+        "inkweald_threshold_of_names"
+      ],
+      "methodSwitches": 51,
+      "monstersKilledEstimate": 201,
+      "monsterTypeDiversity": 5,
+      "questsCompleted": 3,
+      "questList": [
+        "druidic_ritual",
+        "The Water-Numbered Wind",
+        "By Page, By Margin, By Self"
+      ],
+      "candyMoments": [
+        {
+          "tick": 7320,
+          "what": "prayer_43",
+          "description": "All three protection prayers. This is THE breakpoint. Bosses that were impossible become farmable. The game permanently changes."
+        }
+      ],
+      "stuck": false,
+      "stuckTicks": 0,
+      "stuckReasons": [],
+      "startRegion": "heartlands",
+      "prestigeGoal": "The Grand Feast",
+      "prestigeReached": false,
+      "prestigeReachedAt": null,
+      "divergenceScore": 0.7374,
+      "avgSimilarityToOthers": 0.2626,
+      "topSkills": [
+        {
+          "skill": "magic",
+          "hours": 0.5583333333333051
+        },
+        {
+          "skill": "prayer",
+          "hours": 0.5333333333333079
+        },
+        {
+          "skill": "mining",
+          "hours": 0.3083333333333326
+        },
+        {
+          "skill": "agility",
+          "hours": 0.1500000000000001
+        },
+        {
+          "skill": "smithing",
+          "hours": 0.0333333333333333
+        }
+      ],
+      "firstBreakpoints": [
+        {
+          "tick": 311,
+          "skill": "prayer",
+          "level": 13,
+          "importance": "minor",
+          "description": "Protect Item. You keep one more item on death. PvP and PvM risk calculation changes."
+        },
+        {
+          "tick": 417,
+          "skill": "herblore",
+          "level": 3,
+          "importance": "minor",
+          "description": "Attack potions. Your first potion. Herblore stops being a mystery."
+        },
+        {
+          "tick": 1288,
+          "skill": "magic",
+          "level": 7,
+          "importance": "minor",
+          "description": "Lvl-1 Enchant. Sapphire jewelry becomes Ring of Recoil. First taste of enchanting."
+        },
+        {
+          "tick": 2313,
+          "skill": "agility",
+          "level": 10,
+          "importance": "minor",
+          "description": "Run energy restores faster. The world stops feeling sluggish."
+        },
+        {
+          "tick": 2679,
+          "skill": "magic",
+          "level": 25,
+          "importance": "major",
+          "description": "Varrock teleport. Free instant travel. The world shrinks. Everything is closer."
+        }
+      ]
+    }
+  },
+  "cross": {
+    "universalMethods": [],
+    "universalCount": 0,
+    "uniqueToOneMethods": [
+      "veilwood_hunters_grove_cooking",
+      "prayer_bones_altar",
+      "quirky_wilds_revenant_ward",
+      "quirky_wilds_fallen_statue_climb",
+      "prayer_wilds_chaos_altar",
+      "quirky_heartlands_scarecrow_kick",
+      "veilwood_glass_leaf_knapping",
+      "quirky_heartlands_library_study",
+      "smithing_bronze_bars",
+      "boneyard_splinter_bone_shaft",
+      "heartlands_slayer_turael",
+      "quirky_heartlands_practice_dummy",
+      "defence_sand_crabs_def",
+      "quirky_heartlands_draynor_pump",
+      "quirky_heartlands_market_chisel",
+      "heartlands_apothecary_mixing",
+      "fishing_shrimp",
+      "ranged_safe_spot_ogres",
+      "inkweald_dreamless_rest_hp",
+      "crafting_gold_jewelry",
+      "boneyard_burnt_library_reading",
+      "heartlands_infirmary_patient",
+      "magic_curse_alching",
+      "inkweald_backwards_garden_herblore",
+      "hunter_birdhouse_runs",
+      "crafting_leather",
+      "heartlands_carpenter_apprentice",
+      "boneyard_boil_pit_distillation",
+      "slayer_wilds_tasks"
+    ],
+    "uniqueToOneCount": 29,
+    "sharedMethods": [
+      "wilds_chaos_altar_prayer",
+      "boneyard_salted_cookery_dry_cure",
+      "agility_gnome_course",
+      "magic_wind_strike",
+      "herblore_cleaning_herbs",
+      "mining_copper_tin",
+      "attack_cows",
+      "boneyard_veiled_grave_chants",
+      "cooking_wilds_campfire",
+      "hitpoints_passive_combat",
+      "boneyard_smelter_bones_forge",
+      "crafting_glassblowing",
+      "magic_enchanting_bolts",
+      "farming_allotment_patches",
+      "inkweald_half_light_range_basic",
+      "boneyard_sun_fire_burning",
+      "inkweald_backseam_camp_construction",
+      "runecrafting_wilds_abyss",
+      "prayer_ectofuntus",
+      "heartlands_river_fishing",
+      "hunter_butterfly_netting",
+      "wilds_rune_essence",
+      "mining_iron_powermining",
+      "woodcutting_normal_trees",
+      "heartlands_market_pickpocket",
+      "quirky_veilwood_forest_listen",
+      "attack_chickens",
+      "veilwood_threshold_offerings",
+      "veilwood_range_singing_arrows",
+      "inkweald_threshold_prayer"
+    ],
+    "sharedMethodCount": 30,
+    "divergenceMatrix": {
+      "Efficiency Andy": {
+        "AFK Andy": 0,
+        "Money Maker": 0.058823529411764705,
+        "PvM Rusher": 0,
+        "Skiller": 0,
+        "Quester": 0,
+        "Ironman": 0,
+        "Candy Looper": 0.017857142857142856,
+        "Casual": 0
+      },
+      "AFK Andy": {
+        "Efficiency Andy": 0,
+        "Money Maker": 0,
+        "PvM Rusher": 0,
+        "Skiller": 0,
+        "Quester": 0,
+        "Ironman": 0,
+        "Candy Looper": 0.017543859649122806,
+        "Casual": 0.058823529411764705
+      },
+      "Money Maker": {
+        "Efficiency Andy": 0.058823529411764705,
+        "AFK Andy": 0,
+        "PvM Rusher": 0.3888888888888889,
+        "Skiller": 0.391304347826087,
+        "Quester": 0.5263157894736842,
+        "Ironman": 0.23809523809523808,
+        "Candy Looper": 0.30357142857142855,
+        "Casual": 0.43478260869565216
+      },
+      "PvM Rusher": {
+        "Efficiency Andy": 0,
+        "AFK Andy": 0,
+        "Money Maker": 0.3888888888888889,
+        "Skiller": 0.09523809523809523,
+        "Quester": 0.5384615384615384,
+        "Ironman": 0.3076923076923077,
+        "Candy Looper": 0.14285714285714285,
+        "Casual": 0.2631578947368421
+      },
+      "Skiller": {
+        "Efficiency Andy": 0,
+        "AFK Andy": 0,
+        "Money Maker": 0.391304347826087,
+        "PvM Rusher": 0.09523809523809523,
+        "Quester": 0.35,
+        "Ironman": 0.2,
+        "Candy Looper": 0.22413793103448276,
+        "Casual": 0.2916666666666667
+      },
+      "Quester": {
+        "Efficiency Andy": 0,
+        "AFK Andy": 0,
+        "Money Maker": 0.5263157894736842,
+        "PvM Rusher": 0.5384615384615384,
+        "Skiller": 0.35,
+        "Ironman": 0.3125,
+        "Candy Looper": 0.19298245614035087,
+        "Casual": 0.47368421052631576
+      },
+      "Ironman": {
+        "Efficiency Andy": 0,
+        "AFK Andy": 0,
+        "Money Maker": 0.23809523809523808,
+        "PvM Rusher": 0.3076923076923077,
+        "Skiller": 0.2,
+        "Quester": 0.3125,
+        "Candy Looper": 0.14035087719298245,
+        "Casual": 0.3157894736842105
+      },
+      "Candy Looper": {
+        "Efficiency Andy": 0.017857142857142856,
+        "AFK Andy": 0.017543859649122806,
+        "Money Maker": 0.30357142857142855,
+        "PvM Rusher": 0.14285714285714285,
+        "Skiller": 0.22413793103448276,
+        "Quester": 0.19298245614035087,
+        "Ironman": 0.14035087719298245,
+        "Casual": 0.2631578947368421
+      },
+      "Casual": {
+        "Efficiency Andy": 0,
+        "AFK Andy": 0.058823529411764705,
+        "Money Maker": 0.43478260869565216,
+        "PvM Rusher": 0.2631578947368421,
+        "Skiller": 0.2916666666666667,
+        "Quester": 0.47368421052631576,
+        "Ironman": 0.3157894736842105,
+        "Candy Looper": 0.2631578947368421
+      }
+    },
+    "averageSimilarity": 0.1819,
+    "minSimilarity": 0,
+    "maxSimilarity": 0.5385
+  }
+}
