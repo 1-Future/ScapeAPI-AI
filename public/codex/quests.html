@@ -1,104 +1,28 @@
 <!DOCTYPE html>
 <html><head><meta charset="utf-8"><title>Quests — Aelgard Codex</title>
 <style>
-  body {
-    font-family: ui-monospace, 'Cascadia Code', 'Consolas', monospace;
-    background: #3e3529;
-    color: #e8dcc0;
-    margin: 0;
-    padding: 20px;
-    max-width: 1200px;
-    margin: 0 auto;
-  }
-  .parchment {
-    background: #e8dcc0;
-    color: #2c1810;
-    padding: 30px 40px;
-    border: 3px solid #8b6f47;
-    border-radius: 4px;
-    box-shadow: 0 0 20px rgba(0,0,0,0.5);
-    margin: 20px 0;
-  }
-  h1 {
-    color: #7a1f1a;
-    border-bottom: 2px solid #8b6f47;
-    padding-bottom: 10px;
-  }
-  h2 { color: #5a3a1a; margin-top: 30px; }
-  h3 { color: #6b4423; }
-  a { color: #7a1f1a; text-decoration: none; border-bottom: 1px dotted #7a1f1a; }
-  a:hover { background: #d4c49c; }
-  nav { margin-bottom: 20px; }
-  nav a { margin-right: 15px; font-weight: bold; }
-  table {
-    width: 100%;
-    border-collapse: collapse;
-    margin: 15px 0;
-  }
-  th, td {
-    text-align: left;
-    padding: 6px 10px;
-    border-bottom: 1px solid #c4a970;
-  }
-  th { background: #d4c49c; color: #2c1810; }
-  tr:hover { background: #d4c49c; }
-  .tag {
-    display: inline-block;
-    padding: 2px 8px;
-    margin: 2px;
-    border-radius: 3px;
-    font-size: 11px;
-    font-weight: bold;
-  }
-  .tag-region { background: #4a6b8a; color: #fff; }
-  .tag-skill  { background: #5a7f4a; color: #fff; }
-  .tag-trans  { background: #8a1f1a; color: #fff; }
-  .tag-major  { background: #a86a2a; color: #fff; }
-  .tag-minor  { background: #6a6a6a; color: #fff; }
-  .tag-afk    { background: #3a5a2a; color: #fff; }
-  .tag-low    { background: #4a7a3a; color: #fff; }
-  .tag-medium { background: #8a7a2a; color: #fff; }
-  .tag-high   { background: #a85a2a; color: #fff; }
-  .tag-maximum{ background: #8a1f1a; color: #fff; }
-  .tag-obscure{ background: #6a4a2a; color: #fff; font-style: italic; }
-  .stat-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 10px;
-    margin: 15px 0;
-  }
-  .stat-cell {
-    background: #d4c49c;
-    padding: 10px;
-    border-radius: 3px;
-    text-align: center;
-  }
-  .stat-cell .value {
-    font-size: 24px;
-    font-weight: bold;
-    color: #7a1f1a;
-  }
-  .stat-cell .label {
-    font-size: 11px;
-    color: #5a3a1a;
-    text-transform: uppercase;
-  }
-  .description {
-    font-style: italic;
-    color: #5a3a1a;
-    margin: 10px 0;
-    padding: 10px;
-    background: #d4c49c;
-    border-left: 3px solid #8b6f47;
-  }
-  ul.loose li { margin-bottom: 8px; }
-  details {
-    margin: 10px 0;
-    padding: 10px;
-    background: #d4c49c;
-    border-radius: 3px;
-  }
-  summary { cursor: pointer; font-weight: bold; }
+  body { font-family: ui-monospace, 'Cascadia Code', Consolas, monospace; background:#3e3529; color:#e8dcc0; margin:0 auto; padding:20px; max-width:1200px; }
+  .parchment { background:#e8dcc0; color:#2c1810; padding:30px 40px; border:3px solid #8b6f47; border-radius:4px; box-shadow:0 0 20px rgba(0,0,0,.5); margin:20px 0; }
+  h1 { color:#7a1f1a; border-bottom:2px solid #8b6f47; padding-bottom:10px; }
+  h2 { color:#5a3a1a; margin-top:30px; }
+  h3 { color:#6b4423; }
+  a { color:#7a1f1a; border-bottom:1px dotted #7a1f1a; text-decoration:none; }
+  a:hover { background:#d4c49c; }
+  nav { margin-bottom:20px; }
+  nav a { margin-right:15px; font-weight:bold; }
+  .description { font-style:italic; color:#5a3a1a; padding:10px; background:#d4c49c; border-left:3px solid #8b6f47; margin:10px 0; }
+  .meta { display:flex; flex-wrap:wrap; gap:10px; margin:10px 0; }
+  .meta span { background:#d4c49c; padding:4px 10px; border-radius:3px; font-size:12px; }
+  .speaker { font-weight:bold; color:#6b4423; margin-top:10px; }
+  .line { margin:5px 0 15px 20px; font-style:italic; color:#3a2810; }
+  .step { margin:10px 0; padding:10px; background:#d4c49c; border-left:3px solid #8b6f47; }
+  .step .obj { font-weight:bold; }
+  .step .flavor { font-size:13px; color:#5a3a1a; margin-top:4px; }
+  blockquote { border-left:4px solid #8b6f47; padding-left:15px; color:#5a3a1a; font-style:italic; }
+  ul.loose li { margin-bottom:8px; }
+  details { margin:8px 0; padding:8px; background:#d4c49c; border-radius:3px; }
+  summary { cursor:pointer; font-weight:bold; }
+  pre { white-space: pre-wrap; word-break: break-word; }
 </style>
 </head>
 <body>
@@ -107,220 +31,89 @@
   <a href="regions.html">Regions</a>
   <a href="skills.html">Skills</a>
   <a href="quests.html">Quests</a>
+  <a href="lore.html">Lore</a>
+  <a href="npcs.html">NPCs</a>
+  <a href="bosses.html">Bosses</a>
   <a href="breakpoints.html">Breakpoints</a>
   <a href="items.html">Items</a>
 </nav>
 <div class="parchment">
-<h1>Quests of Aelgard</h1>
-<div class="description">69 quests. Every quest unlocks something unique — an area, training method, shop, spellbook, or prestige item.</div>
-<table>
-  <tr><th>Quest</th><th>Unlocks</th></tr><tr>
-  <td><strong>The Runaway Golem</strong><br><small>the_runaway_golem</small></td>
-  <td><span class="tag tag-minor">shortcut</span> Shortcut between Heartlands and Sootworks border mine<br><span class="tag tag-minor">item_equip</span> Golem Repair Manual — used to control golems in later quests</td>
-</tr><tr>
-  <td><strong>The Tide Pool Collector</strong><br><small>the_tide_pool_collector</small></td>
-  <td><span class="tag tag-minor">training_method</span> Tide pool fishing spots — unique early-game fish for cooking XP<br><span class="tag tag-minor">item_equip</span> Tide Pool Net — catches unique fish not available elsewhere</td>
-</tr><tr>
-  <td><strong>Lamplighter&#39;s Apprentice</strong><br><small>lamplighters_apprentice</small></td>
-  <td><span class="tag tag-minor">teleport</span> Moryskah border lantern network — fast travel between border posts<br><span class="tag tag-minor">item_equip</span> Voss&#39;s Tinderbox — 10% faster firemaking, works on blessed wood</td>
-</tr><tr>
-  <td><strong>The Apprentice Trapper</strong><br><small>the_apprentice_trapper</small></td>
-  <td><span class="tag tag-region">area</span> Veilwood canopy hunting grounds — rare chinchompas and moonhawks<br><span class="tag tag-minor">item_equip</span> Canopy Hunting Permit — required to set traps in canopy zone</td>
-</tr><tr>
-  <td><strong>The Stolen Runes</strong><br><small>the_stolen_runes</small></td>
-  <td><span class="tag tag-minor">shop</span> Permanent 10% discount at Heartlands Rune Shop<br><span class="tag tag-minor">item_equip</span> Ruven&#39;s Rune Pouch — holds 3 types of runes in one inventory slot</td>
-</tr><tr>
-  <td><strong>The Fencepost Problem</strong><br><small>the_fencepost_problem</small></td>
-  <td><span class="tag tag-minor">teleport</span> Heartlands ranch as a teleport destination<br><span class="tag tag-minor">item_equip</span> Rancher&#39;s Bell — summons pet cow (cosmetic + farming timer)</td>
-</tr><tr>
-  <td><strong>The Bog Witch&#39;s Errand</strong><br><small>the_bog_witchs_errand</small></td>
-  <td><span class="tag tag-minor">training_method</span> Moryskah herb patch — unique swamp herbs not found elsewhere<br><span class="tag tag-minor">recipe</span> Swamp Salve recipe — potion that provides undead protection</td>
-</tr><tr>
-  <td><strong>Target Practice</strong><br><small>target_practice</small></td>
-  <td><span class="tag tag-minor">training_method</span> Heartlands archery range — daily ranged XP bonus (low attention)<br><span class="tag tag-minor">item_equip</span> Militia Archer&#39;s Badge — +5% ranged accuracy at the range</td>
-</tr><tr>
-  <td><strong>The Boneyard Compass</strong><br><small>the_boneyard_compass</small></td>
-  <td><span class="tag tag-region">area</span> Immunity to Boneyard sandstorm disorientation — access deep dunes<br><span class="tag tag-minor">item_equip</span> Boneyard Compass — navigate desert without water loss</td>
-</tr><tr>
-  <td><strong>The Slayer&#39;s First Mark</strong><br><small>the_slayers_first_mark</small></td>
-  <td><span class="tag tag-minor">npc</span> Novice slayer task assignments from Slayer Apprentice Kael<br><span class="tag tag-minor">training_method</span> Novice slayer tasks — kills give slayer XP, structured combat training</td>
-</tr><tr>
-  <td><strong>The Counterfeit Ring</strong><br><small>the_counterfeit_ring</small></td>
-  <td><span class="tag tag-region">area</span> Saltbrine Smuggler&#39;s Cove — black market with better sell prices<br><span class="tag tag-minor">item_equip</span> Inspector&#39;s Loupe — identify fake items, bonus thieving success</td>
-</tr><tr>
-  <td><strong>Sand and Secrets</strong><br><small>sand_and_secrets</small></td>
-  <td><span class="tag tag-region">area</span> Full access to the Boneyard Wastes region<br><span class="tag tag-minor">training_method</span> Sandstone quarrying — AFK mining method in the desert</td>
-</tr><tr>
-  <td><strong>The Green Thumb</strong><br><small>the_green_thumb</small></td>
-  <td><span class="tag tag-region">area</span> Full access to Veilwood region<br><span class="tag tag-minor">recipe</span> Elven soil restoration potion — prevents crop disease for 1 hour</td>
-</tr><tr>
-  <td><strong>Foundations of the Fallen</strong><br><small>foundations_of_the_fallen</small></td>
-  <td><span class="tag tag-region">area</span> Full access to the Sootworks region<br><span class="tag tag-minor">recipe</span> Sootworks joint technique — 15% bonus construction XP<br><span class="tag tag-region">area</span> Hidden crypt beneath the Chapel of the Last Light</td>
-</tr><tr>
-  <td><strong>The Bog Witch&#39;s Bargain</strong><br><small>the_bog_witchs_bargain</small></td>
-  <td><span class="tag tag-region">area</span> Full access to Moryskah region<br><span class="tag tag-minor">recipe</span> Wolfbane incense — repels werewolves for 10 minutes<br><span class="tag tag-minor">npc</span> Bog Witch available as herblore tutor (unique swamp potions)</td>
-</tr><tr>
-  <td><strong>Pirate King</strong><br><small>pirate_king</small></td>
-  <td><span class="tag tag-region">area</span> Full access to Saltbrine Reach region<br><span class="tag tag-minor">teleport</span> Charter ship network — travel between all coastal areas<br><span class="tag tag-minor">item_equip</span> Captain&#39;s Hook — cosmetic weapon + 5% fishing speed on boats</td>
-</tr><tr>
-  <td><strong>Slayer&#39;s Gauntlet</strong><br><small>slayers_gauntlet</small></td>
-  <td><span class="tag tag-minor">npc</span> Slayer Master Varrek — intermediate+ slayer tasks in Moryskah<br><span class="tag tag-region">area</span> Access to the Moryskah Slayer Tower<br><span class="tag tag-minor">item_equip</span> Enchanted gem — check slayer task remotely</td>
-</tr><tr>
-  <td><strong>Sootworks Rising</strong><br><small>sootworks_rising</small></td>
-  <td><span class="tag tag-region">area</span> Blast Furnace — halves coal for smelting, best smithing XP<br><span class="tag tag-minor">recipe</span> Deep-stone alloy smithing — higher-tier bars with less coal<br><span class="tag tag-minor">training_method</span> Blast Furnace smithing — high attention, high XP, high profit</td>
-</tr><tr>
-  <td><strong>Into the Wilds</strong><br><small>into_the_wilds</small></td>
-  <td><span class="tag tag-minor">training_method</span> Wilderness Agility Course — best XP/hr but in PvP zone<br><span class="tag tag-minor">item_equip</span> Ranger&#39;s Survival Kit — one-click teleport to Wilds border (one use)</td>
-</tr><tr>
-  <td><strong>The Inkweald Door</strong><br><small>the_inkweald_door</small></td>
-  <td><span class="tag tag-region">area</span> Full access to The Inkweald — surreal dream forest<br><span class="tag tag-minor">spellbook</span> Dream Magic — utility spellbook (NPC contact, dream teleport, lucid ward)</td>
-</tr><tr>
-  <td><strong>Desert Treasure</strong><br><small>desert_treasure</small></td>
-  <td><span class="tag tag-minor">spellbook</span> Ancient Magicks spellbook — ice barrage, blood barrage, smoke barrage<br><span class="tag tag-region">area</span> Full Boneyard Pyramid interior access</td>
-</tr><tr>
-  <td><strong>Lunar Diplomacy</strong><br><small>lunar_diplomacy</small></td>
-  <td><span class="tag tag-minor">spellbook</span> Lunar spellbook — cure, vengeance, heal group, NPC contact, humidify<br><span class="tag tag-region">area</span> Lunar Plane — accessible from Inkweald, unique runecrafting</td>
-</tr><tr>
-  <td><strong>Echoes of the Deep</strong><br><small>echoes_of_the_deep</small></td>
-  <td><span class="tag tag-region">area</span> Full access to The Glass Desert — endgame region<br><span class="tag tag-minor">teleport</span> Underground tunnel network connecting Sootworks → Boneyard → Moryskah → Glass Desert<br><span class="tag tag-minor">training_method</span> Crystal mining — highest-tier ore, Glass Desert only</td>
-</tr><tr>
-  <td><strong>Dragon Slayer of Aelgard</strong><br><small>dragon_slayer_aelgard</small></td>
-  <td><span class="tag tag-minor">item_equip</span> Anti-dragon shield — required to fight any dragon without taking massive damage<br><span class="tag tag-minor">recipe</span> Dragonfire shield crafting — BIS shield for dragon encounters<br><span class="tag tag-region">area</span> Deep mines access (metal dragons, runite ore)</td>
-</tr><tr>
-  <td><strong>Blood Rites</strong><br><small>blood_rites</small></td>
-  <td><span class="tag tag-region">area</span> The Barrows — repeatable boss encounter, degradable set equipment<br><span class="tag tag-minor">prayer</span> Protect from Undead prayer — critical for Moryskah content</td>
-</tr><tr>
-  <td><strong>The Last Dragon Part 3</strong><br><small>the_last_dragon_p3</small></td>
-  <td><span class="tag tag-region">area</span> Crystal Caverns — Crystal Wyrm lair, tier 5 endgame boss<br><span class="tag tag-minor">item_equip</span> Can now equip Dragon Hunter Lance — BIS against all dragons</td>
-</tr><tr>
-  <td><strong>Sins of Malachar</strong><br><small>sins_of_malachar</small></td>
-  <td><span class="tag tag-region">area</span> Castle Malachar — Theatre of Blood equivalent raid<br><span class="tag tag-trans">boss</span> Lord Malachar boss fight — drops Scythe of Malachar</td>
-</tr><tr>
-  <td><strong>Monkey Business</strong><br><small>monkey_business</small></td>
-  <td><span class="tag tag-minor">teleport</span> Monkey Talisman — teleport to monkey island<br><span class="tag tag-minor">shop</span> Dragon scimitar shop — BIS melee weapon for the mid game<br><span class="tag tag-minor">item_equip</span> Can now equip dragon scimitar (requires quest completion, not just level)</td>
-</tr><tr>
-  <td><strong>The Last Light of the Old Sun</strong><br><small>the_last_light</small></td>
-  <td><span class="tag tag-region">area</span> New Sun Zone — unlocked only if player chose to forge a new sun<br><span class="tag tag-trans">boss</span> Eclipse Guardian — post-game boss with unique drop table<br><span class="tag tag-minor">prayer</span> Solar Blessing prayer — passive HP regeneration during the day</td>
-</tr><tr>
-  <td><strong>Song of the Elves (Aelgard)</strong><br><small>song_of_the_elves_aelgard</small></td>
-  <td><span class="tag tag-region">area</span> Veilwood Inner Sanctum — crystal-enhanced everything, the best anvil in the game<br><span class="tag tag-minor">training_method</span> Crystal crafting — high-level crafting method with crystal tools<br><span class="tag tag-minor">shop</span> Crystal equipment shop — buyable but expensive crystal gear<br><span class="tag tag-minor">training_method</span> Crystal mining nodes — best mining XP but requires maximum attention</td>
-</tr><tr>
-  <td><strong>Recipe for Disaster — Finale</strong><br><small>rfd_finale</small></td>
-  <td><span class="tag tag-minor">item_equip</span> Barrows Gloves — BIS melee hand slot, the iconic mid-game achievement<br><span class="tag tag-minor">shop</span> Culinaromancer&#39;s Chest — buys food items and gloves at all tiers</td>
-</tr><tr>
-  <td><strong>The Werewolf&#39;s Dilemma</strong><br><small>the_werewolfs_dilemma</small></td>
-  <td><span class="tag tag-minor">npc</span> CURE PATH: Human NPC shopkeeper in werewolf territory (herblore supplies)<br><span class="tag tag-minor">npc</span> EMPOWER PATH: Werewolf combat ally for Moryskah bosses (summonable once/day)</td>
-</tr><tr>
-  <td><strong>The Drifting Market Charter</strong><br><small>drifting_market_charter</small></td>
-  <td><span class="tag tag-region">area</span> The Drifting Market — mobile trade hub, moves between regions weekly<br><span class="tag tag-minor">shop</span> Multi-region specialty shops on one platform</td>
-</tr><tr>
-  <td><strong>The Fight Caves</strong><br><small>fight_caves</small></td>
-  <td><span class="tag tag-minor">item_equip</span> Fire Cape — BIS melee cape until Infernal Cape. The prestige item.<br><span class="tag tag-region">area</span> The Inferno becomes accessible (requires sacrificing Fire Cape to enter)</td>
-</tr><tr>
-  <td><strong>The Infernal Challenge</strong><br><small>infernal_challenge</small></td>
-  <td><span class="tag tag-minor">item_equip</span> Infernal Cape — BIS cape in the entire game. Ultimate prestige.</td>
-</tr><tr>
-  <td><strong>The Barrows Brothers</strong><br><small>barrows_brothers</small></td>
-  <td><span class="tag tag-minor">training_method</span> Barrows runs — repeatable combat for degradable set equipment</td>
-</tr><tr>
-  <td><strong>The Perfect Herb Run</strong><br><small>herb_run_mastery</small></td>
-  <td><span class="tag tag-minor">diary_perk</span> Master Farmer title + permanent 10% herb yield bonus</td>
-</tr><tr>
-  <td><strong>Blade of the Wilds</strong><br><small>wilderness_sword</small></td>
-  <td><span class="tag tag-minor">item_equip</span> Wilderness Blade — BIS in the Wilds only, useless outside. Niche sidegrade.</td>
-</tr><tr>
-  <td><strong>The Blacksmith&#39;s Apprentice</strong><br><small>the_blacksmiths_apprentice</small></td>
-  <td><span class="tag tag-minor">training_method</span> Access to Master Smith Bron&#39;s private anvil — 1 tile from bank + 5% smithing XP<br><span class="tag tag-minor">item_equip</span> Apprentice&#39;s Hammer — lighter, never breaks, works on all tiers up to rune</td>
-</tr><tr>
-  <td><strong>The Missing Deeds</strong><br><small>the_missing_deeds</small></td>
-  <td><span class="tag tag-minor">training_method</span> Access to the Noble Mansion thieving route — 50k thieving XP/hr in safe zone<br><span class="tag tag-minor">shop</span> Black Market fence — sells thieving-exclusive items and buys stolen goods at higher rates</td>
-</tr><tr>
-  <td><strong>The Grain Rot</strong><br><small>the_grain_rot</small></td>
-  <td><span class="tag tag-minor">training_method</span> Teaches 4-field crop rotation — permanent +15% farming yield in Heartlands<br><span class="tag tag-minor">recipe</span> Heartlands super-compost recipe — prevents disease on ALL farming patches</td>
-</tr><tr>
-  <td><strong>The Drowned Miller</strong><br><small>the_drowned_miller</small></td>
-  <td><span class="tag tag-region">area</span> Old Mill — flour processing, haunted farming (ghost-touched crops grant 2x XP)<br><span class="tag tag-minor">recipe</span> Spirit Bread recipe — heals 2x HP, creates slight prayer bonus</td>
-</tr><tr>
-  <td><strong>The Guild Trials</strong><br><small>the_guild_trials</small></td>
-  <td><span class="tag tag-region">area</span> Simultaneous access to all 6 Heartlands guilds (cooking, fishing, crafting, mining, warriors, magic)<br><span class="tag tag-minor">item_equip</span> Guild Medallion — reduces all guild entry requirements by 5 levels</td>
-</tr><tr>
-  <td><strong>The Royal Falconer</strong><br><small>the_royal_falconer</small></td>
-  <td><span class="tag tag-minor">training_method</span> Falconry — unique hunter method. Fast XP + meat drops. ONLY way to catch kebbits without traps.<br><span class="tag tag-minor">item_equip</span> Royal Falcon pet — +10% hunter success rate anywhere in Aelgard</td>
-</tr><tr>
-  <td><strong>The Paper Forge</strong><br><small>the_paper_forge</small></td>
-  <td><span class="tag tag-minor">training_method</span> Papermaking station — turns reeds into paper. Feeds the entire Aelgard scroll economy.<br><span class="tag tag-minor">recipe</span> Scroll crafting base — required for ALL teleport scrolls in every region</td>
-</tr><tr>
-  <td><strong>The Culinaromancer&#39;s Curse</strong><br><small>the_culinaromancers_curse</small></td>
-  <td><span class="tag tag-trans">boss</span> The Evil Chef — Grand Feast prestige boss. 3 phases: Soup, Main, Dessert. Drops Culinaromancer Gloves.<br><span class="tag tag-minor">item_equip</span> Culinaromancer Gloves — BIS melee gloves in early-mid game. Iconic prestige reward.<br><span class="tag tag-region">area</span> The Grand Hall — permanent Heartlands teleport hub with all 6 guild masters</td>
-</tr><tr>
-  <td><strong>Ghosts Ahoy</strong><br><small>ghosts_ahoy</small></td>
-  <td><span class="tag tag-minor">training_method</span> Ectofuntus unlocked — 4x prayer XP for grinding bones<br><span class="tag tag-minor">shop</span> Ecto-token shop — exclusive prayer gear &amp; Moryskah teleport</td>
-</tr><tr>
-  <td><strong>The Haunted Mine</strong><br><small>the_haunted_mine</small></td>
-  <td><span class="tag tag-minor">item_equip</span> Salve Amulet — +16.7% damage + accuracy vs undead. Game-changing for Moryskah PvM.<br><span class="tag tag-region">area</span> Haunted Mine — unique glowing coal that ignores smelting penalties</td>
-</tr><tr>
-  <td><strong>The Shades of Mortton</strong><br><small>the_shades_of_mortton</small></td>
-  <td><span class="tag tag-minor">training_method</span> Shade pyre cremation — prayer + firemaking simultaneously<br><span class="tag tag-region">area</span> Mortton Temple — blessed pyre site, shade minigame</td>
-</tr><tr>
-  <td><strong>The Lycanthropy Cure</strong><br><small>the_lycanthropy_cure</small></td>
-  <td><span class="tag tag-minor">item_equip</span> Silver Sickle — werewolf-slaying weapon, bless water remotely<br><span class="tag tag-minor">npc</span> Father Urhney available as exorcism tutor</td>
-</tr><tr>
-  <td><strong>The Darkness of Hallowvale</strong><br><small>the_darkness_of_hallowvale</small></td>
-  <td><span class="tag tag-region">area</span> Hallowvale — the vampire quarter, late-game Moryskah content<br><span class="tag tag-minor">item_equip</span> Ivandis Flail — vampire-slaying BIS melee</td>
-</tr><tr>
-  <td><strong>The Bog Witch&#39;s Legacy</strong><br><small>the_bog_witchs_legacy</small></td>
-  <td><span class="tag tag-minor">recipe</span> Master bog-brewing — unique potions with undead-resistance bonuses<br><span class="tag tag-minor">item_equip</span> Bog Witch&#39;s pendant — +3% herblore yield</td>
-</tr><tr>
-  <td><strong>The Grave Robber</strong><br><small>the_grave_robber</small></td>
-  <td><span class="tag tag-minor">training_method</span> Crypt robbing — high-tier thieving<br><span class="tag tag-minor">shop</span> Stolen goods fence — sell grave goods for coin</td>
-</tr><tr>
-  <td><strong>The Barrows Brothers Legend</strong><br><small>barrows_brothers_legend</small></td>
-  <td><span class="tag tag-trans">boss</span> Barrows Brothers fight unlocked — 6 bosses, degradable set drops<br><span class="tag tag-region">area</span> Full Barrows tunnel + chest access<br><span class="tag tag-minor">item_equip</span> Amulet of the Damned — enhances all Barrows set effects. Prestige.</td>
-</tr><tr>
-  <td><strong>Pharaoh&#39;s Reckoning</strong><br><small>pharaohs_reckoning</small></td>
-  <td><span class="tag tag-trans">boss</span> Pharaoh Senekhet — Boneyard prestige boss<br><span class="tag tag-minor">item_equip</span> Ankh of Rebirth — one-time revive on death<br><span class="tag tag-region">area</span> Sealed Tomb of Senekhet</td>
-</tr><tr>
-  <td><strong>The Desert Wanderer</strong><br><small>the_desert_wanderer</small></td>
-  <td><span class="tag tag-minor">teleport</span> Desert waystation teleport network<br><span class="tag tag-minor">item_equip</span> Desert Amulet — +3 prayer in Boneyard, sand-walking</td>
-</tr><tr>
-  <td><strong>The Fossil Archaeologist</strong><br><small>the_fossil_archaeologist</small></td>
-  <td><span class="tag tag-minor">training_method</span> Fossil prayer training — 2.5x XP vs bones<br><span class="tag tag-minor">shop</span> Fossil trader — buys fossils, sells archaeology tools</td>
-</tr><tr>
-  <td><strong>The Ancient Tree Ritual</strong><br><small>the_ancient_tree_ritual</small></td>
-  <td><span class="tag tag-minor">training_method</span> Druid altar — 3x prayer XP<br><span class="tag tag-minor">item_equip</span> Druidic robes — +5% herblore yield</td>
-</tr><tr>
-  <td><strong>The Crystal Apprentice</strong><br><small>the_crystal_apprentice</small></td>
-  <td><span class="tag tag-minor">recipe</span> Crystal tool crafting — pickaxe, axe, harpoon<br><span class="tag tag-minor">item_equip</span> Crystal pickaxe — 10% faster mining</td>
-</tr><tr>
-  <td><strong>The Dwarven Pact</strong><br><small>the_dwarven_pact</small></td>
-  <td><span class="tag tag-minor">training_method</span> Clockwork assembly<br><span class="tag tag-minor">item_equip</span> Dwarven helmet — Sootworks-exclusive +10% mining</td>
-</tr><tr>
-  <td><strong>Beneath the Foundry</strong><br><small>beneath_the_foundry</small></td>
-  <td><span class="tag tag-region">area</span> Forgotten workshop — ancient smithing tools<br><span class="tag tag-minor">recipe</span> Dragon metal smithing — endgame tier</td>
-</tr><tr>
-  <td><strong>The Kraken&#39;s Challenge</strong><br><small>the_krakens_challenge</small></td>
-  <td><span class="tag tag-trans">boss</span> Deep Kraken Prime — Saltbrine prestige boss<br><span class="tag tag-minor">item_equip</span> Kraken Tentacle Whip — naval BIS</td>
-</tr><tr>
-  <td><strong>The Ghost Ship</strong><br><small>the_ghost_ship</small></td>
-  <td><span class="tag tag-minor">teleport</span> Ghost ship teleports to all coastal cities<br><span class="tag tag-region">area</span> Ghost Anchorage — unique fishing + ranged content</td>
-</tr><tr>
-  <td><strong>Waking the Dreaming One</strong><br><small>waking_the_dreaming_one</small></td>
-  <td><span class="tag tag-trans">boss</span> The Dreaming One — Inkweald prestige boss<br><span class="tag tag-minor">item_equip</span> Lucid Staff — randomly casts free spells<br><span class="tag tag-minor">item_equip</span> Dream Talisman — switch spellbooks anywhere</td>
-</tr><tr>
-  <td><strong>The Paradox Philosopher</strong><br><small>the_paradox_philosopher</small></td>
-  <td><span class="tag tag-minor">recipe</span> Paradox potion — doubles next skill action<br><span class="tag tag-minor">item_equip</span> Philosopher Robes — daily free magic teleport</td>
-</tr><tr>
-  <td><strong>Slaying the Crystal Wyrm</strong><br><small>slaying_the_crystal_wyrm</small></td>
-  <td><span class="tag tag-trans">boss</span> Crystal Wyrm — endgame prestige boss<br><span class="tag tag-minor">item_equip</span> Crystal Wyrm Scale Cape — BIS prayer-switching cape<br><span class="tag tag-minor">item_equip</span> Dragon Hunter Lance fully assembled</td>
-</tr><tr>
-  <td><strong>The Sun Priest</strong><br><small>the_sun_priest</small></td>
-  <td><span class="tag tag-minor">training_method</span> Sun (wrath) runecrafting<br><span class="tag tag-minor">spellbook</span> Wrath spellbook — post-endgame magic</td>
-</tr><tr>
-  <td><strong>Coronation of the Revenant King</strong><br><small>coronation_of_the_revenant_king</small></td>
-  <td><span class="tag tag-trans">boss</span> Revenant King — Wilds prestige boss<br><span class="tag tag-minor">item_equip</span> Wilderness Crown — BIS in wilds, 20% damage bonus<br><span class="tag tag-minor">item_equip</span> Revenant Ether Mace — vampiric in wilds only</td>
-</tr><tr>
-  <td><strong>The Rogue Chef</strong><br><small>the_rogue_chef</small></td>
-  <td><span class="tag tag-minor">training_method</span> Wilderness tree farming<br><span class="tag tag-minor">recipe</span> Wilderness feast — +2 HP healing on all foods</td>
-</tr></table>
+
+<h1>Quests</h1>
+<div class="description">Every quest is a Metroidvania key. None give XP-only.</div>
+<table style="width:100%; border-collapse:collapse">
+<tr style="background:#d4c49c"><th align="left" style="padding:6px">Title</th><th align="left">Difficulty</th><th align="left">Length</th><th align="left">Hook</th></tr>
+<tr style="border-bottom:1px solid #c4a970"><td style="padding:6px"><a href="quest-wilderness_sword.html"><strong>Blade of the Wilds</strong></a></td><td>experienced</td><td>medium</td><td><small>Heartlands north gate. Ranger Tomas, who taught you the Wilds&#39; first lessons, sets a rusted sword-hilt on the low wall and says the rest of the sword is in three pieces, and each piece is somewhere in…</small></td></tr>
+<tr style="border-bottom:1px solid #c4a970"><td style="padding:6px"><a href="quest-blood_beneath_the_boughs.html"><strong>Blood Beneath the Boughs</strong></a></td><td>experienced</td><td>long</td><td><small>Moryskah, Hollow Mire. The swamp trees are bleeding. The sap is red and it is alive, and it is climbing the trunks, and the local vampyres — who do not frighten easily — have sent a delegation to the …</small></td></tr>
+<tr style="border-bottom:1px solid #c4a970"><td style="padding:6px"><a href="quest-blood_rites.html"><strong>Blood Rites</strong></a></td><td>experienced</td><td>long</td><td><small>Moryskah. Four villages on the swamp&#39;s edge have been raided in a pattern that is not random. The pattern is the shape of an old road that is not on any current map, and at the end of the road is Cast…</small></td></tr>
+<tr style="border-bottom:1px solid #c4a970"><td style="padding:6px"><a href="quest-bones_of_the_first_empire.html"><strong>Bones of the First Empire</strong></a></td><td>experienced</td><td>long</td><td><small>Boneyard Wastes. A sandstorm has peeled back a mile of dune and uncovered a wall older than any on any map. Professor Sandil is already there with three students and a tent, and she would like a fourt…</small></td></tr>
+<tr style="border-bottom:1px solid #c4a970"><td style="padding:6px"><a href="quest-desert_treasure.html"><strong>Desert Treasure</strong></a></td><td>master</td><td>epic</td><td><small>Boneyard Wastes, the Pyramid&#39;s outer courtyard. An archaeologist in black silks and a sun-bleached scarf is pacing around a scale model of the pyramid she built herself, and she is counting diamonds o…</small></td></tr>
+<tr style="border-bottom:1px solid #c4a970"><td style="padding:6px"><a href="quest-dragon_slayer_aelgard.html"><strong>Dragon Slayer of Aelgard</strong></a></td><td>experienced</td><td>long</td><td><small>Sootworks, the Iron Vein foundry. A family of metal dragons has moved into the deep mines, which is not unprecedented, and they are not eating the miners, which is. They are, however, moving the ore. …</small></td></tr>
+<tr style="border-bottom:1px solid #c4a970"><td style="padding:6px"><a href="quest-echoes_of_the_deep.html"><strong>Echoes of the Deep</strong></a></td><td>master</td><td>epic</td><td><small>Sootworks, deep mine gallery. A pick has been ringing against the back wall of Level 7 for three days, and nobody is holding the pick. The vibrations are synced with tremors felt in Moryskah, and sand…</small></td></tr>
+<tr style="border-bottom:1px solid #c4a970"><td style="padding:6px"><a href="quest-foundations_of_the_fallen.html"><strong>Foundations of the Fallen</strong></a></td><td>intermediate</td><td>medium</td><td><small>Heartlands, the eastern moor. The Chapel of the Last Light has been a pile of stone for a hundred years, and everyone in the village of Wellcote has been pretending it is not there. A mason called Per…</small></td></tr>
+<tr style="border-bottom:1px solid #c4a970"><td style="padding:6px"><a href="quest-into_the_wilds.html"><strong>Into the Wilds</strong></a></td><td>intermediate</td><td>medium</td><td><small>Heartlands, the north gate. Ranger Tomas wears a coat that has been patched in three colours and does not match his hair. He is handing out warnings to anyone who looks like they might walk north, and…</small></td></tr>
+<tr style="border-bottom:1px solid #c4a970"><td style="padding:6px"><a href="quest-lamplighters_apprentice.html"><strong>Lamplighter&#39;s Apprentice</strong></a></td><td>novice</td><td>short</td><td><small>Moryskah border at dusk. The lamps along the old post road are going out one by one, and the lamplighter — a thin man named Voss, who walks with a beech pole and hums an old song — is losing ground to…</small></td></tr>
+<tr style="border-bottom:1px solid #c4a970"><td style="padding:6px"><a href="quest-lunar_diplomacy.html"><strong>Lunar Diplomacy</strong></a></td><td>master</td><td>long</td><td><small>Inkweald. Lucid Keeper Yara, who you have met before, is leaning over a bowl of moon-lit water and tracing circles that do not close. She says a word you do not know, and then she says it again, and t…</small></td></tr>
+<tr style="border-bottom:1px solid #c4a970"><td style="padding:6px"><a href="quest-monkey_business.html"><strong>Monkey Business</strong></a></td><td>master</td><td>long</td><td><small>Saltbrine harbour. A sailor in an earring the size of a napkin ring hands you a map to an island nobody can find twice. The island has monkeys on it. The monkeys talk. The monkeys have their own king …</small></td></tr>
+<tr style="border-bottom:1px solid #c4a970"><td style="padding:6px"><a href="quest-pirate_king.html"><strong>Pirate King</strong></a></td><td>intermediate</td><td>long</td><td><small>Saltbrine harbour, under a sky the colour of a bruise. The harbour is closed because three pirate frigates sit at its mouth and nobody has yet worked out how to politely ask them to leave. Harbourmast…</small></td></tr>
+<tr style="border-bottom:1px solid #c4a970"><td style="padding:6px"><a href="quest-rfd_start.html"><strong>Recipe for Disaster — Prologue</strong></a></td><td>intermediate</td><td>short</td><td><small>Drifting Market, inaugural feast. The guests have taken their seats, the bread is rising, and a wave of cold runs through the deck. When the wave passes, every guest at the high table is frozen mid-ge…</small></td></tr>
+<tr style="border-bottom:1px solid #c4a970"><td style="padding:6px"><a href="quest-rfd_heartlands.html"><strong>Recipe for Disaster — The Captain</strong></a></td><td>intermediate</td><td>medium</td><td><small>Drifting Market. Captain Alden is frozen mid-laugh, one hand still on a goblet, the other on his old sword. His wife, in a widow&#39;s coat bought in advance, tells you he will thaw only for a Heartlands …</small></td></tr>
+<tr style="border-bottom:1px solid #c4a970"><td style="padding:6px"><a href="quest-rfd_finale.html"><strong>Recipe for Disaster — The Culinaromancer</strong></a></td><td>master</td><td>epic</td><td><small>Drifting Market. The guests are all unfrozen now — the Captain, the Priest, the Engineer, the three you never expected. The inaugural feast is re-laid. The Culinaromancer rises through the floor like …</small></td></tr>
+<tr style="border-bottom:1px solid #c4a970"><td style="padding:6px"><a href="quest-rfd_sootworks.html"><strong>Recipe for Disaster — The Engineer</strong></a></td><td>experienced</td><td>medium</td><td><small>Drifting Market. Engineer Fizz is frozen mid-adjustment of a clockwork mechanism she was demonstrating to the Merchant Prince. Her assistant explains: she will thaw only for a clockwork cake, baked to…</small></td></tr>
+<tr style="border-bottom:1px solid #c4a970"><td style="padding:6px"><a href="quest-rfd_moryskah.html"><strong>Recipe for Disaster — The Priest</strong></a></td><td>experienced</td><td>medium</td><td><small>Drifting Market. Father Dorin is frozen in prayer, one hand raised, lips parted around a word. He will thaw only for a sanctified stew — the kind the Moryskah priests make in the cold months — brewed …</small></td></tr>
+<tr style="border-bottom:1px solid #c4a970"><td style="padding:6px"><a href="quest-roots_of_the_old_growth.html"><strong>Roots of the Old Growth</strong></a></td><td>intermediate</td><td>long</td><td><small>Heartlands. The Great Ash at the centre of the old commons is dying in a way the village can feel — the wells are lower, the bees are confused, the dogs will not lie in its shade. Elder Marwen stands …</small></td></tr>
+<tr style="border-bottom:1px solid #c4a970"><td style="padding:6px"><a href="quest-sand_and_secrets.html"><strong>Sand and Secrets</strong></a></td><td>intermediate</td><td>medium</td><td><small>Boneyard Wastes, the edge of the excavation camp. Archaeologist Veris Sankhara has dug a hole the size of a barn into a dune, and from the bottom of the hole she is shouting in three languages at some…</small></td></tr>
+<tr style="border-bottom:1px solid #c4a970"><td style="padding:6px"><a href="quest-sins_of_malachar.html"><strong>Sins of Malachar</strong></a></td><td>master</td><td>epic</td><td><small>Moryskah. Castle Malachar opens its gates for the first time since Blood Rites, and what comes out is a procession of servants dressed for a formal dinner. They are carrying invitations. Only one of t…</small></td></tr>
+<tr style="border-bottom:1px solid #c4a970"><td style="padding:6px"><a href="quest-slayers_gauntlet.html"><strong>Slayer&#39;s Gauntlet</strong></a></td><td>intermediate</td><td>medium</td><td><small>Moryskah Slayer Tower, top floor. Slayer Master Varrek does not turn around when you come in. He is watching a spider through a window and taking notes. He will acknowledge you when you have killed a …</small></td></tr>
+<tr style="border-bottom:1px solid #c4a970"><td style="padding:6px"><a href="quest-song_of_the_elves_aelgard.html"><strong>Song of the Elves (Aelgard)</strong></a></td><td>grandmaster</td><td>epic</td><td><small>Veilwood Inner Sanctum. The elven elder will not meet you at the outer grove this time. She has sent word: come to the inner sanctum, where the anvils sing, and bring every skill you have ever trained…</small></td></tr>
+<tr style="border-bottom:1px solid #c4a970"><td style="padding:6px"><a href="quest-sootworks_rising.html"><strong>Sootworks Rising</strong></a></td><td>intermediate</td><td>long</td><td><small>Sootworks Level 5, the deep vent gallery. Something is moving inside the blast furnace, which is not unusual — but it has been moving for a week, and nothing has come out. Forgemaster Brun has posted …</small></td></tr>
+<tr style="border-bottom:1px solid #c4a970"><td style="padding:6px"><a href="quest-target_practice.html"><strong>Target Practice</strong></a></td><td>novice</td><td>short</td><td><small>Heartlands militia range. Captain-at-Arms Odette Brume is shouting at a line of recruits who cannot hit a hay bale at twenty paces, and she needs someone to shoot decent enough to shame them into comp…</small></td></tr>
+<tr style="border-bottom:1px solid #c4a970"><td style="padding:6px"><a href="quest-the_aelgard_atlas.html"><strong>The Aelgard Atlas</strong></a></td><td>grandmaster</td><td>epic</td><td><small>Heartlands Cartographers&#39; Hall. Guildmaster Pell has a commission on the board that has been open for forty years. Nobody has completed it. The commission is to sketch one landmark in every region of …</small></td></tr>
+<tr style="border-bottom:1px solid #c4a970"><td style="padding:6px"><a href="quest-the_apprentice_trapper.html"><strong>The Apprentice Trapper</strong></a></td><td>novice</td><td>short</td><td><small>Veilwood. The canopy above your head is so thick the sun only reaches the floor as coin-sized pools. Someone has been climbing up there, and they have been leaving traps that go off in daylight and ca…</small></td></tr>
+<tr style="border-bottom:1px solid #c4a970"><td style="padding:6px"><a href="quest-barrows_brothers.html"><strong>The Barrows Brothers</strong></a></td><td>experienced</td><td>medium</td><td><small>Moryskah. Six burial mounds sit in a clearing south of the village, arranged like a six-pointed star. Since you completed Blood Rites the mounds have hummed at you when you walk past. Father Dorin say…</small></td></tr>
+<tr style="border-bottom:1px solid #c4a970"><td style="padding:6px"><a href="quest-the_bog_witchs_bargain.html"><strong>The Bog Witch&#39;s Bargain</strong></a></td><td>intermediate</td><td>long</td><td><small>Moryskah. Father Dorin has finally walked out to the bog witch&#39;s shack because the wolves at the village edge have stopped being wolves. He wanted to pray over it. The witch Grael has told him praying…</small></td></tr>
+<tr style="border-bottom:1px solid #c4a970"><td style="padding:6px"><a href="quest-the_bog_witchs_errand.html"><strong>The Bog Witch&#39;s Errand</strong></a></td><td>novice</td><td>short</td><td><small>Moryskah. A woman in a coat made of crow feathers and hessian is standing in a swamp up to her knees, and she is waiting for you specifically, though you have never met. She is the Bog Witch&#39;s hedge-d…</small></td></tr>
+<tr style="border-bottom:1px solid #c4a970"><td style="padding:6px"><a href="quest-the_bone_colossus.html"><strong>The Bone Colossus</strong></a></td><td>master</td><td>long</td><td><small>Boneyard Wastes, the outpost at the northern dunes. A giant skeleton has assembled itself from the bones of a thousand old warriors and is walking southwest, toward the Heartlands, at the pace of a ma…</small></td></tr>
+<tr style="border-bottom:1px solid #c4a970"><td style="padding:6px"><a href="quest-the_boneyard_compass.html"><strong>The Boneyard Compass</strong></a></td><td>novice</td><td>short</td><td><small>Boneyard Wastes, the last oasis before the deep dunes. Cartographer-at-Large Imrat Keshvu is unrolling a map so blank it is nearly paper, and he would like you to help him fill it. The sandstorms have…</small></td></tr>
+<tr style="border-bottom:1px solid #c4a970"><td style="padding:6px"><a href="quest-the_clockwork_tyrant.html"><strong>The Clockwork Tyrant</strong></a></td><td>master</td><td>long</td><td><small>Sootworks Lower Foundry. A rogue automaton has seized the foundry, welded the doors shut from the inside, and is building clockwork soldiers at a rate of two per hour. Chief Engineer Brondi is outside…</small></td></tr>
+<tr style="border-bottom:1px solid #c4a970"><td style="padding:6px"><a href="quest-the_cogfathers_paradox.html"><strong>The Cogfather&#39;s Paradox</strong></a></td><td>master</td><td>epic</td><td><small>Sootworks Central Forge, Level 7, the sealed workshop. Chief Engineer Brondi has a key he will not use and a door he will not open. Behind it is the Cogfather&#39;s last project, and the Cogfather went ma…</small></td></tr>
+<tr style="border-bottom:1px solid #c4a970"><td style="padding:6px"><a href="quest-the_counterfeit_ring.html"><strong>The Counterfeit Ring</strong></a></td><td>intermediate</td><td>medium</td><td><small>Saltbrine Reach, the customs office. Inspector Calla Bright has a tray of forty-three rings on her desk, and thirty-eight of them are fake. The other five are almost certainly fake too; she has not ye…</small></td></tr>
+<tr style="border-bottom:1px solid #c4a970"><td style="padding:6px"><a href="quest-the_dreamers_debt.html"><strong>The Dreamer&#39;s Debt</strong></a></td><td>master</td><td>epic</td><td><small>Inkweald. Reality is flickering. Trees blink out and return, paths fold into themselves, and somewhere at the centre of the forest a dreamer is dying in the waking world. When their body stops breathi…</small></td></tr>
+<tr style="border-bottom:1px solid #c4a970"><td style="padding:6px"><a href="quest-drifting_market_charter.html"><strong>The Drifting Market Charter</strong></a></td><td>experienced</td><td>long</td><td><small>Heartlands, market square. Merchant Hilde has a scroll the length of her forearm and a plan the length of her life. She wants to build a market that moves — a floating hub that visits every region in …</small></td></tr>
+<tr style="border-bottom:1px solid #c4a970"><td style="padding:6px"><a href="quest-the_drowned_cartographer.html"><strong>The Drowned Cartographer</strong></a></td><td>experienced</td><td>long</td><td><small>Saltbrine harbour, midnight. A ghost ship fades into being between the pilings, and on its deck a ghost in a coat with too many pockets is unrolling a map that is not finished. He has been dead for tw…</small></td></tr>
+<tr style="border-bottom:1px solid #c4a970"><td style="padding:6px"><a href="quest-the_essence_convergence.html"><strong>The Essence Convergence</strong></a></td><td>intermediate</td><td>medium</td><td><small>Heartlands Runecrafting Guild. Wizard Theron&#39;s altars are weakening on a schedule he can predict to the minute. His own runes come out wrong now, a colour he will not name. He thinks the answer is in …</small></td></tr>
+<tr style="border-bottom:1px solid #c4a970"><td style="padding:6px"><a href="quest-the_eternal_pyre.html"><strong>The Eternal Pyre</strong></a></td><td>intermediate</td><td>long</td><td><small>Moryskah, Temple of Embers. The sacred flame has gone out for the first time in a thousand years. Priestess Vanya is not panicking because panic is beneath her station, but her hands shake when she li…</small></td></tr>
+<tr style="border-bottom:1px solid #c4a970"><td style="padding:6px"><a href="quest-the_fencepost_problem.html"><strong>The Fencepost Problem</strong></a></td><td>novice</td><td>short</td><td><small>Heartlands ranch country. Every morning, three fenceposts on Arun Bellfield&#39;s eastern pasture are lying on the ground, and no animal has knocked them down. Arun has stayed up at night with a lantern a…</small></td></tr>
+<tr style="border-bottom:1px solid #c4a970"><td style="padding:6px"><a href="quest-fight_caves.html"><strong>The Fight Caves</strong></a></td><td>grandmaster</td><td>epic</td><td><small>Glass Desert, far eastern edge. A crack in the glass floor opens on the hour. Heat comes out of it in a breath that tastes of copper. The local custom is to nod at it and go on walking. You have heard…</small></td></tr>
+<tr style="border-bottom:1px solid #c4a970"><td style="padding:6px"><a href="quest-the_forge_of_four_fires.html"><strong>The Forge of Four Fires</strong></a></td><td>experienced</td><td>epic</td><td><small>Sootworks. Retired Forgemaster Durrak sits in a low chair in a forge that is too hot for a man his age, and he tells you the old smiths used four kinds of fire to temper the best blades. Lava. Desert …</small></td></tr>
+<tr style="border-bottom:1px solid #c4a970"><td style="padding:6px"><a href="quest-the_god_forge.html"><strong>The God Forge</strong></a></td><td>master</td><td>epic</td><td><small>Sootworks restricted archives. Buried in the deepest locked cabinet is a blueprint titled only &#39;God Forge&#39;. Legend says this is where the gods themselves made their weapons. It was dismantled before t…</small></td></tr>
+<tr style="border-bottom:1px solid #c4a970"><td style="padding:6px"><a href="quest-the_grand_heist.html"><strong>The Grand Heist</strong></a></td><td>master</td><td>epic</td><td><small>Heartlands, tavern basement. An old man who introduces himself as Old Fingers — thin, white, with hands that do not shake — says the Vault of Ages beneath the castle has been sealed for five hundred y…</small></td></tr>
+<tr style="border-bottom:1px solid #c4a970"><td style="padding:6px"><a href="quest-the_green_thumb.html"><strong>The Green Thumb</strong></a></td><td>novice</td><td>medium</td><td><small>Heartlands farmstead. Farmer Aldwin&#39;s beet crop is dying a colour beets should not die. The black crust is spreading from row to row. Aldwin has tried lime, ash, and a priest. Nothing. The old herb-wo…</small></td></tr>
+<tr style="border-bottom:1px solid #c4a970"><td style="padding:6px"><a href="quest-the_haunted_lighthouse.html"><strong>The Haunted Lighthouse</strong></a></td><td>intermediate</td><td>medium</td><td><small>Saltbrine Reach. The cliff-path lighthouse has gone dark, and two ships have wrecked in a week. A new keeper named Lira has volunteered — she has a lamp, a tinderbox, and a visible fear — and she need…</small></td></tr>
+<tr style="border-bottom:1px solid #c4a970"><td style="padding:6px"><a href="quest-the_hollow_king.html"><strong>The Hollow King</strong></a></td><td>grandmaster</td><td>epic</td><td><small>Hollow Mire. An urgent summons from the elder: Morvek, a vampyre lord who should have been put down a generation ago, has entered the Inkweald through the Moryskah gate and has begun feeding on dreams…</small></td></tr>
+<tr style="border-bottom:1px solid #c4a970"><td style="padding:6px"><a href="quest-infernal_challenge.html"><strong>The Infernal Challenge</strong></a></td><td>grandmaster</td><td>epic</td><td><small>Glass Desert, the deepest cave. The entrance to the Inferno is a basin where you lay down your Fire Cape and it burns to nothing while you watch. If you leave the Fire Cape on your back, the entrance …</small></td></tr>
+<tr style="border-bottom:1px solid #c4a970"><td style="padding:6px"><a href="quest-the_inkweald_door.html"><strong>The Inkweald Door</strong></a></td><td>experienced</td><td>long</td><td><small>Inkweald boundary. The border is not a line, it is a mood: the trees on the inside are wrong in a way you cannot point at, and the trees on the outside are watching them. Lucid Keeper Yara sits in a t…</small></td></tr>
+<tr style="border-bottom:1px solid #c4a970"><td style="padding:6px"><a href="quest-the_kings_last_edict.html"><strong>The King&#39;s Last Edict</strong></a></td><td>experienced</td><td>long</td><td><small>Castle Heartstone library. Archivist Lenna has found a letter under a shelf that everyone assumed was an empty shelf. The letter is sealed with the last king&#39;s own wax, and the last king has been dead…</small></td></tr>
+<tr style="border-bottom:1px solid #c4a970"><td style="padding:6px"><a href="quest-the_last_dragon_p3.html"><strong>The Last Dragon, Part Three</strong></a></td><td>master</td><td>epic</td><td><small>Glass Desert, the Crystal Caverns. Veldrak is awake. The sky above the Crystal Caverns has a dragon in it, and the dragon is old enough to have watched the Glass Desert become glass, and the dragon is…</small></td></tr>
+<tr style="border-bottom:1px solid #c4a970"><td style="padding:6px"><a href="quest-the_last_light.html"><strong>The Last Light of the Old Sun</strong></a></td><td>grandmaster</td><td>epic</td><td><small>Heartlands observatory. The astronomer on duty says the sun is dimming on a timescale she can measure with a pocket watch. Crystal Sage Orin sends a letter by moonrunner: the old sun is dying, as was …</small></td></tr>
+<tr style="border-bottom:1px solid #c4a970"><td style="padding:6px"><a href="quest-the_merchants_gambit.html"><strong>The Merchant&#39;s Gambit</strong></a></td><td>experienced</td><td>long</td><td><small>Heartlands Grand Bazaar. Merchant Prince Davos has a manifest the length of his forearm and three game days to assemble it. He needs a courier. The competitors are willing to kill their rivals&#39; courie…</small></td></tr>
+<tr style="border-bottom:1px solid #c4a970"><td style="padding:6px"><a href="quest-herb_run_mastery.html"><strong>The Perfect Herb Run</strong></a></td><td>experienced</td><td>medium</td><td><small>Veilwood. Herbalist Syl, who has tolerated you since The Green Thumb, has a challenge she will only offer once, and she will only offer it when your farming is ready. Plant ranarr seeds at all seven h…</small></td></tr>
+<tr style="border-bottom:1px solid #c4a970"><td style="padding:6px"><a href="quest-the_plague_road.html"><strong>The Plague Road</strong></a></td><td>master</td><td>epic</td><td><small>Moryskah, Hollow Mire. Four villagers have died of a sickness the village healer has never seen. The sickness travels. Its next stop is the Heartlands, and after that, Veilwood. A pandemic is three we…</small></td></tr>
+<tr style="border-bottom:1px solid #c4a970"><td style="padding:6px"><a href="quest-poison_trail.html"><strong>The Poison Trail</strong></a></td><td>intermediate</td><td>medium</td><td><small>Heartlands. Three villages are drawing water from the same well network, and three villages are sick. The well-keeper has tested the water and found a slow poison she cannot identify. Upstream, somewh…</small></td></tr>
+<tr style="border-bottom:1px solid #c4a970"><td style="padding:6px"><a href="quest-the_prism_throne.html"><strong>The Prism Throne</strong></a></td><td>grandmaster</td><td>epic</td><td><small>Glass Desert. At the centre of the labyrinth sits a throne made of living crystal. It has been empty for millennia. When you approach, the crystals hum in a chord, and the chord is impatient. The thro…</small></td></tr>
+<tr style="border-bottom:1px solid #c4a970"><td style="padding:6px"><a href="quest-the_runaway_golem.html"><strong>The Runaway Golem</strong></a></td><td>novice</td><td>short</td><td><small>Heartlands. Old Nan Borrow&#39;s root cellar has walked off. That is not a figure of speech. Every morning for a week the brickwork cellar door has been found farther from the house, dragging root vegetab…</small></td></tr>
+<tr style="border-bottom:1px solid #c4a970"><td style="padding:6px"><a href="quest-the_shattered_covenant.html"><strong>The Shattered Covenant</strong></a></td><td>grandmaster</td><td>epic</td><td><small>Glass Desert, Crystal Sage Orin&#39;s tower. The sky is cracking. Literal cracks, visible by daylight, running in lines that match old maps of the kingdom&#39;s borders. Crystal Sage Orin&#39;s warning is short: …</small></td></tr>
+<tr style="border-bottom:1px solid #c4a970"><td style="padding:6px"><a href="quest-the_siege_of_hollow_mire.html"><strong>The Siege of Hollow Mire</strong></a></td><td>master</td><td>epic</td><td><small>Hollow Mire. The vampyre armies have massed. Twelve hours until they arrive. The village has no army — a handful of allies, a shaking elder, and you. You will build barricades, recruit reinforcements …</small></td></tr>
+<tr style="border-bottom:1px solid #c4a970"><td style="padding:6px"><a href="quest-the_silent_hunt.html"><strong>The Silent Hunt</strong></a></td><td>intermediate</td><td>medium</td><td><small>Veilwood perimeter. A creature that has no business in the open desert has crossed out of the canopy and into the dunes, and Ranger Hale can see the tracks fading into sand that should not hold them. …</small></td></tr>
+<tr style="border-bottom:1px solid #c4a970"><td style="padding:6px"><a href="quest-the_siren_of_saltbrine.html"><strong>The Siren of Saltbrine</strong></a></td><td>master</td><td>long</td><td><small>Saltbrine harbour. Ships have been vanishing off the coast for three months. Sailors who survived speak of a voice that told them to sail into the rocks, and say the voice was not unkind. Harbourmaste…</small></td></tr>
+<tr style="border-bottom:1px solid #c4a970"><td style="padding:6px"><a href="quest-the_slayers_first_mark.html"><strong>The Slayer&#39;s First Mark</strong></a></td><td>novice</td><td>short</td><td><small>Heartlands. At the back of the militia barracks, behind a door with a bronze tusk nailed to it, a shaven-headed youth named Kael is trying to assign slayer tasks to a man twice his age who won&#39;t stop …</small></td></tr>
+<tr style="border-bottom:1px solid #c4a970"><td style="padding:6px"><a href="quest-the_song_before_words.html"><strong>The Song Before Words</strong></a></td><td>experienced</td><td>long</td><td><small>Veilwood amphitheatre. Lyricist Aelwen holds a bow that is not finished being a bow yet, and she is humming a melody she has not heard since her grandmother died. There is a song, she says, older than…</small></td></tr>
+<tr style="border-bottom:1px solid #c4a970"><td style="padding:6px"><a href="quest-the_stolen_runes.html"><strong>The Stolen Runes</strong></a></td><td>novice</td><td>short</td><td><small>Heartlands. The rune shop on Tannery Row was robbed last night, and the robber took nothing valuable — they took the three cheapest stacks on the counter and left the expensive ones untouched. The sho…</small></td></tr>
+<tr style="border-bottom:1px solid #c4a970"><td style="padding:6px"><a href="quest-the_tide_pool_collector.html"><strong>The Tide Pool Collector</strong></a></td><td>novice</td><td>short</td><td><small>Saltbrine Reach. Low tide. A barefoot woman with a belt full of jars is kneeling in a rock pool, hissing at a crab. She is Lenna Fathomkeep, and she collects the fish that only show themselves for twe…</small></td></tr>
+<tr style="border-bottom:1px solid #c4a970"><td style="padding:6px"><a href="quest-underground_pass.html"><strong>The Underground Pass</strong></a></td><td>experienced</td><td>long</td><td><small>Heartlands, west of the city. A guard at the mouth of the Underground Pass has been posted there for twelve years and nobody has relieved him. He will let you in. He will not come with you. The Pass i…</small></td></tr>
+<tr style="border-bottom:1px solid #c4a970"><td style="padding:6px"><a href="quest-the_werewolfs_dilemma.html"><strong>The Werewolf&#39;s Dilemma</strong></a></td><td>experienced</td><td>medium</td><td><small>Moryskah forest. A young werewolf bleeds into the moss and does not turn when the moon hits him. He is tired of turning. He is also tired of not turning. He asks you — because you are there, because y…</small></td></tr>
+<tr style="border-bottom:1px solid #c4a970"><td style="padding:6px"><a href="quest-the_fremennik_trials.html"><strong>Trials of the Frost</strong></a></td><td>intermediate</td><td>medium</td><td><small>Wilds, northern edge. The Frost Camp is a ring of sealskin tents pitched on a headland where the sea is black and the wind is faster than your apology. The warriors there will not speak to you in Aelg…</small></td></tr>
+</table>
+
 </div>
 </body></html>
