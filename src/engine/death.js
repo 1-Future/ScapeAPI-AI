@@ -418,9 +418,24 @@ function onPlayerDeath(player, context) {
   const deathLocation = ctx.location
     || { region: player.region || DEFAULT_RESPAWN.region, x: player.x, y: player.y };
 
+  // Ironman hook (hardcore downgrade): engine/ironman.js decides whether this
+  // player's variant needs to change (hardcore -> ironman on first death) and
+  // emits the `hardcore_died` event. Lazy-required to avoid circular deps.
+  // The hook runs BEFORE we compute isHardcoreDeath so `player.ironman.variant`
+  // still reflects the pre-death state at check time.
+  const isIronmanHardcore = !!(player.ironman
+    && player.ironman.variant === 'hardcore_ironman'
+    && !player.ironman.hardcoreDied);
+  try {
+    const ironman = require('./ironman');
+    if (ironman && typeof ironman.onDeath === 'function') ironman.onDeath(player);
+  } catch (_) { /* ironman module not loaded — fine */ }
+
   // Hardcore: first death = permadeath. Memorial grave, revert mode.
-  const isHardcoreDeath = !!(player.isHardcore || player.accountMode === 'hcim')
-    && !player.hardcoreDead;
+  // Recognises the legacy `hcim` accountMode AND the new ironman.variant.
+  const isHardcoreDeath = (!!(player.isHardcore || player.accountMode === 'hcim')
+      && !player.hardcoreDead)
+    || isIronmanHardcore;
 
   // Collect and sort items by value desc.
   const allItems = _collectPlayerItems(player);

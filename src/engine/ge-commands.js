@@ -86,6 +86,16 @@ function register(opts) {
   // Seed guide prices from item.value, optionally overlaid by shop sell prices.
   ge.seedGuidePricesFromItems(items, opts.shops || null);
 
+  // Ironman gate: every placeOffer() call runs through canUseGE first, so
+  // ironmen get a clear rejection instead of a silent accept. Lazy-required
+  // to avoid circular deps; safe no-op if the ironman module isn't present.
+  try {
+    const ironman = require('./ironman');
+    if (ironman && typeof ironman.installGEHook === 'function') {
+      ironman.installGEHook(ge);
+    }
+  } catch (_) { /* ironman not wired — fine */ }
+
   // ── /ge ─────────────────────────────────────────────────────────────────
   commands.register('ge', {
     help: 'Grand Exchange: ge buy/sell/status/cancel/market/collect',
