@@ -2599,6 +2599,7 @@ pollNarrator();
       case 'inventory': renderInventory(msg); break;
       case 'combat_achievement': renderCombatAchievement(msg); break;
       case 'state_snapshot': renderState(msg); break;
+      case 'audio': if (window.scapeAudio && window.scapeAudio.dispatch) window.scapeAudio.dispatch(msg); break;
       default: break;
     }
   }
@@ -2611,6 +2612,80 @@ pollNarrator();
 })();
 
 startPlayback();
+</script>
+
+<!-- ── Audio dispatcher stub (burn-v2 audio activation) ──────────────────
+     Same contract as play.html: route `type: 'audio'` WS messages through
+     a client-side catalog, log every play event, and optionally show a
+     rolling overlay of the last 20 events (?audiodev=1). Silence-only. -->
+<div id="scape-audio-dev" style="display:none;position:fixed;right:8px;bottom:8px;width:360px;max-height:40vh;overflow:auto;background:rgba(20,16,10,0.92);color:#efb366;font:11px/1.3 'Courier New',monospace;padding:8px;border:1px solid #7a6030;border-radius:4px;z-index:9999;pointer-events:auto">
+  <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:4px;border-bottom:1px solid #7a6030;padding-bottom:2px">
+    <strong>Audio Debug (last 20)</strong>
+    <button id="scape-audio-dev-clear" style="background:#3a2a18;color:#efb366;border:1px solid #7a6030;padding:2px 6px;font:10px monospace;cursor:pointer">clear</button>
+  </div>
+  <div id="scape-audio-dev-list"></div>
+</div>
+<script>
+(function(){
+  'use strict';
+  var catalog = Object.create(null);
+  function ensureCatalogEntry(id, layer){
+    if (!catalog[id]) catalog[id] = { id: id, layer: layer || 'sfx', silent: true };
+    return catalog[id];
+  }
+  window.scapeAudio = window.scapeAudio || {};
+  window.scapeAudio.catalog = catalog;
+  var MAX_LOG = 20;
+  var log = [];
+  window.scapeAudio.log = log;
+  window.scapeAudio.getLog = function(){ return log.slice(); };
+  var devEl = document.getElementById('scape-audio-dev');
+  var listEl = document.getElementById('scape-audio-dev-list');
+  var clearBtn = document.getElementById('scape-audio-dev-clear');
+  function isDevOn(){
+    try {
+      if (/[?&]audiodev=1/.test(location.search)) return true;
+      return localStorage.getItem('scape-audiodev') === '1';
+    } catch(_) { return false; }
+  }
+  function renderOverlay(){
+    if (!devEl || !listEl) return;
+    if (!isDevOn()){ devEl.style.display = 'none'; return; }
+    devEl.style.display = 'block';
+    var html = '';
+    for (var i = log.length - 1; i >= 0; i--) {
+      var e = log[i];
+      html += '<div style="border-bottom:1px dotted #3a2a18;padding:1px 0">'
+        + '<span style="color:#ff981f">[' + e.layer + ']</span> '
+        + e.id
+        + (e.trigger ? ' <span style="color:#888">(' + e.trigger + ')</span>' : '')
+        + '</div>';
+    }
+    listEl.innerHTML = html;
+  }
+  if (clearBtn) clearBtn.addEventListener('click', function(){ log.length = 0; renderOverlay(); });
+  window.scapeAudio.setDev = function(on){
+    try { localStorage.setItem('scape-audiodev', on ? '1' : '0'); } catch(_) {}
+    renderOverlay();
+  };
+  function dispatch(msg){
+    if (!msg || msg.type !== 'audio' || !msg.id) return;
+    ensureCatalogEntry(msg.id, msg.layer);
+    var entry = {
+      id: msg.id,
+      layer: msg.layer || 'sfx',
+      trigger: msg.trigger || null,
+      context: msg.context || null,
+      ts: Date.now(),
+    };
+    log.push(entry);
+    while (log.length > MAX_LOG) log.shift();
+    try { console.log('[audio]', entry.layer, entry.id, entry.trigger || ''); } catch(_) {}
+    renderOverlay();
+  }
+  window.scapeAudio.dispatch = dispatch;
+  renderOverlay();
+})();
 </script>
 </body>
 </html>
