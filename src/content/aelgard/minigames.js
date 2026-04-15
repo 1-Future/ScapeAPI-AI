@@ -10,6 +10,8 @@
 
 const items = require('../../data/items');
 const npcs = require('../../world/npcs');
+let rel = null;
+try { rel = require('../../data/relationships'); } catch (e) { rel = null; }
 
 const minigames = new Map();
 
@@ -28,6 +30,34 @@ function defineMinigame(opts) {
     xpRewards: opts.xpRewards || {},
     pointCurrency: opts.pointCurrency || null,
   });
+  // Mirror into the global relationship registry so downstream tools see
+  // all minigames (base + mega) in one place.
+  if (rel && typeof rel.defineMinigame === 'function') {
+    rel.defineMinigame({
+      id: opts.id, name: opts.name,
+      region: opts.region, location: opts.location,
+      template: opts.template || null,
+      type: opts.type,
+      minPlayers: opts.minPlayers || 1,
+      maxPlayers: opts.maxPlayers || 1,
+      isPvP: opts.type === 'pvp',
+      combatType: opts.type === 'pvp' ? 'PvP' : 'PvE',
+      attention: opts.attention,
+      levelReqs: opts.levelReqs || {},
+      questReqs: opts.questReqs || [],
+      skills_trained: opts.skills_trained || [],
+      rewards: opts.rewards || [],
+      unique_reward: opts.unique_reward || null,
+      reward_currency: opts.pointCurrency || null,
+      shop: opts.shop || [],
+      stages: opts.stages || null,
+      rooms: opts.rooms || null,
+      description: opts.description || '',
+      voice_flavor: opts.voice_flavor || '',
+      duration_estimate_min: opts.duration_estimate_min || null,
+      xpRewards: opts.xpRewards || {},
+    });
+  }
 }
 
 // ══════════════════════════════════════════════════════════════════════════════
