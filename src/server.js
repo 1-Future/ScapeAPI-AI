@@ -4023,6 +4023,16 @@ const server = http.createServer(async (req, res) => {
     if (serveHTML('about.html')) return;
   }
 
+  // Hiscores page (burn-v2)
+  if (req.url === '/hiscores' || req.url === '/hiscores/') {
+    if (serveHTML('hiscores.html')) return;
+  }
+
+  // Polls page (burn-v2)
+  if (req.url === '/polls' || req.url === '/polls/') {
+    if (serveHTML('polls.html')) return;
+  }
+
   // Login page
   if (req.url.startsWith('/login')) {
     if (serveHTML('login.html')) return;
@@ -5050,6 +5060,53 @@ try {
     tick,
   });
 } catch (e) { console.warn('[trade] wire-up failed:', e.message); }
+
+// ── Hiscores + Voting (burn-v2) — leaderboards + community polls ────────────
+try {
+  const highscores       = require('./engine/highscores');
+  const voting           = require('./engine/voting');
+  const hiscoresCommands = require('./engine/highscores-commands');
+  const votingCommands   = require('./engine/voting-commands');
+  const playerLib        = require('./player/player');
+
+  highscores.load();
+  voting.load();
+
+  hiscoresCommands.register({
+    commands,
+    highscores,
+    findPlayer,
+    SKILLS: playerLib.SKILLS,
+  });
+  votingCommands.register({ commands, voting });
+
+  // Subscribe to engine events so rankings stay fresh.
+  highscores.attachXpListener(events, (id) => {
+    if (id == null) return null;
+    for (const p of playersByName.values()) if (p && p.id === id) return p;
+    return null;
+  });
+
+  // Hook into xp gain generically — whenever addXp is called we re-snapshot.
+  // The existing addXpWithBreakpoints path is the canonical XP route; an
+  // npc_kill/xp listener via events.on is cheaper than wrapping addXp.
+  events.on('npc_kill', 'hiscores.snapshot', ({ player }) => {
+    if (player) highscores.updatePlayerSnapshot(player);
+  });
+
+  // Poll auto-close sweeper every minute.
+  const _pollSweep = setInterval(() => {
+    try { voting.sweepExpired(); } catch (_) {}
+  }, 60_000);
+  if (typeof _pollSweep.unref === 'function') _pollSweep.unref();
+
+  // Hiscores in-memory snapshot persistence every 5 minutes.
+  highscores.startAutoSave(5 * 60 * 1000);
+
+  console.log('[server] hiscores + voting wired');
+} catch (e) {
+  console.warn('[server] hiscores/voting wire-up failed:', e.message);
+}
 
 // Persistence
 persistence.onSave('chunks', () => tiles.saveChunks());

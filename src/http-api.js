@@ -24,6 +24,12 @@ try { tilemapEditor = require('./builder/tilemap-editor'); } catch {}
 let _auth = null;
 try { _auth = require('./auth'); } catch {}
 
+// Hiscores + voting modules (optional — server wires them on boot).
+let _highscores = null;
+try { _highscores = require('./engine/highscores'); } catch {}
+let _voting = null;
+try { _voting = require('./engine/voting'); } catch {}
+
 const pendingResponses = new Map(); // requestId → { resolve, timeout }
 const eventQueues = new Map(); // playerName → [messages]
 const MAX_QUEUE = 100;
@@ -67,6 +73,16 @@ function setupHttpApi(server, { players, playersByName, commands, sendText, crea
     res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
     res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
     if (req.method === 'OPTIONS') { res.writeHead(200); res.end(); return; }
+
+    // ── Hiscores + polls public read endpoints ────────────────────────────────
+    if (req.url.startsWith('/api/hiscores')) {
+      handleHiscoresRequest(req, res);
+      return;
+    }
+    if (req.url.startsWith('/api/polls')) {
+      handlePollsRequest(req, res);
+      return;
+    }
 
     // ── Builder endpoints (admin-only) ────────────────────────────────────────
     // Only intercept path-based entity routes (/entities/:type[/:id]), where
@@ -404,4 +420,199 @@ async function handleBuilderRequest(req, res) {
   }
 }
 
-module.exports = { setupHttpApi, queueEvent, drainEvents, addNpcPrompt, handleBuilderRequest };
+// ══════════════════════════════════════════════════════════════════════════════
+// HISCORES API — public read-only
+// ══════════════════════════════════════════════════════════════════════════════
+//   GET /api/hiscores/boards                         list known board ids
+//   GET /api/hiscores/overall[?limit=50]
+//   GET /api/hiscores/skill/:skill[?limit=50]
+//   GET /api/hiscores/boss/:bossId[?limit=50]
+//   GET /api/hiscores/ca[?limit=50]
+//   GET /api/hiscores/diary[?limit=50]
+//   GET /api/hiscores/clan[?limit=50]
+//   GET /api/hiscores/ironman[?skill=...&limit=50&variant=...]
+//   GET /api/hiscores/player/:name
+//   GET /api/hiscores/stats
+//
+// Voting API:
+//   GET /api/polls[?filter=active|closed|all]        list polls
+//   GET /api/polls/:id                               poll details + results
+//   POST /api/polls/:id/vote { playerId, choice }    cast a vote (secret ballot)
+//   POST /api/polls/:id/unvote { playerId }
+//   POST /api/polls (admin) { title, options, durationDays }  create
+//   POST /api/polls/:id/close (admin)                close a poll
+
+function _getHiscores() {
+  if (!_highscores) {
+    try { _highscores = require('./engine/highscores'); } catch {}
+  }
+  return _highscores;
+}
+function _getVoting() {
+  if (!_voting) {
+    try { _voting = require('./engine/voting'); } catch {}
+  }
+  return _voting;
+}
+
+function _parseQuery(url) {
+  const qi = url.indexOf('?');
+  if (qi < 0) return {};
+  const out = {};
+  const qs = url.slice(qi + 1);
+  for (const pair of qs.split('&')) {
+    if (!pair) continue;
+    const eq = pair.indexOf('=');
+    const k = decodeURIComponent(eq < 0 ? pair : pair.slice(0, eq));
+    const v = eq < 0 ? '' : decodeURIComponent(pair.slice(eq + 1));
+    out[k] = v;
+  }
+  return out;
+}
+
+function handleHiscoresRequest(req, res) {
+  try {
+    const highscores = _getHiscores();
+    if (!highscores) return _json(res, { error: 'Hiscores module unavailable' }, 503);
+    if (req.method !== 'GET') return _json(res, { error: 'Method not allowed' }, 405);
+
+    const [pathOnly] = req.url.split('?');
+    const q = _parseQuery(req.url);
+    const limit = Math.max(1, Math.min(200, parseInt(q.limit, 10) || 50));
+
+    if (pathOnly === '/api/hiscores' || pathOnly === '/api/hiscores/') {
+      return _json(res, { ok: true, stats: highscores.stats(), boards: highscores.listBoards() });
+    }
+    if (pathOnly === '/api/hiscores/stats') {
+      return _json(res, { ok: true, stats: highscores.stats() });
+    }
+    if (pathOnly === '/api/hiscores/boards') {
+      return _json(res, { ok: true, boards: highscores.listBoards() });
+    }
+    if (pathOnly === '/api/hiscores/overall') {
+      return _json(res, { ok: true, board: 'overall', entries: highscores.getOverallRanking(limit) });
+    }
+    if (pathOnly === '/api/hiscores/ca') {
+      return _json(res, { ok: true, board: 'ca', entries: highscores.getCaRanking(limit) });
+    }
+    if (pathOnly === '/api/hiscores/diary') {
+      return _json(res, { ok: true, board: 'diary', entries: highscores.getDiaryRanking(limit) });
+    }
+    if (pathOnly === '/api/hiscores/clan' || pathOnly === '/api/hiscores/clans') {
+      return _json(res, { ok: true, board: 'clan', entries: highscores.getClanRanking(limit) });
+    }
+    if (pathOnly === '/api/hiscores/ironman') {
+      const skill = q.skill || null;
+      const variant = q.variant || null;
+      return _json(res, {
+        ok: true,
+        board: 'ironman',
+        skill: skill || 'overall',
+        variant,
+        entries: highscores.getIronmanRanking(skill, limit, variant),
+      });
+    }
+
+    let m;
+    m = pathOnly.match(/^\/api\/hiscores\/skill\/([a-z_][a-z0-9_]*)$/i);
+    if (m) {
+      return _json(res, { ok: true, board: 'skill', skill: m[1], entries: highscores.getSkillRanking(m[1], limit) });
+    }
+    m = pathOnly.match(/^\/api\/hiscores\/boss\/([a-z0-9_\-]+)$/i);
+    if (m) {
+      return _json(res, { ok: true, board: 'boss', bossId: m[1], entries: highscores.getBossKcRanking(m[1], limit) });
+    }
+    m = pathOnly.match(/^\/api\/hiscores\/player\/([^/]+)$/);
+    if (m) {
+      const name = decodeURIComponent(m[1]);
+      const snap = highscores.findPlayerByName(name);
+      if (!snap) return _json(res, { error: 'Player not found' }, 404);
+      const stats = highscores.getPlayerStats(snap.playerId);
+      return _json(res, { ok: true, player: stats });
+    }
+
+    return _json(res, { error: 'Not found' }, 404);
+  } catch (err) {
+    return _json(res, { error: err.message || String(err) }, 500);
+  }
+}
+
+async function handlePollsRequest(req, res) {
+  try {
+    const voting = _getVoting();
+    if (!voting) return _json(res, { error: 'Voting module unavailable' }, 503);
+
+    const [pathOnly] = req.url.split('?');
+    const q = _parseQuery(req.url);
+
+    // GET /api/polls
+    if (req.method === 'GET' && (pathOnly === '/api/polls' || pathOnly === '/api/polls/')) {
+      const filter = q.filter || 'all';
+      return _json(res, { ok: true, polls: voting.listPolls(filter) });
+    }
+
+    // GET /api/polls/:id
+    let m = pathOnly.match(/^\/api\/polls\/(\d+)$/);
+    if (req.method === 'GET' && m) {
+      const id = parseInt(m[1], 10);
+      const poll = voting.getPoll(id);
+      if (!poll) return _json(res, { error: 'Poll not found' }, 404);
+      const results = voting.getPollResults(id);
+      return _json(res, { ok: true, poll, results });
+    }
+
+    // POST /api/polls — admin create
+    if (req.method === 'POST' && (pathOnly === '/api/polls' || pathOnly === '/api/polls/')) {
+      if (!_requireAdmin(req, res)) return;
+      const body = await _readBody(req);
+      const result = voting.createPoll({
+        title: body.title,
+        options: body.options,
+        durationDays: body.durationDays,
+        createdBy: body.createdBy != null ? body.createdBy : _sessionName(req),
+        createdByName: body.createdByName || _sessionName(req),
+      });
+      if (!result.ok) return _json(res, { error: result.error }, 400);
+      return _json(res, { ok: true, poll: result.poll }, 201);
+    }
+
+    // POST /api/polls/:id/vote
+    m = pathOnly.match(/^\/api\/polls\/(\d+)\/vote$/);
+    if (req.method === 'POST' && m) {
+      const id = parseInt(m[1], 10);
+      const body = await _readBody(req);
+      if (body.playerId == null) return _json(res, { error: 'playerId required' }, 400);
+      if (body.choice == null) return _json(res, { error: 'choice required' }, 400);
+      const result = voting.vote(id, body.playerId, body.choice);
+      if (!result.ok) return _json(res, { error: result.error }, 400);
+      return _json(res, { ok: true });
+    }
+
+    // POST /api/polls/:id/unvote
+    m = pathOnly.match(/^\/api\/polls\/(\d+)\/unvote$/);
+    if (req.method === 'POST' && m) {
+      const id = parseInt(m[1], 10);
+      const body = await _readBody(req);
+      if (body.playerId == null) return _json(res, { error: 'playerId required' }, 400);
+      const result = voting.unvote(id, body.playerId);
+      if (!result.ok) return _json(res, { error: result.error }, 400);
+      return _json(res, { ok: true });
+    }
+
+    // POST /api/polls/:id/close — admin
+    m = pathOnly.match(/^\/api\/polls\/(\d+)\/close$/);
+    if (req.method === 'POST' && m) {
+      if (!_requireAdmin(req, res)) return;
+      const id = parseInt(m[1], 10);
+      const result = voting.closePoll(id, _sessionName(req));
+      if (!result.ok) return _json(res, { error: result.error }, 400);
+      return _json(res, { ok: true, poll: result.poll });
+    }
+
+    return _json(res, { error: 'Not found' }, 404);
+  } catch (err) {
+    return _json(res, { error: err.message || String(err) }, 500);
+  }
+}
+
+module.exports = { setupHttpApi, queueEvent, drainEvents, addNpcPrompt, handleBuilderRequest, handleHiscoresRequest, handlePollsRequest };
