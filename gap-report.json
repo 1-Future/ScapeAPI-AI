@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-04-15T02:08:32.632Z",
+  "timestamp": "2026-04-15T07:14:05.369Z",
   "thinnestRegion": {
     "id": "sootworks",
     "label": "Sootworks",
@@ -17,13 +17,6 @@
       "region": "glass_desert",
       "label": "Glass Desert",
       "methods": 9,
-      "blockedSkills": 16,
-      "gapScore": 12
-    },
-    {
-      "region": "inkweald",
-      "label": "Inkweald",
-      "methods": 10,
       "blockedSkills": 16,
       "gapScore": 12
     },
@@ -61,6 +54,13 @@
       "methods": 41,
       "blockedSkills": 0,
       "gapScore": 44
+    },
+    {
+      "region": "inkweald",
+      "label": "Inkweald",
+      "methods": 56,
+      "blockedSkills": 0,
+      "gapScore": 51
     },
     {
       "region": "heartlands",
