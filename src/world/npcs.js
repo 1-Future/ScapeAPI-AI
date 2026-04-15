@@ -12,7 +12,12 @@ const npcs = new Map(); // id → npc
 const npcDefs = new Map(); // defId → template
 
 function defineNpc(defId, opts) {
+  // Pass through all caller-supplied fields (tags, weakness, resistance,
+  // phases, raidRoom, etc.) — the defineNpc whitelist used to drop everything
+  // we didn't explicitly know about, which broke boss metadata like `tags`.
+  // Start from the raw opts then normalize required defaults on top.
   npcDefs.set(defId, {
+    ...opts,
     name: opts.name || defId,
     examine: opts.examine || 'An NPC.',
     combat: opts.combat || 0,
@@ -42,6 +47,11 @@ function defineNpc(defId, opts) {
     blocksMobs: opts.blocksMobs !== undefined ? opts.blocksMobs : true, // nibblers don't block
     flinchDelay: opts.flinchDelay || null, // override default flinch (floor(speed/2))
     canMove: opts.canMove !== undefined ? opts.canMove : true,
+    // Explicitly preserve tagging/combat-meta fields (redundant with ...opts
+    // but serves as documentation of the boss-authoring contract):
+    tags: Array.isArray(opts.tags) ? opts.tags.slice() : [],
+    weakness: opts.weakness || null,
+    resistance: opts.resistance || null,
   });
 }
 

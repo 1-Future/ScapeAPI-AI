@@ -3665,6 +3665,10 @@ function createDefaultContent() {
   require('./content/aelgard/raid-prerequisites');   // 11 raid unlock quests + tier structure
   try { require('./content/aelgard/raids-mega1'); } catch(e) { console.warn('[aelgard] raids-mega1 pending:', e.message); }
   try { require('./content/aelgard/raids-mega2'); } catch(e) { console.warn('[aelgard] raids-mega2 pending:', e.message); }
+  // Boss principle fixes (burn-v2): patches all boss NPC defs against the 18
+  // principles from Scape-Builder-Injects/Boss-Builder-Inject.md. MUST load
+  // AFTER all boss-defining modules so it can override them in place.
+  try { require('./content/aelgard/bosses-principle-fixes'); } catch(e) { console.warn('[aelgard] boss-principle-fixes:', e.message); }
   require('./content/aelgard/dungeon-packs');        // 35+ dungeon monsters across 7 region dungeons
   require('./content/aelgard/combat-challenges');    // 5 wave challenges (Colosseum, Crypt Inferno, Crucible, Sea Gauntlet, Dream Arena) + 5 duo bosses
   require('./content/aelgard/league-modes');         // Seasonal leagues: 6 relic tiers, 540 tasks, 5 league templates, reward shop
