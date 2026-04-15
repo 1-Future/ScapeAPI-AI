@@ -4606,6 +4606,31 @@ cmdCtx = {
 };
 registerAllCommands(cmdCtx);
 
+// ── Player-to-player trade ────────────────────────────────────────────────
+// Direct-trade engine. Hooks: ironman.canTrade gate, combat gate, distance
+// gate, trade-mute. See src/engine/trade.js docstring for the full spec.
+try {
+  const tradeCommands = require('./engine/trade-commands');
+  const ironman = require('./engine/ironman');
+  const playerLib = require('./player/player');
+  // Lift the wire-up into a single call. notify is a thin adapter around the
+  // server's per-player WS channel; send() gets a { ws, ... } shape.
+  function notifyTrade(player, payload) {
+    // Reverse-lookup the ws for this player; fall back silently if missing.
+    for (const [ws, p] of players) { if (p === player) { try { send(ws, payload); } catch (_) {} return; } }
+  }
+  tradeCommands.register({
+    commands,
+    items,
+    playerLib,
+    findPlayer,
+    getTick: () => tick.getTick(),
+    notify: notifyTrade,
+    ironman,
+    tick,
+  });
+} catch (e) { console.warn('[trade] wire-up failed:', e.message); }
+
 // Persistence
 persistence.onSave('chunks', () => tiles.saveChunks());
 persistence.onSave('areas', () => tiles.saveAreas());
