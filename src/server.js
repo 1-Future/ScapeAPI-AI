@@ -47,7 +47,8 @@ const actions = require('./engine/actions');
 const registerAllCommands = require('./commands/all');
 
 // ── State ─────────────────────────────────────────────────────────────────────
-const PORT = parseInt(process.env.PORT, 10) || 2223;
+// PORT: 2223 default. Override with PORT env for tests / alt deployments.
+const PORT = parseInt(process.env.PORT, 10) > 0 ? parseInt(process.env.PORT, 10) : 2223;
 const players = new Map(); // ws → player
 const playersByName = new Map(); // name → player
 const groundItems = []; // [{ id, name, x, y, layer, count, owner, despawnTick }]
@@ -4799,6 +4800,7 @@ cmdCtx = {
 };
 registerAllCommands(cmdCtx);
 
+<<<<<<< HEAD
 // ── burn-v2 wire-in: GE, dialogue, death, area-locked, ironman, audio ────────
 // Each subsystem exposes a register()/attach() that installs its own
 // commands, tick hooks, and event listeners without touching inline registers.
