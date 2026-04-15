@@ -75,6 +75,17 @@ function createPlayer(id, name) {
 
     // Bank
     bank: [],
+    // Bank tabs (burn-v2): index 0 = "All", 1..9 user-named (null if unused).
+    // Items reference their tab via entry.tab. Created lazily by bank engine.
+    bankTabs: ['All', null, null, null, null, null, null, null, null, null],
+    // Per-player toggle: leave a placeholder sprite when last of an item is withdrawn.
+    placeholdersOn: false,
+    // Loot log (rolling 10-min) for /bank deposit-loot. Entries: { id, count, at(ms) }.
+    lootLog: [],
+    // Worn-session flag (bank deposit-worn confirmation gate). Default false.
+    isWornSession: false,
+    // Bank PIN session timestamp (managed by account-security).
+    bankPinVerifiedAt: null,
 
     // Equipment
     equipment: {},

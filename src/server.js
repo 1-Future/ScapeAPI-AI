@@ -4980,6 +4980,16 @@ tutorial.configure({
 });
 tutorialCommands.register({ commands, tutorial });
 
+// ── Bank engine (burn-v2) — registers /bank, /deposit, /withdraw, /examine ──
+// Overrides legacy inline handlers with full tab/PIN/placeholder/search/value
+// support backed by src/engine/bank.js.
+try {
+  const bankCommands = require('./engine/bank-commands');
+  bankCommands.register({ commands, items, invAdd, invFreeSlots });
+} catch (err) {
+  console.warn('[server] bank-commands failed to load:', err.message);
+}
+
 function tutorialAdvance(p, trigger) {
   if (!p || p.tutorialComplete) return;
   const ws = (() => { for (const [w, pl] of players) if (pl === p) return w; return null; })();
