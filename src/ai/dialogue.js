@@ -555,6 +555,9 @@ module.exports = {
   projectPlayerState,
   fallbackLine,
   fallbackResponse,
+  // Back-compat shim — server.js's `talk` command calls ai.getFallback(npcId).
+  // Returns a single canned greeting for the given NPC id (or a generic "Hm.").
+  getFallback: (npcId) => fallbackLine(getBible(npcId)),
   // probe state
   probe: ensureProbed,
   resetProbe,

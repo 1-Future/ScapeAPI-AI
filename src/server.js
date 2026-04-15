@@ -47,7 +47,8 @@ const actions = require('./engine/actions');
 const registerAllCommands = require('./commands/all');
 
 // ── State ─────────────────────────────────────────────────────────────────────
-const PORT = 2223;
+// PORT: 2223 default. Override with PORT env for tests / alt deployments.
+const PORT = parseInt(process.env.PORT, 10) > 0 ? parseInt(process.env.PORT, 10) : 2223;
 const players = new Map(); // ws → player
 const playersByName = new Map(); // name → player
 const groundItems = []; // [{ id, name, x, y, layer, count, owner, despawnTick }]
@@ -4605,6 +4606,19 @@ cmdCtx = {
   getLevelUpMessage, clans,
 };
 registerAllCommands(cmdCtx);
+
+// Death subsystem — graves, claim, sethome.
+// Wired here so `/graves` and `/claim` are available on the chat command
+// registry (uncovered by the burn-v2 full-integration test).
+try {
+  const deathEngine = require('./engine/death');
+  deathEngine.register({ items, tick, invAdd, invRemove });
+  require('./engine/death-commands').register({
+    commands, death: deathEngine, items, getTick: () => tick.getTick(),
+  });
+} catch (e) {
+  console.warn('[server] death-commands wire skipped:', e.message);
+}
 
 // Persistence
 persistence.onSave('chunks', () => tiles.saveChunks());
