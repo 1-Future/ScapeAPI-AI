@@ -19,6 +19,8 @@
 //   POST   /api/builder/validate/:type
 
 const staging = require('./builder/staging');
+let tilemapEditor = null;
+try { tilemapEditor = require('./builder/tilemap-editor'); } catch {}
 let _auth = null;
 try { _auth = require('./auth'); } catch {}
 
@@ -74,6 +76,11 @@ function setupHttpApi(server, { players, playersByName, commands, sendText, crea
         req.url === '/api/builder/types' ||
         req.url === '/api/builder/publish' ||
         req.url === '/api/builder/stats' ||
+        req.url === '/api/builder/preview' ||
+        req.url === '/api/builder/rollback' ||
+        req.url === '/api/builder/audit' ||
+        req.url === '/api/builder/tilemap/regions' ||
+        req.url.startsWith('/api/builder/tilemap/') ||
         req.url.startsWith('/api/builder/validate/') ||
         /^\/api\/builder\/entities\/[a-z_][a-z0-9_]*(\/|$|\?)/i.test(req.url)) {
       handleBuilderRequest(req, res);
@@ -231,9 +238,17 @@ function _json(res, data, status = 200) {
 function _requireAdmin(req, res) {
   if (!_auth) return true; // Auth module unavailable — allow (dev)
   const session = _auth.getSession(req);
+  // Accept 'owner' as an alias for 'admin' (above admin in the role ladder).
+  if (session && (session.role === 'admin' || session.role === 'owner')) return true;
   if (_auth.hasRole(session, 'admin')) return true;
   _json(res, { error: 'Admin role required' }, 403);
   return false;
+}
+
+function _sessionName(req) {
+  if (!_auth) return 'dev';
+  const s = _auth.getSession(req);
+  return (s && s.name) || 'unknown';
 }
 
 async function handleBuilderRequest(req, res) {
@@ -271,8 +286,80 @@ async function handleBuilderRequest(req, res) {
 
     // POST /api/builder/publish
     if (method === 'POST' && url === '/api/builder/publish') {
-      const result = staging.publish();
+      const result = staging.publish({ playerId: _sessionName(req) });
       return _json(res, result, result.ok ? 200 : 400);
+    }
+
+    // GET /api/builder/preview — diff staged vs published + affected codex pages
+    if (method === 'GET' && url === '/api/builder/preview') {
+      const result = staging.preview();
+      return _json(res, result, 200);
+    }
+
+    // POST /api/builder/rollback — revert to most recent snapshot
+    if (method === 'POST' && url === '/api/builder/rollback') {
+      const result = staging.rollback({ playerId: _sessionName(req) });
+      return _json(res, result, result.ok ? 200 : 400);
+    }
+
+    // GET /api/builder/audit — read recent audit log entries
+    if (method === 'GET' && url === '/api/builder/audit') {
+      const entries = staging.readAuditLog(100);
+      return _json(res, { entries });
+    }
+
+    // ── Tilemap editor routes ─────────────────────────────────────────────
+    if (tilemapEditor) {
+      // GET /api/builder/tilemap/regions — list all canonical regions
+      if (method === 'GET' && url === '/api/builder/tilemap/regions') {
+        return _json(res, {
+          regions: tilemapEditor.listRegions(),
+          staged: tilemapEditor.listStagedRegions(),
+          palettes: tilemapEditor.loadPalettes(),
+        });
+      }
+
+      // GET /api/builder/tilemap/:regionId — merged canonical+staged view
+      let tm = url.match(/^\/api\/builder\/tilemap\/([a-z0-9_\-]+)$/i);
+      if (method === 'GET' && tm) {
+        const data = tilemapEditor.getMerged(tm[1]);
+        if (!data) return _json(res, { error: `unknown region: ${tm[1]}` }, 404);
+        const palette = tilemapEditor.getPalette(tm[1]);
+        return _json(res, { tilemap: data, palette });
+      }
+
+      // GET /api/builder/tilemap/:regionId/palette — tile palette only
+      tm = url.match(/^\/api\/builder\/tilemap\/([a-z0-9_\-]+)\/palette$/i);
+      if (method === 'GET' && tm) {
+        const palette = tilemapEditor.getPalette(tm[1]);
+        if (!palette) return _json(res, { error: `unknown region: ${tm[1]}` }, 404);
+        return _json(res, palette);
+      }
+
+      // POST /api/builder/tilemap/:regionId/tile — set single tile
+      //   body: { col, row, code }
+      tm = url.match(/^\/api\/builder\/tilemap\/([a-z0-9_\-]+)\/tile$/i);
+      if (method === 'POST' && tm) {
+        const body = await _readBody(req);
+        const result = tilemapEditor.setTile(tm[1], body.col | 0, body.row | 0, body.code);
+        return _json(res, result, result.ok ? 200 : 400);
+      }
+
+      // POST /api/builder/tilemap/:regionId/paint — bulk paint
+      //   body: { edits: [{col,row,code}, ...] }
+      tm = url.match(/^\/api\/builder\/tilemap\/([a-z0-9_\-]+)\/paint$/i);
+      if (method === 'POST' && tm) {
+        const body = await _readBody(req);
+        const result = tilemapEditor.paintTiles(tm[1], body.edits || []);
+        return _json(res, result, result.ok ? 200 : 400);
+      }
+
+      // DELETE /api/builder/tilemap/:regionId — discard staged tilemap
+      tm = url.match(/^\/api\/builder\/tilemap\/([a-z0-9_\-]+)$/i);
+      if (method === 'DELETE' && tm) {
+        const result = tilemapEditor.discard(tm[1]);
+        return _json(res, result, result.ok ? 200 : 404);
+      }
     }
 
     // GET /api/builder/entities/:type  (list)

@@ -56,6 +56,11 @@ try { require('../content/aelgard/combinations-mega'); } catch (e) {}
 try { require('../content/aelgard/recipes-mega'); } catch (e) {}
 try { require('../content/aelgard/minigames'); } catch (e) {}
 try { require('../content/aelgard/minigames-mega'); } catch (e) {}
+// burn-v2: apply builder-publish overrides so DM edits show up in regenerated codex
+try {
+  const builderStaging = require('../builder/staging');
+  builderStaging.applyOverridesAtBoot();
+} catch (e) { /* builder not installed — safe to skip */ }
 let PRESTIGE_GOALS = {};
 try { PRESTIGE_GOALS = require('../content/aelgard/cross-region-web').PRESTIGE_GOALS || {}; } catch (e) {}
 let quirky = null;

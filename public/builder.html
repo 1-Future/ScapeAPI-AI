@@ -57,7 +57,7 @@ body{background:var(--stone);color:var(--parchment);font-family:var(--font);min-
 .btn-green{background:rgba(39,174,96,0.2);border-color:var(--green);color:var(--green-glow)}
 .btn-green:hover{background:rgba(46,204,113,0.3);color:#fff}
 
-.builder{display:flex;height:calc(100vh - 72px);overflow:hidden}
+.builder{display:flex;height:calc(100vh - 110px);overflow:hidden}
 
 .sidebar{width:260px;border-right:1px solid var(--gold-dim);overflow-y:auto;padding:12px;flex-shrink:0;background:var(--stone-mid)}
 .sidebar h2{font-size:0.7rem;color:var(--gold);text-transform:uppercase;letter-spacing:1.5px;margin:0 0 8px;padding-bottom:4px;border-bottom:1px solid var(--gold-dim)}
@@ -149,6 +149,94 @@ body{background:var(--stone);color:var(--parchment);font-family:var(--font);min-
 .no-access{text-align:center;padding:120px 20px;color:var(--parchment-dim);max-width:500px;margin:0 auto}
 .no-access h2{color:var(--gold-bright);font-size:1.2rem;margin-bottom:16px;letter-spacing:1px}
 .no-access p{font-size:0.85rem;margin-bottom:20px;line-height:1.6}
+
+/* ── Tab bar ─────────────────────────────────────────────────────────── */
+.tab-bar{display:flex;background:#141420;border-bottom:1px solid var(--gold-dim);padding:0 12px;flex-shrink:0}
+.tab-bar button{
+  font-family:var(--font);font-size:0.75rem;background:transparent;border:none;
+  color:var(--parchment-dim);padding:10px 18px;cursor:pointer;
+  text-transform:uppercase;letter-spacing:1.5px;border-bottom:2px solid transparent;
+}
+.tab-bar button:hover{color:var(--parchment)}
+.tab-bar button.active{color:var(--gold-bright);border-bottom-color:var(--gold)}
+
+.pane{display:none}
+.pane.active{display:flex;flex:1;overflow:hidden}
+
+/* ── Tilemap editor pane ─────────────────────────────────────────────── */
+.tilemap-pane{display:flex;flex-direction:column;flex:1;overflow:hidden}
+.tilemap-toolbar{
+  display:flex;align-items:center;padding:10px 14px;gap:10px;
+  background:var(--stone-mid);border-bottom:1px solid var(--gold-dim);
+}
+.tilemap-toolbar select,.tilemap-toolbar input{
+  font-family:var(--font);font-size:0.75rem;background:var(--stone);
+  color:var(--parchment);border:1px solid var(--gold-dim);
+  padding:5px 10px;border-radius:3px;outline:none;
+}
+.tilemap-main{display:flex;flex:1;overflow:hidden}
+
+.palette-sidebar{
+  width:220px;padding:12px;background:var(--stone-mid);
+  border-right:1px solid var(--gold-dim);overflow-y:auto;
+}
+.palette-sidebar h3{
+  font-size:0.72rem;color:var(--gold);text-transform:uppercase;
+  letter-spacing:1.5px;margin:0 0 10px;padding-bottom:4px;border-bottom:1px solid var(--gold-dim);
+}
+.tile-swatch{
+  display:flex;align-items:center;gap:8px;padding:6px 8px;margin:2px 0;
+  background:transparent;border:1px solid transparent;border-radius:3px;
+  cursor:pointer;transition:all 0.12s;width:100%;text-align:left;
+  font-family:var(--font);color:var(--parchment-dim);
+}
+.tile-swatch:hover{border-color:var(--gold-dim);background:rgba(184,134,11,0.06);color:var(--parchment)}
+.tile-swatch.selected{border-color:var(--gold-bright);background:rgba(184,134,11,0.18);color:var(--gold-bright)}
+.tile-swatch .chip{width:22px;height:22px;border-radius:2px;flex-shrink:0;border:1px solid rgba(0,0,0,0.4)}
+.tile-swatch .name{font-size:0.72rem;letter-spacing:0.3px}
+.tile-swatch .code{font-size:0.64rem;color:var(--parchment-dark);margin-left:auto}
+.tile-swatch .walkable{font-size:0.58rem;color:var(--green-glow)}
+.tile-swatch .blocked{font-size:0.58rem;color:var(--red-glow)}
+
+.tilemap-canvas-wrap{
+  flex:1;overflow:auto;padding:18px;display:flex;align-items:flex-start;justify-content:flex-start;
+  background:#0b0b14;position:relative;
+}
+#tilemap-canvas{background:#000;image-rendering:pixelated;cursor:crosshair;border:1px solid var(--gold-dim)}
+.tilemap-info{
+  font-size:0.7rem;color:var(--parchment-dim);
+  padding:6px 10px;background:rgba(0,0,0,0.5);border-radius:3px;
+  position:absolute;top:10px;right:10px;font-family:var(--font);
+}
+
+/* ── Audit log pane ──────────────────────────────────────────────────── */
+.audit-pane{display:flex;flex-direction:column;flex:1;overflow:hidden;padding:18px}
+.audit-pane h2{font-size:0.9rem;color:var(--gold-bright);margin-bottom:12px;letter-spacing:1px}
+.audit-table{border:1px solid var(--gold-dim);background:var(--stone-mid);border-radius:3px;overflow:auto}
+.audit-row{
+  display:grid;grid-template-columns:130px 80px 90px 70px 1fr 220px;
+  gap:8px;padding:8px 12px;border-bottom:1px solid rgba(139,111,71,0.15);
+  font-size:0.72rem;color:var(--parchment);align-items:center;
+}
+.audit-row.head{background:#12121c;color:var(--gold);text-transform:uppercase;letter-spacing:1px;font-weight:600}
+.audit-row .ts{color:var(--parchment-dim)}
+.audit-row .action-publish{color:var(--green-glow)}
+.audit-row .action-rollback{color:var(--yellow)}
+.audit-row .hash{font-family:var(--font);color:var(--parchment-dark);font-size:0.64rem}
+.audit-actions{margin-top:14px;display:flex;gap:8px}
+
+/* ── Preview modal ──────────────────────────────────────────────────── */
+.preview-panel{
+  background:var(--stone-mid);border:1px solid var(--gold);border-radius:4px;
+  padding:18px 20px;margin-top:14px;font-size:0.78rem;color:var(--parchment);
+}
+.preview-panel h3{color:var(--gold-bright);font-size:0.9rem;margin-bottom:10px;letter-spacing:1px}
+.preview-panel ul{list-style:none;padding-left:0;margin:8px 0}
+.preview-panel li{padding:2px 0}
+.preview-panel .badge-change{display:inline-block;padding:1px 6px;border-radius:2px;font-size:0.62rem;
+  margin-right:6px;text-transform:uppercase;letter-spacing:0.5px}
+.preview-panel .badge-change.create{background:rgba(39,174,96,0.2);color:var(--green-glow);border:1px solid var(--green)}
+.preview-panel .badge-change.update{background:rgba(212,160,23,0.2);color:var(--yellow);border:1px solid var(--yellow)}
 </style>
 </head>
 <body>
@@ -184,23 +272,82 @@ body{background:var(--stone);color:var(--parchment);font-family:var(--font);min-
     <span class="dirty-count clean" id="dirty-count">0 unsaved</span>
   </div>
   <div class="tool-grp">
+    <button class="btn" onclick="showPreview()">Preview</button>
+    <button class="btn" onclick="rollbackPublish()">Rollback</button>
     <button class="btn btn-green" onclick="publishAll()" id="publish-btn">Publish All</button>
   </div>
 </div>
 
+<div class="tab-bar" id="tab-bar">
+  <button class="active" data-tab="entities" onclick="switchTab('entities')">Entities</button>
+  <button data-tab="tilemap" onclick="switchTab('tilemap')">World Tilemap</button>
+  <button data-tab="audit" onclick="switchTab('audit')">Audit Log</button>
+</div>
+
 <div class="builder" id="builder-root">
-  <aside class="sidebar" id="type-sidebar">
-    <h2>Entity Types</h2>
-    <div id="type-list"></div>
-  </aside>
-  <div class="main">
-    <section class="list-pane" id="list-pane">
-      <div class="empty">Select an entity type.</div>
-    </section>
-    <section class="detail" id="detail-pane">
-      <div class="empty">Select or create an entity.</div>
-    </section>
+  <div class="pane active" id="pane-entities" style="display:flex;flex:1;overflow:hidden">
+    <aside class="sidebar" id="type-sidebar">
+      <h2>Entity Types</h2>
+      <div id="type-list"></div>
+    </aside>
+    <div class="main">
+      <section class="list-pane" id="list-pane">
+        <div class="empty">Select an entity type.</div>
+      </section>
+      <section class="detail" id="detail-pane">
+        <div class="empty">Select or create an entity.</div>
+      </section>
+    </div>
   </div>
+
+  <div class="pane" id="pane-tilemap">
+    <div class="tilemap-pane">
+      <div class="tilemap-toolbar">
+        <label style="font-size:0.7rem;color:var(--parchment-dim);text-transform:uppercase;letter-spacing:1px">Region</label>
+        <select id="tilemap-region-select" onchange="loadTilemap(this.value)"></select>
+        <label style="font-size:0.7rem;color:var(--parchment-dim);text-transform:uppercase;letter-spacing:1px">Zoom</label>
+        <input type="range" id="tilemap-zoom" min="4" max="24" value="10" oninput="redrawTilemap()">
+        <div class="spacer" style="flex:1"></div>
+        <span id="tilemap-status" style="font-size:0.7rem;color:var(--parchment-dim)"></span>
+        <button class="btn" onclick="discardTilemapChanges()">Discard</button>
+      </div>
+      <div class="tilemap-main">
+        <aside class="palette-sidebar">
+          <h3>Tile Palette</h3>
+          <div id="tile-palette"></div>
+        </aside>
+        <div class="tilemap-canvas-wrap">
+          <canvas id="tilemap-canvas"></canvas>
+          <div class="tilemap-info" id="tilemap-info"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="pane" id="pane-audit">
+    <div class="audit-pane">
+      <h2>Audit Log — Publishes & Rollbacks</h2>
+      <div class="audit-table" id="audit-table">
+        <div class="audit-row head">
+          <div>Timestamp</div>
+          <div>Action</div>
+          <div>Player</div>
+          <div># Changed</div>
+          <div>Snapshot / Notes</div>
+          <div>Hash</div>
+        </div>
+        <div id="audit-rows"></div>
+      </div>
+      <div class="audit-actions">
+        <button class="btn" onclick="refreshAuditLog()">Refresh</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="preview-panel-wrap" style="position:fixed;right:18px;bottom:18px;max-width:460px;z-index:2000;display:none">
+  <div class="preview-panel" id="preview-panel"></div>
+  <button class="btn" style="margin-top:6px" onclick="closePreview()">Close</button>
 </div>
 
 <div id="no-access" style="display:none">
@@ -901,6 +1048,266 @@ function escAttr(s) { return String(s ?? '').replace(/&/g, '&amp;').replace(/"/g
 window.addEventListener('beforeunload', (e) => {
   if (dirty) { e.preventDefault(); e.returnValue = ''; }
 });
+
+// ═══════════════════════════════════════════════════════════════════════════
+// TAB SWITCHING
+// ═══════════════════════════════════════════════════════════════════════════
+
+function switchTab(name) {
+  document.querySelectorAll('.tab-bar button').forEach(b => {
+    b.classList.toggle('active', b.getAttribute('data-tab') === name);
+  });
+  document.querySelectorAll('.pane').forEach(p => {
+    p.classList.toggle('active', p.id === 'pane-' + name);
+    // Use display directly so .builder flex container can shrink/grow
+    p.style.display = (p.id === 'pane-' + name) ? 'flex' : 'none';
+  });
+  if (name === 'tilemap') initTilemapTab();
+  if (name === 'audit') refreshAuditLog();
+}
+
+// ═══════════════════════════════════════════════════════════════════════════
+// TILEMAP EDITOR
+// ═══════════════════════════════════════════════════════════════════════════
+
+let tilemapState = {
+  regionId: null,
+  data: null,            // merged tilemap object
+  palette: null,         // { tiles: [{code,name,color,walkable,sprite}] }
+  selectedCode: null,    // currently picked tile code
+  hoverCell: null,       // {col,row}
+  tileSize: 10,
+  initialized: false,
+};
+
+async function initTilemapTab() {
+  if (tilemapState.initialized) return;
+  tilemapState.initialized = true;
+  try {
+    const r = await api('GET', '/api/builder/tilemap/regions');
+    const sel = document.getElementById('tilemap-region-select');
+    sel.innerHTML = (r.regions || []).map(id => `<option value="${escAttr(id)}">${escHtml(id)}</option>`).join('');
+    if ((r.regions || []).length > 0) {
+      await loadTilemap(r.regions[0]);
+    }
+  } catch (e) {
+    toast('Tilemap init failed: ' + e.message, 'err');
+  }
+}
+
+async function loadTilemap(regionId) {
+  if (!regionId) return;
+  tilemapState.regionId = regionId;
+  try {
+    const r = await api('GET', '/api/builder/tilemap/' + encodeURIComponent(regionId));
+    tilemapState.data = r.tilemap;
+    tilemapState.palette = r.palette;
+    if (r.palette && r.palette.tiles && r.palette.tiles.length > 0) {
+      tilemapState.selectedCode = r.palette.tiles[0].code;
+    }
+    renderTilePalette();
+    redrawTilemap();
+  } catch (e) {
+    toast('Load tilemap failed: ' + e.message, 'err');
+  }
+}
+
+function renderTilePalette() {
+  const root = document.getElementById('tile-palette');
+  if (!tilemapState.palette || !tilemapState.palette.tiles) {
+    root.innerHTML = '<div style="color:var(--parchment-dark);font-size:0.72rem;padding:8px">No palette.</div>';
+    return;
+  }
+  root.innerHTML = tilemapState.palette.tiles.map(t => `
+    <button class="tile-swatch ${t.code === tilemapState.selectedCode ? 'selected' : ''}"
+            onclick="selectTileCode('${escAttr(t.code)}')" data-code="${escAttr(t.code)}">
+      <span class="chip" style="background:${escAttr(t.color)}"></span>
+      <span class="name">${escHtml(t.name)}</span>
+      <span class="code">${escHtml(t.code)}</span>
+      <span class="${t.walkable ? 'walkable' : 'blocked'}">${t.walkable ? 'WALK' : 'BLOCK'}</span>
+    </button>
+  `).join('');
+}
+
+function selectTileCode(code) {
+  tilemapState.selectedCode = code;
+  renderTilePalette();
+}
+
+function redrawTilemap() {
+  const canvas = document.getElementById('tilemap-canvas');
+  const info = document.getElementById('tilemap-info');
+  const status = document.getElementById('tilemap-status');
+  if (!canvas || !tilemapState.data || !Array.isArray(tilemapState.data.tiles)) {
+    if (canvas) canvas.width = canvas.height = 0;
+    return;
+  }
+  const tm = tilemapState.data;
+  const size = parseInt(document.getElementById('tilemap-zoom').value, 10) || 10;
+  tilemapState.tileSize = size;
+  canvas.width = tm.width * size;
+  canvas.height = tm.height * size;
+  const ctx = canvas.getContext('2d');
+  ctx.fillStyle = '#000';
+  ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+  const colorByCode = {};
+  if (tilemapState.palette) {
+    for (const t of tilemapState.palette.tiles) colorByCode[t.code] = t.color;
+  }
+  for (let y = 0; y < tm.height; y++) {
+    const row = tm.tiles[y] || '';
+    for (let x = 0; x < tm.width; x++) {
+      const code = row[x] || '0';
+      ctx.fillStyle = colorByCode[code] || '#222';
+      ctx.fillRect(x * size, y * size, size, size);
+    }
+  }
+  info.textContent = `${tm.width}×${tm.height} · zoom ${size}px · paint: ${tilemapState.selectedCode || '(none)'}`;
+  status.textContent = tm._dirty ? 'unsaved' : (tm._published ? 'published' : 'canonical');
+  // Attach handlers once
+  if (!canvas._scapeHooked) {
+    canvas.addEventListener('click', onTilemapClick);
+    canvas.addEventListener('mousemove', onTilemapHover);
+    canvas._scapeHooked = true;
+  }
+}
+
+function canvasCell(e) {
+  const rect = e.currentTarget.getBoundingClientRect();
+  const sz = tilemapState.tileSize;
+  const col = Math.floor((e.clientX - rect.left) / sz);
+  const row = Math.floor((e.clientY - rect.top) / sz);
+  return { col, row };
+}
+
+async function onTilemapClick(e) {
+  if (!tilemapState.regionId || !tilemapState.selectedCode) return;
+  const { col, row } = canvasCell(e);
+  const tm = tilemapState.data;
+  if (!tm || col < 0 || row < 0 || col >= tm.width || row >= tm.height) return;
+  try {
+    await api('POST', `/api/builder/tilemap/${encodeURIComponent(tilemapState.regionId)}/tile`,
+      { col, row, code: tilemapState.selectedCode });
+    // Mutate local copy too
+    const rowStr = tm.tiles[row] || '';
+    tm.tiles[row] = rowStr.slice(0, col) + tilemapState.selectedCode + rowStr.slice(col + 1);
+    tm._dirty = true;
+    redrawTilemap();
+  } catch (err) {
+    toast('Paint failed: ' + err.message, 'err');
+  }
+}
+
+function onTilemapHover(e) {
+  const { col, row } = canvasCell(e);
+  const tm = tilemapState.data;
+  if (!tm) return;
+  const info = document.getElementById('tilemap-info');
+  if (col < 0 || row < 0 || col >= tm.width || row >= tm.height) {
+    info.textContent = `${tm.width}×${tm.height}`;
+    return;
+  }
+  const code = (tm.tiles[row] || '')[col] || '0';
+  let name = code;
+  if (tilemapState.palette) {
+    const t = tilemapState.palette.tiles.find(x => x.code === code);
+    if (t) name = t.name;
+  }
+  info.textContent = `(${col},${row}) = ${code} ${name}`;
+}
+
+async function discardTilemapChanges() {
+  if (!tilemapState.regionId) return;
+  if (!confirm(`Discard staged edits for ${tilemapState.regionId}?`)) return;
+  try {
+    await api('DELETE', '/api/builder/tilemap/' + encodeURIComponent(tilemapState.regionId));
+    toast('Discarded', 'ok');
+    await loadTilemap(tilemapState.regionId);
+  } catch (e) {
+    toast('Discard failed: ' + e.message, 'err');
+  }
+}
+
+// ═══════════════════════════════════════════════════════════════════════════
+// PREVIEW / ROLLBACK / AUDIT
+// ═══════════════════════════════════════════════════════════════════════════
+
+async function showPreview() {
+  try {
+    const r = await api('GET', '/api/builder/preview');
+    const wrap = document.getElementById('preview-panel-wrap');
+    const panel = document.getElementById('preview-panel');
+    const changed = r.changedEntities || [];
+    const tilemapList = r.changedTilemaps || [];
+    const pages = r.affectedPages || [];
+    let html = '<h3>Publish Preview</h3>';
+    html += `<div>Currently published: <strong>${r.currentCount}</strong> · After publish: <strong>${r.nextCount}</strong></div>`;
+    html += `<div style="margin-top:6px"><strong>${changed.length}</strong> entity change(s), <strong>${tilemapList.length}</strong> tilemap region(s)</div>`;
+    if (changed.length > 0) {
+      html += '<h4 style="margin-top:8px;color:var(--gold)">Entities affected</h4><ul>';
+      for (const c of changed.slice(0, 15)) {
+        html += `<li><span class="badge-change ${c.action}">${c.action}</span>${escHtml(c.type)}/${escHtml(c.id)}</li>`;
+      }
+      if (changed.length > 15) html += `<li><em>...and ${changed.length - 15} more</em></li>`;
+      html += '</ul>';
+    }
+    if (tilemapList.length > 0) {
+      html += '<h4 style="margin-top:8px;color:var(--gold)">Tilemaps affected</h4><ul>';
+      for (const r of tilemapList) html += `<li>${escHtml(r)}</li>`;
+      html += '</ul>';
+    }
+    html += '<h4 style="margin-top:8px;color:var(--gold)">Codex pages affected</h4><ul>';
+    for (const p of pages) html += `<li>${escHtml(p)}</li>`;
+    html += '</ul>';
+    if (!r.ok) {
+      html += `<div style="color:var(--red-glow);margin-top:8px">Validation errors: ${r.validationErrors.length}</div>`;
+    }
+    panel.innerHTML = html;
+    wrap.style.display = 'block';
+  } catch (e) {
+    toast('Preview failed: ' + e.message, 'err');
+  }
+}
+
+function closePreview() {
+  document.getElementById('preview-panel-wrap').style.display = 'none';
+}
+
+async function rollbackPublish() {
+  if (!confirm('Revert to the last snapshot? This restores the previous overrides and re-applies them to the engine.')) return;
+  try {
+    const r = await api('POST', '/api/builder/rollback', {});
+    toast(`Rolled back: ${r.entitiesRestored} entities restored`, 'ok');
+    await refreshStats();
+  } catch (e) {
+    toast('Rollback failed: ' + e.message, 'err');
+  }
+}
+
+async function refreshAuditLog() {
+  try {
+    const r = await api('GET', '/api/builder/audit');
+    const rows = document.getElementById('audit-rows');
+    const entries = (r.entries || []).slice().reverse();
+    if (entries.length === 0) {
+      rows.innerHTML = '<div style="padding:20px;color:var(--parchment-dark);font-size:0.78rem;text-align:center">No audit entries yet. Publish or rollback to create one.</div>';
+      return;
+    }
+    rows.innerHTML = entries.map(e => `
+      <div class="audit-row">
+        <div class="ts">${escHtml(e.ts || '')}</div>
+        <div class="action-${escAttr(e.action)}">${escHtml(e.action || 'unknown')}</div>
+        <div>${escHtml(e.playerId || '?')}</div>
+        <div>${e.entitiesChanged || 0}${e.tilemapRegionsChanged ? ' + ' + e.tilemapRegionsChanged + ' tm' : ''}</div>
+        <div>${escHtml(e.snapshotPath ? e.snapshotPath.split(/[\\/]/).pop() : (e.restoredFrom || ''))}</div>
+        <div class="hash" title="${escAttr(e.hashOfOverrides || '')}">${escHtml((e.hashOfOverrides || '').slice(0, 16))}...</div>
+      </div>
+    `).join('');
+  } catch (e) {
+    toast('Audit log failed: ' + e.message, 'err');
+  }
+}
 
 boot();
 </script>
