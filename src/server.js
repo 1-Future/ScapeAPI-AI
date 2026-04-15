@@ -4892,6 +4892,18 @@ ironmanCommands.register({
   getTick: () => tick.getTick(),
 });
 
+// Prayer + Magic runners (burn v2). Additive — /prayer adds structured
+// sub-commands without replacing the existing /pray that already handles
+// altar XP. /cast, /spellbook, /enchant, /alch are all new verbs.
+try {
+  const prayerCommands = require('./engine/prayer-commands');
+  const magicCommands  = require('./engine/magic-commands');
+  prayerCommands.register({ commands });
+  magicCommands.register({ commands, findPlayer });
+} catch (e) {
+  console.error('[server] prayer/magic command registration failed:', e.message);
+}
+
 // Dialogue (Ollama NPC bibles). The register() function also sets an input
 // hook that intercepts non-slash chat when a player has an active session.
 // server.reply is used so the async Ollama call can push the NPC reply back

@@ -451,6 +451,69 @@ function rangedAttackWithWeakness(attacker, defender) {
 meleeAttack = meleeAttackWithWeakness;
 rangedAttack = rangedAttackWithWeakness;
 
+// ══════════════════════════════════════════════════════════════════════════════
+// PRAYER_MODIFIERS + MAGIC_ATTACK hooks (burn v2)
+//
+// Additive integration with engine/prayer-runner + engine/magic-runner.
+// These live here (instead of inside roll()) so existing combat tests keep
+// working — callers opt into the new hooks explicitly.
+//
+// Usage pattern:
+//
+//   const { PRAYER_MODIFIERS, MAGIC_ATTACK } = require('./combat');
+//   const mods = PRAYER_MODIFIERS(attacker);      // from prayer-runner
+//   const spell = MAGIC_ATTACK(attacker, spellId, defender);
+//
+// If prayer-runner isn't loaded (e.g. during early tests), both return
+// safe defaults so nothing crashes.
+// ══════════════════════════════════════════════════════════════════════════════
+
+function PRAYER_MODIFIERS(p) {
+  try {
+    const prayerRunner = require('../engine/prayer-runner');
+    return prayerRunner.getModifiers(p);
+  } catch (_) {
+    return { accuracy_melee: 1, damage_melee: 1, accuracy_ranged: 1, damage_ranged: 1,
+      accuracy_magic: 1, damage_magic: 1, defence: 1, protect_prayers: [],
+      on_death: [], on_low_hp: [], preserve: false, protect_item: false,
+      smite: false, retribution: false, redemption: false };
+  }
+}
+
+function applyProtectPrayers(defender, damage, opts) {
+  try {
+    const prayerRunner = require('../engine/prayer-runner');
+    return prayerRunner.applyProtectPrayers(defender, damage, opts);
+  } catch (_) {
+    return damage;
+  }
+}
+
+function MAGIC_ATTACK(attacker, spellId, defender) {
+  try {
+    const magicRunner = require('../engine/magic-runner');
+    const chk = magicRunner.castable(attacker, spellId);
+    if (!chk.ok) return { ok: false, reason: chk.reason };
+    const res = magicRunner.cast(attacker, spellId, defender);
+    if (!res.ok) return res;
+    // Combat spells also go through the existing magicAttack roll for accuracy.
+    const effect = res.result || {};
+    if (effect.kind === 'combat') {
+      const atkRoll = magicAttackRoll(attacker);
+      const defRoll = (typeof defender.stats !== 'undefined')
+        ? npcDefenceRoll(defender, 'magic')
+        : magicAttackRoll(defender);
+      const hitChance = accuracy(atkRoll, defRoll);
+      const hit = Math.random() < hitChance;
+      const damage = hit ? Math.floor(Math.random() * ((effect.maxHit || 0) + 1)) : 0;
+      return { ok: true, hit, damage, maxHit: effect.maxHit || 0, accuracy: hitChance, baseXp: res.spell.baseXp || 0, spell: res.spell, effect: effect.effect };
+    }
+    return { ok: true, result: res.result, spell: res.spell };
+  } catch (_) {
+    return { ok: false, reason: 'magic-runner unavailable' };
+  }
+}
+
 // ── Death hook ──────────────────────────────────────────────────────────────
 // Central HP=0 handler. Callers (game-loop, server, combat scripts) should
 // invoke this whenever they notice a player's HP reached zero — instead of
@@ -479,6 +542,8 @@ module.exports = {
   hasRangedSetup, maxHitRanged, rangedAttack: rangedAttackWithWeakness, rangedCombatXp, getRangedRange,
   // Magic
   COMBAT_SPELLS, magicAttack, magicCombatXp, magicAttackRoll,
+  // Prayer + magic hooks (burn v2 — additive)
+  PRAYER_MODIFIERS, MAGIC_ATTACK, applyProtectPrayers,
   // Death
   checkPlayerDeath,
 };
