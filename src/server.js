@@ -4990,6 +4990,24 @@ events.on('skill_action', 'tutorial.skill', ({ player, skill }) => {
   else if (skill === 'cooking') tutorialAdvance(player, { type: 'item_cooked' });
 });
 
+// ── Player-to-player trade ────────────────────────────────────────────────
+try {
+  const tradeCommands = require('./engine/trade-commands');
+  const playerLib = require('./player/player');
+  function notifyTrade(player, payload) {
+    for (const [ws, p] of players) { if (p === player) { try { send(ws, payload); } catch (_) {} return; } }
+  }
+  tradeCommands.register({
+    commands,
+    items,
+    playerLib,
+    findPlayer,
+    getTick: () => tick.getTick(),
+    notify: notifyTrade,
+    ironman,
+    tick,
+  });
+} catch (e) { console.warn('[trade] wire-up failed:', e.message); }
 
 // Persistence
 persistence.onSave('chunks', () => tiles.saveChunks());
