@@ -41,6 +41,8 @@ try { require('../src/content/aelgard/moryskah-tertiary'); } catch (e) {}
 try { require('../src/content/aelgard/moryskah-easter-eggs'); } catch (e) {}
 try { require('../src/content/aelgard/sootworks-deep'); } catch (e) {}
 try { require('../src/content/aelgard/sootworks-density'); } catch (e) {}
+try { require('../src/content/aelgard/sootworks-tertiary'); } catch (e) {}
+try { require('../src/content/aelgard/sootworks-easter-eggs'); } catch (e) {}
 try { require('../src/content/aelgard/saltbrine-deep'); } catch (e) {}
 try { require('../src/content/aelgard/saltbrine-density'); } catch (e) {}
 try { require('../src/content/aelgard/veilwood-deep'); } catch (e) {}
