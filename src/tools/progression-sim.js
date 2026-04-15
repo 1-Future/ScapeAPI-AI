@@ -53,8 +53,16 @@ try { require('../content/aelgard/moryskah-deep'); } catch (e) { /* optional */ 
 try { require('../content/aelgard/moryskah-density'); } catch (e) { /* optional */ }
 try { require('../content/aelgard/sootworks-deep'); } catch (e) { /* optional */ }
 try { require('../content/aelgard/sootworks-density'); } catch (e) { /* optional */ }
+try { require('../content/aelgard/saltbrine-deep'); } catch (e) { /* optional */ }
+try { require('../content/aelgard/saltbrine-density'); } catch (e) { /* optional */ }
+try { require('../content/aelgard/veilwood-deep'); } catch (e) { /* optional */ }
+try { require('../content/aelgard/veilwood-density'); } catch (e) { /* optional */ }
+try { require('../content/aelgard/boneyard-deep'); } catch (e) { /* optional */ }
+try { require('../content/aelgard/boneyard-density'); } catch (e) { /* optional */ }
 try { require('../content/aelgard/glass-desert-deep'); } catch (e) { /* optional */ }
 try { require('../content/aelgard/glass-desert-density'); } catch (e) { /* optional */ }
+try { require('../content/aelgard/inkweald-deep'); } catch (e) { /* optional */ }
+try { require('../content/aelgard/inkweald-density'); } catch (e) { /* optional */ }
 try { require('../content/aelgard/mid-tier-regions'); } catch (e) { /* optional */ }
 try { require('../content/aelgard/universal-items'); } catch (e) { /* optional */ }
 try { require('../content/aelgard/special-regions'); } catch (e) { /* optional */ }

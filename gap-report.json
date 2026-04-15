@@ -1,5 +1,9 @@
 {
+<<<<<<< HEAD
   "timestamp": "2026-04-15T07:16:23.082Z",
+=======
+  "timestamp": "2026-04-15T07:14:05.369Z",
+>>>>>>> burn/inkweald-deep
   "thinnestRegion": {
     "id": "inkweald",
     "label": "Inkweald",
@@ -7,13 +11,50 @@
   },
   "all_regions_ranked": [
     {
+<<<<<<< HEAD
       "region": "inkweald",
       "label": "Inkweald",
       "methods": 10,
+=======
+      "region": "sootworks",
+      "label": "Sootworks",
+      "methods": 11,
+      "blockedSkills": 17,
+      "gapScore": 12
+    },
+    {
+      "region": "glass_desert",
+      "label": "Glass Desert",
+      "methods": 9,
+>>>>>>> burn/inkweald-deep
       "blockedSkills": 16,
       "gapScore": 12
     },
     {
+<<<<<<< HEAD
+=======
+      "region": "saltbrine_reach",
+      "label": "Saltbrine Reach",
+      "methods": 14,
+      "blockedSkills": 14,
+      "gapScore": 16
+    },
+    {
+      "region": "boneyard_wastes",
+      "label": "Boneyard Wastes",
+      "methods": 13,
+      "blockedSkills": 12,
+      "gapScore": 18
+    },
+    {
+      "region": "veilwood",
+      "label": "Veilwood",
+      "methods": 16,
+      "blockedSkills": 12,
+      "gapScore": 19
+    },
+    {
+>>>>>>> burn/inkweald-deep
       "region": "the_wilds",
       "label": "The Wilds",
       "methods": 31,
@@ -28,6 +69,7 @@
       "gapScore": 44
     },
     {
+<<<<<<< HEAD
       "region": "sootworks",
       "label": "Sootworks",
       "methods": 52,
@@ -37,11 +79,16 @@
     {
       "region": "veilwood",
       "label": "Veilwood",
+=======
+      "region": "inkweald",
+      "label": "Inkweald",
+>>>>>>> burn/inkweald-deep
       "methods": 56,
       "blockedSkills": 0,
       "gapScore": 51
     },
     {
+<<<<<<< HEAD
       "region": "boneyard_wastes",
       "label": "Boneyard Wastes",
       "methods": 59,
@@ -63,6 +110,8 @@
       "gapScore": 54
     },
     {
+=======
+>>>>>>> burn/inkweald-deep
       "region": "heartlands",
       "label": "Heartlands",
       "methods": 86,
