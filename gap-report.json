@@ -1,0 +1,265 @@
+{
+  "timestamp": "2026-04-15T02:08:32.632Z",
+  "thinnestRegion": {
+    "id": "sootworks",
+    "label": "Sootworks",
+    "flavor": "industrial underground, dwarves, clockwork"
+  },
+  "all_regions_ranked": [
+    {
+      "region": "sootworks",
+      "label": "Sootworks",
+      "methods": 11,
+      "blockedSkills": 17,
+      "gapScore": 12
+    },
+    {
+      "region": "glass_desert",
+      "label": "Glass Desert",
+      "methods": 9,
+      "blockedSkills": 16,
+      "gapScore": 12
+    },
+    {
+      "region": "inkweald",
+      "label": "Inkweald",
+      "methods": 10,
+      "blockedSkills": 16,
+      "gapScore": 12
+    },
+    {
+      "region": "saltbrine_reach",
+      "label": "Saltbrine Reach",
+      "methods": 14,
+      "blockedSkills": 14,
+      "gapScore": 16
+    },
+    {
+      "region": "boneyard_wastes",
+      "label": "Boneyard Wastes",
+      "methods": 13,
+      "blockedSkills": 12,
+      "gapScore": 18
+    },
+    {
+      "region": "veilwood",
+      "label": "Veilwood",
+      "methods": 16,
+      "blockedSkills": 12,
+      "gapScore": 19
+    },
+    {
+      "region": "the_wilds",
+      "label": "The Wilds",
+      "methods": 31,
+      "blockedSkills": 0,
+      "gapScore": 39
+    },
+    {
+      "region": "moryskah",
+      "label": "Moryskah",
+      "methods": 41,
+      "blockedSkills": 0,
+      "gapScore": 44
+    },
+    {
+      "region": "heartlands",
+      "label": "Heartlands",
+      "methods": 86,
+      "blockedSkills": 0,
+      "gapScore": 66
+    }
+  ],
+  "analysis": {
+    "region": "sootworks",
+    "label": "Sootworks",
+    "flavor": "industrial underground, dwarves, clockwork",
+    "methodsInRegion": 11,
+    "skillStatus": {
+      "attack": {
+        "count": 1,
+        "maxLevel": 99,
+        "status": "trainable"
+      },
+      "strength": {
+        "count": 0,
+        "maxLevel": 0,
+        "status": "hard_blocked"
+      },
+      "defence": {
+        "count": 0,
+        "maxLevel": 0,
+        "status": "hard_blocked"
+      },
+      "hitpoints": {
+        "count": 0,
+        "maxLevel": 0,
+        "status": "hard_blocked"
+      },
+      "ranged": {
+        "count": 0,
+        "maxLevel": 0,
+        "status": "hard_blocked"
+      },
+      "prayer": {
+        "count": 0,
+        "maxLevel": 0,
+        "status": "hard_blocked"
+      },
+      "magic": {
+        "count": 0,
+        "maxLevel": 0,
+        "status": "hard_blocked"
+      },
+      "runecrafting": {
+        "count": 0,
+        "maxLevel": 0,
+        "status": "hard_blocked"
+      },
+      "construction": {
+        "count": 2,
+        "maxLevel": 99,
+        "status": "trainable"
+      },
+      "agility": {
+        "count": 0,
+        "maxLevel": 0,
+        "status": "hard_blocked"
+      },
+      "herblore": {
+        "count": 0,
+        "maxLevel": 0,
+        "status": "hard_blocked"
+      },
+      "thieving": {
+        "count": 0,
+        "maxLevel": 0,
+        "status": "hard_blocked"
+      },
+      "crafting": {
+        "count": 3,
+        "maxLevel": 99,
+        "status": "trainable"
+      },
+      "fletching": {
+        "count": 0,
+        "maxLevel": 0,
+        "status": "hard_blocked"
+      },
+      "slayer": {
+        "count": 0,
+        "maxLevel": 0,
+        "status": "hard_blocked"
+      },
+      "hunter": {
+        "count": 0,
+        "maxLevel": 0,
+        "status": "hard_blocked"
+      },
+      "mining": {
+        "count": 2,
+        "maxLevel": 99,
+        "status": "trainable"
+      },
+      "smithing": {
+        "count": 2,
+        "maxLevel": 99,
+        "status": "trainable"
+      },
+      "fishing": {
+        "count": 0,
+        "maxLevel": 0,
+        "status": "hard_blocked"
+      },
+      "cooking": {
+        "count": 0,
+        "maxLevel": 0,
+        "status": "hard_blocked"
+      },
+      "firemaking": {
+        "count": 1,
+        "maxLevel": 60,
+        "status": "trainable"
+      },
+      "woodcutting": {
+        "count": 0,
+        "maxLevel": 0,
+        "status": "hard_blocked"
+      },
+      "farming": {
+        "count": 0,
+        "maxLevel": 0,
+        "status": "hard_blocked"
+      }
+    },
+    "blockedSkills": [
+      "strength",
+      "defence",
+      "hitpoints",
+      "ranged",
+      "prayer",
+      "magic",
+      "runecrafting",
+      "agility",
+      "herblore",
+      "thieving",
+      "fletching",
+      "slayer",
+      "hunter",
+      "fishing",
+      "cooking",
+      "woodcutting",
+      "farming"
+    ],
+    "lowCapSkills": [
+      "firemaking"
+    ],
+    "prestigeGoal": {
+      "name": "The Clockwork Heart",
+      "flavor": "engineering / smithing"
+    },
+    "gapScore": 11.5
+  },
+  "suggestions": [
+    {
+      "priority": "high",
+      "type": "unblock_skill",
+      "skills": [
+        "strength",
+        "defence",
+        "hitpoints",
+        "ranged",
+        "prayer",
+        "magic",
+        "runecrafting",
+        "agility",
+        "herblore",
+        "thieving",
+        "fletching",
+        "slayer",
+        "hunter",
+        "fishing",
+        "cooking",
+        "woodcutting",
+        "farming"
+      ],
+      "action": "Add at least one training method for each of: strength, defence, hitpoints, ranged, prayer, magic, runecrafting, agility, herblore, thieving, fletching, slayer, hunter, fishing, cooking, woodcutting, farming in the Sootworks region. Match the regional flavor (industrial underground, dwarves, clockwork)."
+    },
+    {
+      "priority": "medium",
+      "type": "raise_cap",
+      "skills": [
+        "firemaking"
+      ],
+      "action": "Add higher-tier training methods (levels 70-99) for: firemaking in Sootworks."
+    }
+  ],
+  "example_quest_shape": {
+    "description": "A quest definition should be added to src/content/aelgard/<region>-quests.js using rel.defineQuestUnlock(). It should unlock something UNIQUE (area, training method, shop, spellbook, BiS item) — never just XP.",
+    "example": "rel.defineQuestUnlock('quest_id', {\n  name: 'Quest Name',\n  unlocks: [\n    { type: 'training_method', id: 'method_id', description: '...' },\n    { type: 'item_equip', id: 'unique_item', description: '...' },\n  ],\n});"
+  },
+  "example_method_shape": {
+    "description": "Training methods use rel.defineTrainingMethod() with all 8 Marstead knobs.",
+    "example": "rel.defineTrainingMethod('method_id', {\n  skill: 'herblore', name: 'Bog Witch Brewing',\n  levelRange: [15, 70],\n  xpPerHour: 45000,\n  prerequisites: { skills: { herblore: 15 }, quests: [], items: [], areas: ['<region>'] },\n  resourceOutput: { produces: [{ name: 'Potions', perHour: 150 }], net: 'profit' },\n  bankingFrequency: 'moderate',\n  costPerHour: 0,\n  danger: 'none',\n  complexity: 'moderate',\n  attention: 'medium',\n  inputs: [{ name: 'Grimy herbs', perHour: 150, source: 'farming' }],\n  description: 'Brew potions with the Bog Witch. Regional flavor.',\n  location: '<Region Label>',\n});"
+  }
+}

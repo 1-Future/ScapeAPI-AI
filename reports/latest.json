@@ -1,0 +1,117 @@
+{
+  "timestamp": "2026-04-15T02:08:28.084Z",
+  "git": {
+    "commit": "77abce59835ddd983685c1a9c197812174dae5fc",
+    "branch": "main"
+  },
+  "relationship_stats": {
+    "areaGates": 31,
+    "questUnlocks": 69,
+    "trainingMethods": 262,
+    "combinations": 69,
+    "degradableItems": 7,
+    "encounterBisTables": 4,
+    "breakpoints": 142,
+    "itemSources": 456,
+    "itemUses": 80
+  },
+  "regions": {
+    "Heartlands": {
+      "methods": 91,
+      "items": 78,
+      "recipes": 15,
+      "skills": "23/23",
+      "selfSuff": "18/23",
+      "goal": "+ OK",
+      "score": 96
+    },
+    "Moryskah": {
+      "methods": 45,
+      "items": 83,
+      "recipes": 5,
+      "skills": "23/23",
+      "selfSuff": "11/23",
+      "goal": "+ OK",
+      "score": 80
+    },
+    "The Wilds": {
+      "methods": 33,
+      "items": 25,
+      "recipes": 1,
+      "skills": "23/23",
+      "selfSuff": "9/23",
+      "goal": "~ MARG",
+      "score": 56
+    },
+    "Boneyard Wastes": {
+      "methods": 16,
+      "items": 34,
+      "recipes": 2,
+      "skills": "12/23",
+      "selfSuff": "7/23",
+      "goal": "~ MARG",
+      "score": 44
+    },
+    "Veilwood": {
+      "methods": 20,
+      "items": 33,
+      "recipes": 1,
+      "skills": "12/23",
+      "selfSuff": "8/23",
+      "goal": "~ MARG",
+      "score": 44
+    },
+    "Sootworks": {
+      "methods": 15,
+      "items": 33,
+      "recipes": 0,
+      "skills": "7/23",
+      "selfSuff": "5/23",
+      "goal": "+ OK",
+      "score": 43
+    },
+    "Saltbrine Reach": {
+      "methods": 18,
+      "items": 33,
+      "recipes": 1,
+      "skills": "11/23",
+      "selfSuff": "8/23",
+      "goal": "~ MARG",
+      "score": 42
+    },
+    "Inkweald": {
+      "methods": 13,
+      "items": 29,
+      "recipes": 0,
+      "skills": "8/23",
+      "selfSuff": "6/23",
+      "goal": "~ MARG",
+      "score": 34
+    },
+    "Glass Desert": {
+      "methods": 11,
+      "items": 29,
+      "recipes": 0,
+      "skills": "8/23",
+      "selfSuff": "3/23",
+      "goal": "~ MARG",
+      "score": 32
+    }
+  },
+  "summary": {
+    "avg": 52,
+    "best": 96,
+    "worst": 32
+  },
+  "sim": {
+    "verdict": "non-degenerate",
+    "avgSim": 35,
+    "mostSimilar": 71.2,
+    "mostDifferent": 14.4
+  },
+  "diff": {
+    "previous_file": null,
+    "regressions": [],
+    "improvements": []
+  }
+}
