@@ -4913,8 +4913,6 @@ audioTriggers.registerForwarder((target, msg) => {
 console.log('[server] burn-v2 subsystems wired: GE, dialogue, death, area-locked, ironman, audio');
 
 // Tutorial + onboarding (burn v2) — data-driven curriculum.
-const tutorial = require('./engine/tutorial');
-const tutorialCommands = require('./engine/tutorial-commands');
 tutorial.configure({
   addXp: (p, skill, amount) => addXp(p, skill, amount),
   invAdd: (p, id, name, count, stackable) => invAdd(p, id, name, count, stackable),
