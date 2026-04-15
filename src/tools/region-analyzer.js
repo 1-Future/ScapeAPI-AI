@@ -37,6 +37,8 @@ try { require('../content/aelgard/heartlands-deep'); } catch (e) { /* optional *
 try { require('../content/aelgard/heartlands-density'); } catch (e) { /* optional */ }
 try { require('../content/aelgard/moryskah-deep'); } catch (e) { /* optional */ }
 try { require('../content/aelgard/moryskah-density'); } catch (e) { /* optional */ }
+try { require('../content/aelgard/sootworks-deep'); } catch (e) { /* optional */ }
+try { require('../content/aelgard/sootworks-density'); } catch (e) { /* optional */ }
 try { require('../content/aelgard/mid-tier-regions'); } catch (e) { /* optional */ }
 try { require('../content/aelgard/universal-items'); } catch (e) { /* optional */ }
 try { require('../content/aelgard/special-regions'); } catch (e) { /* optional */ }
