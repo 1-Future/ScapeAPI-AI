@@ -49,6 +49,8 @@ try { require('../src/content/aelgard/inkweald-density'); } catch (e) {}
 try { require('../src/content/aelgard/mid-tier-regions'); } catch (e) {}
 try { require('../src/content/aelgard/universal-items'); } catch (e) {}
 try { require('../src/content/aelgard/special-regions'); } catch (e) {}
+try { require('../src/content/aelgard/minigames'); } catch (e) {}
+try { require('../src/content/aelgard/minigames-mega'); } catch (e) {}
 
 let PRESTIGE_GOALS = {};
 try { PRESTIGE_GOALS = require('../src/content/aelgard/cross-region-web').PRESTIGE_GOALS || {}; } catch (e) {}
@@ -101,6 +103,27 @@ function analyzeRegion(region) {
     // Placeholder
   }
 
+  // Count minigames registered against this region. The minigames use short
+  // names ("Boneyard", "Wilds", "Saltbrine") but the gap-report uses the full
+  // labels ("Boneyard Wastes", "The Wilds", "Saltbrine Reach") — match flexibly.
+  const REGION_ALIASES = {
+    heartlands:      ['heartlands'],
+    moryskah:        ['moryskah'],
+    boneyard_wastes: ['boneyard', 'boneyard wastes'],
+    veilwood:        ['veilwood'],
+    sootworks:       ['sootworks'],
+    saltbrine_reach: ['saltbrine', 'saltbrine reach'],
+    inkweald:        ['inkweald'],
+    glass_desert:    ['glass desert', 'glass_desert'],
+    the_wilds:       ['wilds', 'the wilds', 'the_wilds'],
+  };
+  let minigamesInRegion = [];
+  if (typeof rel.listMinigames === 'function') {
+    const aliases = REGION_ALIASES[region.id] || [region.label.toLowerCase()];
+    const all = rel.listMinigames();
+    minigamesInRegion = all.filter(mg => aliases.includes((mg.region || '').toLowerCase()));
+  }
+
   return {
     region: region.id,
     label: region.label,
@@ -110,6 +133,8 @@ function analyzeRegion(region) {
     blockedSkills,
     lowCapSkills,
     prestigeGoal: goal ? { name: goal.name, flavor: goal.flavor } : null,
+    minigames: minigamesInRegion.length,
+    minigameIds: minigamesInRegion.map(mg => mg.id),
   };
 }
 
@@ -175,6 +200,24 @@ if (!target) {
 
 const suggestions = generateSuggestions(target);
 
+// Build a global minigames summary (BYOS 16 templates + regional coverage)
+const allMinigames = (typeof rel.listMinigames === 'function') ? rel.listMinigames() : [];
+const BYOS_TEMPLATES = [
+  'wave_survival', 'capture_the_flag', 'battle_royale', 'objective_defence',
+  'duel_1v1', 'role_based_team', 'gather_craft_fight', 'obstacle_course',
+  'timed_collection', 'passive_management', 'escort_protect', 'skilling_boss',
+  'tower_climbing', 'board_game', 'stealth', 'delivery',
+];
+const templateCoverage = {};
+for (const tpl of BYOS_TEMPLATES) {
+  templateCoverage[tpl] = allMinigames.filter(mg => mg.template === tpl).length;
+}
+const minigamesByRegion = {};
+for (const r of REGIONS) {
+  minigamesByRegion[r.id] = analyses.find(a => a.region === r.id)?.minigames || 0;
+}
+const missingTemplates = BYOS_TEMPLATES.filter(tpl => templateCoverage[tpl] === 0);
+
 const report = {
   timestamp: new Date().toISOString(),
   thinnestRegion: {
@@ -186,10 +229,19 @@ const report = {
     region: s.region,
     label: s.label,
     methods: s.methodsInRegion,
+    minigames: s.minigames || 0,
     blockedSkills: s.blockedSkills.length,
     gapScore: Math.round(s.gapScore),
   })),
   analysis: target,
+  minigames_summary: {
+    total: allMinigames.length,
+    byRegion: minigamesByRegion,
+    byTemplate: templateCoverage,
+    missingTemplates,
+    pvpCount: allMinigames.filter(mg => mg.isPvP === true).length,
+    pveCount: allMinigames.filter(mg => mg.isPvP === false).length,
+  },
   suggestions,
   example_quest_shape: {
     description: "A quest definition should be added to src/content/aelgard/<region>-quests.js using rel.defineQuestUnlock(). It should unlock something UNIQUE (area, training method, shop, spellbook, BiS item) — never just XP.",

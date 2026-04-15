@@ -295,6 +295,82 @@ function getTransformativeBreakpoints() {
   return breakpoints.filter(b => b.importance === 'transformative');
 }
 
+// ── Minigames Registry ────────────────────────────────────────────────────────
+// The 16 game-mode templates from BYOS minigames.md. Every minigame must give
+// something UNIQUE (Manifesto P04) — not just coins/XP.
+// Templates: wave_survival, capture_the_flag, battle_royale, objective_defence,
+//   duel_1v1, role_based_team, gather_craft_fight, obstacle_course,
+//   timed_collection, passive_management, escort_protect, skilling_boss,
+//   tower_climbing, board_game, stealth, delivery
+//
+// Plus additional: prop_hunt, ccg.
+
+const minigames = new Map(); // id → minigame definition
+
+function defineMinigame(opts) {
+  // opts: {
+  //   id, name, region, location,
+  //   template,               // one of the 16 BYOS templates
+  //   minPlayers, maxPlayers,
+  //   isPvP,                   // boolean — derived from combatType if absent
+  //   combatType,              // 'PvP' | 'PvE' | 'Both' | 'none'
+  //   attention,               // 'Background' | 'Multitask' | 'Active' | 'Max Focus'
+  //   levelReqs, questReqs,
+  //   skills_trained: [],      // list of skill ids trained
+  //   rewards: [],             // list of human-readable reward names
+  //   unique_reward,           // the single thing ONLY obtainable here (P04)
+  //   rewardCurrency | reward_currency,
+  //   shop: [{ item, cost }],
+  //   stages | rooms: [],      // phase descriptors
+  //   description, voice_flavor,
+  //   duration_estimate_min,
+  // }
+  const rewardCurrency = opts.reward_currency || opts.rewardCurrency || opts.pointCurrency || null;
+  const isPvP = typeof opts.isPvP === 'boolean'
+    ? opts.isPvP
+    : (opts.combatType === 'PvP' || opts.combatType === 'Both');
+  minigames.set(opts.id, {
+    id: opts.id,
+    name: opts.name,
+    region: opts.region,
+    location: opts.location || null,
+    template: opts.template || null,
+    type: opts.type || (isPvP ? 'pvp' : 'mixed'),
+    minPlayers: opts.minPlayers || 1,
+    maxPlayers: opts.maxPlayers || 1,
+    isPvP,
+    combatType: opts.combatType || (isPvP ? 'PvP' : 'PvE'),
+    attention: opts.attention || 'Active',
+    levelReqs: opts.levelReqs || {},
+    questReqs: opts.questReqs || [],
+    skills_trained: opts.skills_trained || [],
+    rewards: opts.rewards || [],
+    unique_reward: opts.unique_reward || null,
+    rewardCurrency,
+    reward_currency: rewardCurrency,
+    shop: opts.shop || [],
+    stages: opts.stages || null,
+    rooms: opts.rooms || null,
+    description: opts.description || '',
+    voice_flavor: opts.voice_flavor || '',
+    duration_estimate_min: opts.duration_estimate_min || null,
+    xpRewards: opts.xpRewards || {},
+    pointCurrency: rewardCurrency,
+  });
+}
+
+function getMinigame(id) { return minigames.get(id); }
+function listMinigames() { return [...minigames.values()]; }
+function listMinigamesByRegion(region) {
+  return [...minigames.values()].filter(m => m.region === region);
+}
+function listMinigamesByTemplate(template) {
+  return [...minigames.values()].filter(m => m.template === template);
+}
+function listMinigamesPvP(isPvP) {
+  return [...minigames.values()].filter(m => m.isPvP === isPvP);
+}
+
 // ── Item Source Registry ──────────────────────────────────────────────────────
 // For any item: where does it come from? What drops it, what quest gives it,
 // what recipe produces it, what shop sells it?
@@ -448,6 +524,7 @@ function stats() {
     breakpoints: breakpoints.length,
     itemSources: itemSources.size,
     itemUses: itemUses.size,
+    minigames: minigames.size,
   };
 }
 
@@ -471,6 +548,9 @@ module.exports = {
   getTransformativeBreakpoints,
   // Item Sources & Uses
   registerItemSource, getItemSources, registerItemUse, getItemUses,
+  // Minigames (16 BYOS templates)
+  defineMinigame, getMinigame, listMinigames,
+  listMinigamesByRegion, listMinigamesByTemplate, listMinigamesPvP,
   // Graph Queries
   whatDoINeedFor, whatDoesThisUnlock,
   // Validation

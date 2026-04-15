@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-04-15T07:19:17.007Z",
+  "timestamp": "2026-04-15T12:21:22.537Z",
   "thinnestRegion": {
     "id": "the_wilds",
     "label": "The Wilds",
@@ -10,6 +10,7 @@
       "region": "the_wilds",
       "label": "The Wilds",
       "methods": 31,
+      "minigames": 5,
       "blockedSkills": 0,
       "gapScore": 39
     },
@@ -17,6 +18,7 @@
       "region": "moryskah",
       "label": "Moryskah",
       "methods": 41,
+      "minigames": 3,
       "blockedSkills": 0,
       "gapScore": 44
     },
@@ -24,6 +26,7 @@
       "region": "sootworks",
       "label": "Sootworks",
       "methods": 52,
+      "minigames": 4,
       "blockedSkills": 0,
       "gapScore": 49
     },
@@ -31,6 +34,7 @@
       "region": "veilwood",
       "label": "Veilwood",
       "methods": 56,
+      "minigames": 5,
       "blockedSkills": 0,
       "gapScore": 51
     },
@@ -38,6 +42,7 @@
       "region": "inkweald",
       "label": "Inkweald",
       "methods": 56,
+      "minigames": 4,
       "blockedSkills": 0,
       "gapScore": 51
     },
@@ -45,6 +50,7 @@
       "region": "boneyard_wastes",
       "label": "Boneyard Wastes",
       "methods": 59,
+      "minigames": 4,
       "blockedSkills": 0,
       "gapScore": 53
     },
@@ -52,6 +58,7 @@
       "region": "glass_desert",
       "label": "Glass Desert",
       "methods": 59,
+      "minigames": 4,
       "blockedSkills": 0,
       "gapScore": 53
     },
@@ -59,6 +66,7 @@
       "region": "saltbrine_reach",
       "label": "Saltbrine Reach",
       "methods": 62,
+      "minigames": 4,
       "blockedSkills": 0,
       "gapScore": 54
     },
@@ -66,6 +74,7 @@
       "region": "heartlands",
       "label": "Heartlands",
       "methods": 86,
+      "minigames": 7,
       "blockedSkills": 0,
       "gapScore": 66
     }
@@ -198,7 +207,50 @@
       "name": "Coronation of the Revenant King",
       "flavor": "PvP-risk survival"
     },
+    "minigames": 5,
+    "minigameIds": [
+      "castle_wars",
+      "wilds_shard_wars",
+      "wilds_fortress_siege",
+      "wilds_clan_wars_roles",
+      "wilds_prop_hunt"
+    ],
     "gapScore": 38.5
+  },
+  "minigames_summary": {
+    "total": 40,
+    "byRegion": {
+      "heartlands": 7,
+      "moryskah": 3,
+      "boneyard_wastes": 4,
+      "veilwood": 5,
+      "sootworks": 4,
+      "saltbrine_reach": 4,
+      "inkweald": 4,
+      "glass_desert": 4,
+      "the_wilds": 5
+    },
+    "byTemplate": {
+      "wave_survival": 2,
+      "capture_the_flag": 1,
+      "battle_royale": 1,
+      "objective_defence": 2,
+      "duel_1v1": 3,
+      "role_based_team": 2,
+      "gather_craft_fight": 3,
+      "obstacle_course": 2,
+      "timed_collection": 1,
+      "passive_management": 1,
+      "escort_protect": 2,
+      "skilling_boss": 2,
+      "tower_climbing": 3,
+      "board_game": 2,
+      "stealth": 4,
+      "delivery": 3
+    },
+    "missingTemplates": [],
+    "pvpCount": 12,
+    "pveCount": 28
   },
   "suggestions": [],
   "example_quest_shape": {
