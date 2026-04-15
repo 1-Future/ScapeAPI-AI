@@ -3730,6 +3730,8 @@ function createDefaultContent() {
   try { require('./content/aelgard/cross-region-web'); } catch (e) {}
   try { require('./content/aelgard/quirky-interactions'); } catch (e) {}
   try { require('./content/aelgard/universal-items'); } catch (e) {}
+  // burn-v2: sawmill plank/nail supply chain for player housing construction.
+  try { require('./content/aelgard/sawmill-recipes'); } catch (e) { console.warn('[aelgard:rel] sawmill-recipes:', e.message); }
   {
     const rel = require('./data/relationships');
     const s = rel.stats();

@@ -128,6 +128,16 @@ function craft(p, recipeId) {
   if (!apply.ok) return apply;
 
   const leveledTo = recipe.xp ? breakpoints.addXpWithBreakpoints(p, recipe.skill, recipe.xp) : null;
+  // burn-v2 cross-link: forward Construction XP into housing progress so the
+  // player's house visibly ticks on any non-housing Construction XP gain.
+  if (recipe.xp && recipe.skill === 'construction') {
+    try {
+      const housing = require('./housing');
+      if (typeof housing.notifyConstructionXp === 'function') {
+        housing.notifyConstructionXp(p, recipe.xp, { source: 'recipe_runner', recipeId: recipe.id || recipe.name });
+      }
+    } catch (_) { /* housing module not available; ignore */ }
+  }
   return {
     ok: true,
     recipeId: recipe.id || recipe.name,
@@ -171,6 +181,15 @@ function combine(p, resultId) {
   if (!ok) return { ok: false, reason: 'inventory full' };
 
   const leveledTo = combo.xp ? breakpoints.addXpWithBreakpoints(p, combo.skill, combo.xp) : null;
+  // burn-v2 cross-link: Construction XP from combinations also ticks housing.
+  if (combo.xp && combo.skill === 'construction') {
+    try {
+      const housing = require('./housing');
+      if (typeof housing.notifyConstructionXp === 'function') {
+        housing.notifyConstructionXp(p, combo.xp, { source: 'combine', resultId: combo.resultId });
+      }
+    } catch (_) { /* housing unavailable */ }
+  }
   return {
     ok: true,
     resultId: combo.resultId,

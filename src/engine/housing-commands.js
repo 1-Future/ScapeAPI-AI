@@ -153,6 +153,9 @@ function register(opts) {
       }
 
       // ── party (feast) ──────────────────────────────────────────────────────
+      // burn-v2: /house party invite schedules a feast. Requires high-tier
+      // food in the pantry; applies +25% XP to host + clan-member attendees
+      // for 30 minutes. 24h cooldown per house.
       if (sub === 'party') {
         const action = args[1] ? String(args[1]).toLowerCase() : '';
         if (action === 'invite') {
@@ -160,14 +163,23 @@ function register(opts) {
           if (!guests.length) return 'Usage: /house party invite <player> [player2] ...';
           const r = housing.startFeast(player, guests);
           if (!r.ok) return `Cannot start feast: ${r.reason}`;
-          return `Feast started with ${guests.length} guest(s).`;
+          const mins = Math.round((r.buff.expiresAt - Date.now()) / 60000);
+          return `Feast started. +${Math.round((r.buff.multiplier - 1) * 100)}% XP for ${mins} min. ${r.attendees.length} attendee(s).`;
         }
         if (action === 'end') {
           const r = housing.endFeast(player);
           if (!r.ok) return `Cannot end feast: ${r.reason}`;
           return 'Feast ended.';
         }
-        return 'Usage: /house party invite <player> | end';
+        if (action === 'stock') {
+          const itemId = Number(args[2]);
+          const n = Number(args[3]);
+          if (!itemId || !n) return 'Usage: /house party stock <itemId> <count>';
+          const r = housing.stockPantry(player, itemId, n);
+          if (!r.ok) return `Cannot stock: ${r.reason}`;
+          return `Pantry now holds ${r.pantry[itemId] || 0} of item ${itemId}.`;
+        }
+        return 'Usage: /house party invite <player> | end | stock <itemId> <count>';
       }
 
       // ── sleep (bedroom) ────────────────────────────────────────────────────

@@ -32,12 +32,24 @@ function check(cond, msg) {
 
 housing._resetForTest();
 
+// burn-v2: buildRoom now consumes planks + nails. Seed every test-player's
+// inventory with enough materials to build the rooms exercised below. Uses
+// the stackable nail slot + stackable plank IDs from src/data/items.js.
+function seedBuildMaterials(p) {
+  player.invAdd(p, 700, 'Plank', 300, true);
+  player.invAdd(p, 701, 'Oak plank', 300, true);
+  player.invAdd(p, 702, 'Teak plank', 300, true);
+  player.invAdd(p, 703, 'Mahogany plank', 300, true);
+  player.invAdd(p, 705, 'Steel nails', 2000, true);
+}
+
 // ══════════════════════════════════════════════════════════════════════════════
 // 1. Content catalogue integrity
 // ══════════════════════════════════════════════════════════════════════════════
 
 const roomIds = rooms.listRoomIds();
-check(roomIds.length === 12, `12 room types defined (got ${roomIds.length})`);
+// burn-v2: trophy_room added as the 13th room (grandmaster-quest unlock).
+check(roomIds.length >= 12, `at least 12 room types defined (got ${roomIds.length})`);
 check(roomIds.includes('parlour'),        'parlour defined');
 check(roomIds.includes('kitchen'),        'kitchen defined');
 check(roomIds.includes('bedroom'),        'bedroom defined');
@@ -96,6 +108,9 @@ check(ok.ok, 'createHouse succeeds at Construction 10');
 check(!!ok.house, 'house object returned');
 check(ok.house.layer === housing.HOUSE_LAYER_BASE + p.id, 'instance layer is HOUSE_LAYER_BASE + playerId');
 check(housing.hasHouse(p), 'hasHouse returns true after creation');
+
+// burn-v2: stock materials so subsequent buildRoom calls succeed.
+seedBuildMaterials(p);
 
 // Cannot create twice.
 const dupe = housing.createHouse(p);
@@ -236,6 +251,9 @@ check(!sleepAgain.ok, 'cannot sleep twice (daily cooldown)');
 const buildDining = housing.buildRoom(p, 'dining_room', 7);
 check(buildDining.ok, 'build dining room');
 
+// burn-v2: feast requires high-tier food in the pantry. Stock 10 sharks via
+// the test-only raw pantry helper.
+housing._stockPantryRaw(p, 237, 10);
 const feast = housing.startFeast(p, ['guest1', 'guest2']);
 check(feast.ok, 'start feast with 2 guests');
 check(feast.feast.guests.length === 2, 'feast tracks guest list');
@@ -299,6 +317,7 @@ check(p.house.every(r => typeof r.furniture === 'object'), 'each entry has furni
 
 const pCmd = player.createPlayer(3, 'CmdHouse');
 player.addXp(pCmd, 'construction', 1500);
+seedBuildMaterials(pCmd);
 
 const createOut = commands.execute(pCmd, 'house create');
 log('/house create', createOut);
@@ -336,6 +355,7 @@ const pXp = player.createPlayer(4, 'XpBuilder');
 player.addXp(pXp, 'construction', 1500); // level 10
 const beforeXp = pXp.skills.construction.xp;
 housing.createHouse(pXp);
+seedBuildMaterials(pXp);
 housing.buildRoom(pXp, 'parlour', 0);
 const afterXp = pXp.skills.construction.xp;
 check(afterXp > beforeXp, 'building a room awarded Construction XP');
@@ -352,6 +372,7 @@ check(afterFurniture > afterXp, 'placing furniture awarded Construction XP');
 const pInv = player.createPlayer(5, 'Invalid');
 player.addXp(pInv, 'construction', 1500);
 housing.createHouse(pInv);
+seedBuildMaterials(pInv);
 
 const invalidSlot = housing.buildRoom(pInv, 'parlour', 999);
 check(!invalidSlot.ok, 'invalid slot (999) rejected');
