@@ -53,6 +53,8 @@ try { require('../content/aelgard/heartlands-tertiary'); } catch (e) { /* option
 try { require('../content/aelgard/heartlands-easter-eggs'); } catch (e) { /* optional */ }
 try { require('../content/aelgard/moryskah-deep'); } catch (e) { /* optional */ }
 try { require('../content/aelgard/moryskah-density'); } catch (e) { /* optional */ }
+try { require('../content/aelgard/moryskah-tertiary'); } catch (e) { /* optional */ }
+try { require('../content/aelgard/moryskah-easter-eggs'); } catch (e) { /* optional */ }
 try { require('../content/aelgard/sootworks-deep'); } catch (e) { /* optional */ }
 try { require('../content/aelgard/sootworks-density'); } catch (e) { /* optional */ }
 try { require('../content/aelgard/saltbrine-deep'); } catch (e) { /* optional */ }

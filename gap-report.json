@@ -1,19 +1,11 @@
 {
-  "timestamp": "2026-04-15T13:41:42.835Z",
+  "timestamp": "2026-04-15T13:59:43.179Z",
   "thinnestRegion": {
-    "id": "moryskah",
-    "label": "Moryskah",
-    "flavor": "gothic swamp, undead, vampires"
+    "id": "sootworks",
+    "label": "Sootworks",
+    "flavor": "industrial underground, dwarves, clockwork"
   },
   "all_regions_ranked": [
-    {
-      "region": "moryskah",
-      "label": "Moryskah",
-      "methods": 41,
-      "minigames": 3,
-      "blockedSkills": 0,
-      "gapScore": 44
-    },
     {
       "region": "sootworks",
       "label": "Sootworks",
@@ -71,6 +63,14 @@
       "gapScore": 73
     },
     {
+      "region": "moryskah",
+      "label": "Moryskah",
+      "methods": 137,
+      "minigames": 3,
+      "blockedSkills": 0,
+      "gapScore": 92
+    },
+    {
       "region": "heartlands",
       "label": "Heartlands",
       "methods": 141,
@@ -80,29 +80,29 @@
     }
   ],
   "analysis": {
-    "region": "moryskah",
-    "label": "Moryskah",
-    "flavor": "gothic swamp, undead, vampires",
-    "methodsInRegion": 41,
+    "region": "sootworks",
+    "label": "Sootworks",
+    "flavor": "industrial underground, dwarves, clockwork",
+    "methodsInRegion": 52,
     "skillStatus": {
       "attack": {
-        "count": 4,
+        "count": 1,
         "maxLevel": 99,
         "status": "trainable"
       },
       "strength": {
-        "count": 2,
+        "count": 3,
         "maxLevel": 99,
         "status": "trainable"
       },
       "defence": {
         "count": 2,
-        "maxLevel": 99,
+        "maxLevel": 90,
         "status": "trainable"
       },
       "hitpoints": {
         "count": 2,
-        "maxLevel": 99,
+        "maxLevel": 80,
         "status": "trainable"
       },
       "ranged": {
@@ -116,17 +116,17 @@
         "status": "trainable"
       },
       "magic": {
-        "count": 3,
-        "maxLevel": 99,
-        "status": "trainable"
-      },
-      "runecrafting": {
         "count": 2,
         "maxLevel": 99,
         "status": "trainable"
       },
-      "construction": {
+      "runecrafting": {
         "count": 1,
+        "maxLevel": 99,
+        "status": "trainable"
+      },
+      "construction": {
+        "count": 2,
         "maxLevel": 99,
         "status": "trainable"
       },
@@ -136,22 +136,22 @@
         "status": "trainable"
       },
       "herblore": {
-        "count": 1,
-        "maxLevel": 85,
+        "count": 2,
+        "maxLevel": 99,
         "status": "trainable"
       },
       "thieving": {
-        "count": 1,
-        "maxLevel": 80,
+        "count": 2,
+        "maxLevel": 99,
         "status": "trainable"
       },
       "crafting": {
-        "count": 1,
+        "count": 4,
         "maxLevel": 99,
         "status": "trainable"
       },
       "fletching": {
-        "count": 1,
+        "count": 2,
         "maxLevel": 99,
         "status": "trainable"
       },
@@ -161,32 +161,32 @@
         "status": "trainable"
       },
       "hunter": {
-        "count": 1,
-        "maxLevel": 70,
+        "count": 3,
+        "maxLevel": 99,
         "status": "trainable"
       },
       "mining": {
-        "count": 1,
-        "maxLevel": 99,
-        "status": "trainable"
-      },
-      "smithing": {
-        "count": 1,
-        "maxLevel": 99,
-        "status": "trainable"
-      },
-      "fishing": {
         "count": 2,
         "maxLevel": 99,
         "status": "trainable"
       },
+      "smithing": {
+        "count": 2,
+        "maxLevel": 99,
+        "status": "trainable"
+      },
+      "fishing": {
+        "count": 3,
+        "maxLevel": 99,
+        "status": "trainable"
+      },
       "cooking": {
-        "count": 1,
+        "count": 2,
         "maxLevel": 99,
         "status": "trainable"
       },
       "firemaking": {
-        "count": 3,
+        "count": 4,
         "maxLevel": 99,
         "status": "trainable"
       },
@@ -196,7 +196,7 @@
         "status": "trainable"
       },
       "farming": {
-        "count": 1,
+        "count": 2,
         "maxLevel": 99,
         "status": "trainable"
       }
@@ -204,16 +204,17 @@
     "blockedSkills": [],
     "lowCapSkills": [],
     "prestigeGoal": {
-      "name": "The Barrows Brothers Challenge",
-      "flavor": "combat / prayer-switching"
+      "name": "The Clockwork Heart",
+      "flavor": "engineering / smithing"
     },
-    "minigames": 3,
+    "minigames": 4,
     "minigameIds": [
-      "moryskah_burgh_ramble",
-      "moryskah_vyre_vigil",
-      "moryskah_reliquary_defence"
+      "sootworks_forge",
+      "sootworks_cinder_parkour",
+      "sootworks_deep_shaft",
+      "sootworks_steam_titan"
     ],
-    "gapScore": 43.5
+    "gapScore": 49
   },
   "minigames_summary": {
     "total": 40,
