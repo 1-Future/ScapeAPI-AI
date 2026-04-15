@@ -646,7 +646,15 @@ async function handleAdminRequest(req, res) {
         );
       } catch {}
       return _json(res, { ok: true, user, role });
-=======
+    }
+
+    return _json(res, { error: 'Not found' }, 404);
+  } catch (err) {
+    return _json(res, { error: err.message || String(err) }, 500);
+  }
+}
+
+// ══════════════════════════════════════════════════════════════════════════════
 // HISCORES API — public read-only
 // ══════════════════════════════════════════════════════════════════════════════
 //   GET /api/hiscores/boards                         list known board ids
