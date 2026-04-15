@@ -1,0 +1,72 @@
+{
+  "$schema": "scape.diary.v1",
+  "region": "inkweald",
+  "name": "Inkweald Diary",
+  "summary": "A dreamscape forest of black ink and lucid silence. Reality stretches; dreams have edges. The Hollow Choir sings beneath the resonance chamber.",
+  "tiers": {
+    "easy": {
+      "tasks": [
+        { "id": "i_easy_1", "description": "Enter the Inkweald.", "check": { "type": "enter_area", "area": "inkweald" } },
+        { "id": "i_easy_2", "description": "Kill a dream wisp.", "check": { "type": "kill_npc", "npc": "dream_wisp" } },
+        { "id": "i_easy_3", "description": "Collect an inkblot fragment.", "check": { "type": "obtain_item", "item": "inkblot_fragment" } },
+        { "id": "i_easy_4", "description": "Talk to Lucid Keeper Yara.", "check": { "type": "talk_to_npc", "npc": "lucid_keeper_yara" } },
+        { "id": "i_easy_5", "description": "Buy an item from Dream Merchant Zyx.", "check": { "type": "buy_item", "shop": "dream_merchant_zyx" } },
+        { "id": "i_easy_6", "description": "Survive 1 minute in the Inkweald without taking damage.", "check": { "type": "survive_in_area", "area": "inkweald", "seconds": 60, "no_damage": true } },
+        { "id": "i_easy_7", "description": "Collect 3 echo petals.", "check": { "type": "obtain_item", "item": "echo_petal", "count": 3 } },
+        { "id": "i_easy_8", "description": "Kill 3 dream wisps.", "check": { "type": "kill_npc", "npc": "dream_wisp", "count": 3 } },
+        { "id": "i_easy_9", "description": "Use a prayer at the boundary camp.", "check": { "type": "activate_prayer", "area": "inkweald_boundary_camp" } },
+        { "id": "i_easy_10", "description": "Bank at the Inkweald boundary bank.", "check": { "type": "bank_use", "area": "inkweald_boundary" } }
+      ],
+      "reward": "Inkweald cape (easy) + emote: lucid breath. Diary lamp (easy).",
+      "perk_description": "Inkweald teleport (3/day); +10% dream wisp spawn rate; boundary bank teleport."
+    },
+    "medium": {
+      "tasks": [
+        { "id": "i_med_1", "description": "Complete The Inkweald Door quest.", "check": { "type": "quest_complete", "quest": "the_inkweald_door" } },
+        { "id": "i_med_2", "description": "Kill an ink horror.", "check": { "type": "kill_npc", "npc": "ink_horror" } },
+        { "id": "i_med_3", "description": "Complete a lap of the Inkweald Dreamwalk agility course.", "check": { "type": "agility_course_lap", "course": "inkweald_dreamwalk" } },
+        { "id": "i_med_4", "description": "Collect 10 inkblot fragments in one trip.", "check": { "type": "obtain_item_in_trip", "item": "inkblot_fragment", "count": 10 } },
+        { "id": "i_med_5", "description": "Kill a thought stalker with ranged.", "check": { "type": "kill_npc", "npc": "thought_stalker", "with_style": "ranged" } },
+        { "id": "i_med_6", "description": "Brew a wakefulness potion.", "check": { "type": "mix_potion", "item": "wakefulness_potion" } },
+        { "id": "i_med_7", "description": "Participate in Guardians of the Rift.", "check": { "type": "minigame_participate", "minigame": "guardians_rift" } },
+        { "id": "i_med_8", "description": "Craft cosmic runes at the cosmic altar (Inkweald).", "check": { "type": "runecraft", "item": "cosmic_rune" } },
+        { "id": "i_med_9", "description": "Kill a mirror golem with crush.", "check": { "type": "kill_npc", "npc": "mirror_golem", "with_style": "crush" } },
+        { "id": "i_med_10", "description": "Collect a lucid essence.", "check": { "type": "obtain_item", "item": "lucid_essence" } }
+      ],
+      "reward": "Inkweald cape (medium) + Dreamwalk shortcut. Diary lamp (medium).",
+      "perk_description": "Dreamwalk shortcut between camps; cosmic altar half-essence; +10% inkblot fragment drop."
+    },
+    "hard": {
+      "tasks": [
+        { "id": "i_hard_1", "description": "Defeat the Inkweald Muse (5-player).", "check": { "type": "boss_kill_group", "boss": "inkweald_muse", "min_party": 5 } },
+        { "id": "i_hard_2", "description": "Complete The Hollow Choir's Song quest.", "check": { "type": "quest_complete", "quest": "hollow_choirs_song" } },
+        { "id": "i_hard_3", "description": "Kill 50 ink horrors.", "check": { "type": "kill_npc", "npc": "ink_horror", "count": 50 } },
+        { "id": "i_hard_4", "description": "Complete a full Dreamwalk lap without failing.", "check": { "type": "agility_course_lap", "course": "inkweald_dreamwalk", "perfect": true } },
+        { "id": "i_hard_5", "description": "Collect a nightmare shard.", "check": { "type": "obtain_item", "item": "nightmare_shard" } },
+        { "id": "i_hard_6", "description": "Kill a sleepwalker.", "check": { "type": "kill_npc", "npc": "sleepwalker" } },
+        { "id": "i_hard_7", "description": "Craft soul runes at the soul altar (RC 90).", "check": { "type": "runecraft", "item": "soul_rune", "min_level": { "runecrafting": 90 } } },
+        { "id": "i_hard_8", "description": "Earn a piece of the Raiments of the Eye.", "check": { "type": "obtain_item_tag", "tag": "raiments_of_the_eye" } },
+        { "id": "i_hard_9", "description": "Kill a false self (mirror enemy).", "check": { "type": "kill_npc", "npc": "false_self" } },
+        { "id": "i_hard_10", "description": "Complete a hard clue step in the Inkweald.", "check": { "type": "clue_step_complete", "tier": "hard", "area": "inkweald" } }
+      ],
+      "reward": "Inkweald cape (hard) + Muse arena shortcut. Diary lamp (hard).",
+      "perk_description": "Muse arena shortcut; +10% lucid essence drops; Raiments of the Eye 65% rune bonus (was 60%)."
+    },
+    "elite": {
+      "tasks": [
+        { "id": "i_elite_1", "description": "Defeat the Hollow Choir (8-player raid).", "check": { "type": "raid_complete", "raid": "hollow_choir_raid", "min_party": 8 } },
+        { "id": "i_elite_2", "description": "Complete every Inkweald quest.", "check": { "type": "all_region_quests_complete", "region": "inkweald" } },
+        { "id": "i_elite_3", "description": "Get a Harmonic blade or Silence bow from the Choir.", "check": { "type": "obtain_one_of", "items": ["harmonic_blade", "silence_bow"] } },
+        { "id": "i_elite_4", "description": "Kill 200 dream creatures.", "check": { "type": "kill_npc_tag", "tag": "dream", "count": 200 } },
+        { "id": "i_elite_5", "description": "Complete an elite clue step in the resonance chamber.", "check": { "type": "clue_step_complete", "tier": "elite", "area": "inkweald_resonance_chamber" } },
+        { "id": "i_elite_6", "description": "Earn the full Raiments of the Eye set.", "check": { "type": "collection_log_owned_set", "set_items": [30301, 30302, 30303, 30304] } },
+        { "id": "i_elite_7", "description": "Kill a dream dragon.", "check": { "type": "kill_npc", "npc": "dream_dragon" } },
+        { "id": "i_elite_8", "description": "Craft wrath runes at the wrath altar.", "check": { "type": "runecraft", "item": "wrath_rune" } },
+        { "id": "i_elite_9", "description": "Kill a memory devourer without losing prayer.", "check": { "type": "kill_npc_no_prayer_loss", "npc": "memory_devourer" } },
+        { "id": "i_elite_10", "description": "Complete the Aelgard Atlas quest.", "check": { "type": "quest_complete", "quest": "aelgard_atlas" } }
+      ],
+      "reward": "Inkweald cape (elite — lucid weave recolour), unlimited Inkweald teleport, dream-state regeneration token. Diary lamp (elite).",
+      "perk_description": "Unlimited Inkweald teleport; dream-state HP regen doubles; +5% rare chance from Choir."
+    }
+  }
+}

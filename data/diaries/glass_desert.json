@@ -1,0 +1,72 @@
+{
+  "$schema": "scape.diary.v1",
+  "region": "glass_desert",
+  "name": "Glass Desert Diary",
+  "summary": "An inland sea of fused crystal where the old sun shattered. Veldrak coils in the sandstorm, and the Crystal Wyrm hunts through the prism dunes. The endgame's final region.",
+  "tiers": {
+    "easy": {
+      "tasks": [
+        { "id": "g_easy_1", "description": "Enter the Glass Desert.", "check": { "type": "enter_area", "area": "glass_desert" } },
+        { "id": "g_easy_2", "description": "Mine a crystal node.", "check": { "type": "mine_items", "items": ["crystal_node"] } },
+        { "id": "g_easy_3", "description": "Kill a glass spider.", "check": { "type": "kill_npc", "npc": "glass_spider" } },
+        { "id": "g_easy_4", "description": "Talk to Crystal Sage Orin.", "check": { "type": "talk_to_npc", "npc": "crystal_sage_orin" } },
+        { "id": "g_easy_5", "description": "Buy crystal shards from Merchant Zel.", "check": { "type": "buy_item", "item": "crystal_shard", "shop": "merchant_zel" } },
+        { "id": "g_easy_6", "description": "Collect 5 crystal shards.", "check": { "type": "obtain_item", "item": "crystal_shard", "count": 5 } },
+        { "id": "g_easy_7", "description": "Kill 3 glass spiders.", "check": { "type": "kill_npc", "npc": "glass_spider", "count": 3 } },
+        { "id": "g_easy_8", "description": "Bank at the Glass Desert outpost.", "check": { "type": "bank_use", "area": "glass_desert_outpost" } },
+        { "id": "g_easy_9", "description": "Survive 2 minutes in the Glass Desert.", "check": { "type": "survive_in_area", "area": "glass_desert", "seconds": 120 } },
+        { "id": "g_easy_10", "description": "Kill a crystal bat.", "check": { "type": "kill_npc", "npc": "crystal_bat" } }
+      ],
+      "reward": "Glass Desert cape (easy) + emote: prism wave. Diary lamp (easy).",
+      "perk_description": "Glass Desert teleport (3/day); noted crystal shards from glass spider drops."
+    },
+    "medium": {
+      "tasks": [
+        { "id": "g_med_1", "description": "Complete The Glass Prophecy quest.", "check": { "type": "quest_complete", "quest": "glass_prophecy" } },
+        { "id": "g_med_2", "description": "Kill a prism wizard with ranged.", "check": { "type": "kill_npc", "npc": "prism_wizard", "with_style": "ranged" } },
+        { "id": "g_med_3", "description": "Mine 20 crystal shards in one trip.", "check": { "type": "obtain_item_in_trip", "item": "crystal_shard", "count": 20 } },
+        { "id": "g_med_4", "description": "Kill a glass golem with crush.", "check": { "type": "kill_npc", "npc": "glass_golem", "with_style": "crush" } },
+        { "id": "g_med_5", "description": "Collect a prism lens.", "check": { "type": "obtain_item", "item": "prism_lens" } },
+        { "id": "g_med_6", "description": "Use a crystal arrow against a glass creature.", "check": { "type": "kill_npc_with_item", "npc_tag": "glass", "item": "crystal_arrow" } },
+        { "id": "g_med_7", "description": "Kill a refracted elemental.", "check": { "type": "kill_npc", "npc": "refracted_elemental" } },
+        { "id": "g_med_8", "description": "Navigate to the Crystal Wyrm lair entrance.", "check": { "type": "enter_area", "area": "crystal_wyrm_lair_entrance" } },
+        { "id": "g_med_9", "description": "Collect a refracted essence.", "check": { "type": "obtain_item", "item": "refracted_essence" } },
+        { "id": "g_med_10", "description": "Kill 10 prism wizards.", "check": { "type": "kill_npc", "npc": "prism_wizard", "count": 10 } }
+      ],
+      "reward": "Glass Desert cape (medium) + outpost bank teleport. Diary lamp (medium).",
+      "perk_description": "Outpost bank teleport; +10% crystal shard mining; prism wizard barriers respect prayer."
+    },
+    "hard": {
+      "tasks": [
+        { "id": "g_hard_1", "description": "Defeat the Crystal Wyrm.", "check": { "type": "boss_kill", "boss": "crystal_wyrm" } },
+        { "id": "g_hard_2", "description": "Complete The Last Dragon Part 1.", "check": { "type": "quest_complete", "quest": "the_last_dragon_part1" } },
+        { "id": "g_hard_3", "description": "Kill a crystal dragon.", "check": { "type": "kill_npc", "npc": "crystal_dragon" } },
+        { "id": "g_hard_4", "description": "Collect a Wyrm Scale piece.", "check": { "type": "obtain_item_tag", "tag": "wyrm_scale" } },
+        { "id": "g_hard_5", "description": "Mine amethyst (mining 92).", "check": { "type": "mine_items", "items": ["amethyst"], "min_level": { "mining": 92 } } },
+        { "id": "g_hard_6", "description": "Kill a sand wraith with ranged.", "check": { "type": "kill_npc", "npc": "sand_wraith", "with_style": "ranged" } },
+        { "id": "g_hard_7", "description": "Complete a hard clue step in the Glass Tyrant arena.", "check": { "type": "clue_step_complete", "tier": "hard", "area": "glass_tyrant_arena" } },
+        { "id": "g_hard_8", "description": "Kill 50 Glass Desert creatures.", "check": { "type": "kill_npc_in_area", "area": "glass_desert", "count": 50 } },
+        { "id": "g_hard_9", "description": "Use the ancient magicks in the Glass Desert.", "check": { "type": "cast_spellbook", "spellbook": "ancient", "area": "glass_desert" } },
+        { "id": "g_hard_10", "description": "Defeat The Glass Tyrant.", "check": { "type": "boss_kill", "boss": "glass_tyrant" } }
+      ],
+      "reward": "Glass Desert cape (hard) + Crystal Wyrm shortcut, dragonfire immunity in Glass Desert. Diary lamp (hard).",
+      "perk_description": "Crystal Wyrm shortcut; dragonfire immunity in Glass Desert; +5% glass-creature crit rate."
+    },
+    "elite": {
+      "tasks": [
+        { "id": "g_elite_1", "description": "Defeat Veldrak, the Last Dragon.", "check": { "type": "boss_kill", "boss": "veldrak_last_dragon" } },
+        { "id": "g_elite_2", "description": "Complete The Last Light of the Old Sun.", "check": { "type": "quest_complete", "quest": "last_light_of_the_old_sun" } },
+        { "id": "g_elite_3", "description": "Complete every Glass Desert quest.", "check": { "type": "all_region_quests_complete", "region": "glass_desert" } },
+        { "id": "g_elite_4", "description": "Kill the Crystal Wyrm 100 times.", "check": { "type": "boss_kill", "boss": "crystal_wyrm", "count": 100 } },
+        { "id": "g_elite_5", "description": "Get a Veldrak unique drop.", "check": { "type": "obtain_item_tag", "tag": "veldrak_unique" } },
+        { "id": "g_elite_6", "description": "Complete the Infernal Challenge (69 waves).", "check": { "type": "raid_complete", "raid": "infernal_challenge" } },
+        { "id": "g_elite_7", "description": "Complete every Glass Desert collection log entry.", "check": { "type": "collection_log_complete_region", "region": "glass_desert" } },
+        { "id": "g_elite_8", "description": "Kill a drake.", "check": { "type": "kill_npc", "npc": "drake" } },
+        { "id": "g_elite_9", "description": "Complete the Chambers of Aelgard raid.", "check": { "type": "raid_complete", "raid": "chambers_of_aelgard" } },
+        { "id": "g_elite_10", "description": "Earn the Infernal cape.", "check": { "type": "obtain_item", "item": "infernal_cape" } }
+      ],
+      "reward": "Glass Desert cape (elite — refracted prism recolour), unlimited Glass Desert teleport, Veldrak's tooth pendant (cosmetic). Diary lamp (elite).",
+      "perk_description": "Unlimited Glass Desert teleport; double crystal node respawn; +5% rare chance from Veldrak; sandstorm immunity."
+    }
+  }
+}

@@ -1,0 +1,72 @@
+{
+  "$schema": "scape.diary.v1",
+  "region": "heartlands",
+  "name": "Heartlands Diary",
+  "summary": "The starter region. From mining copper in the eastern hills to slaying greater demons in the deepest dungeon.",
+  "tiers": {
+    "easy": {
+      "tasks": [
+        { "id": "h_easy_1", "description": "Mine a copper ore and a tin ore.", "check": { "type": "mine_items", "items": ["copper_ore", "tin_ore"], "area": "heartlands" } },
+        { "id": "h_easy_2", "description": "Smelt a bronze bar at the town furnace.", "check": { "type": "smelt_item", "item": "bronze_bar", "area": "heartlands_furnace" } },
+        { "id": "h_easy_3", "description": "Smith a bronze dagger on the town anvil.", "check": { "type": "smith_item", "item": "bronze_dagger", "area": "heartlands_anvil" } },
+        { "id": "h_easy_4", "description": "Catch a shrimp at the Heartlands fishing spot.", "check": { "type": "catch_fish", "item": "shrimp", "area": "heartlands_dock" } },
+        { "id": "h_easy_5", "description": "Cook a shrimp without burning it on the town range.", "check": { "type": "cook_item_in_area", "item": "shrimp", "area": "heartlands_range", "burn": false } },
+        { "id": "h_easy_6", "description": "Kill a chicken and bury its bones.", "check": { "type": "compound", "all": [{ "type": "kill_npc", "npc": "chicken" }, { "type": "bury_bones", "item": "bones" }] } },
+        { "id": "h_easy_7", "description": "Chop a normal tree and light the logs in Heartlands.", "check": { "type": "compound", "all": [{ "type": "chop_tree", "tree": "tree", "area": "heartlands" }, { "type": "light_fire", "log": "logs", "area": "heartlands" }] } },
+        { "id": "h_easy_8", "description": "Complete the Heartlands Patrol quest.", "check": { "type": "quest_complete", "quest": "heartlands_patrol" } },
+        { "id": "h_easy_9", "description": "Buy a bronze sword from Kael's Smithy.", "check": { "type": "buy_item", "item": "bronze_sword", "shop": "kaels_smithy" } },
+        { "id": "h_easy_10", "description": "Pickpocket a man or woman in Heartlands town.", "check": { "type": "pickpocket_npc", "npc_tags": ["man", "woman"], "area": "heartlands" } }
+      ],
+      "reward": "Heartlands cape (easy) + emote: tip hat. Diary lamp (easy) granting 2,500 XP to any skill.",
+      "perk_description": "10% chance of double yield from Heartlands farm patches; Heartlands teleport (3/day)."
+    },
+    "medium": {
+      "tasks": [
+        { "id": "h_med_1", "description": "Kill a Hill giant in the eastern hills.", "check": { "type": "kill_npc", "npc": "hill_giant", "area": "heartlands_eastern_hills" } },
+        { "id": "h_med_2", "description": "Smith an iron dagger on the town anvil.", "check": { "type": "smith_item", "item": "iron_dagger", "area": "heartlands_anvil" } },
+        { "id": "h_med_3", "description": "Complete the Missing Miner quest.", "check": { "type": "quest_complete", "quest": "missing_miner" } },
+        { "id": "h_med_4", "description": "Catch a trout at the fly fishing spot.", "check": { "type": "catch_fish", "item": "trout", "area": "heartlands_river" } },
+        { "id": "h_med_5", "description": "Cook a trout on the town range without burning it.", "check": { "type": "cook_item_in_area", "item": "trout", "area": "heartlands_range", "burn": false } },
+        { "id": "h_med_6", "description": "Reach the top of the Heartlands rooftop agility course.", "check": { "type": "agility_course_lap", "course": "heartlands_rooftop" } },
+        { "id": "h_med_7", "description": "Clean a grimy guam leaf.", "check": { "type": "clean_herb", "item": "guam_leaf" } },
+        { "id": "h_med_8", "description": "Mix an attack potion.", "check": { "type": "mix_potion", "item": "attack_potion" } },
+        { "id": "h_med_9", "description": "Plant and harvest a potato from the Heartlands allotment.", "check": { "type": "compound", "all": [{ "type": "farm_plant", "seed": "potato_seed", "area": "heartlands_allotment" }, { "type": "farm_harvest", "crop": "potato", "area": "heartlands_allotment" }] } },
+        { "id": "h_med_10", "description": "Sell an item on the Grand Exchange.", "check": { "type": "ge_sell" } }
+      ],
+      "reward": "Heartlands cape (medium) + bank teleport unlock. Diary lamp (medium) 7,500 XP (level 40+ skill).",
+      "perk_description": "Bones drop noted from Heartlands monsters; Heartlands teleport unlimited."
+    },
+    "hard": {
+      "tasks": [
+        { "id": "h_hard_1", "description": "Kill a lesser demon in the Heartlands dungeon.", "check": { "type": "kill_npc", "npc": "lesser_demon", "area": "heartlands_dungeon" } },
+        { "id": "h_hard_2", "description": "Complete the Forge of Duran quest.", "check": { "type": "quest_complete", "quest": "forge_of_duran" } },
+        { "id": "h_hard_3", "description": "Craft a sapphire ring (crafting 20 required).", "check": { "type": "craft_item", "item": "sapphire_ring", "min_level": { "crafting": 20 } } },
+        { "id": "h_hard_4", "description": "Fletch a maple shortbow and string it.", "check": { "type": "compound", "all": [{ "type": "fletch_item", "item": "maple_shortbow_u" }, { "type": "fletch_item", "item": "maple_shortbow" }] } },
+        { "id": "h_hard_5", "description": "Complete a full lap of the rooftop course without failing.", "check": { "type": "agility_course_lap", "course": "heartlands_rooftop", "perfect": true } },
+        { "id": "h_hard_6", "description": "Bury a dragon bone on the Heartlands altar.", "check": { "type": "bury_bones", "item": "dragon_bones", "area": "heartlands_altar" } },
+        { "id": "h_hard_7", "description": "Use the Heartlands teleport spell.", "check": { "type": "cast_spell", "spell": "heartlands_teleport" } },
+        { "id": "h_hard_8", "description": "Pickpocket a paladin.", "check": { "type": "pickpocket_npc", "npc": "paladin", "area": "heartlands" } },
+        { "id": "h_hard_9", "description": "Kill a Moss giant with magic.", "check": { "type": "kill_npc", "npc": "moss_giant", "with_style": "magic" } },
+        { "id": "h_hard_10", "description": "Catch a lobster at the Saltbrine coast and cook it in Heartlands.", "check": { "type": "compound", "all": [{ "type": "catch_fish", "item": "lobster", "area": "saltbrine_coast" }, { "type": "cook_item_in_area", "item": "lobster", "area": "heartlands_range" }] } }
+      ],
+      "reward": "Heartlands cape (hard) + GE teleport, +10% Heartlands shop discount. Diary lamp (hard) 15,000 XP (level 60+ skill).",
+      "perk_description": "Heartlands GE teleport always available; herb patches 10% slower disease; +5% mining XP at all Heartlands rocks."
+    },
+    "elite": {
+      "tasks": [
+        { "id": "h_elite_1", "description": "Defeat Forgefather Duran in under 2 minutes.", "check": { "type": "boss_kill_under_time", "boss": "forgefather_duran", "seconds": 120 } },
+        { "id": "h_elite_2", "description": "Build a gilded altar in your player-owned house.", "check": { "type": "construction_build", "item": "gilded_altar" } },
+        { "id": "h_elite_3", "description": "Complete a full herb run (harvest from all 7 patches).", "check": { "type": "farm_full_herb_run", "patches_min": 7 } },
+        { "id": "h_elite_4", "description": "Craft 100 nature runes in a single trip.", "check": { "type": "runecraft_in_trip", "item": "nature_rune", "count": 100 } },
+        { "id": "h_elite_5", "description": "Smith a rune platebody from scratch (mine ore, smelt, smith).", "check": { "type": "compound", "all": [{ "type": "mine_items", "items": ["runite_ore"], "min_count": 5 }, { "type": "smelt_item", "item": "runite_bar", "count": 5 }, { "type": "smith_item", "item": "rune_platebody" }] } },
+        { "id": "h_elite_6", "description": "Kill a Greater demon with only magic.", "check": { "type": "kill_npc", "npc": "greater_demon", "with_style": "magic", "exclusive": true } },
+        { "id": "h_elite_7", "description": "Chop a yew tree in the Heartlands.", "check": { "type": "chop_tree", "tree": "yew", "area": "heartlands" } },
+        { "id": "h_elite_8", "description": "Catch and cook a shark.", "check": { "type": "compound", "all": [{ "type": "catch_fish", "item": "shark" }, { "type": "cook_item_in_area", "item": "shark" }] } },
+        { "id": "h_elite_9", "description": "Mix a saradomin brew.", "check": { "type": "mix_potion", "item": "saradomin_brew" } },
+        { "id": "h_elite_10", "description": "Complete every Heartlands quest.", "check": { "type": "all_region_quests_complete", "region": "heartlands" } }
+      ],
+      "reward": "Heartlands cape (elite — recolour menu), instant altar access in player house, gilded shoulder pauldrons. Diary lamp (elite) 50,000 XP (level 75+ skill).",
+      "perk_description": "All Heartlands altars give +50% prayer XP; instant teleport to any Heartlands shop; 5% chance of double drops from Heartlands monsters."
+    }
+  }
+}

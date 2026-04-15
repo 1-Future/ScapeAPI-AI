@@ -1,0 +1,72 @@
+{
+  "$schema": "scape.diary.v1",
+  "region": "saltbrine",
+  "name": "Saltbrine Reach Diary",
+  "summary": "Harbour towns, pirate coves, and the long Saltbrine Trawler. The deep wakes Krakens and worse — but the lobster catch is the best in Aelgard.",
+  "tiers": {
+    "easy": {
+      "tasks": [
+        { "id": "sb_easy_1", "description": "Catch a shrimp at the Saltbrine coast.", "check": { "type": "catch_fish", "item": "shrimp", "area": "saltbrine_coast" } },
+        { "id": "sb_easy_2", "description": "Kill a pirate.", "check": { "type": "kill_npc", "npc": "pirate" } },
+        { "id": "sb_easy_3", "description": "Buy from Fishmonger Mara's shop.", "check": { "type": "buy_item", "shop": "fishmonger_mara" } },
+        { "id": "sb_easy_4", "description": "Enter the pirate cove.", "check": { "type": "enter_area", "area": "saltbrine_pirate_cove" } },
+        { "id": "sb_easy_5", "description": "Kill a rock crab.", "check": { "type": "kill_npc", "npc": "rock_crab", "area": "saltbrine" } },
+        { "id": "sb_easy_6", "description": "Cook a sardine at the harbour range.", "check": { "type": "cook_item_in_area", "item": "sardine", "area": "saltbrine_harbour_range" } },
+        { "id": "sb_easy_7", "description": "Collect a barnacle shell.", "check": { "type": "obtain_item", "item": "barnacle_shell" } },
+        { "id": "sb_easy_8", "description": "Talk to Harbourmaster Cole.", "check": { "type": "talk_to_npc", "npc": "harbourmaster_cole" } },
+        { "id": "sb_easy_9", "description": "Catch 5 fish at any Saltbrine spot.", "check": { "type": "catch_fish_count", "count": 5, "area": "saltbrine" } },
+        { "id": "sb_easy_10", "description": "Kill a seagull.", "check": { "type": "kill_npc", "npc": "seagull" } }
+      ],
+      "reward": "Saltbrine cape (easy) + emote: salute. Diary lamp (easy).",
+      "perk_description": "Saltbrine teleport (3/day); +5% catch rate at coast spots."
+    },
+    "medium": {
+      "tasks": [
+        { "id": "sb_med_1", "description": "Complete the Pirate King quest.", "check": { "type": "quest_complete", "quest": "pirate_king" } },
+        { "id": "sb_med_2", "description": "Catch a lobster at the coast (fishing 40).", "check": { "type": "catch_fish", "item": "lobster", "min_level": { "fishing": 40 } } },
+        { "id": "sb_med_3", "description": "Complete a lap of the Saltbrine Harbour agility course.", "check": { "type": "agility_course_lap", "course": "saltbrine_harbour" } },
+        { "id": "sb_med_4", "description": "Kill a sea snake without getting poisoned.", "check": { "type": "kill_npc_without_status", "npc": "sea_snake", "status": "poison" } },
+        { "id": "sb_med_5", "description": "Cook a lobster without burning it.", "check": { "type": "cook_item", "item": "lobster", "burn": false } },
+        { "id": "sb_med_6", "description": "Kill a pirate captain.", "check": { "type": "kill_npc", "npc": "pirate_captain" } },
+        { "id": "sb_med_7", "description": "Catch a swordfish (fishing 50).", "check": { "type": "catch_fish", "item": "swordfish", "min_level": { "fishing": 50 } } },
+        { "id": "sb_med_8", "description": "Complete the Trawler's Call quest.", "check": { "type": "quest_complete", "quest": "trawlers_call" } },
+        { "id": "sb_med_9", "description": "Participate in a Saltbrine Trawler run.", "check": { "type": "minigame_participate", "minigame": "saltbrine_trawler" } },
+        { "id": "sb_med_10", "description": "Buy a harpoon from the fish shop.", "check": { "type": "buy_item", "item": "harpoon", "shop": "fishmonger_mara" } }
+      ],
+      "reward": "Saltbrine cape (medium) + harbour bank teleport. Diary lamp (medium).",
+      "perk_description": "Harbour bank teleport; noted fish from coast spots; +10% pearl chance from Trawler."
+    },
+    "hard": {
+      "tasks": [
+        { "id": "sb_hard_1", "description": "Complete Whispers from the Depths quest.", "check": { "type": "quest_complete", "quest": "whispers_from_the_depths" } },
+        { "id": "sb_hard_2", "description": "Catch a shark (fishing 76).", "check": { "type": "catch_fish", "item": "shark", "min_level": { "fishing": 76 } } },
+        { "id": "sb_hard_3", "description": "Cook a shark without burning it.", "check": { "type": "cook_item", "item": "shark", "burn": false } },
+        { "id": "sb_hard_4", "description": "Kill a dagannoth.", "check": { "type": "kill_npc", "npc": "dagannoth" } },
+        { "id": "sb_hard_5", "description": "Complete a round of Barbarian Assault.", "check": { "type": "minigame_complete", "minigame": "barbarian_assault" } },
+        { "id": "sb_hard_6", "description": "Defeat the Pirate Captain boss instance.", "check": { "type": "boss_kill", "boss": "pirate_captain_boss" } },
+        { "id": "sb_hard_7", "description": "Catch a monkfish (fishing 62).", "check": { "type": "catch_fish", "item": "monkfish", "min_level": { "fishing": 62 } } },
+        { "id": "sb_hard_8", "description": "Craft an anglerfish from the Trawler.", "check": { "type": "obtain_item", "item": "anglerfish" } },
+        { "id": "sb_hard_9", "description": "Kill a lobstrosity.", "check": { "type": "kill_npc", "npc": "lobstrosity" } },
+        { "id": "sb_hard_10", "description": "Collect a Saltbrine pearl from a pirate captain.", "check": { "type": "obtain_item_from_npc", "item": "saltbrine_pearl", "npc": "pirate_captain" } }
+      ],
+      "reward": "Saltbrine cape (hard) + Kraken arena shortcut. Diary lamp (hard).",
+      "perk_description": "Kraken arena shortcut; +10% pearl chance from Trawler; harpoon special attack regen +50%."
+    },
+    "elite": {
+      "tasks": [
+        { "id": "sb_elite_1", "description": "Defeat the Kraken of Saltbrine.", "check": { "type": "boss_kill", "boss": "kraken_of_saltbrine" } },
+        { "id": "sb_elite_2", "description": "Catch a dark crab in the Wilds (fishing 85).", "check": { "type": "catch_fish", "item": "dark_crab", "area": "wilds", "min_level": { "fishing": 85 } } },
+        { "id": "sb_elite_3", "description": "Complete Barbarian Assault with all roles.", "check": { "type": "minigame_role_complete", "minigame": "barbarian_assault", "roles": ["attacker", "defender", "collector", "healer"] } },
+        { "id": "sb_elite_4", "description": "Earn a Fighter torso from Barbarian Assault.", "check": { "type": "obtain_item", "item": "fighter_torso" } },
+        { "id": "sb_elite_5", "description": "Complete every Saltbrine quest.", "check": { "type": "all_region_quests_complete", "region": "saltbrine" } },
+        { "id": "sb_elite_6", "description": "Catch an anglerfish (fishing 82).", "check": { "type": "catch_fish", "item": "anglerfish", "min_level": { "fishing": 82 } } },
+        { "id": "sb_elite_7", "description": "Kill a sea troll with magic.", "check": { "type": "kill_npc", "npc": "sea_troll", "with_style": "magic" } },
+        { "id": "sb_elite_8", "description": "Complete an elite clue step in the harbour.", "check": { "type": "clue_step_complete", "tier": "elite", "area": "saltbrine_harbour" } },
+        { "id": "sb_elite_9", "description": "Reach 99 fishing.", "check": { "type": "skill_level_99", "skill": "fishing" } },
+        { "id": "sb_elite_10", "description": "Kill the Kraken 50 times.", "check": { "type": "boss_kill", "boss": "kraken_of_saltbrine", "count": 50 } }
+      ],
+      "reward": "Saltbrine cape (elite — pearl-trim recolour), unlimited Saltbrine teleport, captain's tricorn (cosmetic). Diary lamp (elite).",
+      "perk_description": "Unlimited Saltbrine teleport; double fish at coast spots; Kraken kill instant-bank loot."
+    }
+  }
+}

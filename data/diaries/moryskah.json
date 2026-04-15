@@ -1,0 +1,72 @@
+{
+  "$schema": "scape.diary.v1",
+  "region": "moryskah",
+  "name": "Moryskah Diary",
+  "summary": "Bog, blood, and barrows. Vampyres roam the canopy and ghasts pull travellers off the path. Bring silver, holy water, and a strong stomach.",
+  "tiers": {
+    "easy": {
+      "tasks": [
+        { "id": "m_easy_1", "description": "Enter Moryskah from the Heartlands.", "check": { "type": "enter_area", "area": "moryskah", "from_area": "heartlands" } },
+        { "id": "m_easy_2", "description": "Kill a ghast.", "check": { "type": "kill_npc", "npc": "ghast" } },
+        { "id": "m_easy_3", "description": "Buy holy water from Apothecary Nira.", "check": { "type": "buy_item", "item": "holy_water", "shop": "nira_apothecary" } },
+        { "id": "m_easy_4", "description": "Enter the slayer tower.", "check": { "type": "enter_area", "area": "moryskah_slayer_tower" } },
+        { "id": "m_easy_5", "description": "Kill a crawling hand in the tower.", "check": { "type": "kill_npc", "npc": "crawling_hand", "area": "moryskah_slayer_tower" } },
+        { "id": "m_easy_6", "description": "Talk to Father Dorin.", "check": { "type": "talk_to_npc", "npc": "father_dorin" } },
+        { "id": "m_easy_7", "description": "Pick up ectoplasm from a ghast.", "check": { "type": "obtain_item", "item": "ectoplasm" } },
+        { "id": "m_easy_8", "description": "Kill 5 ghasts without leaving the swamp.", "check": { "type": "kill_npc_in_trip", "npc": "ghast", "count": 5, "area": "moryskah_swamp" } },
+        { "id": "m_easy_9", "description": "Buy a silver sickle.", "check": { "type": "buy_item", "item": "silver_sickle" } },
+        { "id": "m_easy_10", "description": "Bury bones in Moryskah.", "check": { "type": "bury_bones", "area": "moryskah" } }
+      ],
+      "reward": "Moryskah cape (easy) + emote: drink from flask. Diary lamp (easy).",
+      "perk_description": "Moryskah teleport (3/day); holy water refill at any Moryskah altar."
+    },
+    "medium": {
+      "tasks": [
+        { "id": "m_med_1", "description": "Complete The Bog Witch's Bargain.", "check": { "type": "quest_complete", "quest": "bog_witchs_bargain" } },
+        { "id": "m_med_2", "description": "Kill a banshee with a proper nosepeg equipped.", "check": { "type": "kill_npc_with_item", "npc": "banshee", "item": "nose_peg" } },
+        { "id": "m_med_3", "description": "Pickpocket a vampyre juvenile.", "check": { "type": "pickpocket_npc", "npc": "vampyre_juvenile" } },
+        { "id": "m_med_4", "description": "Kill an aberrant spectre in the slayer tower.", "check": { "type": "kill_npc", "npc": "aberrant_spectre", "area": "moryskah_slayer_tower" } },
+        { "id": "m_med_5", "description": "Collect a vial of blood from a vampyre.", "check": { "type": "obtain_item", "item": "vial_of_blood" } },
+        { "id": "m_med_6", "description": "Use a silver sickle against a vampyre (bonus damage).", "check": { "type": "kill_npc_with_item", "npc": "vampyre", "item": "silver_sickle" } },
+        { "id": "m_med_7", "description": "Kill a werewolf with melee.", "check": { "type": "kill_npc", "npc": "werewolf", "with_style": "melee" } },
+        { "id": "m_med_8", "description": "Navigate to the Bog Witch without dying to ghasts.", "check": { "type": "reach_npc_without_death", "npc": "bog_witch_grael" } },
+        { "id": "m_med_9", "description": "Collect 5 wolfbane herbs.", "check": { "type": "obtain_item", "item": "wolfbane_herb", "count": 5 } },
+        { "id": "m_med_10", "description": "Enter the Moryskah slayer tower upper floor.", "check": { "type": "enter_area", "area": "moryskah_slayer_tower_upper" } }
+      ],
+      "reward": "Moryskah cape (medium) + slayer tower shortcut. Diary lamp (medium).",
+      "perk_description": "Slayer tower shortcut between floors; +10% ectoplasm drops; silver sickle special attack regen +50%."
+    },
+    "hard": {
+      "tasks": [
+        { "id": "m_hard_1", "description": "Complete the Blood Rites quest.", "check": { "type": "quest_complete", "quest": "blood_rites" } },
+        { "id": "m_hard_2", "description": "Kill a vyrewatch.", "check": { "type": "kill_npc", "npc": "vyrewatch" } },
+        { "id": "m_hard_3", "description": "Complete one Barrows run (kill all 6 brothers).", "check": { "type": "barrows_full_clear" } },
+        { "id": "m_hard_4", "description": "Kill a bloodveld in the catacombs.", "check": { "type": "kill_npc", "npc": "bloodveld", "area": "moryskah_catacombs" } },
+        { "id": "m_hard_5", "description": "Get a Barrows equipment piece from the chest.", "check": { "type": "obtain_item_tag", "tag": "barrows_equipment" } },
+        { "id": "m_hard_6", "description": "Kill a gargoyle (slayer 75).", "check": { "type": "kill_npc", "npc": "gargoyle", "min_level": { "slayer": 75 } } },
+        { "id": "m_hard_7", "description": "Kill a nechryael (slayer 80).", "check": { "type": "kill_npc", "npc": "nechryael", "min_level": { "slayer": 80 } } },
+        { "id": "m_hard_8", "description": "Navigate Castle Malachar without dying.", "check": { "type": "traverse_area_without_death", "area": "castle_malachar" } },
+        { "id": "m_hard_9", "description": "Forge a silver stake at the Sootworks using Moryskah materials.", "check": { "type": "smith_item_in_area", "item": "silver_stake", "area": "sootworks_forge" } },
+        { "id": "m_hard_10", "description": "Collect all 3 Malachar unique drops.", "check": { "type": "collection_log_complete", "source": "count_malachar" } }
+      ],
+      "reward": "Moryskah cape (hard) + Barrows teleport, free Barrows equipment repair. Diary lamp (hard).",
+      "perk_description": "Barrows teleport unlocked; +5% rare drop chance from Barrows; free repair at Bob's anvil."
+    },
+    "elite": {
+      "tasks": [
+        { "id": "m_elite_1", "description": "Defeat Count Malachar solo.", "check": { "type": "boss_kill_solo", "boss": "count_malachar" } },
+        { "id": "m_elite_2", "description": "Kill 200 vampyres in Moryskah.", "check": { "type": "kill_npc", "npc": "vampyre", "count": 200, "area": "moryskah" } },
+        { "id": "m_elite_3", "description": "Complete every Moryskah quest.", "check": { "type": "all_region_quests_complete", "region": "moryskah" } },
+        { "id": "m_elite_4", "description": "Kill an abyssal demon in the catacombs (slayer 85).", "check": { "type": "kill_npc", "npc": "abyssal_demon", "area": "moryskah_catacombs", "min_level": { "slayer": 85 } } },
+        { "id": "m_elite_5", "description": "Craft blood runes at the blood altar.", "check": { "type": "runecraft", "item": "blood_rune" } },
+        { "id": "m_elite_6", "description": "Kill Cerberus (slayer 91).", "check": { "type": "boss_kill", "boss": "cerberus", "min_level": { "slayer": 91 } } },
+        { "id": "m_elite_7", "description": "Complete the Barrows collection log.", "check": { "type": "collection_log_complete", "source": "barrows_brothers" } },
+        { "id": "m_elite_8", "description": "Use Blood Barrage on a vampyre stack.", "check": { "type": "cast_spell_on_stack", "spell": "blood_barrage", "npc": "vampyre", "min_targets": 3 } },
+        { "id": "m_elite_9", "description": "Kill a dark beast (slayer 90).", "check": { "type": "kill_npc", "npc": "dark_beast", "min_level": { "slayer": 90 } } },
+        { "id": "m_elite_10", "description": "Complete an elite clue step in Castle Malachar.", "check": { "type": "clue_step_complete", "tier": "elite", "area": "castle_malachar" } }
+      ],
+      "reward": "Moryskah cape (elite — bloodveiled recolour), blood altar teleport, vampyric arm-bracer (cosmetic). Diary lamp (elite).",
+      "perk_description": "Blood altar teleport; +10% blood rune output; auto-loot Barrows brothers chest fee waived."
+    }
+  }
+}
