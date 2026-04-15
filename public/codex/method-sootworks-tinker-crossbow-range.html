@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html><head><meta charset="utf-8"><title>Tinker-Yard Crossbow Range — Aelgard Codex</title>
+<style>
+  body { font-family: ui-monospace, 'Cascadia Code', Consolas, monospace; background:#3e3529; color:#e8dcc0; margin:0 auto; padding:20px; max-width:1200px; }
+  .parchment { background:#e8dcc0; color:#2c1810; padding:30px 40px; border:3px solid #8b6f47; border-radius:4px; box-shadow:0 0 20px rgba(0,0,0,.5); margin:20px 0; }
+  h1 { color:#7a1f1a; border-bottom:2px solid #8b6f47; padding-bottom:10px; }
+  h2 { color:#5a3a1a; margin-top:30px; }
+  h3 { color:#6b4423; }
+  a { color:#7a1f1a; border-bottom:1px dotted #7a1f1a; text-decoration:none; }
+  a:hover { background:#d4c49c; }
+  nav { margin-bottom:20px; }
+  nav a { margin-right:12px; font-weight:bold; }
+  .description { font-style:italic; color:#5a3a1a; padding:10px; background:#d4c49c; border-left:3px solid #8b6f47; margin:10px 0; }
+  table { width:100%; border-collapse:collapse; margin:15px 0; }
+  th, td { text-align:left; padding:6px 10px; border-bottom:1px solid #c4a970; }
+  th { background:#d4c49c; color:#2c1810; }
+  tr:hover { background:#d4c49c; }
+  .tag { display:inline-block; padding:2px 8px; margin:2px; border-radius:3px; font-size:11px; font-weight:bold; }
+  .tag-region { background:#4a6b8a; color:#fff; }
+  .tag-skill  { background:#5a7f4a; color:#fff; }
+  .tag-trans  { background:#8a1f1a; color:#fff; }
+  .tag-major  { background:#a86a2a; color:#fff; }
+  .tag-minor  { background:#6a6a6a; color:#fff; }
+  .tag-afk    { background:#3a5a2a; color:#fff; }
+  .tag-low    { background:#4a7a3a; color:#fff; }
+  .tag-medium { background:#8a7a2a; color:#fff; }
+  .tag-high   { background:#a85a2a; color:#fff; }
+  .tag-maximum{ background:#8a1f1a; color:#fff; }
+  .tag-obscure{ background:#6a4a2a; color:#fff; font-style:italic; }
+  .knob-grid { display:grid; grid-template-columns:repeat(4, 1fr); gap:10px; margin:15px 0; }
+  .knob { background:#d4c49c; padding:10px; border-radius:3px; }
+  .knob .label { font-size:11px; color:#5a3a1a; text-transform:uppercase; font-weight:bold; }
+  .knob .value { font-size:16px; color:#7a1f1a; font-weight:bold; margin-top:4px; }
+  .knob .detail { font-size:11px; color:#3a2810; margin-top:2px; }
+  .stat-grid { display:grid; grid-template-columns:repeat(4, 1fr); gap:10px; margin:15px 0; }
+  .stat-cell { background:#d4c49c; padding:10px; border-radius:3px; text-align:center; }
+  .stat-cell .value { font-size:24px; font-weight:bold; color:#7a1f1a; }
+  .stat-cell .label { font-size:11px; color:#5a3a1a; text-transform:uppercase; }
+  .heat { display:inline-block; width:40px; text-align:center; padding:4px; margin:1px; border-radius:3px; font-weight:bold; font-size:11px; }
+  .heat-0 { background:#c4a970; color:#5a3a1a; }
+  .heat-1 { background:#9ec49a; color:#1a3a1a; }
+  .heat-3 { background:#6a9e6a; color:#fff; }
+  .heat-5 { background:#3a7a3a; color:#fff; }
+  .heat-10 { background:#1a5a1a; color:#fff; }
+  ul.loose li { margin-bottom:8px; }
+  details { margin:8px 0; padding:8px; background:#d4c49c; border-radius:3px; }
+  summary { cursor:pointer; font-weight:bold; }
+  .graph-wrap { overflow:auto; background:#d4c49c; padding:10px; border-radius:3px; }
+  svg { background:#e8dcc0; }
+</style>
+</head>
+<body>
+<nav>
+  <a href="index.html">Home</a>
+  <a href="regions.html">Regions</a>
+  <a href="skills.html">Skills</a>
+  <a href="methods.html">Methods</a>
+  <a href="quests.html">Quests</a>
+  <a href="items.html">Items</a>
+  <a href="recipes.html">Recipes</a>
+  <a href="minigames.html">Minigames</a>
+  <a href="bosses.html">Bosses</a>
+  <a href="npcs.html">NPCs</a>
+  <a href="lore.html">Lore</a>
+  <a href="breakpoints.html">Breakpoints</a>
+  <a href="web.html">Web</a>
+</nav>
+<div class="parchment">
+
+<h1>Tinker-Yard Crossbow Range</h1>
+<div class="description">Drop-cast crossbow drills at the Tinker Yards. Bolts come off stamped. Crack. Wind. Fire.</div>
+
+<div class="stat-grid">
+  <div class="stat-cell"><div class="value">ranged</div><div class="label">Skill</div></div>
+  <div class="stat-cell"><div class="value">20-70</div><div class="label">Level Range</div></div>
+  <div class="stat-cell"><div class="value">56,000</div><div class="label">XP / Hour</div></div>
+  <div class="stat-cell"><div class="value">Sootworks</div><div class="label">Location</div></div>
+</div>
+
+<h2>The 8 Marstead Knobs</h2>
+<div class="knob-grid">
+  <div class="knob"><div class="label">1. XP per Hour</div><div class="value">56,000</div></div>
+  <div class="knob"><div class="label">2. Prerequisites</div><div class="value">yes</div><div class="detail"><span class="tag tag-skill">ranged 20</span> </div></div>
+  <div class="knob"><div class="label">3. Resource Output</div><div class="value">neutral</div><div class="detail">1 items/hr</div></div>
+  <div class="knob"><div class="label">4. Banking Frequency</div><div class="value">moderate</div></div>
+  <div class="knob"><div class="label">5. Cost / Hour</div><div class="value">6,000 gp</div></div>
+  <div class="knob"><div class="label">6. Danger</div><div class="value">low</div></div>
+  <div class="knob"><div class="label">7. Complexity</div><div class="value">moderate</div></div>
+  <div class="knob"><div class="label">8. Attention</div><div class="value"><span class="tag tag-medium">medium</span></div></div>
+</div>
+
+<h2>Prerequisites</h2>
+<p>
+  <strong>Skills:</strong> <span class="tag tag-skill">ranged 20</span><br>
+  
+  <strong>Items:</strong> <span class="tag tag-minor">Crossbow</span><br>
+  <strong>Areas:</strong> <span class="tag tag-region">sootworks</span><br>
+  
+</p>
+
+<h2>Inputs (Supply Chain)</h2><ul class="loose"><li><strong>Pressure-tip bolts</strong> — 2000/hr from <em>sootworks_clockwork_sentry</em></li>
+<li><strong>Basic food</strong> — 15/hr from <em>cooking</em></li></ul>
+<h2>Produces</h2><ul class="loose"><li><strong>Spring-coils</strong> — 45/hr</li></ul>
+
+<h2>Breakpoints in Range</h2><ul class="loose"><li><span class="tag tag-minor">level 20</span> Willow shortbow. Ranged becomes a real combat style, not just a novelty.</li>
+<li><span class="tag tag-major">level 40</span> Green dragonhide armour. Yew shortbow. Ranged is now competitive with melee for many encounters.</li>
+<li><span class="tag tag-major">level 61</span> Rune crossbow. One-handed ranged weapon with shield slot free. Changes the meta for prayer-using fights.</li>
+<li><span class="tag tag-major">level 70</span> Armadyl crossbow. Crystal bow. The ranged endgame begins.</li></ul>
+
+<h2>Alternatives at Same Level</h2>
+
+<table>
+<tr><th>Method</th><th>Levels</th><th>XP/hr</th><th>Attention</th><th>Danger</th></tr>
+<tr><td><a href="method-ranged-safe-spot-ogres.html"><strong>Ogre Safespot</strong></a></td><td>1-30</td><td>12,000</td><td><span class="tag tag-low">low</span></td><td>none</td></tr>
+<tr><td><a href="method-saltbrine-harbour-archery.html"><strong>Harbour Archery Practice</strong></a></td><td>1-60</td><td>32,000</td><td><span class="tag tag-afk">afk</span></td><td>none</td></tr>
+<tr><td><a href="method-veilwood-range-singing-arrows.html"><strong>Veilwood Range — Singing-Arrow Drills</strong></a></td><td>1-50</td><td>28,000</td><td><span class="tag tag-afk">afk</span></td><td>none</td></tr>
+<tr><td><a href="method-inkweald-half-light-range-basic.html"><strong>Half-Light Range Practice</strong></a></td><td>1-60</td><td>42,000</td><td><span class="tag tag-medium">medium</span></td><td>none</td></tr>
+<tr><td><a href="method-ranged-sand-crabs-ranged.html"><strong>Sand Crab Ranging</strong></a></td><td>10-60</td><td>30,000</td><td><span class="tag tag-afk">afk</span></td><td>none</td></tr>
+<tr><td><a href="method-ranged-slayer-cannon.html"><strong>Cannon + Slayer</strong></a></td><td>30-99</td><td>60,000</td><td><span class="tag tag-medium">medium</span></td><td>medium</td></tr>
+<tr><td><a href="method-boneyard-sand-serpent-ranged.html"><strong>Sand Serpent Hunting</strong></a></td><td>30-85</td><td>62,000</td><td><span class="tag tag-low">low</span></td><td>low</td></tr>
+<tr><td><a href="method-moryskah-shade-ranged.html"><strong>Shade Shooting</strong></a></td><td>40-99</td><td>75,000</td><td><span class="tag tag-medium">medium</span></td><td>low</td></tr>
+<tr><td><a href="method-ranged-chinchompas.html"><strong>Chinchompa Stacking</strong></a></td><td>45-99</td><td>350,000</td><td><span class="tag tag-high">high</span></td><td>medium</td></tr>
+<tr><td><a href="method-saltbrine-crows-nest-range.html"><strong>Crow&#39;s Nest Sniper Range</strong></a></td><td>50-99</td><td>105,000</td><td><span class="tag tag-high">high</span></td><td>none</td></tr>
+<tr><td><a href="method-boneyard-salt-sea-boomerang-range.html"><strong>Salt Sea Boomerang Range</strong></a></td><td>50-99</td><td>88,000</td><td><span class="tag tag-medium">medium</span></td><td>low</td></tr>
+<tr><td><a href="method-ranged-nmz-blowpipe.html"><strong>NMZ Blowpipe AFK</strong></a></td><td>60-99</td><td>65,000</td><td><span class="tag tag-low">low</span></td><td>none</td></tr>
+<tr><td><a href="method-sootworks-shotcast-munitions-range.html"><strong>Shot-Cast Munitions Line</strong></a></td><td>60-99</td><td>90,000</td><td><span class="tag tag-high">high</span></td><td>medium</td></tr>
+<tr><td><a href="method-veilwood-moonhawk-ranged.html"><strong>Moonhawk Sky-Line Hunt</strong></a></td><td>60-99</td><td>82,000</td><td><span class="tag tag-high">high</span></td><td>medium</td></tr>
+<tr><td><a href="method-inkweald-dream-arrow-volley.html"><strong>Dream-Arrow Volley</strong></a></td><td>60-99</td><td>88,000</td><td><span class="tag tag-medium">medium</span></td><td>low</td></tr>
+<tr><td><a href="method-ranged-wilds-black-chins.html"><strong>Black Chin Hunting + Ranging</strong></a></td><td>70-99</td><td>150,000</td><td><span class="tag tag-maximum">maximum</span></td><td>extreme</td></tr>
+<tr><td><a href="method-glass-desert-witness-range-prism.html"><strong>Witness Range — Prism-Shot Drill</strong></a></td><td>70-99</td><td>110,000</td><td><span class="tag tag-high">high</span></td><td>medium</td></tr>
+<tr><td><a href="method-glass-desert-fight-caves.html"><strong>Fight Caves Progression</strong></a></td><td>70-99</td><td>52,000</td><td><span class="tag tag-maximum">maximum</span></td><td>extreme</td></tr>
+</table>
+
+<p><a href="skill-ranged.html">← ranged</a> · <a href="methods.html">all methods</a></p>
+
+</div>
+</body></html>

@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html><head><meta charset="utf-8"><title>Glass Desert density — Aelgard Codex</title>
+<style>
+  body { font-family: ui-monospace, 'Cascadia Code', Consolas, monospace; background:#3e3529; color:#e8dcc0; margin:0 auto; padding:20px; max-width:1200px; }
+  .parchment { background:#e8dcc0; color:#2c1810; padding:30px 40px; border:3px solid #8b6f47; border-radius:4px; box-shadow:0 0 20px rgba(0,0,0,.5); margin:20px 0; }
+  h1 { color:#7a1f1a; border-bottom:2px solid #8b6f47; padding-bottom:10px; }
+  h2 { color:#5a3a1a; margin-top:30px; }
+  h3 { color:#6b4423; }
+  a { color:#7a1f1a; border-bottom:1px dotted #7a1f1a; text-decoration:none; }
+  a:hover { background:#d4c49c; }
+  nav { margin-bottom:20px; }
+  nav a { margin-right:12px; font-weight:bold; }
+  .description { font-style:italic; color:#5a3a1a; padding:10px; background:#d4c49c; border-left:3px solid #8b6f47; margin:10px 0; }
+  table { width:100%; border-collapse:collapse; margin:15px 0; }
+  th, td { text-align:left; padding:6px 10px; border-bottom:1px solid #c4a970; }
+  th { background:#d4c49c; color:#2c1810; }
+  tr:hover { background:#d4c49c; }
+  .tag { display:inline-block; padding:2px 8px; margin:2px; border-radius:3px; font-size:11px; font-weight:bold; }
+  .tag-region { background:#4a6b8a; color:#fff; }
+  .tag-skill  { background:#5a7f4a; color:#fff; }
+  .tag-trans  { background:#8a1f1a; color:#fff; }
+  .tag-major  { background:#a86a2a; color:#fff; }
+  .tag-minor  { background:#6a6a6a; color:#fff; }
+  .tag-afk    { background:#3a5a2a; color:#fff; }
+  .tag-low    { background:#4a7a3a; color:#fff; }
+  .tag-medium { background:#8a7a2a; color:#fff; }
+  .tag-high   { background:#a85a2a; color:#fff; }
+  .tag-maximum{ background:#8a1f1a; color:#fff; }
+  .tag-obscure{ background:#6a4a2a; color:#fff; font-style:italic; }
+  .knob-grid { display:grid; grid-template-columns:repeat(4, 1fr); gap:10px; margin:15px 0; }
+  .knob { background:#d4c49c; padding:10px; border-radius:3px; }
+  .knob .label { font-size:11px; color:#5a3a1a; text-transform:uppercase; font-weight:bold; }
+  .knob .value { font-size:16px; color:#7a1f1a; font-weight:bold; margin-top:4px; }
+  .knob .detail { font-size:11px; color:#3a2810; margin-top:2px; }
+  .stat-grid { display:grid; grid-template-columns:repeat(4, 1fr); gap:10px; margin:15px 0; }
+  .stat-cell { background:#d4c49c; padding:10px; border-radius:3px; text-align:center; }
+  .stat-cell .value { font-size:24px; font-weight:bold; color:#7a1f1a; }
+  .stat-cell .label { font-size:11px; color:#5a3a1a; text-transform:uppercase; }
+  .heat { display:inline-block; width:40px; text-align:center; padding:4px; margin:1px; border-radius:3px; font-weight:bold; font-size:11px; }
+  .heat-0 { background:#c4a970; color:#5a3a1a; }
+  .heat-1 { background:#9ec49a; color:#1a3a1a; }
+  .heat-3 { background:#6a9e6a; color:#fff; }
+  .heat-5 { background:#3a7a3a; color:#fff; }
+  .heat-10 { background:#1a5a1a; color:#fff; }
+  ul.loose li { margin-bottom:8px; }
+  details { margin:8px 0; padding:8px; background:#d4c49c; border-radius:3px; }
+  summary { cursor:pointer; font-weight:bold; }
+  .graph-wrap { overflow:auto; background:#d4c49c; padding:10px; border-radius:3px; }
+  svg { background:#e8dcc0; }
+</style>
+</head>
+<body>
+<nav>
+  <a href="index.html">Home</a>
+  <a href="regions.html">Regions</a>
+  <a href="skills.html">Skills</a>
+  <a href="methods.html">Methods</a>
+  <a href="quests.html">Quests</a>
+  <a href="items.html">Items</a>
+  <a href="recipes.html">Recipes</a>
+  <a href="minigames.html">Minigames</a>
+  <a href="bosses.html">Bosses</a>
+  <a href="npcs.html">NPCs</a>
+  <a href="lore.html">Lore</a>
+  <a href="breakpoints.html">Breakpoints</a>
+  <a href="web.html">Web</a>
+</nav>
+<div class="parchment">
+
+<h1>Glass Desert — Density Heatmap</h1>
+<div class="description">How many training methods this region has per skill, broken down by attention tier.</div>
+
+<div class="stat-grid">
+  <div class="stat-cell"><div class="value">59</div><div class="label">Total Methods</div></div>
+  <div class="stat-cell"><div class="value">23</div><div class="label">Skills With Content</div></div>
+  <div class="stat-cell"><div class="value">2</div><div class="label">AFK Methods</div></div>
+  <div class="stat-cell"><div class="value">26</div><div class="label">High-Focus Methods</div></div>
+</div>
+
+<h2>Skill × Attention Matrix</h2>
+<p><em>0 &lt; 1 &lt; 3 &lt; 5 &lt; 10+ methods. Gaps identify where this region needs more content.</em></p>
+<table>
+<tr><th>Skill</th><th>AFK</th><th>Low</th><th>Medium</th><th>High</th><th>Maximum</th><th>Total</th></tr>
+<tr>
+    <td><a href="skill-attack.html"><strong>attack</strong></a></td>
+    <td><span class="heat heat-0">0</span></td>
+    <td><span class="heat heat-0">0</span></td>
+    <td><span class="heat heat-0">0</span></td>
+    <td><span class="heat heat-0">0</span></td>
+    <td><span class="heat heat-1">1</span></td>
+    <td><strong>1</strong></td>
+  </tr>
+<tr>
+    <td><a href="skill-strength.html"><strong>strength</strong></a></td>
+    <td><span class="heat heat-0">0</span></td>
+    <td><span class="heat heat-0">0</span></td>
+    <td><span class="heat heat-1">1</span></td>
+    <td><span class="heat heat-1">1</span></td>
+    <td><span class="heat heat-0">0</span></td>
+    <td><strong>2</strong></td>
+  </tr>
+<tr>
+    <td><a href="skill-defence.html"><strong>defence</strong></a></td>
+    <td><span class="heat heat-0">0</span></td>
+    <td><span class="heat heat-0">0</span></td>
+    <td><span class="heat heat-1">1</span></td>
+    <td><span class="heat heat-1">1</span></td>
+    <td><span class="heat heat-0">0</span></td>
+    <td><strong>2</strong></td>
+  </tr>
+<tr>
+    <td><a href="skill-hitpoints.html"><strong>hitpoints</strong></a></td>
+    <td><span class="heat heat-1">1</span></td>
+    <td><span class="heat heat-0">0</span></td>
+    <td><span class="heat heat-1">1</span></td>
+    <td><span class="heat heat-0">0</span></td>
+    <td><span class="heat heat-0">0</span></td>
+    <td><strong>2</strong></td>
+  </tr>
+<tr>
+    <td><a href="skill-ranged.html"><strong>ranged</strong></a></td>
+    <td><span class="heat heat-0">0</span></td>
+    <td><span class="heat heat-0">0</span></td>
+    <td><span class="heat heat-0">0</span></td>
+    <td><span class="heat heat-1">2</span></td>
+    <td><span class="heat heat-1">2</span></td>
+    <td><strong>4</strong></td>
+  </tr>
+<tr>
+    <td><a href="skill-prayer.html"><strong>prayer</strong></a></td>
+    <td><span class="heat heat-0">0</span></td>
+    <td><span class="heat heat-1">1</span></td>
+    <td><span class="heat heat-1">2</span></td>
+    <td><span class="heat heat-0">0</span></td>
+    <td><span class="heat heat-0">0</span></td>
+    <td><strong>3</strong></td>
+  </tr>
+<tr>
+    <td><a href="skill-magic.html"><strong>magic</strong></a></td>
+    <td><span class="heat heat-0">0</span></td>
+    <td><span class="heat heat-1">1</span></td>
+    <td><span class="heat heat-0">0</span></td>
+    <td><span class="heat heat-1">2</span></td>
+    <td><span class="heat heat-0">0</span></td>
+    <td><strong>3</strong></td>
+  </tr>
+<tr>
+    <td><a href="skill-runecrafting.html"><strong>runecrafting</strong></a></td>
+    <td><span class="heat heat-0">0</span></td>
+    <td><span class="heat heat-0">0</span></td>
+    <td><span class="heat heat-1">2</span></td>
+    <td><span class="heat heat-1">1</span></td>
+    <td><span class="heat heat-0">0</span></td>
+    <td><strong>3</strong></td>
+  </tr>
+<tr>
+    <td><a href="skill-construction.html"><strong>construction</strong></a></td>
+    <td><span class="heat heat-0">0</span></td>
+    <td><span class="heat heat-0">0</span></td>
+    <td><span class="heat heat-1">1</span></td>
+    <td><span class="heat heat-1">1</span></td>
+    <td><span class="heat heat-0">0</span></td>
+    <td><strong>2</strong></td>
+  </tr>
+<tr>
+    <td><a href="skill-agility.html"><strong>agility</strong></a></td>
+    <td><span class="heat heat-0">0</span></td>
+    <td><span class="heat heat-0">0</span></td>
+    <td><span class="heat heat-1">1</span></td>
+    <td><span class="heat heat-1">2</span></td>
+    <td><span class="heat heat-0">0</span></td>
+    <td><strong>3</strong></td>
+  </tr>
+<tr>
+    <td><a href="skill-herblore.html"><strong>herblore</strong></a></td>
+    <td><span class="heat heat-0">0</span></td>
+    <td><span class="heat heat-0">0</span></td>
+    <td><span class="heat heat-1">2</span></td>
+    <td><span class="heat heat-1">1</span></td>
+    <td><span class="heat heat-0">0</span></td>
+    <td><strong>3</strong></td>
+  </tr>
+<tr>
+    <td><a href="skill-thieving.html"><strong>thieving</strong></a></td>
+    <td><span class="heat heat-0">0</span></td>
+    <td><span class="heat heat-0">0</span></td>
+    <td><span class="heat heat-0">0</span></td>
+    <td><span class="heat heat-1">2</span></td>
+    <td><span class="heat heat-0">0</span></td>
+    <td><strong>2</strong></td>
+  </tr>
+<tr>
+    <td><a href="skill-crafting.html"><strong>crafting</strong></a></td>
+    <td><span class="heat heat-1">1</span></td>
+    <td><span class="heat heat-1">1</span></td>
+    <td><span class="heat heat-0">0</span></td>
+    <td><span class="heat heat-0">0</span></td>
+    <td><span class="heat heat-0">0</span></td>
+    <td><strong>2</strong></td>
+  </tr>
+<tr>
+    <td><a href="skill-fletching.html"><strong>fletching</strong></a></td>
+    <td><span class="heat heat-0">0</span></td>
+    <td><span class="heat heat-0">0</span></td>
+    <td><span class="heat heat-1">1</span></td>
+    <td><span class="heat heat-1">1</span></td>
+    <td><span class="heat heat-0">0</span></td>
+    <td><strong>2</strong></td>
+  </tr>
+<tr>
+    <td><a href="skill-slayer.html"><strong>slayer</strong></a></td>
+    <td><span class="heat heat-0">0</span></td>
+    <td><span class="heat heat-0">0</span></td>
+    <td><span class="heat heat-0">0</span></td>
+    <td><span class="heat heat-1">2</span></td>
+    <td><span class="heat heat-0">0</span></td>
+    <td><strong>2</strong></td>
+  </tr>
+<tr>
+    <td><a href="skill-hunter.html"><strong>hunter</strong></a></td>
+    <td><span class="heat heat-0">0</span></td>
+    <td><span class="heat heat-0">0</span></td>
+    <td><span class="heat heat-1">1</span></td>
+    <td><span class="heat heat-3">3</span></td>
+    <td><span class="heat heat-0">0</span></td>
+    <td><strong>4</strong></td>
+  </tr>
+<tr>
+    <td><a href="skill-mining.html"><strong>mining</strong></a></td>
+    <td><span class="heat heat-0">0</span></td>
+    <td><span class="heat heat-0">0</span></td>
+    <td><span class="heat heat-3">3</span></td>
+    <td><span class="heat heat-0">0</span></td>
+    <td><span class="heat heat-1">1</span></td>
+    <td><strong>4</strong></td>
+  </tr>
+<tr>
+    <td><a href="skill-smithing.html"><strong>smithing</strong></a></td>
+    <td><span class="heat heat-0">0</span></td>
+    <td><span class="heat heat-0">0</span></td>
+    <td><span class="heat heat-1">2</span></td>
+    <td><span class="heat heat-1">2</span></td>
+    <td><span class="heat heat-0">0</span></td>
+    <td><strong>4</strong></td>
+  </tr>
+<tr>
+    <td><a href="skill-fishing.html"><strong>fishing</strong></a></td>
+    <td><span class="heat heat-0">0</span></td>
+    <td><span class="heat heat-1">1</span></td>
+    <td><span class="heat heat-1">2</span></td>
+    <td><span class="heat heat-0">0</span></td>
+    <td><span class="heat heat-0">0</span></td>
+    <td><strong>3</strong></td>
+  </tr>
+<tr>
+    <td><a href="skill-cooking.html"><strong>cooking</strong></a></td>
+    <td><span class="heat heat-0">0</span></td>
+    <td><span class="heat heat-1">1</span></td>
+    <td><span class="heat heat-1">1</span></td>
+    <td><span class="heat heat-0">0</span></td>
+    <td><span class="heat heat-0">0</span></td>
+    <td><strong>2</strong></td>
+  </tr>
+<tr>
+    <td><a href="skill-firemaking.html"><strong>firemaking</strong></a></td>
+    <td><span class="heat heat-0">0</span></td>
+    <td><span class="heat heat-0">0</span></td>
+    <td><span class="heat heat-1">1</span></td>
+    <td><span class="heat heat-1">1</span></td>
+    <td><span class="heat heat-0">0</span></td>
+    <td><strong>2</strong></td>
+  </tr>
+<tr>
+    <td><a href="skill-woodcutting.html"><strong>woodcutting</strong></a></td>
+    <td><span class="heat heat-0">0</span></td>
+    <td><span class="heat heat-1">1</span></td>
+    <td><span class="heat heat-1">1</span></td>
+    <td><span class="heat heat-0">0</span></td>
+    <td><span class="heat heat-0">0</span></td>
+    <td><strong>2</strong></td>
+  </tr>
+<tr>
+    <td><a href="skill-farming.html"><strong>farming</strong></a></td>
+    <td><span class="heat heat-0">0</span></td>
+    <td><span class="heat heat-1">2</span></td>
+    <td><span class="heat heat-0">0</span></td>
+    <td><span class="heat heat-0">0</span></td>
+    <td><span class="heat heat-0">0</span></td>
+    <td><strong>2</strong></td>
+  </tr>
+</table>
+
+<h2>Methods by Skill</h2>
+
+<h3>attack (1)</h3>
+<ul class="loose">
+<li><a href="method-glass-desert-wyrm-combat.html"><strong>Crystal Wyrm Grinding</strong></a> <span class="tag tag-maximum">maximum</span> 85-99</li>
+</ul>
+
+
+<h3>strength (2)</h3>
+<ul class="loose">
+<li><a href="method-glass-desert-wyrm-spawn-strength.html"><strong>Wyrm-Spawn Cleave</strong></a> <span class="tag tag-medium">medium</span> 60-90</li>
+<li><a href="method-glass-desert-edge-keeper-strength.html"><strong>Edge-Keeper Trial — Strength</strong></a> <span class="tag tag-high">high</span> 70-99</li>
+</ul>
+
+
+<h3>defence (2)</h3>
+<ul class="loose">
+<li><a href="method-glass-desert-glass-stalker-defence.html"><strong>Glass-Stalker Wardening</strong></a> <span class="tag tag-medium">medium</span> 60-85</li>
+<li><a href="method-glass-desert-edge-keeper-defence.html"><strong>Edge-Keeper Trial — Defence</strong></a> <span class="tag tag-high">high</span> 70-99</li>
+</ul>
+
+
+<h3>hitpoints (2)</h3>
+<ul class="loose">
+<li><a href="method-glass-desert-witness-passive-hp.html"><strong>Witness Wall Endurance Vigil</strong></a> <span class="tag tag-afk">afk</span> 60-99</li>
+<li><a href="method-glass-desert-edge-keeper-hitpoints.html"><strong>Edge-Keeper Trial — Hitpoints</strong></a> <span class="tag tag-medium">medium</span> 70-99</li>
+</ul>
+
+
+<h3>ranged (4)</h3>
+<ul class="loose">
+<li><a href="method-glass-desert-witness-range-prism.html"><strong>Witness Range — Prism-Shot Drill</strong></a> <span class="tag tag-high">high</span> 70-99</li>
+<li><a href="method-glass-desert-fight-caves.html"><strong>Fight Caves Progression</strong></a> <span class="tag tag-maximum">maximum</span> 70-99</li>
+<li><a href="method-glass-desert-witness-range-light-arrow.html"><strong>Witness Range — Light-Arrow Master</strong></a> <span class="tag tag-high">high</span> 85-99</li>
+<li><a href="method-glass-desert-inferno.html"><strong>Inferno Progression</strong></a> <span class="tag tag-maximum">maximum</span> 90-99</li>
+</ul>
+
+
+<h3>prayer (3)</h3>
+<ul class="loose">
+<li><a href="method-quirky-glass-desert-witness-the-edge.html"><strong>[Quirky] Witness the Edge</strong></a> <span class="tag tag-low">low</span> 1-99</li>
+<li><a href="method-glass-desert-witness-wall-prayer.html"><strong>Witness Wall Light-Warding</strong></a> <span class="tag tag-medium">medium</span> 60-99</li>
+<li><a href="method-glass-desert-edge-keeper-prayer.html"><strong>Edge-Keeper Relic Offering</strong></a> <span class="tag tag-medium">medium</span> 80-99</li>
+</ul>
+
+
+<h3>magic (3)</h3>
+<ul class="loose">
+<li><a href="method-quirky-glass-desert-count-the-colors.html"><strong>[Quirky] Count the Colors</strong></a> <span class="tag tag-low">low</span> 1-99</li>
+<li><a href="method-glass-desert-mirrored-spire-magic.html"><strong>Mirrored Spire — Crystal-Tier Spellcasting</strong></a> <span class="tag tag-high">high</span> 75-99</li>
+<li><a href="method-glass-desert-prism-burst-magic.html"><strong>Prism-Burst Combat Cycle</strong></a> <span class="tag tag-high">high</span> 90-99</li>
+</ul>
+
+
+<h3>runecrafting (3)</h3>
+<ul class="loose">
+<li><a href="method-glass-desert-crystal-rune-rc.html"><strong>Singing Glass Crystal-Rune Crafting</strong></a> <span class="tag tag-medium">medium</span> 85-99</li>
+<li><a href="method-glass-desert-light-rune-rc.html"><strong>Light-Rune Binding</strong></a> <span class="tag tag-high">high</span> 92-99</li>
+<li><a href="method-glass-desert-sun-rc.html"><strong>Sun Rune Crafting</strong></a> <span class="tag tag-medium">medium</span> 95-99</li>
+</ul>
+
+
+<h3>construction (2)</h3>
+<ul class="loose">
+<li><a href="method-glass-desert-dunewright-construction.html"><strong>Dunewright Crystal-Glass Framing</strong></a> <span class="tag tag-medium">medium</span> 70-99</li>
+<li><a href="method-glass-desert-dunewright-master.html"><strong>Dunewright Master — Prism Beam Assembly</strong></a> <span class="tag tag-high">high</span> 85-99</li>
+</ul>
+
+
+<h3>agility (3)</h3>
+<ul class="loose">
+<li><a href="method-quirky-glass-desert-walk-the-edge.html"><strong>[Quirky] Walk the Dune-Edge</strong></a> <span class="tag tag-medium">medium</span> 1-99</li>
+<li><a href="method-glass-desert-mirrored-spire-climb.html"><strong>Glass-Walker Mirrored Spire Climb</strong></a> <span class="tag tag-high">high</span> 75-99</li>
+<li><a href="method-glass-desert-glass-bridge-run.html"><strong>Glass-Bridge Endurance Run</strong></a> <span class="tag tag-high">high</span> 85-99</li>
+</ul>
+
+
+<h3>herblore (3)</h3>
+<ul class="loose">
+<li><a href="method-glass-desert-herb-garden.html"><strong>Prism Garden Herblore</strong></a> <span class="tag tag-medium">medium</span> 70-99</li>
+<li><a href="method-glass-desert-lens-apothecary-super.html"><strong>Lens Apothecary — Super Combat ++</strong></a> <span class="tag tag-medium">medium</span> 85-99</li>
+<li><a href="method-glass-desert-prism-elixir.html"><strong>Prism Elixir Master Distillation</strong></a> <span class="tag tag-high">high</span> 92-99</li>
+</ul>
+
+
+<h3>thieving (2)</h3>
+<ul class="loose">
+<li><a href="method-glass-desert-mirror-library-thieving.html"><strong>Mirror Library Vault Lifting</strong></a> <span class="tag tag-high">high</span> 80-99</li>
+<li><a href="method-glass-desert-master-vault-thieving.html"><strong>Mirror Library Master Vault</strong></a> <span class="tag tag-high">high</span> 95-99</li>
+</ul>
+
+
+<h3>crafting (2)</h3>
+<ul class="loose">
+<li><a href="method-crafting-glassblowing.html"><strong>Glassblowing</strong></a> <span class="tag tag-afk">afk</span> 1-99</li>
+<li><a href="method-quirky-glass-desert-polish-the-lens.html"><strong>[Quirky] Polish the Mirror Lens</strong></a> <span class="tag tag-low">low</span> 1-99</li>
+</ul>
+
+
+<h3>fletching (2)</h3>
+<ul class="loose">
+<li><a href="method-glass-desert-crystal-arrow-fletching.html"><strong>Glass-Glade Crystal Arrow Fletching</strong></a> <span class="tag tag-medium">medium</span> 75-99</li>
+<li><a href="method-glass-desert-prism-bow-fletching.html"><strong>Glass-Glade Prism-Bow Assembly</strong></a> <span class="tag tag-high">high</span> 88-99</li>
+</ul>
+
+
+<h3>slayer (2)</h3>
+<ul class="loose">
+<li><a href="method-glass-desert-crystal-hunter-slayer.html"><strong>Crystal Hunter Slayer Contracts</strong></a> <span class="tag tag-high">high</span> 75-99</li>
+<li><a href="method-glass-desert-wyrm-lair-slayer.html"><strong>Wyrm Lair Endgame Slayer</strong></a> <span class="tag tag-high">high</span> 90-99</li>
+</ul>
+
+
+<h3>hunter (4)</h3>
+<ul class="loose">
+<li><a href="method-quirky-glass-desert-sing-to-the-salt.html"><strong>[Quirky] Sing to the Salt-Singers</strong></a> <span class="tag tag-medium">medium</span> 1-99</li>
+<li><a href="method-glass-desert-crystal-hunter-falconry.html"><strong>Crystal Hunter Falconry</strong></a> <span class="tag tag-high">high</span> 75-99</li>
+<li><a href="method-glass-desert-lens-cat-trapping.html"><strong>Lens-Cat Trap Line</strong></a> <span class="tag tag-high">high</span> 85-99</li>
+<li><a href="method-glass-desert-prismstalker-tracking.html"><strong>Prismstalker Tracking</strong></a> <span class="tag tag-high">high</span> 90-99</li>
+</ul>
+
+
+<h3>mining (4)</h3>
+<ul class="loose">
+<li><a href="method-mining-granite-3tick.html"><strong>Granite 3-Tick Mining</strong></a> <span class="tag tag-maximum">maximum</span> 45-99</li>
+<li><a href="method-glass-desert-prismstone-mining.html"><strong>Prismstone Vein Mining</strong></a> <span class="tag tag-medium">medium</span> 75-95</li>
+<li><a href="method-glass-desert-lens-quartz-mining.html"><strong>Lens-Quartz Face Mining</strong></a> <span class="tag tag-medium">medium</span> 85-99</li>
+<li><a href="method-glass-desert-crystal-mining.html"><strong>Crystal Endgame Mining</strong></a> <span class="tag tag-medium">medium</span> 92-99</li>
+</ul>
+
+
+<h3>smithing (4)</h3>
+<ul class="loose">
+<li><a href="method-glass-desert-tzhaar-smithing.html"><strong>Obsidian Smithing</strong></a> <span class="tag tag-medium">medium</span> 60-99</li>
+<li><a href="method-glass-desert-lens-forge-smelt.html"><strong>Lens Forge — Light-Imbued Smelting</strong></a> <span class="tag tag-medium">medium</span> 75-99</li>
+<li><a href="method-glass-desert-crystal-cored-plate.html"><strong>Lens Forge — Crystal-Cored Plate</strong></a> <span class="tag tag-high">high</span> 85-99</li>
+<li><a href="method-glass-desert-prism-blade-smithing.html"><strong>Lens Forge — Prism-Blade Forging</strong></a> <span class="tag tag-high">high</span> 92-99</li>
+</ul>
+
+
+<h3>fishing (3)</h3>
+<ul class="loose">
+<li><a href="method-glass-desert-lens-fish-pool.html"><strong>Lens-Fish Pool Angling</strong></a> <span class="tag tag-low">low</span> 70-90</li>
+<li><a href="method-glass-desert-glass-eel-trench.html"><strong>Glass-Eel Trench Fishing</strong></a> <span class="tag tag-medium">medium</span> 80-95</li>
+<li><a href="method-glass-desert-prism-trout-fall.html"><strong>Prism-Trout Fall Harpooning</strong></a> <span class="tag tag-medium">medium</span> 90-99</li>
+</ul>
+
+
+<h3>cooking (2)</h3>
+<ul class="loose">
+<li><a href="method-glass-desert-lens-fish-carpaccio.html"><strong>Salt-Glass Hearth — Lens-Fish Carpaccio</strong></a> <span class="tag tag-low">low</span> 82-99</li>
+<li><a href="method-glass-desert-salt-glass-hearth-trout.html"><strong>Salt-Glass Hearth — Crystal-Cured Prism-Trout</strong></a> <span class="tag tag-medium">medium</span> 88-99</li>
+</ul>
+
+
+<h3>firemaking (2)</h3>
+<ul class="loose">
+<li><a href="method-glass-desert-refractory-fire-fm.html"><strong>Refractory Fire Light-Binding</strong></a> <span class="tag tag-medium">medium</span> 75-99</li>
+<li><a href="method-glass-desert-crystal-imbued-fm.html"><strong>Crystal-Imbued Master Burn</strong></a> <span class="tag tag-high">high</span> 85-99</li>
+</ul>
+
+
+<h3>woodcutting (2)</h3>
+<ul class="loose">
+<li><a href="method-glass-desert-glass-cedar-cutting.html"><strong>Glass-Cedar Stand Cutting</strong></a> <span class="tag tag-low">low</span> 80-99</li>
+<li><a href="method-glass-desert-prism-pine-grove.html"><strong>Prism-Pine Grove Master Cutting</strong></a> <span class="tag tag-medium">medium</span> 90-99</li>
+</ul>
+
+
+<h3>farming (2)</h3>
+<ul class="loose">
+<li><a href="method-glass-desert-lens-glass-plot.html"><strong>Lens-Glass Plot Rotation</strong></a> <span class="tag tag-low">low</span> 80-99</li>
+<li><a href="method-glass-desert-crystal-corn-master-farm.html"><strong>Crystal-Corn Master Plot</strong></a> <span class="tag tag-low">low</span> 90-99</li>
+</ul>
+
+
+<p><a href="region-glass_desert.html">← Glass Desert region</a></p>
+
+</div>
+</body></html>

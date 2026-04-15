@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html><head><meta charset="utf-8"><title>Saltpetre &amp; Lead Mining — Aelgard Codex</title>
+<style>
+  body { font-family: ui-monospace, 'Cascadia Code', Consolas, monospace; background:#3e3529; color:#e8dcc0; margin:0 auto; padding:20px; max-width:1200px; }
+  .parchment { background:#e8dcc0; color:#2c1810; padding:30px 40px; border:3px solid #8b6f47; border-radius:4px; box-shadow:0 0 20px rgba(0,0,0,.5); margin:20px 0; }
+  h1 { color:#7a1f1a; border-bottom:2px solid #8b6f47; padding-bottom:10px; }
+  h2 { color:#5a3a1a; margin-top:30px; }
+  h3 { color:#6b4423; }
+  a { color:#7a1f1a; border-bottom:1px dotted #7a1f1a; text-decoration:none; }
+  a:hover { background:#d4c49c; }
+  nav { margin-bottom:20px; }
+  nav a { margin-right:12px; font-weight:bold; }
+  .description { font-style:italic; color:#5a3a1a; padding:10px; background:#d4c49c; border-left:3px solid #8b6f47; margin:10px 0; }
+  table { width:100%; border-collapse:collapse; margin:15px 0; }
+  th, td { text-align:left; padding:6px 10px; border-bottom:1px solid #c4a970; }
+  th { background:#d4c49c; color:#2c1810; }
+  tr:hover { background:#d4c49c; }
+  .tag { display:inline-block; padding:2px 8px; margin:2px; border-radius:3px; font-size:11px; font-weight:bold; }
+  .tag-region { background:#4a6b8a; color:#fff; }
+  .tag-skill  { background:#5a7f4a; color:#fff; }
+  .tag-trans  { background:#8a1f1a; color:#fff; }
+  .tag-major  { background:#a86a2a; color:#fff; }
+  .tag-minor  { background:#6a6a6a; color:#fff; }
+  .tag-afk    { background:#3a5a2a; color:#fff; }
+  .tag-low    { background:#4a7a3a; color:#fff; }
+  .tag-medium { background:#8a7a2a; color:#fff; }
+  .tag-high   { background:#a85a2a; color:#fff; }
+  .tag-maximum{ background:#8a1f1a; color:#fff; }
+  .tag-obscure{ background:#6a4a2a; color:#fff; font-style:italic; }
+  .knob-grid { display:grid; grid-template-columns:repeat(4, 1fr); gap:10px; margin:15px 0; }
+  .knob { background:#d4c49c; padding:10px; border-radius:3px; }
+  .knob .label { font-size:11px; color:#5a3a1a; text-transform:uppercase; font-weight:bold; }
+  .knob .value { font-size:16px; color:#7a1f1a; font-weight:bold; margin-top:4px; }
+  .knob .detail { font-size:11px; color:#3a2810; margin-top:2px; }
+  .stat-grid { display:grid; grid-template-columns:repeat(4, 1fr); gap:10px; margin:15px 0; }
+  .stat-cell { background:#d4c49c; padding:10px; border-radius:3px; text-align:center; }
+  .stat-cell .value { font-size:24px; font-weight:bold; color:#7a1f1a; }
+  .stat-cell .label { font-size:11px; color:#5a3a1a; text-transform:uppercase; }
+  .heat { display:inline-block; width:40px; text-align:center; padding:4px; margin:1px; border-radius:3px; font-weight:bold; font-size:11px; }
+  .heat-0 { background:#c4a970; color:#5a3a1a; }
+  .heat-1 { background:#9ec49a; color:#1a3a1a; }
+  .heat-3 { background:#6a9e6a; color:#fff; }
+  .heat-5 { background:#3a7a3a; color:#fff; }
+  .heat-10 { background:#1a5a1a; color:#fff; }
+  ul.loose li { margin-bottom:8px; }
+  details { margin:8px 0; padding:8px; background:#d4c49c; border-radius:3px; }
+  summary { cursor:pointer; font-weight:bold; }
+  .graph-wrap { overflow:auto; background:#d4c49c; padding:10px; border-radius:3px; }
+  svg { background:#e8dcc0; }
+</style>
+</head>
+<body>
+<nav>
+  <a href="index.html">Home</a>
+  <a href="regions.html">Regions</a>
+  <a href="skills.html">Skills</a>
+  <a href="methods.html">Methods</a>
+  <a href="quests.html">Quests</a>
+  <a href="items.html">Items</a>
+  <a href="recipes.html">Recipes</a>
+  <a href="minigames.html">Minigames</a>
+  <a href="bosses.html">Bosses</a>
+  <a href="npcs.html">NPCs</a>
+  <a href="lore.html">Lore</a>
+  <a href="breakpoints.html">Breakpoints</a>
+  <a href="web.html">Web</a>
+</nav>
+<div class="parchment">
+
+<h1>Saltpetre &amp; Lead Mining</h1>
+<div class="description">Saltpetre caves, lead reefs. Powder and shot for the Cannon Foundry. The gunner pays by weight.</div>
+
+<div class="stat-grid">
+  <div class="stat-cell"><div class="value">mining</div><div class="label">Skill</div></div>
+  <div class="stat-cell"><div class="value">40-99</div><div class="label">Level Range</div></div>
+  <div class="stat-cell"><div class="value">65,000</div><div class="label">XP / Hour</div></div>
+  <div class="stat-cell"><div class="value">Saltbrine Reach</div><div class="label">Location</div></div>
+</div>
+
+<h2>The 8 Marstead Knobs</h2>
+<div class="knob-grid">
+  <div class="knob"><div class="label">1. XP per Hour</div><div class="value">65,000</div></div>
+  <div class="knob"><div class="label">2. Prerequisites</div><div class="value">yes</div><div class="detail"><span class="tag tag-skill">mining 40</span> </div></div>
+  <div class="knob"><div class="label">3. Resource Output</div><div class="value">profit</div><div class="detail">2 items/hr</div></div>
+  <div class="knob"><div class="label">4. Banking Frequency</div><div class="value">moderate</div></div>
+  <div class="knob"><div class="label">5. Cost / Hour</div><div class="value">0 gp</div></div>
+  <div class="knob"><div class="label">6. Danger</div><div class="value">low</div></div>
+  <div class="knob"><div class="label">7. Complexity</div><div class="value">simple</div></div>
+  <div class="knob"><div class="label">8. Attention</div><div class="value"><span class="tag tag-low">low</span></div></div>
+</div>
+
+<h2>Prerequisites</h2>
+<p>
+  <strong>Skills:</strong> <span class="tag tag-skill">mining 40</span><br>
+  
+  <strong>Items:</strong> <span class="tag tag-minor">Pickaxe</span><br>
+  <strong>Areas:</strong> <span class="tag tag-region">saltbrine_reach</span><br>
+  
+</p>
+
+
+<h2>Produces</h2><ul class="loose"><li><strong>Saltpetre</strong> — 260/hr</li>
+<li><strong>Lead</strong> — 340/hr</li></ul>
+
+<h2>Breakpoints in Range</h2><ul class="loose"><li><span class="tag tag-minor">level 55</span> Mithril ore. First &quot;valuable&quot; ore. Mining starts generating real money.</li>
+<li><span class="tag tag-minor">level 70</span> Adamantite ore. Serious mining money. You feel rich for the first time.</li>
+<li><span class="tag tag-major">level 75</span> Lunar-adjacent crystal mining. Moon-cycle bonus yield. Higher tier than Veilwood. Inkweald becomes the crystal king.</li>
+<li><span class="tag tag-major">level 85</span> Runite ore. The rarest ore. Two rocks in the Wilds, contested 24/7. Mining becomes PvP.</li>
+<li><span class="tag tag-transformative">level 90</span> Crystal mining cap reached. Prismstone + lens-quartz unlock the full Lens Forge chain. The desert yields its clear.</li>
+<li><span class="tag tag-major">level 92</span> Crystal endgame mining. Post-mastery mining. Crystal dust feeds all endgame crystal gear.</li></ul>
+
+<h2>Alternatives at Same Level</h2>
+
+<table>
+<tr><th>Method</th><th>Levels</th><th>XP/hr</th><th>Attention</th><th>Danger</th></tr>
+<tr><td><a href="method-saltbrine-coastal-mining.html"><strong>Tidestone &amp; Wreck-Iron Mining</strong></a></td><td>1-70</td><td>42,000</td><td><span class="tag tag-low">low</span></td><td>low</td></tr>
+<tr><td><a href="method-quirky-saltbrine-barnacle-scraping.html"><strong>[Quirky] Scrape the Barnacles</strong></a></td><td>1-99</td><td>1,400</td><td><span class="tag tag-medium">medium</span></td><td>none</td></tr>
+<tr><td><a href="method-mining-iron-powermining.html"><strong>Iron Powermining</strong></a></td><td>15-99</td><td>55,000</td><td><span class="tag tag-high">high</span></td><td>none</td></tr>
+<tr><td><a href="method-boneyard-salt-crystal-mining.html"><strong>Salt-Crystal Bed Mining</strong></a></td><td>15-85</td><td>48,000</td><td><span class="tag tag-afk">afk</span></td><td>none</td></tr>
+<tr><td><a href="method-moryskah-silver-mining.html"><strong>Moryskah Silver Mining</strong></a></td><td>20-99</td><td>42,000</td><td><span class="tag tag-low">low</span></td><td>low</td></tr>
+<tr><td><a href="method-boneyard-fossil-mining.html"><strong>Fossil Island Quarry</strong></a></td><td>20-80</td><td>48,000</td><td><span class="tag tag-low">low</span></td><td>low</td></tr>
+<tr><td><a href="method-mining-motherlode.html"><strong>Motherlode Mine</strong></a></td><td>30-99</td><td>32,000</td><td><span class="tag tag-afk">afk</span></td><td>none</td></tr>
+<tr><td><a href="method-boneyard-quarrymaster-sandstone.html"><strong>Quarrymaster Sandstone</strong></a></td><td>30-70</td><td>52,000</td><td><span class="tag tag-low">low</span></td><td>none</td></tr>
+<tr><td><a href="method-inkweald-dream-iron-mining.html"><strong>Dream Forge — Dream-Iron Mining</strong></a></td><td>30-99</td><td>52,000</td><td><span class="tag tag-low">low</span></td><td>low</td></tr>
+<tr><td><a href="method-mining-granite-3tick.html"><strong>Granite 3-Tick Mining</strong></a></td><td>45-99</td><td>100,000</td><td><span class="tag tag-maximum">maximum</span></td><td>low</td></tr>
+<tr><td><a href="method-heartlands-deep-mines.html"><strong>Heartlands Deep Mines</strong></a></td><td>45-85</td><td>72,000</td><td><span class="tag tag-low">low</span></td><td>none</td></tr>
+<tr><td><a href="method-mining-volcanic-mine.html"><strong>Volcanic Mine</strong></a></td><td>50-99</td><td>75,000</td><td><span class="tag tag-medium">medium</span></td><td>medium</td></tr>
+<tr><td><a href="method-boneyard-quarrymaster-granite.html"><strong>Quarrymaster Granite</strong></a></td><td>60-99</td><td>72,000</td><td><span class="tag tag-low">low</span></td><td>none</td></tr>
+<tr><td><a href="method-veilwood-crystal-mining.html"><strong>Crystal Vein Mining</strong></a></td><td>70-99</td><td>75,000</td><td><span class="tag tag-medium">medium</span></td><td>none</td></tr>
+<tr><td><a href="method-glass-desert-prismstone-mining.html"><strong>Prismstone Vein Mining</strong></a></td><td>75-95</td><td>88,000</td><td><span class="tag tag-medium">medium</span></td><td>none</td></tr>
+<tr><td><a href="method-inkweald-crystal-mine-lunar.html"><strong>Lunar-Adjacent Crystal Mining</strong></a></td><td>75-99</td><td>78,000</td><td><span class="tag tag-low">low</span></td><td>low</td></tr>
+<tr><td><a href="method-mining-wilds-runite.html"><strong>Wilderness Runite Mining</strong></a></td><td>85-99</td><td>15,000</td><td><span class="tag tag-high">high</span></td><td>extreme</td></tr>
+<tr><td><a href="method-glass-desert-lens-quartz-mining.html"><strong>Lens-Quartz Face Mining</strong></a></td><td>85-99</td><td>105,000</td><td><span class="tag tag-medium">medium</span></td><td>none</td></tr>
+<tr><td><a href="method-sootworks-rune-mining.html"><strong>Runite Shaft Mining</strong></a></td><td>85-99</td><td>35,000</td><td><span class="tag tag-low">low</span></td><td>none</td></tr>
+<tr><td><a href="method-glass-desert-crystal-mining.html"><strong>Crystal Endgame Mining</strong></a></td><td>92-99</td><td>80,000</td><td><span class="tag tag-medium">medium</span></td><td>low</td></tr>
+</table>
+
+<p><a href="skill-mining.html">← mining</a> · <a href="methods.html">all methods</a></p>
+
+</div>
+</body></html>
