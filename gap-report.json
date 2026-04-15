@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-04-15T13:20:20.478Z",
+  "timestamp": "2026-04-15T13:33:29.006Z",
   "thinnestRegion": {
     "id": "moryskah",
     "label": "Moryskah",
@@ -63,20 +63,20 @@
       "gapScore": 54
     },
     {
-      "region": "heartlands",
-      "label": "Heartlands",
-      "methods": 86,
-      "minigames": 7,
-      "blockedSkills": 0,
-      "gapScore": 66
-    },
-    {
       "region": "the_wilds",
       "label": "The Wilds",
       "methods": 100,
       "minigames": 5,
       "blockedSkills": 0,
       "gapScore": 73
+    },
+    {
+      "region": "heartlands",
+      "label": "Heartlands",
+      "methods": 141,
+      "minigames": 7,
+      "blockedSkills": 0,
+      "gapScore": 94
     }
   ],
   "analysis": {
