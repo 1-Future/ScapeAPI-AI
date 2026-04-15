@@ -1,0 +1,41 @@
+{
+  "type": "quest",
+  "label": "Quest",
+  "description": "A multi-step quest with requirements and rewards. Anti-WoW: every quest must earn its existence.",
+  "idPrefix": "q_",
+  "fields": [
+    { "key": "id", "type": "string", "required": true, "readonly_after_create": true, "label": "ID" },
+    { "key": "name", "type": "string", "required": true, "label": "Quest name" },
+    { "key": "description", "type": "markdown", "required": true, "label": "Description" },
+    { "key": "difficulty", "type": "enum", "required": true,
+      "values": ["Novice","Intermediate","Experienced","Master","Grandmaster"],
+      "default": "Novice" },
+    { "key": "questPoints", "type": "int", "required": true, "default": 1, "label": "Quest points awarded" },
+    { "key": "startNpc", "type": "string", "label": "Start NPC (name or def id)" },
+    { "key": "startLocation", "type": "region_picker", "label": "Start location" },
+    { "key": "members", "type": "bool", "default": true, "label": "Members?" },
+    { "key": "requirements", "type": "object", "label": "Requirements", "fields": [
+      { "key": "skills", "type": "kv_int", "label": "Skill requirements {skill: level}" },
+      { "key": "quests", "type": "string_list", "label": "Quest prerequisites (ids)" },
+      { "key": "items", "type": "obj_list", "label": "Item requirements", "fields": [
+        { "key": "name", "type": "string", "required": true },
+        { "key": "count", "type": "int", "default": 1 }
+      ]}
+    ]},
+    { "key": "steps", "type": "obj_list", "required": true, "label": "Quest steps", "fields": [
+      { "key": "text", "type": "markdown", "required": true, "label": "Step description" },
+      { "key": "action", "type": "string", "label": "Action hint (talk, give, kill, ...)" },
+      { "key": "target", "type": "string", "label": "Action target (npc id, item, etc.)" },
+      { "key": "check", "type": "string", "label": "Check expression" }
+    ]},
+    { "key": "rewards", "type": "object", "label": "Rewards", "fields": [
+      { "key": "questPoints", "type": "int", "default": 1 },
+      { "key": "xp", "type": "kv_int", "label": "XP {skill: amount}" },
+      { "key": "items", "type": "obj_list", "label": "Item rewards", "fields": [
+        { "key": "name", "type": "string", "required": true },
+        { "key": "count", "type": "int", "default": 1 }
+      ]},
+      { "key": "unlocks", "type": "string_list", "label": "Unlocks (area ids, ability ids)" }
+    ]}
+  ]
+}

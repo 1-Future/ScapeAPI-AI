@@ -1,0 +1,28 @@
+{
+  "type": "breakpoint",
+  "label": "Breakpoint",
+  "description": "A threshold (skill level, quest, item) that permanently changes how you play. Marstead: 'RuneScape is nothing but that feeling.'",
+  "idPrefix": "bp_",
+  "fields": [
+    { "key": "id", "type": "string", "required": true, "readonly_after_create": true, "label": "ID" },
+    { "key": "type", "type": "enum", "required": true, "default": "skill_level",
+      "values": ["skill_level","quest_complete","item_acquired","achievement"] },
+    { "key": "importance", "type": "enum", "required": true, "default": "minor",
+      "values": ["minor","major","transformative"] },
+    { "key": "description", "type": "markdown", "required": true, "label": "What changes when you cross this?" },
+    { "key": "trigger", "type": "object", "required": true, "label": "Trigger", "fields": [
+      { "key": "skill", "type": "string", "label": "Skill (for skill_level)" },
+      { "key": "level", "type": "int", "label": "Level threshold" },
+      { "key": "quest", "type": "string", "label": "Quest id (for quest_complete)" },
+      { "key": "item", "type": "string", "label": "Item name (for item_acquired)" },
+      { "key": "achievement", "type": "string", "label": "Achievement id" }
+    ]},
+    { "key": "unlocks", "type": "obj_list", "label": "What this unlocks", "fields": [
+      { "key": "type", "type": "enum",
+        "values": ["method","area","recipe","monster","boss","quest","shop","ability"] },
+      { "key": "id", "type": "string" },
+      { "key": "description", "type": "markdown" }
+    ]},
+    { "key": "flavor", "type": "markdown", "label": "Flavor text on reaching breakpoint" }
+  ]
+}

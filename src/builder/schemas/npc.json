@@ -1,0 +1,26 @@
+{
+  "type": "npc",
+  "label": "NPC",
+  "description": "A non-combat NPC: shopkeeper, quest-giver, banker, master, or flavor character.",
+  "idPrefix": "npc_",
+  "fields": [
+    { "key": "id", "type": "string", "required": true, "readonly_after_create": true, "label": "ID" },
+    { "key": "name", "type": "string", "required": true },
+    { "key": "examine", "type": "string", "required": true, "label": "Examine text" },
+    { "key": "role", "type": "enum", "required": true, "default": "flavor",
+      "values": ["flavor","shopkeeper","banker","quest_giver","skill_master","guide","trainer","innkeeper","transport"] },
+    { "key": "region", "type": "region_picker" },
+    { "key": "x", "type": "int", "label": "Spawn x" },
+    { "key": "y", "type": "int", "label": "Spawn y" },
+    { "key": "wanderRadius", "type": "int", "default": 3 },
+    { "key": "canMove", "type": "bool", "default": true },
+    { "key": "persona", "type": "markdown", "label": "AI persona / system prompt" },
+    { "key": "dialogue", "type": "obj_list", "label": "Dialogue tree", "fields": [
+      { "key": "topic", "type": "string", "required": true, "label": "Topic keyword" },
+      { "key": "text", "type": "markdown", "required": true },
+      { "key": "leadsTo", "type": "string_list", "label": "Follow-up topics" }
+    ]},
+    { "key": "shopId", "type": "string", "label": "Shop id (if shopkeeper)" },
+    { "key": "questId", "type": "string", "label": "Primary quest id (if quest_giver)" }
+  ]
+}

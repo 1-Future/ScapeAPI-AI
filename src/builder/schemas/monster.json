@@ -1,0 +1,39 @@
+{
+  "type": "monster",
+  "label": "Monster",
+  "description": "A combat NPC that attacks, dies, and drops loot.",
+  "idPrefix": "mon_",
+  "fields": [
+    { "key": "id", "type": "string", "required": true, "readonly_after_create": true, "label": "ID" },
+    { "key": "name", "type": "string", "required": true, "label": "Name" },
+    { "key": "examine", "type": "string", "required": true, "label": "Examine text" },
+    { "key": "combatLevel", "type": "int", "required": true, "default": 1 },
+    { "key": "maxHp", "type": "int", "required": true, "default": 10 },
+    { "key": "maxHit", "type": "int", "required": true, "default": 1 },
+    { "key": "attackSpeed", "type": "int", "required": true, "default": 4, "label": "Attack speed (ticks)" },
+    { "key": "attackRange", "type": "int", "default": 1, "label": "Attack range (tiles; 1=melee)" },
+    { "key": "attackStyle", "type": "enum", "required": true, "default": "melee",
+      "values": ["melee","ranged","magic"] },
+    { "key": "size", "type": "int", "default": 1, "label": "Tile footprint (1=1x1, 2=2x2)" },
+    { "key": "aggressive", "type": "bool", "default": false },
+    { "key": "aggroRange", "type": "int", "default": 3 },
+    { "key": "wanderRadius", "type": "int", "default": 5 },
+    { "key": "respawnTicks", "type": "int", "default": 50 },
+    { "key": "poisonDamage", "type": "int", "default": 0 },
+    { "key": "stats", "type": "object", "label": "Stats", "fields": [
+      { "key": "attack", "type": "int", "default": 1 },
+      { "key": "strength", "type": "int", "default": 1 },
+      { "key": "defence", "type": "int", "default": 1 },
+      { "key": "magic", "type": "int", "default": 1 },
+      { "key": "ranged", "type": "int", "default": 1 }
+    ]},
+    { "key": "drops", "type": "obj_list", "label": "Drop table", "fields": [
+      { "key": "name", "type": "string", "required": true },
+      { "key": "min", "type": "int", "default": 1 },
+      { "key": "max", "type": "int", "default": 1 },
+      { "key": "weight", "type": "int", "default": 1, "label": "Relative drop weight" }
+    ]},
+    { "key": "region", "type": "region_picker", "label": "Native region" },
+    { "key": "slayerLevel", "type": "int", "label": "Slayer level required (if any)" }
+  ]
+}

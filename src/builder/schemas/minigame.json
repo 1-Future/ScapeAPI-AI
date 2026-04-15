@@ -1,0 +1,31 @@
+{
+  "type": "minigame",
+  "label": "Minigame",
+  "description": "A self-contained repeatable activity with unique rewards (e.g. Castle Wars, Wintertodt, Pest Control).",
+  "idPrefix": "mg_",
+  "fields": [
+    { "key": "id", "type": "string", "required": true, "readonly_after_create": true, "label": "ID" },
+    { "key": "name", "type": "string", "required": true, "label": "Minigame name" },
+    { "key": "description", "type": "markdown", "required": true, "label": "Description" },
+    { "key": "region", "type": "region_picker", "label": "Host region" },
+    { "key": "type", "type": "enum", "required": true, "default": "solo",
+      "values": ["solo","coop","pvp","team","mass"] },
+    { "key": "minPlayers", "type": "int", "default": 1 },
+    { "key": "maxPlayers", "type": "int", "default": 1 },
+    { "key": "duration", "type": "string", "label": "Duration / round length" },
+    { "key": "requirements", "type": "object", "label": "Requirements", "fields": [
+      { "key": "skills", "type": "kv_int", "label": "Skill reqs" },
+      { "key": "quests", "type": "string_list" },
+      { "key": "combatLevel", "type": "int" }
+    ]},
+    { "key": "rewards", "type": "object", "label": "Rewards", "fields": [
+      { "key": "currency", "type": "string", "label": "Reward currency (e.g. pts, commendations)" },
+      { "key": "xp", "type": "kv_int", "label": "XP per round" },
+      { "key": "items", "type": "obj_list", "fields": [
+        { "key": "name", "type": "string", "required": true },
+        { "key": "cost", "type": "int", "default": 0, "label": "Cost in reward currency" }
+      ]}
+    ]},
+    { "key": "mechanics", "type": "markdown", "label": "Core mechanics summary" }
+  ]
+}
