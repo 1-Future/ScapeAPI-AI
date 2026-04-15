@@ -36,6 +36,12 @@ try { require('../src/content/aelgard/moryskah-deep'); } catch (e) {}
 try { require('../src/content/aelgard/moryskah-density'); } catch (e) {}
 try { require('../src/content/aelgard/sootworks-deep'); } catch (e) {}
 try { require('../src/content/aelgard/sootworks-density'); } catch (e) {}
+try { require('../src/content/aelgard/saltbrine-deep'); } catch (e) {}
+try { require('../src/content/aelgard/saltbrine-density'); } catch (e) {}
+try { require('../src/content/aelgard/veilwood-deep'); } catch (e) {}
+try { require('../src/content/aelgard/veilwood-density'); } catch (e) {}
+try { require('../src/content/aelgard/boneyard-deep'); } catch (e) {}
+try { require('../src/content/aelgard/boneyard-density'); } catch (e) {}
 try { require('../src/content/aelgard/mid-tier-regions'); } catch (e) {}
 try { require('../src/content/aelgard/universal-items'); } catch (e) {}
 try { require('../src/content/aelgard/special-regions'); } catch (e) {}
