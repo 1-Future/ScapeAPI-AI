@@ -1,0 +1,822 @@
+{
+  "version": "1.0",
+  "based_on": "OSRS item design lexicon, 938-item analytical sample, ~80K words of analysis",
+  "doc_ref": "reports/osrs-item-design-lexicon.md",
+  "purpose": "Queryable rules database the Scape art generator consumes. Given (category, tier, material, origin, region, iconic_break_axis, sub_aesthetic, state_register), compose() returns a complete prompt-ready spec.",
+
+  "universal": [
+    {
+      "id": "U1.outline",
+      "scope": "all items",
+      "spec": "1-2px topologically-complete dark outline at #000000 (pure black). No gaps, no soft edges, no anti-aliasing. Binary alpha only.",
+      "evidence_count": "11899/11899 icons (99.96% strict compliance; 0.04% are pastry/crest/fin design choices that brush perimeter)",
+      "exceptions": "Cosmetic exo-items (Scape's equivalent of partyhats) MAY shift outline color — but only because they're designed to read as out-of-world",
+      "scape_application": "Every Scape inventory icon outlines at #000000, 1-2px, complete enclosure, binary alpha. Apply via post-process: trace silhouette, paint perimeter at #000000, enforce binary alpha."
+    },
+    {
+      "id": "U1.outline.interior",
+      "scope": "all items with interior subdivisions",
+      "spec": "Secondary dark lines that subdivide the silhouette use the same #000000 as the rim, never a lighter gray.",
+      "evidence_count": "Dragon-claws 100 interior dark pixels, Torva platebody 259, all at #000000",
+      "scape_application": "Interior subdivisions (blade-from-guard, plate-seam) use perimeter color exactly."
+    },
+    {
+      "id": "U1.outline.thickness",
+      "scope": "all items",
+      "spec": "Default 1px baseline. 55-80% of perimeter samples at exactly 1px. 2px permitted only on apex curves and silhouette-signature features. 3+px does not occur as a design choice.",
+      "scape_application": "Generator targets 1px outline by default; permits 2px on auto-detected curve apexes."
+    },
+    {
+      "id": "U2.static_only",
+      "scope": "all items",
+      "spec": "Zero animation in inventory icon. No pulse, no particle, no rotation, no shimmer, no glow aura, no shader effect. Specular is fixed-pixel composition, not animated.",
+      "evidence_count": "100% of sampled items",
+      "scape_application": "Inventory render layer uses no animation. Animation lives in world entities (sword swings, spell casts, pet idle), never in inventory."
+    },
+    {
+      "id": "U2.static_only.specular_invariance",
+      "scope": "items with reversible mechanical state",
+      "spec": "Reversible mechanical states (imbued/base, poisoned/un-poisoned, charged/un-charged) are pixel-identical icons. Specular changes only on permanent art transitions (ornament kits, re-skins, blessed conversions).",
+      "scape_application": "Imbued/charged variants share base sprite. Only ornament-kit upgrades produce new sprites."
+    },
+    {
+      "id": "U3.tight_crop",
+      "scope": "all items",
+      "spec": "Canvas is silhouette's shrink-wrap plus 1-2px outline padding. Not a fixed grid. Canvas dimensions are themselves a category signal.",
+      "scape_application": "Canvas falls out of bbox computation. Per-category canvas-size table (see categories.* fields). New categories pick a canvas and stick to it."
+    },
+    {
+      "id": "U4.nearest_neighbor",
+      "scope": "all rendering surfaces",
+      "spec": "Icons authored at native ~30px and scaled at runtime with nearest-neighbor only. No bilinear, no smoothing.",
+      "scape_application": "CSS image-rendering: pixelated; canvas imageSmoothingEnabled = false. Author at native canvas, never produce 256px master and downscale."
+    },
+    {
+      "id": "U5.every_pixel_has_a_job",
+      "scope": "all items",
+      "spec": "At 30px no atmospheric noise. Every pixel conveys silhouette, material, detail, specular, or — at ultra tier — deliberate negative space.",
+      "scape_application": "Generator critique step: reject outputs with 'noise' or 'background atmosphere'. Re-prompt with 'every pixel has intent' constraint."
+    },
+    {
+      "id": "U5.negative_space_at_ultra",
+      "scope": "ultra-tier items",
+      "spec": "Ultra tier permits MORE negative space than mid-tier as prestige rhetoric. Common-tier weapons fill 0.40-0.55; ultra-tier signature weapons fill 0.20-0.30.",
+      "evidence_count": "Scythe 0.201, Crystal Halberd 0.15, Zamorakian Spear 0.11, Shadow 0.20",
+      "scape_application": "Per-tier fill_ratio_range; lower tiers fill more, ultra tiers fill less."
+    },
+    {
+      "id": "U6.tier_as_abstraction",
+      "scope": "all items",
+      "spec": "Low-tier items are literal renderings. High-tier items are stylized symbols of themselves. Progression: functional → idealized → iconic → mythic. Form serves recognition over realism the higher you go.",
+      "scape_application": "Per-category abstraction-curve in tiers.* range. Mid-tier flat plateau is intentional — don't ornament mid-tier to make it feel valuable."
+    },
+    {
+      "id": "U7.single_axis_ultra",
+      "scope": "ultra-tier items",
+      "spec": "At ultra tier, items break exactly ONE design dimension (silhouette OR palette OR material-treatment) and stay disciplined on the others. Multi-axis maximalism hurts legibility.",
+      "evidence_count": "Twisted Bow (silhouette), Shadow (palette), 3rd Age (material), Torva (silhouette), Bandos chestplate (silhouette), Phat (extreme-restraint)",
+      "scape_application": "Every ultra-tier item tagged with break_axis: 'silhouette' | 'palette' | 'material' | 'restraint'. Generator picks exactly one."
+    },
+    {
+      "id": "U8.palette_cohesion",
+      "scope": "world items (excludes exo-cosmetics)",
+      "spec": "One master palette (~48 colors). All items draw from master or named sub-palettes (per-faction, per-region, per-material). No item introduces colors not in the master.",
+      "scape_application": "data/sprite-palettes.json defines scape.master + scape.regions.* + scape.factions.* + scape.materials.*. Generator validates all output colors against master."
+    },
+    {
+      "id": "U8.faction_triplets",
+      "scope": "faction-branded items",
+      "spec": "Each faction has a 3-hex triplet (primary + secondary + accent + black). Faction items pull only from triplet + master.",
+      "scape_application": "Per-faction triplet stored in factions.*. Faction-branded items inherit triplet as primary palette."
+    },
+    {
+      "id": "U8.tier_signatures",
+      "scope": "tier-graded craft items",
+      "spec": "Each tier has a signature hex (±8 per-channel tolerance). Mithril is INDIGO not blue-green.",
+      "scape_application": "tiers.<tier>.signature_hex enforced by generator."
+    },
+    {
+      "id": "U9.shading_discipline",
+      "scope": "all items",
+      "spec": "2-3 banded shading layers per surface. Not gradient. Not dithered fade. Light source upper-left across entire library.",
+      "evidence_count": "109/109 sampled iconic items use 2-3 discrete bands",
+      "scape_application": "Shading computed: material → tier-palette → derive 2-3 luminance bands → pick shadow from named token matching dominant hue family."
+    },
+    {
+      "id": "U10.semiotic_framing",
+      "scope": "all items, especially uniques",
+      "spec": "Items communicate, not illustrate. Visual rhetoric matches mechanic. Weird-scaling items look weird; holy items look holy; cursed items look wrong.",
+      "scape_application": "Iconic items get hand-prompted with explicit mechanic-to-visual mapping."
+    }
+  ],
+
+  "tiers": {
+    "low": {
+      "ids": ["bronze", "iron", "steel", "junk"],
+      "abstraction_range": [1, 3],
+      "palette_saturation": "muted",
+      "specular_count": [0, 1],
+      "specular_color": "near-white-tinted-by-material",
+      "ornament": "none",
+      "silhouette_status": "category_template_locked",
+      "fill_ratio": [0.40, 0.55],
+      "notes": "Functional renderings. Reads as commodity / starter / found."
+    },
+    "mid": {
+      "ids": ["black", "mithril", "adamant"],
+      "abstraction_range": [3, 5],
+      "palette_saturation": "moderate",
+      "specular_count": [1, 2],
+      "ornament": "edge_decoration_starting",
+      "silhouette_status": "category_template_locked",
+      "fill_ratio": [0.40, 0.55],
+      "notes": "Cleaner palette, faint specular, slight ornament. Plateau intentional — don't ornament here to make it feel valuable."
+    },
+    "high": {
+      "ids": ["rune"],
+      "abstraction_range": [6, 6],
+      "palette_saturation": "high — first impossible-color tier",
+      "specular_count": [2, 2],
+      "ornament": "pronounced",
+      "silhouette_status": "category_template_locked",
+      "fill_ratio": [0.40, 0.55],
+      "notes": "Palette-break rung. First palette no real metal could be (cyan). Saturated signature, clear specular ping. Reads as 'prestige material'."
+    },
+    "mega": {
+      "ids": ["dragon", "barrows", "bandos", "armadyl"],
+      "abstraction_range": [7, 8],
+      "palette_saturation": "high — second impossible-color tier",
+      "specular_count": [2, 3],
+      "ornament": "decorative_flourishes",
+      "silhouette_status": "soft_deviation_from_template",
+      "fill_ratio": [0.30, 0.50],
+      "notes": "Dragon-rung double-break. Color AND ornament escalate together. Silhouette softly deviates (sharper curve, wider proportions). Largest single jump in abstraction curve."
+    },
+    "ultra": {
+      "ids": ["3rd_age", "torva", "twisted", "shadow", "scythe", "crystal", "phat"],
+      "abstraction_range": [9, 10],
+      "palette_saturation": "varies — depends on break axis",
+      "specular_count": [2, 3],
+      "specular_count_paradox": "May be ZERO for matte ultras (Shadow, Torva) — restraint-as-prestige",
+      "ornament": "varies — depends on break axis",
+      "silhouette_status": "single_axis_break",
+      "fill_ratio": [0.20, 0.30],
+      "white_space": "MORE than mid-tier — prestige rhetoric",
+      "single_axis_break_required": true,
+      "notes": "Single-axis discipline. Break exactly one of silhouette / palette / material. Multi-axis breaks look like fan-art."
+    }
+  },
+
+  "materials": {
+    "bronze": {
+      "tier_class": "low",
+      "palette": ["#4C3820", "#5A4828", "#7C5C30"],
+      "shadow_token": "scape.shadow.warm",
+      "specular_color": "#A8A814",
+      "specular_count": [0, 1],
+      "ornament_motif": "none",
+      "composite_secondary": "wood_brown_handle"
+    },
+    "iron": {
+      "tier_class": "low",
+      "palette": ["#544C4C", "#6E6868", "#8E8888"],
+      "shadow_token": "scape.shadow.cool",
+      "specular_color": "#C8C8C8",
+      "specular_count": [1, 1],
+      "ornament_motif": "none"
+    },
+    "steel": {
+      "tier_class": "low_mid",
+      "palette": ["#88807C", "#9E9694", "#B8B0AC"],
+      "shadow_token": "scape.shadow.neutral",
+      "specular_color": "#E0DCD8",
+      "specular_count": [1, 2],
+      "ornament_motif": "subtle_edges"
+    },
+    "black": {
+      "tier_class": "mid",
+      "palette": ["#141010", "#282424", "#3C3838"],
+      "shadow_token": "scape.shadow.deep",
+      "specular_color": "#5C5858",
+      "specular_count": [0, 1],
+      "luminance_inversion": true,
+      "notes": "Composite items invert luminance (metal darker than leather). Restraint as tier signal.",
+      "ornament_motif": "minimal"
+    },
+    "mithril": {
+      "tier_class": "mid",
+      "palette": ["#40405C", "#54546E", "#6C6C84"],
+      "palette_correction": "INDIGO not blue-green per Wave A3 finding across 8 mithril slots",
+      "shadow_token": "scape.shadow.indigo",
+      "specular_color": "#A0A0BC",
+      "specular_count": [1, 2],
+      "ornament_motif": "subtle_violet_accent"
+    },
+    "adamant": {
+      "tier_class": "mid_high",
+      "palette": ["#405440", "#54685C", "#688068"],
+      "shadow_token": "scape.shadow.green",
+      "specular_color": "#9CB89C",
+      "specular_count": [1, 2],
+      "ornament_motif": "decorative_edges"
+    },
+    "rune": {
+      "tier_class": "high",
+      "palette": ["#405864", "#547080", "#688898"],
+      "impossible_color": true,
+      "shadow_token": "scape.shadow.cyan",
+      "specular_color": "#A0BCC8",
+      "specular_count": [2, 2],
+      "ornament_motif": "pronounced_engraving"
+    },
+    "dragon": {
+      "tier_class": "mega",
+      "palette": ["#84180C", "#A02818", "#BC3424"],
+      "accent": "#C9A94A",
+      "impossible_color": true,
+      "shadow_token": "scape.shadow.deep_warm",
+      "specular_color": "#543808",
+      "specular_count": [2, 3],
+      "ornament_motif": "gold_inlay_with_red_field"
+    },
+    "barrows_tarnished": {
+      "tier_class": "mega",
+      "palette": ["#403830", "#544C44", "#685C50"],
+      "shadow_token": "scape.shadow.tarnish",
+      "specular_color": "minimal_or_none",
+      "specular_count": [0, 1],
+      "ornament_motif": "tomb_relief_per_brother",
+      "notes": "Each Barrows-equivalent set has unique silhouette family + 1-2 unique colors atop tarnished base."
+    },
+    "third_age": {
+      "tier_class": "ultra",
+      "palette": ["#988C8C", "#ACA0A0", "#C0B4B4"],
+      "accent": "#C9A94A",
+      "impossible_color": true,
+      "shadow_token": "scape.shadow.silver",
+      "specular_color": "#C9A94A",
+      "specular_count": [2, 3],
+      "ornament_motif": "gold_heraldic",
+      "notes": "Restrained gold visibility at 30px — gold-trim fans associate with 3rd Age lives in 3D model not inventory icon."
+    },
+    "crystal": {
+      "tier_class": "ultra",
+      "palette": ["#DCDCE0", "#C8C8D8", "#A8B0C0"],
+      "impossible_color": true,
+      "shadow_token": "scape.shadow.pale_blue",
+      "specular_color": "#FCFCFC",
+      "specular_count": [2, 3],
+      "ornament_motif": "faceted_light_refraction",
+      "fill_ratio_modifier": -0.15,
+      "notes": "Lower fill — 'light passing through.' Faceted texture."
+    },
+    "void_shadow": {
+      "tier_class": "ultra",
+      "palette": ["#080808", "#181018", "#281828"],
+      "accent": "#BC8C18",
+      "impossible_color": true,
+      "shadow_token": "scape.shadow.absolute",
+      "specular_color": "minimal_localized",
+      "specular_count": [0, 1],
+      "ornament_motif": "anti_light",
+      "notes": "Absorbs light. Specular reserved for one signature point (orb, eye)."
+    },
+    "bone": {
+      "tier_class": "raw",
+      "palette": ["#DBDBD7", "#C4C0BC", "#A8A4A0"],
+      "shadow_token": "scape.shadow.bone",
+      "specular_color": "off_white_minimal",
+      "specular_count": [0, 0],
+      "ornament_motif": "none"
+    },
+    "wood_low": {
+      "tier_class": "raw_handle",
+      "palette": ["#543808", "#684c1c", "#7c6030"],
+      "shadow_token": "scape.shadow.warm",
+      "specular_color": "minimal",
+      "specular_count": [0, 1],
+      "notes": "Universal weapon-handle/haft material across all metal-tier weapons."
+    },
+    "leather": {
+      "tier_class": "composite",
+      "palette": ["#483509", "#5c4515", "#705625"],
+      "shadow_token": "scape.shadow.warm",
+      "specular_color": "none",
+      "specular_count": [0, 0],
+      "notes": "Universal composite-armor material. Boot shaft, kiteshield rim. Byte-identical across bronze through rune."
+    }
+  },
+
+  "categories": {
+    "weapon.scimitar": {
+      "canvas": [26, 30],
+      "fill_ratio_range": [0.30, 0.40],
+      "diagonal": "NE_SW",
+      "blade_position": "upper_right",
+      "hilt_position": "lower_left",
+      "lr_symmetry_range": [0.50, 0.57],
+      "tb_symmetry_range": [0.45, 0.55],
+      "centroid_hint": "diagonal — second_horizontal_quartile",
+      "abstraction_curve": {
+        "low": 1,
+        "mid": 3,
+        "high": 5,
+        "mega": 8,
+        "ultra": 10
+      },
+      "tier_locked_through": "rune (pixel-identical bronze→rune)",
+      "mega_deviation": "sharper curve, slimmer silhouette (210 opaque vs standard 258)"
+    },
+    "weapon.longsword": {
+      "canvas": [25, 29],
+      "fill_ratio_range": [0.30, 0.45],
+      "diagonal": "vertical_with_slight_NE",
+      "lr_symmetry_range": [0.55, 0.70],
+      "tier_locked_through": "rune",
+      "mega_deviation": "slightly more symmetric, slimmer"
+    },
+    "weapon.sword": {
+      "canvas": [20, 31],
+      "fill_ratio_range": [0.25, 0.40],
+      "diagonal": "vertical",
+      "lr_symmetry_range": [0.55, 0.65],
+      "tier_locked_through": "adamant",
+      "mega_deviation": "becomes nearly square (dragon-sword aspect 0.93)"
+    },
+    "weapon.dagger": {
+      "canvas": [21, 31],
+      "fill_ratio_range": [0.25, 0.40],
+      "diagonal": "vertical",
+      "lr_symmetry_range": [0.54, 0.57],
+      "tier_locked_through": "rune",
+      "mega_deviation": "DRAMATICALLY smaller (14×26) — only dagger that reads as 'blade not sword'"
+    },
+    "weapon.2h_sword": {
+      "canvas": [21, 30],
+      "fill_ratio_range": [0.30, 0.50],
+      "diagonal": "vertical_taller_slimmer_than_longsword",
+      "tier_locked_through": "rune",
+      "mega_deviation": "becomes square (1.0 aspect)"
+    },
+    "weapon.axe": {
+      "canvas": [20, 24],
+      "fill_ratio_range": [0.25, 0.40],
+      "lr_symmetry_range": [0.49, 0.54],
+      "asymmetry_intentional": "cheek-and-beard geometry one-sided",
+      "tier_locked_through": "rune"
+    },
+    "weapon.mace": { "canvas": [19, 25], "fill_ratio_range": [0.25, 0.40], "tier_locked_through": "rune" },
+    "weapon.warhammer": { "canvas": [19, 25], "fill_ratio_range": [0.30, 0.45], "tier_locked_through": "rune" },
+    "weapon.battleaxe": { "canvas": [20, 23], "fill_ratio_range": [0.30, 0.45], "tier_locked_through": "rune" },
+    "weapon.pickaxe": { "canvas": [16, 28], "fill_ratio_range": [0.25, 0.40], "tier_locked_through": "rune" },
+    "weapon.shortbow": {
+      "canvas": [30, 24],
+      "fill_ratio_range": [0.40, 0.55],
+      "aspect": 1.25,
+      "diagonal": "horizontal_dominant",
+      "lr_symmetry_range": [0.52, 0.55],
+      "asymmetry_intentional": "asymmetric recurve limbs",
+      "tier_locked_through": "magic"
+    },
+    "weapon.longbow": {
+      "canvas": [26, 29],
+      "fill_ratio_range": [0.40, 0.55],
+      "aspect": 0.90,
+      "diagonal": "vertical",
+      "tier_locked_through": "magic"
+    },
+    "weapon.crossbow": { "canvas": [28, 27], "fill_ratio_range": [0.45, 0.60], "tier_locked_through": "rune" },
+    "weapon.staff": {
+      "canvas": [25, 29],
+      "fill_ratio_range": [0.30, 0.45],
+      "tier_locked_through": "elemental",
+      "ultra_example": "Tumeken's Shadow stays inside template (30×28) — apex-ness in palette only"
+    },
+    "armor.full_helm": {
+      "canvas": [19, 29],
+      "fill_ratio_range": [0.55, 0.65],
+      "aspect": 0.66,
+      "mass_distribution": "lower_middle (face-plate dominant)",
+      "feature": "purple_plume_rising_from_crown_at_metal_tiers",
+      "mega_deviation": "Dragon flips to 30×26 wider-than-tall (1.154 aspect), horns replace plume",
+      "tier_locked_through": "rune"
+    },
+    "armor.platebody": {
+      "canvas": [31, 23],
+      "fill_ratio_range": [0.70, 0.80],
+      "aspect": 1.35,
+      "feature": "trapezoidal_torso_flared_pauldrons_narrowing_waist",
+      "ornament_at_mega": "chest_sigil_added",
+      "tier_locked_through": "rune",
+      "ultra_example": "3rd Age stays at 30×23 — keeps silhouette, breaks via palette"
+    },
+    "armor.chainbody": {
+      "canvas": [18, 25],
+      "fill_ratio_range": [0.85, 0.95],
+      "aspect": 0.72,
+      "feature": "rectangular_NO_pauldrons_dimple_grid_texture_essential",
+      "tier_locked_through": "dragon (preserves dimple grid)"
+    },
+    "armor.platelegs": {
+      "canvas": [12, 29],
+      "fill_ratio_range": [0.65, 0.80],
+      "aspect": 0.41,
+      "feature": "two_vertical_leg_columns_visible_crotch_gap_belt_band_top",
+      "tier_locked_through": "rune"
+    },
+    "armor.plateskirt": {
+      "canvas": [27, 24],
+      "fill_ratio_range": [0.70, 0.85],
+      "aspect": 1.13,
+      "feature": "single_trapezoidal_panel_NO_leg_division_olive_yellow_waistband_constant",
+      "constant_color": "#181D00",
+      "tier_locked_through": "rune"
+    },
+    "armor.kiteshield": {
+      "canvas": [30, 28],
+      "fill_ratio_range": [0.55, 0.70],
+      "aspect": 1.07,
+      "rotation_degrees": -10,
+      "feature": "tilted_kite_three_layer_composite",
+      "layers": ["outer_brown_leather_rim_#483509", "central_cross_rib_+_or_X", "four_tier_metal_quadrants"],
+      "leather_rim_color_constant": "#483509",
+      "mega_deviation": "Dragon breaks cross-rib with asymmetric upper-right gray insert",
+      "ultra_deviation": "3rd Age uses solid silver face with central darker umbo — no cross-rib, no leather rim"
+    },
+    "armor.boots": {
+      "canvas": [29, 26],
+      "fill_ratio_range": [0.60, 0.75],
+      "aspect": 1.12,
+      "feature": "paired_three_quarter_view_one_upper_left_one_lower_right",
+      "composite": "leather_shaft_+_metal_toe_cap_at_metal_tiers",
+      "mega_deviation": "Dragon eliminates leather entirely",
+      "black_inversion": "luminance_inverted (metal darker than leather)"
+    },
+    "armor.gloves": {
+      "canvas": [29, 29],
+      "fill_ratio_range": [0.60, 0.75],
+      "feature": "paired_open_and_closed_one_splayed_one_clenched",
+      "tier_locked_through": "rune"
+    },
+    "consumable.food.raw": {
+      "canvas_per_species": "trout 29×25, tuna 28×23, lobster 30×29, shark 29×30, dark_crab 30×21",
+      "silhouette_status": "species_specific_shared_with_cooked_version",
+      "palette": "cool_gray",
+      "specular_count": [0, 0]
+    },
+    "consumable.food.cooked": {
+      "silhouette_inherited_from_raw": true,
+      "palette_operator": "warm_shift_+30deg + saturate_up_1.3 + edge_harden + specular_double",
+      "specular_count": [1, 2],
+      "apex_form": "plated_fillet_for_shark_anglerfish (ultra-tier food signals 'prepared cuisine')"
+    },
+    "consumable.potion.4dose": {
+      "canvas": [21, 30],
+      "feature": "vial_silhouette_with_liquid_level",
+      "axes": {
+        "effect": "liquid_color (red=combat, green=anti-poison, yellow=energy, ...)",
+        "dose": "liquid_pixel_count (4-dose 18-22px, 1-dose 3-5px)",
+        "imbue": "added_signature_specular_pip_at_canonical_location"
+      },
+      "specular_template": "vial_shoulder_+_liquid_surface (2 pings)"
+    },
+    "magic.rune": {
+      "canvas": [29, 28],
+      "opaque_pixel_count": 654,
+      "fill": 0.805,
+      "lr_symmetry": 0.97,
+      "silhouette_status": "GAME_WIDE_SHARED_ASSET",
+      "differentiator": "color + central glyph only",
+      "element_color_grammar": {
+        "fire": "red-orange",
+        "water": "cyan-blue",
+        "earth": "forest-green",
+        "air": "near-white-pale",
+        "mind": "pale-purple",
+        "body": "pale-warm",
+        "nature": "mint-green",
+        "chaos": "amber-yellow",
+        "law": "royal-blue",
+        "death": "near-white-with-skull-motif",
+        "blood": "dark-red",
+        "soul": "lavender-blue",
+        "wrath": "purple-violet"
+      },
+      "combination_runes": "92-112 color palettes due to blended-hue intermediates"
+    },
+    "material.raw.log": {
+      "canvas": [31, 25],
+      "opaque": 529,
+      "aspect": 1.24,
+      "silhouette_status": "shared_template_per_tree_species",
+      "differentiator": "color = species",
+      "magic_log_threshold": "violet #605080 — natural-to-magic palette cliff"
+    },
+    "material.raw.ore": {
+      "canvas": [32, 28],
+      "opaque": 523,
+      "silhouette_status": "shared_rock_matrix_template",
+      "differentiator": "fleck_color = tier_material"
+    },
+    "material.raw.bone": {
+      "silhouette_status": "creature_specific",
+      "palette": "off_white_dbdbd7",
+      "specular": "none"
+    },
+    "material.raw.herb_grimy": {
+      "canvas": [29, 25],
+      "opaque": 500,
+      "silhouette_status": "shared_with_clean",
+      "palette_operator": "saturate_down_0.5 + hue_shift_ochre_+15deg"
+    },
+    "material.processed.herb_clean": {
+      "canvas": [29, 25],
+      "silhouette_status": "shared_with_grimy",
+      "palette_operator": "saturate_up_1.5 + collapse_to_2_hexes",
+      "specular_added": "1-2 pings"
+    },
+    "material.processed.bar": {
+      "canvas": [28, 22],
+      "opaque": 394,
+      "silhouette_status": "GAME_WIDE_SHARED_INGOT_ASSET",
+      "differentiator": "color = material_per_tier_table",
+      "operator_from_ore": "remove_rock_matrix + uniform_3_band_material"
+    },
+    "material.processed.gem.uncut": {
+      "canvas": [21, 22],
+      "opaque": 389,
+      "silhouette_status": "shared_template_dense_cluster"
+    },
+    "material.processed.gem.cut": {
+      "canvas": [21, 23],
+      "opaque": 317,
+      "silhouette_status": "shared_template_faceted_thin",
+      "operator_from_uncut": "silhouette_facet + saturation_boost_1.2 + 1-2_specular_added"
+    },
+    "jewelry.ring": {
+      "canvas": [18, 22],
+      "fill_ratio_range": [0.65, 0.80],
+      "constraint": "small_dense_centered",
+      "tier_via": "gem_centerpiece_color_size"
+    },
+    "jewelry.amulet": {
+      "feature": "pendant_on_cord_gem_centerpiece",
+      "specular_pair": "cool_metal_upper_left + warm_or_tinted_central_gem"
+    },
+    "jewelry.necklace": { "feature": "chain_pendant_proportion_varies" },
+    "tool.pickaxe": { "abstraction_low": [1, 3], "stays_practical_across_tiers": true },
+    "tool.hatchet": { "abstraction_low": [1, 3] },
+    "tool.fishing_rod": { "abstraction_low": [1, 2] },
+    "cosmetic.partyhat": {
+      "canvas": [28, 23],
+      "opaque": 516,
+      "lr_symmetry": 0.85,
+      "silhouette_status": "shared_template_six_colors",
+      "iconic_via": "scarcity_not_complexity"
+    }
+  },
+
+  "origins": {
+    "craft": {
+      "operator": "identity",
+      "spec": "Inherits category template + tier palette + tier-appropriate ornament. The default."
+    },
+    "quest_gate": {
+      "operator": "follows_tier_grammar",
+      "spec": "~10% of quest items. Existing tier items the quest happens to gate. Use standard tier-material pipeline.",
+      "examples": ["Proselyte set", "god books", "Elemental shield", "Dragon sq shield"]
+    },
+    "quest_artefact": {
+      "operator": "resists_tier_grammar",
+      "spec": "~90% of quest items. Bespoke art with quest-resistance rules.",
+      "rules": [
+        "Palette-resistance: NO tier-metal palettes. Pick from lore/faction/regional/property palette.",
+        "Anatomical plausibility: silhouette stays inside realistic proportions. silhouette_uniqueness 6-8 normal; 9-10 only with narrative singularity.",
+        "Default state register is 'used'.",
+        "Narrative-readability mandate: one diegetic cue (silhouette, hue, glyph) teaches function at thumbnail size."
+      ],
+      "sub_aesthetics": [
+        "warm_occult", "cool_lunar_fey", "holy_saradominist", "bestial_tribal",
+        "ancient_mastaba", "gothic_aristocratic", "consecrated_tool"
+      ],
+      "state_registers": {
+        "used": "slight desaturation + 1 outline notch + specular intact",
+        "weathered": "heavier desaturation + rough silhouette edge + specular reduced",
+        "blessed": "silver-shift palette + holy-tinted specular + optional 1px halo accent",
+        "cursed": "red/violet hue-shift + shadow-deepened + specular distorted"
+      },
+      "set_coherence_modes": [
+        "palette_unified_worn_kit",
+        "silhouette_unified_collectibles"
+      ],
+      "compound_silhouette_signals_grandmaster": true
+    },
+    "boss_drop": {
+      "operator": "three_channel_identity_transfer",
+      "channels": [
+        "palette_pair (signature colors across all drops)",
+        "recurring_motif (wings/horns/scythe/eye/fleur repeated across drop pieces)",
+        "silhouette_violation (RESERVED for the apex ultra-tier drop only)"
+      ],
+      "rule": "Lesser drops share palette+motif; apex drop additionally breaks silhouette."
+    },
+    "monster_drop": {
+      "operator": "incorporate_body_part",
+      "spec": "Items dropped by monsters incorporate the monster's body parts visibly (bone dagger has bone shape, dragon claws use red+bone palette and curve-talon silhouette)."
+    },
+    "random_event": {
+      "operator": "off_master_whimsy_palette",
+      "spec": "Curio aesthetic. Off-master palette signals found-object status. Often slightly off-kilter."
+    }
+  },
+
+  "process_operators": {
+    "grimy_to_clean": {
+      "input": "raw_herb",
+      "output": "clean_herb",
+      "ops": [
+        "saturate_up:1.5",
+        "collapse_palette_to_2_hexes",
+        "specular_add:1-2_pings"
+      ],
+      "silhouette_unchanged": true
+    },
+    "raw_to_cooked": {
+      "input": "raw_food",
+      "output": "cooked_food",
+      "ops": [
+        "hue_shift_warm:30",
+        "saturate_up:1.3",
+        "edge_harden",
+        "specular_count_add:1"
+      ],
+      "silhouette_unchanged": true
+    },
+    "raw_to_burnt": {
+      "input": "raw_or_cooked_food",
+      "output": "burnt_food",
+      "ops": [
+        "desaturate_to_near_black",
+        "preserve_silhouette",
+        "warm_under_hint_for_meat",
+        "cool_neutral_for_fish",
+        "warm_brown_for_bread"
+      ]
+    },
+    "ore_to_bar": {
+      "input": "ore",
+      "output": "bar",
+      "ops": [
+        "silhouette_substitute:rock_matrix_to_ingot_template",
+        "remove_rock_matrix",
+        "uniform_3_band_material"
+      ]
+    },
+    "bar_to_weapon": {
+      "input": "bar",
+      "output": "weapon",
+      "ops": [
+        "silhouette_substitute:ingot_to_category_template",
+        "palette_keep",
+        "specular_add"
+      ]
+    },
+    "log_to_unstrung_bow": {
+      "input": "log",
+      "output": "unstrung_bow",
+      "ops": [
+        "silhouette_substitute:cylinder_to_curved_arc",
+        "orientation_rotate",
+        "palette_keep_species_color"
+      ]
+    },
+    "unstrung_to_strung": {
+      "input": "unstrung_bow",
+      "output": "strung_bow",
+      "ops": ["overlay_1px_cord_line"],
+      "pixel_diff": "minimal — single line addition"
+    },
+    "uncut_to_cut_gem": {
+      "input": "uncut_gem",
+      "output": "cut_gem",
+      "ops": [
+        "silhouette_facet:dense_cluster_to_faceted_thin",
+        "saturation_boost:1.2",
+        "specular_add:1-2_pixels"
+      ]
+    },
+    "dose_decrement": {
+      "input": "potion_n_dose",
+      "output": "potion_n-1_dose",
+      "ops": ["liquid_pixel_count_reduce:5"],
+      "vial_template_unchanged": true
+    },
+    "imbue": {
+      "input": "any_item",
+      "output": "imbued_item",
+      "ops": ["add_1_signature_specular_at_canonical_location"]
+    },
+    "bless": {
+      "input": "any_item",
+      "output": "blessed_item",
+      "ops": [
+        "silver_shift_palette",
+        "holy_tinted_specular",
+        "optional_1px_halo_accent"
+      ]
+    },
+    "corrupt": {
+      "input": "any_item",
+      "output": "corrupted_item",
+      "ops": [
+        "desaturate:0.7",
+        "shadow_deepen",
+        "hue_shift_toward_decay_teal_or_red_violet"
+      ]
+    }
+  },
+
+  "iconic_grammar": {
+    "modes": [
+      {
+        "id": "visual_distinction",
+        "spec": "Iconic because visual is unique and distinctive at thumbnail size.",
+        "examples_osrs": ["Twisted Bow", "Shadow of Tumeken", "Scythe of Vitur", "Elder Maul", "Torva", "Dragonstone amulet"]
+      },
+      {
+        "id": "scarcity_as_identity",
+        "spec": "Iconic because rare, despite simple design. Don't add complexity to scarcity-iconic items.",
+        "examples_osrs": ["Phats", "Santa Hat", "discontinued holiday items"]
+      },
+      {
+        "id": "process_chain_context",
+        "spec": "Iconic because of position in a recognized chain.",
+        "examples_osrs": ["Bowstring", "Unstrung Bow", "Magic Logs (palette cliff)"]
+      }
+    ],
+    "five_visual_properties": [
+      "Unique silhouette readable at thumbnail (16px)",
+      "One signature visual element no other item has",
+      "Story embedded in the look",
+      "Color that's almost its own material (rune-cyan, dragon-red, void-black are identifiers not colors)",
+      "Visual rhetoric matches mechanic (semiotic framing)"
+    ],
+    "single_axis_break_required": true,
+    "scape_iconic_audit_target": "80-120 hand-curated items out of ~500 total. These get hand-prompted + pixel-editor cleanup. Other ~400 follow algorithmic rules.",
+    "spend_silhouette_budget_on_apex_only": "One apex per boss / category / faction. Lesser items inherit category template."
+  },
+
+  "junk_grammar": {
+    "palette_band": {
+      "hue_range": [60, 180],
+      "saturation_range": [0.2, 0.7],
+      "luminance_range": [0.08, 0.25],
+      "vocabulary": "brown, gray, rust, sickly-green, dull-red"
+    },
+    "forbidden_colors": [
+      "dragon-red",
+      "rune-cyan",
+      "third-age-gold",
+      "mithril-indigo",
+      "any impossible-color signature"
+    ],
+    "specular_rule": "ZERO specular pings. If brightness needed for readability, distribute across interior pixels.",
+    "broken_silhouettes": "Depict specific failure mode (axes break at haft, shields at boss, scrolls at corner). Generic cracks look like incomplete art.",
+    "burnt_palette_operator": "collapse to charcoal with warm under-hint. 1-3 shading bands. Rebuild whole palette at low luminance — don't add black soot pixels on top.",
+    "joke_junk_rule": "Cabbage-shield rule: silhouette-correct for category (valid shield outline, correct proportions, specular where category specular would go — absent in junk case) while substituting joke palette."
+  },
+
+  "compose_function_spec": {
+    "input_keys": [
+      "category",
+      "subcategory",
+      "tier",
+      "material",
+      "origin",
+      "region",
+      "iconic_break_axis (optional)",
+      "sub_aesthetic (for quest_artefact)",
+      "state_register (for quest_artefact)"
+    ],
+    "output": {
+      "outline": "from universal U1",
+      "static": "from universal U2",
+      "canvas": "from category.canvas",
+      "fill_ratio": "from tier.fill_ratio_range adjusted by iconic_break_axis",
+      "silhouette_template": "from category template",
+      "silhouette_modifier": "from tier (mega softens, ultra breaks if break_axis=silhouette)",
+      "palette": "from material + region weighting + faction triplet (if origin=faction)",
+      "shadow_token": "from material",
+      "specular_color": "from material",
+      "specular_count": "from tier capped",
+      "ornament_motif": "from material + tier + origin",
+      "abstraction_level": "from tier curve for category",
+      "process_state_ops": "applied if item is in a chain"
+    }
+  },
+
+  "exo_palette_cosmetics": {
+    "spec": "Out-of-world cosmetics (Scape's equivalent of partyhats, holiday items, joke items) MAY use forbidden colors and may shift outline color. They are deliberately NOT in the master palette to signal exo-status.",
+    "examples_osrs": ["Partyhats (multi-saturated colors)", "Easter egg (rainbow stripes)", "Halloween mask"]
+  }
+}
