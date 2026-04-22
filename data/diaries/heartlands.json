@@ -85,8 +85,8 @@
         { "id": "h_elite_14", "description": "Complete a Champion's Challenge in the Heartlands arena.", "check": { "type": "minigame_complete", "minigame": "champions_challenge" } },
         { "id": "h_elite_15", "description": "Reach the summit of the Heartlands lookout tower at dawn (exploration).", "check": { "type": "enter_area_with_condition", "area": "heartlands_lookout_tower_summit", "condition": "time_of_day:dawn" } }
       ],
-      "reward": "Heartlands cape (elite — recolour menu), instant altar access in player house, gilded shoulder pauldrons. Diary lamp (elite) 50,000 XP (level 75+ skill).",
-      "perk_description": "All Heartlands altars give +50% prayer XP; instant teleport to any Heartlands shop; 5% chance of double drops from Heartlands monsters."
+      "reward": "Heartlands cape (elite — recolour menu), instant altar access in player house, gilded shoulder pauldrons. Gilded faith (stat-bonus reward): +50% prayer XP at all Heartlands altars (Ardougne Elite analog, retained from previous design). Chance at Heartling pet (1/5000 per Heartlands boss kill after completion). Diary lamp (elite) 50,000 XP (level 75+ skill).",
+      "perk_description": "All Heartlands altars give +50% prayer XP (stat-bonus); instant teleport to any Heartlands shop; 5% chance of double drops from Heartlands monsters; Heartling pet eligibility."
     }
   }
 }

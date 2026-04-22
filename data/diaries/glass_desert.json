@@ -85,8 +85,8 @@
         { "id": "g_elite_14", "description": "Complete a Shattered Worlds wave 60+.", "check": { "type": "minigame_complete_wave", "minigame": "shattered_worlds", "wave_min": 60 } },
         { "id": "g_elite_15", "description": "Discover the prism heart cavern (deep exploration).", "check": { "type": "enter_area", "area": "glass_desert_prism_heart_cavern" } }
       ],
-      "reward": "Glass Desert cape (elite — refracted prism recolour), unlimited Glass Desert teleport, Veldrak's tooth pendant (cosmetic). Diary lamp (elite).",
-      "perk_description": "Unlimited Glass Desert teleport; double crystal node respawn; +5% rare chance from Veldrak; sandstorm immunity."
+      "reward": "Glass Desert cape (elite — refracted prism recolour), unlimited Glass Desert teleport, Veldrak's tooth pendant (cosmetic). Diary lamp (elite). Chance at Prismling pet (1/5000 per Veldrak kill after completion).",
+      "perk_description": "Unlimited Glass Desert teleport; double crystal node respawn; +5% rare chance from Veldrak; sandstorm immunity; Prismling pet eligibility."
     }
   }
 }

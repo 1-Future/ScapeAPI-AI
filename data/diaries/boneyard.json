@@ -85,8 +85,8 @@
         { "id": "b_elite_14", "description": "Reach 99 in Mining while in the Boneyard.", "check": { "type": "skill_level_99_in_region", "skill": "mining", "region": "boneyard" } },
         { "id": "b_elite_15", "description": "Discover the sunken tomb of the Last King (deep exploration).", "check": { "type": "enter_area", "area": "sunken_tomb_last_king" } }
       ],
-      "reward": "Boneyard cape (elite — sand-trim recolour), unlimited desert teleport, sandstorm immunity. Diary lamp (elite).",
-      "perk_description": "Sandstorm immunity; +10% rune chance from Boneyard monsters; teleport-to-Azhmari unlocked."
+      "reward": "Boneyard cape (elite — sand-trim recolour), unlimited desert teleport, sandstorm immunity. Diary lamp (elite). Chance at Scarablet pet (1/5000 per Azhmari kill after completion).",
+      "perk_description": "Sandstorm immunity; +10% rune chance from Boneyard monsters; teleport-to-Azhmari unlocked; Scarablet pet eligibility."
     }
   }
 }
