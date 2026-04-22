@@ -85,8 +85,8 @@
         { "id": "s_elite_14", "description": "Smelt 1000 runite bars at the Blast Forge.", "check": { "type": "smelt_count", "item": "runite_bar", "count": 1000 } },
         { "id": "s_elite_15", "description": "Discover the lost Forgefather's vault (exploration).", "check": { "type": "enter_area", "area": "sootworks_forgefathers_vault" } }
       ],
-      "reward": "Sootworks cape (elite — molten-trim recolour), unlimited Sootworks teleport, smithing apprentice's brand. Diary lamp (elite).",
-      "perk_description": "Unlimited Sootworks teleport; auto-smelt unlocked at every Sootworks furnace; +5% chance of double bars at the Blast Forge."
+      "reward": "Sootworks cape (elite — molten-trim recolour), unlimited Sootworks teleport, Sootworks Grand Forge bank teleport (M9 fix — previously missing), smithing apprentice's brand. Diary lamp (elite). Chance at Forgeling pet (1/5000 per Soot King kill after completion).",
+      "perk_description": "Unlimited Sootworks teleport; Sootworks Grand Forge bank teleport (fills bank-teleport gap flagged in diary-audit.md §3); auto-smelt unlocked at every Sootworks furnace; +5% chance of double bars at the Blast Forge; Forgeling pet eligibility."
     }
   }
 }

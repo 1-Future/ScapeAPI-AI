@@ -85,8 +85,8 @@
         { "id": "m_elite_14", "description": "Harvest 100 grimy snapdragon herbs.", "check": { "type": "obtain_item_count", "item": "grimy_snapdragon", "count": 100 } },
         { "id": "m_elite_15", "description": "Discover the abandoned Morytania lighthouse cellar (exploration).", "check": { "type": "enter_area", "area": "moryskah_lighthouse_cellar" } }
       ],
-      "reward": "Moryskah cape (elite — bloodveiled recolour), blood altar teleport, vampyric arm-bracer (cosmetic). Diary lamp (elite).",
-      "perk_description": "Blood altar teleport; +10% blood rune output; auto-loot Barrows brothers chest fee waived."
+      "reward": "Moryskah cape (elite — bloodveiled recolour), blood altar teleport, Moryskah apothecary bank teleport (M9 fix — previously missing), vampyric arm-bracer (cosmetic). Diary lamp (elite). Chance at Vyreling pet (1/5000 per Count Malachar kill after completion).",
+      "perk_description": "Blood altar teleport; Moryskah apothecary bank teleport (fills bank-teleport gap flagged in diary-audit.md §3); +10% blood rune output; auto-loot Barrows brothers chest fee waived; Vyreling pet eligibility."
     }
   }
 }

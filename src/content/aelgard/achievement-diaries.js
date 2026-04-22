@@ -99,7 +99,7 @@ defineDiary({
     easy: 'Moryskah teleport, holy water refill',
     medium: 'Slayer tower shortcut, +10% ectoplasm drops',
     hard: 'Barrows teleport, free barrows repair',
-    elite: 'Blood altar teleport, +10% blood rune output',
+    elite: 'Blood altar teleport, Moryskah apothecary bank teleport (M9 fix), +10% blood rune output, Vyreling pet eligibility',
   },
 });
 
@@ -127,7 +127,7 @@ defineDiary({
     easy: 'Sootworks teleport, noted coal from golems',
     medium: 'Blast Forge access (half coal), +10% soot-iron yield',
     hard: 'Deep mine shortcut, +5% smithing success',
-    elite: 'Unlimited Sootworks teleport, auto-smelt at furnace',
+    elite: 'Unlimited Sootworks teleport, Sootworks Grand Forge bank teleport (M9 fix), auto-smelt at furnace, Forgeling pet eligibility',
   },
 });
 
