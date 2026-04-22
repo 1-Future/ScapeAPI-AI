@@ -838,4 +838,217 @@ slayer.defineMaster('korvak', {
   ],
 });
 
-console.log('[aelgard] Slayer expansion: 30+ creatures loaded');
+// ══════════════════════════════════════════════════════════════════════════════
+// [v0.9-waveC2] H3 — 6 NEW SLAYER MASTERS (Aelgard-flavoured)
+// Scape had 3 masters (turael/vannaka/korvak); OSRS has 9. These fill the
+// combat-level 40-85 crater with region-flavoured slayer masters. Each has
+// ~30 task weights referencing existing monsters, region-appropriate level
+// requirements, and a reward-point multiplier via base assignment count.
+// Spread: Saltbrine, Boneyard, Moryskah, Veilwood, Sootworks, Glass Desert.
+// Heartlands (turael), Inkweald (vannaka relocated by lore), Wilds (korvak).
+// ══════════════════════════════════════════════════════════════════════════════
+
+// 1. HARBOURMASTER JOREL — Saltbrine Reach, combat 50, slayer 20
+// Bridge between Turael and Vannaka; focuses on coastal + lower-dungeon tasks.
+// Heir to the OSRS Mazchna slot (combat 20-85 analogue, ocean-flavoured).
+slayer.defineMaster('harbourmaster_jorel', {
+  name: 'Harbourmaster Jorel', combatReq: 50, slayerReq: 20,
+  tasks: [
+    // Low-tier filler (carry-over from Turael)
+    { monster: 'cave_bug', weight: 3, min: 30, max: 60 },
+    { monster: 'cave_slime', weight: 4, min: 30, max: 70 },
+    { monster: 'mogre', weight: 6, min: 30, max: 60 },
+    { monster: 'shore_crab', weight: 5, min: 25, max: 55 },
+    { monster: 'rockslug', weight: 4, min: 25, max: 55, slayerReq: 7 },
+    { monster: 'cockatrice', weight: 4, min: 30, max: 65, slayerReq: 12 },
+    { monster: 'cave_crawler', weight: 5, min: 30, max: 65, slayerReq: 10 },
+    // Coastal / tidal flavour
+    { monster: 'grasping_hand', weight: 5, min: 30, max: 70, slayerReq: 13 },
+    { monster: 'wall_beast', weight: 4, min: 30, max: 60, slayerReq: 17 },
+    { monster: 'harpie_bug_swarm', weight: 4, min: 35, max: 70, slayerReq: 23 },
+    { monster: 'pyrefiend', weight: 3, min: 30, max: 60, slayerReq: 25 },
+    { monster: 'twisted_banshee', weight: 3, min: 30, max: 70, slayerReq: 15 },
+    // Saltbrine-adjacent dungeon beasts
+    { monster: 'fever_spider', weight: 3, min: 30, max: 60, slayerReq: 42 },
+    { monster: 'infernal_mage', weight: 3, min: 35, max: 70, slayerReq: 32 },
+    { monster: 'jelly', weight: 4, min: 40, max: 80, slayerReq: 33 },
+    { monster: 'terror_dog', weight: 2, min: 40, max: 80, slayerReq: 38 },
+    { monster: 'turoth', weight: 3, min: 40, max: 80, slayerReq: 35 },
+    // Low dragon rotation (rare)
+    { monster: 'green_dragon', weight: 2, min: 15, max: 40, combatReq: 60 },
+    { monster: 'blue_dragon', weight: 2, min: 20, max: 45, combatReq: 65 },
+  ],
+});
+
+// 2. BONEWARDEN DRUSA — Boneyard Wastes, combat 60, slayer 30
+// Mid-combat desert master; specialises in undead, scorpions, salt-tier creatures.
+// Lore: Warden of the Sun-Bleach Pits, last of the Desert Assayer guild.
+slayer.defineMaster('bonewarden_drusa', {
+  name: 'Bonewarden Drusa', combatReq: 60, slayerReq: 30,
+  tasks: [
+    // Undead + crypt beasts
+    { monster: 'twisted_banshee', weight: 4, min: 40, max: 90, slayerReq: 15 },
+    { monster: 'grasping_hand', weight: 4, min: 40, max: 90, slayerReq: 13 },
+    { monster: 'wall_beast', weight: 3, min: 40, max: 90, slayerReq: 17 },
+    { monster: 'shadow_warrior', weight: 4, min: 60, max: 100, slayerReq: 48 },
+    { monster: 'spiritual_warrior', weight: 3, min: 60, max: 120, slayerReq: 55 },
+    { monster: 'spiritual_mage', weight: 3, min: 60, max: 120, slayerReq: 55 },
+    { monster: 'spiritual_ranger', weight: 3, min: 60, max: 120, slayerReq: 55 },
+    // Desert fauna
+    { monster: 'cockatrice', weight: 4, min: 40, max: 80, slayerReq: 12 },
+    { monster: 'fossil_wyvern', weight: 4, min: 40, max: 80, slayerReq: 66 },
+    { monster: 'wyrm', weight: 4, min: 50, max: 100, slayerReq: 44 },
+    { monster: 'drake', weight: 4, min: 50, max: 90, slayerReq: 60 },
+    // Crypt demons + sandcasters
+    { monster: 'pyrefiend', weight: 4, min: 40, max: 90, slayerReq: 25 },
+    { monster: 'infernal_mage', weight: 4, min: 50, max: 100, slayerReq: 32 },
+    { monster: 'greater_nechryael', weight: 3, min: 60, max: 110, slayerReq: 55 },
+    { monster: 'mutated_bloodveld', weight: 4, min: 60, max: 110, slayerReq: 40 },
+    { monster: 'jelly', weight: 3, min: 50, max: 100, slayerReq: 33 },
+    { monster: 'warped_jelly', weight: 3, min: 40, max: 80, slayerReq: 33 },
+    // Low-value dragons
+    { monster: 'blue_dragon', weight: 3, min: 30, max: 70 },
+    { monster: 'red_dragon', weight: 2, min: 25, max: 60 },
+    { monster: 'black_dragon', weight: 1, min: 15, max: 35 },
+  ],
+});
+
+// 3. WIDOW MAEVE — Moryskah, combat 70, slayer 40
+// Vampyre-tower master; heavy on banshees, bloodveld, nechryael. Mid-70s ladder.
+// Lore: "She keeps a list of every bone the Slayer Tower has forgotten to bury."
+slayer.defineMaster('widow_maeve', {
+  name: 'Widow Maeve', combatReq: 70, slayerReq: 40,
+  tasks: [
+    // Banshees + undead
+    { monster: 'twisted_banshee', weight: 5, min: 80, max: 150, slayerReq: 15 },
+    { monster: 'grasping_hand', weight: 3, min: 50, max: 100, slayerReq: 13 },
+    { monster: 'shadow_warrior', weight: 4, min: 60, max: 120, slayerReq: 48 },
+    { monster: 'spiritual_warrior', weight: 3, min: 80, max: 140, slayerReq: 55 },
+    { monster: 'spiritual_mage', weight: 3, min: 80, max: 140, slayerReq: 55 },
+    { monster: 'spiritual_ranger', weight: 3, min: 80, max: 140, slayerReq: 55 },
+    // Bloodveld + demon flesh
+    { monster: 'mutated_bloodveld', weight: 5, min: 80, max: 150, slayerReq: 40 },
+    { monster: 'greater_nechryael', weight: 4, min: 70, max: 130, slayerReq: 55 },
+    { monster: 'terror_dog', weight: 3, min: 70, max: 130, slayerReq: 38 },
+    { monster: 'fever_spider', weight: 3, min: 60, max: 110, slayerReq: 42 },
+    // Slayer Tower standards
+    { monster: 'cave_horror', weight: 5, min: 80, max: 140, slayerReq: 58 },
+    { monster: 'basilisk', weight: 5, min: 80, max: 140, slayerReq: 60 },
+    { monster: 'kurask', weight: 3, min: 70, max: 130, slayerReq: 50 },
+    { monster: 'turoth', weight: 3, min: 60, max: 110, slayerReq: 35 },
+    // Demons
+    { monster: 'pyrefiend', weight: 3, min: 70, max: 130, slayerReq: 25 },
+    { monster: 'infernal_mage', weight: 3, min: 70, max: 130, slayerReq: 32 },
+    { monster: 'jelly', weight: 3, min: 60, max: 110, slayerReq: 33 },
+    { monster: 'warped_jelly', weight: 3, min: 60, max: 110, slayerReq: 33 },
+    // Dragons
+    { monster: 'blue_dragon', weight: 2, min: 50, max: 100 },
+    { monster: 'red_dragon', weight: 2, min: 40, max: 80 },
+    { monster: 'brutal_blue_dragon', weight: 1, min: 20, max: 40, slayerReq: 62 },
+  ],
+});
+
+// 4. RANGER HEFIN — Veilwood, combat 75, slayer 50
+// Elven ranger-master; favours plant-creatures, dragons, and elusive high-defence
+// beasts. Lore: "She does not repeat a task until you have refused it twice."
+slayer.defineMaster('ranger_hefin', {
+  name: 'Ranger Hefin', combatReq: 75, slayerReq: 50,
+  tasks: [
+    // Plants + elusive creatures
+    { monster: 'turoth', weight: 5, min: 80, max: 140, slayerReq: 35 },
+    { monster: 'kurask', weight: 5, min: 80, max: 140, slayerReq: 50 },
+    { monster: 'cave_horror', weight: 4, min: 80, max: 140, slayerReq: 58 },
+    { monster: 'basilisk', weight: 4, min: 80, max: 140, slayerReq: 60 },
+    // Forest fauna (ranged weakness)
+    { monster: 'twisted_banshee', weight: 3, min: 80, max: 130, slayerReq: 15 },
+    { monster: 'harpie_bug_swarm', weight: 3, min: 60, max: 100, slayerReq: 23 },
+    { monster: 'shadow_warrior', weight: 4, min: 70, max: 130, slayerReq: 48 },
+    { monster: 'cockatrice', weight: 3, min: 50, max: 100, slayerReq: 12 },
+    // Dragons (ranged slayer)
+    { monster: 'green_dragon', weight: 3, min: 40, max: 80 },
+    { monster: 'blue_dragon', weight: 3, min: 40, max: 80 },
+    { monster: 'red_dragon', weight: 3, min: 40, max: 80 },
+    { monster: 'black_dragon', weight: 2, min: 30, max: 60 },
+    { monster: 'brutal_blue_dragon', weight: 2, min: 30, max: 60, slayerReq: 62 },
+    { monster: 'brutal_black_dragon', weight: 2, min: 30, max: 60, slayerReq: 62 },
+    { monster: 'fossil_wyvern', weight: 3, min: 60, max: 100, slayerReq: 66 },
+    { monster: 'wyrm', weight: 3, min: 60, max: 100, slayerReq: 44 },
+    { monster: 'drake', weight: 4, min: 70, max: 120, slayerReq: 60 },
+    // High-defence beasts
+    { monster: 'greater_nechryael', weight: 3, min: 80, max: 140, slayerReq: 55 },
+    { monster: 'gargoyle', weight: 4, min: 90, max: 150, slayerReq: 75 },
+    { monster: 'demonic_gorilla', weight: 2, min: 30, max: 60, slayerReq: 72 },
+    { monster: 'mutated_bloodveld', weight: 3, min: 80, max: 140, slayerReq: 40 },
+  ],
+});
+
+// 5. BLASTWARDEN TORKA — Sootworks, combat 80, slayer 58
+// Forge-master's apprentice, bonds-out of the Blast Forge; heavy on armoured and
+// construct tasks with a bias toward crush weaknesses.
+slayer.defineMaster('blastwarden_torka', {
+  name: 'Blastwarden Torka', combatReq: 80, slayerReq: 58,
+  tasks: [
+    // Armoured constructs + crush-weak
+    { monster: 'cave_horror', weight: 5, min: 90, max: 150, slayerReq: 58 },
+    { monster: 'basilisk', weight: 5, min: 90, max: 150, slayerReq: 60 },
+    { monster: 'wall_beast', weight: 3, min: 50, max: 100, slayerReq: 17 },
+    { monster: 'rockslug', weight: 3, min: 40, max: 80, slayerReq: 7 },
+    { monster: 'grotesque_guardian_dawn', weight: 2, min: 3, max: 12, slayerReq: 75 },
+    { monster: 'grotesque_guardian_dusk', weight: 2, min: 3, max: 12, slayerReq: 75 },
+    // Forge-dwellers (fire-adjacent)
+    { monster: 'pyrefiend', weight: 4, min: 80, max: 140, slayerReq: 25 },
+    { monster: 'infernal_mage', weight: 4, min: 80, max: 140, slayerReq: 32 },
+    { monster: 'smoke_devil', weight: 5, min: 100, max: 160, slayerReq: 65 },
+    // Metal / deep-mine beasts
+    { monster: 'wyrm', weight: 4, min: 70, max: 120, slayerReq: 44 },
+    { monster: 'drake', weight: 5, min: 80, max: 140, slayerReq: 60 },
+    { monster: 'fossil_wyvern', weight: 4, min: 70, max: 120, slayerReq: 66 },
+    { monster: 'iron dragon', weight: 3, min: 30, max: 60 },
+    { monster: 'steel dragon', weight: 3, min: 30, max: 60 },
+    { monster: 'brutal_black_dragon', weight: 2, min: 20, max: 40, slayerReq: 62 },
+    // Abyssal + ghost types
+    { monster: 'abyssal_demon', weight: 4, min: 90, max: 150, slayerReq: 85 },
+    { monster: 'spiritual_warrior', weight: 3, min: 80, max: 140, slayerReq: 55 },
+    { monster: 'gargoyle', weight: 5, min: 90, max: 150, slayerReq: 75 },
+    // Nuclear endgame
+    { monster: 'thermonuclear_smoke_devil', weight: 1, min: 3, max: 10, slayerReq: 93 },
+    { monster: 'greater_nechryael', weight: 3, min: 80, max: 140, slayerReq: 55 },
+  ],
+});
+
+// 6. ORACLE NIMIEL — Glass Desert, combat 85, slayer 70
+// Pinnacle pre-Korvak master; heavy on elite slayer-tier creatures + bosses.
+// Lore: "She reads tasks in the glass; refusing is a small sacrilege."
+slayer.defineMaster('oracle_nimiel', {
+  name: 'Oracle Nimiel', combatReq: 85, slayerReq: 70,
+  tasks: [
+    // Classic elite slayer rotation
+    { monster: 'abyssal_demon', weight: 7, min: 120, max: 185, slayerReq: 85 },
+    { monster: 'gargoyle', weight: 6, min: 100, max: 160, slayerReq: 75 },
+    { monster: 'nechryael', weight: 5, min: 100, max: 160, slayerReq: 80 },
+    { monster: 'greater_nechryael', weight: 5, min: 100, max: 160, slayerReq: 55 },
+    { monster: 'dark beast', weight: 4, min: 40, max: 80, slayerReq: 90 },
+    { monster: 'superior_dark_beast', weight: 3, min: 30, max: 70, slayerReq: 88 },
+    { monster: 'hydra', weight: 5, min: 80, max: 140, slayerReq: 80 },
+    // Dragons (fossil + brutal tier)
+    { monster: 'fossil_wyvern', weight: 4, min: 70, max: 120, slayerReq: 66 },
+    { monster: 'drake', weight: 4, min: 80, max: 130, slayerReq: 60 },
+    { monster: 'brutal_black_dragon', weight: 3, min: 30, max: 60, slayerReq: 62 },
+    { monster: 'brutal_red_dragon', weight: 3, min: 30, max: 60, slayerReq: 62 },
+    { monster: 'brutal_blue_dragon', weight: 3, min: 30, max: 60, slayerReq: 62 },
+    // Demonic & spiritual
+    { monster: 'demonic_gorilla', weight: 4, min: 60, max: 100, slayerReq: 72 },
+    { monster: 'spiritual_mage', weight: 3, min: 100, max: 150, slayerReq: 55 },
+    { monster: 'spiritual_ranger', weight: 3, min: 100, max: 150, slayerReq: 55 },
+    { monster: 'smoke_devil', weight: 4, min: 100, max: 160, slayerReq: 65 },
+    // Boss chance (lower weights)
+    { monster: 'cave_kraken', weight: 3, min: 80, max: 130, slayerReq: 87 },
+    { monster: 'cerberus', weight: 2, min: 5, max: 20, slayerReq: 91 },
+    { monster: 'alchemical_hydra', weight: 2, min: 3, max: 18, slayerReq: 85 },
+    { monster: 'thermonuclear_smoke_devil', weight: 2, min: 3, max: 15, slayerReq: 93 },
+    { monster: 'grotesque_guardian_dawn', weight: 1, min: 3, max: 12, slayerReq: 75 },
+    { monster: 'grotesque_guardian_dusk', weight: 1, min: 3, max: 12, slayerReq: 75 },
+  ],
+});
+
+console.log('[aelgard] Slayer expansion: 30+ creatures + 6 waveC2 masters loaded');
