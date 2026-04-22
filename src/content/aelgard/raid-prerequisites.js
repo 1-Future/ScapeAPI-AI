@@ -28,9 +28,15 @@ quests.define('coa_key', {
     { text: 'The Chambers are now open.' },
   ],
   rewards: {
-    xp: { mining: 5000, magic: 3000, agility: 2000, prayer: 2000 },
+    xp: { mining: 18000, magic: 15000, agility: 10000, prayer: 8000, attack: 6000 },
+    items: [
+      { id: 'crystal_key_fragment_a', name: 'Crystal key fragment A', count: 1 },
+      { id: 'crystal_key_fragment_b', name: 'Crystal key fragment B', count: 1 },
+      { id: 'crystal_key_fragment_c', name: 'Crystal key fragment C', count: 1 },
+      { id: 101, name: 'Coins', count: 25000 },
+    ],
     questPoints: 3,
-    unlocks: ["raid:chambers_of_aelgard"],
+    unlocks: ["raid:chambers_of_aelgard", "item_unlock:coa_crystal_key", "area:glass_desert_crystal_caverns"],
     chain_next: 'tos_key',
   },
 });

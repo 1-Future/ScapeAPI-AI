@@ -15,7 +15,12 @@
         { "id": "b_easy_7", "description": "Collect a bone shard from a bone crawler.", "check": { "type": "obtain_item", "item": "bone_shard" } },
         { "id": "b_easy_8", "description": "Bury bones at the oasis.", "check": { "type": "bury_bones", "area": "boneyard_oasis" } },
         { "id": "b_easy_9", "description": "Travel from the Heartlands to the Boneyard on foot.", "check": { "type": "travel", "from_area": "heartlands", "to_area": "boneyard" } },
-        { "id": "b_easy_10", "description": "Pick up a scarab shell.", "check": { "type": "obtain_item", "item": "scarab_shell" } }
+        { "id": "b_easy_10", "description": "Pick up a scarab shell.", "check": { "type": "obtain_item", "item": "scarab_shell" } },
+        { "id": "b_easy_11", "description": "Visit every desert waypoint in a single trip.", "check": { "type": "visit_waypoints_in_trip", "waypoints": ["waypoint_dune_1", "waypoint_dune_2", "waypoint_dune_3", "waypoint_oasis_ridge"], "count": 4 } },
+        { "id": "b_easy_12", "description": "Use a camel mount to cross the dunes.", "check": { "type": "use_transport", "transport": "camel_mount" } },
+        { "id": "b_easy_13", "description": "Complete 1 easy clue step in the Boneyard.", "check": { "type": "clue_step_complete", "tier": "easy", "area": "boneyard" } },
+        { "id": "b_easy_14", "description": "Plant a potato seed in the oasis allotment.", "check": { "type": "farm_plant", "seed": "potato_seed", "area": "boneyard_oasis_allotment" } },
+        { "id": "b_easy_15", "description": "Mine 5 sandstone rocks in a single trip.", "check": { "type": "obtain_item_in_trip", "item": "sandstone", "count": 5 } }
       ],
       "reward": "Boneyard cape (easy) + emote: shake sand. Diary lamp (easy).",
       "perk_description": "Boneyard teleport (3/day), noted fossils from skeleton drops."
@@ -31,7 +36,12 @@
         { "id": "b_med_7", "description": "Kill a skeleton mage.", "check": { "type": "kill_npc", "npc": "skeleton_mage" } },
         { "id": "b_med_8", "description": "Collect 10 bone shards in one trip.", "check": { "type": "obtain_item_in_trip", "item": "bone_shard", "count": 10 } },
         { "id": "b_med_9", "description": "Pickpocket a warrior in the nomad camp.", "check": { "type": "pickpocket_npc", "npc": "warrior", "area": "nomad_camp" } },
-        { "id": "b_med_10", "description": "Equip a full nomad outfit and salute Razak.", "check": { "type": "compound", "all": [{ "type": "equip_set", "set": "nomad_outfit" }, { "type": "emote_at_npc", "emote": "salute", "npc": "razak" }] } }
+        { "id": "b_med_10", "description": "Equip a full nomad outfit and salute Razak.", "check": { "type": "compound", "all": [{ "type": "equip_set", "set": "nomad_outfit" }, { "type": "emote_at_npc", "emote": "salute", "npc": "razak" }] } },
+        { "id": "b_med_11", "description": "Complete 1 medium clue step in the nomad camp.", "check": { "type": "clue_step_complete", "tier": "medium", "area": "nomad_camp" } },
+        { "id": "b_med_12", "description": "Craft 5 sandstone (5kg) at the grinder.", "check": { "type": "craft_item", "item": "sandstone_5kg", "count": 5 } },
+        { "id": "b_med_13", "description": "Participate in a Pyramid Plunder minigame round.", "check": { "type": "minigame_participate", "minigame": "pyramid_plunder" } },
+        { "id": "b_med_14", "description": "Set a deadfall trap and catch a desert weasel.", "check": { "type": "hunter_catch", "trap": "deadfall", "creature": "desert_weasel" } },
+        { "id": "b_med_15", "description": "Light a beacon at the Boneyard signal tower (exploration).", "check": { "type": "activate_object", "object": "boneyard_signal_beacon", "area": "boneyard_signal_tower" } }
       ],
       "reward": "Boneyard cape (medium) + oasis bank teleport. Diary lamp (medium).",
       "perk_description": "Oasis bank access; +10% scarab shell drop rate; sand-storm damage halved."
@@ -47,7 +57,12 @@
         { "id": "b_hard_7", "description": "Smith a soot-iron weapon.", "check": { "type": "smith_item", "item_tag": "soot_iron_weapon" } },
         { "id": "b_hard_8", "description": "Use the Ancient Magicks spellbook in the Boneyard.", "check": { "type": "cast_spellbook", "spellbook": "ancient", "area": "boneyard" } },
         { "id": "b_hard_9", "description": "Kill a skeletal wyvern.", "check": { "type": "kill_npc", "npc": "skeletal_wyvern" } },
-        { "id": "b_hard_10", "description": "Reach the bottom of the pyramid dungeon.", "check": { "type": "enter_area", "area": "pyramid_deep" } }
+        { "id": "b_hard_10", "description": "Reach the bottom of the pyramid dungeon.", "check": { "type": "enter_area", "area": "pyramid_deep" } },
+        { "id": "b_hard_11", "description": "Use the Enchanted Lyre at the oasis for a free song buff.", "check": { "type": "use_item_in_area", "item": "enchanted_lyre", "area": "boneyard_oasis" } },
+        { "id": "b_hard_12", "description": "Complete 3 hard clue steps in the Boneyard.", "check": { "type": "clue_step_complete", "tier": "hard", "count": 3, "area": "boneyard" } },
+        { "id": "b_hard_13", "description": "Complete a Shades of Mort'ton minigame round (desert variant).", "check": { "type": "minigame_complete", "minigame": "shades_of_morton" } },
+        { "id": "b_hard_14", "description": "Craft 50 glassblown orbs at the Boneyard furnace.", "check": { "type": "craft_item_count", "item": "unpowered_orb", "count": 50, "area": "boneyard_furnace" } },
+        { "id": "b_hard_15", "description": "Cross the shifting dunes shortcut (requires agility 60).", "check": { "type": "use_shortcut", "shortcut": "shifting_dunes", "min_level": { "agility": 60 } } }
       ],
       "reward": "Boneyard cape (hard) + desert amulet upgrade (5 teleport charges). Diary lamp (hard).",
       "perk_description": "Pyramid shortcut to deep level; +10% bone-shard mining at all desert rocks."
@@ -63,7 +78,12 @@
         { "id": "b_elite_7", "description": "Kill a camel warrior.", "check": { "type": "kill_npc", "npc": "camel_warrior" } },
         { "id": "b_elite_8", "description": "Use Ice Barrage on a dust devil stack.", "check": { "type": "cast_spell_on_stack", "spell": "ice_barrage", "npc": "dust_devil", "min_targets": 3 } },
         { "id": "b_elite_9", "description": "Survive 5 minutes in the deep pyramid without food.", "check": { "type": "survive_in_area_without_food", "area": "pyramid_deep", "seconds": 300 } },
-        { "id": "b_elite_10", "description": "Complete an elite clue step in the Boneyard.", "check": { "type": "clue_step_complete", "tier": "elite", "region": "boneyard" } }
+        { "id": "b_elite_10", "description": "Complete an elite clue step in the Boneyard.", "check": { "type": "clue_step_complete", "tier": "elite", "region": "boneyard" } },
+        { "id": "b_elite_11", "description": "Complete the pyramid full collection log.", "check": { "type": "collection_log_complete", "source": "pyramid_dungeon" } },
+        { "id": "b_elite_12", "description": "Craft 100 amulet of power using Boneyard resources.", "check": { "type": "craft_item_count", "item": "amulet_of_power", "count": 100 } },
+        { "id": "b_elite_13", "description": "Complete the Boneyard Fight Arena speedrun (under 8 minutes).", "check": { "type": "minigame_complete_under_time", "minigame": "boneyard_fight_arena", "seconds": 480 } },
+        { "id": "b_elite_14", "description": "Reach 99 in Mining while in the Boneyard.", "check": { "type": "skill_level_99_in_region", "skill": "mining", "region": "boneyard" } },
+        { "id": "b_elite_15", "description": "Discover the sunken tomb of the Last King (deep exploration).", "check": { "type": "enter_area", "area": "sunken_tomb_last_king" } }
       ],
       "reward": "Boneyard cape (elite — sand-trim recolour), unlimited desert teleport, sandstorm immunity. Diary lamp (elite).",
       "perk_description": "Sandstorm immunity; +10% rune chance from Boneyard monsters; teleport-to-Azhmari unlocked."

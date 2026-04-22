@@ -64,6 +64,7 @@ npcs.defineNpc('crystal_bat', {
   examine: 'A bat with crystalline wings. Fast and annoying.',
   weakness: 'magic', tags: ['beast'],
 });
+droptables.define('crystal_bat', { always: [{ id: 100, name: 'Bones', min: 1, max: 1 }], main: [{ id: 101, name: 'Coins', weight: 10, min: 210, max: 560 }, { id: 10001, name: 'Crystal shard', weight: 5, min: 1, max: 3 }, { id: 0, name: 'Nothing', weight: 8, min: 0, max: 0 }] });
 
 npcs.defineNpc('refracted_elemental', {
   name: 'Refracted elemental', combat: 100, maxHp: 110, maxHit: 16,

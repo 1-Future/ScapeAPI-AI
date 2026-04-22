@@ -54,6 +54,7 @@ npcs.defineNpc('mirror_golem', {
   examine: 'A golem made of reflective surfaces. Your attacks seem to hurt you too.',
   weakness: 'crush', tags: ['construct', 'elemental'], resistance: 'ranged', // reflects projectiles
 });
+droptables.define('mirror_golem', { always: [{ id: 100, name: 'Bones', min: 1, max: 1 }], main: [{ id: 101, name: 'Coins', weight: 10, min: 210, max: 420 }, { id: 9001, name: 'Inkblot fragment', weight: 5, min: 1, max: 2 }, { id: 0, name: 'Nothing', weight: 8, min: 0, max: 0 }] });
 
 npcs.defineNpc('ink_horror', {
   name: 'Ink horror', combat: 80, maxHp: 100, maxHit: 13,
@@ -72,6 +73,7 @@ npcs.defineNpc('sleepwalker', {
   examine: 'Someone trapped in the dream forest. Their eyes are open but they see nothing.',
   weakness: 'stab', tags: ['human'], // still physically human, stab wakes them... or kills them
 });
+droptables.define('sleepwalker', { always: [{ id: 100, name: 'Bones', min: 1, max: 1 }], main: [{ id: 101, name: 'Coins', weight: 10, min: 165, max: 330 }, { id: 9001, name: 'Inkblot fragment', weight: 5, min: 1, max: 2 }, { id: 0, name: 'Nothing', weight: 8, min: 0, max: 0 }] });
 
 // Bosses
 npcs.defineNpc('inkweald_muse', {

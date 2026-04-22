@@ -15,7 +15,12 @@
         { "id": "h_easy_7", "description": "Chop a normal tree and light the logs in Heartlands.", "check": { "type": "compound", "all": [{ "type": "chop_tree", "tree": "tree", "area": "heartlands" }, { "type": "light_fire", "log": "logs", "area": "heartlands" }] } },
         { "id": "h_easy_8", "description": "Complete the Heartlands Patrol quest.", "check": { "type": "quest_complete", "quest": "heartlands_patrol" } },
         { "id": "h_easy_9", "description": "Buy a bronze sword from Kael's Smithy.", "check": { "type": "buy_item", "item": "bronze_sword", "shop": "kaels_smithy" } },
-        { "id": "h_easy_10", "description": "Pickpocket a man or woman in Heartlands town.", "check": { "type": "pickpocket_npc", "npc_tags": ["man", "woman"], "area": "heartlands" } }
+        { "id": "h_easy_10", "description": "Pickpocket a man or woman in Heartlands town.", "check": { "type": "pickpocket_npc", "npc_tags": ["man", "woman"], "area": "heartlands" } },
+        { "id": "h_easy_11", "description": "Visit all 4 Heartlands shops in a single trip.", "check": { "type": "visit_shops_in_trip", "shops": ["kaels_smithy", "heartlands_general_store", "heartlands_fish_shop", "heartlands_apothecary"], "count": 4 } },
+        { "id": "h_easy_12", "description": "Complete 1 easy clue step in Heartlands town.", "check": { "type": "clue_step_complete", "tier": "easy", "area": "heartlands" } },
+        { "id": "h_easy_13", "description": "Spin flax into bowstring at the Heartlands spinning wheel.", "check": { "type": "craft_item", "item": "bow_string", "area": "heartlands" } },
+        { "id": "h_easy_14", "description": "Climb the Heartlands lookout tower for the first time.", "check": { "type": "enter_area", "area": "heartlands_lookout_tower" } },
+        { "id": "h_easy_15", "description": "Plant a guam seed in the Heartlands herb patch.", "check": { "type": "farm_plant", "seed": "guam_seed", "area": "heartlands_herb_patch" } }
       ],
       "reward": "Heartlands cape (easy) + emote: tip hat. Diary lamp (easy) granting 2,500 XP to any skill.",
       "perk_description": "10% chance of double yield from Heartlands farm patches; Heartlands teleport (3/day)."
@@ -31,7 +36,12 @@
         { "id": "h_med_7", "description": "Clean a grimy guam leaf.", "check": { "type": "clean_herb", "item": "guam_leaf" } },
         { "id": "h_med_8", "description": "Mix an attack potion.", "check": { "type": "mix_potion", "item": "attack_potion" } },
         { "id": "h_med_9", "description": "Plant and harvest a potato from the Heartlands allotment.", "check": { "type": "compound", "all": [{ "type": "farm_plant", "seed": "potato_seed", "area": "heartlands_allotment" }, { "type": "farm_harvest", "crop": "potato", "area": "heartlands_allotment" }] } },
-        { "id": "h_med_10", "description": "Sell an item on the Grand Exchange.", "check": { "type": "ge_sell" } }
+        { "id": "h_med_10", "description": "Sell an item on the Grand Exchange.", "check": { "type": "ge_sell" } },
+        { "id": "h_med_11", "description": "Craft a dragonstone ring with a Heartlands teleport charge active.", "check": { "type": "craft_item", "item": "dragonstone_ring", "condition": "teleport_charge_active" } },
+        { "id": "h_med_12", "description": "Complete 3 medium clue steps within Heartlands.", "check": { "type": "clue_step_complete", "tier": "medium", "count": 3, "area": "heartlands" } },
+        { "id": "h_med_13", "description": "Smelt a steel bar at the town furnace.", "check": { "type": "smelt_item", "item": "steel_bar", "area": "heartlands_furnace" } },
+        { "id": "h_med_14", "description": "Participate in a Guardians of the Rift minigame round.", "check": { "type": "minigame_participate", "minigame": "guardians_rift" } },
+        { "id": "h_med_15", "description": "Chop and burn a willow log within Heartlands.", "check": { "type": "compound", "all": [{ "type": "chop_tree", "tree": "willow", "area": "heartlands" }, { "type": "light_fire", "log": "willow_logs", "area": "heartlands" }] } }
       ],
       "reward": "Heartlands cape (medium) + bank teleport unlock. Diary lamp (medium) 7,500 XP (level 40+ skill).",
       "perk_description": "Bones drop noted from Heartlands monsters; Heartlands teleport unlimited."
@@ -47,7 +57,12 @@
         { "id": "h_hard_7", "description": "Use the Heartlands teleport spell.", "check": { "type": "cast_spell", "spell": "heartlands_teleport" } },
         { "id": "h_hard_8", "description": "Pickpocket a paladin.", "check": { "type": "pickpocket_npc", "npc": "paladin", "area": "heartlands" } },
         { "id": "h_hard_9", "description": "Kill a Moss giant with magic.", "check": { "type": "kill_npc", "npc": "moss_giant", "with_style": "magic" } },
-        { "id": "h_hard_10", "description": "Catch a lobster at the Saltbrine coast and cook it in Heartlands.", "check": { "type": "compound", "all": [{ "type": "catch_fish", "item": "lobster", "area": "saltbrine_coast" }, { "type": "cook_item_in_area", "item": "lobster", "area": "heartlands_range" }] } }
+        { "id": "h_hard_10", "description": "Catch a lobster at the Saltbrine coast and cook it in Heartlands.", "check": { "type": "compound", "all": [{ "type": "catch_fish", "item": "lobster", "area": "saltbrine_coast" }, { "type": "cook_item_in_area", "item": "lobster", "area": "heartlands_range" }] } },
+        { "id": "h_hard_11", "description": "Use the Lunar Humidify spell on a Heartlands farming patch.", "check": { "type": "cast_spell_on_patch", "spell": "humidify", "area": "heartlands_farm" } },
+        { "id": "h_hard_12", "description": "Complete 3 hard clue steps within Heartlands.", "check": { "type": "clue_step_complete", "tier": "hard", "count": 3, "area": "heartlands" } },
+        { "id": "h_hard_13", "description": "Fletch 100 yew longbows in a single trip.", "check": { "type": "fletch_count_in_trip", "item": "yew_longbow", "count": 100 } },
+        { "id": "h_hard_14", "description": "Complete a Pest Control round in Heartlands harbour.", "check": { "type": "minigame_complete", "minigame": "pest_control" } },
+        { "id": "h_hard_15", "description": "Explore the Heartlands hidden crypt (use an unlocked shortcut).", "check": { "type": "enter_area", "area": "heartlands_hidden_crypt" } }
       ],
       "reward": "Heartlands cape (hard) + GE teleport, +10% Heartlands shop discount. Diary lamp (hard) 15,000 XP (level 60+ skill).",
       "perk_description": "Heartlands GE teleport always available; herb patches 10% slower disease; +5% mining XP at all Heartlands rocks."
@@ -63,7 +78,12 @@
         { "id": "h_elite_7", "description": "Chop a yew tree in the Heartlands.", "check": { "type": "chop_tree", "tree": "yew", "area": "heartlands" } },
         { "id": "h_elite_8", "description": "Catch and cook a shark.", "check": { "type": "compound", "all": [{ "type": "catch_fish", "item": "shark" }, { "type": "cook_item_in_area", "item": "shark" }] } },
         { "id": "h_elite_9", "description": "Mix a saradomin brew.", "check": { "type": "mix_potion", "item": "saradomin_brew" } },
-        { "id": "h_elite_10", "description": "Complete every Heartlands quest.", "check": { "type": "all_region_quests_complete", "region": "heartlands" } }
+        { "id": "h_elite_10", "description": "Complete every Heartlands quest.", "check": { "type": "all_region_quests_complete", "region": "heartlands" } },
+        { "id": "h_elite_11", "description": "Complete a GE flip generating 1M+ profit in a single transaction.", "check": { "type": "ge_flip_profit", "min_profit": 1000000 } },
+        { "id": "h_elite_12", "description": "Complete 3 elite clue steps within Heartlands.", "check": { "type": "clue_step_complete", "tier": "elite", "count": 3, "area": "heartlands" } },
+        { "id": "h_elite_13", "description": "Achieve 99 in a Heartlands-trained skill (cooking, smithing, or mining).", "check": { "type": "skill_level_99_any_of", "skills": ["cooking", "smithing", "mining"] } },
+        { "id": "h_elite_14", "description": "Complete a Champion's Challenge in the Heartlands arena.", "check": { "type": "minigame_complete", "minigame": "champions_challenge" } },
+        { "id": "h_elite_15", "description": "Reach the summit of the Heartlands lookout tower at dawn (exploration).", "check": { "type": "enter_area_with_condition", "area": "heartlands_lookout_tower_summit", "condition": "time_of_day:dawn" } }
       ],
       "reward": "Heartlands cape (elite — recolour menu), instant altar access in player house, gilded shoulder pauldrons. Diary lamp (elite) 50,000 XP (level 75+ skill).",
       "perk_description": "All Heartlands altars give +50% prayer XP; instant teleport to any Heartlands shop; 5% chance of double drops from Heartlands monsters."

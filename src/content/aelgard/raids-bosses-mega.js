@@ -628,6 +628,7 @@ npcs.defineNpc('toa_scarab_swarm', {
   raidMechanic: 'Walks toward Kephri. If it reaches her, she heals 30 HP.',
   priorityTarget: 'toa_kephri',
 });
+droptables.define('toa_scarab_swarm', { always: [{ id: 100, name: 'Bones', min: 1, max: 1 }], main: [{ id: 101, name: 'Coins', weight: 10, min: 200, max: 600 }, { id: 0, name: 'Nothing', weight: 6, min: 0, max: 0 }] });
 
 // ---------- Path of the Sun: Akkha ----------
 // Warrior boss. 4 elemental phases, each requiring a different prayer.
@@ -790,6 +791,7 @@ npcs.defineNpc('toa_baboon_thrall', {
   tags: ['raid', 'tombs', 'beast'],
   raidRoom: 'shadow_path',
 });
+droptables.define('toa_baboon_thrall', { always: [{ id: 100, name: 'Bones', min: 1, max: 1 }], main: [{ id: 101, name: 'Coins', weight: 10, min: 260, max: 780 }, { id: 0, name: 'Nothing', weight: 6, min: 0, max: 0 }] });
 
 // ---------- Final Boss: Warden of the Tombs ----------
 // Two massive constructs. Obelisk phase then core phase.
@@ -818,6 +820,7 @@ npcs.defineNpc('toa_warden_elidinis', {
   resistance: 'melee',
   raidRoom: 'wardens',
 });
+droptables.define('toa_warden_elidinis', { always: [{ id: 100, name: 'Bones', min: 1, max: 1 }], main: [{ id: 101, name: 'Coins', weight: 10, min: 2000, max: 6000 }, { id: 0, name: 'Nothing', weight: 6, min: 0, max: 0 }] });
 
 npcs.defineNpc('toa_warden_tumeken', {
   name: 'Tumeken Warden',
@@ -839,6 +842,7 @@ npcs.defineNpc('toa_warden_tumeken', {
   resistance: 'ranged',
   raidRoom: 'wardens',
 });
+droptables.define('toa_warden_tumeken', { always: [{ id: 100, name: 'Bones', min: 1, max: 1 }], main: [{ id: 101, name: 'Coins', weight: 10, min: 2000, max: 6000 }, { id: 0, name: 'Nothing', weight: 6, min: 0, max: 0 }] });
 
 npcs.defineNpc('toa_warden_obelisk', {
   name: 'Obelisk of the Tombs',
@@ -922,6 +926,7 @@ npcs.defineNpc('toa_warden_fused', {
     },
   ],
 });
+droptables.define('toa_warden_fused', { always: [{ id: 100, name: 'Bones', min: 1, max: 1 }], main: [{ id: 101, name: 'Coins', weight: 10, min: 2400, max: 7200 }, { id: 0, name: 'Nothing', weight: 6, min: 0, max: 0 }] });
 
 
 // ##############################################################################

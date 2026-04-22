@@ -18,12 +18,14 @@ function mob(defId, def, drops) {
 // HEARTLANDS — expand from 12 to ~30 monsters
 // ══════════════════════════════════════════════════════════════════════════════
 
-mob('rat', { name: 'Rat', combat: 1, maxHp: 2, maxHit: 1, stats: { attack: 1, strength: 1, defence: 1 }, attackSpeed: 4, attackRange: 1, attackStyle: 'melee', aggressive: false, wanderRadius: 3, respawnTicks: 15, examine: 'Diseased looking.', weakness: 'slash' });
+mob('rat', { name: 'Rat', combat: 1, maxHp: 2, maxHit: 1, stats: { attack: 1, strength: 1, defence: 1 }, attackSpeed: 4, attackRange: 1, attackStyle: 'melee', aggressive: false, wanderRadius: 3, respawnTicks: 15, examine: 'Diseased looking.', weakness: 'slash' },
+  { always: [{ id: 100, name: 'Bones', min: 1, max: 1 }], main: [{ id: 101, name: 'Coins', weight: 10, min: 5, max: 30 }, { id: 0, name: 'Nothing', weight: 8, min: 0, max: 0 }] });
 
 mob('imp', { name: 'Imp', combat: 8, maxHp: 7, maxHit: 2, stats: { attack: 4, strength: 3, defence: 3 }, attackSpeed: 4, attackRange: 1, attackStyle: 'melee', aggressive: false, wanderRadius: 6, respawnTicks: 25, examine: 'A mischievous little demon.', weakness: 'magic', tags: ['demon'] },
   { always: [], main: [{ id: 101, name: 'Coins', weight: 20, min: 1, max: 15 }, { id: 11350, name: 'Air rune', weight: 5, min: 2, max: 8 }, { id: 0, name: 'Nothing', weight: 15, min: 0, max: 0 }] });
 
-mob('scorpion', { name: 'Scorpion', combat: 14, maxHp: 17, maxHit: 3, stats: { attack: 8, strength: 7, defence: 10 }, attackSpeed: 4, attackRange: 1, attackStyle: 'melee', aggressive: true, aggroRange: 3, wanderRadius: 4, respawnTicks: 30, examine: 'A large scorpion. Nasty sting.', weakness: 'crush', tags: ['armoured'], poisonDamage: 2 });
+mob('scorpion', { name: 'Scorpion', combat: 14, maxHp: 17, maxHit: 3, stats: { attack: 8, strength: 7, defence: 10 }, attackSpeed: 4, attackRange: 1, attackStyle: 'melee', aggressive: true, aggroRange: 3, wanderRadius: 4, respawnTicks: 30, examine: 'A large scorpion. Nasty sting.', weakness: 'crush', tags: ['armoured'], poisonDamage: 2 },
+  { always: [{ id: 100, name: 'Bones', min: 1, max: 1 }], main: [{ id: 101, name: 'Coins', weight: 10, min: 14, max: 42 }, { id: 0, name: 'Nothing', weight: 8, min: 0, max: 0 }] });
 
 mob('zombie', { name: 'Zombie', combat: 18, maxHp: 20, maxHit: 3, stats: { attack: 10, strength: 12, defence: 5 }, attackSpeed: 5, attackRange: 1, attackStyle: 'melee', aggressive: true, aggroRange: 4, wanderRadius: 3, respawnTicks: 35, examine: 'The living dead.', weakness: 'slash', tags: ['undead'] },
   { always: [{ id: 100, name: 'Bones', min: 1, max: 1 }], main: [{ id: 101, name: 'Coins', weight: 15, min: 3, max: 20 }, { id: 0, name: 'Nothing', weight: 15, min: 0, max: 0 }] });
@@ -40,9 +42,11 @@ mob('greater_demon', { name: 'Greater demon', combat: 92, maxHp: 87, maxHit: 10,
 mob('black_knight', { name: 'Black knight', combat: 33, maxHp: 32, maxHit: 5, stats: { attack: 25, strength: 22, defence: 25 }, attackSpeed: 4, attackRange: 1, attackStyle: 'melee', aggressive: true, aggroRange: 3, wanderRadius: 3, respawnTicks: 45, examine: 'A knight in dark armour.', weakness: 'stab', tags: ['human', 'armoured'], resistance: 'ranged' },
   { always: [{ id: 100, name: 'Bones', min: 1, max: 1 }], main: [{ id: 101, name: 'Coins', weight: 15, min: 10, max: 50 }, { id: 0, name: 'Nothing', weight: 10, min: 0, max: 0 }] });
 
-mob('white_knight', { name: 'White knight', combat: 36, maxHp: 35, maxHit: 5, stats: { attack: 28, strength: 25, defence: 28 }, attackSpeed: 4, attackRange: 1, attackStyle: 'melee', aggressive: false, wanderRadius: 3, respawnTicks: 45, examine: 'A knight of the Heartlands.', weakness: 'crush', tags: ['human', 'armoured'] });
+mob('white_knight', { name: 'White knight', combat: 36, maxHp: 35, maxHit: 5, stats: { attack: 28, strength: 25, defence: 28 }, attackSpeed: 4, attackRange: 1, attackStyle: 'melee', aggressive: false, wanderRadius: 3, respawnTicks: 45, examine: 'A knight of the Heartlands.', weakness: 'crush', tags: ['human', 'armoured'] },
+  { always: [{ id: 100, name: 'Bones', min: 1, max: 1 }], main: [{ id: 101, name: 'Coins', weight: 10, min: 36, max: 108 }, { id: 0, name: 'Nothing', weight: 8, min: 0, max: 0 }] });
 
-mob('wizard', { name: 'Wizard', combat: 12, maxHp: 12, maxHit: 4, stats: { attack: 5, strength: 3, defence: 4 }, attackSpeed: 5, attackRange: 6, attackStyle: 'magic', aggressive: false, wanderRadius: 3, respawnTicks: 30, examine: 'A wizard studying outdoors.', weakness: 'ranged', resistance: 'magic' });
+mob('wizard', { name: 'Wizard', combat: 12, maxHp: 12, maxHit: 4, stats: { attack: 5, strength: 3, defence: 4 }, attackSpeed: 5, attackRange: 6, attackStyle: 'magic', aggressive: false, wanderRadius: 3, respawnTicks: 30, examine: 'A wizard studying outdoors.', weakness: 'ranged', resistance: 'magic' },
+  { always: [{ id: 100, name: 'Bones', min: 1, max: 1 }], main: [{ id: 101, name: 'Coins', weight: 10, min: 12, max: 36 }, { id: 0, name: 'Nothing', weight: 8, min: 0, max: 0 }] });
 
 mob('bear', { name: 'Bear', combat: 19, maxHp: 25, maxHit: 4, stats: { attack: 12, strength: 14, defence: 10 }, attackSpeed: 4, attackRange: 1, attackStyle: 'melee', aggressive: true, aggroRange: 4, wanderRadius: 6, respawnTicks: 35, examine: 'A grizzly bear. Leave it alone.', weakness: 'stab', tags: ['beast'] },
   { always: [{ id: 100, name: 'Bones', min: 1, max: 1 }], main: [{ id: 103, name: 'Raw beef', weight: 10, min: 1, max: 2 }, { id: 102, name: 'Cowhide', weight: 5, min: 1, max: 1 }] });
@@ -63,11 +67,14 @@ mob('sand_golem', { name: 'Sand golem', combat: 50, maxHp: 70, maxHit: 7, stats:
 mob('fossil_guardian', { name: 'Fossil guardian', combat: 65, maxHp: 80, maxHit: 9, stats: { attack: 40, strength: 38, defence: 50 }, attackSpeed: 5, attackRange: 1, attackStyle: 'melee', size: 2, aggressive: true, aggroRange: 3, wanderRadius: 3, respawnTicks: 60, examine: 'A skeleton reanimated from fossilized bones.', weakness: 'crush', tags: ['undead', 'armoured'] },
   { always: [{ id: 106, name: 'Big bones', min: 1, max: 1 }], main: [{ id: 4001, name: 'Leviathan bone', weight: 5, min: 1, max: 2 }, { id: 4002, name: 'Fossilized fang', weight: 2, min: 1, max: 1 }, { id: 101, name: 'Coins', weight: 8, min: 40, max: 150 }] });
 
-mob('scarab_swarm', { name: 'Scarab swarm', combat: 35, maxHp: 30, maxHit: 5, stats: { attack: 22, strength: 20, defence: 10 }, attackSpeed: 3, attackRange: 1, attackStyle: 'melee', aggressive: true, aggroRange: 4, wanderRadius: 5, respawnTicks: 35, examine: 'A swarm of biting scarabs.', weakness: 'magic', tags: ['beast'], resistance: 'melee' });
+mob('scarab_swarm', { name: 'Scarab swarm', combat: 35, maxHp: 30, maxHit: 5, stats: { attack: 22, strength: 20, defence: 10 }, attackSpeed: 3, attackRange: 1, attackStyle: 'melee', aggressive: true, aggroRange: 4, wanderRadius: 5, respawnTicks: 35, examine: 'A swarm of biting scarabs.', weakness: 'magic', tags: ['beast'], resistance: 'melee' },
+  { always: [{ id: 100, name: 'Bones', min: 1, max: 1 }], main: [{ id: 101, name: 'Coins', weight: 10, min: 35, max: 105 }, { id: 0, name: 'Nothing', weight: 8, min: 0, max: 0 }] });
 
-mob('vulture', { name: 'Vulture', combat: 10, maxHp: 12, maxHit: 2, stats: { attack: 5, strength: 4, defence: 4 }, attackSpeed: 4, attackRange: 1, attackStyle: 'melee', aggressive: false, wanderRadius: 8, respawnTicks: 20, examine: 'Circling overhead.', weakness: 'ranged', tags: ['beast'] });
+mob('vulture', { name: 'Vulture', combat: 10, maxHp: 12, maxHit: 2, stats: { attack: 5, strength: 4, defence: 4 }, attackSpeed: 4, attackRange: 1, attackStyle: 'melee', aggressive: false, wanderRadius: 8, respawnTicks: 20, examine: 'Circling overhead.', weakness: 'ranged', tags: ['beast'] },
+  { always: [{ id: 100, name: 'Bones', min: 1, max: 1 }], main: [{ id: 101, name: 'Coins', weight: 10, min: 10, max: 30 }, { id: 0, name: 'Nothing', weight: 8, min: 0, max: 0 }] });
 
-mob('sand_snake', { name: 'Sand snake', combat: 25, maxHp: 20, maxHit: 4, stats: { attack: 15, strength: 18, defence: 8 }, attackSpeed: 3, attackRange: 1, attackStyle: 'melee', aggressive: true, aggroRange: 3, wanderRadius: 5, respawnTicks: 30, examine: 'A venomous desert serpent.', weakness: 'slash', tags: ['beast'], poisonDamage: 2 });
+mob('sand_snake', { name: 'Sand snake', combat: 25, maxHp: 20, maxHit: 4, stats: { attack: 15, strength: 18, defence: 8 }, attackSpeed: 3, attackRange: 1, attackStyle: 'melee', aggressive: true, aggroRange: 3, wanderRadius: 5, respawnTicks: 30, examine: 'A venomous desert serpent.', weakness: 'slash', tags: ['beast'], poisonDamage: 2 },
+  { always: [{ id: 100, name: 'Bones', min: 1, max: 1 }], main: [{ id: 101, name: 'Coins', weight: 10, min: 25, max: 75 }, { id: 0, name: 'Nothing', weight: 8, min: 0, max: 0 }] });
 
 mob('pyramid_guardian', { name: 'Pyramid guardian', combat: 70, maxHp: 90, maxHit: 10, stats: { attack: 45, strength: 42, defence: 55 }, attackSpeed: 5, attackRange: 1, attackStyle: 'melee', size: 2, aggressive: true, aggroRange: 4, wanderRadius: 2, respawnTicks: 80, examine: 'An ancient guardian. Still on duty.', weakness: 'magic', tags: ['construct', 'armoured'], resistance: 'ranged' },
   { always: [], main: [{ id: 101, name: 'Coins', weight: 8, min: 100, max: 400 }, { id: 4091, name: 'Pyramid key', weight: 1, min: 1, max: 1 }, { id: 0, name: 'Nothing', weight: 5, min: 0, max: 0 }] });
@@ -88,7 +95,8 @@ mob('nechryael', { name: 'Nechryael', combat: 115, maxHp: 105, maxHit: 13, stats
 mob('dark_beast', { name: 'Dark beast', combat: 182, maxHp: 220, maxHit: 18, stats: { attack: 110, strength: 105, defence: 120 }, attackSpeed: 4, attackRange: 1, attackStyle: 'melee', aggressive: true, aggroRange: 5, wanderRadius: 4, respawnTicks: 60, examine: 'A creature of pure darkness.', weakness: 'ranged', tags: ['beast', 'shadow'], resistance: 'melee' },
   { always: [], main: [{ id: 101, name: 'Coins', weight: 6, min: 200, max: 600 }, { id: 11357, name: 'Death rune', weight: 5, min: 10, max: 25 }, { id: 11358, name: 'Blood rune', weight: 3, min: 5, max: 12 }, { id: 0, name: 'Nothing', weight: 4, min: 0, max: 0 }] });
 
-mob('shade', { name: 'Shade', combat: 45, maxHp: 40, maxHit: 6, stats: { attack: 25, strength: 22, defence: 20 }, attackSpeed: 4, attackRange: 1, attackStyle: 'melee', aggressive: true, aggroRange: 4, wanderRadius: 3, respawnTicks: 40, examine: 'A shadowy undead.', weakness: 'magic', tags: ['undead', 'shadow'], resistance: 'melee' });
+mob('shade', { name: 'Shade', combat: 45, maxHp: 40, maxHit: 6, stats: { attack: 25, strength: 22, defence: 20 }, attackSpeed: 4, attackRange: 1, attackStyle: 'melee', aggressive: true, aggroRange: 4, wanderRadius: 3, respawnTicks: 40, examine: 'A shadowy undead.', weakness: 'magic', tags: ['undead', 'shadow'], resistance: 'melee' },
+  { always: [{ id: 100, name: 'Bones', min: 1, max: 1 }], main: [{ id: 101, name: 'Coins', weight: 10, min: 45, max: 135 }, { id: 0, name: 'Nothing', weight: 8, min: 0, max: 0 }] });
 
 mob('vyrewatch', { name: 'Vyrewatch', combat: 110, maxHp: 120, maxHit: 14, stats: { attack: 70, strength: 65, defence: 80 }, attackSpeed: 4, attackRange: 1, attackStyle: 'melee', aggressive: true, aggroRange: 5, wanderRadius: 4, respawnTicks: 60, examine: 'An ancient vampyre. Requires special weapons to harm.', weakness: 'slash', tags: ['vampyre', 'undead'], resistance: 'ranged' },
   { always: [], main: [{ id: 5001, name: 'Vial of blood', weight: 15, min: 2, max: 5 }, { id: 5008, name: 'Vampyre fang', weight: 5, min: 1, max: 1 }, { id: 101, name: 'Coins', weight: 8, min: 100, max: 400 }, { id: 0, name: 'Nothing', weight: 4, min: 0, max: 0 }] });
@@ -106,9 +114,11 @@ mob('dire_wolf', { name: 'Dire wolf', combat: 55, maxHp: 65, maxHit: 8, stats: {
 mob('tree_spirit', { name: 'Tree spirit', combat: 70, maxHp: 85, maxHit: 9, stats: { attack: 42, strength: 38, defence: 45 }, attackSpeed: 5, attackRange: 4, attackStyle: 'magic', size: 2, aggressive: false, aggroRange: 3, wanderRadius: 2, respawnTicks: 60, examine: 'An ancient spirit bound to a tree.', weakness: 'slash', tags: ['spirit', 'plant'], resistance: 'magic' },
   { always: [{ id: 2206, name: 'Magic logs', min: 1, max: 3 }], main: [{ id: 6004, name: 'Spirit seed', weight: 2, min: 1, max: 1 }, { id: 101, name: 'Coins', weight: 8, min: 30, max: 100 }] });
 
-mob('elven_warrior', { name: 'Elven warrior', combat: 55, maxHp: 60, maxHit: 7, stats: { attack: 38, strength: 30, defence: 35 }, attackSpeed: 4, attackRange: 6, attackStyle: 'ranged', aggressive: false, wanderRadius: 3, respawnTicks: 50, examine: 'An elven warrior patrolling the borders.', weakness: 'magic', tags: ['human'] });
+mob('elven_warrior', { name: 'Elven warrior', combat: 55, maxHp: 60, maxHit: 7, stats: { attack: 38, strength: 30, defence: 35 }, attackSpeed: 4, attackRange: 6, attackStyle: 'ranged', aggressive: false, wanderRadius: 3, respawnTicks: 50, examine: 'An elven warrior patrolling the borders.', weakness: 'magic', tags: ['human'] },
+  { always: [{ id: 100, name: 'Bones', min: 1, max: 1 }], main: [{ id: 101, name: 'Coins', weight: 10, min: 55, max: 165 }, { id: 0, name: 'Nothing', weight: 8, min: 0, max: 0 }] });
 
-mob('giant_beetle', { name: 'Giant beetle', combat: 22, maxHp: 28, maxHit: 4, stats: { attack: 12, strength: 15, defence: 20 }, attackSpeed: 4, attackRange: 1, attackStyle: 'melee', aggressive: false, wanderRadius: 5, respawnTicks: 30, examine: 'A very large beetle.', weakness: 'crush', tags: ['beast', 'armoured'] });
+mob('giant_beetle', { name: 'Giant beetle', combat: 22, maxHp: 28, maxHit: 4, stats: { attack: 12, strength: 15, defence: 20 }, attackSpeed: 4, attackRange: 1, attackStyle: 'melee', aggressive: false, wanderRadius: 5, respawnTicks: 30, examine: 'A very large beetle.', weakness: 'crush', tags: ['beast', 'armoured'] },
+  { always: [{ id: 100, name: 'Bones', min: 1, max: 1 }], main: [{ id: 101, name: 'Coins', weight: 10, min: 22, max: 66 }, { id: 0, name: 'Nothing', weight: 8, min: 0, max: 0 }] });
 
 mob('pixie', { name: 'Pixie', combat: 15, maxHp: 10, maxHit: 3, stats: { attack: 8, strength: 5, defence: 8 }, attackSpeed: 3, attackRange: 4, attackStyle: 'magic', aggressive: false, wanderRadius: 8, respawnTicks: 25, examine: 'A tiny magical being. Fast and annoying.', weakness: 'ranged', tags: ['spirit'] },
   { always: [], main: [{ id: 6003, name: 'Moonpetal', weight: 5, min: 1, max: 1 }, { id: 0, name: 'Nothing', weight: 15, min: 0, max: 0 }] });
@@ -136,7 +146,8 @@ mob('dwarven_miner', { name: 'Crazed miner', combat: 35, maxHp: 38, maxHit: 5, s
 // SALTBRINE — expand from 8 to ~20
 // ══════════════════════════════════════════════════════════════════════════════
 
-mob('cave_crawler', { name: 'Cave crawler', combat: 23, maxHp: 22, maxHit: 4, stats: { attack: 12, strength: 14, defence: 10 }, attackSpeed: 4, attackRange: 1, attackStyle: 'melee', aggressive: true, aggroRange: 3, wanderRadius: 4, respawnTicks: 30, examine: 'A cave-dwelling insect.', weakness: 'crush', tags: ['beast'], poisonDamage: 2 });
+mob('cave_crawler', { name: 'Cave crawler', combat: 23, maxHp: 22, maxHit: 4, stats: { attack: 12, strength: 14, defence: 10 }, attackSpeed: 4, attackRange: 1, attackStyle: 'melee', aggressive: true, aggroRange: 3, wanderRadius: 4, respawnTicks: 30, examine: 'A cave-dwelling insect.', weakness: 'crush', tags: ['beast'], poisonDamage: 2 },
+  { always: [{ id: 100, name: 'Bones', min: 1, max: 1 }], main: [{ id: 101, name: 'Coins', weight: 10, min: 23, max: 69 }, { id: 0, name: 'Nothing', weight: 8, min: 0, max: 0 }] });
 
 mob('giant_crab', { name: 'Giant crab', combat: 40, maxHp: 50, maxHit: 6, stats: { attack: 25, strength: 28, defence: 35 }, attackSpeed: 5, attackRange: 1, attackStyle: 'melee', aggressive: false, wanderRadius: 4, respawnTicks: 45, examine: 'An enormous crab. Could feed a family.', weakness: 'crush', tags: ['beast', 'armoured'] },
   { always: [], main: [{ id: 2304, name: 'Raw lobster', weight: 8, min: 1, max: 2 }, { id: 8004, name: 'Barnacle shell', weight: 10, min: 2, max: 5 }, { id: 101, name: 'Coins', weight: 8, min: 10, max: 50 }] });
@@ -144,7 +155,8 @@ mob('giant_crab', { name: 'Giant crab', combat: 40, maxHp: 50, maxHit: 6, stats:
 mob('dagannoth', { name: 'Dagannoth', combat: 74, maxHp: 70, maxHit: 8, stats: { attack: 48, strength: 50, defence: 40 }, attackSpeed: 4, attackRange: 1, attackStyle: 'melee', aggressive: true, aggroRange: 5, wanderRadius: 5, respawnTicks: 50, examine: 'A sea creature from the deep. Fights in packs.', weakness: 'slash', tags: ['beast'] },
   { always: [{ id: 100, name: 'Bones', min: 1, max: 1 }], main: [{ id: 101, name: 'Coins', weight: 10, min: 40, max: 150 }, { id: 8006, name: 'Coral fragment', weight: 5, min: 1, max: 2 }, { id: 0, name: 'Nothing', weight: 8, min: 0, max: 0 }] });
 
-mob('jellyfish', { name: 'Giant jellyfish', combat: 30, maxHp: 28, maxHit: 5, stats: { attack: 15, strength: 18, defence: 12 }, attackSpeed: 4, attackRange: 2, attackStyle: 'magic', aggressive: true, aggroRange: 4, wanderRadius: 5, respawnTicks: 35, examine: 'A massive jellyfish. Its tentacles burn.', weakness: 'slash', tags: ['beast'], poisonDamage: 3, resistance: 'magic' });
+mob('jellyfish', { name: 'Giant jellyfish', combat: 30, maxHp: 28, maxHit: 5, stats: { attack: 15, strength: 18, defence: 12 }, attackSpeed: 4, attackRange: 2, attackStyle: 'magic', aggressive: true, aggroRange: 4, wanderRadius: 5, respawnTicks: 35, examine: 'A massive jellyfish. Its tentacles burn.', weakness: 'slash', tags: ['beast'], poisonDamage: 3, resistance: 'magic' },
+  { always: [{ id: 100, name: 'Bones', min: 1, max: 1 }], main: [{ id: 101, name: 'Coins', weight: 10, min: 30, max: 90 }, { id: 0, name: 'Nothing', weight: 8, min: 0, max: 0 }] });
 
 mob('pirate_guard', { name: 'Pirate guard', combat: 45, maxHp: 48, maxHit: 7, stats: { attack: 30, strength: 28, defence: 25 }, attackSpeed: 4, attackRange: 1, attackStyle: 'melee', aggressive: true, aggroRange: 4, wanderRadius: 3, respawnTicks: 50, examine: 'A pirate on guard duty.', weakness: 'magic', tags: ['human'] },
   { always: [{ id: 100, name: 'Bones', min: 1, max: 1 }], main: [{ id: 101, name: 'Coins', weight: 12, min: 20, max: 80 }, { id: 8003, name: 'Pirate rum', weight: 5, min: 1, max: 1 }, { id: 0, name: 'Nothing', weight: 8, min: 0, max: 0 }] });
@@ -194,7 +206,8 @@ mob('revenant_dragon', { name: 'Revenant dragon', combat: 180, maxHp: 200, maxHi
 mob('chaos_elemental', { name: 'Chaos elemental', combat: 305, maxHp: 250, maxHit: 28, stats: { attack: 180, strength: 170, defence: 150 }, attackSpeed: 4, attackRange: 8, attackStyle: 'magic', size: 3, aggressive: true, aggroRange: 8, wanderRadius: 5, respawnTicks: 200, examine: 'An entity of pure chaos. Unpredictable attacks.', weakness: 'ranged', tags: ['elemental', 'boss'] },
   { always: [], main: [{ id: 101, name: 'Coins', weight: 5, min: 5000, max: 20000 }, { id: 107, name: 'Dragon bones', weight: 4, min: 2, max: 3 }, { id: 11358, name: 'Blood rune', weight: 3, min: 10, max: 30 }, { id: 0, name: 'Nothing', weight: 3, min: 0, max: 0 }] });
 
-mob('wild_dog', { name: 'Wild dog', combat: 22, maxHp: 28, maxHit: 4, stats: { attack: 14, strength: 16, defence: 10 }, attackSpeed: 3, attackRange: 1, attackStyle: 'melee', aggressive: true, aggroRange: 5, wanderRadius: 8, respawnTicks: 25, examine: 'A feral dog. Hunts in packs.', weakness: 'stab', tags: ['beast'] });
+mob('wild_dog', { name: 'Wild dog', combat: 22, maxHp: 28, maxHit: 4, stats: { attack: 14, strength: 16, defence: 10 }, attackSpeed: 3, attackRange: 1, attackStyle: 'melee', aggressive: true, aggroRange: 5, wanderRadius: 8, respawnTicks: 25, examine: 'A feral dog. Hunts in packs.', weakness: 'stab', tags: ['beast'] },
+  { always: [{ id: 100, name: 'Bones', min: 1, max: 1 }], main: [{ id: 101, name: 'Coins', weight: 10, min: 22, max: 66 }, { id: 0, name: 'Nothing', weight: 8, min: 0, max: 0 }] });
 
 mob('lava_dragon', { name: 'Lava dragon', combat: 252, maxHp: 230, maxHit: 25, stats: { attack: 160, strength: 155, defence: 180 }, attackSpeed: 5, attackRange: 5, attackStyle: 'magic', size: 4, aggressive: true, aggroRange: 5, wanderRadius: 3, respawnTicks: 120, examine: 'A dragon wreathed in lava. Deep wilderness only.', weakness: 'stab', tags: ['dragon'], resistance: 'magic' },
   { always: [{ id: 107, name: 'Dragon bones', min: 1, max: 1 }], main: [{ id: 101, name: 'Coins', weight: 4, min: 1000, max: 5000 }, { id: 11358, name: 'Blood rune', weight: 3, min: 5, max: 15 }, { id: 2116, name: 'Runite bar', weight: 2, min: 1, max: 2 }, { id: 0, name: 'Nothing', weight: 3, min: 0, max: 0 }] });

@@ -25,7 +25,8 @@ mob('cave_bug', { name: 'Cave bug', combat: 12, maxHp: 10, maxHit: 2, stats: { a
 // Level 15 — Banshees (already defined, add slayer req)
 
 // Level 17 — Cave slime
-mob('cave_slime', { name: 'Cave slime', combat: 23, maxHp: 22, maxHit: 3, stats: { attack: 12, strength: 10, defence: 8 }, attackSpeed: 4, attackRange: 1, attackStyle: 'melee', aggressive: true, aggroRange: 3, wanderRadius: 3, respawnTicks: 30, examine: 'A slimy cave creature. Poisonous.', weakness: 'magic', tags: ['beast'], poisonDamage: 2 });
+mob('cave_slime', { name: 'Cave slime', combat: 23, maxHp: 22, maxHit: 3, stats: { attack: 12, strength: 10, defence: 8 }, attackSpeed: 4, attackRange: 1, attackStyle: 'melee', aggressive: true, aggroRange: 3, wanderRadius: 3, respawnTicks: 30, examine: 'A slimy cave creature. Poisonous.', weakness: 'magic', tags: ['beast'], poisonDamage: 2 },
+  { always: [{ id: 100, name: 'Bones', min: 1, max: 1 }], main: [{ id: 101, name: 'Coins', weight: 10, min: 23, max: 69 }, { id: 0, name: 'Nothing', weight: 8, min: 0, max: 0 }] });
 
 // Level 25 — Mogres (underwater in Saltbrine)
 mob('mogre', { name: 'Mogre', combat: 32, maxHp: 30, maxHit: 5, stats: { attack: 18, strength: 20, defence: 15 }, attackSpeed: 4, attackRange: 1, attackStyle: 'melee', aggressive: true, aggroRange: 4, wanderRadius: 4, respawnTicks: 35, examine: 'An underwater ogre-like creature.', weakness: 'ranged', tags: ['beast'] },

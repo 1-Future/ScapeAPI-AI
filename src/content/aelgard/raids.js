@@ -420,6 +420,7 @@ npcs.defineNpc('coa_vanguard_melee', {
   raidRoom: 'vanguards',
   raidMechanic: 'Must die within 10 ticks of its partners or heals 33% HP.',
 });
+droptables.define('coa_vanguard_melee', { always: [{ id: 100, name: 'Bones', min: 1, max: 1 }], main: [{ id: 101, name: 'Coins', weight: 10, min: 1240, max: 3720 }, { id: 0, name: 'Nothing', weight: 6, min: 0, max: 0 }] });
 
 npcs.defineNpc('coa_vanguard_ranged', {
   name: 'Vanguard Deadeye',
@@ -442,6 +443,7 @@ npcs.defineNpc('coa_vanguard_ranged', {
   raidRoom: 'vanguards',
   raidMechanic: 'Must die within 10 ticks of its partners or heals 33% HP.',
 });
+droptables.define('coa_vanguard_ranged', { always: [{ id: 100, name: 'Bones', min: 1, max: 1 }], main: [{ id: 101, name: 'Coins', weight: 10, min: 1240, max: 3720 }, { id: 0, name: 'Nothing', weight: 6, min: 0, max: 0 }] });
 
 npcs.defineNpc('coa_vanguard_mage', {
   name: 'Vanguard Seer',
@@ -464,6 +466,7 @@ npcs.defineNpc('coa_vanguard_mage', {
   raidRoom: 'vanguards',
   raidMechanic: 'Must die within 10 ticks of its partners or heals 33% HP.',
 });
+droptables.define('coa_vanguard_mage', { always: [{ id: 100, name: 'Bones', min: 1, max: 1 }], main: [{ id: 101, name: 'Coins', weight: 10, min: 1240, max: 3720 }, { id: 0, name: 'Nothing', weight: 6, min: 0, max: 0 }] });
 
 // ---------- Room 2: Tekton the Forge Guardian ----------
 // Anvil phase: players must smith a key while Tekton rampages.
@@ -587,6 +590,7 @@ npcs.defineNpc('coa_vespine_soldier', {
   raidMechanic: 'Always aggros the Chamber Grub. Must be intercepted.',
   priorityTarget: 'chamber_grub',
 });
+droptables.define('coa_vespine_soldier', { always: [{ id: 100, name: 'Bones', min: 1, max: 1 }], main: [{ id: 101, name: 'Coins', weight: 10, min: 340, max: 1020 }, { id: 0, name: 'Nothing', weight: 6, min: 0, max: 0 }] });
 
 npcs.defineNpc('coa_chamber_grub', {
   name: 'Chamber Grub',
@@ -652,6 +656,7 @@ npcs.defineNpc('coa_sanctum_guardian', {
     },
   ],
 });
+droptables.define('coa_sanctum_guardian', { always: [{ id: 100, name: 'Bones', min: 1, max: 1 }], main: [{ id: 101, name: 'Coins', weight: 10, min: 1000, max: 3000 }, { id: 0, name: 'Nothing', weight: 6, min: 0, max: 0 }] });
 
 // ---------- Room 5: The Ice Demon ----------
 // Skilling room: players must chop logs (Woodcutting), light braziers
@@ -891,6 +896,7 @@ npcs.defineNpc('tos_nylocas_matomenos', {
   raidRoom: 'maiden',
   raidMechanic: 'Walks toward the Maiden. If it reaches her, she heals 20 HP.',
 });
+droptables.define('tos_nylocas_matomenos', { always: [{ id: 100, name: 'Bones', min: 1, max: 1 }], main: [{ id: 101, name: 'Coins', weight: 10, min: 240, max: 720 }, { id: 0, name: 'Nothing', weight: 6, min: 0, max: 0 }] });
 
 npcs.defineNpc('tos_blood_spawn', {
   name: 'Blood Spawn',
@@ -913,6 +919,7 @@ npcs.defineNpc('tos_blood_spawn', {
   raidMechanic: 'Walks toward the Maiden. If it reaches her, she heals 50 HP. Can be frozen.',
   freezable: true,
 });
+droptables.define('tos_blood_spawn', { always: [{ id: 100, name: 'Bones', min: 1, max: 1 }], main: [{ id: 101, name: 'Coins', weight: 10, min: 160, max: 500 }, { id: 0, name: 'Nothing', weight: 6, min: 0, max: 0 }] });
 
 // ---------- Boss 2: Pestilent Bloat ----------
 // Walk around a sleeping boss. He wakes periodically and stomps.
@@ -997,6 +1004,7 @@ npcs.defineNpc('tos_nylocas_ischyros', {
   immunity: ['ranged', 'magic'],
   raidRoom: 'nylocas',
 });
+droptables.define('tos_nylocas_ischyros', { always: [{ id: 100, name: 'Bones', min: 1, max: 1 }], main: [{ id: 101, name: 'Coins', weight: 10, min: 280, max: 840 }, { id: 0, name: 'Nothing', weight: 6, min: 0, max: 0 }] });
 
 npcs.defineNpc('tos_nylocas_toxobolos', {
   name: 'Nylocas Toxobolos',
@@ -1019,6 +1027,7 @@ npcs.defineNpc('tos_nylocas_toxobolos', {
   immunity: ['melee', 'ranged'],
   raidRoom: 'nylocas',
 });
+droptables.define('tos_nylocas_toxobolos', { always: [{ id: 100, name: 'Bones', min: 1, max: 1 }], main: [{ id: 101, name: 'Coins', weight: 10, min: 280, max: 840 }, { id: 0, name: 'Nothing', weight: 6, min: 0, max: 0 }] });
 
 npcs.defineNpc('tos_nylocas_hagios', {
   name: 'Nylocas Hagios',
@@ -1041,6 +1050,7 @@ npcs.defineNpc('tos_nylocas_hagios', {
   immunity: ['melee', 'magic'],
   raidRoom: 'nylocas',
 });
+droptables.define('tos_nylocas_hagios', { always: [{ id: 100, name: 'Bones', min: 1, max: 1 }], main: [{ id: 101, name: 'Coins', weight: 10, min: 280, max: 840 }, { id: 0, name: 'Nothing', weight: 6, min: 0, max: 0 }] });
 
 // Nylocas boss that spawns after all waves are cleared
 npcs.defineNpc('tos_nylocas_vasilias', {
@@ -1244,6 +1254,7 @@ npcs.defineNpc('tos_verzik', {
     },
   ],
 });
+droptables.define('tos_verzik', { always: [{ id: 100, name: 'Bones', min: 1, max: 1 }], main: [{ id: 101, name: 'Coins', weight: 10, min: 2320, max: 6960 }, { id: 0, name: 'Nothing', weight: 6, min: 0, max: 0 }] });
 
 // Dawnbringer -- special Theatre weapon for Verzik P1, obtained at entrance
 items.define({

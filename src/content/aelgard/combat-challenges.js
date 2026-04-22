@@ -199,6 +199,7 @@ npcs.defineNpc('twin_wyrm_beta', {
   examine: 'The beta of the twin wyrms. Attacks with ranged.',
   weakness: 'magic', tags: ['dragon', 'boss'],
 });
+droptables.define('twin_wyrm_beta', { always: [{ id: 100, name: 'Bones', min: 1, max: 1 }], main: [{ id: 101, name: 'Coins', weight: 10, min: 380, max: 1140 }, { id: 0, name: 'Nothing', weight: 8, min: 0, max: 0 }] });
 
 defineDuoBoss({
   id: 'brothers_duran', name: 'The Brothers Duran',
@@ -231,6 +232,7 @@ npcs.defineNpc('duran_younger', {
   examine: 'The younger Duran brother. Master of the enchanted forge.',
   weakness: 'ranged', tags: ['boss', 'human'], resistance: 'magic',
 });
+droptables.define('duran_younger', { always: [{ id: 100, name: 'Bones', min: 1, max: 1 }], main: [{ id: 101, name: 'Coins', weight: 10, min: 260, max: 780 }, { id: 0, name: 'Nothing', weight: 8, min: 0, max: 0 }] });
 
 // ── 3. Pestilence & Famine — Moryskah ────────────────────────────────────
 defineDuoBoss({
@@ -265,6 +267,7 @@ npcs.defineNpc('famine', {
   examine: 'The horseman of famine. Destroys your food.',
   weakness: 'magic', tags: ['boss', 'undead'], resistance: 'melee',
 });
+droptables.define('famine', { always: [{ id: 100, name: 'Bones', min: 1, max: 1 }], main: [{ id: 101, name: 'Coins', weight: 10, min: 310, max: 930 }, { id: 0, name: 'Nothing', weight: 8, min: 0, max: 0 }] });
 
 // ── 4. The Storm Twins — Saltbrine ───────────────────────────────────────
 defineDuoBoss({
@@ -299,6 +302,7 @@ npcs.defineNpc('storm_twin_rain', {
   examine: 'The rain twin. Tidal waves crash across the arena.',
   weakness: 'magic', tags: ['elemental', 'boss'], resistance: 'ranged',
 });
+droptables.define('storm_twin_rain', { always: [{ id: 100, name: 'Bones', min: 1, max: 1 }], main: [{ id: 101, name: 'Coins', weight: 10, min: 290, max: 870 }, { id: 0, name: 'Nothing', weight: 8, min: 0, max: 0 }] });
 
 // ── 5. The Architect & The Destroyer — Sootworks ─────────────────────────
 defineDuoBoss({
@@ -333,6 +337,7 @@ npcs.defineNpc('the_destroyer_boss', {
   examine: 'An ancient dwarven construct that destroys everything.',
   weakness: 'magic', tags: ['construct', 'boss'], resistance: 'melee',
 });
+droptables.define('the_destroyer_boss', { always: [{ id: 100, name: 'Bones', min: 1, max: 1 }], main: [{ id: 101, name: 'Coins', weight: 10, min: 360, max: 1080 }, { id: 0, name: 'Nothing', weight: 8, min: 0, max: 0 }] });
 
 console.log(`[aelgard] Combat challenges: ${waveChallenges.length} wave challenges + ${duoBosses.length} duo bosses loaded`);
 

@@ -169,6 +169,7 @@ npcs.defineNpc('giant_spider', {
   poisonDamage: 1,
   weakness: 'crush', // exoskeleton — crush it
 });
+droptables.define('giant_spider', { always: [{ id: 100, name: 'Bones', min: 1, max: 1 }], main: [{ id: 101, name: 'Coins', weight: 12, min: 8, max: 30 }, { id: 0, name: 'Nothing', weight: 8, min: 0, max: 0 }] });
 
 npcs.defineNpc('guard', {
   name: 'Guard', combat: 21, maxHp: 22, maxHit: 4,
@@ -179,6 +180,7 @@ npcs.defineNpc('guard', {
   weakness: 'stab', // heavy armour has gaps for stab
   resistance: 'ranged', // shield blocks projectiles
 });
+droptables.define('guard', { always: [{ id: 100, name: 'Bones', min: 1, max: 1 }], main: [{ id: 101, name: 'Coins', weight: 12, min: 21, max: 63 }, { id: 0, name: 'Nothing', weight: 8, min: 0, max: 0 }] });
 
 npcs.defineNpc('dark_wizard', {
   name: 'Dark wizard', combat: 20, maxHp: 19, maxHit: 5,
@@ -189,6 +191,7 @@ npcs.defineNpc('dark_wizard', {
   weakness: 'ranged', // robes offer no ranged defence, and you can shoot from outside spell range
   resistance: 'magic', // magic resist from enchantments
 });
+droptables.define('dark_wizard', { always: [{ id: 100, name: 'Bones', min: 1, max: 1 }], main: [{ id: 101, name: 'Coins', weight: 12, min: 20, max: 60 }, { id: 0, name: 'Nothing', weight: 8, min: 0, max: 0 }] });
 
 npcs.defineNpc('hill_giant', {
   name: 'Hill giant', combat: 28, maxHp: 35, maxHit: 5,

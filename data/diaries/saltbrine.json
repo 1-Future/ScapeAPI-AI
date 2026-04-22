@@ -15,7 +15,12 @@
         { "id": "sb_easy_7", "description": "Collect a barnacle shell.", "check": { "type": "obtain_item", "item": "barnacle_shell" } },
         { "id": "sb_easy_8", "description": "Talk to Harbourmaster Cole.", "check": { "type": "talk_to_npc", "npc": "harbourmaster_cole" } },
         { "id": "sb_easy_9", "description": "Catch 5 fish at any Saltbrine spot.", "check": { "type": "catch_fish_count", "count": 5, "area": "saltbrine" } },
-        { "id": "sb_easy_10", "description": "Kill a seagull.", "check": { "type": "kill_npc", "npc": "seagull" } }
+        { "id": "sb_easy_10", "description": "Kill a seagull.", "check": { "type": "kill_npc", "npc": "seagull" } },
+        { "id": "sb_easy_11", "description": "Use the harbourmaster's ferry to visit Pirate Cove.", "check": { "type": "use_transport", "transport": "harbourmaster_ferry" } },
+        { "id": "sb_easy_12", "description": "Find the hidden pirate stash on Pirate Cove beach (exploration).", "check": { "type": "activate_object", "object": "hidden_pirate_stash", "area": "saltbrine_pirate_cove_beach" } },
+        { "id": "sb_easy_13", "description": "Complete 1 easy clue step in the Saltbrine harbour.", "check": { "type": "clue_step_complete", "tier": "easy", "area": "saltbrine_harbour" } },
+        { "id": "sb_easy_14", "description": "Catch 5 trout at the Saltbrine river mouth.", "check": { "type": "catch_fish_in_trip", "item": "trout", "count": 5, "area": "saltbrine_river_mouth" } },
+        { "id": "sb_easy_15", "description": "Craft a wooden raft at the harbour carpenter's bench.", "check": { "type": "craft_item", "item": "wooden_raft", "area": "saltbrine_carpenter" } }
       ],
       "reward": "Saltbrine cape (easy) + emote: salute. Diary lamp (easy).",
       "perk_description": "Saltbrine teleport (3/day); +5% catch rate at coast spots."

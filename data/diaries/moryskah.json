@@ -15,7 +15,12 @@
         { "id": "m_easy_7", "description": "Pick up ectoplasm from a ghast.", "check": { "type": "obtain_item", "item": "ectoplasm" } },
         { "id": "m_easy_8", "description": "Kill 5 ghasts without leaving the swamp.", "check": { "type": "kill_npc_in_trip", "npc": "ghast", "count": 5, "area": "moryskah_swamp" } },
         { "id": "m_easy_9", "description": "Buy a silver sickle.", "check": { "type": "buy_item", "item": "silver_sickle" } },
-        { "id": "m_easy_10", "description": "Bury bones in Moryskah.", "check": { "type": "bury_bones", "area": "moryskah" } }
+        { "id": "m_easy_10", "description": "Bury bones in Moryskah.", "check": { "type": "bury_bones", "area": "moryskah" } },
+        { "id": "m_easy_11", "description": "Drink from every apothecary potion (Father Dorin's round).", "check": { "type": "consume_items_in_trip", "items": ["apothecary_red_tonic", "apothecary_green_elixir", "apothecary_black_bitters", "apothecary_white_wine"] } },
+        { "id": "m_easy_12", "description": "Complete 1 easy clue step in Moryskah.", "check": { "type": "clue_step_complete", "tier": "easy", "area": "moryskah" } },
+        { "id": "m_easy_13", "description": "Chop a cursed oak tree in the swamp.", "check": { "type": "chop_tree", "tree": "cursed_oak", "area": "moryskah_swamp" } },
+        { "id": "m_easy_14", "description": "Enter the Canifis wolfsbane garden (exploration).", "check": { "type": "enter_area", "area": "moryskah_wolfsbane_garden" } },
+        { "id": "m_easy_15", "description": "Craft a silver dagger on the Moryskah anvil.", "check": { "type": "smith_item", "item": "silver_dagger", "area": "moryskah_anvil" } }
       ],
       "reward": "Moryskah cape (easy) + emote: drink from flask. Diary lamp (easy).",
       "perk_description": "Moryskah teleport (3/day); holy water refill at any Moryskah altar."
@@ -31,7 +36,12 @@
         { "id": "m_med_7", "description": "Kill a werewolf with melee.", "check": { "type": "kill_npc", "npc": "werewolf", "with_style": "melee" } },
         { "id": "m_med_8", "description": "Navigate to the Bog Witch without dying to ghasts.", "check": { "type": "reach_npc_without_death", "npc": "bog_witch_grael" } },
         { "id": "m_med_9", "description": "Collect 5 wolfbane herbs.", "check": { "type": "obtain_item", "item": "wolfbane_herb", "count": 5 } },
-        { "id": "m_med_10", "description": "Enter the Moryskah slayer tower upper floor.", "check": { "type": "enter_area", "area": "moryskah_slayer_tower_upper" } }
+        { "id": "m_med_10", "description": "Enter the Moryskah slayer tower upper floor.", "check": { "type": "enter_area", "area": "moryskah_slayer_tower_upper" } },
+        { "id": "m_med_11", "description": "Complete 5 Guardians of the Rift minigame rounds.", "check": { "type": "minigame_complete_count", "minigame": "guardians_rift", "count": 5 } },
+        { "id": "m_med_12", "description": "Pickpocket a vampyre juvenile 3 consecutive times without failing.", "check": { "type": "pickpocket_streak", "npc": "vampyre_juvenile", "streak": 3 } },
+        { "id": "m_med_13", "description": "Complete 1 medium clue step in Moryskah.", "check": { "type": "clue_step_complete", "tier": "medium", "area": "moryskah" } },
+        { "id": "m_med_14", "description": "Farm a kwuarm herb in the Moryskah patch.", "check": { "type": "compound", "all": [{ "type": "farm_plant", "seed": "kwuarm_seed", "area": "moryskah_herb_patch" }, { "type": "farm_harvest", "crop": "kwuarm", "area": "moryskah_herb_patch" }] } },
+        { "id": "m_med_15", "description": "Use the Moryskah swamp tram between villages.", "check": { "type": "use_transport", "transport": "moryskah_swamp_tram" } }
       ],
       "reward": "Moryskah cape (medium) + slayer tower shortcut. Diary lamp (medium).",
       "perk_description": "Slayer tower shortcut between floors; +10% ectoplasm drops; silver sickle special attack regen +50%."
@@ -47,7 +57,12 @@
         { "id": "m_hard_7", "description": "Kill a nechryael (slayer 80).", "check": { "type": "kill_npc", "npc": "nechryael", "min_level": { "slayer": 80 } } },
         { "id": "m_hard_8", "description": "Navigate Castle Malachar without dying.", "check": { "type": "traverse_area_without_death", "area": "castle_malachar" } },
         { "id": "m_hard_9", "description": "Forge a silver stake at the Sootworks using Moryskah materials.", "check": { "type": "smith_item_in_area", "item": "silver_stake", "area": "sootworks_forge" } },
-        { "id": "m_hard_10", "description": "Collect all 3 Malachar unique drops.", "check": { "type": "collection_log_complete", "source": "count_malachar" } }
+        { "id": "m_hard_10", "description": "Collect all 3 Malachar unique drops.", "check": { "type": "collection_log_complete", "source": "count_malachar" } },
+        { "id": "m_hard_11", "description": "Craft a silver-tipped holy sickle using Moryskah materials.", "check": { "type": "smith_item_in_area", "item": "holy_sickle_silver", "area": "moryskah_forge" } },
+        { "id": "m_hard_12", "description": "Complete 3 hard clue steps in Moryskah.", "check": { "type": "clue_step_complete", "tier": "hard", "count": 3, "area": "moryskah" } },
+        { "id": "m_hard_13", "description": "Mix 20 super attack potions at the Moryskah apothecary.", "check": { "type": "mix_potion_count", "item": "super_attack_potion", "count": 20 } },
+        { "id": "m_hard_14", "description": "Participate in the Temple Trekking minigame (Moryskah route).", "check": { "type": "minigame_participate", "minigame": "temple_trekking" } },
+        { "id": "m_hard_15", "description": "Discover the hidden moss-shrouded chapel (exploration).", "check": { "type": "enter_area", "area": "moryskah_moss_chapel" } }
       ],
       "reward": "Moryskah cape (hard) + Barrows teleport, free Barrows equipment repair. Diary lamp (hard).",
       "perk_description": "Barrows teleport unlocked; +5% rare drop chance from Barrows; free repair at Bob's anvil."
@@ -63,7 +78,12 @@
         { "id": "m_elite_7", "description": "Complete the Barrows collection log.", "check": { "type": "collection_log_complete", "source": "barrows_brothers" } },
         { "id": "m_elite_8", "description": "Use Blood Barrage on a vampyre stack.", "check": { "type": "cast_spell_on_stack", "spell": "blood_barrage", "npc": "vampyre", "min_targets": 3 } },
         { "id": "m_elite_9", "description": "Kill a dark beast (slayer 90).", "check": { "type": "kill_npc", "npc": "dark_beast", "min_level": { "slayer": 90 } } },
-        { "id": "m_elite_10", "description": "Complete an elite clue step in Castle Malachar.", "check": { "type": "clue_step_complete", "tier": "elite", "area": "castle_malachar" } }
+        { "id": "m_elite_10", "description": "Complete an elite clue step in Castle Malachar.", "check": { "type": "clue_step_complete", "tier": "elite", "area": "castle_malachar" } },
+        { "id": "m_elite_11", "description": "Perform a 4-brother Barrows speed-run under 3 minutes.", "check": { "type": "barrows_speedrun_under_time", "brothers_min": 4, "seconds": 180 } },
+        { "id": "m_elite_12", "description": "Reach 99 in Runecrafting training primarily on blood runes.", "check": { "type": "skill_level_99_via_method", "skill": "runecrafting", "method": "blood_rune_runecrafting" } },
+        { "id": "m_elite_13", "description": "Complete the Moryskah Fight Arena speedrun (under 7 minutes).", "check": { "type": "minigame_complete_under_time", "minigame": "moryskah_fight_arena", "seconds": 420 } },
+        { "id": "m_elite_14", "description": "Harvest 100 grimy snapdragon herbs.", "check": { "type": "obtain_item_count", "item": "grimy_snapdragon", "count": 100 } },
+        { "id": "m_elite_15", "description": "Discover the abandoned Morytania lighthouse cellar (exploration).", "check": { "type": "enter_area", "area": "moryskah_lighthouse_cellar" } }
       ],
       "reward": "Moryskah cape (elite — bloodveiled recolour), blood altar teleport, vampyric arm-bracer (cosmetic). Diary lamp (elite).",
       "perk_description": "Blood altar teleport; +10% blood rune output; auto-loot Barrows brothers chest fee waived."

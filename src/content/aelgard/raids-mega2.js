@@ -123,6 +123,7 @@ npcs.defineNpc('prism_sentinel_red', {
   resistance: 'melee',
   raidRoom: 'prism_red',
 });
+droptables.define('prism_sentinel_red', { always: [{ id: 100, name: 'Bones', min: 1, max: 1 }], main: [{ id: 101, name: 'Coins', weight: 10, min: 880, max: 2640 }, { id: 0, name: 'Nothing', weight: 6, min: 0, max: 0 }] });
 
 npcs.defineNpc('prism_sentinel_blue', {
   name: 'Blue Sentinel',
@@ -144,6 +145,7 @@ npcs.defineNpc('prism_sentinel_blue', {
   resistance: 'magic',
   raidRoom: 'prism_blue',
 });
+droptables.define('prism_sentinel_blue', { always: [{ id: 100, name: 'Bones', min: 1, max: 1 }], main: [{ id: 101, name: 'Coins', weight: 10, min: 960, max: 2880 }, { id: 0, name: 'Nothing', weight: 6, min: 0, max: 0 }] });
 
 npcs.defineNpc('prism_sentinel_green', {
   name: 'Green Sentinel',
@@ -165,6 +167,7 @@ npcs.defineNpc('prism_sentinel_green', {
   resistance: 'ranged',
   raidRoom: 'prism_green',
 });
+droptables.define('prism_sentinel_green', { always: [{ id: 100, name: 'Bones', min: 1, max: 1 }], main: [{ id: 101, name: 'Coins', weight: 10, min: 1040, max: 3120 }, { id: 0, name: 'Nothing', weight: 6, min: 0, max: 0 }] });
 
 // --- The Refractor (final boss) ---
 
@@ -259,6 +262,7 @@ npcs.defineNpc('prism_refractor_copy', {
   raidRoom: 'prism_boss',
   raidMechanic: 'Fake copy. Takes no real damage. Attacks players. Explodes for 40 damage in Phase 3 if struck.',
 });
+droptables.define('prism_refractor_copy', { always: [{ id: 100, name: 'Bones', min: 1, max: 1 }], main: [{ id: 101, name: 'Coins', weight: 10, min: 1800, max: 5400 }, { id: 0, name: 'Nothing', weight: 6, min: 0, max: 0 }] });
 
 // Drop tables
 
@@ -452,6 +456,7 @@ npcs.defineNpc('forge_ore_golem', {
   resistance: 'ranged',
   raidRoom: 'forge_ore_vein',
 });
+droptables.define('forge_ore_golem', { always: [{ id: 100, name: 'Bones', min: 1, max: 1 }], main: [{ id: 101, name: 'Coins', weight: 10, min: 800, max: 2400 }, { id: 0, name: 'Nothing', weight: 6, min: 0, max: 0 }] });
 
 // --- Room 2: Dragon Graveyard ---
 
@@ -475,6 +480,7 @@ npcs.defineNpc('forge_skeletal_dragon', {
   resistance: 'magic',
   raidRoom: 'forge_graveyard',
 });
+droptables.define('forge_skeletal_dragon', { always: [{ id: 100, name: 'Bones', min: 1, max: 1 }], main: [{ id: 101, name: 'Coins', weight: 10, min: 1120, max: 3360 }, { id: 0, name: 'Nothing', weight: 6, min: 0, max: 0 }] });
 
 // --- Room 3: Flame Chamber ---
 
@@ -506,6 +512,7 @@ npcs.defineNpc('forge_flame_guardian', {
     tickInterval: 10,
   },
 });
+droptables.define('forge_flame_guardian', { always: [{ id: 100, name: 'Bones', min: 1, max: 1 }], main: [{ id: 101, name: 'Coins', weight: 10, min: 1200, max: 3600 }, { id: 0, name: 'Nothing', weight: 6, min: 0, max: 0 }] });
 
 // --- Room 4: The Forge Dragon (Final Boss) ---
 
@@ -754,6 +761,7 @@ npcs.defineNpc('colosseum_gladiator', {
   tags: ['raid', 'colosseum', 'humanoid'],
   raidRoom: 'colosseum_early',
 });
+droptables.define('colosseum_gladiator', { always: [{ id: 100, name: 'Bones', min: 1, max: 1 }], main: [{ id: 101, name: 'Coins', weight: 10, min: 600, max: 1800 }, { id: 0, name: 'Nothing', weight: 6, min: 0, max: 0 }] });
 
 npcs.defineNpc('colosseum_beast', {
   name: 'Colosseum Manticore',
@@ -781,6 +789,7 @@ npcs.defineNpc('colosseum_beast', {
     tickInterval: 10,
   },
 });
+droptables.define('colosseum_beast', { always: [{ id: 100, name: 'Bones', min: 1, max: 1 }], main: [{ id: 101, name: 'Coins', weight: 10, min: 1120, max: 3360 }, { id: 0, name: 'Nothing', weight: 6, min: 0, max: 0 }] });
 
 npcs.defineNpc('colosseum_shieldbearer', {
   name: 'Colosseum Shieldbearer',
@@ -802,6 +811,7 @@ npcs.defineNpc('colosseum_shieldbearer', {
   resistance: 'ranged',
   raidRoom: 'colosseum_late',
 });
+droptables.define('colosseum_shieldbearer', { always: [{ id: 100, name: 'Bones', min: 1, max: 1 }], main: [{ id: 101, name: 'Coins', weight: 10, min: 1280, max: 3840 }, { id: 0, name: 'Nothing', weight: 6, min: 0, max: 0 }] });
 
 npcs.defineNpc('colosseum_mage', {
   name: 'Colosseum Warlock',
@@ -823,6 +833,7 @@ npcs.defineNpc('colosseum_mage', {
   resistance: 'magic',
   raidRoom: 'colosseum_late',
 });
+droptables.define('colosseum_mage', { always: [{ id: 100, name: 'Bones', min: 1, max: 1 }], main: [{ id: 101, name: 'Coins', weight: 10, min: 1360, max: 4080 }, { id: 0, name: 'Nothing', weight: 6, min: 0, max: 0 }] });
 
 // --- Final Boss: The Champion of Aelgard ---
 
@@ -1098,6 +1109,7 @@ npcs.defineNpc('rev_imp', {
   tags: ['raid', 'revenant_caves', 'revenant', 'undead'],
   raidRoom: 'rev_room_1',
 });
+droptables.define('rev_imp', { always: [{ id: 100, name: 'Bones', min: 1, max: 1 }], main: [{ id: 101, name: 'Coins', weight: 10, min: 480, max: 1440 }, { id: 0, name: 'Nothing', weight: 6, min: 0, max: 0 }] });
 
 npcs.defineNpc('rev_cyclops', {
   name: 'Revenant Cyclops',
@@ -1118,6 +1130,7 @@ npcs.defineNpc('rev_cyclops', {
   tags: ['raid', 'revenant_caves', 'revenant', 'undead'],
   raidRoom: 'rev_room_3',
 });
+droptables.define('rev_cyclops', { always: [{ id: 100, name: 'Bones', min: 1, max: 1 }], main: [{ id: 101, name: 'Coins', weight: 10, min: 880, max: 2640 }, { id: 0, name: 'Nothing', weight: 6, min: 0, max: 0 }] });
 
 npcs.defineNpc('rev_dragon', {
   name: 'Revenant Dragon',
@@ -1146,6 +1159,7 @@ npcs.defineNpc('rev_dragon', {
     tickInterval: 10,
   },
 });
+droptables.define('rev_dragon', { always: [{ id: 100, name: 'Bones', min: 1, max: 1 }], main: [{ id: 101, name: 'Coins', weight: 10, min: 1400, max: 4200 }, { id: 0, name: 'Nothing', weight: 6, min: 0, max: 0 }] });
 
 // --- Boss: Revenant Maledictus ---
 
@@ -1329,6 +1343,7 @@ npcs.defineNpc('fortress_gatekeeper', {
   resistance: 'melee',
   raidRoom: 'fortress_gate',
 });
+droptables.define('fortress_gatekeeper', { always: [{ id: 100, name: 'Bones', min: 1, max: 1 }], main: [{ id: 101, name: 'Coins', weight: 10, min: 1000, max: 3000 }, { id: 0, name: 'Nothing', weight: 6, min: 0, max: 0 }] });
 
 npcs.defineNpc('fortress_archer', {
   name: 'Chaos Archer',
@@ -1349,6 +1364,7 @@ npcs.defineNpc('fortress_archer', {
   tags: ['raid', 'wilderness_fortress', 'chaos', 'humanoid'],
   raidRoom: 'fortress_walls',
 });
+droptables.define('fortress_archer', { always: [{ id: 100, name: 'Bones', min: 1, max: 1 }], main: [{ id: 101, name: 'Coins', weight: 10, min: 800, max: 2400 }, { id: 0, name: 'Nothing', weight: 6, min: 0, max: 0 }] });
 
 npcs.defineNpc('fortress_commander_melee', {
   name: 'Commander Kragg',
@@ -1392,6 +1408,7 @@ npcs.defineNpc('fortress_commander_melee', {
     },
   ],
 });
+droptables.define('fortress_commander_melee', { always: [{ id: 100, name: 'Bones', min: 1, max: 1 }], main: [{ id: 101, name: 'Coins', weight: 10, min: 1520, max: 4560 }, { id: 0, name: 'Nothing', weight: 6, min: 0, max: 0 }] });
 
 npcs.defineNpc('fortress_commander_ranged', {
   name: 'Commander Vex',
@@ -1437,6 +1454,7 @@ npcs.defineNpc('fortress_commander_ranged', {
     },
   ],
 });
+droptables.define('fortress_commander_ranged', { always: [{ id: 100, name: 'Bones', min: 1, max: 1 }], main: [{ id: 101, name: 'Coins', weight: 10, min: 1440, max: 4320 }, { id: 0, name: 'Nothing', weight: 6, min: 0, max: 0 }] });
 
 npcs.defineNpc('fortress_commander_mage', {
   name: 'Commander Morvath',
@@ -1477,6 +1495,7 @@ npcs.defineNpc('fortress_commander_mage', {
     },
   ],
 });
+droptables.define('fortress_commander_mage', { always: [{ id: 100, name: 'Bones', min: 1, max: 1 }], main: [{ id: 101, name: 'Coins', weight: 10, min: 1600, max: 4800 }, { id: 0, name: 'Nothing', weight: 6, min: 0, max: 0 }] });
 
 npcs.defineNpc('fortress_chaos_demon', {
   name: 'Chaos Demon',
@@ -1497,6 +1516,7 @@ npcs.defineNpc('fortress_chaos_demon', {
   tags: ['raid', 'wilderness_fortress', 'demon'],
   raidRoom: 'fortress_inner_keep',
 });
+droptables.define('fortress_chaos_demon', { always: [{ id: 100, name: 'Bones', min: 1, max: 1 }], main: [{ id: 101, name: 'Coins', weight: 10, min: 1200, max: 3600 }, { id: 0, name: 'Nothing', weight: 6, min: 0, max: 0 }] });
 
 // --- Fortress Core ---
 
@@ -1640,6 +1660,7 @@ npcs.defineNpc('nexus_drifter', {
   tags: ['raid', 'abyssal_nexus', 'abyssal'],
   raidRoom: 'nexus_entry',
 });
+droptables.define('nexus_drifter', { always: [{ id: 100, name: 'Bones', min: 1, max: 1 }], main: [{ id: 101, name: 'Coins', weight: 10, min: 720, max: 2160 }, { id: 0, name: 'Nothing', weight: 6, min: 0, max: 0 }] });
 
 npcs.defineNpc('nexus_leech', {
   name: 'Abyssal Leech',
@@ -1661,6 +1682,7 @@ npcs.defineNpc('nexus_leech', {
   raidRoom: 'nexus_leech_pit',
   prayerDrainPerHit: 3,
 });
+droptables.define('nexus_leech', { always: [{ id: 100, name: 'Bones', min: 1, max: 1 }], main: [{ id: 101, name: 'Coins', weight: 10, min: 600, max: 1800 }, { id: 0, name: 'Nothing', weight: 6, min: 0, max: 0 }] });
 
 npcs.defineNpc('nexus_walker', {
   name: 'Abyssal Walker',
@@ -1681,6 +1703,7 @@ npcs.defineNpc('nexus_walker', {
   tags: ['raid', 'abyssal_nexus', 'abyssal'],
   raidRoom: 'nexus_gravity_well',
 });
+droptables.define('nexus_walker', { always: [{ id: 100, name: 'Bones', min: 1, max: 1 }], main: [{ id: 101, name: 'Coins', weight: 10, min: 960, max: 2880 }, { id: 0, name: 'Nothing', weight: 6, min: 0, max: 0 }] });
 
 // --- Boss: The Nexus Warden ---
 
@@ -1881,6 +1904,7 @@ npcs.defineNpc('hunt_tracker_beast', {
   raidRoom: 'hunt_tracking',
   raidMechanic: 'Must be dealt 50 damage within 10 ticks or it teleports to the next region. Requires Hunter skill to locate.',
 });
+droptables.define('hunt_tracker_beast', { always: [{ id: 100, name: 'Bones', min: 1, max: 1 }], main: [{ id: 101, name: 'Coins', weight: 10, min: 720, max: 2160 }, { id: 0, name: 'Nothing', weight: 6, min: 0, max: 0 }] });
 
 npcs.defineNpc('hunt_regional_guardian_heartlands', {
   name: 'Heartlands Guardian Elk',
@@ -1901,6 +1925,7 @@ npcs.defineNpc('hunt_regional_guardian_heartlands', {
   tags: ['raid', 'grand_hunt', 'beast'],
   raidRoom: 'hunt_heartlands',
 });
+droptables.define('hunt_regional_guardian_heartlands', { always: [{ id: 100, name: 'Bones', min: 1, max: 1 }], main: [{ id: 101, name: 'Coins', weight: 10, min: 800, max: 2400 }, { id: 0, name: 'Nothing', weight: 6, min: 0, max: 0 }] });
 
 npcs.defineNpc('hunt_regional_guardian_boneyard', {
   name: 'Boneyard Scarab Swarm',
@@ -1921,6 +1946,7 @@ npcs.defineNpc('hunt_regional_guardian_boneyard', {
   tags: ['raid', 'grand_hunt', 'scarab', 'kalphite'],
   raidRoom: 'hunt_boneyard',
 });
+droptables.define('hunt_regional_guardian_boneyard', { always: [{ id: 100, name: 'Bones', min: 1, max: 1 }], main: [{ id: 101, name: 'Coins', weight: 10, min: 880, max: 2640 }, { id: 0, name: 'Nothing', weight: 6, min: 0, max: 0 }] });
 
 // --- Final confrontation ---
 
@@ -2122,6 +2148,7 @@ npcs.defineNpc('calamity_tendril', {
   tags: ['raid', 'calamity', 'corruption'],
   raidRoom: 'calamity_defense_point',
 });
+droptables.define('calamity_tendril', { always: [{ id: 100, name: 'Bones', min: 1, max: 1 }], main: [{ id: 101, name: 'Coins', weight: 10, min: 800, max: 2400 }, { id: 0, name: 'Nothing', weight: 6, min: 0, max: 0 }] });
 
 npcs.defineNpc('calamity_corruptor', {
   name: 'Calamity Corruptor',
@@ -2151,6 +2178,7 @@ npcs.defineNpc('calamity_corruptor', {
     tickInterval: 8,
   },
 });
+droptables.define('calamity_corruptor', { always: [{ id: 100, name: 'Bones', min: 1, max: 1 }], main: [{ id: 101, name: 'Coins', weight: 10, min: 1200, max: 3600 }, { id: 0, name: 'Nothing', weight: 6, min: 0, max: 0 }] });
 
 npcs.defineNpc('calamity_shield_pylon', {
   name: 'Defense Pylon',
@@ -2362,6 +2390,7 @@ npcs.defineNpc('gauntlet_hunllef_basic', {
   tags: ['raid', 'iron_gauntlet', 'crystal', 'beast'],
   raidRoom: 'gauntlet_room_4',
 });
+droptables.define('gauntlet_hunllef_basic', { always: [{ id: 100, name: 'Bones', min: 1, max: 1 }], main: [{ id: 101, name: 'Coins', weight: 10, min: 1040, max: 3120 }, { id: 0, name: 'Nothing', weight: 6, min: 0, max: 0 }] });
 
 npcs.defineNpc('gauntlet_dark_beast', {
   name: 'Gauntlet Dark Beast',
@@ -2382,6 +2411,7 @@ npcs.defineNpc('gauntlet_dark_beast', {
   tags: ['raid', 'iron_gauntlet', 'beast'],
   raidRoom: 'gauntlet_room_7',
 });
+droptables.define('gauntlet_dark_beast', { always: [{ id: 100, name: 'Bones', min: 1, max: 1 }], main: [{ id: 101, name: 'Coins', weight: 10, min: 1200, max: 3600 }, { id: 0, name: 'Nothing', weight: 6, min: 0, max: 0 }] });
 
 // --- Boss: The Corrupted Hunllef ---
 
@@ -2591,6 +2621,7 @@ npcs.defineNpc('grotto_spore_cloud', {
     range: 3,
   },
 });
+droptables.define('grotto_spore_cloud', { always: [{ id: 100, name: 'Bones', min: 1, max: 1 }], main: [{ id: 101, name: 'Coins', weight: 10, min: 640, max: 1920 }, { id: 0, name: 'Nothing', weight: 6, min: 0, max: 0 }] });
 
 npcs.defineNpc('grotto_fungal_warrior', {
   name: 'Fungal Warrior',
@@ -2611,6 +2642,7 @@ npcs.defineNpc('grotto_fungal_warrior', {
   tags: ['raid', 'mushroom_grotto', 'fungal', 'humanoid'],
   raidRoom: 'grotto_warriors',
 });
+droptables.define('grotto_fungal_warrior', { always: [{ id: 100, name: 'Bones', min: 1, max: 1 }], main: [{ id: 101, name: 'Coins', weight: 10, min: 960, max: 2880 }, { id: 0, name: 'Nothing', weight: 6, min: 0, max: 0 }] });
 
 npcs.defineNpc('grotto_mycelium', {
   name: 'The Mycelium',
@@ -2655,6 +2687,7 @@ npcs.defineNpc('grotto_mycelium', {
     },
   ],
 });
+droptables.define('grotto_mycelium', { always: [{ id: 100, name: 'Bones', min: 1, max: 1 }], main: [{ id: 101, name: 'Coins', weight: 10, min: 1280, max: 3840 }, { id: 0, name: 'Nothing', weight: 6, min: 0, max: 0 }] });
 
 // --- Boss: Sporewing ---
 
@@ -2847,6 +2880,7 @@ npcs.defineNpc('frost_ice_warrior', {
   freezeOnHitChance: 0.15,
   freezeDuration: 3,
 });
+droptables.define('frost_ice_warrior', { always: [{ id: 100, name: 'Bones', min: 1, max: 1 }], main: [{ id: 101, name: 'Coins', weight: 10, min: 800, max: 2400 }, { id: 0, name: 'Nothing', weight: 6, min: 0, max: 0 }] });
 
 npcs.defineNpc('frost_wyvern', {
   name: 'Frost Wyvern',
@@ -2876,6 +2910,7 @@ npcs.defineNpc('frost_wyvern', {
     tickInterval: 10,
   },
 });
+droptables.define('frost_wyvern', { always: [{ id: 100, name: 'Bones', min: 1, max: 1 }], main: [{ id: 101, name: 'Coins', weight: 10, min: 1280, max: 3840 }, { id: 0, name: 'Nothing', weight: 6, min: 0, max: 0 }] });
 
 npcs.defineNpc('frost_ice_golem', {
   name: 'Frost Golem',
@@ -2919,6 +2954,7 @@ npcs.defineNpc('frost_ice_golem', {
     },
   ],
 });
+droptables.define('frost_ice_golem', { always: [{ id: 100, name: 'Bones', min: 1, max: 1 }], main: [{ id: 101, name: 'Coins', weight: 10, min: 1440, max: 4320 }, { id: 0, name: 'Nothing', weight: 6, min: 0, max: 0 }] });
 
 // --- Boss: The Frost Queen ---
 
@@ -3101,6 +3137,7 @@ npcs.defineNpc('volcanic_obsidian_golem', {
     range: 1,
   },
 });
+droptables.define('volcanic_obsidian_golem', { always: [{ id: 100, name: 'Bones', min: 1, max: 1 }], main: [{ id: 101, name: 'Coins', weight: 10, min: 1120, max: 3360 }, { id: 0, name: 'Nothing', weight: 6, min: 0, max: 0 }] });
 
 npcs.defineNpc('volcanic_lava_serpent', {
   name: 'Lava Serpent',
@@ -3121,6 +3158,7 @@ npcs.defineNpc('volcanic_lava_serpent', {
   tags: ['raid', 'volcanic_depths', 'serpent', 'fire'],
   raidRoom: 'volcanic_crossing',
 });
+droptables.define('volcanic_lava_serpent', { always: [{ id: 100, name: 'Bones', min: 1, max: 1 }], main: [{ id: 101, name: 'Coins', weight: 10, min: 1200, max: 3600 }, { id: 0, name: 'Nothing', weight: 6, min: 0, max: 0 }] });
 
 // --- Boss: Pyroclast ---
 
@@ -3341,6 +3379,7 @@ npcs.defineNpc('tidal_crab_warrior', {
   resistance: 'ranged',
   raidRoom: 'tidal_low_tide',
 });
+droptables.define('tidal_crab_warrior', { always: [{ id: 100, name: 'Bones', min: 1, max: 1 }], main: [{ id: 101, name: 'Coins', weight: 10, min: 880, max: 2640 }, { id: 0, name: 'Nothing', weight: 6, min: 0, max: 0 }] });
 
 npcs.defineNpc('tidal_sea_witch', {
   name: 'Tidal Sea Witch',
@@ -3362,6 +3401,7 @@ npcs.defineNpc('tidal_sea_witch', {
   resistance: 'magic',
   raidRoom: 'tidal_high_tide',
 });
+droptables.define('tidal_sea_witch', { always: [{ id: 100, name: 'Bones', min: 1, max: 1 }], main: [{ id: 101, name: 'Coins', weight: 10, min: 1120, max: 3360 }, { id: 0, name: 'Nothing', weight: 6, min: 0, max: 0 }] });
 
 npcs.defineNpc('tidal_kraken_tentacle', {
   name: 'Kraken Tentacle',
@@ -3382,6 +3422,7 @@ npcs.defineNpc('tidal_kraken_tentacle', {
   tags: ['raid', 'tidal_fortress', 'beast'],
   raidRoom: 'tidal_depths',
 });
+droptables.define('tidal_kraken_tentacle', { always: [{ id: 100, name: 'Bones', min: 1, max: 1 }], main: [{ id: 101, name: 'Coins', weight: 10, min: 1200, max: 3600 }, { id: 0, name: 'Nothing', weight: 6, min: 0, max: 0 }] });
 
 // --- Boss: Tidecaller Zarathan ---
 
@@ -3579,6 +3620,7 @@ npcs.defineNpc('dream_shade', {
   tags: ['raid', 'dream_colosseum', 'dream', 'shade'],
   raidRoom: 'dream_wave',
 });
+droptables.define('dream_shade', { always: [{ id: 100, name: 'Bones', min: 1, max: 1 }], main: [{ id: 101, name: 'Coins', weight: 10, min: 800, max: 2400 }, { id: 0, name: 'Nothing', weight: 6, min: 0, max: 0 }] });
 
 npcs.defineNpc('dream_nightmare', {
   name: 'Dream Nightmare',
@@ -3608,6 +3650,7 @@ npcs.defineNpc('dream_nightmare', {
     tickInterval: 12,
   },
 });
+droptables.define('dream_nightmare', { always: [{ id: 100, name: 'Bones', min: 1, max: 1 }], main: [{ id: 101, name: 'Coins', weight: 10, min: 1400, max: 4200 }, { id: 0, name: 'Nothing', weight: 6, min: 0, max: 0 }] });
 
 // --- Boss: The Dreamer ---
 
@@ -3815,6 +3858,7 @@ npcs.defineNpc('exodus_corrupted_knight', {
   resistance: 'melee',
   raidRoom: 'exodus_heartlands',
 });
+droptables.define('exodus_corrupted_knight', { always: [{ id: 100, name: 'Bones', min: 1, max: 1 }], main: [{ id: 101, name: 'Coins', weight: 10, min: 1400, max: 4200 }, { id: 0, name: 'Nothing', weight: 6, min: 0, max: 0 }] });
 
 npcs.defineNpc('exodus_corrupted_pharaoh', {
   name: 'Corrupted Pharaoh of the Wastes',
@@ -3836,6 +3880,7 @@ npcs.defineNpc('exodus_corrupted_pharaoh', {
   resistance: 'magic',
   raidRoom: 'exodus_boneyard',
 });
+droptables.define('exodus_corrupted_pharaoh', { always: [{ id: 100, name: 'Bones', min: 1, max: 1 }], main: [{ id: 101, name: 'Coins', weight: 10, min: 1480, max: 4440 }, { id: 0, name: 'Nothing', weight: 6, min: 0, max: 0 }] });
 
 npcs.defineNpc('exodus_corrupted_vampyre', {
   name: 'Corrupted Vampyre of Moryskah',
@@ -3856,6 +3901,7 @@ npcs.defineNpc('exodus_corrupted_vampyre', {
   tags: ['raid', 'exodus', 'corruption', 'vampyre', 'undead'],
   raidRoom: 'exodus_moryskah',
 });
+droptables.define('exodus_corrupted_vampyre', { always: [{ id: 100, name: 'Bones', min: 1, max: 1 }], main: [{ id: 101, name: 'Coins', weight: 10, min: 1520, max: 4560 }, { id: 0, name: 'Nothing', weight: 6, min: 0, max: 0 }] });
 
 npcs.defineNpc('exodus_corrupted_treant', {
   name: 'Corrupted Treant of Veilwood',
@@ -3877,6 +3923,7 @@ npcs.defineNpc('exodus_corrupted_treant', {
   resistance: 'magic',
   raidRoom: 'exodus_veilwood',
 });
+droptables.define('exodus_corrupted_treant', { always: [{ id: 100, name: 'Bones', min: 1, max: 1 }], main: [{ id: 101, name: 'Coins', weight: 10, min: 1440, max: 4320 }, { id: 0, name: 'Nothing', weight: 6, min: 0, max: 0 }] });
 
 npcs.defineNpc('exodus_corrupted_automaton', {
   name: 'Corrupted Automaton of Sootworks',
@@ -3899,6 +3946,7 @@ npcs.defineNpc('exodus_corrupted_automaton', {
   raidRoom: 'exodus_sootworks',
   raidMechanic: 'Requires mining (75) to expose weak points in its armour. Without mining, takes 50% reduced damage.',
 });
+droptables.define('exodus_corrupted_automaton', { always: [{ id: 100, name: 'Bones', min: 1, max: 1 }], main: [{ id: 101, name: 'Coins', weight: 10, min: 1600, max: 4800 }, { id: 0, name: 'Nothing', weight: 6, min: 0, max: 0 }] });
 
 npcs.defineNpc('exodus_corrupted_captain', {
   name: 'Corrupted Captain of Saltbrine',
@@ -3920,6 +3968,7 @@ npcs.defineNpc('exodus_corrupted_captain', {
   raidRoom: 'exodus_saltbrine',
   raidMechanic: 'Requires fishing (70) to lure him from his ship. Without fishing, he stays at range with +50% accuracy.',
 });
+droptables.define('exodus_corrupted_captain', { always: [{ id: 100, name: 'Bones', min: 1, max: 1 }], main: [{ id: 101, name: 'Coins', weight: 10, min: 1480, max: 4440 }, { id: 0, name: 'Nothing', weight: 6, min: 0, max: 0 }] });
 
 npcs.defineNpc('exodus_corrupted_dreamer', {
   name: 'Corrupted Dreamer of Inkweald',
@@ -3941,6 +3990,7 @@ npcs.defineNpc('exodus_corrupted_dreamer', {
   resistance: 'magic',
   raidRoom: 'exodus_inkweald',
 });
+droptables.define('exodus_corrupted_dreamer', { always: [{ id: 100, name: 'Bones', min: 1, max: 1 }], main: [{ id: 101, name: 'Coins', weight: 10, min: 1560, max: 4680 }, { id: 0, name: 'Nothing', weight: 6, min: 0, max: 0 }] });
 
 npcs.defineNpc('exodus_corrupted_crystal', {
   name: 'Corrupted Crystal of Glass Desert',
@@ -3962,6 +4012,7 @@ npcs.defineNpc('exodus_corrupted_crystal', {
   resistance: 'magic',
   raidRoom: 'exodus_glass_desert',
 });
+droptables.define('exodus_corrupted_crystal', { always: [{ id: 100, name: 'Bones', min: 1, max: 1 }], main: [{ id: 101, name: 'Coins', weight: 10, min: 1680, max: 5040 }, { id: 0, name: 'Nothing', weight: 6, min: 0, max: 0 }] });
 
 // --- Final Boss: The Corruption ---
 

@@ -64,6 +64,7 @@ npcs.defineNpc('crawling_hand', {
   examine: 'A severed hand that still grasps.',
   weakness: 'slash', tags: ['undead'],
 });
+droptables.define('crawling_hand', { always: [{ id: 100, name: 'Bones', min: 1, max: 1 }], main: [{ id: 101, name: 'Coins', weight: 10, min: 36, max: 108 }, { id: 11357, name: 'Death rune', weight: 3, min: 2, max: 6 }, { id: 0, name: 'Nothing', weight: 8, min: 0, max: 0 }] });
 
 npcs.defineNpc('vampyre_juvenile', {
   name: 'Vampyre juvenile', combat: 50, maxHp: 55, maxHit: 7,
@@ -118,6 +119,7 @@ npcs.defineNpc('revenant_imp', {
   examine: 'A ghostly imp from another plane. Glows faintly.',
   weakness: 'magic', tags: ['undead', 'spirit'], resistance: 'melee',
 });
+droptables.define('revenant_imp', { always: [{ id: 100, name: 'Bones', min: 1, max: 1 }], main: [{ id: 101, name: 'Coins', weight: 10, min: 80, max: 240 }, { id: 11357, name: 'Death rune', weight: 3, min: 2, max: 6 }, { id: 0, name: 'Nothing', weight: 8, min: 0, max: 0 }] });
 
 // ── Boss: Count Malachar ───────────────────────────────────────────────────
 

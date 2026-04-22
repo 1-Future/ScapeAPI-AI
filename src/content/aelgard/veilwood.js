@@ -81,6 +81,7 @@ npcs.defineNpc('shadow_panther', {
   examine: 'A panther that moves through shadows. Nearly invisible.',
   weakness: 'magic', tags: ['beast', 'shadow'], resistance: 'melee',
 });
+droptables.define('shadow_panther', { always: [{ id: 100, name: 'Bones', min: 1, max: 1 }], main: [{ id: 101, name: 'Coins', weight: 10, min: 110, max: 330 }, { id: 8001, name: 'Moonpetal', weight: 5, min: 1, max: 2 }, { id: 0, name: 'Nothing', weight: 8, min: 0, max: 0 }] });
 
 npcs.defineNpc('elder_druid', {
   name: 'Elder druid', combat: 65, maxHp: 80, maxHit: 10,
@@ -90,6 +91,7 @@ npcs.defineNpc('elder_druid', {
   examine: 'A druid corrupted by the forest. Attacks on sight near the sacred grove.',
   weakness: 'ranged', tags: ['human'], resistance: 'magic',
 });
+droptables.define('elder_druid', { always: [{ id: 100, name: 'Bones', min: 1, max: 1 }], main: [{ id: 101, name: 'Coins', weight: 10, min: 130, max: 390 }, { id: 8001, name: 'Moonpetal', weight: 5, min: 1, max: 2 }, { id: 0, name: 'Nothing', weight: 8, min: 0, max: 0 }] });
 
 // Boss
 npcs.defineNpc('the_veilmother', {

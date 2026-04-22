@@ -79,6 +79,7 @@ npcs.defineNpc('rogue_automaton', {
   examine: 'A dwarven machine gone haywire.',
   weakness: 'magic', resistance: 'ranged', tags: ['construct', 'armoured'],
 });
+droptables.define('rogue_automaton', { always: [{ id: 100, name: 'Bones', min: 1, max: 1 }], main: [{ id: 101, name: 'Coins', weight: 10, min: 280, max: 700 }, { id: 102, name: 'Coal', weight: 8, min: 2, max: 5 }, { id: 0, name: 'Nothing', weight: 7, min: 0, max: 0 }] });
 
 // Bosses
 npcs.defineNpc('vorath', {

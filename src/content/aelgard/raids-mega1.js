@@ -2337,6 +2337,7 @@ npcs.defineNpc('gauntlet_crystal_bear', {
   examine: 'A bear made of living crystal. It drops crystal shards when slain.',
   weakness: 'crush', tags: ['raid', 'gauntlet', 'crystal', 'beast'],
 });
+droptables.define('gauntlet_crystal_bear', { always: [{ id: 100, name: 'Bones', min: 1, max: 1 }], main: [{ id: 101, name: 'Coins', weight: 10, min: 480, max: 1440 }, { id: 0, name: 'Nothing', weight: 6, min: 0, max: 0 }] });
 
 npcs.defineNpc('gauntlet_crystal_dragon', {
   name: 'Crystalline Dragon',
@@ -2349,6 +2350,7 @@ npcs.defineNpc('gauntlet_crystal_dragon', {
   examine: 'A dragon of pure crystal. Tougher than the other creatures. Drops better resources.',
   weakness: 'ranged', tags: ['raid', 'gauntlet', 'crystal', 'dragon', 'beast'],
 });
+droptables.define('gauntlet_crystal_dragon', { always: [{ id: 100, name: 'Bones', min: 1, max: 1 }], main: [{ id: 101, name: 'Coins', weight: 10, min: 720, max: 2160 }, { id: 0, name: 'Nothing', weight: 6, min: 0, max: 0 }] });
 
 npcs.defineNpc('gauntlet_crystal_dark_beast', {
   name: 'Crystalline Dark Beast',
@@ -2361,6 +2363,7 @@ npcs.defineNpc('gauntlet_crystal_dark_beast', {
   examine: 'A dark beast formed from crystal. It drops weaponframe components.',
   weakness: 'magic', tags: ['raid', 'gauntlet', 'crystal', 'beast'],
 });
+droptables.define('gauntlet_crystal_dark_beast', { always: [{ id: 100, name: 'Bones', min: 1, max: 1 }], main: [{ id: 101, name: 'Coins', weight: 10, min: 640, max: 1920 }, { id: 0, name: 'Nothing', weight: 6, min: 0, max: 0 }] });
 
 // Boss: Crystalline Hunllef
 boss('gauntlet_hunllef', {

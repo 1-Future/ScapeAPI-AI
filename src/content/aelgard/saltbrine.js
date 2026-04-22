@@ -36,6 +36,7 @@ npcs.defineNpc('seagull', {
   examine: 'Noisy and persistent.',
   weakness: 'ranged', tags: ['beast'],
 });
+droptables.define('seagull', { always: [{ id: 100, name: 'Bones', min: 1, max: 1 }], main: [{ id: 101, name: 'Coins', weight: 10, min: 30, max: 120 }, { id: 317, name: 'Raw shark', weight: 5, min: 1, max: 2 }, { id: 0, name: 'Nothing', weight: 8, min: 0, max: 0 }] });
 
 npcs.defineNpc('rock_crab_coastal', {
   name: 'Rock crab', combat: 13, maxHp: 50, maxHit: 1,
@@ -45,6 +46,7 @@ npcs.defineNpc('rock_crab_coastal', {
   examine: 'Looks like a rock until you step on it.',
   weakness: 'crush', tags: ['armoured', 'beast'],
 });
+droptables.define('rock_crab_coastal', { always: [{ id: 100, name: 'Bones', min: 1, max: 1 }], main: [{ id: 101, name: 'Coins', weight: 10, min: 39, max: 120 }, { id: 317, name: 'Raw shark', weight: 5, min: 1, max: 2 }, { id: 0, name: 'Nothing', weight: 8, min: 0, max: 0 }] });
 
 npcs.defineNpc('pirate', {
   name: 'Pirate', combat: 35, maxHp: 35, maxHit: 5,
@@ -73,6 +75,7 @@ npcs.defineNpc('sea_snake', {
   poisonDamage: 3,
   weakness: 'slash', tags: ['beast'],
 });
+droptables.define('sea_snake', { always: [{ id: 100, name: 'Bones', min: 1, max: 1 }], main: [{ id: 101, name: 'Coins', weight: 10, min: 90, max: 240 }, { id: 317, name: 'Raw shark', weight: 5, min: 1, max: 2 }, { id: 0, name: 'Nothing', weight: 8, min: 0, max: 0 }] });
 
 npcs.defineNpc('lobstrosity', {
   name: 'Lobstrosity', combat: 45, maxHp: 60, maxHit: 7,
