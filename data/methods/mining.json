@@ -40,7 +40,10 @@
       "effective_gp_per_hour": 4000,
       "travel_minutes_per_hour": 0,
       "active_minutes_per_hour": 60,
-      "trips_per_hour": 0
+      "trips_per_hour": 0,
+      "gp_cost_per_hour": 0,
+      "net_gp_per_hour": 4000,
+      "tradeoff_profile": "+XP 0GP"
     },
     {
       "id": "heartlands_tinhook_vein",
@@ -80,7 +83,10 @@
       "effective_gp_per_hour": 7344,
       "travel_minutes_per_hour": 1.3,
       "active_minutes_per_hour": 58.8,
-      "trips_per_hour": 1.5
+      "trips_per_hour": 1.5,
+      "gp_cost_per_hour": 0,
+      "net_gp_per_hour": 7500,
+      "tradeoff_profile": "+XP 0GP"
     },
     {
       "id": "heartlands_chelser_pick_rush",
@@ -124,7 +130,10 @@
       "effective_gp_per_hour": 11333,
       "travel_minutes_per_hour": 3.3,
       "active_minutes_per_hour": 56.7,
-      "trips_per_hour": 4
+      "trips_per_hour": 4,
+      "gp_cost_per_hour": 0,
+      "net_gp_per_hour": 12000,
+      "tradeoff_profile": "+XP+GP"
     },
     {
       "id": "sootworks_iron_soot_seam",
@@ -164,7 +173,10 @@
       "effective_gp_per_hour": 21358,
       "travel_minutes_per_hour": 1.8,
       "active_minutes_per_hour": 58.3,
-      "trips_per_hour": 1.5
+      "trips_per_hour": 1.5,
+      "gp_cost_per_hour": 0,
+      "net_gp_per_hour": 22000,
+      "tradeoff_profile": "+XP+GP"
     },
     {
       "id": "sootworks_iron_cluster_spam",
@@ -204,7 +216,10 @@
       "effective_gp_per_hour": 44267,
       "travel_minutes_per_hour": 4.7,
       "active_minutes_per_hour": 55.3,
-      "trips_per_hour": 4
+      "trips_per_hour": 4,
+      "gp_cost_per_hour": 0,
+      "net_gp_per_hour": 48000,
+      "tradeoff_profile": "+XP+GP"
     },
     {
       "id": "sootworks_soot_iron_drift",
@@ -244,7 +259,10 @@
       "effective_gp_per_hour": 28000,
       "travel_minutes_per_hour": 0,
       "active_minutes_per_hour": 60,
-      "trips_per_hour": 0
+      "trips_per_hour": 0,
+      "gp_cost_per_hour": 0,
+      "net_gp_per_hour": 28000,
+      "tradeoff_profile": "+XP+GP"
     },
     {
       "id": "sootworks_soot_iron_cluster",
@@ -284,7 +302,10 @@
       "effective_gp_per_hour": 75000,
       "travel_minutes_per_hour": 0,
       "active_minutes_per_hour": 60,
-      "trips_per_hour": 0
+      "trips_per_hour": 0,
+      "gp_cost_per_hour": 0,
+      "net_gp_per_hour": 75000,
+      "tradeoff_profile": "+XP+GP"
     },
     {
       "id": "sootworks_coal_drift_aft",
@@ -324,7 +345,10 @@
       "effective_gp_per_hour": 61642,
       "travel_minutes_per_hour": 3.1,
       "active_minutes_per_hour": 56.9,
-      "trips_per_hour": 1.5
+      "trips_per_hour": 1.5,
+      "gp_cost_per_hour": 0,
+      "net_gp_per_hour": 65000,
+      "tradeoff_profile": "+XP+GP"
     },
     {
       "id": "sootworks_coal_tick_rotation",
@@ -364,7 +388,10 @@
       "effective_gp_per_hour": 124500,
       "travel_minutes_per_hour": 4.7,
       "active_minutes_per_hour": 55.3,
-      "trips_per_hour": 4
+      "trips_per_hour": 4,
+      "gp_cost_per_hour": 0,
+      "net_gp_per_hour": 135000,
+      "tradeoff_profile": "+XP+GP"
     },
     {
       "id": "moryskah_gravelight_gold",
@@ -404,7 +431,10 @@
       "effective_gp_per_hour": 54133,
       "travel_minutes_per_hour": 4,
       "active_minutes_per_hour": 56,
-      "trips_per_hour": 1.5
+      "trips_per_hour": 1.5,
+      "gp_cost_per_hour": 0,
+      "net_gp_per_hour": 58000,
+      "tradeoff_profile": "+XP+GP"
     },
     {
       "id": "glass_desert_sand_panning",
@@ -453,7 +483,10 @@
       "effective_gp_per_hour": 81858,
       "travel_minutes_per_hour": 8.3,
       "active_minutes_per_hour": 51.7,
-      "trips_per_hour": 3
+      "trips_per_hour": 3,
+      "gp_cost_per_hour": 0,
+      "net_gp_per_hour": 95000,
+      "tradeoff_profile": "+XP+GP"
     },
     {
       "id": "moryskah_silver_drip_crypt",
@@ -493,7 +526,10 @@
       "effective_gp_per_hour": 41067,
       "travel_minutes_per_hour": 4,
       "active_minutes_per_hour": 56,
-      "trips_per_hour": 1.5
+      "trips_per_hour": 1.5,
+      "gp_cost_per_hour": 0,
+      "net_gp_per_hour": 44000,
+      "tradeoff_profile": "+XP+GP"
     },
     {
       "id": "moryskah_mithril_grid_depths",
@@ -537,7 +573,10 @@
       "effective_gp_per_hour": 92000,
       "travel_minutes_per_hour": 0,
       "active_minutes_per_hour": 60,
-      "trips_per_hour": 0
+      "trips_per_hour": 0,
+      "gp_cost_per_hour": 0,
+      "net_gp_per_hour": 92000,
+      "tradeoff_profile": "+XP+GP"
     },
     {
       "id": "boneyard_scavage_heap",
@@ -585,7 +624,10 @@
       "effective_gp_per_hour": 40000,
       "travel_minutes_per_hour": 0,
       "active_minutes_per_hour": 60,
-      "trips_per_hour": 0
+      "trips_per_hour": 0,
+      "gp_cost_per_hour": 0,
+      "net_gp_per_hour": 40000,
+      "tradeoff_profile": "+XP+GP"
     },
     {
       "id": "heartlands_gemseam_pick",
@@ -633,7 +675,10 @@
       "effective_gp_per_hour": 86167,
       "travel_minutes_per_hour": 1.3,
       "active_minutes_per_hour": 58.8,
-      "trips_per_hour": 1.5
+      "trips_per_hour": 1.5,
+      "gp_cost_per_hour": 0,
+      "net_gp_per_hour": 88000,
+      "tradeoff_profile": "+XP+GP"
     },
     {
       "id": "moryskah_rubygraven_swing",
@@ -677,7 +722,10 @@
       "effective_gp_per_hour": 156222,
       "travel_minutes_per_hour": 10.7,
       "active_minutes_per_hour": 49.3,
-      "trips_per_hour": 4
+      "trips_per_hour": 4,
+      "gp_cost_per_hour": 0,
+      "net_gp_per_hour": 190000,
+      "tradeoff_profile": "+XP+GP"
     },
     {
       "id": "veilwood_crystal_shard_grove",
@@ -721,7 +769,10 @@
       "effective_gp_per_hour": 72563,
       "travel_minutes_per_hour": 2,
       "active_minutes_per_hour": 58.1,
-      "trips_per_hour": 1.5
+      "trips_per_hour": 1.5,
+      "gp_cost_per_hour": 0,
+      "net_gp_per_hour": 75000,
+      "tradeoff_profile": "+XP+GP"
     },
     {
       "id": "moryskah_adamant_tick_cluster",
@@ -765,7 +816,10 @@
       "effective_gp_per_hour": 127444,
       "travel_minutes_per_hour": 10.7,
       "active_minutes_per_hour": 49.3,
-      "trips_per_hour": 4
+      "trips_per_hour": 4,
+      "gp_cost_per_hour": 0,
+      "net_gp_per_hour": 155000,
+      "tradeoff_profile": "+XP+GP"
     },
     {
       "id": "saltbrine_crabbed_granite",
@@ -810,7 +864,10 @@
       "effective_gp_per_hour": 17730,
       "travel_minutes_per_hour": 0.9,
       "active_minutes_per_hour": 59.1,
-      "trips_per_hour": 3
+      "trips_per_hour": 3,
+      "gp_cost_per_hour": 0,
+      "net_gp_per_hour": 18000,
+      "tradeoff_profile": "+XP+GP"
     },
     {
       "id": "sootworks_bluesoot_amethyst",
@@ -851,7 +908,10 @@
       "effective_gp_per_hour": 169896,
       "travel_minutes_per_hour": 1.8,
       "active_minutes_per_hour": 58.3,
-      "trips_per_hour": 1.5
+      "trips_per_hour": 1.5,
+      "gp_cost_per_hour": 0,
+      "net_gp_per_hour": 175000,
+      "tradeoff_profile": "+XP+GP"
     },
     {
       "id": "wilds_runite_fey_vein",
@@ -891,7 +951,10 @@
       "effective_gp_per_hour": 396622,
       "travel_minutes_per_hour": 8.3,
       "active_minutes_per_hour": 51.7,
-      "trips_per_hour": 4
+      "trips_per_hour": 4,
+      "gp_cost_per_hour": 0,
+      "net_gp_per_hour": 460000,
+      "tradeoff_profile": "+XP+GP"
     },
     {
       "id": "wilds_runite_peaceful_deep",
@@ -931,7 +994,10 @@
       "effective_gp_per_hour": 184125,
       "travel_minutes_per_hour": 10.9,
       "active_minutes_per_hour": 49.1,
-      "trips_per_hour": 3
+      "trips_per_hour": 3,
+      "gp_cost_per_hour": 0,
+      "net_gp_per_hour": 225000,
+      "tradeoff_profile": "+XP+GP"
     },
     {
       "id": "moryskah_bloodgem_quarry",
@@ -975,7 +1041,10 @@
       "effective_gp_per_hour": 91358,
       "travel_minutes_per_hour": 2.3,
       "active_minutes_per_hour": 57.7,
-      "trips_per_hour": 1.5
+      "trips_per_hour": 1.5,
+      "gp_cost_per_hour": 0,
+      "net_gp_per_hour": 95000,
+      "tradeoff_profile": "+XP+GP"
     },
     {
       "id": "inkweald_voidstone_afk",
@@ -1020,7 +1089,10 @@
       "effective_gp_per_hour": 64940,
       "travel_minutes_per_hour": 2.7,
       "active_minutes_per_hour": 57.3,
-      "trips_per_hour": 1.5
+      "trips_per_hour": 1.5,
+      "gp_cost_per_hour": 0,
+      "net_gp_per_hour": 68000,
+      "tradeoff_profile": "+XP+GP"
     },
     {
       "id": "wilds_redshard_runite_rotation",
@@ -1064,7 +1136,10 @@
       "effective_gp_per_hour": 672000,
       "travel_minutes_per_hour": 4,
       "active_minutes_per_hour": 56,
-      "trips_per_hour": 4
+      "trips_per_hour": 4,
+      "gp_cost_per_hour": 0,
+      "net_gp_per_hour": 720000,
+      "tradeoff_profile": "+XP+GP"
     },
     {
       "id": "veilwood_starfall_crystal",
@@ -1108,7 +1183,10 @@
       "effective_gp_per_hour": 127867,
       "travel_minutes_per_hour": 5.2,
       "active_minutes_per_hour": 54.8,
-      "trips_per_hour": 4
+      "trips_per_hour": 4,
+      "gp_cost_per_hour": 0,
+      "net_gp_per_hour": 140000,
+      "tradeoff_profile": "+XP+GP"
     },
     {
       "id": "sootworks_engine_crawl_salvage",
@@ -1153,7 +1231,10 @@
       "effective_gp_per_hour": 533958,
       "travel_minutes_per_hour": 1.8,
       "active_minutes_per_hour": 58.3,
-      "trips_per_hour": 1.5
+      "trips_per_hour": 1.5,
+      "gp_cost_per_hour": 0,
+      "net_gp_per_hour": 550000,
+      "tradeoff_profile": "+GP-XP"
     }
   ],
   "bracket_coverage": {

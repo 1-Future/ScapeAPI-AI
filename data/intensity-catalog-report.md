@@ -1,6 +1,6 @@
 # Intensity Catalog Report
 
-Generated 2026-04-22T19:35:53.659Z. 2309 activities indexed.
+Generated 2026-04-22T19:36:51.015Z. 2309 activities indexed.
 
 ## Intensity band histogram
 
@@ -56,6 +56,35 @@ _None. All activities within 30% of their band median._
 | strength | 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 | none |
 | thieving | 1, 2, 3, 4, 5, 6, 7, 8, 9 | 10 |
 | woodcutting | 1, 2, 3, 4, 5, 6, 7, 8 | 9, 10 |
+
+## Top 20 activities by expected_power_per_hour
+
+power = kph × sum(drop_rate × downstream_dag_value). Signals which kills the planner should weight above pure xp/gp when the account needs content-gating unlocks.
+
+| Rank | Activity | Type | Region | Intensity | XP/hr | GP/hr | Power/hr |
+|---|---|---|---|---|---|---|---|
+| 1 | kill_green_dragon | monster | moryskah | 5 | 87780 | 208560 | 580.56 |
+| 2 | kill_mega_heart_corn_rat | monster | heartlands | 1 | 16830 | 30000 | 442.86 |
+| 3 | kill_red_dragon | monster | unknown | 6 | 111720 | 273600 | 403.85 |
+| 4 | kill_mega_heart_farmhand_brigand | monster | heartlands | 2 | 27132 | 84000 | 401.72 |
+| 5 | kill_animated_bronze | monster | heartlands | 2 | 53200 | 108000 | 388.89 |
+| 6 | kill_cave_goblin | monster | heartlands | 2 | 31920 | 60000 | 388.89 |
+| 7 | kill_cave_rat | monster | heartlands | 1 | 16830 | 18000 | 388.89 |
+| 8 | kill_giant_frog | monster | unknown | 2 | 39900 | 78000 | 388.89 |
+| 9 | kill_jackal | monster | boneyard | 2 | 42560 | 84000 | 388.89 |
+| 10 | kill_feral_cat | monster | veilwood | 1 | 15960 | 30000 | 388.89 |
+| 11 | kill_mugger | monster | heartlands | 1 | 18620 | 36000 | 388.89 |
+| 12 | kill_ghost | monster | unknown | 2 | 39900 | 114000 | 388.89 |
+| 13 | kill_dwarf | monster | unknown | 2 | 39900 | 60000 | 388.89 |
+| 14 | kill_barbarian | monster | unknown | 2 | 53200 | 102000 | 388.89 |
+| 15 | kill_bat | monster | unknown | 1 | 15960 | 30000 | 388.89 |
+| 16 | kill_wolf | monster | unknown | 2 | 47880 | 96000 | 388.89 |
+| 17 | kill_crawling_zombie | monster | unknown | 2 | 37240 | 72000 | 388.89 |
+| 18 | kill_desert_hawk | monster | boneyard | 1 | 26600 | 48000 | 388.89 |
+| 19 | kill_giant_undead_chicken | monster | moryskah | 1 | 16830 | 30000 | 388.89 |
+| 20 | kill_zombie_rat | monster | moryskah | 1 | 26600 | 48000 | 388.89 |
+
+_Total activities with nonzero power: **447** / 2309._
 
 ## Per-region coverage matrix
 

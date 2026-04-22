@@ -38,7 +38,10 @@
       "effective_gp_per_hour": 5958,
       "travel_minutes_per_hour": 0.4,
       "active_minutes_per_hour": 59.6,
-      "trips_per_hour": 0.5
+      "trips_per_hour": 0.5,
+      "gp_cost_per_hour": 0,
+      "net_gp_per_hour": 6000,
+      "tradeoff_profile": "+XP 0GP"
     },
     {
       "id": "heartlands_gymnasium_afk",
@@ -71,7 +74,10 @@
       "effective_gp_per_hour": 0,
       "travel_minutes_per_hour": 0.4,
       "active_minutes_per_hour": 59.6,
-      "trips_per_hour": 0.5
+      "trips_per_hour": 0.5,
+      "gp_cost_per_hour": 0,
+      "net_gp_per_hour": 0,
+      "tradeoff_profile": "+XP 0GP"
     },
     {
       "id": "heartlands_chelser_rooftop",
@@ -111,7 +117,10 @@
       "effective_gp_per_hour": 12000,
       "travel_minutes_per_hour": 0,
       "active_minutes_per_hour": 60,
-      "trips_per_hour": 0
+      "trips_per_hour": 0,
+      "gp_cost_per_hour": 0,
+      "net_gp_per_hour": 12000,
+      "tradeoff_profile": "+XP+GP"
     },
     {
       "id": "heartlands_walls_shortcut_afk",
@@ -146,7 +155,10 @@
       "effective_gp_per_hour": 0,
       "travel_minutes_per_hour": 0.4,
       "active_minutes_per_hour": 59.6,
-      "trips_per_hour": 0.5
+      "trips_per_hour": 0.5,
+      "gp_cost_per_hour": 0,
+      "net_gp_per_hour": 0,
+      "tradeoff_profile": "+XP 0GP"
     },
     {
       "id": "saltbrine_harbour_course",
@@ -186,7 +198,10 @@
       "effective_gp_per_hour": 21945,
       "travel_minutes_per_hour": 0.2,
       "active_minutes_per_hour": 59.9,
-      "trips_per_hour": 0.5
+      "trips_per_hour": 0.5,
+      "gp_cost_per_hour": 0,
+      "net_gp_per_hour": 22000,
+      "tradeoff_profile": "+XP+GP"
     },
     {
       "id": "saltbrine_draynor_rooftop_afk",
@@ -226,7 +241,10 @@
       "effective_gp_per_hour": 11970,
       "travel_minutes_per_hour": 0.2,
       "active_minutes_per_hour": 59.9,
-      "trips_per_hour": 0.5
+      "trips_per_hour": 0.5,
+      "gp_cost_per_hour": 0,
+      "net_gp_per_hour": 12000,
+      "tradeoff_profile": "+XP+GP"
     },
     {
       "id": "boneyard_wilderness_course",
@@ -266,7 +284,10 @@
       "effective_gp_per_hour": 27611,
       "travel_minutes_per_hour": 0.8,
       "active_minutes_per_hour": 59.2,
-      "trips_per_hour": 0.5
+      "trips_per_hour": 0.5,
+      "gp_cost_per_hour": 0,
+      "net_gp_per_hour": 28000,
+      "tradeoff_profile": "+XP+GP"
     },
     {
       "id": "saltbrine_sandbar_course_afk",
@@ -306,7 +327,10 @@
       "effective_gp_per_hour": 13914,
       "travel_minutes_per_hour": 0.4,
       "active_minutes_per_hour": 59.6,
-      "trips_per_hour": 0.5
+      "trips_per_hour": 0.5,
+      "gp_cost_per_hour": 0,
+      "net_gp_per_hour": 14000,
+      "tradeoff_profile": "+XP+GP"
     },
     {
       "id": "inkweald_seers_rooftop",
@@ -346,7 +370,10 @@
       "effective_gp_per_hour": 37430,
       "travel_minutes_per_hour": 0.9,
       "active_minutes_per_hour": 59.1,
-      "trips_per_hour": 0.5
+      "trips_per_hour": 0.5,
+      "gp_cost_per_hour": 0,
+      "net_gp_per_hour": 38000,
+      "tradeoff_profile": "+XP+GP"
     },
     {
       "id": "inkweald_seers_afk",
@@ -386,7 +413,10 @@
       "effective_gp_per_hour": 21670,
       "travel_minutes_per_hour": 0.9,
       "active_minutes_per_hour": 59.1,
-      "trips_per_hour": 0.5
+      "trips_per_hour": 0.5,
+      "gp_cost_per_hour": 0,
+      "net_gp_per_hour": 22000,
+      "tradeoff_profile": "+XP+GP"
     },
     {
       "id": "sootworks_pipe_network",
@@ -426,7 +456,10 @@
       "effective_gp_per_hour": 44563,
       "travel_minutes_per_hour": 0.6,
       "active_minutes_per_hour": 59.4,
-      "trips_per_hour": 0.5
+      "trips_per_hour": 0.5,
+      "gp_cost_per_hour": 0,
+      "net_gp_per_hour": 45000,
+      "tradeoff_profile": "+XP+GP"
     },
     {
       "id": "heartlands_pollnivneach_rooftop",
@@ -466,7 +499,10 @@
       "effective_gp_per_hour": 31262,
       "travel_minutes_per_hour": 1.4,
       "active_minutes_per_hour": 58.6,
-      "trips_per_hour": 0.5
+      "trips_per_hour": 0.5,
+      "gp_cost_per_hour": 0,
+      "net_gp_per_hour": 32000,
+      "tradeoff_profile": "+XP+GP"
     },
     {
       "id": "veilwood_rellekka_rooftop",
@@ -506,7 +542,10 @@
       "effective_gp_per_hour": 41545,
       "travel_minutes_per_hour": 0.7,
       "active_minutes_per_hour": 59.4,
-      "trips_per_hour": 0.5
+      "trips_per_hour": 0.5,
+      "gp_cost_per_hour": 0,
+      "net_gp_per_hour": 42000,
+      "tradeoff_profile": "+XP+GP"
     },
     {
       "id": "veilwood_rellekka_afk",
@@ -546,7 +585,10 @@
       "effective_gp_per_hour": 21762,
       "travel_minutes_per_hour": 0.7,
       "active_minutes_per_hour": 59.4,
-      "trips_per_hour": 0.5
+      "trips_per_hour": 0.5,
+      "gp_cost_per_hour": 0,
+      "net_gp_per_hour": 22000,
+      "tradeoff_profile": "+XP+GP"
     },
     {
       "id": "inkweald_dreamwalk",
@@ -588,7 +630,10 @@
       "effective_gp_per_hour": 54175,
       "travel_minutes_per_hour": 0.9,
       "active_minutes_per_hour": 59.1,
-      "trips_per_hour": 0.5
+      "trips_per_hour": 0.5,
+      "gp_cost_per_hour": 0,
+      "net_gp_per_hour": 55000,
+      "tradeoff_profile": "+XP+GP"
     },
     {
       "id": "inkweald_dreamwalk_afk",
@@ -630,7 +675,10 @@
       "effective_gp_per_hour": 31520,
       "travel_minutes_per_hour": 0.9,
       "active_minutes_per_hour": 59.1,
-      "trips_per_hour": 0.5
+      "trips_per_hour": 0.5,
+      "gp_cost_per_hour": 0,
+      "net_gp_per_hour": 32000,
+      "tradeoff_profile": "+XP+GP"
     },
     {
       "id": "veilwood_prifddinas_rooftop",
@@ -672,7 +720,10 @@
       "effective_gp_per_hour": 84079,
       "travel_minutes_per_hour": 0.7,
       "active_minutes_per_hour": 59.4,
-      "trips_per_hour": 0.5
+      "trips_per_hour": 0.5,
+      "gp_cost_per_hour": 0,
+      "net_gp_per_hour": 85000,
+      "tradeoff_profile": "+XP+GP"
     },
     {
       "id": "boneyard_sepulchre_course",
@@ -714,7 +765,10 @@
       "effective_gp_per_hour": 414167,
       "travel_minutes_per_hour": 0.8,
       "active_minutes_per_hour": 59.2,
-      "trips_per_hour": 0.5
+      "trips_per_hour": 0.5,
+      "gp_cost_per_hour": 0,
+      "net_gp_per_hour": 420000,
+      "tradeoff_profile": "+XP+GP"
     },
     {
       "id": "veilwood_elfheim_afk",
@@ -756,7 +810,10 @@
       "effective_gp_per_hour": 41545,
       "travel_minutes_per_hour": 0.7,
       "active_minutes_per_hour": 59.4,
-      "trips_per_hour": 0.5
+      "trips_per_hour": 0.5,
+      "gp_cost_per_hour": 0,
+      "net_gp_per_hour": 42000,
+      "tradeoff_profile": "+XP+GP"
     },
     {
       "id": "wilds_wildsgate_gauntlet",
@@ -796,7 +853,10 @@
       "effective_gp_per_hour": 179399,
       "travel_minutes_per_hour": 1.8,
       "active_minutes_per_hour": 58.2,
-      "trips_per_hour": 0.5
+      "trips_per_hour": 0.5,
+      "gp_cost_per_hour": 0,
+      "net_gp_per_hour": 185000,
+      "tradeoff_profile": "+XP+GP"
     },
     {
       "id": "wilds_wildsgate_afk",
@@ -836,7 +896,10 @@
       "effective_gp_per_hour": 83536,
       "travel_minutes_per_hour": 1,
       "active_minutes_per_hour": 59,
-      "trips_per_hour": 0.5
+      "trips_per_hour": 0.5,
+      "gp_cost_per_hour": 0,
+      "net_gp_per_hour": 85000,
+      "tradeoff_profile": "+XP+GP"
     },
     {
       "id": "heartlands_lumbrick_rooftop_loot_chain",
@@ -880,7 +943,10 @@
       "effective_gp_per_hour": 446875,
       "travel_minutes_per_hour": 0.4,
       "active_minutes_per_hour": 59.6,
-      "trips_per_hour": 0.5
+      "trips_per_hour": 0.5,
+      "gp_cost_per_hour": 0,
+      "net_gp_per_hour": 450000,
+      "tradeoff_profile": "+XP+GP"
     },
     {
       "id": "saltbrine_stormdeck_parkour",
@@ -926,7 +992,10 @@
       "effective_gp_per_hour": 1490833,
       "travel_minutes_per_hour": 0.4,
       "active_minutes_per_hour": 59.6,
-      "trips_per_hour": 0.5
+      "trips_per_hour": 0.5,
+      "gp_cost_per_hour": 0,
+      "net_gp_per_hour": 1500000,
+      "tradeoff_profile": "+XP+GP"
     }
   ],
   "bracket_coverage": {

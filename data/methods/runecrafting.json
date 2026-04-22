@@ -40,7 +40,10 @@
       "effective_gp_per_hour": 20533,
       "travel_minutes_per_hour": 4,
       "active_minutes_per_hour": 56,
-      "trips_per_hour": 12
+      "trips_per_hour": 12,
+      "gp_cost_per_hour": 15000,
+      "net_gp_per_hour": 7000,
+      "tradeoff_profile": "+XP 0GP"
     },
     {
       "id": "heartlands_air_altar_pouch_rush",
@@ -86,7 +89,10 @@
       "effective_gp_per_hour": 48000,
       "travel_minutes_per_hour": 0,
       "active_minutes_per_hour": 60,
-      "trips_per_hour": 0
+      "trips_per_hour": 0,
+      "gp_cost_per_hour": 15000,
+      "net_gp_per_hour": 33000,
+      "tradeoff_profile": "+XP+GP"
     },
     {
       "id": "heartlands_mind_altar",
@@ -128,7 +134,10 @@
       "effective_gp_per_hour": 11200,
       "travel_minutes_per_hour": 4,
       "active_minutes_per_hour": 56,
-      "trips_per_hour": 12
+      "trips_per_hour": 12,
+      "gp_cost_per_hour": 25000,
+      "net_gp_per_hour": -13000,
+      "tradeoff_profile": "+XP-GP"
     },
     {
       "id": "saltbrine_water_altar_afk",
@@ -170,7 +179,10 @@
       "effective_gp_per_hour": 16920,
       "travel_minutes_per_hour": 3.6,
       "active_minutes_per_hour": 56.4,
-      "trips_per_hour": 12
+      "trips_per_hour": 12,
+      "gp_cost_per_hour": 15000,
+      "net_gp_per_hour": 3000,
+      "tradeoff_profile": "+XP 0GP"
     },
     {
       "id": "saltbrine_water_altar_pouch_rush",
@@ -215,7 +227,10 @@
       "effective_gp_per_hour": 61100,
       "travel_minutes_per_hour": 3.6,
       "active_minutes_per_hour": 56.4,
-      "trips_per_hour": 12
+      "trips_per_hour": 12,
+      "gp_cost_per_hour": 15000,
+      "net_gp_per_hour": 50000,
+      "tradeoff_profile": "+XP+GP"
     },
     {
       "id": "heartlands_earth_altar_afk",
@@ -257,7 +272,10 @@
       "effective_gp_per_hour": 20533,
       "travel_minutes_per_hour": 4,
       "active_minutes_per_hour": 56,
-      "trips_per_hour": 12
+      "trips_per_hour": 12,
+      "gp_cost_per_hour": 15000,
+      "net_gp_per_hour": 7000,
+      "tradeoff_profile": "+XP 0GP"
     },
     {
       "id": "heartlands_earth_altar_tiara_rush",
@@ -301,7 +319,10 @@
       "effective_gp_per_hour": 48000,
       "travel_minutes_per_hour": 0,
       "active_minutes_per_hour": 60,
-      "trips_per_hour": 0
+      "trips_per_hour": 0,
+      "gp_cost_per_hour": 15000,
+      "net_gp_per_hour": 33000,
+      "tradeoff_profile": "+XP+GP"
     },
     {
       "id": "sootworks_fire_altar_afk",
@@ -343,7 +364,10 @@
       "effective_gp_per_hour": 47147,
       "travel_minutes_per_hour": 5.6,
       "active_minutes_per_hour": 54.4,
-      "trips_per_hour": 12
+      "trips_per_hour": 12,
+      "gp_cost_per_hour": 15000,
+      "net_gp_per_hour": 37000,
+      "tradeoff_profile": "+XP+GP"
     },
     {
       "id": "sootworks_fire_altar_tiara_rush",
@@ -387,7 +411,10 @@
       "effective_gp_per_hour": 128000,
       "travel_minutes_per_hour": 0,
       "active_minutes_per_hour": 60,
-      "trips_per_hour": 0
+      "trips_per_hour": 0,
+      "gp_cost_per_hour": 15000,
+      "net_gp_per_hour": 113000,
+      "tradeoff_profile": "+XP+GP"
     },
     {
       "id": "heartlands_body_altar_afk",
@@ -429,7 +456,10 @@
       "effective_gp_per_hour": 32667,
       "travel_minutes_per_hour": 4,
       "active_minutes_per_hour": 56,
-      "trips_per_hour": 12
+      "trips_per_hour": 12,
+      "gp_cost_per_hour": 25000,
+      "net_gp_per_hour": 10000,
+      "tradeoff_profile": "+XP+GP"
     },
     {
       "id": "glass_desert_cosmic_altar_rush",
@@ -474,7 +504,10 @@
       "effective_gp_per_hour": 113100,
       "travel_minutes_per_hour": 13.2,
       "active_minutes_per_hour": 46.8,
-      "trips_per_hour": 12
+      "trips_per_hour": 12,
+      "gp_cost_per_hour": 50000,
+      "net_gp_per_hour": 95000,
+      "tradeoff_profile": "+XP+GP"
     },
     {
       "id": "glass_desert_cosmic_altar_afk",
@@ -518,7 +551,10 @@
       "effective_gp_per_hour": 74100,
       "travel_minutes_per_hour": 13.2,
       "active_minutes_per_hour": 46.8,
-      "trips_per_hour": 12
+      "trips_per_hour": 12,
+      "gp_cost_per_hour": 50000,
+      "net_gp_per_hour": 45000,
+      "tradeoff_profile": "+XP+GP"
     },
     {
       "id": "wilds_chaos_altar_rush",
@@ -561,7 +597,10 @@
       "effective_gp_per_hour": 237500,
       "travel_minutes_per_hour": 10,
       "active_minutes_per_hour": 50,
-      "trips_per_hour": 12
+      "trips_per_hour": 12,
+      "gp_cost_per_hour": 50000,
+      "net_gp_per_hour": 235000,
+      "tradeoff_profile": "+XP+GP"
     },
     {
       "id": "wilds_chaos_altar_afk",
@@ -603,7 +642,10 @@
       "effective_gp_per_hour": 133333,
       "travel_minutes_per_hour": 10,
       "active_minutes_per_hour": 50,
-      "trips_per_hour": 12
+      "trips_per_hour": 12,
+      "gp_cost_per_hour": 50000,
+      "net_gp_per_hour": 110000,
+      "tradeoff_profile": "+XP+GP"
     },
     {
       "id": "veilwood_nature_altar_rush",
@@ -646,7 +688,10 @@
       "effective_gp_per_hour": 382500,
       "travel_minutes_per_hour": 6,
       "active_minutes_per_hour": 54,
-      "trips_per_hour": 12
+      "trips_per_hour": 12,
+      "gp_cost_per_hour": 90000,
+      "net_gp_per_hour": 335000,
+      "tradeoff_profile": "+XP+GP"
     },
     {
       "id": "veilwood_nature_altar_afk",
@@ -688,7 +733,10 @@
       "effective_gp_per_hour": 220500,
       "travel_minutes_per_hour": 6,
       "active_minutes_per_hour": 54,
-      "trips_per_hour": 12
+      "trips_per_hour": 12,
+      "gp_cost_per_hour": 90000,
+      "net_gp_per_hour": 155000,
+      "tradeoff_profile": "+XP+GP"
     },
     {
       "id": "inkweald_law_altar_rush",
@@ -733,7 +781,10 @@
       "effective_gp_per_hour": 443733,
       "travel_minutes_per_hour": 8.8,
       "active_minutes_per_hour": 51.2,
-      "trips_per_hour": 12
+      "trips_per_hour": 12,
+      "gp_cost_per_hour": 90000,
+      "net_gp_per_hour": 430000,
+      "tradeoff_profile": "+XP+GP"
     },
     {
       "id": "inkweald_law_altar_afk",
@@ -777,7 +828,10 @@
       "effective_gp_per_hour": 243200,
       "travel_minutes_per_hour": 8.8,
       "active_minutes_per_hour": 51.2,
-      "trips_per_hour": 12
+      "trips_per_hour": 12,
+      "gp_cost_per_hour": 90000,
+      "net_gp_per_hour": 195000,
+      "tradeoff_profile": "+XP+GP"
     },
     {
       "id": "boneyard_death_altar_rush",
@@ -822,7 +876,10 @@
       "effective_gp_per_hour": 541667,
       "travel_minutes_per_hour": 8,
       "active_minutes_per_hour": 52,
-      "trips_per_hour": 12
+      "trips_per_hour": 12,
+      "gp_cost_per_hour": 140000,
+      "net_gp_per_hour": 485000,
+      "tradeoff_profile": "+XP+GP"
     },
     {
       "id": "boneyard_death_altar_afk",
@@ -866,7 +923,10 @@
       "effective_gp_per_hour": 281667,
       "travel_minutes_per_hour": 8,
       "active_minutes_per_hour": 52,
-      "trips_per_hour": 12
+      "trips_per_hour": 12,
+      "gp_cost_per_hour": 140000,
+      "net_gp_per_hour": 185000,
+      "tradeoff_profile": "+XP+GP"
     },
     {
       "id": "moryskah_blood_altar_rush",
@@ -912,7 +972,10 @@
       "effective_gp_per_hour": 602800,
       "travel_minutes_per_hour": 7.2,
       "active_minutes_per_hour": 52.8,
-      "trips_per_hour": 12
+      "trips_per_hour": 12,
+      "gp_cost_per_hour": 180000,
+      "net_gp_per_hour": 505000,
+      "tradeoff_profile": "+XP+GP"
     },
     {
       "id": "moryskah_blood_altar_afk",
@@ -956,7 +1019,10 @@
       "effective_gp_per_hour": 338800,
       "travel_minutes_per_hour": 7.2,
       "active_minutes_per_hour": 52.8,
-      "trips_per_hour": 12
+      "trips_per_hour": 12,
+      "gp_cost_per_hour": 180000,
+      "net_gp_per_hour": 205000,
+      "tradeoff_profile": "+XP+GP"
     },
     {
       "id": "veilwood_soul_altar_afk",
@@ -1000,7 +1066,10 @@
       "effective_gp_per_hour": 436500,
       "travel_minutes_per_hour": 6,
       "active_minutes_per_hour": 54,
-      "trips_per_hour": 12
+      "trips_per_hour": 12,
+      "gp_cost_per_hour": 180000,
+      "net_gp_per_hour": 305000,
+      "tradeoff_profile": "+XP+GP"
     },
     {
       "id": "wilds_wrath_altar_rush",
@@ -1043,7 +1112,10 @@
       "effective_gp_per_hour": 688000,
       "travel_minutes_per_hour": 12,
       "active_minutes_per_hour": 48,
-      "trips_per_hour": 12
+      "trips_per_hour": 12,
+      "gp_cost_per_hour": 180000,
+      "net_gp_per_hour": 680000,
+      "tradeoff_profile": "+XP+GP"
     },
     {
       "id": "wilds_wrath_altar_afk",
@@ -1085,7 +1157,10 @@
       "effective_gp_per_hour": 350000,
       "travel_minutes_per_hour": 10,
       "active_minutes_per_hour": 50,
-      "trips_per_hour": 12
+      "trips_per_hour": 12,
+      "gp_cost_per_hour": 180000,
+      "net_gp_per_hour": 240000,
+      "tradeoff_profile": "+XP+GP"
     },
     {
       "id": "inkweald_ink_dyed_rune_batch",
@@ -1131,7 +1206,10 @@
       "effective_gp_per_hour": 1877333,
       "travel_minutes_per_hour": 8.8,
       "active_minutes_per_hour": 51.2,
-      "trips_per_hour": 12
+      "trips_per_hour": 12,
+      "gp_cost_per_hour": 15000,
+      "net_gp_per_hour": 2185000,
+      "tradeoff_profile": "+XP+GP"
     },
     {
       "id": "multi_rune_running_courier",
@@ -1178,7 +1256,10 @@
       "effective_gp_per_hour": 6200000,
       "travel_minutes_per_hour": 0,
       "active_minutes_per_hour": 60,
-      "trips_per_hour": 0
+      "trips_per_hour": 0,
+      "gp_cost_per_hour": 15000,
+      "net_gp_per_hour": 6185000,
+      "tradeoff_profile": "+XP+GP"
     },
     {
       "id": "veilwood_soul_altar_pouch_rush",
@@ -1224,7 +1305,10 @@
       "effective_gp_per_hour": 1440000,
       "travel_minutes_per_hour": 6,
       "active_minutes_per_hour": 54,
-      "trips_per_hour": 12
+      "trips_per_hour": 12,
+      "gp_cost_per_hour": 180000,
+      "net_gp_per_hour": 1420000,
+      "tradeoff_profile": "+XP+GP"
     },
     {
       "id": "inkweald_shadow_rune_weave",
@@ -1272,7 +1356,10 @@
       "effective_gp_per_hour": 4096000,
       "travel_minutes_per_hour": 8.8,
       "active_minutes_per_hour": 51.2,
-      "trips_per_hour": 12
+      "trips_per_hour": 12,
+      "gp_cost_per_hour": 15000,
+      "net_gp_per_hour": 4785000,
+      "tradeoff_profile": "+XP+GP"
     }
   ],
   "bracket_coverage": {

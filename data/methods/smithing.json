@@ -41,7 +41,10 @@
       "effective_gp_per_hour": 1500,
       "travel_minutes_per_hour": 0,
       "active_minutes_per_hour": 60,
-      "trips_per_hour": 0
+      "trips_per_hour": 0,
+      "gp_cost_per_hour": 1500,
+      "net_gp_per_hour": 0,
+      "tradeoff_profile": "+XP 0GP"
     },
     {
       "id": "heartlands_bronze_dagger_anvil",
@@ -82,7 +85,10 @@
       "effective_gp_per_hour": 0,
       "travel_minutes_per_hour": 0,
       "active_minutes_per_hour": 60,
-      "trips_per_hour": 0
+      "trips_per_hour": 0,
+      "gp_cost_per_hour": 40000,
+      "net_gp_per_hour": -40000,
+      "tradeoff_profile": "+XP-GP"
     },
     {
       "id": "heartlands_iron_smelt",
@@ -122,7 +128,10 @@
       "effective_gp_per_hour": 12000,
       "travel_minutes_per_hour": 0,
       "active_minutes_per_hour": 60,
-      "trips_per_hour": 0
+      "trips_per_hour": 0,
+      "gp_cost_per_hour": 40000,
+      "net_gp_per_hour": -28000,
+      "tradeoff_profile": "+XP-GP"
     },
     {
       "id": "heartlands_iron_dagger_rotation",
@@ -165,7 +174,10 @@
       "effective_gp_per_hour": 8500,
       "travel_minutes_per_hour": 0,
       "active_minutes_per_hour": 60,
-      "trips_per_hour": 0
+      "trips_per_hour": 0,
+      "gp_cost_per_hour": 40000,
+      "net_gp_per_hour": -31500,
+      "tradeoff_profile": "+XP-GP"
     },
     {
       "id": "sootworks_soot_iron_afk",
@@ -207,7 +219,10 @@
       "effective_gp_per_hour": 42000,
       "travel_minutes_per_hour": 0,
       "active_minutes_per_hour": 60,
-      "trips_per_hour": 0
+      "trips_per_hour": 0,
+      "gp_cost_per_hour": 40000,
+      "net_gp_per_hour": 2000,
+      "tradeoff_profile": "+XP 0GP"
     },
     {
       "id": "sootworks_soot_iron_blast",
@@ -252,7 +267,10 @@
       "effective_gp_per_hour": 185000,
       "travel_minutes_per_hour": 0,
       "active_minutes_per_hour": 60,
-      "trips_per_hour": 0
+      "trips_per_hour": 0,
+      "gp_cost_per_hour": 300000,
+      "net_gp_per_hour": -115000,
+      "tradeoff_profile": "+XP-GP"
     },
     {
       "id": "sootworks_steel_blast",
@@ -297,7 +315,10 @@
       "effective_gp_per_hour": 265000,
       "travel_minutes_per_hour": 0,
       "active_minutes_per_hour": 60,
-      "trips_per_hour": 0
+      "trips_per_hour": 0,
+      "gp_cost_per_hour": 300000,
+      "net_gp_per_hour": -35000,
+      "tradeoff_profile": "+XP-GP"
     },
     {
       "id": "heartlands_steel_anvil_afk",
@@ -338,7 +359,10 @@
       "effective_gp_per_hour": 68000,
       "travel_minutes_per_hour": 0,
       "active_minutes_per_hour": 60,
-      "trips_per_hour": 0
+      "trips_per_hour": 0,
+      "gp_cost_per_hour": 90000,
+      "net_gp_per_hour": -22000,
+      "tradeoff_profile": "+XP-GP"
     },
     {
       "id": "glass_desert_goldsmith",
@@ -381,7 +405,10 @@
       "effective_gp_per_hour": 120150,
       "travel_minutes_per_hour": 6.6,
       "active_minutes_per_hour": 53.4,
-      "trips_per_hour": 6
+      "trips_per_hour": 6,
+      "gp_cost_per_hour": 40000,
+      "net_gp_per_hour": 95000,
+      "tradeoff_profile": "+XP+GP"
     },
     {
       "id": "glass_desert_goldsmith_spam",
@@ -424,7 +451,10 @@
       "effective_gp_per_hour": 201667,
       "travel_minutes_per_hour": 5,
       "active_minutes_per_hour": 55,
-      "trips_per_hour": 6
+      "trips_per_hour": 6,
+      "gp_cost_per_hour": 40000,
+      "net_gp_per_hour": 180000,
+      "tradeoff_profile": "+XP+GP"
     },
     {
       "id": "moryskah_mithril_smelt",
@@ -467,7 +497,10 @@
       "effective_gp_per_hour": 72000,
       "travel_minutes_per_hour": 0,
       "active_minutes_per_hour": 60,
-      "trips_per_hour": 0
+      "trips_per_hour": 0,
+      "gp_cost_per_hour": 140000,
+      "net_gp_per_hour": -68000,
+      "tradeoff_profile": "+XP-GP"
     },
     {
       "id": "sootworks_blast_mithril",
@@ -512,7 +545,10 @@
       "effective_gp_per_hour": 295000,
       "travel_minutes_per_hour": 0,
       "active_minutes_per_hour": 60,
-      "trips_per_hour": 0
+      "trips_per_hour": 0,
+      "gp_cost_per_hour": 260000,
+      "net_gp_per_hour": 35000,
+      "tradeoff_profile": "+XP+GP"
     },
     {
       "id": "sootworks_blast_adamant",
@@ -557,7 +593,10 @@
       "effective_gp_per_hour": 385000,
       "travel_minutes_per_hour": 0,
       "active_minutes_per_hour": 60,
-      "trips_per_hour": 0
+      "trips_per_hour": 0,
+      "gp_cost_per_hour": 400000,
+      "net_gp_per_hour": -15000,
+      "tradeoff_profile": "+XP-GP"
     },
     {
       "id": "moryskah_adamant_anvil_afk",
@@ -600,7 +639,10 @@
       "effective_gp_per_hour": 145000,
       "travel_minutes_per_hour": 0,
       "active_minutes_per_hour": 60,
-      "trips_per_hour": 0
+      "trips_per_hour": 0,
+      "gp_cost_per_hour": 220000,
+      "net_gp_per_hour": -75000,
+      "tradeoff_profile": "+XP-GP"
     },
     {
       "id": "heartlands_giants_foundry",
@@ -644,7 +686,10 @@
       "effective_gp_per_hour": 151250,
       "travel_minutes_per_hour": 5,
       "active_minutes_per_hour": 55,
-      "trips_per_hour": 6
+      "trips_per_hour": 6,
+      "gp_cost_per_hour": 5000,
+      "net_gp_per_hour": 160000,
+      "tradeoff_profile": "+XP+GP"
     },
     {
       "id": "heartlands_rune_scimitar_afk",
@@ -687,7 +732,10 @@
       "effective_gp_per_hour": 215000,
       "travel_minutes_per_hour": 0,
       "active_minutes_per_hour": 60,
-      "trips_per_hour": 0
+      "trips_per_hour": 0,
+      "gp_cost_per_hour": 380000,
+      "net_gp_per_hour": -165000,
+      "tradeoff_profile": "+XP-GP"
     },
     {
       "id": "wilds_runite_smelt_camp",
@@ -730,7 +778,10 @@
       "effective_gp_per_hour": 392000,
       "travel_minutes_per_hour": 4,
       "active_minutes_per_hour": 56,
-      "trips_per_hour": 6
+      "trips_per_hour": 6,
+      "gp_cost_per_hour": 380000,
+      "net_gp_per_hour": 40000,
+      "tradeoff_profile": "+XP+GP"
     },
     {
       "id": "sootworks_runite_blast",
@@ -775,7 +826,10 @@
       "effective_gp_per_hour": 485000,
       "travel_minutes_per_hour": 0,
       "active_minutes_per_hour": 60,
-      "trips_per_hour": 0
+      "trips_per_hour": 0,
+      "gp_cost_per_hour": 800000,
+      "net_gp_per_hour": -315000,
+      "tradeoff_profile": "+XP-GP"
     },
     {
       "id": "moryskah_adamant_platebody_afk",
@@ -818,7 +872,10 @@
       "effective_gp_per_hour": 245000,
       "travel_minutes_per_hour": 0,
       "active_minutes_per_hour": 60,
-      "trips_per_hour": 0
+      "trips_per_hour": 0,
+      "gp_cost_per_hour": 220000,
+      "net_gp_per_hour": 25000,
+      "tradeoff_profile": "+XP+GP"
     },
     {
       "id": "sootworks_blade_of_soot_forge",
@@ -864,7 +921,10 @@
       "effective_gp_per_hour": 0,
       "travel_minutes_per_hour": 0,
       "active_minutes_per_hour": 60,
-      "trips_per_hour": 0
+      "trips_per_hour": 0,
+      "gp_cost_per_hour": 5000,
+      "net_gp_per_hour": -5000,
+      "tradeoff_profile": "+XP 0GP"
     },
     {
       "id": "moryskah_runite_platebody_bulk",
@@ -907,7 +967,10 @@
       "effective_gp_per_hour": 385000,
       "travel_minutes_per_hour": 0,
       "active_minutes_per_hour": 60,
-      "trips_per_hour": 0
+      "trips_per_hour": 0,
+      "gp_cost_per_hour": 380000,
+      "net_gp_per_hour": 5000,
+      "tradeoff_profile": "+XP 0GP"
     },
     {
       "id": "heartlands_cannonball_mould",
@@ -952,7 +1015,10 @@
       "effective_gp_per_hour": 165000,
       "travel_minutes_per_hour": 5,
       "active_minutes_per_hour": 55,
-      "trips_per_hour": 6
+      "trips_per_hour": 6,
+      "gp_cost_per_hour": 5000,
+      "net_gp_per_hour": 175000,
+      "tradeoff_profile": "+XP+GP"
     },
     {
       "id": "sootworks_furnace_stoker_shift",
@@ -998,7 +1064,10 @@
       "effective_gp_per_hour": 900000,
       "travel_minutes_per_hour": 0,
       "active_minutes_per_hour": 60,
-      "trips_per_hour": 0
+      "trips_per_hour": 0,
+      "gp_cost_per_hour": 90000,
+      "net_gp_per_hour": 810000,
+      "tradeoff_profile": "+GP-XP"
     },
     {
       "id": "sootworks_gearcore_shard_smith",
@@ -1044,7 +1113,10 @@
       "effective_gp_per_hour": 750000,
       "travel_minutes_per_hour": 0,
       "active_minutes_per_hour": 60,
-      "trips_per_hour": 0
+      "trips_per_hour": 0,
+      "gp_cost_per_hour": 5000,
+      "net_gp_per_hour": 745000,
+      "tradeoff_profile": "+XP+GP"
     },
     {
       "id": "sootworks_elder_rune_runetrace",
@@ -1092,7 +1164,10 @@
       "effective_gp_per_hour": 3200000,
       "travel_minutes_per_hour": 0,
       "active_minutes_per_hour": 60,
-      "trips_per_hour": 0
+      "trips_per_hour": 0,
+      "gp_cost_per_hour": 380000,
+      "net_gp_per_hour": 2820000,
+      "tradeoff_profile": "+XP+GP"
     },
     {
       "id": "moryskah_blisterwood_forge_contract",
@@ -1139,7 +1214,10 @@
       "effective_gp_per_hour": 2700000,
       "travel_minutes_per_hour": 0,
       "active_minutes_per_hour": 60,
-      "trips_per_hour": 0
+      "trips_per_hour": 0,
+      "gp_cost_per_hour": 5000,
+      "net_gp_per_hour": 2695000,
+      "tradeoff_profile": "+XP+GP"
     }
   ],
   "bracket_coverage": {

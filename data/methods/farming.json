@@ -42,7 +42,10 @@
       "effective_gp_per_hour": 3451,
       "travel_minutes_per_hour": 0.8,
       "active_minutes_per_hour": 59.2,
-      "trips_per_hour": 1
+      "trips_per_hour": 1,
+      "gp_cost_per_hour": 5000,
+      "net_gp_per_hour": -1500,
+      "tradeoff_profile": "+XP 0GP"
     },
     {
       "id": "heartlands_onion_afk",
@@ -83,7 +86,10 @@
       "effective_gp_per_hour": 1775,
       "travel_minutes_per_hour": 0.8,
       "active_minutes_per_hour": 59.2,
-      "trips_per_hour": 1
+      "trips_per_hour": 1,
+      "gp_cost_per_hour": 5000,
+      "net_gp_per_hour": -3200,
+      "tradeoff_profile": "+XP 0GP"
     },
     {
       "id": "heartlands_guam_run",
@@ -126,7 +132,10 @@
       "effective_gp_per_hour": 13806,
       "travel_minutes_per_hour": 0.8,
       "active_minutes_per_hour": 59.2,
-      "trips_per_hour": 1
+      "trips_per_hour": 1,
+      "gp_cost_per_hour": 20000,
+      "net_gp_per_hour": -6000,
+      "tradeoff_profile": "+XP 0GP"
     },
     {
       "id": "heartlands_hops_patch_rush",
@@ -173,7 +182,10 @@
       "effective_gp_per_hour": 27611,
       "travel_minutes_per_hour": 0.8,
       "active_minutes_per_hour": 59.2,
-      "trips_per_hour": 1
+      "trips_per_hour": 1,
+      "gp_cost_per_hour": 5000,
+      "net_gp_per_hour": 23000,
+      "tradeoff_profile": "+XP+GP"
     },
     {
       "id": "heartlands_marrentill_run",
@@ -216,7 +228,10 @@
       "effective_gp_per_hour": 17750,
       "travel_minutes_per_hour": 0.8,
       "active_minutes_per_hour": 59.2,
-      "trips_per_hour": 1
+      "trips_per_hour": 1,
+      "gp_cost_per_hour": 20000,
+      "net_gp_per_hour": -2000,
+      "tradeoff_profile": "+XP 0GP"
     },
     {
       "id": "heartlands_watermelon_run",
@@ -258,7 +273,10 @@
       "effective_gp_per_hour": 31822,
       "travel_minutes_per_hour": 0.3,
       "active_minutes_per_hour": 59.7,
-      "trips_per_hour": 1
+      "trips_per_hour": 1,
+      "gp_cost_per_hour": 5000,
+      "net_gp_per_hour": 27000,
+      "tradeoff_profile": "+XP+GP"
     },
     {
       "id": "heartlands_sweetcorn_afk",
@@ -300,7 +318,10 @@
       "effective_gp_per_hour": 17750,
       "travel_minutes_per_hour": 0.8,
       "active_minutes_per_hour": 59.2,
-      "trips_per_hour": 1
+      "trips_per_hour": 1,
+      "gp_cost_per_hour": 5000,
+      "net_gp_per_hour": 13000,
+      "tradeoff_profile": "+XP+GP"
     },
     {
       "id": "heartlands_ranarr_run",
@@ -342,7 +363,10 @@
       "effective_gp_per_hour": 379653,
       "travel_minutes_per_hour": 0.8,
       "active_minutes_per_hour": 59.2,
-      "trips_per_hour": 1
+      "trips_per_hour": 1,
+      "gp_cost_per_hour": 60000,
+      "net_gp_per_hour": 325000,
+      "tradeoff_profile": "+XP+GP"
     },
     {
       "id": "heartlands_willow_sapling",
@@ -384,7 +408,10 @@
       "effective_gp_per_hour": 17750,
       "travel_minutes_per_hour": 0.8,
       "active_minutes_per_hour": 59.2,
-      "trips_per_hour": 1
+      "trips_per_hour": 1,
+      "gp_cost_per_hour": 10000,
+      "net_gp_per_hour": 8000,
+      "tradeoff_profile": "+XP 0GP"
     },
     {
       "id": "heartlands_maple_sapling_afk",
@@ -426,7 +453,10 @@
       "effective_gp_per_hour": 34514,
       "travel_minutes_per_hour": 0.8,
       "active_minutes_per_hour": 59.2,
-      "trips_per_hour": 1
+      "trips_per_hour": 1,
+      "gp_cost_per_hour": 40000,
+      "net_gp_per_hour": -5000,
+      "tradeoff_profile": "+XP 0GP"
     },
     {
       "id": "heartlands_irit_run",
@@ -468,7 +498,10 @@
       "effective_gp_per_hour": 182431,
       "travel_minutes_per_hour": 0.8,
       "active_minutes_per_hour": 59.2,
-      "trips_per_hour": 1
+      "trips_per_hour": 1,
+      "gp_cost_per_hour": 20000,
+      "net_gp_per_hour": 165000,
+      "tradeoff_profile": "+XP+GP"
     },
     {
       "id": "heartlands_kwuarm_run",
@@ -510,7 +543,10 @@
       "effective_gp_per_hour": 241597,
       "travel_minutes_per_hour": 0.8,
       "active_minutes_per_hour": 59.2,
-      "trips_per_hour": 1
+      "trips_per_hour": 1,
+      "gp_cost_per_hour": 60000,
+      "net_gp_per_hour": 185000,
+      "tradeoff_profile": "+XP+GP"
     },
     {
       "id": "heartlands_cactus_afk",
@@ -552,7 +588,10 @@
       "effective_gp_per_hour": 26709,
       "travel_minutes_per_hour": 2.8,
       "active_minutes_per_hour": 57.2,
-      "trips_per_hour": 1
+      "trips_per_hour": 1,
+      "gp_cost_per_hour": 10000,
+      "net_gp_per_hour": 18000,
+      "tradeoff_profile": "+XP+GP"
     },
     {
       "id": "heartlands_snapdragon_run",
@@ -594,7 +633,10 @@
       "effective_gp_per_hour": 379653,
       "travel_minutes_per_hour": 0.8,
       "active_minutes_per_hour": 59.2,
-      "trips_per_hour": 1
+      "trips_per_hour": 1,
+      "gp_cost_per_hour": 120000,
+      "net_gp_per_hour": 265000,
+      "tradeoff_profile": "+XP+GP"
     },
     {
       "id": "veilwood_yew_sapling_afk",
@@ -636,7 +678,10 @@
       "effective_gp_per_hour": 44025,
       "travel_minutes_per_hour": 1.3,
       "active_minutes_per_hour": 58.7,
-      "trips_per_hour": 1
+      "trips_per_hour": 1,
+      "gp_cost_per_hour": 10000,
+      "net_gp_per_hour": 35000,
+      "tradeoff_profile": "+XP+GP"
     },
     {
       "id": "veilwood_magic_sapling_afk",
@@ -680,7 +725,10 @@
       "effective_gp_per_hour": 122292,
       "travel_minutes_per_hour": 1.3,
       "active_minutes_per_hour": 58.7,
-      "trips_per_hour": 1
+      "trips_per_hour": 1,
+      "gp_cost_per_hour": 10000,
+      "net_gp_per_hour": 115000,
+      "tradeoff_profile": "+XP+GP"
     },
     {
       "id": "heartlands_dwarf_weed_run",
@@ -722,7 +770,10 @@
       "effective_gp_per_hour": 379653,
       "travel_minutes_per_hour": 0.8,
       "active_minutes_per_hour": 59.2,
-      "trips_per_hour": 1
+      "trips_per_hour": 1,
+      "gp_cost_per_hour": 20000,
+      "net_gp_per_hour": 365000,
+      "tradeoff_profile": "+XP+GP"
     },
     {
       "id": "heartlands_papaya_tree_afk",
@@ -764,7 +815,10 @@
       "effective_gp_per_hour": 90619,
       "travel_minutes_per_hour": 2.8,
       "active_minutes_per_hour": 57.2,
-      "trips_per_hour": 1
+      "trips_per_hour": 1,
+      "gp_cost_per_hour": 10000,
+      "net_gp_per_hour": 85000,
+      "tradeoff_profile": "+XP+GP"
     },
     {
       "id": "heartlands_torstol_run",
@@ -806,7 +860,10 @@
       "effective_gp_per_hour": 509250,
       "travel_minutes_per_hour": 1.8,
       "active_minutes_per_hour": 58.2,
-      "trips_per_hour": 1
+      "trips_per_hour": 1,
+      "gp_cost_per_hour": 120000,
+      "net_gp_per_hour": 405000,
+      "tradeoff_profile": "+XP+GP"
     },
     {
       "id": "wilds_redwood_farm",
@@ -848,7 +905,10 @@
       "effective_gp_per_hour": 206678,
       "travel_minutes_per_hour": 3.6,
       "active_minutes_per_hour": 56.4,
-      "trips_per_hour": 1
+      "trips_per_hour": 1,
+      "gp_cost_per_hour": 80000,
+      "net_gp_per_hour": 140000,
+      "tradeoff_profile": "+XP+GP"
     },
     {
       "id": "veilwood_crystal_tree_afk",
@@ -892,7 +952,10 @@
       "effective_gp_per_hour": 180992,
       "travel_minutes_per_hour": 1.3,
       "active_minutes_per_hour": 58.7,
-      "trips_per_hour": 1
+      "trips_per_hour": 1,
+      "gp_cost_per_hour": 10000,
+      "net_gp_per_hour": 175000,
+      "tradeoff_profile": "+XP+GP"
     },
     {
       "id": "moryskah_farming_seed_trading",
@@ -936,7 +999,10 @@
       "effective_gp_per_hour": 82828,
       "travel_minutes_per_hour": 1.5,
       "active_minutes_per_hour": 58.5,
-      "trips_per_hour": 1
+      "trips_per_hour": 1,
+      "gp_cost_per_hour": 10000,
+      "net_gp_per_hour": 75000,
+      "tradeoff_profile": "+XP+GP"
     },
     {
       "id": "heartlands_herb_patch_consortium",
@@ -982,7 +1048,10 @@
       "effective_gp_per_hour": 887500,
       "travel_minutes_per_hour": 0.8,
       "active_minutes_per_hour": 59.2,
-      "trips_per_hour": 1
+      "trips_per_hour": 1,
+      "gp_cost_per_hour": 60000,
+      "net_gp_per_hour": 840000,
+      "tradeoff_profile": "+XP+GP"
     },
     {
       "id": "veilwood_dreamroot_harvest",
@@ -1027,7 +1096,10 @@
       "effective_gp_per_hour": 489167,
       "travel_minutes_per_hour": 1.3,
       "active_minutes_per_hour": 58.7,
-      "trips_per_hour": 1
+      "trips_per_hour": 1,
+      "gp_cost_per_hour": 20000,
+      "net_gp_per_hour": 480000,
+      "tradeoff_profile": "+XP+GP"
     },
     {
       "id": "glass_desert_spice_plantation",
@@ -1074,7 +1146,10 @@
       "effective_gp_per_hour": 1717000,
       "travel_minutes_per_hour": 2.8,
       "active_minutes_per_hour": 57.2,
-      "trips_per_hour": 1
+      "trips_per_hour": 1,
+      "gp_cost_per_hour": 10000,
+      "net_gp_per_hour": 1790000,
+      "tradeoff_profile": "+XP+GP"
     },
     {
       "id": "inkweald_nightbloom_sanctuary",
@@ -1122,7 +1197,10 @@
       "effective_gp_per_hour": 3100000,
       "travel_minutes_per_hour": 0,
       "active_minutes_per_hour": 60,
-      "trips_per_hour": 0
+      "trips_per_hour": 0,
+      "gp_cost_per_hour": 20000,
+      "net_gp_per_hour": 3080000,
+      "tradeoff_profile": "+XP+GP"
     }
   ],
   "bracket_coverage": {

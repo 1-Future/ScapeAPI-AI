@@ -40,7 +40,10 @@
       "effective_gp_per_hour": 1175,
       "travel_minutes_per_hour": 1.3,
       "active_minutes_per_hour": 58.8,
-      "trips_per_hour": 1.5
+      "trips_per_hour": 1.5,
+      "gp_cost_per_hour": 0,
+      "net_gp_per_hour": 1200,
+      "tradeoff_profile": "+XP 0GP"
     },
     {
       "id": "heartlands_baitjar_anchovy",
@@ -81,7 +84,10 @@
       "effective_gp_per_hour": 3833,
       "travel_minutes_per_hour": 2.5,
       "active_minutes_per_hour": 57.5,
-      "trips_per_hour": 3
+      "trips_per_hour": 3,
+      "gp_cost_per_hour": 0,
+      "net_gp_per_hour": 4000,
+      "tradeoff_profile": "+XP 0GP"
     },
     {
       "id": "heartlands_sardine_bait_loop",
@@ -122,7 +128,10 @@
       "effective_gp_per_hour": 1371,
       "travel_minutes_per_hour": 1.3,
       "active_minutes_per_hour": 58.8,
-      "trips_per_hour": 1.5
+      "trips_per_hour": 1.5,
+      "gp_cost_per_hour": 0,
+      "net_gp_per_hour": 1400,
+      "tradeoff_profile": "+XP 0GP"
     },
     {
       "id": "heartlands_herring_drop_loop",
@@ -163,7 +172,10 @@
       "effective_gp_per_hour": 0,
       "travel_minutes_per_hour": 5.9,
       "active_minutes_per_hour": 54.1,
-      "trips_per_hour": 4
+      "trips_per_hour": 4,
+      "gp_cost_per_hour": 0,
+      "net_gp_per_hour": 0,
+      "tradeoff_profile": "+XP 0GP"
     },
     {
       "id": "heartlands_troutmere_flyfish",
@@ -204,7 +216,10 @@
       "effective_gp_per_hour": 2742,
       "travel_minutes_per_hour": 1.3,
       "active_minutes_per_hour": 58.8,
-      "trips_per_hour": 1.5
+      "trips_per_hour": 1.5,
+      "gp_cost_per_hour": 0,
+      "net_gp_per_hour": 2800,
+      "tradeoff_profile": "+XP 0GP"
     },
     {
       "id": "heartlands_troutmere_dropfish",
@@ -245,7 +260,10 @@
       "effective_gp_per_hour": 0,
       "travel_minutes_per_hour": 3.3,
       "active_minutes_per_hour": 56.7,
-      "trips_per_hour": 4
+      "trips_per_hour": 4,
+      "gp_cost_per_hour": 0,
+      "net_gp_per_hour": 0,
+      "tradeoff_profile": "+XP 0GP"
     },
     {
       "id": "saltbrine_pike_rush",
@@ -286,7 +304,10 @@
       "effective_gp_per_hour": 0,
       "travel_minutes_per_hour": 5.2,
       "active_minutes_per_hour": 54.8,
-      "trips_per_hour": 4
+      "trips_per_hour": 4,
+      "gp_cost_per_hour": 0,
+      "net_gp_per_hour": 0,
+      "tradeoff_profile": "+XP 0GP"
     },
     {
       "id": "saltbrine_pike_salmon_riff",
@@ -327,7 +348,10 @@
       "effective_gp_per_hour": 11780,
       "travel_minutes_per_hour": 1.1,
       "active_minutes_per_hour": 58.9,
-      "trips_per_hour": 1.5
+      "trips_per_hour": 1.5,
+      "gp_cost_per_hour": 0,
+      "net_gp_per_hour": 12000,
+      "tradeoff_profile": "+XP+GP"
     },
     {
       "id": "saltbrine_lobster_cage_drift",
@@ -367,7 +391,10 @@
       "effective_gp_per_hour": 58000,
       "travel_minutes_per_hour": 0,
       "active_minutes_per_hour": 60,
-      "trips_per_hour": 0
+      "trips_per_hour": 0,
+      "gp_cost_per_hour": 0,
+      "net_gp_per_hour": 58000,
+      "tradeoff_profile": "+XP+GP"
     },
     {
       "id": "saltbrine_tide_pool_netting",
@@ -407,7 +434,10 @@
       "effective_gp_per_hour": 84363,
       "travel_minutes_per_hour": 0.5,
       "active_minutes_per_hour": 59.6,
-      "trips_per_hour": 1.5
+      "trips_per_hour": 1.5,
+      "gp_cost_per_hour": 0,
+      "net_gp_per_hour": 85000,
+      "tradeoff_profile": "+XP+GP"
     },
     {
       "id": "saltbrine_swordfish_harpoon",
@@ -451,7 +481,10 @@
       "effective_gp_per_hour": 117600,
       "travel_minutes_per_hour": 1.2,
       "active_minutes_per_hour": 58.8,
-      "trips_per_hour": 4
+      "trips_per_hour": 4,
+      "gp_cost_per_hour": 0,
+      "net_gp_per_hour": 120000,
+      "tradeoff_profile": "+XP+GP"
     },
     {
       "id": "saltbrine_swordfish_drop_fast",
@@ -493,7 +526,10 @@
       "effective_gp_per_hour": 0,
       "travel_minutes_per_hour": 1.2,
       "active_minutes_per_hour": 58.8,
-      "trips_per_hour": 4
+      "trips_per_hour": 4,
+      "gp_cost_per_hour": 0,
+      "net_gp_per_hour": 0,
+      "tradeoff_profile": "+XP 0GP"
     },
     {
       "id": "veilwood_karambwanji_shallows",
@@ -537,7 +573,10 @@
       "effective_gp_per_hour": 33863,
       "travel_minutes_per_hour": 2,
       "active_minutes_per_hour": 58.1,
-      "trips_per_hour": 1.5
+      "trips_per_hour": 1.5,
+      "gp_cost_per_hour": 4000,
+      "net_gp_per_hour": 31000,
+      "tradeoff_profile": "+XP+GP"
     },
     {
       "id": "veilwood_karambwan_rapid_harpoon",
@@ -582,7 +621,10 @@
       "effective_gp_per_hour": 168300,
       "travel_minutes_per_hour": 3.9,
       "active_minutes_per_hour": 56.1,
-      "trips_per_hour": 3
+      "trips_per_hour": 3,
+      "gp_cost_per_hour": 4000,
+      "net_gp_per_hour": 176000,
+      "tradeoff_profile": "+XP+GP"
     },
     {
       "id": "veilwood_monkfish_net",
@@ -626,7 +668,10 @@
       "effective_gp_per_hour": 49097,
       "travel_minutes_per_hour": 3.4,
       "active_minutes_per_hour": 56.7,
-      "trips_per_hour": 1.5
+      "trips_per_hour": 1.5,
+      "gp_cost_per_hour": 0,
+      "net_gp_per_hour": 52000,
+      "tradeoff_profile": "+XP+GP"
     },
     {
       "id": "saltbrine_crab_cage",
@@ -670,7 +715,10 @@
       "effective_gp_per_hour": 71460,
       "travel_minutes_per_hour": 0.5,
       "active_minutes_per_hour": 59.6,
-      "trips_per_hour": 1.5
+      "trips_per_hour": 1.5,
+      "gp_cost_per_hour": 0,
+      "net_gp_per_hour": 72000,
+      "tradeoff_profile": "+XP+GP"
     },
     {
       "id": "saltbrine_shark_harpoon_saintsea",
@@ -710,7 +758,10 @@
       "effective_gp_per_hour": 140288,
       "travel_minutes_per_hour": 2,
       "active_minutes_per_hour": 58.1,
-      "trips_per_hour": 1.5
+      "trips_per_hour": 1.5,
+      "gp_cost_per_hour": 0,
+      "net_gp_per_hour": 145000,
+      "tradeoff_profile": "+XP+GP"
     },
     {
       "id": "saltbrine_shark_drive_harpoon",
@@ -754,7 +805,10 @@
       "effective_gp_per_hour": 223767,
       "travel_minutes_per_hour": 5.2,
       "active_minutes_per_hour": 54.8,
-      "trips_per_hour": 4
+      "trips_per_hour": 4,
+      "gp_cost_per_hour": 0,
+      "net_gp_per_hour": 245000,
+      "tradeoff_profile": "+XP+GP"
     },
     {
       "id": "veilwood_anglerfish_lasso",
@@ -799,7 +853,10 @@
       "effective_gp_per_hour": 169312,
       "travel_minutes_per_hour": 2,
       "active_minutes_per_hour": 58.1,
-      "trips_per_hour": 1.5
+      "trips_per_hour": 1.5,
+      "gp_cost_per_hour": 0,
+      "net_gp_per_hour": 175000,
+      "tradeoff_profile": "+XP+GP"
     },
     {
       "id": "wilds_darkcrab_trawl",
@@ -841,7 +898,10 @@
       "effective_gp_per_hour": 245733,
       "travel_minutes_per_hour": 8.3,
       "active_minutes_per_hour": 51.7,
-      "trips_per_hour": 4
+      "trips_per_hour": 4,
+      "gp_cost_per_hour": 0,
+      "net_gp_per_hour": 285000,
+      "tradeoff_profile": "+XP+GP"
     },
     {
       "id": "inkweald_dream_koi_skim",
@@ -886,7 +946,10 @@
       "effective_gp_per_hour": 210100,
       "travel_minutes_per_hour": 2.7,
       "active_minutes_per_hour": 57.3,
-      "trips_per_hour": 1.5
+      "trips_per_hour": 1.5,
+      "gp_cost_per_hour": 0,
+      "net_gp_per_hour": 220000,
+      "tradeoff_profile": "+XP+GP"
     },
     {
       "id": "inkweald_dream_koi_rush",
@@ -933,7 +996,10 @@
       "effective_gp_per_hour": 380000,
       "travel_minutes_per_hour": 0,
       "active_minutes_per_hour": 60,
-      "trips_per_hour": 0
+      "trips_per_hour": 0,
+      "gp_cost_per_hour": 0,
+      "net_gp_per_hour": 380000,
+      "tradeoff_profile": "+XP+GP"
     },
     {
       "id": "saltbrine_minnow_storm_feast",
@@ -975,7 +1041,10 @@
       "effective_gp_per_hour": 57067,
       "travel_minutes_per_hour": 2.9,
       "active_minutes_per_hour": 57.1,
-      "trips_per_hour": 4
+      "trips_per_hour": 4,
+      "gp_cost_per_hour": 0,
+      "net_gp_per_hour": 60000,
+      "tradeoff_profile": "+XP+GP"
     },
     {
       "id": "saltbrine_tidecaller_reef_dive",
@@ -1022,7 +1091,10 @@
       "effective_gp_per_hour": 1046222,
       "travel_minutes_per_hour": 2.9,
       "active_minutes_per_hour": 57.1,
-      "trips_per_hour": 4
+      "trips_per_hour": 4,
+      "gp_cost_per_hour": 0,
+      "net_gp_per_hour": 1100000,
+      "tradeoff_profile": "+XP+GP"
     },
     {
       "id": "inkweald_ink_current_tick_net",
@@ -1069,7 +1141,10 @@
       "effective_gp_per_hour": 2053333,
       "travel_minutes_per_hour": 4,
       "active_minutes_per_hour": 56,
-      "trips_per_hour": 4
+      "trips_per_hour": 4,
+      "gp_cost_per_hour": 0,
+      "net_gp_per_hour": 2200000,
+      "tradeoff_profile": "+XP+GP"
     },
     {
       "id": "saltbrine_monkfish_rotation",
@@ -1114,7 +1189,10 @@
       "effective_gp_per_hour": 514250,
       "travel_minutes_per_hour": 3.9,
       "active_minutes_per_hour": 56.1,
-      "trips_per_hour": 3
+      "trips_per_hour": 3,
+      "gp_cost_per_hour": 0,
+      "net_gp_per_hour": 550000,
+      "tradeoff_profile": "+XP+GP"
     }
   ],
   "bracket_coverage": {

@@ -40,7 +40,10 @@
       "effective_gp_per_hour": 979,
       "travel_minutes_per_hour": 1.3,
       "active_minutes_per_hour": 58.8,
-      "trips_per_hour": 1.5
+      "trips_per_hour": 1.5,
+      "gp_cost_per_hour": 0,
+      "net_gp_per_hour": 1000,
+      "tradeoff_profile": "+XP 0GP"
     },
     {
       "id": "heartlands_logwood_power",
@@ -80,7 +83,10 @@
       "effective_gp_per_hour": 0,
       "travel_minutes_per_hour": 5.9,
       "active_minutes_per_hour": 54.1,
-      "trips_per_hour": 4
+      "trips_per_hour": 4,
+      "gp_cost_per_hour": 0,
+      "net_gp_per_hour": 0,
+      "tradeoff_profile": "+XP 0GP"
     },
     {
       "id": "heartlands_oakhollow_chop",
@@ -120,7 +126,10 @@
       "effective_gp_per_hour": 5875,
       "travel_minutes_per_hour": 1.3,
       "active_minutes_per_hour": 58.8,
-      "trips_per_hour": 1.5
+      "trips_per_hour": 1.5,
+      "gp_cost_per_hour": 0,
+      "net_gp_per_hour": 6000,
+      "tradeoff_profile": "+XP 0GP"
     },
     {
       "id": "heartlands_oak_3tick_drop",
@@ -160,7 +169,10 @@
       "effective_gp_per_hour": 0,
       "travel_minutes_per_hour": 5.9,
       "active_minutes_per_hour": 54.1,
-      "trips_per_hour": 4
+      "trips_per_hour": 4,
+      "gp_cost_per_hour": 0,
+      "net_gp_per_hour": 0,
+      "tradeoff_profile": "+XP 0GP"
     },
     {
       "id": "sootworks_charred_stumps",
@@ -200,7 +212,10 @@
       "effective_gp_per_hour": 13592,
       "travel_minutes_per_hour": 1.8,
       "active_minutes_per_hour": 58.3,
-      "trips_per_hour": 1.5
+      "trips_per_hour": 1.5,
+      "gp_cost_per_hour": 0,
+      "net_gp_per_hour": 14000,
+      "tradeoff_profile": "+XP+GP"
     },
     {
       "id": "sootworks_charred_rotation",
@@ -240,7 +255,10 @@
       "effective_gp_per_hour": 29511,
       "travel_minutes_per_hour": 4.7,
       "active_minutes_per_hour": 55.3,
-      "trips_per_hour": 4
+      "trips_per_hour": 4,
+      "gp_cost_per_hour": 0,
+      "net_gp_per_hour": 32000,
+      "tradeoff_profile": "+XP+GP"
     },
     {
       "id": "saltbrine_willow_reeds",
@@ -280,7 +298,10 @@
       "effective_gp_per_hour": 17670,
       "travel_minutes_per_hour": 1.1,
       "active_minutes_per_hour": 58.9,
-      "trips_per_hour": 1.5
+      "trips_per_hour": 1.5,
+      "gp_cost_per_hour": 0,
+      "net_gp_per_hour": 18000,
+      "tradeoff_profile": "+XP+GP"
     },
     {
       "id": "saltbrine_willow_drop_chop",
@@ -320,7 +341,10 @@
       "effective_gp_per_hour": 0,
       "travel_minutes_per_hour": 5.2,
       "active_minutes_per_hour": 54.8,
-      "trips_per_hour": 4
+      "trips_per_hour": 4,
+      "gp_cost_per_hour": 0,
+      "net_gp_per_hour": 0,
+      "tradeoff_profile": "+XP 0GP"
     },
     {
       "id": "inkweald_maple_lucent",
@@ -360,7 +384,10 @@
       "effective_gp_per_hour": 25783,
       "travel_minutes_per_hour": 4.8,
       "active_minutes_per_hour": 55.3,
-      "trips_per_hour": 1.5
+      "trips_per_hour": 1.5,
+      "gp_cost_per_hour": 0,
+      "net_gp_per_hour": 28000,
+      "tradeoff_profile": "+XP+GP"
     },
     {
       "id": "inkweald_maple_tick_cluster",
@@ -400,7 +427,10 @@
       "effective_gp_per_hour": 56320,
       "travel_minutes_per_hour": 7.2,
       "active_minutes_per_hour": 52.8,
-      "trips_per_hour": 4
+      "trips_per_hour": 4,
+      "gp_cost_per_hour": 0,
+      "net_gp_per_hour": 64000,
+      "tradeoff_profile": "+XP+GP"
     },
     {
       "id": "heartlands_teak_plantation",
@@ -440,7 +470,10 @@
       "effective_gp_per_hour": 41125,
       "travel_minutes_per_hour": 1.3,
       "active_minutes_per_hour": 58.8,
-      "trips_per_hour": 1.5
+      "trips_per_hour": 1.5,
+      "gp_cost_per_hour": 0,
+      "net_gp_per_hour": 42000,
+      "tradeoff_profile": "+XP+GP"
     },
     {
       "id": "heartlands_teak_tick_rotation",
@@ -483,7 +516,10 @@
       "effective_gp_per_hour": 261333,
       "travel_minutes_per_hour": 4,
       "active_minutes_per_hour": 56,
-      "trips_per_hour": 4
+      "trips_per_hour": 4,
+      "gp_cost_per_hour": 0,
+      "net_gp_per_hour": 280000,
+      "tradeoff_profile": "+XP+GP"
     },
     {
       "id": "veilwood_yew_hermitage",
@@ -523,7 +559,10 @@
       "effective_gp_per_hour": 82238,
       "travel_minutes_per_hour": 2,
       "active_minutes_per_hour": 58.1,
-      "trips_per_hour": 1.5
+      "trips_per_hour": 1.5,
+      "gp_cost_per_hour": 0,
+      "net_gp_per_hour": 85000,
+      "tradeoff_profile": "+XP+GP"
     },
     {
       "id": "saltbrine_yew_shanty",
@@ -563,7 +602,10 @@
       "effective_gp_per_hour": 137200,
       "travel_minutes_per_hour": 1.2,
       "active_minutes_per_hour": 58.8,
-      "trips_per_hour": 4
+      "trips_per_hour": 4,
+      "gp_cost_per_hour": 0,
+      "net_gp_per_hour": 140000,
+      "tradeoff_profile": "+XP+GP"
     },
     {
       "id": "veilwood_magic_tree_grove",
@@ -607,7 +649,10 @@
       "effective_gp_per_hour": 178987,
       "travel_minutes_per_hour": 2,
       "active_minutes_per_hour": 58.1,
-      "trips_per_hour": 1.5
+      "trips_per_hour": 1.5,
+      "gp_cost_per_hour": 0,
+      "net_gp_per_hour": 185000,
+      "tradeoff_profile": "+XP+GP"
     },
     {
       "id": "veilwood_magic_panic_chop",
@@ -653,7 +698,10 @@
       "effective_gp_per_hour": 383600,
       "travel_minutes_per_hour": 5.2,
       "active_minutes_per_hour": 54.8,
-      "trips_per_hour": 4
+      "trips_per_hour": 4,
+      "gp_cost_per_hour": 0,
+      "net_gp_per_hour": 420000,
+      "tradeoff_profile": "+XP+GP"
     },
     {
       "id": "veilwood_ironwood_grove",
@@ -697,7 +745,10 @@
       "effective_gp_per_hour": 207717,
       "travel_minutes_per_hour": 3.4,
       "active_minutes_per_hour": 56.7,
-      "trips_per_hour": 1.5
+      "trips_per_hour": 1.5,
+      "gp_cost_per_hour": 0,
+      "net_gp_per_hour": 220000,
+      "tradeoff_profile": "+XP+GP"
     },
     {
       "id": "inkweald_dreamwood_rush",
@@ -742,7 +793,10 @@
       "effective_gp_per_hour": 277200,
       "travel_minutes_per_hour": 7.2,
       "active_minutes_per_hour": 52.8,
-      "trips_per_hour": 4
+      "trips_per_hour": 4,
+      "gp_cost_per_hour": 0,
+      "net_gp_per_hour": 315000,
+      "tradeoff_profile": "+XP+GP"
     },
     {
       "id": "wilds_redwood_felling",
@@ -782,7 +836,10 @@
       "effective_gp_per_hour": 218200,
       "travel_minutes_per_hour": 5.5,
       "active_minutes_per_hour": 54.6,
-      "trips_per_hour": 1.5
+      "trips_per_hour": 1.5,
+      "gp_cost_per_hour": 0,
+      "net_gp_per_hour": 240000,
+      "tradeoff_profile": "+XP+GP"
     },
     {
       "id": "wilds_redwood_tick_pull",
@@ -826,7 +883,10 @@
       "effective_gp_per_hour": 448000,
       "travel_minutes_per_hour": 4,
       "active_minutes_per_hour": 56,
-      "trips_per_hour": 4
+      "trips_per_hour": 4,
+      "gp_cost_per_hour": 0,
+      "net_gp_per_hour": 480000,
+      "tradeoff_profile": "+XP+GP"
     },
     {
       "id": "boneyard_dead_wood_haul",
@@ -866,7 +926,10 @@
       "effective_gp_per_hour": 69000,
       "travel_minutes_per_hour": 2.5,
       "active_minutes_per_hour": 57.5,
-      "trips_per_hour": 1.5
+      "trips_per_hour": 1.5,
+      "gp_cost_per_hour": 0,
+      "net_gp_per_hour": 72000,
+      "tradeoff_profile": "+XP+GP"
     },
     {
       "id": "boneyard_bonewood_rotation",
@@ -906,7 +969,10 @@
       "effective_gp_per_hour": 120000,
       "travel_minutes_per_hour": 6.7,
       "active_minutes_per_hour": 53.3,
-      "trips_per_hour": 4
+      "trips_per_hour": 4,
+      "gp_cost_per_hour": 0,
+      "net_gp_per_hour": 135000,
+      "tradeoff_profile": "+XP+GP"
     },
     {
       "id": "inkweald_dreamwood_logger_elite",
@@ -953,7 +1019,10 @@
       "effective_gp_per_hour": 4260000,
       "travel_minutes_per_hour": 12.7,
       "active_minutes_per_hour": 47.3,
-      "trips_per_hour": 4
+      "trips_per_hour": 4,
+      "gp_cost_per_hour": 0,
+      "net_gp_per_hour": 5400000,
+      "tradeoff_profile": "+XP+GP"
     }
   ],
   "bracket_coverage": {

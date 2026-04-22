@@ -38,7 +38,10 @@
       "effective_gp_per_hour": -5000,
       "travel_minutes_per_hour": 0,
       "active_minutes_per_hour": 60,
-      "trips_per_hour": 0
+      "trips_per_hour": 0,
+      "gp_cost_per_hour": 50000,
+      "net_gp_per_hour": -55000,
+      "tradeoff_profile": "+XP-GP"
     },
     {
       "id": "heartlands_plank_rotation",
@@ -81,7 +84,10 @@
       "effective_gp_per_hour": -45000,
       "travel_minutes_per_hour": 0,
       "active_minutes_per_hour": 60,
-      "trips_per_hour": 0
+      "trips_per_hour": 0,
+      "gp_cost_per_hour": 160000,
+      "net_gp_per_hour": -205000,
+      "tradeoff_profile": "+XP-GP"
     },
     {
       "id": "heartlands_oak_chair",
@@ -119,7 +125,10 @@
       "effective_gp_per_hour": -12000,
       "travel_minutes_per_hour": 0,
       "active_minutes_per_hour": 60,
-      "trips_per_hour": 0
+      "trips_per_hour": 0,
+      "gp_cost_per_hour": 160000,
+      "net_gp_per_hour": -172000,
+      "tradeoff_profile": "+XP-GP"
     },
     {
       "id": "heartlands_oak_larder",
@@ -158,7 +167,10 @@
       "effective_gp_per_hour": -125000,
       "travel_minutes_per_hour": 0,
       "active_minutes_per_hour": 60,
-      "trips_per_hour": 0
+      "trips_per_hour": 0,
+      "gp_cost_per_hour": 320000,
+      "net_gp_per_hour": -445000,
+      "tradeoff_profile": "+XP-GP"
     },
     {
       "id": "heartlands_carved_chair_afk",
@@ -196,7 +208,10 @@
       "effective_gp_per_hour": -25000,
       "travel_minutes_per_hour": 0,
       "active_minutes_per_hour": 60,
-      "trips_per_hour": 0
+      "trips_per_hour": 0,
+      "gp_cost_per_hour": 160000,
+      "net_gp_per_hour": -185000,
+      "tradeoff_profile": "+XP-GP"
     },
     {
       "id": "heartlands_oak_bench_rush",
@@ -235,7 +250,10 @@
       "effective_gp_per_hour": -145000,
       "travel_minutes_per_hour": 0,
       "active_minutes_per_hour": 60,
-      "trips_per_hour": 0
+      "trips_per_hour": 0,
+      "gp_cost_per_hour": 160000,
+      "net_gp_per_hour": -305000,
+      "tradeoff_profile": "+XP-GP"
     },
     {
       "id": "heartlands_teak_chair",
@@ -274,7 +292,10 @@
       "effective_gp_per_hour": -180000,
       "travel_minutes_per_hour": 0,
       "active_minutes_per_hour": 60,
-      "trips_per_hour": 0
+      "trips_per_hour": 0,
+      "gp_cost_per_hour": 320000,
+      "net_gp_per_hour": -500000,
+      "tradeoff_profile": "+XP-GP"
     },
     {
       "id": "heartlands_teak_chair_afk",
@@ -312,7 +333,10 @@
       "effective_gp_per_hour": -45000,
       "travel_minutes_per_hour": 0,
       "active_minutes_per_hour": 60,
-      "trips_per_hour": 0
+      "trips_per_hour": 0,
+      "gp_cost_per_hour": 320000,
+      "net_gp_per_hour": -365000,
+      "tradeoff_profile": "+XP-GP"
     },
     {
       "id": "heartlands_oak_door_bed",
@@ -350,7 +374,10 @@
       "effective_gp_per_hour": -68000,
       "travel_minutes_per_hour": 0,
       "active_minutes_per_hour": 60,
-      "trips_per_hour": 0
+      "trips_per_hour": 0,
+      "gp_cost_per_hour": 160000,
+      "net_gp_per_hour": -228000,
+      "tradeoff_profile": "+XP-GP"
     },
     {
       "id": "heartlands_altar_basic_afk",
@@ -388,7 +415,10 @@
       "effective_gp_per_hour": -55000,
       "travel_minutes_per_hour": 0,
       "active_minutes_per_hour": 60,
-      "trips_per_hour": 0
+      "trips_per_hour": 0,
+      "gp_cost_per_hour": 40000,
+      "net_gp_per_hour": -95000,
+      "tradeoff_profile": "+XP-GP"
     },
     {
       "id": "heartlands_gilded_altar_rush",
@@ -428,7 +458,10 @@
       "effective_gp_per_hour": -320000,
       "travel_minutes_per_hour": 0,
       "active_minutes_per_hour": 60,
-      "trips_per_hour": 0
+      "trips_per_hour": 0,
+      "gp_cost_per_hour": 320000,
+      "net_gp_per_hour": -640000,
+      "tradeoff_profile": "+XP-GP"
     },
     {
       "id": "heartlands_gilded_altar_afk",
@@ -466,7 +499,10 @@
       "effective_gp_per_hour": -135000,
       "travel_minutes_per_hour": 0,
       "active_minutes_per_hour": 60,
-      "trips_per_hour": 0
+      "trips_per_hour": 0,
+      "gp_cost_per_hour": 320000,
+      "net_gp_per_hour": -455000,
+      "tradeoff_profile": "+XP-GP"
     },
     {
       "id": "heartlands_mahogany_table",
@@ -505,7 +541,10 @@
       "effective_gp_per_hour": -380000,
       "travel_minutes_per_hour": 0,
       "active_minutes_per_hour": 60,
-      "trips_per_hour": 0
+      "trips_per_hour": 0,
+      "gp_cost_per_hour": 850000,
+      "net_gp_per_hour": -1230000,
+      "tradeoff_profile": "+XP-GP"
     },
     {
       "id": "heartlands_mahogany_table_afk",
@@ -543,7 +582,10 @@
       "effective_gp_per_hour": -120000,
       "travel_minutes_per_hour": 0,
       "active_minutes_per_hour": 60,
-      "trips_per_hour": 0
+      "trips_per_hour": 0,
+      "gp_cost_per_hour": 850000,
+      "net_gp_per_hour": -970000,
+      "tradeoff_profile": "+XP-GP"
     },
     {
       "id": "veilwood_teleport_throne",
@@ -581,7 +623,10 @@
       "effective_gp_per_hour": -185000,
       "travel_minutes_per_hour": 0,
       "active_minutes_per_hour": 60,
-      "trips_per_hour": 0
+      "trips_per_hour": 0,
+      "gp_cost_per_hour": 850000,
+      "net_gp_per_hour": -1035000,
+      "tradeoff_profile": "+XP-GP"
     },
     {
       "id": "heartlands_portal_chamber_afk",
@@ -619,7 +664,10 @@
       "effective_gp_per_hour": -180000,
       "travel_minutes_per_hour": 0,
       "active_minutes_per_hour": 60,
-      "trips_per_hour": 0
+      "trips_per_hour": 0,
+      "gp_cost_per_hour": 40000,
+      "net_gp_per_hour": -220000,
+      "tradeoff_profile": "+XP-GP"
     },
     {
       "id": "heartlands_mahogany_benches_rush",
@@ -658,7 +706,10 @@
       "effective_gp_per_hour": -420000,
       "travel_minutes_per_hour": 0,
       "active_minutes_per_hour": 60,
-      "trips_per_hour": 0
+      "trips_per_hour": 0,
+      "gp_cost_per_hour": 850000,
+      "net_gp_per_hour": -1270000,
+      "tradeoff_profile": "+XP-GP"
     },
     {
       "id": "heartlands_mahogany_bench_afk",
@@ -696,7 +747,10 @@
       "effective_gp_per_hour": -220000,
       "travel_minutes_per_hour": 0,
       "active_minutes_per_hour": 60,
-      "trips_per_hour": 0
+      "trips_per_hour": 0,
+      "gp_cost_per_hour": 850000,
+      "net_gp_per_hour": -1070000,
+      "tradeoff_profile": "+XP-GP"
     },
     {
       "id": "boneyard_dungeon_room",
@@ -734,7 +788,10 @@
       "effective_gp_per_hour": -285000,
       "travel_minutes_per_hour": 0,
       "active_minutes_per_hour": 60,
-      "trips_per_hour": 0
+      "trips_per_hour": 0,
+      "gp_cost_per_hour": 40000,
+      "net_gp_per_hour": -325000,
+      "tradeoff_profile": "+XP-GP"
     },
     {
       "id": "heartlands_dungeon_room_afk",
@@ -772,7 +829,10 @@
       "effective_gp_per_hour": -195000,
       "travel_minutes_per_hour": 0,
       "active_minutes_per_hour": 60,
-      "trips_per_hour": 0
+      "trips_per_hour": 0,
+      "gp_cost_per_hour": 40000,
+      "net_gp_per_hour": -235000,
+      "tradeoff_profile": "+XP-GP"
     },
     {
       "id": "veilwood_crystal_throne",
@@ -812,7 +872,10 @@
       "effective_gp_per_hour": -520000,
       "travel_minutes_per_hour": 0,
       "active_minutes_per_hour": 60,
-      "trips_per_hour": 0
+      "trips_per_hour": 0,
+      "gp_cost_per_hour": 850000,
+      "net_gp_per_hour": -1370000,
+      "tradeoff_profile": "+XP-GP"
     },
     {
       "id": "wilds_boss_lair",
@@ -853,7 +916,10 @@
       "effective_gp_per_hour": -656000,
       "travel_minutes_per_hour": 5.3,
       "active_minutes_per_hour": 54.7,
-      "trips_per_hour": 8
+      "trips_per_hour": 8,
+      "gp_cost_per_hour": 200000,
+      "net_gp_per_hour": -920000,
+      "tradeoff_profile": "+XP-GP"
     },
     {
       "id": "heartlands_gem_fence_afk",
@@ -891,7 +957,10 @@
       "effective_gp_per_hour": -420000,
       "travel_minutes_per_hour": 0,
       "active_minutes_per_hour": 60,
-      "trips_per_hour": 0
+      "trips_per_hour": 0,
+      "gp_cost_per_hour": 40000,
+      "net_gp_per_hour": -460000,
+      "tradeoff_profile": "+XP-GP"
     },
     {
       "id": "heartlands_mahogany_bench_elite_butler",
@@ -931,7 +1000,10 @@
       "effective_gp_per_hour": -980000,
       "travel_minutes_per_hour": 0,
       "active_minutes_per_hour": 60,
-      "trips_per_hour": 0
+      "trips_per_hour": 0,
+      "gp_cost_per_hour": 850000,
+      "net_gp_per_hour": -1830000,
+      "tradeoff_profile": "+XP-GP"
     },
     {
       "id": "inkweald_dream_aquarium",
@@ -978,7 +1050,10 @@
       "effective_gp_per_hour": -420000,
       "travel_minutes_per_hour": 0,
       "active_minutes_per_hour": 60,
-      "trips_per_hour": 0
+      "trips_per_hour": 0,
+      "gp_cost_per_hour": 200000,
+      "net_gp_per_hour": -620000,
+      "tradeoff_profile": "+XP-GP"
     },
     {
       "id": "heartlands_teleport_nexus_master",
@@ -1020,7 +1095,10 @@
       "effective_gp_per_hour": -285000,
       "travel_minutes_per_hour": 0,
       "active_minutes_per_hour": 60,
-      "trips_per_hour": 0
+      "trips_per_hour": 0,
+      "gp_cost_per_hour": 40000,
+      "net_gp_per_hour": -325000,
+      "tradeoff_profile": "+XP-GP"
     }
   ],
   "bracket_coverage": {

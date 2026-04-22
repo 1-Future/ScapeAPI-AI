@@ -42,7 +42,10 @@
       "effective_gp_per_hour": 5156,
       "travel_minutes_per_hour": 6.7,
       "active_minutes_per_hour": 53.3,
-      "trips_per_hour": 8
+      "trips_per_hour": 8,
+      "gp_cost_per_hour": 0,
+      "net_gp_per_hour": 5800,
+      "tradeoff_profile": "+XP 0GP"
     },
     {
       "id": "heartlands_attack_potion_mix",
@@ -86,7 +89,10 @@
       "effective_gp_per_hour": 32000,
       "travel_minutes_per_hour": 0,
       "active_minutes_per_hour": 60,
-      "trips_per_hour": 0
+      "trips_per_hour": 0,
+      "gp_cost_per_hour": 100000,
+      "net_gp_per_hour": -68000,
+      "tradeoff_profile": "+XP-GP"
     },
     {
       "id": "heartlands_marrentill_clean",
@@ -128,7 +134,10 @@
       "effective_gp_per_hour": 8200,
       "travel_minutes_per_hour": 0,
       "active_minutes_per_hour": 60,
-      "trips_per_hour": 0
+      "trips_per_hour": 0,
+      "gp_cost_per_hour": 0,
+      "net_gp_per_hour": 8200,
+      "tradeoff_profile": "+XP 0GP"
     },
     {
       "id": "veilwood_tarromin_clean_afk",
@@ -170,7 +179,10 @@
       "effective_gp_per_hour": 8680,
       "travel_minutes_per_hour": 10.4,
       "active_minutes_per_hour": 49.6,
-      "trips_per_hour": 8
+      "trips_per_hour": 8,
+      "gp_cost_per_hour": 0,
+      "net_gp_per_hour": 10500,
+      "tradeoff_profile": "+XP+GP"
     },
     {
       "id": "veilwood_strength_potion_rotation",
@@ -214,7 +226,10 @@
       "effective_gp_per_hour": 48000,
       "travel_minutes_per_hour": 0,
       "active_minutes_per_hour": 60,
-      "trips_per_hour": 0
+      "trips_per_hour": 0,
+      "gp_cost_per_hour": 100000,
+      "net_gp_per_hour": -52000,
+      "tradeoff_profile": "+XP-GP"
     },
     {
       "id": "heartlands_harralander_clean",
@@ -256,7 +271,10 @@
       "effective_gp_per_hour": 12000,
       "travel_minutes_per_hour": 0,
       "active_minutes_per_hour": 60,
-      "trips_per_hour": 0
+      "trips_per_hour": 0,
+      "gp_cost_per_hour": 0,
+      "net_gp_per_hour": 12000,
+      "tradeoff_profile": "+XP+GP"
     },
     {
       "id": "heartlands_energy_potion_mix",
@@ -299,7 +317,10 @@
       "effective_gp_per_hour": 68000,
       "travel_minutes_per_hour": 0,
       "active_minutes_per_hour": 60,
-      "trips_per_hour": 0
+      "trips_per_hour": 0,
+      "gp_cost_per_hour": 100000,
+      "net_gp_per_hour": -32000,
+      "tradeoff_profile": "+XP-GP"
     },
     {
       "id": "heartlands_defence_potion",
@@ -342,7 +363,10 @@
       "effective_gp_per_hour": 42000,
       "travel_minutes_per_hour": 0,
       "active_minutes_per_hour": 60,
-      "trips_per_hour": 0
+      "trips_per_hour": 0,
+      "gp_cost_per_hour": 100000,
+      "net_gp_per_hour": -58000,
+      "tradeoff_profile": "+XP-GP"
     },
     {
       "id": "inkweald_ranarr_clean",
@@ -384,7 +408,10 @@
       "effective_gp_per_hour": 140600,
       "travel_minutes_per_hour": 14.4,
       "active_minutes_per_hour": 45.6,
-      "trips_per_hour": 8
+      "trips_per_hour": 8,
+      "gp_cost_per_hour": 0,
+      "net_gp_per_hour": 185000,
+      "tradeoff_profile": "+XP+GP"
     },
     {
       "id": "moryskah_prayer_potion_rotation",
@@ -427,7 +454,10 @@
       "effective_gp_per_hour": 285000,
       "travel_minutes_per_hour": 0,
       "active_minutes_per_hour": 60,
-      "trips_per_hour": 0
+      "trips_per_hour": 0,
+      "gp_cost_per_hour": 240000,
+      "net_gp_per_hour": 45000,
+      "tradeoff_profile": "+XP+GP"
     },
     {
       "id": "moryskah_prayer_potion_afk",
@@ -470,7 +500,10 @@
       "effective_gp_per_hour": 147178,
       "travel_minutes_per_hour": 12.3,
       "active_minutes_per_hour": 47.7,
-      "trips_per_hour": 8
+      "trips_per_hour": 8,
+      "gp_cost_per_hour": 240000,
+      "net_gp_per_hour": -55000,
+      "tradeoff_profile": "+XP-GP"
     },
     {
       "id": "veilwood_ranging_potion",
@@ -513,7 +546,10 @@
       "effective_gp_per_hour": 128000,
       "travel_minutes_per_hour": 0,
       "active_minutes_per_hour": 60,
-      "trips_per_hour": 0
+      "trips_per_hour": 0,
+      "gp_cost_per_hour": 100000,
+      "net_gp_per_hour": 28000,
+      "tradeoff_profile": "+XP+GP"
     },
     {
       "id": "moryskah_super_attack",
@@ -556,7 +592,10 @@
       "effective_gp_per_hour": 75578,
       "travel_minutes_per_hour": 12.3,
       "active_minutes_per_hour": 47.7,
-      "trips_per_hour": 8
+      "trips_per_hour": 8,
+      "gp_cost_per_hour": 30000,
+      "net_gp_per_hour": 65000,
+      "tradeoff_profile": "+XP+GP"
     },
     {
       "id": "moryskah_super_combat",
@@ -601,7 +640,10 @@
       "effective_gp_per_hour": 147178,
       "travel_minutes_per_hour": 12.3,
       "active_minutes_per_hour": 47.7,
-      "trips_per_hour": 8
+      "trips_per_hour": 8,
+      "gp_cost_per_hour": 180000,
+      "net_gp_per_hour": 5000,
+      "tradeoff_profile": "+XP 0GP"
     },
     {
       "id": "moryskah_super_strength_afk",
@@ -644,7 +686,10 @@
       "effective_gp_per_hour": 99444,
       "travel_minutes_per_hour": 12.3,
       "active_minutes_per_hour": 47.7,
-      "trips_per_hour": 8
+      "trips_per_hour": 8,
+      "gp_cost_per_hour": 180000,
+      "net_gp_per_hour": -55000,
+      "tradeoff_profile": "+XP-GP"
     },
     {
       "id": "moryskah_super_restore",
@@ -687,7 +732,10 @@
       "effective_gp_per_hour": 385000,
       "travel_minutes_per_hour": 0,
       "active_minutes_per_hour": 60,
-      "trips_per_hour": 0
+      "trips_per_hour": 0,
+      "gp_cost_per_hour": 320000,
+      "net_gp_per_hour": 65000,
+      "tradeoff_profile": "+XP+GP"
     },
     {
       "id": "moryskah_super_restore_afk",
@@ -730,7 +778,10 @@
       "effective_gp_per_hour": 143200,
       "travel_minutes_per_hour": 12.3,
       "active_minutes_per_hour": 47.7,
-      "trips_per_hour": 8
+      "trips_per_hour": 8,
+      "gp_cost_per_hour": 320000,
+      "net_gp_per_hour": -140000,
+      "tradeoff_profile": "+XP-GP"
     },
     {
       "id": "veilwood_saradomin_brew_rotation",
@@ -773,7 +824,10 @@
       "effective_gp_per_hour": 420000,
       "travel_minutes_per_hour": 0,
       "active_minutes_per_hour": 60,
-      "trips_per_hour": 0
+      "trips_per_hour": 0,
+      "gp_cost_per_hour": 320000,
+      "net_gp_per_hour": 100000,
+      "tradeoff_profile": "+XP+GP"
     },
     {
       "id": "veilwood_saradomin_brew_afk",
@@ -816,7 +870,10 @@
       "effective_gp_per_hour": 210000,
       "travel_minutes_per_hour": 0,
       "active_minutes_per_hour": 60,
-      "trips_per_hour": 0
+      "trips_per_hour": 0,
+      "gp_cost_per_hour": 320000,
+      "net_gp_per_hour": -110000,
+      "tradeoff_profile": "+XP-GP"
     },
     {
       "id": "veilwood_stamina_potion_afk",
@@ -859,7 +916,10 @@
       "effective_gp_per_hour": 385000,
       "travel_minutes_per_hour": 0,
       "active_minutes_per_hour": 60,
-      "trips_per_hour": 0
+      "trips_per_hour": 0,
+      "gp_cost_per_hour": 30000,
+      "net_gp_per_hour": 355000,
+      "tradeoff_profile": "+XP+GP"
     },
     {
       "id": "veilwood_antipoison_plus_afk",
@@ -902,7 +962,10 @@
       "effective_gp_per_hour": 265000,
       "travel_minutes_per_hour": 0,
       "active_minutes_per_hour": 60,
-      "trips_per_hour": 0
+      "trips_per_hour": 0,
+      "gp_cost_per_hour": 30000,
+      "net_gp_per_hour": 235000,
+      "tradeoff_profile": "+XP+GP"
     },
     {
       "id": "veilwood_divine_potion",
@@ -945,7 +1008,10 @@
       "effective_gp_per_hour": 385000,
       "travel_minutes_per_hour": 0,
       "active_minutes_per_hour": 60,
-      "trips_per_hour": 0
+      "trips_per_hour": 0,
+      "gp_cost_per_hour": 180000,
+      "net_gp_per_hour": 205000,
+      "tradeoff_profile": "+XP+GP"
     },
     {
       "id": "veilwood_extended_antifire_afk",
@@ -988,7 +1054,10 @@
       "effective_gp_per_hour": 385000,
       "travel_minutes_per_hour": 0,
       "active_minutes_per_hour": 60,
-      "trips_per_hour": 0
+      "trips_per_hour": 0,
+      "gp_cost_per_hour": 30000,
+      "net_gp_per_hour": 355000,
+      "tradeoff_profile": "+XP+GP"
     },
     {
       "id": "veilwood_overload_brew",
@@ -1034,7 +1103,10 @@
       "effective_gp_per_hour": 347200,
       "travel_minutes_per_hour": 10.4,
       "active_minutes_per_hour": 49.6,
-      "trips_per_hour": 8
+      "trips_per_hour": 8,
+      "gp_cost_per_hour": 100000,
+      "net_gp_per_hour": 320000,
+      "tradeoff_profile": "+XP+GP"
     },
     {
       "id": "inkweald_antivenom_rotation",
@@ -1079,7 +1151,10 @@
       "effective_gp_per_hour": 368600,
       "travel_minutes_per_hour": 14.4,
       "active_minutes_per_hour": 45.6,
-      "trips_per_hour": 8
+      "trips_per_hour": 8,
+      "gp_cost_per_hour": 100000,
+      "net_gp_per_hour": 385000,
+      "tradeoff_profile": "+XP+GP"
     },
     {
       "id": "boneyard_bone_crush_afk",
@@ -1122,7 +1197,10 @@
       "effective_gp_per_hour": 50556,
       "travel_minutes_per_hour": 13.3,
       "active_minutes_per_hour": 46.7,
-      "trips_per_hour": 8
+      "trips_per_hour": 8,
+      "gp_cost_per_hour": 30000,
+      "net_gp_per_hour": 35000,
+      "tradeoff_profile": "+XP+GP"
     },
     {
       "id": "inkweald_dream_elixir_lab",
@@ -1170,7 +1248,10 @@
       "effective_gp_per_hour": 4104000,
       "travel_minutes_per_hour": 14.4,
       "active_minutes_per_hour": 45.6,
-      "trips_per_hour": 8
+      "trips_per_hour": 8,
+      "gp_cost_per_hour": 100000,
+      "net_gp_per_hour": 5300000,
+      "tradeoff_profile": "+XP+GP"
     },
     {
       "id": "glass_desert_potion_refinery",
@@ -1217,7 +1298,10 @@
       "effective_gp_per_hour": 1767111,
       "travel_minutes_per_hour": 22.1,
       "active_minutes_per_hour": 37.9,
-      "trips_per_hour": 8
+      "trips_per_hour": 8,
+      "gp_cost_per_hour": 100000,
+      "net_gp_per_hour": 2700000,
+      "tradeoff_profile": "+XP+GP"
     }
   ],
   "bracket_coverage": {

@@ -35,7 +35,10 @@
       "effective_gp_per_hour": 0,
       "travel_minutes_per_hour": 1.7,
       "active_minutes_per_hour": 58.3,
-      "trips_per_hour": 2
+      "trips_per_hour": 2,
+      "gp_cost_per_hour": 3000,
+      "net_gp_per_hour": -3000,
+      "tradeoff_profile": "+XP 0GP"
     },
     {
       "id": "heartlands_giant_rat_aggressive",
@@ -75,7 +78,10 @@
       "effective_gp_per_hour": 1712,
       "travel_minutes_per_hour": 2.9,
       "active_minutes_per_hour": 57.1,
-      "trips_per_hour": 2
+      "trips_per_hour": 2,
+      "gp_cost_per_hour": 3000,
+      "net_gp_per_hour": -1200,
+      "tradeoff_profile": "+XP 0GP"
     },
     {
       "id": "heartlands_cow_aggressive",
@@ -119,7 +125,10 @@
       "effective_gp_per_hour": 5639,
       "travel_minutes_per_hour": 1.7,
       "active_minutes_per_hour": 58.3,
-      "trips_per_hour": 2
+      "trips_per_hour": 2,
+      "gp_cost_per_hour": 3000,
+      "net_gp_per_hour": 2800,
+      "tradeoff_profile": "+XP 0GP"
     },
     {
       "id": "heartlands_knight_safespot_aggressive",
@@ -161,7 +170,10 @@
       "effective_gp_per_hour": 11667,
       "travel_minutes_per_hour": 1.7,
       "active_minutes_per_hour": 58.3,
-      "trips_per_hour": 2
+      "trips_per_hour": 2,
+      "gp_cost_per_hour": 10000,
+      "net_gp_per_hour": 2000,
+      "tradeoff_profile": "+XP 0GP"
     },
     {
       "id": "boneyard_hill_giant_afk",
@@ -203,7 +215,10 @@
       "effective_gp_per_hour": 17000,
       "travel_minutes_per_hour": 3.3,
       "active_minutes_per_hour": 56.7,
-      "trips_per_hour": 2
+      "trips_per_hour": 2,
+      "gp_cost_per_hour": 3000,
+      "net_gp_per_hour": 15000,
+      "tradeoff_profile": "+XP+GP"
     },
     {
       "id": "boneyard_hill_giant_pull",
@@ -246,7 +261,10 @@
       "effective_gp_per_hour": 65000,
       "travel_minutes_per_hour": 0,
       "active_minutes_per_hour": 60,
-      "trips_per_hour": 0
+      "trips_per_hour": 0,
+      "gp_cost_per_hour": 25000,
+      "net_gp_per_hour": 40000,
+      "tradeoff_profile": "+XP+GP"
     },
     {
       "id": "heartlands_sand_crab_str",
@@ -283,7 +301,10 @@
       "effective_gp_per_hour": 0,
       "travel_minutes_per_hour": 1.7,
       "active_minutes_per_hour": 58.3,
-      "trips_per_hour": 2
+      "trips_per_hour": 2,
+      "gp_cost_per_hour": 3000,
+      "net_gp_per_hour": -3000,
+      "tradeoff_profile": "+XP 0GP"
     },
     {
       "id": "heartlands_black_knight_active",
@@ -325,7 +346,10 @@
       "effective_gp_per_hour": 46000,
       "travel_minutes_per_hour": 2.5,
       "active_minutes_per_hour": 57.5,
-      "trips_per_hour": 3
+      "trips_per_hour": 3,
+      "gp_cost_per_hour": 25000,
+      "net_gp_per_hour": 23000,
+      "tradeoff_profile": "+XP+GP"
     },
     {
       "id": "saltbrine_rock_crab_str",
@@ -362,7 +386,10 @@
       "effective_gp_per_hour": 0,
       "travel_minutes_per_hour": 1.5,
       "active_minutes_per_hour": 58.5,
-      "trips_per_hour": 2
+      "trips_per_hour": 2,
+      "gp_cost_per_hour": 3000,
+      "net_gp_per_hour": -3000,
+      "tradeoff_profile": "+XP 0GP"
     },
     {
       "id": "saltbrine_experiment_pit_active",
@@ -406,7 +433,10 @@
       "effective_gp_per_hour": 56582,
       "travel_minutes_per_hour": 1.5,
       "active_minutes_per_hour": 58.5,
-      "trips_per_hour": 2
+      "trips_per_hour": 2,
+      "gp_cost_per_hour": 25000,
+      "net_gp_per_hour": 33000,
+      "tradeoff_profile": "+XP+GP"
     },
     {
       "id": "heartlands_ammonite_crab_str",
@@ -443,7 +473,10 @@
       "effective_gp_per_hour": 0,
       "travel_minutes_per_hour": 2.9,
       "active_minutes_per_hour": 57.1,
-      "trips_per_hour": 2
+      "trips_per_hour": 2,
+      "gp_cost_per_hour": 3000,
+      "net_gp_per_hour": -3000,
+      "tradeoff_profile": "+XP 0GP"
     },
     {
       "id": "moryskah_flesh_crawler_active",
@@ -485,7 +518,10 @@
       "effective_gp_per_hour": 66480,
       "travel_minutes_per_hour": 4.6,
       "active_minutes_per_hour": 55.4,
-      "trips_per_hour": 3
+      "trips_per_hour": 3,
+      "gp_cost_per_hour": 25000,
+      "net_gp_per_hour": 47000,
+      "tradeoff_profile": "+XP+GP"
     },
     {
       "id": "veilwood_nightmare_trainer_str",
@@ -524,7 +560,10 @@
       "effective_gp_per_hour": 0,
       "travel_minutes_per_hour": 2.6,
       "active_minutes_per_hour": 57.4,
-      "trips_per_hour": 2
+      "trips_per_hour": 2,
+      "gp_cost_per_hour": 3000,
+      "net_gp_per_hour": -3000,
+      "tradeoff_profile": "+XP 0GP"
     },
     {
       "id": "inkweald_brutal_nightmare_pull",
@@ -568,7 +607,10 @@
       "effective_gp_per_hour": 122042,
       "travel_minutes_per_hour": 9.5,
       "active_minutes_per_hour": 50.5,
-      "trips_per_hour": 3
+      "trips_per_hour": 3,
+      "gp_cost_per_hour": 180000,
+      "net_gp_per_hour": -35000,
+      "tradeoff_profile": "+XP-GP"
     },
     {
       "id": "moryskah_nightmare_chains_str",
@@ -610,7 +652,10 @@
       "effective_gp_per_hour": 74013,
       "travel_minutes_per_hour": 3.1,
       "active_minutes_per_hour": 56.9,
-      "trips_per_hour": 2
+      "trips_per_hour": 2,
+      "gp_cost_per_hour": 3000,
+      "net_gp_per_hour": 75000,
+      "tradeoff_profile": "+XP+GP"
     },
     {
       "id": "inkweald_abyssal_demon_str",
@@ -655,7 +700,10 @@
       "effective_gp_per_hour": 174417,
       "travel_minutes_per_hour": 6.3,
       "active_minutes_per_hour": 53.7,
-      "trips_per_hour": 2
+      "trips_per_hour": 2,
+      "gp_cost_per_hour": 25000,
+      "net_gp_per_hour": 170000,
+      "tradeoff_profile": "+XP+GP"
     },
     {
       "id": "wilds_lava_dragon_str",
@@ -697,7 +745,10 @@
       "effective_gp_per_hour": 265367,
       "travel_minutes_per_hour": 4.1,
       "active_minutes_per_hour": 55.9,
-      "trips_per_hour": 2
+      "trips_per_hour": 2,
+      "gp_cost_per_hour": 3000,
+      "net_gp_per_hour": 282000,
+      "tradeoff_profile": "+XP+GP"
     },
     {
       "id": "veilwood_gargoyle_str",
@@ -741,7 +792,10 @@
       "effective_gp_per_hour": 167417,
       "travel_minutes_per_hour": 2.6,
       "active_minutes_per_hour": 57.4,
-      "trips_per_hour": 2
+      "trips_per_hour": 2,
+      "gp_cost_per_hour": 3000,
+      "net_gp_per_hour": 172000,
+      "tradeoff_profile": "+XP+GP"
     },
     {
       "id": "wilds_demonic_gorilla_str",
@@ -785,7 +839,10 @@
       "effective_gp_per_hour": 367522,
       "travel_minutes_per_hour": 14.5,
       "active_minutes_per_hour": 45.5,
-      "trips_per_hour": 4
+      "trips_per_hour": 4,
+      "gp_cost_per_hour": 110000,
+      "net_gp_per_hour": 375000,
+      "tradeoff_profile": "+XP+GP"
     },
     {
       "id": "veilwood_greater_nechryael_str",
@@ -831,7 +888,10 @@
       "effective_gp_per_hour": 286222,
       "travel_minutes_per_hour": 6.3,
       "active_minutes_per_hour": 53.7,
-      "trips_per_hour": 2
+      "trips_per_hour": 2,
+      "gp_cost_per_hour": 25000,
+      "net_gp_per_hour": 295000,
+      "tradeoff_profile": "+XP+GP"
     },
     {
       "id": "veilwood_sanctum_elder_str",
@@ -875,7 +935,10 @@
       "effective_gp_per_hour": 171228,
       "travel_minutes_per_hour": 4.5,
       "active_minutes_per_hour": 55.5,
-      "trips_per_hour": 2
+      "trips_per_hour": 2,
+      "gp_cost_per_hour": 3000,
+      "net_gp_per_hour": 182000,
+      "tradeoff_profile": "+XP+GP"
     },
     {
       "id": "wilds_revenants_str",
@@ -918,7 +981,10 @@
       "effective_gp_per_hour": 1120000,
       "travel_minutes_per_hour": 4,
       "active_minutes_per_hour": 56,
-      "trips_per_hour": 4
+      "trips_per_hour": 4,
+      "gp_cost_per_hour": 60000,
+      "net_gp_per_hour": 1140000,
+      "tradeoff_profile": "+XP+GP"
     },
     {
       "id": "moryskah_vyrewatch_expert",
@@ -968,7 +1034,10 @@
       "effective_gp_per_hour": 7093333,
       "travel_minutes_per_hour": 4,
       "active_minutes_per_hour": 56,
-      "trips_per_hour": 4
+      "trips_per_hour": 4,
+      "gp_cost_per_hour": 60000,
+      "net_gp_per_hour": 7540000,
+      "tradeoff_profile": "+XP+GP"
     },
     {
       "id": "wilds_zuk_pit_challenge",
@@ -1018,7 +1087,10 @@
       "effective_gp_per_hour": 6066667,
       "travel_minutes_per_hour": 4,
       "active_minutes_per_hour": 56,
-      "trips_per_hour": 4
+      "trips_per_hour": 4,
+      "gp_cost_per_hour": 60000,
+      "net_gp_per_hour": 6440000,
+      "tradeoff_profile": "+XP+GP"
     }
   ],
   "bracket_coverage": {

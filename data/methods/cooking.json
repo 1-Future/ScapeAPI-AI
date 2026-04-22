@@ -40,7 +40,10 @@
       "effective_gp_per_hour": 1500,
       "travel_minutes_per_hour": 0,
       "active_minutes_per_hour": 60,
-      "trips_per_hour": 0
+      "trips_per_hour": 0,
+      "gp_cost_per_hour": 3000,
+      "net_gp_per_hour": -1500,
+      "tradeoff_profile": "+XP 0GP"
     },
     {
       "id": "heartlands_range_meat_rotation",
@@ -81,7 +84,10 @@
       "effective_gp_per_hour": 3200,
       "travel_minutes_per_hour": 0,
       "active_minutes_per_hour": 60,
-      "trips_per_hour": 0
+      "trips_per_hour": 0,
+      "gp_cost_per_hour": 3000,
+      "net_gp_per_hour": 200,
+      "tradeoff_profile": "+XP 0GP"
     },
     {
       "id": "heartlands_range_trout_afk",
@@ -121,7 +127,10 @@
       "effective_gp_per_hour": 4800,
       "travel_minutes_per_hour": 0,
       "active_minutes_per_hour": 60,
-      "trips_per_hour": 0
+      "trips_per_hour": 0,
+      "gp_cost_per_hour": 15000,
+      "net_gp_per_hour": -10200,
+      "tradeoff_profile": "+XP-GP"
     },
     {
       "id": "heartlands_range_trout_rotation",
@@ -161,7 +170,10 @@
       "effective_gp_per_hour": 12000,
       "travel_minutes_per_hour": 0,
       "active_minutes_per_hour": 60,
-      "trips_per_hour": 0
+      "trips_per_hour": 0,
+      "gp_cost_per_hour": 15000,
+      "net_gp_per_hour": -3000,
+      "tradeoff_profile": "+XP 0GP"
     },
     {
       "id": "saltbrine_range_salmon",
@@ -201,7 +213,10 @@
       "effective_gp_per_hour": 8571,
       "travel_minutes_per_hour": 5.9,
       "active_minutes_per_hour": 54.1,
-      "trips_per_hour": 8
+      "trips_per_hour": 8,
+      "gp_cost_per_hour": 40000,
+      "net_gp_per_hour": -30500,
+      "tradeoff_profile": "+XP-GP"
     },
     {
       "id": "saltbrine_range_salmon_pyro",
@@ -244,7 +259,10 @@
       "effective_gp_per_hour": 61351,
       "travel_minutes_per_hour": 5.9,
       "active_minutes_per_hour": 54.1,
-      "trips_per_hour": 8
+      "trips_per_hour": 8,
+      "gp_cost_per_hour": 40000,
+      "net_gp_per_hour": 28000,
+      "tradeoff_profile": "+XP+GP"
     },
     {
       "id": "veilwood_winepress_mash_rotation",
@@ -285,7 +303,10 @@
       "effective_gp_per_hour": 95067,
       "travel_minutes_per_hour": 10.4,
       "active_minutes_per_hour": 49.6,
-      "trips_per_hour": 8
+      "trips_per_hour": 8,
+      "gp_cost_per_hour": 60000,
+      "net_gp_per_hour": 55000,
+      "tradeoff_profile": "+XP+GP"
     },
     {
       "id": "saltbrine_range_lobster",
@@ -325,7 +346,10 @@
       "effective_gp_per_hour": 43200,
       "travel_minutes_per_hour": 2.4,
       "active_minutes_per_hour": 57.6,
-      "trips_per_hour": 8
+      "trips_per_hour": 8,
+      "gp_cost_per_hour": 40000,
+      "net_gp_per_hour": 5000,
+      "tradeoff_profile": "+XP 0GP"
     },
     {
       "id": "heartlands_hosidius_range_lobster",
@@ -369,7 +393,10 @@
       "effective_gp_per_hour": 69333,
       "travel_minutes_per_hour": 6.7,
       "active_minutes_per_hour": 53.3,
-      "trips_per_hour": 8
+      "trips_per_hour": 8,
+      "gp_cost_per_hour": 40000,
+      "net_gp_per_hour": 38000,
+      "tradeoff_profile": "+XP+GP"
     },
     {
       "id": "saltbrine_swordfish_cook",
@@ -409,7 +436,10 @@
       "effective_gp_per_hour": 67667,
       "travel_minutes_per_hour": 5.9,
       "active_minutes_per_hour": 54.1,
-      "trips_per_hour": 8
+      "trips_per_hour": 8,
+      "gp_cost_per_hour": 80000,
+      "net_gp_per_hour": -5000,
+      "tradeoff_profile": "+XP 0GP"
     },
     {
       "id": "veilwood_monkfish_cook_afk",
@@ -453,7 +483,10 @@
       "effective_gp_per_hour": 90933,
       "travel_minutes_per_hour": 10.4,
       "active_minutes_per_hour": 49.6,
-      "trips_per_hour": 8
+      "trips_per_hour": 8,
+      "gp_cost_per_hour": 80000,
+      "net_gp_per_hour": 30000,
+      "tradeoff_profile": "+XP+GP"
     },
     {
       "id": "heartlands_pie_rotation",
@@ -493,7 +526,10 @@
       "effective_gp_per_hour": 165000,
       "travel_minutes_per_hour": 0,
       "active_minutes_per_hour": 60,
-      "trips_per_hour": 0
+      "trips_per_hour": 0,
+      "gp_cost_per_hour": 60000,
+      "net_gp_per_hour": 105000,
+      "tradeoff_profile": "+XP+GP"
     },
     {
       "id": "veilwood_wine_pour",
@@ -534,7 +570,10 @@
       "effective_gp_per_hour": 44640,
       "travel_minutes_per_hour": 10.4,
       "active_minutes_per_hour": 49.6,
-      "trips_per_hour": 8
+      "trips_per_hour": 8,
+      "gp_cost_per_hour": 8000,
+      "net_gp_per_hour": 46000,
+      "tradeoff_profile": "+XP+GP"
     },
     {
       "id": "saltbrine_stew_cauldron",
@@ -575,7 +614,10 @@
       "effective_gp_per_hour": 91200,
       "travel_minutes_per_hour": 2.4,
       "active_minutes_per_hour": 57.6,
-      "trips_per_hour": 8
+      "trips_per_hour": 8,
+      "gp_cost_per_hour": 8000,
+      "net_gp_per_hour": 87000,
+      "tradeoff_profile": "+XP+GP"
     },
     {
       "id": "veilwood_shark_monastery",
@@ -619,7 +661,10 @@
       "effective_gp_per_hour": 119867,
       "travel_minutes_per_hour": 10.4,
       "active_minutes_per_hour": 49.6,
-      "trips_per_hour": 8
+      "trips_per_hour": 8,
+      "gp_cost_per_hour": 180000,
+      "net_gp_per_hour": -35000,
+      "tradeoff_profile": "+XP-GP"
     },
     {
       "id": "veilwood_karambwan_cook_afk",
@@ -663,7 +708,10 @@
       "effective_gp_per_hour": 110000,
       "travel_minutes_per_hour": 0,
       "active_minutes_per_hour": 60,
-      "trips_per_hour": 0
+      "trips_per_hour": 0,
+      "gp_cost_per_hour": 150000,
+      "net_gp_per_hour": -40000,
+      "tradeoff_profile": "+XP-GP"
     },
     {
       "id": "saltbrine_gauntlet_lobster",
@@ -705,7 +753,10 @@
       "effective_gp_per_hour": 162400,
       "travel_minutes_per_hour": 5.9,
       "active_minutes_per_hour": 54.1,
-      "trips_per_hour": 8
+      "trips_per_hour": 8,
+      "gp_cost_per_hour": 40000,
+      "net_gp_per_hour": 140000,
+      "tradeoff_profile": "+XP+GP"
     },
     {
       "id": "veilwood_shark_press_rotation",
@@ -749,7 +800,10 @@
       "effective_gp_per_hour": 265000,
       "travel_minutes_per_hour": 0,
       "active_minutes_per_hour": 60,
-      "trips_per_hour": 0
+      "trips_per_hour": 0,
+      "gp_cost_per_hour": 180000,
+      "net_gp_per_hour": 85000,
+      "tradeoff_profile": "+XP+GP"
     },
     {
       "id": "veilwood_anglerfish_boil",
@@ -793,7 +847,10 @@
       "effective_gp_per_hour": 165022,
       "travel_minutes_per_hour": 17.9,
       "active_minutes_per_hour": 42.1,
-      "trips_per_hour": 8
+      "trips_per_hour": 8,
+      "gp_cost_per_hour": 180000,
+      "net_gp_per_hour": 55000,
+      "tradeoff_profile": "+XP+GP"
     },
     {
       "id": "wilds_volcanic_dark_crab",
@@ -835,7 +892,10 @@
       "effective_gp_per_hour": 253556,
       "travel_minutes_per_hour": 16.5,
       "active_minutes_per_hour": 43.5,
-      "trips_per_hour": 8
+      "trips_per_hour": 8,
+      "gp_cost_per_hour": 220000,
+      "net_gp_per_hour": 130000,
+      "tradeoff_profile": "+XP+GP"
     },
     {
       "id": "heartlands_jug_of_wine_bulk",
@@ -878,7 +938,10 @@
       "effective_gp_per_hour": 155556,
       "travel_minutes_per_hour": 6.7,
       "active_minutes_per_hour": 53.3,
-      "trips_per_hour": 8
+      "trips_per_hour": 8,
+      "gp_cost_per_hour": 8000,
+      "net_gp_per_hour": 167000,
+      "tradeoff_profile": "+XP+GP"
     },
     {
       "id": "glass_desert_spice_feast_catering",
@@ -924,7 +987,10 @@
       "effective_gp_per_hour": 3281778,
       "travel_minutes_per_hour": 22.1,
       "active_minutes_per_hour": 37.9,
-      "trips_per_hour": 8
+      "trips_per_hour": 8,
+      "gp_cost_per_hour": 60000,
+      "net_gp_per_hour": 5140000,
+      "tradeoff_profile": "+XP+GP"
     }
   ],
   "bracket_coverage": {

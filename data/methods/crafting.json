@@ -40,7 +40,10 @@
       "effective_gp_per_hour": 1800,
       "travel_minutes_per_hour": 0,
       "active_minutes_per_hour": 60,
-      "trips_per_hour": 0
+      "trips_per_hour": 0,
+      "gp_cost_per_hour": 2000,
+      "net_gp_per_hour": -200,
+      "tradeoff_profile": "+XP 0GP"
     },
     {
       "id": "heartlands_clay_pot",
@@ -80,7 +83,10 @@
       "effective_gp_per_hour": 3800,
       "travel_minutes_per_hour": 0,
       "active_minutes_per_hour": 60,
-      "trips_per_hour": 0
+      "trips_per_hour": 0,
+      "gp_cost_per_hour": 2000,
+      "net_gp_per_hour": 1800,
+      "tradeoff_profile": "+XP 0GP"
     },
     {
       "id": "heartlands_leather_tan",
@@ -121,7 +127,10 @@
       "effective_gp_per_hour": 5200,
       "travel_minutes_per_hour": 0,
       "active_minutes_per_hour": 60,
-      "trips_per_hour": 0
+      "trips_per_hour": 0,
+      "gp_cost_per_hour": 20000,
+      "net_gp_per_hour": -14800,
+      "tradeoff_profile": "+XP-GP"
     },
     {
       "id": "heartlands_leather_body_rotation",
@@ -165,7 +174,10 @@
       "effective_gp_per_hour": 0,
       "travel_minutes_per_hour": 0,
       "active_minutes_per_hour": 60,
-      "trips_per_hour": 0
+      "trips_per_hour": 0,
+      "gp_cost_per_hour": 20000,
+      "net_gp_per_hour": -20000,
+      "tradeoff_profile": "+XP-GP"
     },
     {
       "id": "glass_desert_glass_blow",
@@ -208,7 +220,10 @@
       "effective_gp_per_hour": 7573,
       "travel_minutes_per_hour": 22.1,
       "active_minutes_per_hour": 37.9,
-      "trips_per_hour": 8
+      "trips_per_hour": 8,
+      "gp_cost_per_hour": 25000,
+      "net_gp_per_hour": -13000,
+      "tradeoff_profile": "+XP-GP"
     },
     {
       "id": "glass_desert_sapphire_cut",
@@ -251,7 +266,10 @@
       "effective_gp_per_hour": 59956,
       "travel_minutes_per_hour": 22.1,
       "active_minutes_per_hour": 37.9,
-      "trips_per_hour": 8
+      "trips_per_hour": 8,
+      "gp_cost_per_hour": 60000,
+      "net_gp_per_hour": 35000,
+      "tradeoff_profile": "+XP+GP"
     },
     {
       "id": "glass_desert_emerald_cut",
@@ -294,7 +312,10 @@
       "effective_gp_per_hour": 68160,
       "travel_minutes_per_hour": 22.1,
       "active_minutes_per_hour": 37.9,
-      "trips_per_hour": 8
+      "trips_per_hour": 8,
+      "gp_cost_per_hour": 60000,
+      "net_gp_per_hour": 48000,
+      "tradeoff_profile": "+XP+GP"
     },
     {
       "id": "heartlands_dhide_vamb",
@@ -338,7 +359,10 @@
       "effective_gp_per_hour": 68000,
       "travel_minutes_per_hour": 0,
       "active_minutes_per_hour": 60,
-      "trips_per_hour": 0
+      "trips_per_hour": 0,
+      "gp_cost_per_hour": 80000,
+      "net_gp_per_hour": -12000,
+      "tradeoff_profile": "+XP-GP"
     },
     {
       "id": "heartlands_dhide_body_afk",
@@ -382,7 +406,10 @@
       "effective_gp_per_hour": 85000,
       "travel_minutes_per_hour": 0,
       "active_minutes_per_hour": 60,
-      "trips_per_hour": 0
+      "trips_per_hour": 0,
+      "gp_cost_per_hour": 8000,
+      "net_gp_per_hour": 77000,
+      "tradeoff_profile": "+XP+GP"
     },
     {
       "id": "glass_desert_ruby_cut",
@@ -425,7 +452,10 @@
       "effective_gp_per_hour": 91511,
       "travel_minutes_per_hour": 22.1,
       "active_minutes_per_hour": 37.9,
-      "trips_per_hour": 8
+      "trips_per_hour": 8,
+      "gp_cost_per_hour": 60000,
+      "net_gp_per_hour": 85000,
+      "tradeoff_profile": "+XP+GP"
     },
     {
       "id": "glass_desert_diamond_cut",
@@ -468,7 +498,10 @@
       "effective_gp_per_hour": 138844,
       "travel_minutes_per_hour": 22.1,
       "active_minutes_per_hour": 37.9,
-      "trips_per_hour": 8
+      "trips_per_hour": 8,
+      "gp_cost_per_hour": 140000,
+      "net_gp_per_hour": 80000,
+      "tradeoff_profile": "+XP+GP"
     },
     {
       "id": "heartlands_d_body_afk",
@@ -512,7 +545,10 @@
       "effective_gp_per_hour": 135000,
       "travel_minutes_per_hour": 0,
       "active_minutes_per_hour": 60,
-      "trips_per_hour": 0
+      "trips_per_hour": 0,
+      "gp_cost_per_hour": 8000,
+      "net_gp_per_hour": 127000,
+      "tradeoff_profile": "+XP+GP"
     },
     {
       "id": "glass_desert_dragonstone_cut",
@@ -555,7 +591,10 @@
       "effective_gp_per_hour": 173556,
       "travel_minutes_per_hour": 22.1,
       "active_minutes_per_hour": 37.9,
-      "trips_per_hour": 8
+      "trips_per_hour": 8,
+      "gp_cost_per_hour": 420000,
+      "net_gp_per_hour": -145000,
+      "tradeoff_profile": "+XP-GP"
     },
     {
       "id": "heartlands_red_dhide_rotation",
@@ -599,7 +638,10 @@
       "effective_gp_per_hour": 180000,
       "travel_minutes_per_hour": 0,
       "active_minutes_per_hour": 60,
-      "trips_per_hour": 0
+      "trips_per_hour": 0,
+      "gp_cost_per_hour": 80000,
+      "net_gp_per_hour": 100000,
+      "tradeoff_profile": "+XP+GP"
     },
     {
       "id": "heartlands_red_dhide_body_afk",
@@ -643,7 +685,10 @@
       "effective_gp_per_hour": 160000,
       "travel_minutes_per_hour": 0,
       "active_minutes_per_hour": 60,
-      "trips_per_hour": 0
+      "trips_per_hour": 0,
+      "gp_cost_per_hour": 8000,
+      "net_gp_per_hour": 152000,
+      "tradeoff_profile": "+XP+GP"
     },
     {
       "id": "heartlands_black_dhide_afk",
@@ -687,7 +732,10 @@
       "effective_gp_per_hour": 225000,
       "travel_minutes_per_hour": 0,
       "active_minutes_per_hour": 60,
-      "trips_per_hour": 0
+      "trips_per_hour": 0,
+      "gp_cost_per_hour": 8000,
+      "net_gp_per_hour": 217000,
+      "tradeoff_profile": "+XP+GP"
     },
     {
       "id": "glass_desert_onyx_amulet",
@@ -731,7 +779,10 @@
       "effective_gp_per_hour": 242978,
       "travel_minutes_per_hour": 22.1,
       "active_minutes_per_hour": 37.9,
-      "trips_per_hour": 8
+      "trips_per_hour": 8,
+      "gp_cost_per_hour": 420000,
+      "net_gp_per_hour": -35000,
+      "tradeoff_profile": "+XP-GP"
     },
     {
       "id": "inkweald_zenyte_craft",
@@ -776,7 +827,10 @@
       "effective_gp_per_hour": 395200,
       "travel_minutes_per_hour": 14.4,
       "active_minutes_per_hour": 45.6,
-      "trips_per_hour": 8
+      "trips_per_hour": 8,
+      "gp_cost_per_hour": 900000,
+      "net_gp_per_hour": -380000,
+      "tradeoff_profile": "+XP-GP"
     },
     {
       "id": "saltbrine_glass_mass_production",
@@ -821,7 +875,10 @@
       "effective_gp_per_hour": 125000,
       "travel_minutes_per_hour": 0,
       "active_minutes_per_hour": 60,
-      "trips_per_hour": 0
+      "trips_per_hour": 0,
+      "gp_cost_per_hour": 25000,
+      "net_gp_per_hour": 100000,
+      "tradeoff_profile": "+XP+GP"
     },
     {
       "id": "inkweald_zenyte_rush",
@@ -866,7 +923,10 @@
       "effective_gp_per_hour": 620000,
       "travel_minutes_per_hour": 0,
       "active_minutes_per_hour": 60,
-      "trips_per_hour": 0
+      "trips_per_hour": 0,
+      "gp_cost_per_hour": 900000,
+      "net_gp_per_hour": -280000,
+      "tradeoff_profile": "+XP-GP"
     },
     {
       "id": "veilwood_crystal_shard_craft_afk",
@@ -911,7 +971,10 @@
       "effective_gp_per_hour": 181867,
       "travel_minutes_per_hour": 10.4,
       "active_minutes_per_hour": 49.6,
-      "trips_per_hour": 8
+      "trips_per_hour": 8,
+      "gp_cost_per_hour": 8000,
+      "net_gp_per_hour": 212000,
+      "tradeoff_profile": "+XP+GP"
     },
     {
       "id": "veilwood_crystal_attuning",
@@ -957,7 +1020,10 @@
       "effective_gp_per_hour": 242667,
       "travel_minutes_per_hour": 8,
       "active_minutes_per_hour": 52,
-      "trips_per_hour": 8
+      "trips_per_hour": 8,
+      "gp_cost_per_hour": 80000,
+      "net_gp_per_hour": 200000,
+      "tradeoff_profile": "+XP+GP"
     },
     {
       "id": "glass_desert_sunken_spire_gem_cutter",
@@ -1002,7 +1068,10 @@
       "effective_gp_per_hour": 504889,
       "travel_minutes_per_hour": 22.1,
       "active_minutes_per_hour": 37.9,
-      "trips_per_hour": 8
+      "trips_per_hour": 8,
+      "gp_cost_per_hour": 25000,
+      "net_gp_per_hour": 775000,
+      "tradeoff_profile": "+XP+GP"
     },
     {
       "id": "inkweald_dream_loom_tapestry",
@@ -1051,7 +1120,10 @@
       "effective_gp_per_hour": 3800000,
       "travel_minutes_per_hour": 0,
       "active_minutes_per_hour": 60,
-      "trips_per_hour": 0
+      "trips_per_hour": 0,
+      "gp_cost_per_hour": 80000,
+      "net_gp_per_hour": 3720000,
+      "tradeoff_profile": "+XP+GP"
     },
     {
       "id": "moryskah_bone_inlay_reliquary",
@@ -1099,7 +1171,10 @@
       "effective_gp_per_hour": 1909333,
       "travel_minutes_per_hour": 12.3,
       "active_minutes_per_hour": 47.7,
-      "trips_per_hour": 8
+      "trips_per_hour": 8,
+      "gp_cost_per_hour": 80000,
+      "net_gp_per_hour": 2320000,
+      "tradeoff_profile": "+XP+GP"
     },
     {
       "id": "veilwood_crystal_armour_refit",
@@ -1145,7 +1220,10 @@
       "effective_gp_per_hour": 1900000,
       "travel_minutes_per_hour": 0,
       "active_minutes_per_hour": 60,
-      "trips_per_hour": 0
+      "trips_per_hour": 0,
+      "gp_cost_per_hour": 80000,
+      "net_gp_per_hour": 1820000,
+      "tradeoff_profile": "+XP+GP"
     }
   ],
   "bracket_coverage": {

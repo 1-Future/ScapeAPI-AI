@@ -35,7 +35,10 @@
       "effective_gp_per_hour": 0,
       "travel_minutes_per_hour": 3.3,
       "active_minutes_per_hour": 56.7,
-      "trips_per_hour": 4
+      "trips_per_hour": 4,
+      "gp_cost_per_hour": 20000,
+      "net_gp_per_hour": -20000,
+      "tradeoff_profile": "+XP-GP"
     },
     {
       "id": "heartlands_bury_big_bones",
@@ -70,7 +73,10 @@
       "effective_gp_per_hour": 0,
       "travel_minutes_per_hour": 3.3,
       "active_minutes_per_hour": 56.7,
-      "trips_per_hour": 4
+      "trips_per_hour": 4,
+      "gp_cost_per_hour": 140000,
+      "net_gp_per_hour": -140000,
+      "tradeoff_profile": "+XP-GP"
     },
     {
       "id": "heartlands_bones_altar_lumbar",
@@ -107,7 +113,10 @@
       "effective_gp_per_hour": 0,
       "travel_minutes_per_hour": 0.4,
       "active_minutes_per_hour": 59.6,
-      "trips_per_hour": 4
+      "trips_per_hour": 4,
+      "gp_cost_per_hour": 80000,
+      "net_gp_per_hour": -80000,
+      "tradeoff_profile": "+XP-GP"
     },
     {
       "id": "heartlands_ectophial_farm",
@@ -147,7 +156,10 @@
       "effective_gp_per_hour": 0,
       "travel_minutes_per_hour": 6.1,
       "active_minutes_per_hour": 53.9,
-      "trips_per_hour": 4
+      "trips_per_hour": 4,
+      "gp_cost_per_hour": 80000,
+      "net_gp_per_hour": -80000,
+      "tradeoff_profile": "+XP-GP"
     },
     {
       "id": "boneyard_bury_big_bones_afk",
@@ -184,7 +196,10 @@
       "effective_gp_per_hour": 10667,
       "travel_minutes_per_hour": 6.7,
       "active_minutes_per_hour": 53.3,
-      "trips_per_hour": 4
+      "trips_per_hour": 4,
+      "gp_cost_per_hour": 140000,
+      "net_gp_per_hour": -128000,
+      "tradeoff_profile": "+XP-GP"
     },
     {
       "id": "heartlands_bones_gilded_altar",
@@ -224,7 +239,10 @@
       "effective_gp_per_hour": 0,
       "travel_minutes_per_hour": 0,
       "active_minutes_per_hour": 60,
-      "trips_per_hour": 0
+      "trips_per_hour": 0,
+      "gp_cost_per_hour": 140000,
+      "net_gp_per_hour": -140000,
+      "tradeoff_profile": "+XP-GP"
     },
     {
       "id": "heartlands_dragon_bones_afk",
@@ -261,7 +279,10 @@
       "effective_gp_per_hour": -84433,
       "travel_minutes_per_hour": 0.4,
       "active_minutes_per_hour": 59.6,
-      "trips_per_hour": 4
+      "trips_per_hour": 4,
+      "gp_cost_per_hour": 320000,
+      "net_gp_per_hour": -405000,
+      "tradeoff_profile": "+XP-GP"
     },
     {
       "id": "heartlands_dragon_bones_gilded",
@@ -301,7 +322,10 @@
       "effective_gp_per_hour": -153967,
       "travel_minutes_per_hour": 0.4,
       "active_minutes_per_hour": 59.6,
-      "trips_per_hour": 4
+      "trips_per_hour": 4,
+      "gp_cost_per_hour": 320000,
+      "net_gp_per_hour": -475000,
+      "tradeoff_profile": "+XP-GP"
     },
     {
       "id": "heartlands_dagannoth_bones",
@@ -338,7 +362,10 @@
       "effective_gp_per_hour": -94367,
       "travel_minutes_per_hour": 0.4,
       "active_minutes_per_hour": 59.6,
-      "trips_per_hour": 4
+      "trips_per_hour": 4,
+      "gp_cost_per_hour": 140000,
+      "net_gp_per_hour": -235000,
+      "tradeoff_profile": "+XP-GP"
     },
     {
       "id": "heartlands_wyvern_bones_altar",
@@ -378,7 +405,10 @@
       "effective_gp_per_hour": -124167,
       "travel_minutes_per_hour": 0.4,
       "active_minutes_per_hour": 59.6,
-      "trips_per_hour": 4
+      "trips_per_hour": 4,
+      "gp_cost_per_hour": 320000,
+      "net_gp_per_hour": -445000,
+      "tradeoff_profile": "+XP-GP"
     },
     {
       "id": "heartlands_superior_dragon_afk",
@@ -415,7 +445,10 @@
       "effective_gp_per_hour": -170000,
       "travel_minutes_per_hour": 3.3,
       "active_minutes_per_hour": 56.7,
-      "trips_per_hour": 4
+      "trips_per_hour": 4,
+      "gp_cost_per_hour": 320000,
+      "net_gp_per_hour": -500000,
+      "tradeoff_profile": "+XP-GP"
     },
     {
       "id": "wilds_chaos_altar_sacrifice",
@@ -452,7 +485,10 @@
       "effective_gp_per_hour": -176778,
       "travel_minutes_per_hour": 2.7,
       "active_minutes_per_hour": 57.3,
-      "trips_per_hour": 4
+      "trips_per_hour": 4,
+      "gp_cost_per_hour": 80000,
+      "net_gp_per_hour": -265000,
+      "tradeoff_profile": "+XP-GP"
     },
     {
       "id": "heartlands_superior_gilded",
@@ -492,7 +528,10 @@
       "effective_gp_per_hour": -283100,
       "travel_minutes_per_hour": 0.4,
       "active_minutes_per_hour": 59.6,
-      "trips_per_hour": 4
+      "trips_per_hour": 4,
+      "gp_cost_per_hour": 320000,
+      "net_gp_per_hour": -605000,
+      "tradeoff_profile": "+XP-GP"
     },
     {
       "id": "moryskah_ensouled_heads_afk",
@@ -538,7 +577,10 @@
       "effective_gp_per_hour": 44600,
       "travel_minutes_per_hour": 0.5,
       "active_minutes_per_hour": 59.5,
-      "trips_per_hour": 4
+      "trips_per_hour": 4,
+      "gp_cost_per_hour": 80000,
+      "net_gp_per_hour": -35000,
+      "tradeoff_profile": "+XP-GP"
     },
     {
       "id": "wilds_superior_chaos",
@@ -575,7 +617,10 @@
       "effective_gp_per_hour": -272333,
       "travel_minutes_per_hour": 2.7,
       "active_minutes_per_hour": 57.3,
-      "trips_per_hour": 4
+      "trips_per_hour": 4,
+      "gp_cost_per_hour": 320000,
+      "net_gp_per_hour": -605000,
+      "tradeoff_profile": "+XP-GP"
     },
     {
       "id": "veilwood_abyssal_altar",
@@ -614,7 +659,10 @@
       "effective_gp_per_hour": 24833,
       "travel_minutes_per_hour": 0.4,
       "active_minutes_per_hour": 59.6,
-      "trips_per_hour": 4
+      "trips_per_hour": 4,
+      "gp_cost_per_hour": 80000,
+      "net_gp_per_hour": -55000,
+      "tradeoff_profile": "+XP-GP"
     },
     {
       "id": "veilwood_ensouled_adamant",
@@ -660,7 +708,10 @@
       "effective_gp_per_hour": 123889,
       "travel_minutes_per_hour": 0.5,
       "active_minutes_per_hour": 59.5,
-      "trips_per_hour": 4
+      "trips_per_hour": 4,
+      "gp_cost_per_hour": 80000,
+      "net_gp_per_hour": 45000,
+      "tradeoff_profile": "+XP+GP"
     },
     {
       "id": "heartlands_monstrous_bones_afk",
@@ -697,7 +748,10 @@
       "effective_gp_per_hour": -218533,
       "travel_minutes_per_hour": 0.4,
       "active_minutes_per_hour": 59.6,
-      "trips_per_hour": 4
+      "trips_per_hour": 4,
+      "gp_cost_per_hour": 80000,
+      "net_gp_per_hour": -300000,
+      "tradeoff_profile": "+XP-GP"
     },
     {
       "id": "heartlands_zogre_bones_gilded",
@@ -737,7 +791,10 @@
       "effective_gp_per_hour": -317867,
       "travel_minutes_per_hour": 0.4,
       "active_minutes_per_hour": 59.6,
-      "trips_per_hour": 4
+      "trips_per_hour": 4,
+      "gp_cost_per_hour": 80000,
+      "net_gp_per_hour": -400000,
+      "tradeoff_profile": "+XP-GP"
     },
     {
       "id": "wilds_wyrm_chaos",
@@ -774,7 +831,10 @@
       "effective_gp_per_hour": -401333,
       "travel_minutes_per_hour": 2.7,
       "active_minutes_per_hour": 57.3,
-      "trips_per_hour": 4
+      "trips_per_hour": 4,
+      "gp_cost_per_hour": 80000,
+      "net_gp_per_hour": -500000,
+      "tradeoff_profile": "+XP-GP"
     },
     {
       "id": "veilwood_sanctum_prayer_afk",
@@ -818,7 +878,10 @@
       "effective_gp_per_hour": 77633,
       "travel_minutes_per_hour": 5.2,
       "active_minutes_per_hour": 54.8,
-      "trips_per_hour": 4
+      "trips_per_hour": 4,
+      "gp_cost_per_hour": 80000,
+      "net_gp_per_hour": 5000,
+      "tradeoff_profile": "+XP 0GP"
     }
   ],
   "bracket_coverage": {

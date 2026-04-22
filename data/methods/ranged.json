@@ -36,7 +36,10 @@
       "effective_gp_per_hour": 0,
       "travel_minutes_per_hour": 2.5,
       "active_minutes_per_hour": 57.5,
-      "trips_per_hour": 3
+      "trips_per_hour": 3,
+      "gp_cost_per_hour": 15000,
+      "net_gp_per_hour": -15000,
+      "tradeoff_profile": "+XP-GP"
     },
     {
       "id": "heartlands_rat_range",
@@ -77,7 +80,10 @@
       "effective_gp_per_hour": 1390,
       "travel_minutes_per_hour": 4.4,
       "active_minutes_per_hour": 55.6,
-      "trips_per_hour": 3
+      "trips_per_hour": 3,
+      "gp_cost_per_hour": 15000,
+      "net_gp_per_hour": -13500,
+      "tradeoff_profile": "+XP-GP"
     },
     {
       "id": "heartlands_cow_range",
@@ -118,7 +124,10 @@
       "effective_gp_per_hour": 5558,
       "travel_minutes_per_hour": 2.5,
       "active_minutes_per_hour": 57.5,
-      "trips_per_hour": 3
+      "trips_per_hour": 3,
+      "gp_cost_per_hour": 15000,
+      "net_gp_per_hour": -9200,
+      "tradeoff_profile": "+XP 0GP"
     },
     {
       "id": "heartlands_seagull_safespot",
@@ -165,7 +174,10 @@
       "effective_gp_per_hour": 4025,
       "travel_minutes_per_hour": 2.5,
       "active_minutes_per_hour": 57.5,
-      "trips_per_hour": 3
+      "trips_per_hour": 3,
+      "gp_cost_per_hour": 15000,
+      "net_gp_per_hour": -10800,
+      "tradeoff_profile": "+XP-GP"
     },
     {
       "id": "boneyard_skeleton_range",
@@ -208,7 +220,10 @@
       "effective_gp_per_hour": 9667,
       "travel_minutes_per_hour": 2,
       "active_minutes_per_hour": 58,
-      "trips_per_hour": 3
+      "trips_per_hour": 3,
+      "gp_cost_per_hour": 15000,
+      "net_gp_per_hour": -5000,
+      "tradeoff_profile": "+XP 0GP"
     },
     {
       "id": "saltbrine_seagull_chin",
@@ -245,7 +260,10 @@
       "effective_gp_per_hour": 0,
       "travel_minutes_per_hour": 6.5,
       "active_minutes_per_hour": 53.5,
-      "trips_per_hour": 5
+      "trips_per_hour": 5,
+      "gp_cost_per_hour": 180000,
+      "net_gp_per_hour": -180000,
+      "tradeoff_profile": "+XP-GP"
     },
     {
       "id": "heartlands_sand_crab_range",
@@ -283,7 +301,10 @@
       "effective_gp_per_hour": 0,
       "travel_minutes_per_hour": 2.5,
       "active_minutes_per_hour": 57.5,
-      "trips_per_hour": 3
+      "trips_per_hour": 3,
+      "gp_cost_per_hour": 15000,
+      "net_gp_per_hour": -15000,
+      "tradeoff_profile": "+XP-GP"
     },
     {
       "id": "boneyard_dagannoth_range",
@@ -326,7 +347,10 @@
       "effective_gp_per_hour": 44000,
       "travel_minutes_per_hour": 5,
       "active_minutes_per_hour": 55,
-      "trips_per_hour": 3
+      "trips_per_hour": 3,
+      "gp_cost_per_hour": 40000,
+      "net_gp_per_hour": 8000,
+      "tradeoff_profile": "+XP 0GP"
     },
     {
       "id": "saltbrine_rock_crab_range",
@@ -363,7 +387,10 @@
       "effective_gp_per_hour": 0,
       "travel_minutes_per_hour": 0,
       "active_minutes_per_hour": 60,
-      "trips_per_hour": 0
+      "trips_per_hour": 0,
+      "gp_cost_per_hour": 15000,
+      "net_gp_per_hour": -15000,
+      "tradeoff_profile": "+XP-GP"
     },
     {
       "id": "heartlands_experiments_range",
@@ -407,7 +434,10 @@
       "effective_gp_per_hour": 43125,
       "travel_minutes_per_hour": 2.5,
       "active_minutes_per_hour": 57.5,
-      "trips_per_hour": 3
+      "trips_per_hour": 3,
+      "gp_cost_per_hour": 40000,
+      "net_gp_per_hour": 5000,
+      "tradeoff_profile": "+XP 0GP"
     },
     {
       "id": "heartlands_ammonite_range",
@@ -444,7 +474,10 @@
       "effective_gp_per_hour": 0,
       "travel_minutes_per_hour": 4.4,
       "active_minutes_per_hour": 55.6,
-      "trips_per_hour": 3
+      "trips_per_hour": 3,
+      "gp_cost_per_hour": 15000,
+      "net_gp_per_hour": -15000,
+      "tradeoff_profile": "+XP-GP"
     },
     {
       "id": "veilwood_mossgiant_chin",
@@ -488,7 +521,10 @@
       "effective_gp_per_hour": 129292,
       "travel_minutes_per_hour": 6.5,
       "active_minutes_per_hour": 53.5,
-      "trips_per_hour": 5
+      "trips_per_hour": 5,
+      "gp_cost_per_hour": 180000,
+      "net_gp_per_hour": -35000,
+      "tradeoff_profile": "+XP-GP"
     },
     {
       "id": "veilwood_nightmare_range",
@@ -527,7 +563,10 @@
       "effective_gp_per_hour": 0,
       "travel_minutes_per_hour": 3.9,
       "active_minutes_per_hour": 56.1,
-      "trips_per_hour": 3
+      "trips_per_hour": 3,
+      "gp_cost_per_hour": 15000,
+      "net_gp_per_hour": -15000,
+      "tradeoff_profile": "+XP-GP"
     },
     {
       "id": "saltbrine_raider_range",
@@ -569,7 +608,10 @@
       "effective_gp_per_hour": 117361,
       "travel_minutes_per_hour": 3.7,
       "active_minutes_per_hour": 56.3,
-      "trips_per_hour": 5
+      "trips_per_hour": 5,
+      "gp_cost_per_hour": 70000,
+      "net_gp_per_hour": 55000,
+      "tradeoff_profile": "+XP+GP"
     },
     {
       "id": "inkweald_blowpipe_nightmare",
@@ -614,7 +656,10 @@
       "effective_gp_per_hour": 177450,
       "travel_minutes_per_hour": 5.4,
       "active_minutes_per_hour": 54.6,
-      "trips_per_hour": 3
+      "trips_per_hour": 3,
+      "gp_cost_per_hour": 40000,
+      "net_gp_per_hour": 155000,
+      "tradeoff_profile": "+XP+GP"
     },
     {
       "id": "inkweald_blowpipe_nightmare_afk",
@@ -659,7 +704,10 @@
       "effective_gp_per_hour": 113750,
       "travel_minutes_per_hour": 5.4,
       "active_minutes_per_hour": 54.6,
-      "trips_per_hour": 3
+      "trips_per_hour": 3,
+      "gp_cost_per_hour": 15000,
+      "net_gp_per_hour": 110000,
+      "tradeoff_profile": "+XP+GP"
     },
     {
       "id": "wilds_lava_range",
@@ -701,7 +749,10 @@
       "effective_gp_per_hour": 255550,
       "travel_minutes_per_hour": 6.2,
       "active_minutes_per_hour": 53.8,
-      "trips_per_hour": 3
+      "trips_per_hour": 3,
+      "gp_cost_per_hour": 15000,
+      "net_gp_per_hour": 270000,
+      "tradeoff_profile": "+XP+GP"
     },
     {
       "id": "wilds_callisto_range",
@@ -745,7 +796,10 @@
       "effective_gp_per_hour": 450533,
       "travel_minutes_per_hour": 16.4,
       "active_minutes_per_hour": 43.6,
-      "trips_per_hour": 3
+      "trips_per_hour": 3,
+      "gp_cost_per_hour": 90000,
+      "net_gp_per_hour": 530000,
+      "tradeoff_profile": "+XP+GP"
     },
     {
       "id": "wilds_gorilla_range",
@@ -789,7 +843,10 @@
       "effective_gp_per_hour": 444583,
       "travel_minutes_per_hour": 5,
       "active_minutes_per_hour": 55,
-      "trips_per_hour": 5
+      "trips_per_hour": 5,
+      "gp_cost_per_hour": 120000,
+      "net_gp_per_hour": 365000,
+      "tradeoff_profile": "+XP+GP"
     },
     {
       "id": "inkweald_dream_koi_range_afk",
@@ -833,7 +890,10 @@
       "effective_gp_per_hour": 218400,
       "travel_minutes_per_hour": 5.4,
       "active_minutes_per_hour": 54.6,
-      "trips_per_hour": 3
+      "trips_per_hour": 3,
+      "gp_cost_per_hour": 15000,
+      "net_gp_per_hour": 225000,
+      "tradeoff_profile": "+XP+GP"
     },
     {
       "id": "wilds_tbow_revenants",
@@ -876,7 +936,10 @@
       "effective_gp_per_hour": 1375000,
       "travel_minutes_per_hour": 5,
       "active_minutes_per_hour": 55,
-      "trips_per_hour": 5
+      "trips_per_hour": 5,
+      "gp_cost_per_hour": 70000,
+      "net_gp_per_hour": 1430000,
+      "tradeoff_profile": "+XP+GP"
     },
     {
       "id": "heartlands_active_chin_range_task",
@@ -919,7 +982,10 @@
       "effective_gp_per_hour": 1300000,
       "travel_minutes_per_hour": 0,
       "active_minutes_per_hour": 60,
-      "trips_per_hour": 0
+      "trips_per_hour": 0,
+      "gp_cost_per_hour": 180000,
+      "net_gp_per_hour": 1120000,
+      "tradeoff_profile": "+XP+GP"
     },
     {
       "id": "glass_desert_tombs_expert_solo",
@@ -970,7 +1036,10 @@
       "effective_gp_per_hour": 8433333,
       "travel_minutes_per_hour": 5,
       "active_minutes_per_hour": 55,
-      "trips_per_hour": 5
+      "trips_per_hour": 5,
+      "gp_cost_per_hour": 70000,
+      "net_gp_per_hour": 9130000,
+      "tradeoff_profile": "+XP+GP"
     }
   ],
   "bracket_coverage": {
