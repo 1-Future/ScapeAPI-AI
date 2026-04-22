@@ -1,7 +1,7 @@
 {
   "$schema": "scape.collection-log.v1",
   "generated": "2026-04-22",
-  "notes": "Static catalogue of unique drop sources. Player progress lives on player.collectionLog. Source ids are stable engine identifiers (boss def_ids, minigame ids, etc.). Items reference data/items.js by numeric id. Cross-referenced from src/content/aelgard/{bosses-expanded,raids-bosses-mega,raids-mega1,raids-mega2,clue-scrolls-expanded,treasure-trails,minigames,slayer-expansion}.js — port any new drops here. (v0.9-waveA2 C10: pets-collection.js reconciled into this file; its defineLogSection catalogue was orphan data. Pet definitions still live there for pets-extended.js consumers.)",
+  "notes": "Static catalogue of unique drop sources. Player progress lives on player.collectionLog. Source ids are stable engine identifiers (boss def_ids, minigame ids, etc.). Items reference data/items.js by numeric id. Cross-referenced from src/content/aelgard/{bosses-expanded,raids-bosses-mega,raids-mega1,raids-mega2,clue-scrolls-expanded,clue-scrolls-easy,treasure-trails,minigames,slayer-expansion,monsters-mega}.js. (v0.9-waveB4 H6/H7/H8/H14/H16/M4/M5/M18: +290 entries across boss ports, minigame wiring, Easy clue, raid expansion, skilling pets, Other category, slayer pets. H14 rebalance: skilling-pet rates /4, boss-pet rates /2 — stored as `rate` on each item where known.)",
   "sources": [
     {
       "id": "forgefather_duran",
@@ -9,8 +9,8 @@
       "category": "boss",
       "region": "heartlands",
       "items": [
-        { "id": 3010, "name": "Duran's hammer" },
-        { "id": 80001, "name": "Baby Duran" }
+        { "id": 3010, "name": "Duran's hammer", "rate": 256 },
+        { "id": 80001, "name": "Baby Duran", "rate": 1500 }
       ],
       "completionReward": {
         "cosmetic": "Duran's molten cloak",
@@ -24,10 +24,10 @@
       "category": "boss",
       "region": "boneyard",
       "items": [
-        { "id": 4050, "name": "Azhmari's crown" },
-        { "id": 4051, "name": "Sandstorm staff" },
-        { "id": 4052, "name": "Bone cleaver" },
-        { "id": 80002, "name": "Sand Prince Jr." }
+        { "id": 4050, "name": "Azhmari's crown", "rate": 256 },
+        { "id": 4051, "name": "Sandstorm staff", "rate": 256 },
+        { "id": 4052, "name": "Bone cleaver", "rate": 256 },
+        { "id": 80002, "name": "Sand Prince Jr.", "rate": 1500 }
       ],
       "completionReward": {
         "cosmetic": "Sand-prince circlet",
@@ -41,9 +41,9 @@
       "category": "boss",
       "region": "boneyard",
       "items": [
-        { "id": 4060, "name": "Hydra scale" },
-        { "id": 4061, "name": "Hydra leather body" },
-        { "id": 80003, "name": "Hydra cub" }
+        { "id": 4060, "name": "Hydra scale", "rate": 128 },
+        { "id": 4061, "name": "Hydra leather body", "rate": 256 },
+        { "id": 80003, "name": "Hydra cub", "rate": 2000 }
       ],
       "completionReward": { "cosmetic": "Bog-stained mantle", "title": "the Hydra-slayer", "log": "Bog Hydra" }
     },
@@ -53,10 +53,10 @@
       "category": "boss",
       "region": "moryskah",
       "items": [
-        { "id": 5050, "name": "Malachar's signet" },
-        { "id": 5051, "name": "Sanguine cape" },
-        { "id": 5052, "name": "Bloodwood staff" },
-        { "id": 80004, "name": "Count Malachar Jr." }
+        { "id": 5050, "name": "Malachar's signet", "rate": 256 },
+        { "id": 5051, "name": "Sanguine cape", "rate": 256 },
+        { "id": 5052, "name": "Bloodwood staff", "rate": 256 },
+        { "id": 80004, "name": "Count Malachar Jr.", "rate": 1500 }
       ],
       "completionReward": { "cosmetic": "Sanguine vampyric robes", "title": "the Stake-bearer", "log": "Count Malachar" }
     },
@@ -66,10 +66,10 @@
       "category": "boss",
       "region": "veilwood",
       "items": [
-        { "id": 6050, "name": "Veilmother's heartwood" },
-        { "id": 6051, "name": "Verdant plate" },
-        { "id": 6052, "name": "Root whip" },
-        { "id": 80005, "name": "Veil sprout" }
+        { "id": 6050, "name": "Veilmother's heartwood", "rate": 256 },
+        { "id": 6051, "name": "Verdant plate", "rate": 256 },
+        { "id": 6052, "name": "Root whip", "rate": 256 },
+        { "id": 80005, "name": "Veil sprout", "rate": 1500 }
       ],
       "completionReward": { "cosmetic": "Heartwood crown", "title": "of the Verdant Veil", "log": "The Veilmother" }
     },
@@ -79,9 +79,9 @@
       "category": "boss",
       "region": "sootworks",
       "items": [
-        { "id": 7050, "name": "Vorath's anvil ring" },
-        { "id": 7051, "name": "Molten maul" },
-        { "id": 80006, "name": "Mini anvil" }
+        { "id": 7050, "name": "Vorath's anvil ring", "rate": 256 },
+        { "id": 7051, "name": "Molten maul", "rate": 256 },
+        { "id": 80006, "name": "Mini anvil", "rate": 1500 }
       ],
       "completionReward": { "cosmetic": "Smoke-soot warden's helm", "title": "the Deep-Vein Warden", "log": "Vorath" }
     },
@@ -91,8 +91,8 @@
       "category": "boss",
       "region": "sootworks",
       "items": [
-        { "id": 7060, "name": "Soot King crown" },
-        { "id": 80007, "name": "Soot golem" }
+        { "id": 7060, "name": "Soot King crown", "rate": 384 },
+        { "id": 80007, "name": "Soot golem", "rate": 2500 }
       ],
       "completionReward": { "cosmetic": "Ash-blackened mantle", "title": "the Sootcrowned", "log": "Soot King" }
     },
@@ -102,10 +102,10 @@
       "category": "boss",
       "region": "saltbrine",
       "items": [
-        { "id": 8050, "name": "Kraken tentacle" },
-        { "id": 8051, "name": "Tidal amulet" },
-        { "id": 8052, "name": "Abyssal trident" },
-        { "id": 80008, "name": "Baby kraken" }
+        { "id": 8050, "name": "Kraken tentacle", "rate": 256 },
+        { "id": 8051, "name": "Tidal amulet", "rate": 256 },
+        { "id": 8052, "name": "Abyssal trident", "rate": 384 },
+        { "id": 80008, "name": "Baby kraken", "rate": 1500 }
       ],
       "completionReward": { "cosmetic": "Tidal-storm cloak", "title": "the Tidebreaker", "log": "Kraken of Saltbrine" }
     },
@@ -115,9 +115,9 @@
       "category": "boss",
       "region": "inkweald",
       "items": [
-        { "id": 9050, "name": "Muse's mask" },
-        { "id": 9051, "name": "Dreamweaver staff" },
-        { "id": 80009, "name": "Dream wisp pet" }
+        { "id": 9050, "name": "Muse's mask", "rate": 256 },
+        { "id": 9051, "name": "Dreamweaver staff", "rate": 256 },
+        { "id": 80009, "name": "Dream wisp pet", "rate": 2000 }
       ],
       "completionReward": { "cosmetic": "Lucid muse's veil", "title": "the Lucid", "log": "Inkweald Muse" }
     },
@@ -127,9 +127,9 @@
       "category": "boss",
       "region": "glass_desert",
       "items": [
-        { "id": 10050, "name": "Glass crown" },
-        { "id": 10051, "name": "Prismatic blade" },
-        { "id": 80011, "name": "Glass shard pet" }
+        { "id": 10050, "name": "Glass crown", "rate": 256 },
+        { "id": 10051, "name": "Prismatic blade", "rate": 256 },
+        { "id": 80011, "name": "Glass shard pet", "rate": 2000 }
       ],
       "completionReward": { "cosmetic": "Refracted prism cloak", "title": "the Prism-shattered", "log": "Glass Tyrant" }
     },
@@ -139,10 +139,10 @@
       "category": "boss",
       "region": "glass_desert",
       "items": [
-        { "id": 10060, "name": "Dragon shard" },
-        { "id": 10061, "name": "Veldrak's talon" },
-        { "id": 10062, "name": "Veldrak's scale mail" },
-        { "id": 80012, "name": "Veldrak hatchling" }
+        { "id": 10060, "name": "Dragon shard", "rate": 256 },
+        { "id": 10061, "name": "Veldrak's talon", "rate": 384 },
+        { "id": 10062, "name": "Veldrak's scale mail", "rate": 512 },
+        { "id": 80012, "name": "Veldrak hatchling", "rate": 2500 }
       ],
       "completionReward": { "cosmetic": "Dragonbone cape (coloured)", "title": "the Last-Dragon Slayer", "log": "Veldrak" }
     },
@@ -152,11 +152,11 @@
       "category": "boss",
       "region": "glass_desert",
       "items": [
-        { "id": 2010, "name": "Wyrm scale platebody" },
-        { "id": 2011, "name": "Wyrm scale platelegs" },
-        { "id": 2012, "name": "Wyrm scale helm" },
-        { "id": 2015, "name": "Crystal wyrm fang" },
-        { "id": 80013, "name": "Wyrm scale pet" }
+        { "id": 2010, "name": "Wyrm scale platebody", "rate": 384 },
+        { "id": 2011, "name": "Wyrm scale platelegs", "rate": 384 },
+        { "id": 2012, "name": "Wyrm scale helm", "rate": 384 },
+        { "id": 2015, "name": "Crystal wyrm fang", "rate": 512 },
+        { "id": 80013, "name": "Wyrm scale pet", "rate": 1500 }
       ],
       "completionReward": { "cosmetic": "Crystallised wyrm-scale trim", "title": "the Wyrm-Hunter", "log": "Crystal Wyrm" }
     },
@@ -166,10 +166,10 @@
       "category": "boss",
       "region": "wilds",
       "items": [
-        { "id": 91008, "name": "Saradomin sword" },
-        { "id": 91001, "name": "Saradomin hilt" },
-        { "id": 91005, "name": "Godsword blade" },
-        { "id": 82001, "name": "Zilyana Jr." }
+        { "id": 91008, "name": "Saradomin sword", "rate": 127 },
+        { "id": 91001, "name": "Saradomin hilt", "rate": 508 },
+        { "id": 91005, "name": "Godsword blade", "rate": 127 },
+        { "id": 82001, "name": "Zilyana Jr.", "rate": 2500 }
       ],
       "completionReward": { "cosmetic": "Saradomin's blessed wings", "title": "Commander", "log": "Zilyana" }
     },
@@ -179,12 +179,12 @@
       "category": "boss",
       "region": "wilds",
       "items": [
-        { "id": 26003, "name": "Bandos chestplate" },
-        { "id": 26004, "name": "Bandos tassets" },
-        { "id": 91010, "name": "Bandos boots" },
-        { "id": 91003, "name": "Bandos hilt" },
-        { "id": 26005, "name": "Bandos godsword" },
-        { "id": 82002, "name": "General Graardor Jr." }
+        { "id": 26003, "name": "Bandos chestplate", "rate": 381 },
+        { "id": 26004, "name": "Bandos tassets", "rate": 381 },
+        { "id": 91010, "name": "Bandos boots", "rate": 381 },
+        { "id": 91003, "name": "Bandos hilt", "rate": 508 },
+        { "id": 26005, "name": "Bandos godsword", "rate": 508 },
+        { "id": 82002, "name": "General Graardor Jr.", "rate": 2500 }
       ],
       "completionReward": { "cosmetic": "Bandos warlord's mantle", "title": "the Warlord", "log": "Graardor" }
     },
@@ -194,12 +194,12 @@
       "category": "boss",
       "region": "wilds",
       "items": [
-        { "id": 26006, "name": "Armadyl chestplate" },
-        { "id": 26007, "name": "Armadyl chainskirt" },
-        { "id": 91011, "name": "Armadyl helmet" },
-        { "id": 91004, "name": "Armadyl hilt" },
-        { "id": 26008, "name": "Armadyl crossbow" },
-        { "id": 82003, "name": "Kree'arra Jr." }
+        { "id": 26006, "name": "Armadyl chestplate", "rate": 381 },
+        { "id": 26007, "name": "Armadyl chainskirt", "rate": 381 },
+        { "id": 91011, "name": "Armadyl helmet", "rate": 381 },
+        { "id": 91004, "name": "Armadyl hilt", "rate": 508 },
+        { "id": 26008, "name": "Armadyl crossbow", "rate": 508 },
+        { "id": 82003, "name": "Kree'arra Jr.", "rate": 2500 }
       ],
       "completionReward": { "cosmetic": "Aviansie wings (decorative)", "title": "the Skybound", "log": "Kree'arra" }
     },
@@ -209,9 +209,9 @@
       "category": "boss",
       "region": "wilds",
       "items": [
-        { "id": 91009, "name": "Zamorak spear" },
-        { "id": 91002, "name": "Zamorak hilt" },
-        { "id": 82004, "name": "K'ril Jr." }
+        { "id": 91009, "name": "Zamorak spear", "rate": 127 },
+        { "id": 91002, "name": "Zamorak hilt", "rate": 508 },
+        { "id": 82004, "name": "K'ril Jr.", "rate": 2500 }
       ],
       "completionReward": { "cosmetic": "Zamorak's burning brand", "title": "the Demon-bound", "log": "K'ril Tsutsaroth" }
     },
@@ -221,10 +221,10 @@
       "category": "boss",
       "region": "saltbrine",
       "items": [
-        { "id": 91101, "name": "Tanzanite fang" },
-        { "id": 91102, "name": "Magic fang" },
-        { "id": 91103, "name": "Serpentine visage" },
-        { "id": 82005, "name": "Snakeling" }
+        { "id": 91101, "name": "Tanzanite fang", "rate": 256 },
+        { "id": 91102, "name": "Magic fang", "rate": 256 },
+        { "id": 91103, "name": "Serpentine visage", "rate": 256 },
+        { "id": 82005, "name": "Snakeling", "rate": 1500 }
       ],
       "completionReward": { "cosmetic": "Serpentine scarf", "title": "of Zul-Andra", "log": "Zulrah" }
     },
@@ -234,10 +234,10 @@
       "category": "boss",
       "region": "moryskah",
       "items": [
-        { "id": 91201, "name": "Vorkath's head" },
-        { "id": 91202, "name": "Dragonbone necklace" },
-        { "id": 91203, "name": "Skeletal visage" },
-        { "id": 82006, "name": "Vorki" }
+        { "id": 91201, "name": "Vorkath's head", "rate": 25 },
+        { "id": 91202, "name": "Dragonbone necklace", "rate": 500 },
+        { "id": 91203, "name": "Skeletal visage", "rate": 2500 },
+        { "id": 82006, "name": "Vorki", "rate": 1500 }
       ],
       "completionReward": { "cosmetic": "Vorkath head trophy (mounted)", "title": "the Dragon-mounted", "log": "Vorkath" }
     },
@@ -247,10 +247,10 @@
       "category": "boss",
       "region": "wilds",
       "items": [
-        { "id": 91301, "name": "Spectral sigil" },
-        { "id": 91302, "name": "Arcane sigil" },
-        { "id": 91303, "name": "Elysian sigil" },
-        { "id": 82007, "name": "Dark core pet" }
+        { "id": 91301, "name": "Spectral sigil", "rate": 683 },
+        { "id": 91302, "name": "Arcane sigil", "rate": 683 },
+        { "id": 91303, "name": "Elysian sigil", "rate": 2048 },
+        { "id": 82007, "name": "Dark core pet", "rate": 2500 }
       ],
       "completionReward": { "cosmetic": "Spirit-shield emblem cloak", "title": "the Spirit-Cleaver", "log": "Corporeal Beast" }
     },
@@ -260,15 +260,15 @@
       "category": "boss",
       "region": "inkweald",
       "items": [
-        { "id": 91401, "name": "Nightmare staff" },
-        { "id": 91402, "name": "Harmonised orb" },
-        { "id": 91403, "name": "Volatile orb" },
-        { "id": 91404, "name": "Eldritch orb" },
-        { "id": 91405, "name": "Inquisitor's mace" },
-        { "id": 91406, "name": "Inquisitor's hauberk" },
-        { "id": 91407, "name": "Inquisitor's plateskirt" },
-        { "id": 91408, "name": "Inquisitor's great helm" },
-        { "id": 82008, "name": "Little nightmare" }
+        { "id": 91401, "name": "Nightmare staff", "rate": 200 },
+        { "id": 91402, "name": "Harmonised orb", "rate": 800 },
+        { "id": 91403, "name": "Volatile orb", "rate": 800 },
+        { "id": 91404, "name": "Eldritch orb", "rate": 800 },
+        { "id": 91405, "name": "Inquisitor's mace", "rate": 300 },
+        { "id": 91406, "name": "Inquisitor's hauberk", "rate": 300 },
+        { "id": 91407, "name": "Inquisitor's plateskirt", "rate": 300 },
+        { "id": 91408, "name": "Inquisitor's great helm", "rate": 300 },
+        { "id": 82008, "name": "Little nightmare", "rate": 2000 }
       ],
       "completionReward": { "cosmetic": "Inquisitor's full helm (recoloured)", "title": "the Dreamwarden", "log": "The Nightmare" }
     },
@@ -278,12 +278,12 @@
       "category": "boss",
       "region": "saltbrine",
       "items": [
-        { "id": 24001, "name": "Berserker ring" },
-        { "id": 24002, "name": "Archers ring" },
-        { "id": 24003, "name": "Seers ring" },
-        { "id": 82009, "name": "Dagannoth Rex pet" },
-        { "id": 82010, "name": "Dagannoth Prime pet" },
-        { "id": 82011, "name": "Dagannoth Supreme pet" }
+        { "id": 24001, "name": "Berserker ring", "rate": 128 },
+        { "id": 24002, "name": "Archers ring", "rate": 128 },
+        { "id": 24003, "name": "Seers ring", "rate": 128 },
+        { "id": 82009, "name": "Dagannoth Rex pet", "rate": 1500 },
+        { "id": 82010, "name": "Dagannoth Prime pet", "rate": 1500 },
+        { "id": 82011, "name": "Dagannoth Supreme pet", "rate": 1500 }
       ],
       "completionReward": { "cosmetic": "Triple-king signet", "title": "King-Slayer", "log": "Dagannoth Kings" }
     },
@@ -293,7 +293,7 @@
       "category": "boss",
       "region": "heartlands",
       "items": [
-        { "id": 82012, "name": "Baby mole" }
+        { "id": 82012, "name": "Baby mole", "rate": 1500 }
       ],
       "completionReward": { "cosmetic": "Mole-fur scarf", "title": "the Burrower", "log": "Giant Mole" }
     },
@@ -303,9 +303,9 @@
       "category": "boss",
       "region": "boneyard",
       "items": [
-        { "id": 91501, "name": "Dragon chain" },
-        { "id": 24006, "name": "Brimstone ring" },
-        { "id": 82013, "name": "Kalphite princess" }
+        { "id": 91501, "name": "Dragon chain", "rate": 128 },
+        { "id": 24006, "name": "Brimstone ring", "rate": 200 },
+        { "id": 82013, "name": "Kalphite princess", "rate": 1500 }
       ],
       "completionReward": { "cosmetic": "Kalphite mandible cape", "title": "the Hive-Slayer", "log": "Kalphite Queen" }
     },
@@ -315,30 +315,30 @@
       "category": "boss",
       "region": "moryskah",
       "items": [
-        { "id": 21001, "name": "Dharok's greataxe" },
-        { "id": 21002, "name": "Dharok's helm" },
-        { "id": 21003, "name": "Dharok's platebody" },
-        { "id": 21004, "name": "Dharok's platelegs" },
-        { "id": 21011, "name": "Guthan's warspear" },
-        { "id": 21012, "name": "Guthan's helm" },
-        { "id": 21013, "name": "Guthan's platebody" },
-        { "id": 21014, "name": "Guthan's chainskirt" },
-        { "id": 21021, "name": "Verac's flail" },
-        { "id": 21022, "name": "Verac's helm" },
-        { "id": 21023, "name": "Verac's brassard" },
-        { "id": 21024, "name": "Verac's plateskirt" },
-        { "id": 21031, "name": "Ahrim's staff" },
-        { "id": 21032, "name": "Ahrim's hood" },
-        { "id": 21033, "name": "Ahrim's robe top" },
-        { "id": 21034, "name": "Ahrim's robe bottom" },
-        { "id": 21041, "name": "Karil's crossbow" },
-        { "id": 21042, "name": "Karil's coif" },
-        { "id": 21043, "name": "Karil's leathertop" },
-        { "id": 21044, "name": "Karil's leatherskirt" },
-        { "id": 21051, "name": "Torag's hammers" },
-        { "id": 21052, "name": "Torag's helm" },
-        { "id": 21053, "name": "Torag's platebody" },
-        { "id": 21054, "name": "Torag's platelegs" }
+        { "id": 21001, "name": "Dharok's greataxe", "rate": 392 },
+        { "id": 21002, "name": "Dharok's helm", "rate": 392 },
+        { "id": 21003, "name": "Dharok's platebody", "rate": 392 },
+        { "id": 21004, "name": "Dharok's platelegs", "rate": 392 },
+        { "id": 21011, "name": "Guthan's warspear", "rate": 392 },
+        { "id": 21012, "name": "Guthan's helm", "rate": 392 },
+        { "id": 21013, "name": "Guthan's platebody", "rate": 392 },
+        { "id": 21014, "name": "Guthan's chainskirt", "rate": 392 },
+        { "id": 21021, "name": "Verac's flail", "rate": 392 },
+        { "id": 21022, "name": "Verac's helm", "rate": 392 },
+        { "id": 21023, "name": "Verac's brassard", "rate": 392 },
+        { "id": 21024, "name": "Verac's plateskirt", "rate": 392 },
+        { "id": 21031, "name": "Ahrim's staff", "rate": 392 },
+        { "id": 21032, "name": "Ahrim's hood", "rate": 392 },
+        { "id": 21033, "name": "Ahrim's robe top", "rate": 392 },
+        { "id": 21034, "name": "Ahrim's robe bottom", "rate": 392 },
+        { "id": 21041, "name": "Karil's crossbow", "rate": 392 },
+        { "id": 21042, "name": "Karil's coif", "rate": 392 },
+        { "id": 21043, "name": "Karil's leathertop", "rate": 392 },
+        { "id": 21044, "name": "Karil's leatherskirt", "rate": 392 },
+        { "id": 21051, "name": "Torag's hammers", "rate": 392 },
+        { "id": 21052, "name": "Torag's helm", "rate": 392 },
+        { "id": 21053, "name": "Torag's platebody", "rate": 392 },
+        { "id": 21054, "name": "Torag's platelegs", "rate": 392 }
       ],
       "completionReward": { "cosmetic": "Barrows-stained shroud", "title": "the Brother-Bested", "log": "Barrows" }
     },
@@ -348,10 +348,21 @@
       "category": "raid",
       "region": "inkweald",
       "items": [
-        { "id": 9060, "name": "Choir sigil" },
-        { "id": 9061, "name": "Harmonic blade" },
-        { "id": 9062, "name": "Silence bow" },
-        { "id": 80010, "name": "Harmonic note" }
+        { "id": 9060, "name": "Choir sigil", "rate": 128 },
+        { "id": 9061, "name": "Harmonic blade", "rate": 256 },
+        { "id": 9062, "name": "Silence bow", "rate": 256 },
+        { "id": 9063, "name": "Chorister's robe top", "rate": 256 },
+        { "id": 9064, "name": "Chorister's robe bottom", "rate": 256 },
+        { "id": 9065, "name": "Chorister's hood", "rate": 256 },
+        { "id": 9066, "name": "Resonating tuning fork", "rate": 384 },
+        { "id": 9067, "name": "Silencer's cowl", "rate": 512 },
+        { "id": 9068, "name": "Harmonic pendant", "rate": 512 },
+        { "id": 9069, "name": "Hymnbook of the Chorus", "rate": 512 },
+        { "id": 9070, "name": "Choir sigil fragment", "rate": 100 },
+        { "id": 9071, "name": "Harmonic shard", "rate": 100 },
+        { "id": 9072, "name": "Dirge parchment", "rate": 200 },
+        { "id": 9073, "name": "Choir's candle", "rate": 150 },
+        { "id": 80010, "name": "Harmonic note", "rate": 2500 }
       ],
       "completionReward": { "cosmetic": "Hollow Choir conductor's robe", "title": "the Conductor", "log": "Hollow Choir" }
     },
@@ -361,11 +372,21 @@
       "category": "raid",
       "region": "wilds",
       "items": [
-        { "id": 26009, "name": "Ancestral hat" },
-        { "id": 26010, "name": "Ancestral robe top" },
-        { "id": 26011, "name": "Ancestral robe bottom" },
-        { "id": 26012, "name": "Twisted bow" },
-        { "id": 26013, "name": "Scythe of vitur" }
+        { "id": 26009, "name": "Ancestral hat", "rate": 512 },
+        { "id": 26010, "name": "Ancestral robe top", "rate": 512 },
+        { "id": 26011, "name": "Ancestral robe bottom", "rate": 512 },
+        { "id": 26012, "name": "Twisted bow", "rate": 1024 },
+        { "id": 26013, "name": "Scythe of vitur", "rate": 1024 },
+        { "id": 26014, "name": "Dragon warhammer", "rate": 384 },
+        { "id": 26015, "name": "Staff of the dead", "rate": 384 },
+        { "id": 26016, "name": "Ghrazi rapier", "rate": 512 },
+        { "id": 26017, "name": "Faceguard of Ranis", "rate": 512 },
+        { "id": 26018, "name": "Sanguinesti staff", "rate": 768 },
+        { "id": 26019, "name": "Justiciar faceguard", "rate": 512 },
+        { "id": 26020, "name": "Justiciar chestguard", "rate": 512 },
+        { "id": 26021, "name": "Justiciar legguards", "rate": 512 },
+        { "id": 26022, "name": "Holy ornament kit", "rate": 256 },
+        { "id": 26023, "name": "Godwars commander banner", "rate": 512 }
       ],
       "completionReward": { "cosmetic": "Godwars commander cape", "title": "the All-Generals'-Bane", "log": "GWD mega-rares" }
     },
@@ -375,9 +396,67 @@
       "category": "clue",
       "region": "any",
       "items": [
-        { "id": 12501, "name": "Uncut sapphire" }
+        { "id": 12501, "name": "Uncut sapphire", "rate": 20 },
+        { "id": 33010, "name": "Reward casket (beginner)", "rate": 1 },
+        { "id": 23050, "name": "Wooden shield (t)", "rate": 40 },
+        { "id": 23051, "name": "Monk's robe (trimmed)", "rate": 40 },
+        { "id": 23052, "name": "Amulet of bounty", "rate": 50 }
       ],
       "completionReward": { "cosmetic": "Beginner clue casket trophy", "title": "the Novice Treasure-Hunter", "log": "Beginner Clues" }
+    },
+    {
+      "id": "clue_easy",
+      "name": "Clue Scroll (Easy)",
+      "category": "clue",
+      "region": "any",
+      "items": [
+        { "id": 23100, "name": "Black platebody (t)", "rate": 100 },
+        { "id": 23101, "name": "Black plateskirt (t)", "rate": 100 },
+        { "id": 23102, "name": "Black platelegs (t)", "rate": 100 },
+        { "id": 23103, "name": "Black full helm (t)", "rate": 100 },
+        { "id": 23104, "name": "Black kiteshield (t)", "rate": 100 },
+        { "id": 23105, "name": "Black platebody (g)", "rate": 100 },
+        { "id": 23106, "name": "Black plateskirt (g)", "rate": 100 },
+        { "id": 23107, "name": "Black platelegs (g)", "rate": 100 },
+        { "id": 23108, "name": "Black full helm (g)", "rate": 100 },
+        { "id": 23109, "name": "Black kiteshield (g)", "rate": 100 },
+        { "id": 23110, "name": "Studded chaps (trimmed)", "rate": 80 },
+        { "id": 23111, "name": "Studded body (trimmed)", "rate": 80 },
+        { "id": 23112, "name": "Leather body (gold)", "rate": 80 },
+        { "id": 23113, "name": "Leather chaps (gold)", "rate": 80 },
+        { "id": 23114, "name": "Wizard hat (trimmed)", "rate": 80 },
+        { "id": 23115, "name": "Wizard robe (trimmed)", "rate": 80 },
+        { "id": 23116, "name": "Wizard skirt (trimmed)", "rate": 80 },
+        { "id": 23117, "name": "Monk's robe top (g)", "rate": 80 },
+        { "id": 23118, "name": "Monk's robe bottom (g)", "rate": 80 },
+        { "id": 23119, "name": "Ham shirt (trimmed)", "rate": 60 },
+        { "id": 23120, "name": "Large bronze bar", "rate": 60 },
+        { "id": 23121, "name": "Bronze chain (t)", "rate": 60 },
+        { "id": 23122, "name": "Iron plate (t)", "rate": 80 },
+        { "id": 23123, "name": "Steel plate (t)", "rate": 80 },
+        { "id": 23124, "name": "Mithril plate (t)", "rate": 80 },
+        { "id": 23125, "name": "Adamant plate (t)", "rate": 80 },
+        { "id": 23126, "name": "Adamant plate (g)", "rate": 80 },
+        { "id": 23127, "name": "Adamant helm (t)", "rate": 80 },
+        { "id": 23128, "name": "Adamant helm (g)", "rate": 80 },
+        { "id": 23129, "name": "Adamant kiteshield (t)", "rate": 80 },
+        { "id": 23130, "name": "Adamant kiteshield (g)", "rate": 80 },
+        { "id": 23131, "name": "Bronze boots", "rate": 60 },
+        { "id": 23132, "name": "Iron boots", "rate": 60 },
+        { "id": 23133, "name": "Steel boots", "rate": 60 },
+        { "id": 23134, "name": "Mithril boots", "rate": 60 },
+        { "id": 23135, "name": "Adamant boots", "rate": 60 },
+        { "id": 23136, "name": "Highwayman mask", "rate": 50 },
+        { "id": 23137, "name": "Pirate bandana (red)", "rate": 50 },
+        { "id": 23138, "name": "Pirate bandana (blue)", "rate": 50 },
+        { "id": 23139, "name": "Pirate bandana (brown)", "rate": 50 },
+        { "id": 23140, "name": "Pirate bandana (white)", "rate": 50 },
+        { "id": 23141, "name": "Easy casket trophy pennant", "rate": 150 },
+        { "id": 23142, "name": "Amulet of fury (Easy recolour)", "rate": 300 },
+        { "id": 23143, "name": "Blue headband", "rate": 40 },
+        { "id": 23144, "name": "Brown headband", "rate": 40 }
+      ],
+      "completionReward": { "cosmetic": "Easy casket trophy (w/ treasure-hunter pennant)", "title": "the Budding Treasure-Hunter", "log": "Easy Clues" }
     },
     {
       "id": "clue_medium",
@@ -385,9 +464,31 @@
       "category": "clue",
       "region": "any",
       "items": [
-        { "id": 23020, "name": "Ranger boots" },
-        { "id": 23021, "name": "Wizard boots" },
-        { "id": 23003, "name": "Black platebody (t)" }
+        { "id": 23020, "name": "Ranger boots", "rate": 1100 },
+        { "id": 23021, "name": "Wizard boots", "rate": 1100 },
+        { "id": 23003, "name": "Black platebody (t)", "rate": 400 },
+        { "id": 23150, "name": "Holy sandals", "rate": 600 },
+        { "id": 23151, "name": "Spirit shield (trimmed)", "rate": 900 },
+        { "id": 23152, "name": "Medium clue book of protection", "rate": 1500 },
+        { "id": 23153, "name": "Beret (grey)", "rate": 200 },
+        { "id": 23154, "name": "Beret (pink)", "rate": 200 },
+        { "id": 23155, "name": "Beret (white)", "rate": 200 },
+        { "id": 23156, "name": "Sandwich lady hat", "rate": 250 },
+        { "id": 23157, "name": "Sandwich lady top", "rate": 250 },
+        { "id": 23158, "name": "Sandwich lady skirt", "rate": 250 },
+        { "id": 23159, "name": "Flared trousers", "rate": 150 },
+        { "id": 23160, "name": "Pantaloons (brown)", "rate": 150 },
+        { "id": 23161, "name": "Black elegant shirt", "rate": 150 },
+        { "id": 23162, "name": "Black elegant legs", "rate": 150 },
+        { "id": 23163, "name": "White elegant shirt", "rate": 150 },
+        { "id": 23164, "name": "White elegant skirt", "rate": 150 },
+        { "id": 23165, "name": "Grey elegant shirt", "rate": 150 },
+        { "id": 23166, "name": "Grey elegant legs", "rate": 150 },
+        { "id": 23167, "name": "Pink boater", "rate": 300 },
+        { "id": 23168, "name": "White boater", "rate": 300 },
+        { "id": 23169, "name": "Musketeer hat", "rate": 300 },
+        { "id": 23170, "name": "Cavalier hat (dark)", "rate": 400 },
+        { "id": 23171, "name": "Medium casket trophy pennant", "rate": 1200 }
       ],
       "completionReward": { "cosmetic": "Medium casket trophy", "title": "the Steady Treasure-Hunter", "log": "Medium Clues" }
     },
@@ -397,11 +498,30 @@
       "category": "clue",
       "region": "any",
       "items": [
-        { "id": 23001, "name": "Rune platebody (t)" },
-        { "id": 23002, "name": "Rune platebody (g)" },
-        { "id": 23022, "name": "Robin Hood hat" },
-        { "id": 23010, "name": "Holy book" },
-        { "id": 23011, "name": "Book of darkness" }
+        { "id": 23001, "name": "Rune platebody (t)", "rate": 1500 },
+        { "id": 23002, "name": "Rune platebody (g)", "rate": 1500 },
+        { "id": 23022, "name": "Robin Hood hat", "rate": 900 },
+        { "id": 23010, "name": "Holy book", "rate": 1000 },
+        { "id": 23011, "name": "Book of darkness", "rate": 1000 },
+        { "id": 23180, "name": "Book of war", "rate": 1000 },
+        { "id": 23181, "name": "Book of law", "rate": 1000 },
+        { "id": 23182, "name": "Book of balance", "rate": 1000 },
+        { "id": 23183, "name": "Rune kiteshield (t)", "rate": 1500 },
+        { "id": 23184, "name": "Rune kiteshield (g)", "rate": 1500 },
+        { "id": 23185, "name": "Rune full helm (t)", "rate": 1500 },
+        { "id": 23186, "name": "Rune full helm (g)", "rate": 1500 },
+        { "id": 23187, "name": "Black dragonhide body (t)", "rate": 1200 },
+        { "id": 23188, "name": "Black dragonhide body (g)", "rate": 1200 },
+        { "id": 23189, "name": "Black dragonhide chaps (t)", "rate": 1200 },
+        { "id": 23190, "name": "Black dragonhide chaps (g)", "rate": 1200 },
+        { "id": 23191, "name": "Enchanted robe top (t)", "rate": 1200 },
+        { "id": 23192, "name": "Enchanted robe bottom (t)", "rate": 1200 },
+        { "id": 23193, "name": "Enchanted hat (t)", "rate": 1200 },
+        { "id": 23194, "name": "Amulet of the damned (hard)", "rate": 800 },
+        { "id": 23195, "name": "Ranger tunic", "rate": 1400 },
+        { "id": 23196, "name": "Ranger gloves", "rate": 1400 },
+        { "id": 23197, "name": "Wizard robe (dark trimmed)", "rate": 1200 },
+        { "id": 23198, "name": "Hard casket trophy banner", "rate": 1500 }
       ],
       "completionReward": { "cosmetic": "Hard casket trophy", "title": "the Veteran Treasure-Hunter", "log": "Hard Clues" }
     },
@@ -411,11 +531,31 @@
       "category": "clue",
       "region": "any",
       "items": [
-        { "id": 23030, "name": "Third-age platebody" },
-        { "id": 23031, "name": "Third-age platelegs" },
-        { "id": 23032, "name": "Third-age full helm" },
-        { "id": 23033, "name": "Third-age range top" },
-        { "id": 23034, "name": "Third-age mage hat" }
+        { "id": 23030, "name": "Third-age platebody", "rate": 2500 },
+        { "id": 23031, "name": "Third-age platelegs", "rate": 2500 },
+        { "id": 23032, "name": "Third-age full helm", "rate": 2500 },
+        { "id": 23033, "name": "Third-age range top", "rate": 2500 },
+        { "id": 23034, "name": "Third-age mage hat", "rate": 2500 },
+        { "id": 23210, "name": "Third-age mage robe top", "rate": 2500 },
+        { "id": 23211, "name": "Third-age mage robe bottom", "rate": 2500 },
+        { "id": 23212, "name": "Third-age range legs", "rate": 2500 },
+        { "id": 23213, "name": "Third-age range coif", "rate": 2500 },
+        { "id": 23214, "name": "Third-age kiteshield", "rate": 2500 },
+        { "id": 23215, "name": "Third-age longsword", "rate": 2500 },
+        { "id": 23216, "name": "Third-age wand", "rate": 2500 },
+        { "id": 23217, "name": "Third-age bow", "rate": 2500 },
+        { "id": 23218, "name": "Dragonstone full helm", "rate": 900 },
+        { "id": 23219, "name": "Dragonstone platebody", "rate": 900 },
+        { "id": 23220, "name": "Dragonstone platelegs", "rate": 900 },
+        { "id": 23221, "name": "Dragonstone gauntlets", "rate": 900 },
+        { "id": 23222, "name": "Dragonstone boots", "rate": 900 },
+        { "id": 23223, "name": "Ring of nature", "rate": 800 },
+        { "id": 23224, "name": "Fancy boots", "rate": 600 },
+        { "id": 23225, "name": "Fighting boots", "rate": 600 },
+        { "id": 23226, "name": "Elite casket trophy banner", "rate": 2000 },
+        { "id": 23227, "name": "Elite void deflector", "rate": 1500 },
+        { "id": 23228, "name": "Ornate wand kit", "rate": 1000 },
+        { "id": 23229, "name": "Zenyte fragment", "rate": 800 }
       ],
       "completionReward": { "cosmetic": "Elite casket trophy", "title": "the Elite Treasure-Hunter", "log": "Elite Clues" }
     },
@@ -425,16 +565,37 @@
       "category": "clue",
       "region": "any",
       "items": [
-        { "id": 34001, "name": "Bloodhound" },
-        { "id": 34002, "name": "3rd age druidic robe top" },
-        { "id": 34003, "name": "3rd age druidic robe bottom" },
-        { "id": 34004, "name": "3rd age druidic cloak" },
-        { "id": 34005, "name": "Ring of 3rd age" },
-        { "id": 34006, "name": "Gilded scimitar" },
-        { "id": 34007, "name": "Gilded platebody" },
-        { "id": 34008, "name": "Ankou mask" },
-        { "id": 34009, "name": "Mummy head" },
-        { "id": 34010, "name": "Samurai top" }
+        { "id": 34001, "name": "Bloodhound", "rate": 1000 },
+        { "id": 34002, "name": "3rd age druidic robe top", "rate": 5000 },
+        { "id": 34003, "name": "3rd age druidic robe bottom", "rate": 5000 },
+        { "id": 34004, "name": "3rd age druidic cloak", "rate": 5000 },
+        { "id": 34005, "name": "Ring of 3rd age", "rate": 5000 },
+        { "id": 34006, "name": "Gilded scimitar", "rate": 600 },
+        { "id": 34007, "name": "Gilded platebody", "rate": 600 },
+        { "id": 34008, "name": "Ankou mask", "rate": 300 },
+        { "id": 34009, "name": "Mummy head", "rate": 300 },
+        { "id": 34010, "name": "Samurai top", "rate": 300 },
+        { "id": 34020, "name": "Samurai trousers", "rate": 300 },
+        { "id": 34021, "name": "Samurai greaves", "rate": 300 },
+        { "id": 34022, "name": "Gilded full helm", "rate": 600 },
+        { "id": 34023, "name": "Gilded kiteshield", "rate": 600 },
+        { "id": 34024, "name": "Gilded platelegs", "rate": 600 },
+        { "id": 34025, "name": "Gilded plateskirt", "rate": 600 },
+        { "id": 34026, "name": "Gilded boots", "rate": 600 },
+        { "id": 34027, "name": "Gilded 2h sword", "rate": 600 },
+        { "id": 34028, "name": "Gilded pickaxe", "rate": 600 },
+        { "id": 34029, "name": "Gilded axe", "rate": 600 },
+        { "id": 34030, "name": "Gilded hasta", "rate": 600 },
+        { "id": 34031, "name": "Gilded coif", "rate": 600 },
+        { "id": 34032, "name": "Gilded d'hide body", "rate": 600 },
+        { "id": 34033, "name": "Gilded d'hide chaps", "rate": 600 },
+        { "id": 34034, "name": "Gilded d'hide vambraces", "rate": 600 },
+        { "id": 34035, "name": "Afro (rainbow)", "rate": 300 },
+        { "id": 34036, "name": "Top hat (dark)", "rate": 300 },
+        { "id": 34037, "name": "Crier coat", "rate": 300 },
+        { "id": 34038, "name": "Crier bell", "rate": 300 },
+        { "id": 34039, "name": "Briefcase", "rate": 300 },
+        { "id": 34040, "name": "Master casket trophy pennant", "rate": 2500 }
       ],
       "completionReward": { "cosmetic": "Master casket trophy + bloodhound emote", "title": "the Master Treasure-Hunter", "log": "Master Clues" }
     },
@@ -450,7 +611,7 @@
         { "id": 30004, "name": "Void melee helm" },
         { "id": 30005, "name": "Void ranger helm" },
         { "id": 30006, "name": "Void mage helm" },
-        { "id": 80201, "name": "Lil creator" }
+        { "id": 80201, "name": "Lil creator", "rate": 5000 }
       ],
       "completionReward": { "cosmetic": "Void Knight commander cape", "title": "of the Void", "log": "Pest Control" }
     },
@@ -461,7 +622,8 @@
       "region": "saltbrine",
       "items": [
         { "id": 30401, "name": "Fighter torso" },
-        { "id": 30402, "name": "Penance skirt" }
+        { "id": 30402, "name": "Penance skirt" },
+        { "id": 30403, "name": "Penance queen crown", "rate": 4000 }
       ],
       "completionReward": { "cosmetic": "Penance Queen victor mantle", "title": "the Penance-Crowned", "log": "Barbarian Assault" }
     },
@@ -476,7 +638,7 @@
         { "id": 30103, "name": "Pyromancer legs" },
         { "id": 30104, "name": "Pyromancer boots" },
         { "id": 30105, "name": "Bruma torch" },
-        { "id": 80109, "name": "Phoenix" }
+        { "id": 80109, "name": "Phoenix", "rate": 5000 }
       ],
       "completionReward": { "cosmetic": "Phoenix-flame cape", "title": "the Pyromancer", "log": "Spirit Pyre" }
     },
@@ -490,7 +652,7 @@
         { "id": 30302, "name": "Robe top of the eye" },
         { "id": 30303, "name": "Robe bottom of the eye" },
         { "id": 30304, "name": "Boots of the eye" },
-        { "id": 80107, "name": "Rift guardian" }
+        { "id": 80107, "name": "Rift guardian", "rate": 5000 }
       ],
       "completionReward": { "cosmetic": "Abyssal lantern (cosmetic)", "title": "the Rift-Guardian", "log": "Guardians of the Rift" }
     },
@@ -506,12 +668,81 @@
       "completionReward": { "cosmetic": "Castle Wars trophy banner", "title": "the Standard-Bearer", "log": "Castle Wars" }
     },
     {
+      "id": "minigame_marchlands",
+      "name": "Marchlands",
+      "category": "minigame",
+      "region": "wilds",
+      "items": [
+        { "id": 30501, "name": "Siege commander helm" },
+        { "id": 30502, "name": "Siege commander cape" },
+        { "id": 30503, "name": "Battering ram" },
+        { "id": 30504, "name": "Rampart shield (Marchlands)" },
+        { "id": 30505, "name": "Banner of conquest" },
+        { "id": 30506, "name": "War paint kit" },
+        { "id": 30507, "name": "Siegeling", "rate": 4000 }
+      ],
+      "completionReward": { "cosmetic": "Conqueror's banner (animated)", "title": "the Conqueror", "log": "Marchlands" }
+    },
+    {
+      "id": "minigame_ramparts",
+      "name": "Ramparts",
+      "category": "minigame",
+      "region": "saltbrine",
+      "items": [
+        { "id": 30601, "name": "Rampart shield", "rate": 200 },
+        { "id": 30602, "name": "Battlement ring", "rate": 400 },
+        { "id": 30603, "name": "Trebuchet kit" },
+        { "id": 30604, "name": "Builder's toolkit (Ramparts)" },
+        { "id": 30605, "name": "Fortified rations" },
+        { "id": 30606, "name": "Chonk siege golem", "rate": 2000 }
+      ],
+      "completionReward": { "cosmetic": "Bulwark-bearer's cape", "title": "the Rampart-Raiser", "log": "Ramparts" }
+    },
+    {
+      "id": "minigame_deadhold",
+      "name": "Deadhold",
+      "category": "minigame",
+      "region": "moryskah",
+      "items": [
+        { "id": 30701, "name": "Dreadbone crossbow", "rate": 400 },
+        { "id": 30702, "name": "Barricader bulwark", "rate": 600 },
+        { "id": 30703, "name": "Zombie champion cape", "rate": 1000 },
+        { "id": 30704, "name": "Undead slayer sigil" },
+        { "id": 30705, "name": "Dreadforge hammer" },
+        { "id": 30706, "name": "Barricade kit" },
+        { "id": 30707, "name": "Siege brew (4)" },
+        { "id": 30708, "name": "Nibbles the zombie rat", "rate": 2000 }
+      ],
+      "completionReward": { "cosmetic": "Dreadbone grave-banner", "title": "the Dread-Warden", "log": "Deadhold" }
+    },
+    {
+      "id": "minigame_the_ascendancy",
+      "name": "The Ascendancy",
+      "category": "minigame",
+      "region": "inkweald",
+      "items": [
+        { "id": 30801, "name": "Tide of Ruin", "rate": 400 },
+        { "id": 30802, "name": "Remnant sigil", "rate": 200 },
+        { "id": 30803, "name": "Tattered remains hood" },
+        { "id": 30804, "name": "Tattered remains robe" },
+        { "id": 30805, "name": "Tattered remains legs" },
+        { "id": 30806, "name": "Tattered remains boots" },
+        { "id": 30807, "name": "Surge rune pack" },
+        { "id": 30808, "name": "Remnant reroll token" },
+        { "id": 30809, "name": "Remnant imbue scroll" },
+        { "id": 30810, "name": "Ascendant banner" },
+        { "id": 30811, "name": "Scrap (pet)", "rate": 2000 },
+        { "id": 30812, "name": "Ascendant's laurel" }
+      ],
+      "completionReward": { "cosmetic": "Ascendant echo cloak", "title": "the Ascendant", "log": "The Ascendancy" }
+    },
+    {
       "id": "slayer_grotesque_guardians",
       "name": "Grotesque Guardians",
       "category": "slayer",
       "region": "moryskah",
       "items": [
-        { "id": 80019, "name": "Noon" }
+        { "id": 80019, "name": "Noon", "rate": 1500 }
       ],
       "completionReward": { "cosmetic": "Granite-stone gargoyle pauldrons", "title": "the Stone-Wakeful", "log": "Grotesque Guardians" }
     },
@@ -521,9 +752,9 @@
       "category": "slayer",
       "region": "moryskah",
       "items": [
-        { "id": 31127, "name": "Hydra leather" },
-        { "id": 31128, "name": "Hydra claw" },
-        { "id": 31129, "name": "Brimstone ring piece (i)" }
+        { "id": 31127, "name": "Hydra leather", "rate": 256 },
+        { "id": 31128, "name": "Hydra claw", "rate": 512 },
+        { "id": 31129, "name": "Brimstone ring piece (i)", "rate": 256 }
       ],
       "completionReward": { "cosmetic": "Hydra-leather cloak", "title": "the Alchemist's Bane", "log": "Alchemical Hydra" }
     },
@@ -533,9 +764,9 @@
       "category": "slayer",
       "region": "boneyard",
       "items": [
-        { "id": 31131, "name": "Smoke devil heart" },
-        { "id": 31132, "name": "Occult necklace" },
-        { "id": 80023, "name": "Smoke devil pet" }
+        { "id": 31131, "name": "Smoke devil heart", "rate": 256 },
+        { "id": 31132, "name": "Occult necklace", "rate": 350 },
+        { "id": 80023, "name": "Smoke devil pet", "rate": 1500 }
       ],
       "completionReward": { "cosmetic": "Smouldering occult shroud", "title": "the Smoke-Walker", "log": "Thermonuclear Smoke Devil" }
     },
@@ -545,10 +776,10 @@
       "category": "slayer",
       "region": "moryskah",
       "items": [
-        { "id": 31020, "name": "Primordial crystal" },
-        { "id": 31021, "name": "Pegasian crystal" },
-        { "id": 31022, "name": "Eternal crystal" },
-        { "id": 80021, "name": "Hellpuppy" }
+        { "id": 31020, "name": "Primordial crystal", "rate": 512 },
+        { "id": 31021, "name": "Pegasian crystal", "rate": 512 },
+        { "id": 31022, "name": "Eternal crystal", "rate": 512 },
+        { "id": 80021, "name": "Hellpuppy", "rate": 1500 }
       ],
       "completionReward": { "cosmetic": "Hellhound-fang trim", "title": "the Hellforged", "log": "Cerberus" }
     },
@@ -558,8 +789,11 @@
       "category": "slayer",
       "region": "moryskah",
       "items": [
-        { "id": 22001, "name": "Abyssal whip" },
-        { "id": 80020, "name": "Skotos" }
+        { "id": 22001, "name": "Abyssal whip", "rate": 512 },
+        { "id": 22020, "name": "Abyssal dagger", "rate": 1024 },
+        { "id": 22021, "name": "Bludgeon piece", "rate": 512 },
+        { "id": 22022, "name": "Unsired", "rate": 1024 },
+        { "id": 80020, "name": "Skotos", "rate": 1500 }
       ],
       "completionReward": { "cosmetic": "Abyssal-tendril belt", "title": "the Abyssal", "log": "Abyssal Demons" }
     },
@@ -569,8 +803,8 @@
       "category": "slayer",
       "region": "saltbrine",
       "items": [
-        { "id": 22004, "name": "Trident of the seas" },
-        { "id": 80022, "name": "Kraken pet" }
+        { "id": 22004, "name": "Trident of the seas", "rate": 256 },
+        { "id": 80022, "name": "Kraken pet", "rate": 1500 }
       ],
       "completionReward": { "cosmetic": "Tendril coat", "title": "the Cave-Diver", "log": "Cave Kraken" }
     },
@@ -580,7 +814,7 @@
       "category": "boss",
       "region": "wilds",
       "items": [
-        { "id": 80014, "name": "Chaos blob" }
+        { "id": 80014, "name": "Chaos blob", "rate": 1500 }
       ],
       "completionReward": { "cosmetic": "Chaos-twisted cloak", "title": "the Chaotic", "log": "Chaos Elemental" }
     },
@@ -590,8 +824,8 @@
       "category": "boss",
       "region": "wilds",
       "items": [
-        { "id": 22007, "name": "Imbued heart" },
-        { "id": 80015, "name": "Scorpia offspring" }
+        { "id": 22007, "name": "Imbued heart", "rate": 512 },
+        { "id": 80015, "name": "Scorpia offspring", "rate": 1500 }
       ],
       "completionReward": { "cosmetic": "Scorpion-tail mantle", "title": "the Heart-Imbued", "log": "Scorpia" }
     },
@@ -601,9 +835,9 @@
       "category": "boss",
       "region": "wilds",
       "items": [
-        { "id": 24001, "name": "Berserker ring" },
-        { "id": 22008, "name": "Eternal gem" },
-        { "id": 80016, "name": "Vet'ion skull" }
+        { "id": 24001, "name": "Berserker ring", "rate": 128 },
+        { "id": 22008, "name": "Eternal gem", "rate": 512 },
+        { "id": 80016, "name": "Vet'ion skull", "rate": 1500 }
       ],
       "completionReward": { "cosmetic": "Floating-skull aura", "title": "the Skull-Bearer", "log": "Vet'ion" }
     },
@@ -613,8 +847,8 @@
       "category": "boss",
       "region": "wilds",
       "items": [
-        { "id": 24004, "name": "Warrior ring" },
-        { "id": 80017, "name": "Callisto cub" }
+        { "id": 24004, "name": "Warrior ring", "rate": 128 },
+        { "id": 80017, "name": "Callisto cub", "rate": 1500 }
       ],
       "completionReward": { "cosmetic": "Bear-pelt cloak", "title": "the Bear-Bound", "log": "Callisto" }
     },
@@ -624,8 +858,8 @@
       "category": "boss",
       "region": "wilds",
       "items": [
-        { "id": 24005, "name": "Ring of suffering" },
-        { "id": 80018, "name": "Venenatis spiderling" }
+        { "id": 24005, "name": "Ring of suffering", "rate": 128 },
+        { "id": 80018, "name": "Venenatis spiderling", "rate": 1500 }
       ],
       "completionReward": { "cosmetic": "Spider-silk shawl", "title": "the Suffering-Ring", "log": "Venenatis" }
     },
@@ -635,8 +869,8 @@
       "category": "boss",
       "region": "wilds",
       "items": [
-        { "id": 20010, "name": "Dragon full helm" },
-        { "id": 80027, "name": "Prince Black Dragon" }
+        { "id": 20010, "name": "Dragon full helm", "rate": 512 },
+        { "id": 80027, "name": "Prince Black Dragon", "rate": 1500 }
       ],
       "completionReward": { "cosmetic": "KBD horn helm trim", "title": "the Three-Crowned", "log": "King Black Dragon" }
     },
@@ -646,17 +880,24 @@
       "category": "pet",
       "region": "any",
       "items": [
-        { "id": 80101, "name": "Rock golem (pet)" },
-        { "id": 80102, "name": "Heron" },
-        { "id": 80103, "name": "Beaver" },
-        { "id": 80104, "name": "Giant squirrel" },
-        { "id": 80105, "name": "Tangleroot" },
-        { "id": 80106, "name": "Rocky" },
-        { "id": 80107, "name": "Rift guardian" },
-        { "id": 80108, "name": "Herbi" },
-        { "id": 80109, "name": "Phoenix" },
-        { "id": 80110, "name": "Chompy chick" },
-        { "id": 80111, "name": "Nexling" }
+        { "id": 80101, "name": "Rock golem (pet)", "rate": 62500 },
+        { "id": 80102, "name": "Heron", "rate": 62500 },
+        { "id": 80103, "name": "Beaver", "rate": 62500 },
+        { "id": 80104, "name": "Giant squirrel", "rate": 7500 },
+        { "id": 80105, "name": "Tangleroot", "rate": 1750 },
+        { "id": 80106, "name": "Rocky", "rate": 62500 },
+        { "id": 80107, "name": "Rift guardian", "rate": 62500 },
+        { "id": 80108, "name": "Herbi", "rate": 1750 },
+        { "id": 80109, "name": "Phoenix", "rate": 1250 },
+        { "id": 80110, "name": "Chompy chick", "rate": 62500 },
+        { "id": 80111, "name": "Nexling", "rate": 62500 },
+        { "id": 80112, "name": "Prayer spirit", "rate": 50000 },
+        { "id": 80114, "name": "Golem child", "rate": 50000 },
+        { "id": 80116, "name": "Cooking cat", "rate": 50000 },
+        { "id": 80117, "name": "Fletching owl", "rate": 50000 },
+        { "id": 80118, "name": "Crafting spider", "rate": 50000 },
+        { "id": 80119, "name": "Defence turtle", "rate": 125000 },
+        { "id": 80115, "name": "Chinchompa cub", "rate": 24500 }
       ],
       "completionReward": { "cosmetic": "Rainbow skill-cape trim", "title": "the All-Pet Trainer", "log": "Skilling Pets" }
     },
@@ -666,7 +907,20 @@
       "category": "raid",
       "region": "boneyard",
       "items": [
-        { "id": 80026, "name": "TzRek-Jad" }
+        { "id": 80026, "name": "TzRek-Jad", "rate": 100 },
+        { "id": 42001, "name": "Fire cape", "rate": 1 },
+        { "id": 42002, "name": "TzHaar-Ket axe", "rate": 128 },
+        { "id": 42003, "name": "Obsidian helm", "rate": 64 },
+        { "id": 42004, "name": "Obsidian platebody", "rate": 64 },
+        { "id": 42005, "name": "Obsidian platelegs", "rate": 64 },
+        { "id": 42006, "name": "Obsidian maul", "rate": 64 },
+        { "id": 42007, "name": "Obsidian cape", "rate": 48 },
+        { "id": 42008, "name": "Toktz-xil-ul (obsidian ring)", "rate": 96 },
+        { "id": 42009, "name": "Toktz-mej-tal", "rate": 96 },
+        { "id": 42010, "name": "Toktz-xil-ak (short sword)", "rate": 128 },
+        { "id": 42011, "name": "Toktz-xil-ek (dagger)", "rate": 128 },
+        { "id": 42012, "name": "Inferno-glass heart", "rate": 200 },
+        { "id": 42013, "name": "Jad trophy", "rate": 50 }
       ],
       "completionReward": { "cosmetic": "Fire cape", "title": "the Caved", "log": "Fight Caves" }
     },
@@ -676,9 +930,1127 @@
       "category": "raid",
       "region": "glass_desert",
       "items": [
-        { "id": 80025, "name": "Jal-nib-rek" }
+        { "id": 80025, "name": "Jal-nib-rek", "rate": 50 },
+        { "id": 43001, "name": "Infernal cape", "rate": 1 },
+        { "id": 43002, "name": "Infernal max hood", "rate": 100 },
+        { "id": 43003, "name": "Jal-zek trophy", "rate": 200 },
+        { "id": 43004, "name": "TzKal-trophy", "rate": 250 },
+        { "id": 43005, "name": "Infernal axe head", "rate": 150 },
+        { "id": 43006, "name": "Infernal pickaxe head", "rate": 150 },
+        { "id": 43007, "name": "Infernal harpoon head", "rate": 150 },
+        { "id": 43008, "name": "Blood-infernal bolts (x50)", "rate": 64 },
+        { "id": 43009, "name": "Inferno gem", "rate": 100 },
+        { "id": 43010, "name": "Lava wisp (cosmetic)", "rate": 150 },
+        { "id": 43011, "name": "Jal-ak servant horn", "rate": 64 },
+        { "id": 43012, "name": "Infernal rune (x100)", "rate": 32 },
+        { "id": 43013, "name": "Ember-forged dragon bones", "rate": 75 },
+        { "id": 43014, "name": "Zuk's slab", "rate": 500 }
       ],
       "completionReward": { "cosmetic": "Infernal cape", "title": "the Infernal", "log": "Infernal Challenge" }
+    },
+
+    {
+      "id": "hedgelord_trinity",
+      "name": "Hedgelord (Heartlands hedge trio)",
+      "category": "boss",
+      "region": "heartlands",
+      "items": [
+        { "id": 66201, "name": "Hedgelord pin", "rate": 128 },
+        { "id": 66001, "name": "Hedgerow pelt (cosmetic)", "rate": 256 }
+      ],
+      "completionReward": { "cosmetic": "Hedgelord crown of thorns", "title": "the Hedge-Baron", "log": "Hedgelord" }
+    },
+    {
+      "id": "grave_lord_moryskah",
+      "name": "Grave-Lord (Moryskah lords collective)",
+      "category": "boss",
+      "region": "moryskah",
+      "items": [
+        { "id": 66202, "name": "Grave lord talisman", "rate": 128 },
+        { "id": 66023, "name": "Grave ribbon (trophy)", "rate": 256 },
+        { "id": 66027, "name": "Cursed signet", "rate": 512 }
+      ],
+      "completionReward": { "cosmetic": "Grave-lord's mausoleum cape", "title": "the Grave-Lord", "log": "Grave-Lord" }
+    },
+    {
+      "id": "pharaoh_lich",
+      "name": "Pharaoh Lich",
+      "category": "boss",
+      "region": "boneyard",
+      "items": [
+        { "id": 66203, "name": "Pharaoh scarab", "rate": 128 },
+        { "id": 66044, "name": "Pharaoh's seal (mounted)", "rate": 256 },
+        { "id": 66040, "name": "Mummy wrap mantle", "rate": 384 }
+      ],
+      "completionReward": { "cosmetic": "Pharaoh's lich-wrap", "title": "the Scarab-Crowned", "log": "Pharaoh Lich" }
+    },
+    {
+      "id": "dust_tyrant",
+      "name": "Dust Tyrant",
+      "category": "boss",
+      "region": "boneyard",
+      "items": [
+        { "id": 66203, "name": "Pharaoh scarab", "rate": 512 },
+        { "id": 66220, "name": "Dust-tyrant fragment", "rate": 256 },
+        { "id": 66221, "name": "Desert-storm hood", "rate": 384 }
+      ],
+      "completionReward": { "cosmetic": "Dust-storm cloak", "title": "the Sandbound", "log": "Dust Tyrant" }
+    },
+    {
+      "id": "king_of_the_wood",
+      "name": "King of the Wood",
+      "category": "boss",
+      "region": "veilwood",
+      "items": [
+        { "id": 66204, "name": "Veil king circlet", "rate": 128 },
+        { "id": 66064, "name": "Antler-crown cape", "rate": 256 },
+        { "id": 66230, "name": "Heart-of-wood pendant", "rate": 384 }
+      ],
+      "completionReward": { "cosmetic": "Antler-crown royal mantle", "title": "the Wood-Crowned", "log": "King of the Wood" }
+    },
+    {
+      "id": "kraken_matriarch",
+      "name": "Kraken Matriarch",
+      "category": "boss",
+      "region": "saltbrine",
+      "items": [
+        { "id": 66206, "name": "Brine crown", "rate": 128 },
+        { "id": 66101, "name": "Beak-spawn cape", "rate": 256 },
+        { "id": 66240, "name": "Brine ichor pendant", "rate": 384 }
+      ],
+      "completionReward": { "cosmetic": "Brine-tide sovereign cloak", "title": "the Brine-Matriarch", "log": "Kraken Matriarch" }
+    },
+    {
+      "id": "forgotten_name",
+      "name": "Forgotten-Name",
+      "category": "boss",
+      "region": "inkweald",
+      "items": [
+        { "id": 66207, "name": "Bound chapter", "rate": 128 },
+        { "id": 66125, "name": "Chapter-bone amulet", "rate": 256 },
+        { "id": 66121, "name": "Ink-heart locket", "rate": 384 }
+      ],
+      "completionReward": { "cosmetic": "Forgotten-Name bibliomantle", "title": "the Forgotten", "log": "Forgotten-Name" }
+    },
+    {
+      "id": "sunking",
+      "name": "Sunking",
+      "category": "boss",
+      "region": "glass_desert",
+      "items": [
+        { "id": 66208, "name": "Crystal crown", "rate": 128 },
+        { "id": 66141, "name": "Lens-cat eye pendant", "rate": 256 },
+        { "id": 66144, "name": "Mirage ribbon sash", "rate": 384 }
+      ],
+      "completionReward": { "cosmetic": "Sunking's refracted halo", "title": "the Suncrowned", "log": "Sunking" }
+    },
+    {
+      "id": "greater_chaos_demon",
+      "name": "Greater Chaos Demon",
+      "category": "boss",
+      "region": "wilds",
+      "items": [
+        { "id": 66209, "name": "Wilds warlord skull", "rate": 256 },
+        { "id": 66161, "name": "Chaos-touched core amulet", "rate": 384 },
+        { "id": 66162, "name": "Demon-hoof belt", "rate": 512 }
+      ],
+      "completionReward": { "cosmetic": "Warlord's skull-banner", "title": "the Warlord's Bane", "log": "Greater Chaos Demon" }
+    },
+    {
+      "id": "chaos_touched_giant",
+      "name": "Chaos-Touched Giant",
+      "category": "boss",
+      "region": "wilds",
+      "items": [
+        { "id": 66260, "name": "Chaos giant molar", "rate": 256 },
+        { "id": 66163, "name": "Wilds trophy plate", "rate": 384 }
+      ],
+      "completionReward": { "cosmetic": "Giant-pelt mantle", "title": "the Chaos-Broken", "log": "Chaos Giant" }
+    },
+    {
+      "id": "wilderness_wyrm",
+      "name": "Wilderness Wyrm",
+      "category": "boss",
+      "region": "wilds",
+      "items": [
+        { "id": 66261, "name": "Wyrm-scale circlet", "rate": 256 },
+        { "id": 66262, "name": "Wilderness wyrm fang", "rate": 384 }
+      ],
+      "completionReward": { "cosmetic": "Wyrm-scale wilderness cloak", "title": "the Wyrm-Broken", "log": "Wilderness Wyrm" }
+    },
+    {
+      "id": "bone_colossus",
+      "name": "Bone Colossus",
+      "category": "boss",
+      "region": "wilds",
+      "items": [
+        { "id": 66263, "name": "Colossal femur club", "rate": 256 },
+        { "id": 66264, "name": "Marrow-etched plate", "rate": 384 },
+        { "id": 66265, "name": "Skullstone amulet", "rate": 512 }
+      ],
+      "completionReward": { "cosmetic": "Colossus-rib mantle", "title": "the Colossal", "log": "Bone Colossus" }
+    },
+    {
+      "id": "black_stone_warden",
+      "name": "Black-Stone Warden",
+      "category": "boss",
+      "region": "wilds",
+      "items": [
+        { "id": 66266, "name": "Black-stone slab", "rate": 256 },
+        { "id": 66267, "name": "Warden's obsidian plate", "rate": 384 },
+        { "id": 66268, "name": "Obsidian oracle's tablet", "rate": 512 }
+      ],
+      "completionReward": { "cosmetic": "Black-stone warden pauldrons", "title": "the Stone-Warden", "log": "Black-Stone Warden" }
+    },
+    {
+      "id": "sootlord_collective",
+      "name": "Sootlord",
+      "category": "boss",
+      "region": "sootworks",
+      "items": [
+        { "id": 66205, "name": "Sootlord ingot", "rate": 128 },
+        { "id": 66082, "name": "Forge-wraith essence mantle", "rate": 256 },
+        { "id": 66083, "name": "Rust-golem core pendant", "rate": 384 }
+      ],
+      "completionReward": { "cosmetic": "Sootlord's molten diadem", "title": "the Sootlord", "log": "Sootlord" }
+    },
+    {
+      "id": "bryophyta",
+      "name": "Bryophyta",
+      "category": "boss",
+      "region": "heartlands",
+      "items": [
+        { "id": 92050, "name": "Bryophyta's essence", "rate": 118 },
+        { "id": 92051, "name": "Bryophyta's staff", "rate": 900 },
+        { "id": 83002, "name": "Mossy", "rate": 1500 }
+      ],
+      "completionReward": { "cosmetic": "Mossy mantle of the swamp queen", "title": "the Moss-Crowned", "log": "Bryophyta" }
+    },
+    {
+      "id": "obor",
+      "name": "Obor",
+      "category": "boss",
+      "region": "heartlands",
+      "items": [
+        { "id": 92052, "name": "Hill giant club", "rate": 118 },
+        { "id": 83003, "name": "Obor Jr.", "rate": 1500 }
+      ],
+      "completionReward": { "cosmetic": "Hill-giant chieftain's trophy", "title": "the Hill-Breaker", "log": "Obor" }
+    },
+    {
+      "id": "hespori",
+      "name": "Hespori",
+      "category": "boss",
+      "region": "veilwood",
+      "items": [
+        { "id": 92053, "name": "Hespori seed", "rate": 50 },
+        { "id": 92054, "name": "Bottomless compost bucket", "rate": 35 },
+        { "id": 92055, "name": "Iasor seed", "rate": 50 },
+        { "id": 83004, "name": "Hespori sprout", "rate": 1500 }
+      ],
+      "completionReward": { "cosmetic": "Hespori-root crown", "title": "the Farm-Bound", "log": "Hespori" }
+    },
+    {
+      "id": "mimic",
+      "name": "Mimic",
+      "category": "boss",
+      "region": "any",
+      "items": [
+        { "id": 92057, "name": "3rd age ring", "rate": 1000 },
+        { "id": 92058, "name": "Mimic's tongue", "rate": 128 },
+        { "id": 92056, "name": "Mimic casket", "rate": 75 },
+        { "id": 83005, "name": "Baby mimic", "rate": 1500 }
+      ],
+      "completionReward": { "cosmetic": "Mimic-hide satchel (cosmetic casket)", "title": "the Mimic-Hunter", "log": "Mimic" }
+    },
+    {
+      "id": "skotizo",
+      "name": "Skotizo",
+      "category": "boss",
+      "region": "moryskah",
+      "items": [
+        { "id": 92059, "name": "Dark claw", "rate": 25 },
+        { "id": 92060, "name": "Uncut onyx", "rate": 500 },
+        { "id": 92061, "name": "Jar of darkness", "rate": 128 },
+        { "id": 83006, "name": "Skotos (catacomb)", "rate": 1500 }
+      ],
+      "completionReward": { "cosmetic": "Catacomb-stained hood", "title": "the Dark-Keeper", "log": "Skotizo" }
+    },
+    {
+      "id": "sarachnis",
+      "name": "Sarachnis",
+      "category": "boss",
+      "region": "moryskah",
+      "items": [
+        { "id": 92070, "name": "Sarachnis cudgel", "rate": 192 },
+        { "id": 92071, "name": "Sraracha", "rate": 1500 },
+        { "id": 83007, "name": "Sarachnis spawn", "rate": 1500 }
+      ],
+      "completionReward": { "cosmetic": "Sarachnis web-silk shawl", "title": "the Brood-Queen's-Bane", "log": "Sarachnis" }
+    },
+    {
+      "id": "tempoross",
+      "name": "Tempoross",
+      "category": "boss",
+      "region": "saltbrine",
+      "items": [
+        { "id": 92072, "name": "Spirit angler outfit piece", "rate": 35 },
+        { "id": 92073, "name": "Tome of water", "rate": 800 },
+        { "id": 92074, "name": "Dragon harpoon", "rate": 4000 },
+        { "id": 83008, "name": "Tiny tempor", "rate": 4000 }
+      ],
+      "completionReward": { "cosmetic": "Stormfront sailor's coat", "title": "the Tide-Called", "log": "Tempoross" }
+    },
+    {
+      "id": "phantom_muspah",
+      "name": "Phantom Muspah",
+      "category": "boss",
+      "region": "inkweald",
+      "items": [
+        { "id": 92075, "name": "Ancient essence (stacked)", "rate": 1 },
+        { "id": 92076, "name": "Ancient sceptre", "rate": 250 },
+        { "id": 92077, "name": "Venator bow", "rate": 400 },
+        { "id": 83009, "name": "Muspah wisp", "rate": 2000 }
+      ],
+      "completionReward": { "cosmetic": "Muspah phantom-shroud", "title": "the Phantom-Broken", "log": "Phantom Muspah" }
+    },
+    {
+      "id": "duke_sucellus",
+      "name": "Duke Sucellus",
+      "category": "boss",
+      "region": "sootworks",
+      "items": [
+        { "id": 92078, "name": "Chromium ingot", "rate": 64 },
+        { "id": 92079, "name": "Chromium pickaxe", "rate": 750 },
+        { "id": 92080, "name": "Chromium axe", "rate": 750 },
+        { "id": 92081, "name": "Baron's eye", "rate": 64 },
+        { "id": 83010, "name": "Baron duke", "rate": 1500 }
+      ],
+      "completionReward": { "cosmetic": "Duke-Sucellus regal chain", "title": "the Duke-Slayer", "log": "Duke Sucellus" }
+    },
+    {
+      "id": "the_leviathan",
+      "name": "The Leviathan",
+      "category": "boss",
+      "region": "saltbrine",
+      "items": [
+        { "id": 92082, "name": "Leviathan's lure", "rate": 1000 },
+        { "id": 92083, "name": "Leviathan scale", "rate": 128 },
+        { "id": 92084, "name": "Siren staff", "rate": 500 },
+        { "id": 83011, "name": "Lil leviathan", "rate": 2000 }
+      ],
+      "completionReward": { "cosmetic": "Leviathan ice-whisker trim", "title": "the Leviathan-Slayer", "log": "The Leviathan" }
+    },
+    {
+      "id": "nex",
+      "name": "Nex",
+      "category": "boss",
+      "region": "wilds",
+      "items": [
+        { "id": 92100, "name": "Torva full helm", "rate": 129 },
+        { "id": 92101, "name": "Torva platebody", "rate": 129 },
+        { "id": 92102, "name": "Torva platelegs", "rate": 129 },
+        { "id": 92103, "name": "Nihil horn", "rate": 129 },
+        { "id": 92105, "name": "Ancient hilt", "rate": 258 },
+        { "id": 92104, "name": "Zaryte crossbow", "rate": 500 },
+        { "id": 92106, "name": "Ancient godsword", "rate": 258 },
+        { "id": 83012, "name": "Nexling", "rate": 1500 }
+      ],
+      "completionReward": { "cosmetic": "Nex-blessed Zaryte mantle", "title": "the Nex-Felled", "log": "Nex" }
+    },
+    {
+      "id": "commander_zelot",
+      "name": "Commander Zelot",
+      "category": "boss",
+      "region": "heartlands",
+      "items": [
+        { "id": 92107, "name": "Devout boots", "rate": 256 },
+        { "id": 92108, "name": "Holy sceptre", "rate": 500 },
+        { "id": 92109, "name": "Zealot robes top", "rate": 384 },
+        { "id": 83013, "name": "Zealot squire", "rate": 1500 }
+      ],
+      "completionReward": { "cosmetic": "Zelot's faith-tattered cape", "title": "the Paladin-Bane", "log": "Commander Zelot" }
+    },
+    {
+      "id": "the_whisperer",
+      "name": "The Whisperer",
+      "category": "boss",
+      "region": "inkweald",
+      "items": [
+        { "id": 92110, "name": "Virtus mask", "rate": 256 },
+        { "id": 92111, "name": "Virtus robe top", "rate": 256 },
+        { "id": 92112, "name": "Virtus robe bottom", "rate": 256 },
+        { "id": 92113, "name": "Bellator ring", "rate": 512 },
+        { "id": 92114, "name": "Magus ring", "rate": 512 },
+        { "id": 83014, "name": "Whisplet", "rate": 1500 }
+      ],
+      "completionReward": { "cosmetic": "Whisper-silked dream shroud", "title": "the Dream-Pierced", "log": "The Whisperer" }
+    },
+    {
+      "id": "vardorvis",
+      "name": "Vardorvis",
+      "category": "boss",
+      "region": "sootworks",
+      "items": [
+        { "id": 92120, "name": "Ultor ring", "rate": 512 },
+        { "id": 92121, "name": "Venator ring", "rate": 512 },
+        { "id": 92122, "name": "Executioner axe", "rate": 256 },
+        { "id": 83015, "name": "Butcher cub", "rate": 1500 }
+      ],
+      "completionReward": { "cosmetic": "Vardorvis spinning-axe banner", "title": "the Axe-Bound", "log": "Vardorvis" }
+    },
+    {
+      "id": "sol_heredit",
+      "name": "Sol Heredit",
+      "category": "boss",
+      "region": "glass_desert",
+      "items": [
+        { "id": 92130, "name": "Dizana's quiver", "rate": 1250 },
+        { "id": 92131, "name": "Sunfire fanatic helm", "rate": 250 },
+        { "id": 92132, "name": "Sunfire fanatic cuirass", "rate": 250 },
+        { "id": 92133, "name": "Sunfire fanatic greaves", "rate": 250 },
+        { "id": 92134, "name": "Echo crystal", "rate": 100 },
+        { "id": 83016, "name": "Smol heredit", "rate": 1500 }
+      ],
+      "completionReward": { "cosmetic": "Champion's laurel crown", "title": "the Colosseum-Undefeated", "log": "Sol Heredit" }
+    },
+    {
+      "id": "toa_wardens",
+      "name": "Tombs of Aelgard (Wardens)",
+      "category": "raid",
+      "region": "boneyard",
+      "items": [
+        { "id": 92000, "name": "Osmumten's fang", "rate": 192 },
+        { "id": 92001, "name": "Masori mask (f)", "rate": 384 },
+        { "id": 92002, "name": "Masori body (f)", "rate": 384 },
+        { "id": 92003, "name": "Masori chaps (f)", "rate": 384 },
+        { "id": 92004, "name": "Lightbearer", "rate": 192 },
+        { "id": 92005, "name": "Elidinis' ward", "rate": 384 },
+        { "id": 92006, "name": "Tumeken's shadow", "rate": 512 },
+        { "id": 92007, "name": "Keris partisan", "rate": 96 },
+        { "id": 92008, "name": "Keris partisan of breaching", "rate": 192 },
+        { "id": 92009, "name": "Keris partisan of corruption", "rate": 192 },
+        { "id": 92010, "name": "Keris partisan of the sun", "rate": 192 },
+        { "id": 92011, "name": "Menaphite ornament kit", "rate": 192 },
+        { "id": 92012, "name": "Thread of Elidinis", "rate": 256 },
+        { "id": 92013, "name": "Cache of runes", "rate": 48 },
+        { "id": 92014, "name": "Toxic blowpipe (upgrade)", "rate": 256 },
+        { "id": 92015, "name": "Ring of shadows", "rate": 256 },
+        { "id": 92016, "name": "Jewel of the sun", "rate": 384 },
+        { "id": 92040, "name": "ToA scroll (challenge)", "rate": 96 },
+        { "id": 92041, "name": "Tumeken's guardian (fragment)", "rate": 128 },
+        { "id": 92042, "name": "Elidinis' blessing", "rate": 128 },
+        { "id": 83001, "name": "Tumeken's guardian", "rate": 1500 }
+      ],
+      "completionReward": { "cosmetic": "Tumeken-blessed pharaoh cape", "title": "the Pharaoh-Bound", "log": "Tombs of Aelgard" }
+    },
+    {
+      "id": "raid_crypt_of_aelgard",
+      "name": "Crypt of Aelgard (Last King raid)",
+      "category": "raid",
+      "region": "moryskah",
+      "items": [
+        { "id": 94001, "name": "Crown of the Last King", "rate": 200 },
+        { "id": 94002, "name": "Sceptre of the Dead", "rate": 300 },
+        { "id": 94003, "name": "Royal Crypt cloak", "rate": 256 },
+        { "id": 94004, "name": "Bone-silver signet", "rate": 256 },
+        { "id": 94005, "name": "Crypt-keeper's key", "rate": 384 },
+        { "id": 94006, "name": "Last-King's seal", "rate": 512 },
+        { "id": 84001, "name": "Lil' Crypt (pet)", "rate": 1500 }
+      ],
+      "completionReward": { "cosmetic": "Crypt-king regal robe", "title": "the Crypt-Crowned", "log": "Crypt of Aelgard" }
+    },
+    {
+      "id": "raid_siege_of_bastion",
+      "name": "Siege of the Bastion",
+      "category": "raid",
+      "region": "wilds",
+      "items": [
+        { "id": 94010, "name": "Siege Commander's cape", "rate": 200 },
+        { "id": 94011, "name": "Bastion shield", "rate": 256 },
+        { "id": 94012, "name": "Siege crossbow", "rate": 256 },
+        { "id": 94013, "name": "Rampart seal", "rate": 384 },
+        { "id": 94014, "name": "Commander's sigil", "rate": 512 },
+        { "id": 84002, "name": "Bastionette (pet)", "rate": 1500 }
+      ],
+      "completionReward": { "cosmetic": "Bastion warlord's tabard", "title": "the Bastion-Breaker", "log": "Siege of the Bastion" }
+    },
+    {
+      "id": "raid_sanctum_of_pharaohs",
+      "name": "Sanctum of the Pharaohs",
+      "category": "raid",
+      "region": "boneyard",
+      "items": [
+        { "id": 94020, "name": "Pharaoh's Sceptre (upgraded)", "rate": 200 },
+        { "id": 94021, "name": "Sanctum scarab brooch", "rate": 256 },
+        { "id": 94022, "name": "Canopic seal", "rate": 256 },
+        { "id": 94023, "name": "Dunes-veil hood", "rate": 384 },
+        { "id": 94024, "name": "Mummy-wrap tassets", "rate": 384 },
+        { "id": 84003, "name": "Sanctum scarab (pet)", "rate": 1500 }
+      ],
+      "completionReward": { "cosmetic": "Pharaoh's sanctum mantle", "title": "the Sanctum-Sealed", "log": "Sanctum of the Pharaohs" }
+    },
+    {
+      "id": "raid_spine_of_earth",
+      "name": "Spine of the Earth",
+      "category": "raid",
+      "region": "sootworks",
+      "items": [
+        { "id": 94030, "name": "Leviathan's Backbone", "rate": 200 },
+        { "id": 94031, "name": "Fossil pickaxe", "rate": 256 },
+        { "id": 94032, "name": "Acid-etched amulet", "rate": 384 },
+        { "id": 94033, "name": "Marrow shaft", "rate": 512 },
+        { "id": 84004, "name": "Boneworm (pet)", "rate": 1500 }
+      ],
+      "completionReward": { "cosmetic": "Spine-etched regal cape", "title": "the Spine-Broken", "log": "Spine of the Earth" }
+    },
+    {
+      "id": "raid_blood_archon",
+      "name": "Blood Sanctum (Archon raid)",
+      "category": "raid",
+      "region": "moryskah",
+      "items": [
+        { "id": 94040, "name": "Sanguine Rapier", "rate": 300 },
+        { "id": 94041, "name": "Archon's grimoire", "rate": 384 },
+        { "id": 94042, "name": "Bloodveld hide cloak", "rate": 384 },
+        { "id": 94043, "name": "Sacrificial chalice", "rate": 512 },
+        { "id": 84005, "name": "Lil' Archon (pet)", "rate": 1500 }
+      ],
+      "completionReward": { "cosmetic": "Archon blood-anointed robes", "title": "the Blood-Bound", "log": "Blood Sanctum" }
+    },
+    {
+      "id": "raid_catacomb_gauntlet",
+      "name": "Catacomb Gauntlet",
+      "category": "raid",
+      "region": "moryskah",
+      "items": [
+        { "id": 94050, "name": "Catacomb Crown", "rate": 400 },
+        { "id": 94051, "name": "Bonelord fragment", "rate": 256 },
+        { "id": 94052, "name": "Wraith-matron weave", "rate": 256 },
+        { "id": 94053, "name": "Flesh-golem core", "rate": 384 },
+        { "id": 94054, "name": "Shade-warden lantern", "rate": 384 },
+        { "id": 94055, "name": "Abomination claw", "rate": 512 },
+        { "id": 94056, "name": "Ghast-sovereign shroud", "rate": 512 },
+        { "id": 94057, "name": "Barrow-wight relic", "rate": 512 },
+        { "id": 94058, "name": "Lich-heart crystal", "rate": 512 },
+        { "id": 94059, "name": "Necromancer's tome", "rate": 384 },
+        { "id": 84006, "name": "Lil' Gravesworn (pet)", "rate": 1500 }
+      ],
+      "completionReward": { "cosmetic": "Catacomb ascension mantle", "title": "the Catacomb-Crowned", "log": "Catacomb Gauntlet" }
+    },
+    {
+      "id": "raid_theatre_of_shadows_hm",
+      "name": "Theatre of Shadows (Hard Mode)",
+      "category": "raid",
+      "region": "moryskah",
+      "items": [
+        { "id": 94060, "name": "Sanguine Scythe ornament kit", "rate": 200 },
+        { "id": 94061, "name": "Shadow maiden sigil", "rate": 256 },
+        { "id": 94062, "name": "HM bloat pustule", "rate": 384 },
+        { "id": 94063, "name": "Nylo-queen carapace", "rate": 384 },
+        { "id": 94064, "name": "Sotetseg maze parchment", "rate": 384 },
+        { "id": 94065, "name": "Verzik HM crown", "rate": 512 },
+        { "id": 84007, "name": "Lil' Verzik (HM pet)", "rate": 500 }
+      ],
+      "completionReward": { "cosmetic": "Theatre HM blood-sodden cloak", "title": "the Theatre-Masters", "log": "Theatre of Shadows (HM)" }
+    },
+    {
+      "id": "raid_crystal_gauntlet",
+      "name": "Crystal Gauntlet (Hunllef)",
+      "category": "raid",
+      "region": "veilwood",
+      "items": [
+        { "id": 94070, "name": "Crystal Armour Seed", "rate": 120 },
+        { "id": 94071, "name": "Crystal weapon seed", "rate": 120 },
+        { "id": 94072, "name": "Enhanced crystal key", "rate": 400 },
+        { "id": 94073, "name": "Hunllef totem", "rate": 256 },
+        { "id": 84008, "name": "Youngllef (pet)", "rate": 400 }
+      ],
+      "completionReward": { "cosmetic": "Crystalline ranger mantle", "title": "the Gauntlet-Walker", "log": "Crystal Gauntlet" }
+    },
+    {
+      "id": "raid_worldtree",
+      "name": "Worldtree Heart",
+      "category": "raid",
+      "region": "veilwood",
+      "items": [
+        { "id": 94080, "name": "Heartwood Staff", "rate": 256 },
+        { "id": 94081, "name": "Worldtree-sap amulet", "rate": 256 },
+        { "id": 94082, "name": "Vine-stalker cord", "rate": 384 },
+        { "id": 94083, "name": "Root-guardian tabard", "rate": 384 },
+        { "id": 94084, "name": "Spore-beast helm", "rate": 384 },
+        { "id": 84009, "name": "Sprout (pet)", "rate": 1500 }
+      ],
+      "completionReward": { "cosmetic": "Worldtree livewood cloak", "title": "the Heart-Felled", "log": "Worldtree Heart" }
+    },
+    {
+      "id": "raid_crucible_forge",
+      "name": "The Crucible (Forgemaster raid)",
+      "category": "raid",
+      "region": "sootworks",
+      "items": [
+        { "id": 94090, "name": "Crucible Plate", "rate": 256 },
+        { "id": 94091, "name": "Crucible helm", "rate": 256 },
+        { "id": 94092, "name": "Crucible legs", "rate": 256 },
+        { "id": 94093, "name": "Forgemaster hammer", "rate": 384 },
+        { "id": 94094, "name": "Smeltlord amulet", "rate": 384 },
+        { "id": 84010, "name": "Anvilet (pet)", "rate": 1500 }
+      ],
+      "completionReward": { "cosmetic": "Crucible-forged trim kit", "title": "the Crucible-Forged", "log": "The Crucible" }
+    },
+    {
+      "id": "raid_engine_architect",
+      "name": "Engine of the Architect",
+      "category": "raid",
+      "region": "sootworks",
+      "items": [
+        { "id": 94100, "name": "Architect's Blueprint", "rate": 256 },
+        { "id": 94101, "name": "Clockwork heart gear", "rate": 256 },
+        { "id": 94102, "name": "Gearbeast crown", "rate": 384 },
+        { "id": 94103, "name": "Pressure valve pauldrons", "rate": 384 },
+        { "id": 94104, "name": "Engine-driver's goggles", "rate": 384 },
+        { "id": 84011, "name": "Gearlet (pet)", "rate": 1500 }
+      ],
+      "completionReward": { "cosmetic": "Clockwork architect's mantle", "title": "the Architect-Crowned", "log": "Engine of the Architect" }
+    },
+    {
+      "id": "raid_sunken_depths",
+      "name": "The Sunken Depths",
+      "category": "raid",
+      "region": "saltbrine",
+      "items": [
+        { "id": 94110, "name": "Trident of the Depths", "rate": 256 },
+        { "id": 94111, "name": "Abyssal reed cape", "rate": 384 },
+        { "id": 94112, "name": "Sunken pearl amulet", "rate": 384 },
+        { "id": 94113, "name": "Sea-priest tome", "rate": 384 },
+        { "id": 94114, "name": "Reef-gloved gauntlets", "rate": 512 },
+        { "id": 84012, "name": "Nautiloid (pet)", "rate": 1500 }
+      ],
+      "completionReward": { "cosmetic": "Depths-forged leviathan robe", "title": "the Depth-Walker", "log": "The Sunken Depths" }
+    },
+    {
+      "id": "raid_tempest",
+      "name": "Tempest of the Skies",
+      "category": "raid",
+      "region": "saltbrine",
+      "items": [
+        { "id": 94120, "name": "Storm Bow", "rate": 256 },
+        { "id": 94121, "name": "Storm-born fletching kit", "rate": 256 },
+        { "id": 94122, "name": "Skyrend feather cape", "rate": 384 },
+        { "id": 94123, "name": "Thunderstep boots", "rate": 384 },
+        { "id": 94124, "name": "Tempest core", "rate": 512 },
+        { "id": 84013, "name": "Stormling (pet)", "rate": 1500 }
+      ],
+      "completionReward": { "cosmetic": "Tempest-woven stormcloak", "title": "the Storm-Bound", "log": "Tempest" }
+    },
+    {
+      "id": "raid_nightmare_rooms",
+      "name": "Nightmare Theatre (dream boss set)",
+      "category": "raid",
+      "region": "inkweald",
+      "items": [
+        { "id": 94130, "name": "Nightmare Staff Upgrade Orb", "rate": 200 },
+        { "id": 94131, "name": "Mirror-of-Denial shard", "rate": 384 },
+        { "id": 94132, "name": "Inferno Beast horn", "rate": 384 },
+        { "id": 94133, "name": "Merchant's false ledger", "rate": 384 },
+        { "id": 94134, "name": "Void Walker's coat", "rate": 384 },
+        { "id": 94135, "name": "Tranquil tears pendant", "rate": 384 },
+        { "id": 94136, "name": "Sleepwalker's mask", "rate": 384 },
+        { "id": 94137, "name": "Lucid core crystal", "rate": 512 },
+        { "id": 84014, "name": "Dreamlet (pet)", "rate": 1500 }
+      ],
+      "completionReward": { "cosmetic": "Nightmare theatre stage mantle", "title": "the Dream-Thespian", "log": "Nightmare Theatre" }
+    },
+    {
+      "id": "raid_rift_sovereign",
+      "name": "The Rift (Sovereign)",
+      "category": "raid",
+      "region": "inkweald",
+      "items": [
+        { "id": 94140, "name": "Rift Blade", "rate": 256 },
+        { "id": 94141, "name": "Rift-lord amulet", "rate": 256 },
+        { "id": 94142, "name": "Dimensional veil cape", "rate": 384 },
+        { "id": 94143, "name": "Sovereign's seal", "rate": 512 },
+        { "id": 94144, "name": "Unstable rift-orb", "rate": 512 }
+      ],
+      "completionReward": { "cosmetic": "Rift-woven sovereign cape", "title": "the Rift-Sovereign", "log": "The Rift" }
+    },
+    {
+      "id": "raid_prism_labyrinth",
+      "name": "Prism Labyrinth (Refractor)",
+      "category": "raid",
+      "region": "glass_desert",
+      "items": [
+        { "id": 96000, "name": "Prism ward", "rate": 75 },
+        { "id": 96001, "name": "Refractor's eye", "rate": 100 },
+        { "id": 96002, "name": "Chromatic shard (trophy)", "rate": 50 },
+        { "id": 84000, "name": "Lil' Prism", "rate": 1500 }
+      ],
+      "completionReward": { "cosmetic": "Prismatic refracted cloak", "title": "the Prism-Reflected", "log": "Prism Labyrinth" }
+    },
+    {
+      "id": "raid_dragon_forge",
+      "name": "The Dragon Forge",
+      "category": "raid",
+      "region": "glass_desert",
+      "items": [
+        { "id": 96020, "name": "Forge-cast dragon breastplate", "rate": 384 },
+        { "id": 96021, "name": "Veldrak scale helm (raid)", "rate": 384 },
+        { "id": 96022, "name": "Dragonforge tongs", "rate": 256 },
+        { "id": 96023, "name": "Ore golem's core", "rate": 384 },
+        { "id": 96024, "name": "Skeletal dragon sigil", "rate": 512 },
+        { "id": 84020, "name": "Baby forgewyrm (pet)", "rate": 1500 }
+      ],
+      "completionReward": { "cosmetic": "Veldrak forge-cast pauldrons", "title": "the Dragon-Forged", "log": "The Dragon Forge" }
+    },
+    {
+      "id": "raid_colosseum_reborn",
+      "name": "Colosseum (raid set)",
+      "category": "raid",
+      "region": "glass_desert",
+      "items": [
+        { "id": 96030, "name": "Colosseum champion's sash", "rate": 256 },
+        { "id": 96031, "name": "Gladiator's sandals", "rate": 256 },
+        { "id": 96032, "name": "Shieldbearer tower shield", "rate": 384 },
+        { "id": 96033, "name": "Mage-cohort robes", "rate": 384 },
+        { "id": 96034, "name": "Echo-resonant amulet", "rate": 512 },
+        { "id": 84021, "name": "Baby lanista (pet)", "rate": 1500 }
+      ],
+      "completionReward": { "cosmetic": "Colosseum laureate trim", "title": "the Laureate", "log": "Colosseum" }
+    },
+    {
+      "id": "raid_revenant_caves",
+      "name": "Revenant Caves",
+      "category": "raid",
+      "region": "wilds",
+      "items": [
+        { "id": 96040, "name": "Amulet of Avarice", "rate": 200 },
+        { "id": 96041, "name": "Ancient emblem", "rate": 100 },
+        { "id": 96042, "name": "Revenant ether bar", "rate": 50 },
+        { "id": 96043, "name": "Ancient medallion", "rate": 256 },
+        { "id": 96044, "name": "Ancient effigy", "rate": 384 },
+        { "id": 96045, "name": "Ancient totem", "rate": 384 },
+        { "id": 96046, "name": "Viggora's chainmace", "rate": 512 },
+        { "id": 96047, "name": "Craw's bow", "rate": 512 },
+        { "id": 96048, "name": "Thammaron's sceptre", "rate": 512 },
+        { "id": 84022, "name": "Revvy (pet)", "rate": 1500 }
+      ],
+      "completionReward": { "cosmetic": "Revenant ether cloak", "title": "the Revenant-Broken", "log": "Revenant Caves" }
+    },
+    {
+      "id": "raid_wilderness_fortress",
+      "name": "Wilderness Fortress",
+      "category": "raid",
+      "region": "wilds",
+      "items": [
+        { "id": 96050, "name": "Fortress commander set (helm)", "rate": 256 },
+        { "id": 96051, "name": "Fortress commander set (body)", "rate": 256 },
+        { "id": 96052, "name": "Fortress commander set (legs)", "rate": 256 },
+        { "id": 96053, "name": "Chaos core fragment", "rate": 384 },
+        { "id": 96054, "name": "Core-runed gauntlets", "rate": 384 },
+        { "id": 84023, "name": "Fortress whelp (pet)", "rate": 1500 }
+      ],
+      "completionReward": { "cosmetic": "Fortress warlord's banner", "title": "the Fortress-Breaker", "log": "Wilderness Fortress" }
+    },
+    {
+      "id": "raid_abyssal_nexus",
+      "name": "The Abyssal Nexus",
+      "category": "raid",
+      "region": "inkweald",
+      "items": [
+        { "id": 96060, "name": "Nexus-woven cloak", "rate": 256 },
+        { "id": 96061, "name": "Void-drifter belt", "rate": 384 },
+        { "id": 96062, "name": "Leech-sigil amulet", "rate": 384 },
+        { "id": 96063, "name": "Walker's maw pauldron", "rate": 512 },
+        { "id": 96064, "name": "Warden-of-nothing ring", "rate": 512 },
+        { "id": 84024, "name": "Nexus wisp (pet)", "rate": 1500 }
+      ],
+      "completionReward": { "cosmetic": "Nexus-knit abyssal mantle", "title": "the Nexus-Walker", "log": "The Abyssal Nexus" }
+    },
+    {
+      "id": "raid_grand_hunt",
+      "name": "The Grand Hunt",
+      "category": "raid",
+      "region": "cross_region",
+      "items": [
+        { "id": 96070, "name": "Legendary beast trophy", "rate": 256 },
+        { "id": 96071, "name": "Tracker-beast skull", "rate": 384 },
+        { "id": 96072, "name": "Heartlands guardian token", "rate": 384 },
+        { "id": 96073, "name": "Boneyard guardian token", "rate": 384 },
+        { "id": 96074, "name": "Hunter's master crest", "rate": 512 },
+        { "id": 84025, "name": "Big-game Jr. (pet)", "rate": 1500 }
+      ],
+      "completionReward": { "cosmetic": "Grand hunt trophy mantle", "title": "the Grand-Hunter", "log": "The Grand Hunt" }
+    },
+    {
+      "id": "raid_calamity_protocol",
+      "name": "Calamity Protocol",
+      "category": "raid",
+      "region": "wilds",
+      "items": [
+        { "id": 96080, "name": "Tendril-bound blade", "rate": 256 },
+        { "id": 96081, "name": "Corruptor's hood", "rate": 384 },
+        { "id": 96082, "name": "Shield pylon core", "rate": 384 },
+        { "id": 96083, "name": "Calamity cape", "rate": 512 },
+        { "id": 96084, "name": "Overload charger", "rate": 512 },
+        { "id": 84026, "name": "Pylonlet (pet)", "rate": 1500 }
+      ],
+      "completionReward": { "cosmetic": "Calamity-fused overcoat", "title": "the Calamity-Averted", "log": "Calamity Protocol" }
+    },
+    {
+      "id": "raid_iron_gauntlet",
+      "name": "The Iron Gauntlet (Hunllef Extended)",
+      "category": "raid",
+      "region": "veilwood",
+      "items": [
+        { "id": 96090, "name": "Iron-gauntlet crystal weapon seed", "rate": 120 },
+        { "id": 96091, "name": "Iron-gauntlet crystal armour seed", "rate": 120 },
+        { "id": 96092, "name": "Enhanced crystal teleport seed", "rate": 200 },
+        { "id": 96093, "name": "Corrupted Hunllef totem", "rate": 300 },
+        { "id": 84027, "name": "Corrupted Youngllef (pet)", "rate": 400 }
+      ],
+      "completionReward": { "cosmetic": "Corrupted crystal cape", "title": "the Corrupted-Gauntlet", "log": "The Iron Gauntlet" }
+    },
+    {
+      "id": "raid_mushroom_grotto",
+      "name": "The Mushroom Grotto",
+      "category": "raid",
+      "region": "veilwood",
+      "items": [
+        { "id": 96100, "name": "Sporewing cape", "rate": 256 },
+        { "id": 96101, "name": "Fungal warrior hauberk", "rate": 384 },
+        { "id": 96102, "name": "Mycelium leggings", "rate": 384 },
+        { "id": 96103, "name": "Spore-cloud veil", "rate": 384 },
+        { "id": 96104, "name": "Grotto lantern kit", "rate": 512 },
+        { "id": 84028, "name": "Mycopup (pet)", "rate": 1500 }
+      ],
+      "completionReward": { "cosmetic": "Grotto mycelial robe", "title": "the Fungal-Bound", "log": "The Mushroom Grotto" }
+    },
+    {
+      "id": "raid_frost_citadel",
+      "name": "The Frost Citadel",
+      "category": "raid",
+      "region": "wilds",
+      "items": [
+        { "id": 96110, "name": "Frost queen circlet", "rate": 256 },
+        { "id": 96111, "name": "Ice wyvern scale", "rate": 256 },
+        { "id": 96112, "name": "Ice golem core", "rate": 384 },
+        { "id": 96113, "name": "Hoarfrost blade", "rate": 384 },
+        { "id": 96114, "name": "Citadel banner", "rate": 512 },
+        { "id": 84029, "name": "Frostling (pet)", "rate": 1500 }
+      ],
+      "completionReward": { "cosmetic": "Frost citadel cloak", "title": "the Frost-Crowned", "log": "The Frost Citadel" }
+    },
+    {
+      "id": "raid_volcanic_depths",
+      "name": "The Volcanic Depths",
+      "category": "raid",
+      "region": "sootworks",
+      "items": [
+        { "id": 96120, "name": "Obsidian golem heart", "rate": 256 },
+        { "id": 96121, "name": "Magma-forged sword", "rate": 256 },
+        { "id": 96122, "name": "Lavaflow bracers", "rate": 384 },
+        { "id": 96123, "name": "Ember breastplate", "rate": 384 },
+        { "id": 96124, "name": "Volcanic core fragment", "rate": 512 },
+        { "id": 84030, "name": "Lavalet (pet)", "rate": 1500 }
+      ],
+      "completionReward": { "cosmetic": "Magma-forged cape", "title": "the Magma-Crowned", "log": "The Volcanic Depths" }
+    },
+    {
+      "id": "raid_tidal_fortress",
+      "name": "The Tidal Fortress",
+      "category": "raid",
+      "region": "saltbrine",
+      "items": [
+        { "id": 96130, "name": "Tidal fortress crown", "rate": 256 },
+        { "id": 96131, "name": "Storm-cleric robes", "rate": 384 },
+        { "id": 96132, "name": "Sea-dragon scale cape", "rate": 384 },
+        { "id": 96133, "name": "Saltwater pendant", "rate": 512 },
+        { "id": 96134, "name": "Tide-bound gauntlets", "rate": 512 },
+        { "id": 84031, "name": "Tide wisp (pet)", "rate": 1500 }
+      ],
+      "completionReward": { "cosmetic": "Tidal fortress banner", "title": "the Tide-Warden", "log": "The Tidal Fortress" }
+    },
+    {
+      "id": "raid_dream_colosseum",
+      "name": "Dream Colosseum",
+      "category": "raid",
+      "region": "inkweald",
+      "items": [
+        { "id": 96140, "name": "Dream laureate helm", "rate": 256 },
+        { "id": 96141, "name": "Oneirologist's mantle", "rate": 384 },
+        { "id": 96142, "name": "Somnambulist's gavel", "rate": 384 },
+        { "id": 96143, "name": "Ether-cast boots", "rate": 512 },
+        { "id": 84032, "name": "Dreamling (pet)", "rate": 1500 }
+      ],
+      "completionReward": { "cosmetic": "Dream laureate cape", "title": "the Dream-Laureate", "log": "Dream Colosseum" }
+    },
+    {
+      "id": "raid_exodus",
+      "name": "The Exodus (capstone)",
+      "category": "raid",
+      "region": "cross_region",
+      "items": [
+        { "id": 96150, "name": "Exodus crown of Aelgard", "rate": 300 },
+        { "id": 96151, "name": "Saviour's sash", "rate": 300 },
+        { "id": 96152, "name": "Worldshaper hammer", "rate": 384 },
+        { "id": 96153, "name": "Exodus shield", "rate": 384 },
+        { "id": 96154, "name": "Aelgard banner (animated)", "rate": 512 },
+        { "id": 96155, "name": "Exodus seal", "rate": 768 },
+        { "id": 84033, "name": "Aelgardling (capstone pet)", "rate": 1500 }
+      ],
+      "completionReward": { "cosmetic": "Exodus glorified regalia", "title": "the Saviour of Aelgard", "log": "The Exodus" }
+    },
+
+    {
+      "id": "slayer_dust_devil",
+      "name": "Dust Devil",
+      "category": "slayer",
+      "region": "boneyard",
+      "items": [
+        { "id": 31140, "name": "Dusty key", "rate": 100 },
+        { "id": 31141, "name": "Dust devil fang", "rate": 256 }
+      ],
+      "completionReward": { "cosmetic": "Dust-cloak shawl", "title": "the Dust-Walker", "log": "Dust Devil" }
+    },
+    {
+      "id": "slayer_black_demon",
+      "name": "Black Demon",
+      "category": "slayer",
+      "region": "wilds",
+      "items": [
+        { "id": 31145, "name": "Demonic ashes (blessed)", "rate": 64 },
+        { "id": 31146, "name": "Black mask (i fragment)", "rate": 256 },
+        { "id": 31147, "name": "Demon tear amulet", "rate": 512 }
+      ],
+      "completionReward": { "cosmetic": "Black demon wing cloak", "title": "the Demon-Cleaver", "log": "Black Demon" }
+    },
+    {
+      "id": "slayer_dark_beast",
+      "name": "Dark Beast",
+      "category": "slayer",
+      "region": "moryskah",
+      "items": [
+        { "id": 31150, "name": "Dark bow (fragment)", "rate": 384 },
+        { "id": 31151, "name": "Dark beast hide", "rate": 128 },
+        { "id": 31152, "name": "Night-eye amulet", "rate": 512 }
+      ],
+      "completionReward": { "cosmetic": "Dark-beast hide mantle", "title": "the Night-Walker", "log": "Dark Beast" }
+    },
+    {
+      "id": "slayer_gargoyle",
+      "name": "Gargoyle",
+      "category": "slayer",
+      "region": "heartlands",
+      "items": [
+        { "id": 31155, "name": "Granite hammer", "rate": 500 },
+        { "id": 31156, "name": "Granite maul", "rate": 750 },
+        { "id": 31157, "name": "Gargoyle chisel", "rate": 128 }
+      ],
+      "completionReward": { "cosmetic": "Gargoyle-etched helm trim", "title": "the Stone-Carver", "log": "Gargoyle" }
+    },
+    {
+      "id": "slayer_nechryael",
+      "name": "Nechryael",
+      "category": "slayer",
+      "region": "moryskah",
+      "items": [
+        { "id": 31160, "name": "Death talon", "rate": 256 },
+        { "id": 31161, "name": "Nechryael mantle", "rate": 512 },
+        { "id": 31162, "name": "Greater nechryael essence", "rate": 128 }
+      ],
+      "completionReward": { "cosmetic": "Nechryael shadow-weave cloak", "title": "the Nether-Bound", "log": "Nechryael" }
+    },
+    {
+      "id": "slayer_basilisk_knight",
+      "name": "Basilisk Knight",
+      "category": "slayer",
+      "region": "moryskah",
+      "items": [
+        { "id": 31165, "name": "Basilisk jaw", "rate": 200 },
+        { "id": 31166, "name": "Neitiznot faceguard piece", "rate": 768 }
+      ],
+      "completionReward": { "cosmetic": "Basilisk mirror-shield trim", "title": "the Basilisk-Blind", "log": "Basilisk Knight" }
+    },
+    {
+      "id": "slayer_drake",
+      "name": "Drake",
+      "category": "slayer",
+      "region": "moryskah",
+      "items": [
+        { "id": 31170, "name": "Drake scale", "rate": 50 },
+        { "id": 31171, "name": "Boots of brimstone", "rate": 384 },
+        { "id": 31172, "name": "Drake's teeth", "rate": 128 }
+      ],
+      "completionReward": { "cosmetic": "Drake-hide cape", "title": "the Drake-Rider", "log": "Drake" }
+    },
+    {
+      "id": "slayer_wyrm",
+      "name": "Wyrm",
+      "category": "slayer",
+      "region": "moryskah",
+      "items": [
+        { "id": 31175, "name": "Wyrm scale (slayer)", "rate": 50 },
+        { "id": 31176, "name": "Wyrm-egg charm", "rate": 256 }
+      ],
+      "completionReward": { "cosmetic": "Wyrm-ember cloak", "title": "the Wyrm-Bound", "log": "Wyrm (Slayer)" }
+    },
+    {
+      "id": "slayer_hydra",
+      "name": "Hydra",
+      "category": "slayer",
+      "region": "moryskah",
+      "items": [
+        { "id": 31180, "name": "Hydra bones", "rate": 10 },
+        { "id": 31181, "name": "Hydra tail", "rate": 256 },
+        { "id": 31182, "name": "Hydra leather strip", "rate": 256 }
+      ],
+      "completionReward": { "cosmetic": "Hydra-scale sash", "title": "the Hydra-Tamer", "log": "Hydra" }
+    },
+    {
+      "id": "slayer_skotos",
+      "name": "Skotos (Abyssal)",
+      "category": "slayer",
+      "region": "moryskah",
+      "items": [
+        { "id": 31185, "name": "Abyssal orphan charm", "rate": 256 },
+        { "id": 31186, "name": "Skotos tail", "rate": 128 }
+      ],
+      "completionReward": { "cosmetic": "Abyssal orphan cloak", "title": "the Abyssal-Parent", "log": "Skotos (Abyssal)" }
+    },
+    {
+      "id": "slayer_spectral_wraith",
+      "name": "Spectral Wraith",
+      "category": "slayer",
+      "region": "inkweald",
+      "items": [
+        { "id": 31190, "name": "Spectral ectoplasm", "rate": 128 },
+        { "id": 31191, "name": "Wraith's veil", "rate": 384 }
+      ],
+      "completionReward": { "cosmetic": "Wraith-veil cloak", "title": "the Wraith-Pierced", "log": "Spectral Wraith" }
+    },
+    {
+      "id": "slayer_aquatic_terror",
+      "name": "Aquatic Terror",
+      "category": "slayer",
+      "region": "saltbrine",
+      "items": [
+        { "id": 31195, "name": "Terror tusk", "rate": 256 },
+        { "id": 31196, "name": "Riptide amulet", "rate": 384 }
+      ],
+      "completionReward": { "cosmetic": "Riptide-worn mantle", "title": "the Riptide-Bound", "log": "Aquatic Terror" }
+    },
+
+    {
+      "id": "other_holiday_events",
+      "name": "Holiday Events & Seasonals",
+      "category": "other",
+      "region": "any",
+      "items": [
+        { "id": 85001, "name": "Christmas cracker 2026" },
+        { "id": 85002, "name": "Santa hat (retro)" },
+        { "id": 85003, "name": "Easter egg (animated)" },
+        { "id": 85004, "name": "Easter ring" },
+        { "id": 85005, "name": "Halloween pumpkin head" },
+        { "id": 85006, "name": "Scythe of death (cosmetic)" },
+        { "id": 85007, "name": "Reaper's cloak" },
+        { "id": 85008, "name": "Turkey trophy" },
+        { "id": 85009, "name": "Snowman suit (top)" },
+        { "id": 85010, "name": "Snowman suit (legs)" },
+        { "id": 85011, "name": "Snowman head" },
+        { "id": 85012, "name": "Valentine rose" },
+        { "id": 85013, "name": "Love-letter parchment" },
+        { "id": 85014, "name": "Harvest scarecrow head" },
+        { "id": 85015, "name": "Autumn-leaf cape" },
+        { "id": 85016, "name": "Summerfest garland" },
+        { "id": 85017, "name": "Fireworks kit (animated)" },
+        { "id": 85018, "name": "Equinox bonfire log" },
+        { "id": 85019, "name": "Spring-bloom bouquet" }
+      ],
+      "completionReward": { "cosmetic": "Seasons-wheel cloak (cycles through 4 colours)", "title": "of All Seasons", "log": "Holiday Events" }
+    },
+    {
+      "id": "other_leagues_cosmetics",
+      "name": "Leagues & Seasonal Modes",
+      "category": "other",
+      "region": "any",
+      "items": [
+        { "id": 85100, "name": "League aura (speedrunner)" },
+        { "id": 85101, "name": "League aura (completionist)" },
+        { "id": 85102, "name": "League ironman token" },
+        { "id": 85103, "name": "Leagues region-relic banner" },
+        { "id": 85104, "name": "Leagues task-scroll trophy" },
+        { "id": 85105, "name": "Trailblazer cape" },
+        { "id": 85106, "name": "Shattered relic cape" },
+        { "id": 85107, "name": "Speedrunner's hood" },
+        { "id": 85108, "name": "Leagues rank ring (bronze)" },
+        { "id": 85109, "name": "Leagues rank ring (iron)" },
+        { "id": 85110, "name": "Leagues rank ring (dragon)" },
+        { "id": 85111, "name": "Leagues rank ring (rune)" },
+        { "id": 85112, "name": "Endurance pennant" }
+      ],
+      "completionReward": { "cosmetic": "Leagues veteran trim (animated)", "title": "the Veteran-Leaguer", "log": "Leagues" }
+    },
+    {
+      "id": "other_quest_cosmetics",
+      "name": "Quest Cosmetics & Trophies",
+      "category": "other",
+      "region": "any",
+      "items": [
+        { "id": 85200, "name": "Dragon Slayer trophy plate" },
+        { "id": 85201, "name": "Monk's Friend amulet (quest)" },
+        { "id": 85202, "name": "Pet Rock polish kit" },
+        { "id": 85203, "name": "Runaway Golem plushie" },
+        { "id": 85204, "name": "Green Thumb trowel trophy" },
+        { "id": 85205, "name": "Ratcatchers cat brush" },
+        { "id": 85206, "name": "Barrows Brothers family portrait" },
+        { "id": 85207, "name": "Fight Caves Jad plush" },
+        { "id": 85208, "name": "Infernal challenge TzHaar hoodie" },
+        { "id": 85209, "name": "Questing wayfinder map" }
+      ],
+      "completionReward": { "cosmetic": "Quester's scholastic robe", "title": "of Many Stories", "log": "Quest Cosmetics" }
+    },
+    {
+      "id": "other_daily_random_events",
+      "name": "Daily Challenges & Random Events",
+      "category": "other",
+      "region": "any",
+      "items": [
+        { "id": 80301, "name": "Genie wisp", "rate": 2500 },
+        { "id": 80302, "name": "Drunken dwarf", "rate": 2500 },
+        { "id": 80303, "name": "Sandwich lady pet", "rate": 3000 },
+        { "id": 85300, "name": "Daily challenge medal" },
+        { "id": 85301, "name": "Random event lamp" },
+        { "id": 85302, "name": "Genie's book of knowledge" },
+        { "id": 85303, "name": "Dwarf's lucky stein" },
+        { "id": 85304, "name": "Sandwich lady's recipe" },
+        { "id": 85305, "name": "Maze random-event chest key" }
+      ],
+      "completionReward": { "cosmetic": "Random-event magician's cloak", "title": "the Lucky", "log": "Daily Events" }
+    },
+    {
+      "id": "other_misc",
+      "name": "Miscellaneous Rarities",
+      "category": "other",
+      "region": "any",
+      "items": [
+        { "id": 85400, "name": "Lumbridge anniversary cape" },
+        { "id": 85401, "name": "Grand Exchange centennial pin" },
+        { "id": 85402, "name": "Founder's ring (account-bound)" },
+        { "id": 85403, "name": "First-login commemorative coin" },
+        { "id": 85404, "name": "Achievement-diary master trophy" },
+        { "id": 85405, "name": "Inferno max cape (earned)" },
+        { "id": 85406, "name": "Fire max cape (earned)" },
+        { "id": 85407, "name": "Void max cape (earned)" },
+        { "id": 85408, "name": "Quest point cape trim" },
+        { "id": 85409, "name": "Music track cape trim" },
+        { "id": 85410, "name": "Aelgard explorer hat" },
+        { "id": 85411, "name": "Map-reader's compass" },
+        { "id": 85412, "name": "Cartographer's pouch" },
+        { "id": 85413, "name": "Master-diary badge" },
+        { "id": 85414, "name": "Achievement-of-the-month pin" }
+      ],
+      "completionReward": { "cosmetic": "Veteran of Aelgard sash", "title": "the Founder", "log": "Miscellaneous" }
     }
   ]
 }
