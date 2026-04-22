@@ -3694,6 +3694,9 @@ function createDefaultContent() {
   require('./content/aelgard/diaries-tasks-detailed'); // 320 specific diary tasks across all regions
   require('./content/aelgard/raids');                 // 2 raids: Chambers of Aelgard (6 rooms) + Theatre of Shadows (5 bosses), 20 items, 20 NPCs
   require('./content/aelgard/quests-mega');            // 50 more quests: novice→grandmaster, all 23 skills, multi-region adventures
+  require('./content/aelgard/quests-burn-wave3');       // 7 NPC-bible-seeded Marstead quests (burn wave 3, part 1/3)
+  require('./content/aelgard/quests-burn-wave3-part2'); // 7 more (quests 8-14)
+  require('./content/aelgard/quests-burn-wave3-part3'); // 6 more (quests 15-20), inc. 2 grandmaster 5+hr arcs
   require('./content/aelgard/combat-achievements');   // 100+ combat achievements across 6 tiers (Easy→Grandmaster)
   require('./content/aelgard/clue-scrolls-expanded'); // 85 more clue steps + master tier with 3rd age druidic rewards
   require('./content/aelgard/random-events-daily');   // 10 random events + 10 daily/weekly activities
