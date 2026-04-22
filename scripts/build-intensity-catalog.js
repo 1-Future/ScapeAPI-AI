@@ -1169,7 +1169,9 @@ function computeMiseryAndGaps(catalog) {
   for (let i = 1; i <= 10; i++) {
     const list = bands[i];
     // Compute SEPARATE medians per activity-family (skilling_xp vs combat).
-    // Combat-manifest swing entries stay excluded, as do minigames, composites.
+    // Combat-manifest swing entries stay excluded, as do minigames, composites,
+    // and osrs_canon-flagged entries (H18/M7 — canonical-slow paths players
+    // accept; excluding keeps the median from being dragged down by them).
     const families = { skilling_xp: [], combat: [], other: [] };
     for (const e of list) {
       if (e.base_xp_per_hour <= 0) continue;
@@ -1177,6 +1179,7 @@ function computeMiseryAndGaps(catalog) {
       if (e.activity_type === 'minigame') continue;
       if (e.activity_type === 'raid_boss') continue;
       if (e.is_composite) continue;
+      if (e.osrs_canon) continue;
       families[activityFamily(e)].push(e);
     }
     function median(arr) {
@@ -1200,6 +1203,9 @@ function computeMiseryAndGaps(catalog) {
       const famMedian = fam === 'skilling_xp' ? skillingMedian : combatMedian;
       if (famMedian <= 0) continue;
       for (const e of families[fam]) {
+        // osrs_canon is already filtered out of `families[fam]` above, so this
+        // loop only sees non-canon candidates. Preserved as belt-and-braces.
+        if (e.osrs_canon) continue;
         if (e.base_xp_per_hour < famMedian * 0.7) {
           report.miseryZones.push({
             band: i, family: fam,
@@ -1337,6 +1343,14 @@ function main() {
     },
     activities: dedup,
   };
+
+  // C16/C17/H13/H17/H18/M7/M12/M17 — run the misery-remediation codemod
+  // in-process BEFORE writing the catalog + report. This keeps the fixes
+  // deterministic on every build.
+  const codemod = require('./codemod-misery-buff.js');
+  const codemodCounts = codemod.applyAll(out.activities);
+  console.log(`[intensity] codemod: canon=${codemodCounts.canon} m17=${codemodCounts.m17} c17=${codemodCounts.c17} h13=${codemodCounts.h13} h17=${codemodCounts.h17} c16=${codemodCounts.c16}`);
+
   fs.writeFileSync(path.join(DATA, 'intensity-catalog.json'), JSON.stringify(out, null, 2));
 
   const report = computeMiseryAndGaps(dedup);
@@ -1345,6 +1359,7 @@ function main() {
 
   console.log(`[intensity] wrote data/intensity-catalog.json (${dedup.length} entries)`);
   console.log(`[intensity] wrote data/intensity-catalog-report.md`);
+  console.log(`[intensity] misery zones after codemod: ${report.miseryZones.length}`);
 }
 
 function renderReport(out, report) {
