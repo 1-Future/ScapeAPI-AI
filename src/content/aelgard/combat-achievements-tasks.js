@@ -1100,6 +1100,47 @@ r('catacomb_necromancer', T({ id: 'ca_cata_necro_range_only', name: 'Piercing He
 r('catacomb_necromancer', T({ id: 'ca_cata_necro_speed_120', name: 'Summons Silenced',         description: 'Defeat the Necromancer in under 2 minutes.',                                                                       tier: 'master',      category: 'speed',       injects: [12, 13] }));
 r('catacomb_necromancer', T({ id: 'ca_cata_necro_no_damage', name: 'Untouched Necromancer',  description: 'Defeat the Necromancer without taking damage from the necromancer or any raised skeleton.',                      tier: 'master',      category: 'perfection',  injects: [4, 10, 13] }));
 
+// ── H4.4 Nightmare dream set (7 × 3 = 21 CAs) ─────────────────────────────────
+// Kubler-Ross dream stages: Denial/Mirror, Anger/Inferno, Bargaining/Merchant,
+// Depression/Void, Acceptance/Tranquil, Sleepwalker, Lucid Core. Each warps a
+// game rule (gravity reverse, skill swap, item shuffle, stat inversion, style
+// lock). Sanity meter drains per tick + per damage.
+
+// -- Mirror (Denial; copies stats; weakness current_style) ---------------------
+r('nightmare_mirror', T({ id: 'ca_nmm_mirror_no_damage',       name: 'Untouched Reflection',    description: 'Defeat the Nightmare Mirror without taking damage.',                                                              tier: 'elite',       category: 'perfection',  injects: [10, 13] }));
+r('nightmare_mirror', T({ id: 'ca_nmm_mirror_no_food',         name: 'Reflected Fasting',       description: 'Defeat the Nightmare Mirror without eating food (despite it copying your supplies).',                            tier: 'elite',       category: 'restriction', injects: [5, 10] }));
+r('nightmare_mirror', T({ id: 'ca_nmm_mirror_solo',            name: 'Solo Reflection',         description: 'Defeat the Nightmare Mirror solo (no party members to draw aggro).',                                                tier: 'elite',       category: 'solo',        injects: [9] }));
+
+// -- Inferno Beast (Anger; damage scales with missing HP; weakness magic) ------
+r('nightmare_inferno_beast', T({ id: 'ca_nmm_inferno_magic_only', name: 'Cold Dream',           description: 'Defeat the Inferno Beast using only magic attacks (its listed weakness — despite the anger scaling).',            tier: 'elite',       category: 'gear',        injects: [4, 7, 16] }));
+r('nightmare_inferno_beast', T({ id: 'ca_nmm_inferno_speed_60',  name: 'Anger Extinguished',   description: 'Defeat the Inferno Beast in under 60 seconds (before low-HP damage scaling kicks in).',                            tier: 'master',      category: 'speed',       injects: [12, 13] }));
+r('nightmare_inferno_beast', T({ id: 'ca_nmm_inferno_no_damage', name: 'Rage Deflected',        description: 'Defeat the Inferno Beast without taking damage.',                                                                  tier: 'grandmaster', category: 'perfection',  injects: [10, 13] }));
+
+// -- Merchant (Bargaining; warps your inventory; weakness melee) ---------------
+r('nightmare_merchant', T({ id: 'ca_nmm_merch_melee_only',     name: 'Close Counter',           description: 'Defeat the Nightmare Merchant using only melee attacks (his listed weakness).',                                   tier: 'elite',       category: 'gear',        injects: [4, 7, 16] }));
+r('nightmare_merchant', T({ id: 'ca_nmm_merch_no_swap',        name: 'Sanity Intact',           description: 'Defeat the Nightmare Merchant without any inventory-warp item being consumed or re-equipped.',                      tier: 'master',      category: 'mechanic',    injects: [4, 12, 13] }));
+r('nightmare_merchant', T({ id: 'ca_nmm_merch_no_sanity_drop', name: 'Calm Dealer',             description: 'Defeat the Nightmare Merchant without sanity dropping below 50%.',                                                 tier: 'master',      category: 'perfection',  injects: [4, 10, 13] }));
+
+// -- Void Walker (Depression; gravity reversed; weakness ranged) ---------------
+r('nightmare_void_walker', T({ id: 'ca_nmm_void_range_only',   name: 'Piercing Depression',     description: 'Defeat the Void Walker using only ranged attacks (her listed weakness).',                                          tier: 'elite',       category: 'gear',        injects: [4, 7, 16] }));
+r('nightmare_void_walker', T({ id: 'ca_nmm_void_no_movement',  name: 'Still in Reversal',       description: 'Defeat the Void Walker without moving more than 5 tiles total (gravity reversal active).',                         tier: 'master',      category: 'restriction', injects: [4, 5, 10, 13] }));
+r('nightmare_void_walker', T({ id: 'ca_nmm_void_speed_120',    name: 'Gravity Rush',            description: 'Defeat the Void Walker in under 2 minutes.',                                                                       tier: 'master',      category: 'speed',       injects: [12, 13] }));
+
+// -- Tranquil Guardian (Acceptance; weakness stab; wrong style deals 1 dmg) ----
+r('nightmare_tranquil', T({ id: 'ca_nmm_tranq_stab_only',      name: 'Acceptance Pierced',      description: 'Defeat the Tranquil Guardian using only stab weapons (his listed weakness).',                                     tier: 'elite',       category: 'gear',        injects: [4, 7, 16] }));
+r('nightmare_tranquil', T({ id: 'ca_nmm_tranq_speed_180',      name: 'Quick Acceptance',        description: 'Defeat the Tranquil Guardian in under 3 minutes.',                                                                 tier: 'master',      category: 'speed',       injects: [12, 13] }));
+r('nightmare_tranquil', T({ id: 'ca_nmm_tranq_no_damage',      name: 'Untouched Guardian',      description: 'Defeat the Tranquil Guardian without taking damage.',                                                              tier: 'master',      category: 'perfection',  injects: [10, 13] }));
+
+// -- Sleepwalker (skill-swap warp; weakness crush) -----------------------------
+r('nightmare_sleepwalker', T({ id: 'ca_nmm_sleep_crush_only',  name: 'Crushed Dreams',          description: 'Defeat the Sleepwalker using only crush weapons (its listed weakness).',                                          tier: 'elite',       category: 'gear',        injects: [4, 7, 16] }));
+r('nightmare_sleepwalker', T({ id: 'ca_nmm_sleep_no_damage',   name: 'Dreamless Watch',         description: 'Defeat the Sleepwalker without taking damage.',                                                                     tier: 'master',      category: 'perfection',  injects: [10, 13] }));
+r('nightmare_sleepwalker', T({ id: 'ca_nmm_sleep_no_pray',     name: 'Faithless Somnambulist',  description: 'Defeat the Sleepwalker without using prayer.',                                                                     tier: 'elite',       category: 'restriction', injects: [4, 5] }));
+
+// -- Lucid Core (final; 3 phases; all warps; weakness current_style) -----------
+r('nightmare_lucid_core', T({ id: 'ca_nmm_core_speed_5m',      name: 'Lucid Speedrun',          description: 'Defeat the Lucid Core in under 5 minutes.',                                                                        tier: 'grandmaster', category: 'speed',       injects: [12, 13] }));
+r('nightmare_lucid_core', T({ id: 'ca_nmm_core_sanity_75',     name: 'Clear Mind',              description: 'Defeat the Lucid Core without sanity dropping below 75%.',                                                          tier: 'master',      category: 'mechanic',    injects: [4, 10, 13] }));
+r('nightmare_lucid_core', T({ id: 'ca_nmm_core_p3_untouched',  name: 'Awakening Flawless',      description: 'Defeat the Lucid Core P3 (Awakening) without taking damage during the all-warps-active phase.',                    tier: 'grandmaster', category: 'perfection',  injects: [4, 10, 13] }));
+
 // ══════════════════════════════════════════════════════════════════════════════
 // Boot summary
 // ══════════════════════════════════════════════════════════════════════════════

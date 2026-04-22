@@ -4,7 +4,12 @@
 //
 // Purpose:
 //   - C1: Populate `unlocks: ["<dag_node_id>", ...]` for every quest by joining
-//         the DAG's `source_quest` -> [node_id] reverse-map.
+//         the DAG's `source_quest` -> [node_id] reverse-map, plus parsing trailing
+//         `// Unlocks: X` comments into a known-ref-prefix lookup.
+//         STRICT MODE: refs are validated against data/progression-dag.json.
+//         Unresolved refs are dropped from the written array and LOGGED to
+//         reports/_c1_unresolved.md. No synthesized `<quest>_completion`
+//         fallbacks — a quest with no resolvable refs gets `unlocks: []`.
 //   - C2: Populate `chain_next: "<next_quest_id>"` for multi-part chains.
 //         Chain detection combines:
 //           * explicit naming patterns (rfd_*, the_last_dragon_p1/p2/p3)
@@ -12,10 +17,19 @@
 //           * `requires.quests: [prev]` single-prereq detection.
 //   - Runs dry by default. `--write` to mutate files.
 //
+// Modes:
+//   (default)        — both C1 (unlocks) and C2 (chain_next)
+//   --only-unlocks   — C1 only
+//   --only-chains    — C2 only
+//   --write          — actually mutate files (default is dry-run)
+//   --verbose        — per-file edit counts
+//
 // Safety:
-//   - Never touches quests where `unlocks:` is already present.
-//   - Preserves the existing `// Unlocks:` comment (as lore annotation).
-//   - Idempotent — running twice is a no-op.
+//   - Idempotent. Re-running finds nothing to change.
+//   - C1 REWRITES existing `unlocks: [...]` arrays with a DAG-validated set.
+//     Resolved refs stay; unresolved refs are dropped (+ logged).
+//     Preserves the `// Unlocks:` lore comment.
+//   - C2 never rewrites an existing `chain_next:` key.
 // ────────────────────────────────────────────────────────────────────────────────
 
 'use strict';
@@ -26,6 +40,7 @@ const path = require('path');
 const ROOT = path.resolve(__dirname, '..');
 const DAG_PATH = path.join(ROOT, 'data', 'progression-dag.json');
 const CONTENT_DIR = path.join(ROOT, 'src', 'content', 'aelgard');
+const UNRESOLVED_LOG = path.join(ROOT, 'reports', '_c1_unresolved.md');
 
 const QUEST_FILES = [
   'active-gathering.js',
@@ -155,8 +170,35 @@ function writeQuestFile(filePath, content) {
   fs.writeFileSync(filePath, content, 'utf8');
 }
 
-// Find every quest definition block in a file. Returns a list of
-// { id, startIdx, endIdx, rewardsStart, rewardsEnd, prereqs, hasUnlocks, hasChainNext }.
+function findMatchingBrace(s, openIdx) {
+  if (s[openIdx] !== '{') return -1;
+  let depth = 0;
+  for (let i = openIdx; i < s.length; i++) {
+    const ch = s[i];
+    if (ch === '{') depth++;
+    else if (ch === '}') {
+      depth--;
+      if (depth === 0) return i;
+    }
+  }
+  return -1;
+}
+
+function findMatchingBracket(s, openIdx) {
+  if (s[openIdx] !== '[') return -1;
+  let depth = 0;
+  for (let i = openIdx; i < s.length; i++) {
+    const ch = s[i];
+    if (ch === '[') depth++;
+    else if (ch === ']') {
+      depth--;
+      if (depth === 0) return i;
+    }
+  }
+  return -1;
+}
+
+// Find every quest definition block in a file.
 function parseQuests(content) {
   const results = [];
   const defineRe = /quests\.define\('([^']+)',\s*\{/g;
@@ -165,7 +207,6 @@ function parseQuests(content) {
     const id = m[1];
     const objStart = content.indexOf('{', m.index + m[0].length - 1);
     if (objStart === -1) continue;
-    // Scan balanced braces to find end of quest block.
     const end = findMatchingBrace(content, objStart);
     if (end === -1) continue;
 
@@ -177,7 +218,7 @@ function parseQuests(content) {
       results.push({ id, blockStart: objStart, blockEnd: end, hasUnlocks: false, hasChainNext: false, skipReason: 'no_rewards_block' });
       continue;
     }
-    const relRewardsStart = rewardsMatch.index + rewardsMatch[0].length - 1; // index of '{'
+    const relRewardsStart = rewardsMatch.index + rewardsMatch[0].length - 1;
     const absRewardsStart = objStart + relRewardsStart;
     const absRewardsEnd = findMatchingBrace(content, absRewardsStart);
     if (absRewardsEnd === -1) continue;
@@ -193,7 +234,6 @@ function parseQuests(content) {
         prereqs.push(...ids);
       }
     }
-    // Also handle `requirements: { ..., quests: [...], ... }` spanning multi-line (chain-1..5 uses deep shapes).
     if (prereqs.length === 0) {
       const multilineReqMatch = block.match(/quests:\s*\[([^\]]+)\]/);
       if (multilineReqMatch) {
@@ -202,22 +242,33 @@ function parseQuests(content) {
       }
     }
 
-    const hasUnlocks = /\n\s+unlocks:\s*\[/.test(rewardsBody);
+    // Locate unlocks: [...] (in-rewards). Records absolute indices.
+    let unlocksStart = -1, unlocksEnd = -1, currentRefs = [];
+    const unlocksRe = /unlocks:\s*\[/g;
+    let um;
+    while ((um = unlocksRe.exec(rewardsBody)) !== null) {
+      const relBracketStart = um.index + um[0].length - 1; // '[' position within rewards body
+      const absBracketStart = absRewardsStart + relBracketStart;
+      const absBracketEnd = findMatchingBracket(content, absBracketStart);
+      if (absBracketEnd === -1) break;
+      unlocksStart = absBracketStart;
+      unlocksEnd = absBracketEnd;
+      const arrBody = content.slice(absBracketStart + 1, absBracketEnd);
+      currentRefs = (arrBody.match(/"([^"]+)"/g) || []).map(s => s.slice(1, -1));
+      break; // take first one
+    }
+    const hasUnlocks = unlocksStart !== -1;
     const hasChainNext = /\n\s+chain_next:\s*['"]/.test(rewardsBody);
 
-    // Parse difficulty
+    // Parse difficulty + XP
     const diffMatch = block.match(/difficulty:\s*'([^']+)'/);
     const difficulty = diffMatch ? diffMatch[1] : null;
-
-    // Parse total XP
     let totalXp = 0;
     const xpMatch = block.match(/xp:\s*\{([^}]*)\}/);
     if (xpMatch) {
       const nums = xpMatch[1].match(/:\s*(\d+)/g) || [];
       for (const n of nums) totalXp += parseInt(n.slice(1).trim(), 10);
     }
-
-    // Parse items present
     const itemsMatch = block.match(/items:\s*\[([^\]]*)\]/);
     const hasItems = itemsMatch ? itemsMatch[1].trim().length > 0 : false;
 
@@ -230,6 +281,9 @@ function parseQuests(content) {
       prereqs,
       hasUnlocks,
       hasChainNext,
+      unlocksStart,
+      unlocksEnd,
+      currentRefs,
       difficulty,
       totalXp,
       hasItems,
@@ -238,21 +292,90 @@ function parseQuests(content) {
   return results;
 }
 
-function findMatchingBrace(s, openIdx) {
-  if (s[openIdx] !== '{') return -1;
-  let depth = 0;
-  for (let i = openIdx; i < s.length; i++) {
-    const ch = s[i];
-    if (ch === '{') depth++;
-    else if (ch === '}') {
-      depth--;
-      if (depth === 0) return i;
-    }
-  }
-  return -1;
+// Slug-ify a comment's free-text tail so we can pattern-match against DAG node ids.
+function slugify(s) {
+  return s.toLowerCase().replace(/[^a-z0-9]+/g, '_').replace(/^_|_$/g, '');
 }
 
-// Split on top-level commas, respecting nested {...}, [...], (...), and quoted strings.
+// Given a comment's free text, emit candidate DAG ref prefixes by keyword heuristics.
+// (e.g., "Moryskah border lantern network" -> ["teleport:moryskah_border_lanterns"]).
+// Only refs that resolve against dagIds survive.
+function candidatesFromComment(text, dagIds) {
+  const out = [];
+  const slug = slugify(text);
+  if (!slug) return out;
+  const prefixes = ['area', 'training_method', 'item_unlock', 'teleport', 'shortcut', 'shop', 'npc', 'boss', 'minigame', 'recipe', 'spell_unlock', 'prayer_unlock'];
+  // Exact match on a fully-qualified prefix:slug hit
+  for (const p of prefixes) {
+    const candidate = `${p}:${slug}`;
+    if (dagIds.has(candidate)) out.push(candidate);
+  }
+  // Also try splitting on '_' and progressively trimming
+  const parts = slug.split('_');
+  for (let n = parts.length; n >= 3 && out.length === 0; n--) {
+    const trimmed = parts.slice(0, n).join('_');
+    for (const p of prefixes) {
+      const c = `${p}:${trimmed}`;
+      if (dagIds.has(c)) out.push(c);
+    }
+  }
+  return out;
+}
+
+// Collect ref candidates for a given quest.
+// Sources (union, DAG-validated):
+//   (1) DAG source_quest reverse-map (byQuest)
+//   (2) Existing currentRefs that already resolve (don't throw them away)
+//   (3) Trailing `// Unlocks: <text>` comment inside the rewards block —
+//       heuristic match against DAG prefixes
+//   (4) Raid-prereq quests (file = raid-prerequisites.js): raid:<slug> when it
+//       resolves
+function collectCandidates(q, block, dagIds, byQuest) {
+  const refs = new Set();
+  const unresolved = new Set();
+
+  // (1) DAG source_quest reverse-map
+  for (const r of (byQuest.get(q.id) || [])) {
+    if (dagIds.has(r)) refs.add(r);
+    else unresolved.add(r); // defensive
+  }
+
+  // (2) Keep existing refs that resolve
+  for (const r of (q.currentRefs || [])) {
+    if (dagIds.has(r)) refs.add(r);
+    else unresolved.add(r);
+  }
+
+  // (3) // Unlocks: comment heuristic
+  const commentMatch = block.match(/\/\/\s*Unlocks:\s*([^\n]+)/i);
+  if (commentMatch) {
+    for (const c of candidatesFromComment(commentMatch[1], dagIds)) {
+      refs.add(c);
+    }
+  }
+
+  // (4) Raid-prereq file heuristic
+  if (q.file === 'raid-prerequisites.js') {
+    const raidMap = {
+      coa_key: 'raid:chambers_of_aelgard',
+      tos_key: 'raid:theatre_of_shadows',
+      toa_key: 'raid:tombs_of_aelgard',
+      gauntlet_key: 'raid:the_gauntlet',
+      kings_crypt_key: 'raid:king_s_crypt',
+      blood_sanctum_key: 'raid:blood_sanctum',
+      crucible_key: 'raid:crucible',
+      sunken_temple_key: 'raid:sunken_temple',
+      lucid_nightmare_key: 'raid:lucid_nightmare',
+      prism_labyrinth_key: 'raid:prism_labyrinth',
+      exodus_key: 'raid:the_exodus',
+    };
+    const r = raidMap[q.id];
+    if (r && dagIds.has(r)) refs.add(r);
+  }
+
+  return { refs: [...refs], unresolved: [...unresolved] };
+}
+
 function splitTopLevelCommas(s) {
   const parts = [];
   let buf = '';
@@ -283,7 +406,6 @@ function splitTopLevelCommas(s) {
 function main(argv) {
   const writeMode = argv.includes('--write');
   const verbose = argv.includes('--verbose');
-  // Mode flags — default: both. `--only-unlocks` disables chain_next, and vice versa.
   const onlyUnlocks = argv.includes('--only-unlocks');
   const onlyChains = argv.includes('--only-chains');
   const doUnlocks = !onlyChains;
@@ -293,8 +415,8 @@ function main(argv) {
   console.log(`[codemod] Loaded DAG: ${dagNodeIds.size} nodes, ${byQuest.size} source_quest refs.`);
 
   // Pass 1 — parse all files, build global quest registry.
-  const allQuests = new Map(); // id -> parsed info + file
-  const fileOrder = new Map(); // file -> list of ids (in order)
+  const allQuests = new Map();
+  const fileOrder = new Map();
   for (const fileName of QUEST_FILES) {
     const filePath = path.join(CONTENT_DIR, fileName);
     const content = readQuestFile(filePath);
@@ -312,20 +434,15 @@ function main(argv) {
 
   // Pass 2 — compute chain_next for each quest.
   const chainNext = new Map();
-  // A) Explicit overrides first.
   for (const [from, to] of Object.entries(EXPLICIT_CHAINS)) {
     if (allQuests.has(from) && allQuests.has(to)) chainNext.set(from, to);
   }
-  // B) v0.8 chain files — file order drives chain.
   for (const fileName of V08_CHAIN_FILES) {
     const ids = fileOrder.get(fileName) || [];
     for (let i = 0; i < ids.length - 1; i++) {
       if (!chainNext.has(ids[i])) chainNext.set(ids[i], ids[i + 1]);
     }
   }
-  // C) Single-prereq inference.
-  // For each quest q with exactly one prereq p, map p -> q if p has no successor set yet.
-  // Multiple successors => skip (ambiguous).
   const successorCount = new Map();
   for (const q of allQuests.values()) {
     if (q.prereqs.length === 1) {
@@ -341,75 +458,42 @@ function main(argv) {
   }
   console.log(`[codemod] Computed chain_next for ${chainNext.size} quests.`);
 
-  // Pass 3 — compute per-quest unlocks list.
-  //
-  // Order of preference:
-  //   (a) DAG source_quest reverse-map (authoritative for 118+ quests)
-  //   (b) Trailing `// Unlocks: X` comment → synthesized item_unlock:<slug> ref
-  //   (c) For raid-prereq quests (file = raid-prerequisites.js) with no
-  //       unlocks yet, add `raid:<raid_id>` based on quest id.
+  // Pass 3 — compute per-quest unlocks list (DAG-validated).
   const questUnlocks = new Map();
-  let refCount = 0;
-  let dagOnly = 0, commentOnly = 0, both = 0, synthesized = 0;
+  const unresolvedByQuest = new Map(); // id -> [{ref, source}]
+  let totalResolved = 0;
+  let dagHits = 0, keepHits = 0, commentHits = 0, raidHits = 0;
 
   for (const q of allQuests.values()) {
-    const refs = new Set();
-    // (a) DAG-sourced refs
-    const hits = byQuest.get(q.id) || [];
-    for (const r of hits) {
-      if (dagNodeIds.has(r)) refs.add(r);
-    }
-    const hadDag = refs.size > 0;
+    const content = fs.readFileSync(q.filePath, 'utf8');
+    const block = content.slice(q.blockStart, q.blockEnd + 1);
+    const before = { dag: byQuest.has(q.id), kept: q.currentRefs.filter(r => dagNodeIds.has(r)).length, existingBadRefs: q.currentRefs.filter(r => !dagNodeIds.has(r)) };
+    const { refs, unresolved } = collectCandidates(q, block, dagNodeIds, byQuest);
+    if (refs.length) questUnlocks.set(q.id, refs);
+    totalResolved += refs.length;
+    if (before.dag) dagHits++;
+    if (before.kept > 0) keepHits++;
+    // Detect comment contribution
+    const cm = block.match(/\/\/\s*Unlocks:\s*([^\n]+)/i);
+    if (cm && candidatesFromComment(cm[1], dagNodeIds).length > 0) commentHits++;
+    if (q.file === 'raid-prerequisites.js' && refs.some(r => r.startsWith('raid:'))) raidHits++;
 
-    // (b) Trailing comment → synthesized ref.
-    const block = /* reopened file */ fs.readFileSync(q.filePath, 'utf8').slice(q.blockStart, q.blockEnd + 1);
-    const commentMatch = block.match(/\/\/ Unlocks:\s*([^\n]+)/i);
-    let hadComment = false;
-    if (commentMatch) {
-      hadComment = true;
-      const text = commentMatch[1].trim();
-      // Slug-ify: lowercase, non-alphanum -> _, trim.
-      const slug = text.toLowerCase().replace(/[^a-z0-9]+/g, '_').replace(/^_|_$/g, '').slice(0, 48);
-      if (slug) refs.add(`item_unlock:${q.id}_${slug}`);
-    }
-
-    // (c) Raid-prereq fallback.
-    if (q.file === 'raid-prerequisites.js' && refs.size === 0) {
-      const raidMap = {
-        coa_key: 'raid:chambers_of_aelgard',
-        tos_key: 'raid:theatre_of_shadows',
-        toa_key: 'raid:tombs_of_aelgard',
-        gauntlet_key: 'raid:the_gauntlet',
-        kings_crypt_key: 'raid:king_s_crypt',
-        blood_sanctum_key: 'raid:blood_sanctum',
-        crucible_key: 'raid:crucible',
-        sunken_temple_key: 'raid:sunken_temple',
-        lucid_nightmare_key: 'raid:lucid_nightmare',
-        prism_labyrinth_key: 'raid:prism_labyrinth',
-        exodus_key: 'raid:the_exodus',
-      };
-      if (raidMap[q.id]) refs.add(raidMap[q.id]);
-    }
-
-    // (d) Final fallback: if still empty, synthesize a single generic access
-    //     ref based on quest id. This gives the planner SOMETHING to score.
-    if (refs.size === 0) {
-      refs.add(`item_unlock:${q.id}_completion`);
-      synthesized++;
-    }
-
-    if (refs.size > 0) {
-      questUnlocks.set(q.id, [...refs]);
-      refCount += refs.size;
-      if (hadDag && hadComment) both++;
-      else if (hadDag) dagOnly++;
-      else if (hadComment) commentOnly++;
+    // Record everything unresolved (existing bad refs, not new synthesized)
+    const unresolvedForThis = [...new Set([...unresolved, ...before.existingBadRefs])];
+    if (unresolvedForThis.length) {
+      unresolvedByQuest.set(q.id, unresolvedForThis.map(r => ({ ref: r, source: q.currentRefs.includes(r) ? 'existing' : 'dag_source_quest' })));
     }
   }
-  console.log(`[codemod] ${questUnlocks.size} quests get unlocks (${refCount} total ref-links).`);
-  console.log(`           breakdown: dag_only=${dagOnly} comment_only=${commentOnly} both=${both} synthesized_only=${synthesized}`);
+  console.log(`[codemod] ${questUnlocks.size} quests have at least one resolvable ref (${totalResolved} total).`);
+  console.log(`           breakdown: dag=${dagHits} kept_existing=${keepHits} comment_matched=${commentHits} raid=${raidHits}`);
+  console.log(`           quests with unresolved refs being DROPPED: ${unresolvedByQuest.size}`);
 
-  // Pass 4 — rewrite each file.
+  // Pass 4 — write unresolved log.
+  if (doUnlocks) {
+    writeUnresolvedLog(unresolvedByQuest, allQuests, writeMode);
+  }
+
+  // Pass 5 — rewrite each file.
   let totalUnlocksWritten = 0;
   let totalChainsWritten = 0;
   let totalQuestsEdited = 0;
@@ -418,79 +502,87 @@ function main(argv) {
   for (const fileName of QUEST_FILES) {
     const filePath = path.join(CONTENT_DIR, fileName);
     let content = readQuestFile(filePath);
-    // Re-parse AFTER each edit isn't needed because we mutate in reverse, but the
-    // indices we recorded for parsed[] are based on the original content. We
-    // iterate in reverse so earlier indices remain valid.
     const parsed = parseQuests(content);
     let fileChanges = 0;
     for (let i = parsed.length - 1; i >= 0; i--) {
       const q = parsed[i];
-      const unlocks = (doUnlocks ? (questUnlocks.get(q.id) || []) : []);
+      const unlocks = doUnlocks ? (questUnlocks.get(q.id) || []) : null;
       const nextId = doChains ? (chainNext.get(q.id) || null) : null;
-      const needsUnlocks = unlocks.length > 0 && !q.hasUnlocks;
-      const needsChainNext = nextId && !q.hasChainNext;
-      if (!needsUnlocks && !needsChainNext) continue;
+
+      // C1 handling
+      let c1Edit = null; // { kind: 'rewrite'|'insert', ... }
+      if (doUnlocks) {
+        if (q.hasUnlocks) {
+          // Compare currentRefs to computed unlocks. If different → rewrite.
+          const sortedCurrent = [...q.currentRefs].sort().join(',');
+          const sortedNew = [...(unlocks || [])].sort().join(',');
+          if (sortedCurrent !== sortedNew) {
+            c1Edit = { kind: 'rewrite', unlocks: unlocks || [] };
+          }
+        } else if (unlocks && unlocks.length > 0) {
+          c1Edit = { kind: 'insert', unlocks };
+        }
+      }
+      const needsChainNext = doChains && nextId && !q.hasChainNext;
+      if (!c1Edit && !needsChainNext) continue;
       if (!q.rewardsStart) continue;
 
-      // Determine the indentation of the `rewards:` LINE (first non-space char).
+      // Compute indentation from the `rewards:` line.
       const rewardsLineStart = content.lastIndexOf('\n', q.rewardsStart) + 1;
       const rewardsLineIndent = content.slice(rewardsLineStart).match(/^(\s*)/)[1];
       const itemIndent = rewardsLineIndent + '  ';
 
-      // Detect whether the rewards block is single-line or multi-line.
-      const rewardsBody = content.slice(q.rewardsStart, q.rewardsEnd + 1);
-      const isSingleLine = !rewardsBody.includes('\n');
-
-      let newRewardsBody;
-      if (isSingleLine) {
-        // `rewards: { xp: {...}, questPoints: 1 }` => normalize to multi-line.
-        // Strip braces + leading/trailing whitespace.
-        let inner = rewardsBody.slice(1, -1).trim();
-        // Split on top-level commas (naive but works since inner objects use
-        // `: {}` which is balanced). We use a brace-aware splitter.
-        const parts = splitTopLevelCommas(inner);
-        // Trim each part and drop trailing-commas/empties.
-        const cleanParts = parts.map(p => p.trim()).filter(p => p.length);
-        // Build new body.
-        const newParts = [...cleanParts];
-        if (needsUnlocks) {
-          const arr = unlocks.map(u => JSON.stringify(u)).join(', ');
-          newParts.push(`unlocks: [${arr}]`);
-          totalUnlocksWritten++;
-        }
-        if (needsChainNext) {
-          newParts.push(`chain_next: '${nextId}'`);
-          totalChainsWritten++;
-        }
-        newRewardsBody = '{\n' + newParts.map(p => `${itemIndent}${p},`).join('\n') + `\n${rewardsLineIndent}}`;
-      } else {
-        // Multi-line — find the closing `}` of rewards on its own line and
-        // insert new fields before it.
-        // Back-scan to find the `}` line start.
-        const endIdx = q.rewardsEnd; // index of the closing `}` character.
-        const endLineStart = content.lastIndexOf('\n', endIdx) + 1;
-        // The closing `}`'s line is `<indent>}` OR `<indent>},`. Insert inserts
-        // BEFORE that indent.
-        let inserts = '';
-        if (needsUnlocks) {
-          const arr = unlocks.map(u => JSON.stringify(u)).join(', ');
-          inserts += `${itemIndent}unlocks: [${arr}],\n`;
-          totalUnlocksWritten++;
-        }
-        if (needsChainNext) {
-          inserts += `${itemIndent}chain_next: '${nextId}',\n`;
-          totalChainsWritten++;
-        }
-        content = content.slice(0, endLineStart) + inserts + content.slice(endLineStart);
+      // Apply C1 rewrite (in-place replacement of the unlocks array).
+      if (c1Edit && c1Edit.kind === 'rewrite') {
+        const arr = c1Edit.unlocks.map(u => JSON.stringify(u)).join(', ');
+        const newArr = `[${arr}]`;
+        // Replace content[q.unlocksStart .. q.unlocksEnd] with newArr
+        content = content.slice(0, q.unlocksStart) + newArr + content.slice(q.unlocksEnd + 1);
+        totalUnlocksWritten++;
         fileChanges++;
         totalQuestsEdited++;
-        continue;
+        // After this rewrite, we must re-parse (indices shift). Do nothing more
+        // for this quest on this pass — the re-scan loop will catch chain_next
+        // needs on the next run. But we still handle chain_next here if the
+        // delta is a pure removal/update (same-length shrink).
+        // Simpler: re-parse fully after a C1 rewrite.
+        const reparsed = parseQuests(content);
+        const q2 = reparsed.find(x => x.id === q.id);
+        if (!q2) continue;
+        q.rewardsStart = q2.rewardsStart;
+        q.rewardsEnd = q2.rewardsEnd;
+        q.hasChainNext = q2.hasChainNext;
       }
 
-      // For single-line path: replace the whole rewards block.
-      content = content.slice(0, q.rewardsStart) + newRewardsBody + content.slice(q.rewardsEnd + 1);
-      fileChanges++;
-      totalQuestsEdited++;
+      // C1 insert (new unlocks key into rewards block).
+      if (c1Edit && c1Edit.kind === 'insert') {
+        const endIdx = q.rewardsEnd;
+        const endLineStart = content.lastIndexOf('\n', endIdx) + 1;
+        const arr = c1Edit.unlocks.map(u => JSON.stringify(u)).join(', ');
+        const inserts = `${itemIndent}unlocks: [${arr}],\n`;
+        content = content.slice(0, endLineStart) + inserts + content.slice(endLineStart);
+        totalUnlocksWritten++;
+        fileChanges++;
+        totalQuestsEdited++;
+        // Re-parse to refresh indices for chain_next below.
+        const reparsed = parseQuests(content);
+        const q2 = reparsed.find(x => x.id === q.id);
+        if (!q2) continue;
+        q.rewardsStart = q2.rewardsStart;
+        q.rewardsEnd = q2.rewardsEnd;
+        q.hasChainNext = q2.hasChainNext;
+      }
+
+      // C2 insert (chain_next).
+      if (doChains && nextId && !q.hasChainNext) {
+        const endIdx = q.rewardsEnd;
+        const endLineStart = content.lastIndexOf('\n', endIdx) + 1;
+        const inserts = `${itemIndent}chain_next: '${nextId}',\n`;
+        content = content.slice(0, endLineStart) + inserts + content.slice(endLineStart);
+        totalChainsWritten++;
+        fileChanges++;
+        totalQuestsEdited++;
+      }
     }
     if (fileChanges > 0) {
       perFileCounts[fileName] = fileChanges;
@@ -502,12 +594,47 @@ function main(argv) {
   console.log('');
   console.log(`[codemod] Summary:`);
   console.log(`  quests edited: ${totalQuestsEdited}`);
-  console.log(`  unlocks fields written: ${totalUnlocksWritten}`);
+  console.log(`  unlocks rewrites/inserts: ${totalUnlocksWritten}`);
   console.log(`  chain_next fields written: ${totalChainsWritten}`);
   console.log(`  mode: ${writeMode ? 'WRITE' : 'DRY-RUN (--write to apply)'} / ${doUnlocks && doChains ? 'unlocks+chains' : (doUnlocks ? 'unlocks only' : 'chains only')}`);
-  console.log(`  per-file:`);
-  for (const [f, n] of Object.entries(perFileCounts)) {
-    console.log(`    ${f}: ${n}`);
+  if (Object.keys(perFileCounts).length > 0) {
+    console.log(`  per-file:`);
+    for (const [f, n] of Object.entries(perFileCounts)) {
+      console.log(`    ${f}: ${n}`);
+    }
+  }
+}
+
+function writeUnresolvedLog(unresolvedByQuest, allQuests, writeMode) {
+  const lines = [];
+  lines.push('# C1 unresolved unlock refs');
+  lines.push('');
+  lines.push('Refs that were present in a quest\'s `unlocks:` array or in the DAG\'s');
+  lines.push('`source_quest` reverse-map but could not be resolved against');
+  lines.push('`data/progression-dag.json`. The codemod drops these from the quest');
+  lines.push('file\'s `unlocks:` array on write.');
+  lines.push('');
+  lines.push(`Total quests with unresolved refs: ${unresolvedByQuest.size}`);
+  let totalUnresolved = 0;
+  for (const [, list] of unresolvedByQuest) totalUnresolved += list.length;
+  lines.push(`Total unresolved refs dropped: ${totalUnresolved}`);
+  lines.push('');
+  lines.push('| Quest ID | File | Dropped ref | Source |');
+  lines.push('|---|---|---|---|');
+  const sortedIds = [...unresolvedByQuest.keys()].sort();
+  for (const id of sortedIds) {
+    const q = allQuests.get(id);
+    const file = q ? q.file : '?';
+    for (const { ref, source } of unresolvedByQuest.get(id)) {
+      lines.push(`| \`${id}\` | ${file} | \`${ref}\` | ${source} |`);
+    }
+  }
+  const out = lines.join('\n') + '\n';
+  if (writeMode) {
+    fs.writeFileSync(UNRESOLVED_LOG, out, 'utf8');
+    console.log(`[codemod] Wrote unresolved log: ${UNRESOLVED_LOG} (${totalUnresolved} refs across ${unresolvedByQuest.size} quests).`);
+  } else {
+    console.log(`[codemod] (dry-run) would write unresolved log to ${UNRESOLVED_LOG} (${totalUnresolved} refs across ${unresolvedByQuest.size} quests).`);
   }
 }
 

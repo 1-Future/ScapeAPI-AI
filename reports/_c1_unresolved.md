@@ -1,0 +1,133 @@
+# C1 unresolved unlock refs
+
+Refs that were present in a quest's `unlocks:` array or in the DAG's
+`source_quest` reverse-map but could not be resolved against
+`data/progression-dag.json`. The codemod drops these from the quest
+file's `unlocks:` array on write.
+
+Total quests with unresolved refs: 116
+Total unresolved refs dropped: 121
+
+| Quest ID | File | Dropped ref | Source |
+|---|---|---|---|
+| `barrows_brothers` | quests-series.js | `minigame:barrows` | existing |
+| `barrows_brothers` | quests-series.js | `item_unlock:barrows_chest_access` | existing |
+| `blood_beneath_the_boughs` | quests-blitz.js | `item_unlock:blood_beneath_the_boughs_completion` | existing |
+| `bones_of_the_first_empire` | quests-blitz.js | `item_unlock:bones_of_the_first_empire_completion` | existing |
+| `coa_key` | raid-prerequisites.js | `item_unlock:coa_crystal_key` | existing |
+| `desert_treasure` | quests-series.js | `item_unlock:desert_treasure_ancient_magicks_spellbook_ice_barrage_blood_barr` | existing |
+| `dragon_slayer_aelgard` | quests-series.js | `item_unlock:dragon_slayer_aelgard_anti_dragon_shield_access_dragonfire_shield_craf` | existing |
+| `drifting_market_charter` | quests-expanded.js | `item_unlock:drifting_market_charter_drifting_market_mobile_trade_hub_that_moves_week` | existing |
+| `fight_caves` | quests-series.js | `boss:tztok_jad` | existing |
+| `fight_caves` | quests-series.js | `achievement:fire_cape_first_claim` | existing |
+| `forge_of_duran` | heartlands.js | `item_unlock:forge_of_duran_completion` | existing |
+| `heartlands_patrol` | heartlands.js | `item_unlock:heartlands_patrol_completion` | existing |
+| `herb_run_mastery` | quests-series.js | `item_unlock:herb_run_mastery_master_farmer_title_10_herb_yield_permanently` | existing |
+| `infernal_challenge` | quests-series.js | `boss:tzkal_zuk` | existing |
+| `infernal_challenge` | quests-series.js | `achievement:infernal_cape_first_claim` | existing |
+| `lamplighters_apprentice` | quests-mega.js | `item_unlock:lamplighters_apprentice_moryskah_border_lantern_network_fast_travel` | existing |
+| `lunar_diplomacy` | quests-series.js | `item_unlock:lunar_diplomacy_lunar_spellbook_cure_vengeance_heal_group_npc_co` | existing |
+| `monkey_business` | quests-series.js | `item_unlock:monkey_business_monkey_talisman_teleport_to_monkey_island_dragon` | existing |
+| `poison_trail` | quests-series.js | `item_unlock:poison_trail_completion` | existing |
+| `relics_of_the_old_world` | boneyard-wastes.js | `item_unlock:relics_of_the_old_world_completion` | existing |
+| `rfd_finale` | quests-series.js | `item_unlock:rfd_finale_barrows_gloves_bis_melee_hands_from_the_culinaro` | existing |
+| `rfd_heartlands` | quests-series.js | `item_unlock:rfd_heartlands_completion` | existing |
+| `rfd_moryskah` | quests-series.js | `item_unlock:rfd_moryskah_completion` | existing |
+| `rfd_sootworks` | quests-series.js | `item_unlock:rfd_sootworks_completion` | existing |
+| `rfd_start` | quests-series.js | `item_unlock:rfd_start_completion` | existing |
+| `roots_of_the_old_growth` | quests-blitz.js | `item_unlock:roots_of_the_old_growth_completion` | existing |
+| `slayers_gauntlet` | quests-expanded.js | `item_unlock:slayers_gauntlet_varrek_as_slayer_master_access_to_moryskah_slaye` | existing |
+| `stormwood_rite` | active-gathering.js | `item_unlock:stormwood_rite_completion` | existing |
+| `target_practice` | quests-mega.js | `item_unlock:target_practice_heartlands_archery_range_daily_xp_bonus` | existing |
+| `the_aelgard_atlas` | quests-blitz.js | `item_unlock:the_aelgard_atlas_completion` | existing |
+| `the_anglers_challenge` | quests-expanded.js | `item_unlock:the_anglers_challenge_completion` | existing |
+| `the_apprentice_trapper` | quests-mega.js | `item_unlock:the_apprentice_trapper_veilwood_canopy_hunting_grounds` | existing |
+| `the_architect_of_ruin` | quests-mega.js | `item_unlock:the_architect_of_ruin_architect_s_blueprints_build_endgame_player_stru` | existing |
+| `the_assassins_ledger` | quests-mega.js | `item_unlock:the_assassins_ledger_assassin_s_guild_contact_thieving_contracts_for_` | existing |
+| `the_bog_witchs_errand` | quests-mega.js | `item_unlock:the_bog_witchs_errand_moryskah_herb_patch` | existing |
+| `the_bone_colossus` | quests-blitz.js | `item_unlock:the_bone_colossus_completion` | existing |
+| `the_bone_flute` | quests-mega.js | `item_unlock:the_bone_flute_bone_flute_calms_hostile_desert_creatures_30s_co` | existing |
+| `the_boneyard_compass` | quests-mega.js | `item_unlock:the_boneyard_compass_immunity_to_boneyard_sandstorm_disorientation` | existing |
+| `the_canopy_war` | quests-mega.js | `item_unlock:the_canopy_war_permanent_faction_alignment_elf_allied_or_human_` | existing |
+| `the_clockwork_courier` | quests-mega.js | `item_unlock:the_clockwork_courier_clockwork_courier_service_send_items_between_ban` | existing |
+| `the_clockwork_tyrant` | quests-blitz.js | `item_unlock:the_clockwork_tyrant_completion` | existing |
+| `the_cogfathers_paradox` | quests-blitz.js | `item_unlock:the_cogfathers_paradox_completion` | existing |
+| `the_colosseum_of_bones` | quests-mega.js | `item_unlock:the_colosseum_of_bones_colosseum_champion_title_weekly_boss_instance_re` | existing |
+| `the_council_of_shadows` | quests-mega.js | `item_unlock:the_council_of_shadows_weekly_intelligence_briefings_hints_about_upcomi` | existing |
+| `the_counterfeit_ring` | quests-mega.js | `item_unlock:the_counterfeit_ring_saltbrine_customs_office_access_sell_contraband_` | existing |
+| `the_couriers_marathon` | quests-blitz.js | `item_unlock:the_couriers_marathon_completion` | existing |
+| `the_crystal_plague` | quests-mega.js | `item_unlock:the_crystal_plague_glass_desert_crystal_healing_springs` | existing |
+| `the_crystal_warden` | quests-blitz.js | `item_unlock:the_crystal_warden_completion` | existing |
+| `the_dream_cartographer` | quests-mega.js | `item_unlock:the_dream_cartographer_dream_map_reveals_hidden_paths_in_the_inkweald` | existing |
+| `the_dream_eater` | quests-mega.js | `item_unlock:the_dream_eater_dream_walker_ability_enter_sleeping_npc_dreams_f` | existing |
+| `the_dreamers_debt` | quests-blitz.js | `item_unlock:the_dreamers_debt_completion` | existing |
+| `the_drowned_cartographer` | quests-blitz.js | `item_unlock:the_drowned_cartographer_completion` | existing |
+| `the_essence_convergence` | quests-blitz.js | `item_unlock:the_essence_convergence_completion` | existing |
+| `the_eternal_hunt` | quests-mega.js | `item_unlock:the_eternal_hunt_eternal_hunter_title_passive_beast_tracking_see_` | existing |
+| `the_eternal_pyre` | quests-blitz.js | `item_unlock:the_eternal_pyre_completion` | existing |
+| `the_farmstead_siege` | quests-mega.js | `item_unlock:the_farmstead_siege_player_owned_farm_plot_at_the_heartlands_border_` | existing |
+| `the_fencepost_problem` | quests-mega.js | `item_unlock:the_fencepost_problem_heartlands_ranch_as_a_teleport_destination` | existing |
+| `the_fletchers_trial` | quests-expanded.js | `item_unlock:the_fletchers_trial_completion` | existing |
+| `the_flooded_vault` | quests-mega.js | `item_unlock:the_flooded_vault_sootworks_deep_vault_mining_area` | existing |
+| `the_forge_beneath` | sootworks.js | `item_unlock:the_forge_beneath_completion` | existing |
+| `the_forge_of_four_fires` | quests-mega.js | `item_unlock:the_forge_of_four_fires_ability_to_smith_dragon_tier_weapons_at_any_forg` | existing |
+| `the_fremennik_trials` | quests-series.js | `item_unlock:the_fremennik_trials_frost_warrior_helmet_cosmetic_defence` | existing |
+| `the_glass_cutters_challenge` | quests-mega.js | `item_unlock:the_glass_cutters_challenge_ability_to_cut_prismatic_gems_used_in_bis_jewell` | existing |
+| `the_glass_prophecy` | glass-desert.js | `item_unlock:the_glass_prophecy_completion` | existing |
+| `the_god_forge` | quests-mega.js | `item_unlock:the_god_forge_god_forge_access_craft_t80_godswords` | existing |
+| `the_grand_heist` | quests-mega.js | `item_unlock:the_grand_heist_vault_of_ages_bis_equipment_storage_weekly_loot_` | existing |
+| `the_great_aelgard_bakeoff` | quests-blitz.js | `item_unlock:the_great_aelgard_bakeoff_completion` | existing |
+| `the_haunted_lighthouse` | quests-mega.js | `item_unlock:the_haunted_lighthouse_saltbrine_lighthouse_as_a_teleport_destination` | existing |
+| `the_hollow_choirs_song` | inkweald.js | `item_unlock:the_hollow_choirs_song_completion` | existing |
+| `the_hollow_king` | quests-blitz.js | `item_unlock:the_hollow_king_completion` | existing |
+| `the_hunt_for_the_wilds_king` | quests-mega.js | `item_unlock:the_hunt_for_the_wilds_king_wilds_king_cape_bis_hunter_cape` | existing |
+| `the_ink_painters_masterpiece` | quests-mega.js | `item_unlock:the_ink_painters_masterpiece_portable_bank_deposit_use_from_anywhere_10_minut` | existing |
+| `the_ink_smugglers` | quests-mega.js | `item_unlock:the_ink_smugglers_inkweald_border_passage_shortcut` | existing |
+| `the_iron_pilgrimage` | quests-blitz.js | `item_unlock:the_iron_pilgrimage_completion` | existing |
+| `the_jewellers_eye` | quests-expanded.js | `item_unlock:the_jewellers_eye_completion` | existing |
+| `the_kings_last_edict` | quests-blitz.js | `item_unlock:the_kings_last_edict_completion` | existing |
+| `the_last_adventurer` | quests-mega.js | `item_unlock:the_last_adventurer_aelgard_champion_title_cosmetic_crown_all_telepo` | existing |
+| `the_last_dragon_p1` | glass-desert.js | `item_unlock:the_last_dragon_p1_completion` | existing |
+| `the_last_dragon_p2` | glass-desert.js | `item_unlock:the_last_dragon_p2_completion` | existing |
+| `the_leviathans_wake` | quests-mega.js | `item_unlock:the_leviathans_wake_leviathan_slayer_title_deep_sea_fishing_at_the_n` | existing |
+| `the_lighthouse_cipher` | quests-mega.js | `item_unlock:the_lighthouse_cipher_cipher_ring_decode_hidden_npc_hints_for_treasure` | existing |
+| `the_lost_expedition` | quests-blitz.js | `item_unlock:the_lost_expedition_completion` | existing |
+| `the_merchants_gambit` | quests-blitz.js | `item_unlock:the_merchants_gambit_completion` | existing |
+| `the_missing_miner` | heartlands.js | `item_unlock:the_missing_miner_completion` | existing |
+| `the_moonlit_duel` | quests-mega.js | `item_unlock:the_moonlit_duel_moonlit_blade_bis_melee_weapon_during_night_time` | existing |
+| `the_plague_road` | quests-blitz.js | `item_unlock:the_plague_road_completion` | existing |
+| `the_prism_throne` | quests-blitz.js | `item_unlock:the_prism_throne_completion` | existing |
+| `the_runaway_golem` | quests-mega.js | `item_unlock:the_runaway_golem_sootworks_border_mine_shortcut` | existing |
+| `the_runecasters_paradox` | quests-mega.js | `item_unlock:the_runecasters_paradox_combination_rune_crafting_blood_soul_wrath_runes` | existing |
+| `the_runic_lock` | quests-mega.js | `item_unlock:the_runic_lock_ancient_rune_vault_advanced_runecrafting_locatio` | existing |
+| `the_saltbrine_regatta` | quests-mega.js | `item_unlock:the_saltbrine_regatta_personal_sailing_boat_fast_travel_between_coasta` | existing |
+| `the_shattered_covenant` | quests-mega.js | `item_unlock:the_shattered_covenant_divine_abilities_based_on_chosen_covenant_path` | existing |
+| `the_siege_of_hollow_mire` | quests-mega.js | `item_unlock:the_siege_of_hollow_mire_hollow_mire_fortress_player_owned_stronghold_in_` | existing |
+| `the_silent_hunt` | quests-blitz.js | `item_unlock:the_silent_hunt_completion` | existing |
+| `the_silent_witness` | quests-mega.js | `item_unlock:the_silent_witness_spirit_sight_ability_see_hidden_ghost_npcs_acros` | existing |
+| `the_siren_of_saltbrine` | quests-blitz.js | `item_unlock:the_siren_of_saltbrine_completion` | existing |
+| `the_slayers_first_mark` | quests-mega.js | `item_unlock:the_slayers_first_mark_novice_slayer_task_assignments` | existing |
+| `the_smugglers_web` | quests-blitz.js | `item_unlock:the_smugglers_web_completion` | existing |
+| `the_song_before_words` | quests-blitz.js | `item_unlock:the_song_before_words_completion` | existing |
+| `the_sootworks_heist` | quests-blitz.js | `item_unlock:the_sootworks_heist_completion` | existing |
+| `the_spymasters_gambit` | quests-mega.js | `item_unlock:the_spymasters_gambit_wilds_intelligence_network_advance_warning_of_pv` | existing |
+| `the_steamwrights_apprentice` | quests-mega.js | `item_unlock:the_steamwrights_apprentice_portable_steam_engine_boosts_skilling_speed_at_w` | existing |
+| `the_stolen_runes` | quests-mega.js | `item_unlock:the_stolen_runes_permanent_10_discount_at_heartlands_rune_shop` | existing |
+| `the_tax_collectors_bodyguard` | quests-mega.js | `item_unlock:the_tax_collectors_bodyguard_boneyard_wastes_trading_post` | existing |
+| `the_tide_pool_collector` | quests-mega.js | `item_unlock:the_tide_pool_collector_tide_pool_fishing_spots_unique_fish_for_early_ga` | existing |
+| `the_tower_of_trials` | quests-blitz.js | `item_unlock:the_tower_of_trials_completion` | existing |
+| `the_trawlers_call` | active-gathering.js | `item_unlock:the_trawlers_call_completion` | existing |
+| `the_undertakers_burden` | quests-mega.js | `item_unlock:the_undertakers_burden_moryskah_sanctified_burial_ground_enhanced_praye` | existing |
+| `the_veilwood_covenant` | veilwood.js | `item_unlock:the_veilwood_covenant_completion` | existing |
+| `the_veilwood_whittler` | quests-mega.js | `item_unlock:the_veilwood_whittler_singing_wood_bow_crafting_special_bow_tier` | existing |
+| `the_wandering_chef` | quests-mega.js | `item_unlock:the_wandering_chef_3_regional_dishes_with_enhanced_healing_properti` | existing |
+| `the_werewolf_courier` | quests-mega.js | `item_unlock:the_werewolf_courier_moryskah_veilwood_bridge_crossing_safe_passage` | existing |
+| `the_werewolfs_dilemma` | quests-expanded.js | `item_unlock:moonstone_amulet_werewolf_empower` | existing |
+| `the_werewolfs_dilemma` | quests-expanded.js | `item_unlock:wolfbane_cure_vial_werewolf_cure` | existing |
+| `the_werewolfs_dilemma` | quests-expanded.js | `area:moryskah_werewolf_territory` | existing |
+| `the_wilds_expedition` | quests-blitz.js | `item_unlock:the_wilds_expedition_completion` | existing |
+| `the_world_wound` | quests-mega.js | `item_unlock:the_world_wound_world_mender_ability_passive_hp_regeneration_in_` | existing |
+| `threads_of_the_weave` | quests-blitz.js | `item_unlock:threads_of_the_weave_completion` | existing |
+| `underground_pass` | quests-series.js | `item_unlock:underground_pass_shortcut_between_heartlands_and_inkweald` | existing |
+| `whispers_from_the_depths` | saltbrine.js | `item_unlock:whispers_from_the_depths_completion` | existing |
+| `wilderness_sword` | quests-series.js | `item_unlock:wilderness_sword_wilderness_blade_bis_in_wilds_only` | existing |

@@ -36,7 +36,7 @@ quests.define('coa_key', {
       { id: 101, name: 'Coins', count: 25000 },
     ],
     questPoints: 3,
-    unlocks: ["raid:chambers_of_aelgard", "item_unlock:coa_crystal_key", "area:glass_desert_crystal_caverns"],
+    unlocks: ["raid:chambers_of_aelgard", "area:glass_desert_crystal_caverns"],
     chain_next: 'tos_key',
   },
 });

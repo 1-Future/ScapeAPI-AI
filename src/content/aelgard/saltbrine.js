@@ -239,7 +239,7 @@ quests.define('whispers_from_the_depths', {
     xp: { fishing: 4000, magic: 3000, hitpoints: 2000 },
     items: [{ id: 101, name: 'Coins', count: 8000 }],
     questPoints: 3,
-    unlocks: ["item_unlock:whispers_from_the_depths_completion"],
+    unlocks: [],
     chain_next: 'sunken_temple_key',
   },
 });

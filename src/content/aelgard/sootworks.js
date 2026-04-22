@@ -257,7 +257,7 @@ quests.define('the_forge_beneath', {
     xp: { smithing: 8000, attack: 5000, strength: 3000 },
     items: [{ id: 101, name: 'Coins', count: 15000 }],
     questPoints: 3,
-    unlocks: ["item_unlock:the_forge_beneath_completion"],
+    unlocks: [],
     chain_next: 'foundations_of_flame',
   },
 });

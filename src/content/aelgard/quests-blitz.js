@@ -40,7 +40,7 @@ quests.define('roots_of_the_old_growth', {
     xp: { farming: 3000, herblore: 1500, woodcutting: 800 },
     items: [{ id: 101, name: 'Coins', count: 4000 }, { id: 12460, name: 'Druid\'s planting dibber', count: 1 }],
     questPoints: 2,
-    unlocks: ["item_unlock:roots_of_the_old_growth_completion"],
+    unlocks: [],
   },
 });
 
@@ -94,7 +94,7 @@ quests.define('the_silent_hunt', {
     xp: { hunter: 3000, agility: 1200, crafting: 1000 },
     items: [{ id: 101, name: 'Coins', count: 3500 }, { id: 14010, name: 'Ranger\'s noose wand', count: 1 }],
     questPoints: 2,
-    unlocks: ["item_unlock:the_silent_hunt_completion"],
+    unlocks: [],
   },
 });
 
@@ -121,7 +121,7 @@ quests.define('the_essence_convergence', {
     xp: { runecrafting: 3500, magic: 2000, mining: 800 },
     items: [{ id: 14020, name: 'Dream rune', count: 50 }, { id: 14021, name: 'Essence pouch (small)', count: 1 }],
     questPoints: 2,
-    unlocks: ["item_unlock:the_essence_convergence_completion"],
+    unlocks: [],
     chain_next: 'the_runecasters_paradox',
   },
 });
@@ -149,7 +149,7 @@ quests.define('the_eternal_pyre', {
     xp: { firemaking: 3000, woodcutting: 1500, prayer: 1000 },
     items: [{ id: 101, name: 'Coins', count: 4500 }, { id: 14030, name: 'Tinderbox of the Pyre', count: 1 }],
     questPoints: 2,
-    unlocks: ["item_unlock:the_eternal_pyre_completion"],
+    unlocks: [],
   },
 });
 
@@ -180,7 +180,7 @@ quests.define('the_kings_last_edict', {
     xp: { thieving: 4000, magic: 3000, crafting: 2000 },
     items: [{ id: 101, name: 'Coins', count: 10000 }, { id: 14100, name: 'Crown shard', count: 1 }],
     questPoints: 3,
-    unlocks: ["item_unlock:the_kings_last_edict_completion"],
+    unlocks: [],
   },
 });
 
@@ -206,7 +206,7 @@ quests.define('bones_of_the_first_empire', {
     xp: { mining: 5000, prayer: 3000, hitpoints: 2000 },
     items: [{ id: 101, name: 'Coins', count: 8000 }, { id: 14101, name: 'First Empire amulet', count: 1 }],
     questPoints: 3,
-    unlocks: ["item_unlock:bones_of_the_first_empire_completion"],
+    unlocks: [],
   },
 });
 
@@ -232,7 +232,7 @@ quests.define('blood_beneath_the_boughs', {
     xp: { slayer: 5000, herblore: 3000, agility: 2000 },
     items: [{ id: 14102, name: 'Bloodwood stake', count: 1 }, { id: 101, name: 'Coins', count: 7000 }],
     questPoints: 3,
-    unlocks: ["item_unlock:blood_beneath_the_boughs_completion"],
+    unlocks: [],
     chain_next: 'the_siege_of_hollow_mire',
   },
 });
@@ -259,7 +259,7 @@ quests.define('the_song_before_words', {
     xp: { fletching: 4500, magic: 3000, woodcutting: 2000 },
     items: [{ id: 14103, name: 'Singing-wood longbow', count: 1 }, { id: 101, name: 'Coins', count: 6000 }],
     questPoints: 3,
-    unlocks: ["item_unlock:the_song_before_words_completion"],
+    unlocks: [],
   },
 });
 
@@ -286,7 +286,7 @@ quests.define('the_cogfathers_paradox', {
     xp: { smithing: 8000, construction: 6000, crafting: 4000 },
     items: [{ id: 14104, name: 'Cogfather\'s wrench', count: 1 }, { id: 101, name: 'Coins', count: 15000 }],
     questPoints: 4,
-    unlocks: ["item_unlock:the_cogfathers_paradox_completion"],
+    unlocks: [],
   },
 });
 
@@ -312,7 +312,7 @@ quests.define('the_drowned_cartographer', {
     xp: { fishing: 4000, crafting: 2500, prayer: 1500 },
     items: [{ id: 14105, name: 'Maelvin\'s atlas', count: 1 }, { id: 101, name: 'Coins', count: 7500 }],
     questPoints: 3,
-    unlocks: ["item_unlock:the_drowned_cartographer_completion"],
+    unlocks: [],
   },
 });
 
@@ -339,7 +339,7 @@ quests.define('the_dreamers_debt', {
     xp: { magic: 8000, runecrafting: 5000, herblore: 3000 },
     items: [{ id: 14106, name: 'Ink Keeper\'s quill', count: 1 }, { id: 14020, name: 'Dream rune', count: 100 }],
     questPoints: 4,
-    unlocks: ["item_unlock:the_dreamers_debt_completion"],
+    unlocks: [],
     chain_next: 'the_dream_eater',
   },
 });
@@ -367,7 +367,7 @@ quests.define('the_prism_throne', {
     xp: { mining: 12000, magic: 10000, defence: 6000, smithing: 5000 },
     items: [{ id: 14107, name: 'Prism shard', count: 1 }, { id: 101, name: 'Coins', count: 25000 }],
     questPoints: 5,
-    unlocks: ["item_unlock:the_prism_throne_completion"],
+    unlocks: [],
   },
 });
 
@@ -398,7 +398,7 @@ quests.define('the_merchants_gambit', {
     xp: { thieving: 4000, cooking: 2000, crafting: 2000, agility: 1500 },
     items: [{ id: 101, name: 'Coins', count: 12000 }, { id: 14200, name: 'Trader\'s signet ring', count: 1 }],
     questPoints: 3,
-    unlocks: ["item_unlock:the_merchants_gambit_completion"],
+    unlocks: [],
   },
 });
 
@@ -426,7 +426,7 @@ quests.define('the_plague_road', {
     xp: { herblore: 8000, farming: 4000, prayer: 2500, cooking: 1500 },
     items: [{ id: 14201, name: 'Plague doctor\'s mask', count: 1 }, { id: 101, name: 'Coins', count: 10000 }],
     questPoints: 4,
-    unlocks: ["item_unlock:the_plague_road_completion"],
+    unlocks: [],
   },
 });
 
@@ -452,7 +452,7 @@ quests.define('the_couriers_marathon', {
     xp: { agility: 6000, ranged: 2000, cooking: 1000 },
     items: [{ id: 14202, name: 'Courier\'s boots', count: 1 }, { id: 101, name: 'Coins', count: 8000 }],
     questPoints: 3,
-    unlocks: ["item_unlock:the_couriers_marathon_completion"],
+    unlocks: [],
   },
 });
 
@@ -480,7 +480,7 @@ quests.define('the_iron_pilgrimage', {
     xp: { smithing: 10000, mining: 8000, attack: 3000, strength: 2000 },
     items: [{ id: 14203, name: 'Pilgrimage blade', count: 1 }],
     questPoints: 4,
-    unlocks: ["item_unlock:the_iron_pilgrimage_completion"],
+    unlocks: [],
     chain_next: 'the_god_forge',
   },
 });
@@ -508,7 +508,7 @@ quests.define('threads_of_the_weave', {
     xp: { magic: 10000, crafting: 5000, runecrafting: 4000, herblore: 2000 },
     items: [{ id: 14204, name: 'Reality needle', count: 1 }, { id: 101, name: 'Coins', count: 12000 }],
     questPoints: 4,
-    unlocks: ["item_unlock:threads_of_the_weave_completion"],
+    unlocks: [],
   },
 });
 
@@ -536,7 +536,7 @@ quests.define('the_aelgard_atlas', {
     xp: { agility: 8000, crafting: 6000, mining: 3000, woodcutting: 2500, fishing: 2500 },
     items: [{ id: 14205, name: 'Aelgard atlas (completed)', count: 1 }, { id: 101, name: 'Coins', count: 20000 }],
     questPoints: 5,
-    unlocks: ["item_unlock:the_aelgard_atlas_completion"],
+    unlocks: [],
   },
 });
 
@@ -564,7 +564,7 @@ quests.define('the_smugglers_web', {
     xp: { thieving: 7000, ranged: 4000, fletching: 3000, agility: 2500 },
     items: [{ id: 14206, name: 'Inspector\'s badge', count: 1 }, { id: 101, name: 'Coins', count: 15000 }],
     questPoints: 4,
-    unlocks: ["item_unlock:the_smugglers_web_completion"],
+    unlocks: [],
   },
 });
 
@@ -592,7 +592,7 @@ quests.define('the_lost_expedition', {
     xp: { hunter: 6000, firemaking: 3000, strength: 3000, magic: 3000 },
     items: [{ id: 14207, name: 'Expedition leader\'s journal', count: 1 }, { id: 101, name: 'Coins', count: 11000 }],
     questPoints: 4,
-    unlocks: ["item_unlock:the_lost_expedition_completion"],
+    unlocks: [],
   },
 });
 
@@ -624,7 +624,7 @@ quests.define('the_bone_colossus', {
     xp: { attack: 8000, prayer: 5000, slayer: 5000, mining: 2000 },
     items: [{ id: 14300, name: 'Colossus bone shard', count: 1 }, { id: 101, name: 'Coins', count: 12000 }],
     questPoints: 4,
-    unlocks: ["item_unlock:the_bone_colossus_completion"],
+    unlocks: [],
   },
 });
 
@@ -651,7 +651,7 @@ quests.define('the_siren_of_saltbrine', {
     xp: { ranged: 8000, magic: 5000, fishing: 3000, crafting: 2000 },
     items: [{ id: 14301, name: 'Siren\'s conch', count: 1 }, { id: 101, name: 'Coins', count: 14000 }],
     questPoints: 4,
-    unlocks: ["item_unlock:the_siren_of_saltbrine_completion"],
+    unlocks: [],
     chain_next: 'the_leviathans_wake',
   },
 });
@@ -679,7 +679,7 @@ quests.define('the_clockwork_tyrant', {
     xp: { strength: 8000, smithing: 5000, construction: 3000, defence: 4000 },
     items: [{ id: 14302, name: 'Tyrant\'s power core', count: 1 }, { id: 101, name: 'Coins', count: 13000 }],
     questPoints: 4,
-    unlocks: ["item_unlock:the_clockwork_tyrant_completion"],
+    unlocks: [],
   },
 });
 
@@ -707,7 +707,7 @@ quests.define('the_hollow_king', {
     xp: { attack: 15000, magic: 12000, prayer: 8000, slayer: 6000, herblore: 3000 },
     items: [{ id: 14303, name: 'Hollow crown', count: 1 }, { id: 14304, name: 'Morvek\'s fang', count: 1 }],
     questPoints: 5,
-    unlocks: ["item_unlock:the_hollow_king_completion"],
+    unlocks: [],
   },
 });
 
@@ -735,7 +735,7 @@ quests.define('the_crystal_warden', {
     xp: { defence: 15000, magic: 10000, mining: 5000, hitpoints: 6000, ranged: 4000 },
     items: [{ id: 14305, name: 'Warden\'s crystal heart', count: 1 }, { id: 101, name: 'Coins', count: 20000 }],
     questPoints: 5,
-    unlocks: ["item_unlock:the_crystal_warden_completion"],
+    unlocks: [],
   },
 });
 
@@ -766,7 +766,7 @@ quests.define('the_great_aelgard_bakeoff', {
     xp: { cooking: 4000, farming: 1500, fishing: 1500 },
     items: [{ id: 14400, name: 'Festival apron', count: 1 }, { id: 101, name: 'Coins', count: 6000 }],
     questPoints: 2,
-    unlocks: ["item_unlock:the_great_aelgard_bakeoff_completion"],
+    unlocks: [],
     chain_next: 'the_ambassadors_soup',
   },
 });
@@ -794,7 +794,7 @@ quests.define('the_sootworks_heist', {
     xp: { thieving: 5000, agility: 3000, smithing: 2000, magic: 1500 },
     items: [{ id: 14401, name: 'Heist mask', count: 1 }, { id: 101, name: 'Coins', count: 10000 }],
     questPoints: 3,
-    unlocks: ["item_unlock:the_sootworks_heist_completion"],
+    unlocks: [],
   },
 });
 
@@ -821,7 +821,7 @@ quests.define('the_wilds_expedition', {
     xp: { hitpoints: 6000, woodcutting: 3000, firemaking: 2500, hunter: 2500, cooking: 1500 },
     items: [{ id: 14402, name: 'Wilds explorer\'s cape', count: 1 }, { id: 101, name: 'Coins', count: 15000 }],
     questPoints: 4,
-    unlocks: ["item_unlock:the_wilds_expedition_completion"],
+    unlocks: [],
     chain_next: 'the_hunt_for_the_wilds_king',
   },
 });
@@ -849,7 +849,7 @@ quests.define('the_tower_of_trials', {
     xp: { attack: 4000, magic: 3500, ranged: 3000, defence: 2500, construction: 1500 },
     items: [{ id: 14403, name: 'Tower crest', count: 1 }, { id: 101, name: 'Coins', count: 8000 }],
     questPoints: 3,
-    unlocks: ["item_unlock:the_tower_of_trials_completion"],
+    unlocks: [],
   },
 });
 

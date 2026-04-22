@@ -206,7 +206,7 @@ quests.define('the_hollow_choirs_song', {
     xp: { attack: 10000, magic: 10000, prayer: 5000, hitpoints: 5000 },
     items: [{ id: 101, name: 'Coins', count: 25000 }],
     questPoints: 5,
-    unlocks: ["item_unlock:the_hollow_choirs_song_completion"],
+    unlocks: [],
     chain_next: 'the_inkweald_second_door',
   },
 });

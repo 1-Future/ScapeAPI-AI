@@ -55,7 +55,7 @@ quests.define('the_anglers_challenge', {
     xp: { fishing: 2500, cooking: 1000 },
     items: [{ id: 101, name: 'Coins', count: 3000 }, { id: 13004, name: 'Pearl fishing rod', count: 1 }],
     questPoints: 2,
-    unlocks: ["item_unlock:the_anglers_challenge_completion"],
+    unlocks: [],
   },
 });
 
@@ -79,7 +79,7 @@ quests.define('the_jewellers_eye', {
     xp: { crafting: 2000, mining: 1000, smithing: 800 },
     items: [{ id: 12542, name: 'Amulet of glory', count: 1 }],
     questPoints: 2,
-    unlocks: ["item_unlock:the_jewellers_eye_completion"],
+    unlocks: [],
   },
 });
 
@@ -103,7 +103,7 @@ quests.define('slayers_gauntlet', {
     items: [{ id: 101, name: 'Coins', count: 2000 }],
     questPoints: 2,
     // Unlocks: Varrek as slayer master (access to Moryskah slayer tasks)
-    unlocks: ["item_unlock:enchanted_gem", "npc:slayer_master_varrek", "item_unlock:slayers_gauntlet_varrek_as_slayer_master_access_to_moryskah_slaye"],
+    unlocks: ["item_unlock:enchanted_gem", "npc:slayer_master_varrek"],
     chain_next: 'the_slayers_creed',
   },
 });
@@ -156,7 +156,7 @@ quests.define('drifting_market_charter', {
     items: [{ id: 101, name: 'Coins', count: 10000 }],
     questPoints: 3,
     // Unlocks: Drifting Market — mobile trade hub that moves weekly
-    unlocks: ["shop:drifting_market_shops", "item_unlock:drifting_market_charter_drifting_market_mobile_trade_hub_that_moves_week"],
+    unlocks: ["shop:drifting_market_shops"],
     chain_next: 'rfd_start',
   },
 });
@@ -187,7 +187,7 @@ quests.define('the_werewolfs_dilemma', {
       { id: 'wolfbane_cure_vial', name: 'Wolfbane cure vial (choice-gated)', count: 1 },
     ],
     questPoints: 2,
-    unlocks: ["npc:cured_werewolf_shopkeeper", "npc:werewolf_ally", "item_unlock:moonstone_amulet_werewolf_empower", "item_unlock:wolfbane_cure_vial_werewolf_cure", "area:moryskah_werewolf_territory"],
+    unlocks: ["npc:cured_werewolf_shopkeeper", "npc:werewolf_ally"],
     chain_next: 'the_werewolfs_lineage',
   },
 });
@@ -240,7 +240,7 @@ quests.define('the_fletchers_trial', {
     xp: { fletching: 2000, ranged: 1500, woodcutting: 500 },
     items: [{ id: 6006, name: 'Elven bow', count: 1 }, { id: 6007, name: 'Elven arrow', count: 100 }],
     questPoints: 2,
-    unlocks: ["item_unlock:the_fletchers_trial_completion"],
+    unlocks: [],
   },
 });
 

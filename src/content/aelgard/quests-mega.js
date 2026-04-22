@@ -40,7 +40,7 @@ quests.define('the_runaway_golem', {
     items: [{ id: 101, name: 'Coins', count: 300 }, { id: 15001, name: 'Golem repair manual', count: 1 }],
     questPoints: 1,
     // Unlocks: Sootworks border mine shortcut
-    unlocks: ["item_unlock:golem_repair_manual", "shortcut:sootworks_border_mine", "item_unlock:the_runaway_golem_sootworks_border_mine_shortcut"],
+    unlocks: ["item_unlock:golem_repair_manual", "shortcut:sootworks_border_mine"],
   },
 });
 
@@ -66,7 +66,7 @@ quests.define('the_tide_pool_collector', {
     items: [{ id: 101, name: 'Coins', count: 250 }, { id: 15002, name: 'Tide pool net', count: 1 }],
     questPoints: 1,
     // Unlocks: tide pool fishing spots (unique fish for early-game cooking XP)
-    unlocks: ["item_unlock:tide_pool_net", "training_method:tide_pool_fishing", "item_unlock:the_tide_pool_collector_tide_pool_fishing_spots_unique_fish_for_early_ga"],
+    unlocks: ["item_unlock:tide_pool_net", "training_method:tide_pool_fishing"],
     chain_next: 'the_margin_net_refolded',
   },
 });
@@ -93,7 +93,7 @@ quests.define('lamplighters_apprentice', {
     items: [{ id: 101, name: 'Coins', count: 200 }, { id: 15003, name: 'Voss\'s tinderbox', count: 1 }],
     questPoints: 1,
     // Unlocks: Moryskah border lantern network (fast travel)
-    unlocks: ["item_unlock:voss_tinderbox", "teleport:moryskah_border_lanterns", "item_unlock:lamplighters_apprentice_moryskah_border_lantern_network_fast_travel"],
+    unlocks: ["item_unlock:voss_tinderbox", "teleport:moryskah_border_lanterns"],
   },
 });
 
@@ -119,7 +119,7 @@ quests.define('the_apprentice_trapper', {
     items: [{ id: 101, name: 'Coins', count: 300 }, { id: 15004, name: 'Canopy hunting permit', count: 1 }],
     questPoints: 1,
     // Unlocks: Veilwood canopy hunting grounds
-    unlocks: ["item_unlock:canopy_hunting_permit", "item_unlock:the_apprentice_trapper_veilwood_canopy_hunting_grounds"],
+    unlocks: ["item_unlock:canopy_hunting_permit"],
   },
 });
 
@@ -145,7 +145,7 @@ quests.define('the_stolen_runes', {
     items: [{ id: 101, name: 'Coins', count: 400 }, { id: 15005, name: 'Ruven\'s rune pouch', count: 1 }],
     questPoints: 1,
     // Unlocks: permanent 10% discount at Heartlands Rune Shop
-    unlocks: ["item_unlock:ruvens_rune_pouch", "shop:heartlands_rune_shop_discount", "item_unlock:the_stolen_runes_permanent_10_discount_at_heartlands_rune_shop"],
+    unlocks: ["item_unlock:ruvens_rune_pouch", "shop:heartlands_rune_shop_discount"],
   },
 });
 
@@ -171,7 +171,7 @@ quests.define('the_fencepost_problem', {
     items: [{ id: 101, name: 'Coins', count: 350 }, { id: 15006, name: 'Rancher\'s bell', count: 1 }],
     questPoints: 1,
     // Unlocks: Heartlands ranch as a teleport destination
-    unlocks: ["item_unlock:ranchers_bell", "teleport:heartlands_ranch", "item_unlock:the_fencepost_problem_heartlands_ranch_as_a_teleport_destination"],
+    unlocks: ["item_unlock:ranchers_bell", "teleport:heartlands_ranch"],
   },
 });
 
@@ -197,7 +197,7 @@ quests.define('the_bog_witchs_errand', {
     items: [{ id: 101, name: 'Coins', count: 200 }, { id: 15007, name: 'Swamp salve recipe', count: 1 }],
     questPoints: 1,
     // Unlocks: Moryskah herb patch
-    unlocks: ["recipe:swamp_salve", "training_method:moryskah_herb_patch", "item_unlock:the_bog_witchs_errand_moryskah_herb_patch"],
+    unlocks: ["recipe:swamp_salve", "training_method:moryskah_herb_patch"],
     chain_next: 'the_bog_witchs_bargain',
   },
 });
@@ -224,7 +224,7 @@ quests.define('target_practice', {
     items: [{ id: 101, name: 'Coins', count: 250 }, { id: 15008, name: 'Militia archer\'s badge', count: 1 }],
     questPoints: 1,
     // Unlocks: Heartlands archery range daily XP bonus
-    unlocks: ["item_unlock:militia_archers_badge", "training_method:archery_range_daily", "item_unlock:target_practice_heartlands_archery_range_daily_xp_bonus"],
+    unlocks: ["item_unlock:militia_archers_badge", "training_method:archery_range_daily"],
   },
 });
 
@@ -250,7 +250,7 @@ quests.define('the_boneyard_compass', {
     items: [{ id: 101, name: 'Coins', count: 300 }, { id: 15009, name: 'Boneyard compass', count: 1 }],
     questPoints: 1,
     // Unlocks: immunity to Boneyard sandstorm disorientation
-    unlocks: ["area:boneyard_deep_dunes", "item_unlock:boneyard_compass_item", "item_unlock:the_boneyard_compass_immunity_to_boneyard_sandstorm_disorientation"],
+    unlocks: ["area:boneyard_deep_dunes", "item_unlock:boneyard_compass_item"],
   },
 });
 
@@ -276,7 +276,7 @@ quests.define('the_slayers_first_mark', {
     items: [{ id: 101, name: 'Coins', count: 250 }, { id: 15010, name: 'Slayer\'s first mark', count: 1 }],
     questPoints: 1,
     // Unlocks: Novice slayer task assignments
-    unlocks: ["npc:slayer_apprentice_kael", "training_method:novice_slayer_tasks", "item_unlock:the_slayers_first_mark_novice_slayer_task_assignments"],
+    unlocks: ["npc:slayer_apprentice_kael", "training_method:novice_slayer_tasks"],
     chain_next: 'slayers_gauntlet',
   },
 });
@@ -309,7 +309,7 @@ quests.define('the_counterfeit_ring', {
     items: [{ id: 101, name: 'Coins', count: 5000 }, { id: 15101, name: 'Inspector\'s loupe', count: 1 }],
     questPoints: 2,
     // Unlocks: Saltbrine customs office access (sell contraband legally for better prices)
-    unlocks: ["item_unlock:inspectors_loupe", "item_unlock:the_counterfeit_ring_saltbrine_customs_office_access_sell_contraband_"],
+    unlocks: ["item_unlock:inspectors_loupe"],
     chain_next: 'the_counterfeit_empire',
   },
 });
@@ -338,7 +338,7 @@ quests.define('the_haunted_lighthouse', {
     items: [{ id: 101, name: 'Coins', count: 4000 }, { id: 15102, name: 'Lighthouse keeper\'s key', count: 1 }],
     questPoints: 2,
     // Unlocks: Saltbrine lighthouse as a teleport destination
-    unlocks: ["item_unlock:the_haunted_lighthouse_saltbrine_lighthouse_as_a_teleport_destination"],
+    unlocks: [],
   },
 });
 
@@ -366,7 +366,7 @@ quests.define('the_ink_smugglers', {
     items: [{ id: 101, name: 'Coins', count: 5000 }, { id: 15103, name: 'Smuggler\'s shadow cloak', count: 1 }],
     questPoints: 2,
     // Unlocks: Inkweald border passage shortcut
-    unlocks: ["item_unlock:the_ink_smugglers_inkweald_border_passage_shortcut"],
+    unlocks: [],
   },
 });
 
@@ -394,7 +394,7 @@ quests.define('the_bone_flute', {
     items: [{ id: 15104, name: 'Bone flute', count: 1 }, { id: 101, name: 'Coins', count: 3500 }],
     questPoints: 2,
     // Unlocks: Bone flute (calms hostile desert creatures, 30s cooldown)
-    unlocks: ["item_unlock:the_bone_flute_bone_flute_calms_hostile_desert_creatures_30s_co"],
+    unlocks: [],
   },
 });
 
@@ -422,7 +422,7 @@ quests.define('the_flooded_vault', {
     items: [{ id: 101, name: 'Coins', count: 4500 }, { id: 15105, name: 'Deep vault key', count: 1 }],
     questPoints: 2,
     // Unlocks: Sootworks deep vault mining area
-    unlocks: ["item_unlock:the_flooded_vault_sootworks_deep_vault_mining_area"],
+    unlocks: [],
   },
 });
 
@@ -450,7 +450,7 @@ quests.define('the_werewolf_courier', {
     items: [{ id: 101, name: 'Coins', count: 3500 }, { id: 15106, name: 'Bridge crossing token', count: 1 }],
     questPoints: 2,
     // Unlocks: Moryskah-Veilwood bridge crossing (safe passage)
-    unlocks: ["item_unlock:the_werewolf_courier_moryskah_veilwood_bridge_crossing_safe_passage"],
+    unlocks: [],
   },
 });
 
@@ -478,7 +478,7 @@ quests.define('the_glass_cutters_challenge', {
     items: [{ id: 15107, name: 'Glass cutter\'s certificate', count: 1 }, { id: 15108, name: 'Prismatic gem (unset)', count: 3 }],
     questPoints: 2,
     // Unlocks: ability to cut prismatic gems (used in BIS jewellery)
-    unlocks: ["item_unlock:the_glass_cutters_challenge_ability_to_cut_prismatic_gems_used_in_bis_jewell"],
+    unlocks: [],
   },
 });
 
@@ -506,7 +506,7 @@ quests.define('the_tax_collectors_bodyguard', {
     items: [{ id: 101, name: 'Coins', count: 6000 }, { id: 15109, name: 'Boneyard trader\'s writ', count: 1 }],
     questPoints: 2,
     // Unlocks: Boneyard Wastes trading post
-    unlocks: ["item_unlock:the_tax_collectors_bodyguard_boneyard_wastes_trading_post"],
+    unlocks: [],
   },
 });
 
@@ -534,7 +534,7 @@ quests.define('the_clockwork_courier', {
     items: [{ id: 101, name: 'Coins', count: 3500 }, { id: 15110, name: 'Courier activation key', count: 1 }],
     questPoints: 2,
     // Unlocks: clockwork courier service (send items between banks)
-    unlocks: ["item_unlock:the_clockwork_courier_clockwork_courier_service_send_items_between_ban"],
+    unlocks: [],
   },
 });
 
@@ -562,7 +562,7 @@ quests.define('the_dream_cartographer', {
     items: [{ id: 15111, name: 'Inkweald dream-map', count: 1 }, { id: 101, name: 'Coins', count: 3000 }],
     questPoints: 2,
     // Unlocks: dream-map reveals hidden paths in the Inkweald
-    unlocks: ["item_unlock:the_dream_cartographer_dream_map_reveals_hidden_paths_in_the_inkweald"],
+    unlocks: [],
   },
 });
 
@@ -590,7 +590,7 @@ quests.define('the_veilwood_whittler', {
     items: [{ id: 15112, name: 'Singing-wood shortbow', count: 1 }, { id: 101, name: 'Coins', count: 3000 }],
     questPoints: 2,
     // Unlocks: singing-wood bow crafting (special bow tier)
-    unlocks: ["item_unlock:the_veilwood_whittler_singing_wood_bow_crafting_special_bow_tier"],
+    unlocks: [],
   },
 });
 
@@ -618,7 +618,7 @@ quests.define('the_saltbrine_regatta', {
     items: [{ id: 101, name: 'Coins', count: 5000 }, { id: 15113, name: 'Racing skiff deed', count: 1 }],
     questPoints: 2,
     // Unlocks: personal sailing boat (fast travel between coastal locations)
-    unlocks: ["item_unlock:the_saltbrine_regatta_personal_sailing_boat_fast_travel_between_coasta"],
+    unlocks: [],
   },
 });
 
@@ -646,7 +646,7 @@ quests.define('the_runic_lock', {
     items: [{ id: 15114, name: 'Ancient rune mould', count: 1 }, { id: 101, name: 'Coins', count: 3500 }],
     questPoints: 2,
     // Unlocks: Ancient Rune Vault (advanced runecrafting location)
-    unlocks: ["item_unlock:the_runic_lock_ancient_rune_vault_advanced_runecrafting_locatio"],
+    unlocks: [],
   },
 });
 
@@ -674,7 +674,7 @@ quests.define('the_farmstead_siege', {
     items: [{ id: 101, name: 'Coins', count: 4000 }, { id: 15115, name: 'Farmstead plot deed', count: 1 }],
     questPoints: 2,
     // Unlocks: player-owned farm plot at the Heartlands border farmstead
-    unlocks: ["item_unlock:the_farmstead_siege_player_owned_farm_plot_at_the_heartlands_border_"],
+    unlocks: [],
   },
 });
 
@@ -701,7 +701,7 @@ quests.define('the_wandering_chef', {
     items: [{ id: 15116, name: 'Isolde\'s recipe book', count: 1 }, { id: 101, name: 'Coins', count: 4000 }],
     questPoints: 2,
     // Unlocks: 3 regional dishes with enhanced healing properties
-    unlocks: ["item_unlock:the_wandering_chef_3_regional_dishes_with_enhanced_healing_properti"],
+    unlocks: [],
   },
 });
 
@@ -734,7 +734,7 @@ quests.define('the_assassins_ledger', {
     items: [{ id: 101, name: 'Coins', count: 8000 }, { id: 15201, name: 'Black feather sigil', count: 1 }],
     questPoints: 3,
     // Unlocks: Assassin's Guild contact (thieving contracts for gold and XP)
-    unlocks: ["item_unlock:the_assassins_ledger_assassin_s_guild_contact_thieving_contracts_for_"],
+    unlocks: [],
   },
 });
 
@@ -763,7 +763,7 @@ quests.define('the_forge_of_four_fires', {
     items: [{ id: 15202, name: 'Quad-tempered dragon longsword', count: 1 }],
     questPoints: 3,
     // Unlocks: ability to smith dragon-tier weapons at any forge
-    unlocks: ["item_unlock:the_forge_of_four_fires_ability_to_smith_dragon_tier_weapons_at_any_forg"],
+    unlocks: [],
   },
 });
 
@@ -792,7 +792,7 @@ quests.define('the_silent_witness', {
     items: [{ id: 15203, name: 'Spirit sight amulet', count: 1 }, { id: 101, name: 'Coins', count: 7000 }],
     questPoints: 3,
     // Unlocks: Spirit Sight ability (see hidden ghost NPCs across Aelgard)
-    unlocks: ["item_unlock:the_silent_witness_spirit_sight_ability_see_hidden_ghost_npcs_acros"],
+    unlocks: [],
   },
 });
 
@@ -821,7 +821,7 @@ quests.define('the_canopy_war', {
     items: [{ id: 101, name: 'Coins', count: 8000 }, { id: 15204, name: 'Diplomat\'s signet', count: 1 }],
     questPoints: 3,
     // Unlocks: permanent faction alignment (elf-allied or human-allied shops, or both if peace)
-    unlocks: ["item_unlock:the_canopy_war_permanent_faction_alignment_elf_allied_or_human_"],
+    unlocks: [],
   },
 });
 
@@ -850,7 +850,7 @@ quests.define('the_undertakers_burden', {
     items: [{ id: 15205, name: 'Sanctified bone shard', count: 5 }, { id: 101, name: 'Coins', count: 7500 }],
     questPoints: 3,
     // Unlocks: Moryskah sanctified burial ground (enhanced prayer training)
-    unlocks: ["item_unlock:the_undertakers_burden_moryskah_sanctified_burial_ground_enhanced_praye"],
+    unlocks: [],
   },
 });
 
@@ -879,7 +879,7 @@ quests.define('the_spymasters_gambit', {
     items: [{ id: 101, name: 'Coins', count: 9000 }, { id: 15206, name: 'Spymaster\'s ring', count: 1 }],
     questPoints: 3,
     // Unlocks: Wilds intelligence network (advance warning of PvP encounters)
-    unlocks: ["item_unlock:the_spymasters_gambit_wilds_intelligence_network_advance_warning_of_pv"],
+    unlocks: [],
   },
 });
 
@@ -908,7 +908,7 @@ quests.define('the_crystal_plague', {
     items: [{ id: 15207, name: 'Crystal healing vial', count: 3 }, { id: 101, name: 'Coins', count: 8000 }],
     questPoints: 3,
     // Unlocks: Glass Desert crystal healing springs
-    unlocks: ["item_unlock:the_crystal_plague_glass_desert_crystal_healing_springs"],
+    unlocks: [],
   },
 });
 
@@ -937,7 +937,7 @@ quests.define('the_colosseum_of_bones', {
     items: [{ id: 15208, name: 'Colosseum champion\'s belt', count: 1 }, { id: 101, name: 'Coins', count: 10000 }],
     questPoints: 3,
     // Unlocks: Colosseum champion title + weekly boss instance (repeatable loot)
-    unlocks: ["item_unlock:the_colosseum_of_bones_colosseum_champion_title_weekly_boss_instance_re"],
+    unlocks: [],
   },
 });
 
@@ -966,7 +966,7 @@ quests.define('the_ink_painters_masterpiece', {
     items: [{ id: 15209, name: 'Seraphine\'s pocket canvas', count: 1 }],
     questPoints: 3,
     // Unlocks: portable bank deposit (use from anywhere, 10-minute cooldown)
-    unlocks: ["item_unlock:the_ink_painters_masterpiece_portable_bank_deposit_use_from_anywhere_10_minut"],
+    unlocks: [],
   },
 });
 
@@ -995,7 +995,7 @@ quests.define('the_lighthouse_cipher', {
     items: [{ id: 15210, name: 'Cipher ring', count: 1 }, { id: 101, name: 'Coins', count: 8000 }],
     questPoints: 3,
     // Unlocks: Cipher ring (decode hidden NPC hints for treasure trail clues)
-    unlocks: ["item_unlock:the_lighthouse_cipher_cipher_ring_decode_hidden_npc_hints_for_treasure"],
+    unlocks: [],
   },
 });
 
@@ -1024,7 +1024,7 @@ quests.define('the_steamwrights_apprentice', {
     items: [{ id: 15211, name: 'Venna\'s portable steam engine', count: 1 }],
     questPoints: 3,
     // Unlocks: portable steam engine (boosts skilling speed at workshops)
-    unlocks: ["item_unlock:the_steamwrights_apprentice_portable_steam_engine_boosts_skilling_speed_at_w"],
+    unlocks: [],
   },
 });
 
@@ -1053,7 +1053,7 @@ quests.define('the_moonlit_duel', {
     items: [{ id: 15212, name: 'Moonlit blade', count: 1 }],
     questPoints: 3,
     // Unlocks: Moonlit blade (BIS melee weapon during night-time)
-    unlocks: ["item_unlock:the_moonlit_duel_moonlit_blade_bis_melee_weapon_during_night_time"],
+    unlocks: [],
   },
 });
 
@@ -1088,7 +1088,7 @@ quests.define('the_grand_heist', {
     items: [{ id: 15301, name: 'Vault of Ages key', count: 1 }, { id: 101, name: 'Coins', count: 20000 }],
     questPoints: 4,
     // Unlocks: Vault of Ages (BIS equipment storage, weekly loot chest)
-    unlocks: ["item_unlock:the_grand_heist_vault_of_ages_bis_equipment_storage_weekly_loot_"],
+    unlocks: [],
   },
 });
 
@@ -1119,7 +1119,7 @@ quests.define('the_siege_of_hollow_mire', {
     items: [{ id: 15302, name: 'Hollow Mire fortress key', count: 1 }, { id: 101, name: 'Coins', count: 18000 }],
     questPoints: 4,
     // Unlocks: Hollow Mire fortress (player-owned stronghold in Moryskah)
-    unlocks: ["item_unlock:the_siege_of_hollow_mire_hollow_mire_fortress_player_owned_stronghold_in_"],
+    unlocks: [],
   },
 });
 
@@ -1150,7 +1150,7 @@ quests.define('the_god_forge', {
     items: [{ id: 15303, name: 'Godsword (player\'s choice)', count: 1 }],
     questPoints: 4,
     // Unlocks: God Forge access (craft T80 godswords)
-    unlocks: ["item_unlock:the_god_forge_god_forge_access_craft_t80_godswords"],
+    unlocks: [],
   },
 });
 
@@ -1181,7 +1181,7 @@ quests.define('the_dream_eater', {
     items: [{ id: 15304, name: 'Dream Walker\'s eye', count: 1 }, { id: 101, name: 'Coins', count: 15000 }],
     questPoints: 4,
     // Unlocks: Dream Walker ability (enter sleeping NPC dreams for hidden content)
-    unlocks: ["item_unlock:the_dream_eater_dream_walker_ability_enter_sleeping_npc_dreams_f"],
+    unlocks: [],
   },
 });
 
@@ -1212,7 +1212,7 @@ quests.define('the_leviathans_wake', {
     items: [{ id: 15305, name: 'Leviathan\'s eye', count: 1 }, { id: 101, name: 'Coins', count: 25000 }],
     questPoints: 4,
     // Unlocks: Leviathan Slayer title + deep-sea fishing at the new reef
-    unlocks: ["item_unlock:the_leviathans_wake_leviathan_slayer_title_deep_sea_fishing_at_the_n"],
+    unlocks: [],
   },
 });
 
@@ -1242,7 +1242,7 @@ quests.define('the_runecasters_paradox', {
     items: [{ id: 15306, name: 'Runecaster\'s tome', count: 1 }, { id: 15307, name: 'Blood rune', count: 100 }],
     questPoints: 4,
     // Unlocks: combination rune crafting (blood, soul, wrath runes)
-    unlocks: ["item_unlock:the_runecasters_paradox_combination_rune_crafting_blood_soul_wrath_runes"],
+    unlocks: [],
   },
 });
 
@@ -1273,7 +1273,7 @@ quests.define('the_hunt_for_the_wilds_king', {
     items: [{ id: 15308, name: 'Wilds King trophy', count: 1 }, { id: 15309, name: 'Wilds King cape', count: 1 }],
     questPoints: 4,
     // Unlocks: Wilds King cape (BIS hunter cape)
-    unlocks: ["item_unlock:the_hunt_for_the_wilds_king_wilds_king_cape_bis_hunter_cape"],
+    unlocks: [],
   },
 });
 
@@ -1304,7 +1304,7 @@ quests.define('the_council_of_shadows', {
     items: [{ id: 15310, name: 'Shadow council seal', count: 1 }, { id: 101, name: 'Coins', count: 20000 }],
     questPoints: 4,
     // Unlocks: weekly intelligence briefings (hints about upcoming events)
-    unlocks: ["item_unlock:the_council_of_shadows_weekly_intelligence_briefings_hints_about_upcomi"],
+    unlocks: [],
   },
 });
 
@@ -1344,7 +1344,7 @@ quests.define('the_shattered_covenant', {
     items: [{ id: 15401, name: 'Covenant shard', count: 1 }, { id: 101, name: 'Coins', count: 50000 }],
     questPoints: 5,
     // Unlocks: divine abilities based on chosen covenant path
-    unlocks: ["item_unlock:the_shattered_covenant_divine_abilities_based_on_chosen_covenant_path"],
+    unlocks: [],
   },
 });
 
@@ -1380,7 +1380,7 @@ quests.define('the_architect_of_ruin', {
     items: [{ id: 15402, name: 'Architect\'s blueprints', count: 1 }, { id: 101, name: 'Coins', count: 40000 }],
     questPoints: 5,
     // Unlocks: Architect's Blueprints (build endgame player structures)
-    unlocks: ["item_unlock:the_architect_of_ruin_architect_s_blueprints_build_endgame_player_stru"],
+    unlocks: [],
   },
 });
 
@@ -1416,7 +1416,7 @@ quests.define('the_eternal_hunt', {
     items: [{ id: 15403, name: 'Everborn fang necklace', count: 1 }, { id: 15404, name: 'Eternal hunter\'s cape', count: 1 }],
     questPoints: 5,
     // Unlocks: Eternal Hunter title + passive beast-tracking (see monster weak points)
-    unlocks: ["item_unlock:the_eternal_hunt_eternal_hunter_title_passive_beast_tracking_see_"],
+    unlocks: [],
   },
 });
 
@@ -1452,7 +1452,7 @@ quests.define('the_world_wound', {
     items: [{ id: 15405, name: 'Reality suture needle', count: 1 }, { id: 101, name: 'Coins', count: 50000 }],
     questPoints: 5,
     // Unlocks: World Mender ability (passive HP regeneration in all regions)
-    unlocks: ["item_unlock:the_world_wound_world_mender_ability_passive_hp_regeneration_in_"],
+    unlocks: [],
   },
 });
 
@@ -1487,7 +1487,7 @@ quests.define('the_last_adventurer', {
     items: [{ id: 15406, name: 'Champion\'s crown', count: 1 }, { id: 101, name: 'Coins', count: 100000 }],
     questPoints: 5,
     // Unlocks: Aelgard Champion title + cosmetic crown + all teleports unlocked
-    unlocks: ["item_unlock:the_last_adventurer_aelgard_champion_title_cosmetic_crown_all_telepo"],
+    unlocks: [],
   },
 });
 

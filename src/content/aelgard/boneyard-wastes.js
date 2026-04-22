@@ -332,7 +332,7 @@ quests.define('relics_of_the_old_world', {
     xp: { attack: 3000, strength: 2000, mining: 1000 },
     items: [{ id: 101, name: 'Coins', count: 5000 }],
     questPoints: 2,
-    unlocks: ["item_unlock:relics_of_the_old_world_completion"],
+    unlocks: [],
     chain_next: 'pharaohs_reckoning_prelude',
   },
 });
