@@ -1,20 +1,20 @@
 # Intensity Catalog Report
 
-Generated 2026-04-22T15:23:40.028Z. 1166 activities indexed.
+Generated 2026-04-22T15:25:37.842Z. 1232 activities indexed.
 
 ## Intensity band histogram
 
 | Band | Total | Skilling | Combat | Skilling Median XP/hr | Combat Median XP/hr |
 |------|-------|----------|--------|----------------------|--------------------|
-| 1 | 170 | 141 | 23 | 32000 | 18620 |
-| 2 | 86 | 52 | 32 | 49200 | 42000 |
-| 3 | 101 | 16 | 82 | 56100 | 46550 |
-| 4 | 239 | 80 | 134 | 69600 | 65542 |
-| 5 | 141 | 30 | 99 | 56200 | 87780 |
-| 6 | 83 | 35 | 37 | 122300 | 111720 |
-| 7 | 201 | 9 | 188 | 112200 | 119168 |
+| 1 | 196 | 158 | 29 | 30400 | 19800 |
+| 2 | 112 | 75 | 35 | 40000 | 42000 |
+| 3 | 102 | 16 | 83 | 56100 | 46550 |
+| 4 | 246 | 83 | 138 | 65000 | 65542 |
+| 5 | 144 | 30 | 102 | 56200 | 84269 |
+| 6 | 84 | 35 | 38 | 122300 | 111720 |
+| 7 | 202 | 9 | 189 | 112200 | 119168 |
 | 8 | 42 | 7 | 8 | 163500 | 106400 |
-| 9 | 95 | 0 | 74 | 0 | 148960 |
+| 9 | 96 | 0 | 75 | 0 | 148960 |
 | 10 | 8 | 0 | 6 | 0 | 75000 |
 
 _Total counts include minigames, composites, and combat-manifest swing entries. Skilling/Combat columns count only activities eligible for misery comparison._
@@ -25,32 +25,32 @@ _None. Every intensity band has >=5 activities._
 
 ## Misery zones (activities >30% below their band median)
 
-Total: **300** misery entries across bands (family-aware: skilling vs combat medians computed separately).
+Total: **328** misery entries across bands (family-aware: skilling vs combat medians computed separately).
 
 ### Top 20 worst offenders
 
 | Activity | Band | Family | Skill | Deficit % | XP/hr | Fam.Median | Source |
 |---|---|---|---|---|---|---|---|
-| kill_pigeon | 1 | combat | combat | -86% | 2660 | 18620 | src/content/aelgard/monsters-blitz2.js |
-| runecrafting_craft_air_runes | 4 | skilling_xp | runecrafting | -86% | 10000 | 69600 | src/engine/skills/runecrafting.js |
-| thieving_pickpocket_man | 4 | skilling_xp | thieving | -86% | 9600 | 69600 | src/engine/skills/thieving.js |
-| runecrafting_craft_mind_runes | 4 | skilling_xp | runecrafting | -84% | 11000 | 69600 | src/engine/skills/runecrafting.js |
-| runecrafting_craft_water_runes | 4 | skilling_xp | runecrafting | -83% | 12000 | 69600 | src/engine/skills/runecrafting.js |
+| gather_shooting_star | 2 | skilling_xp | mining | -90% | 4200 | 40000 | src/content/aelgard/training-methods.js |
+| process_smelt_silver | 2 | skilling_xp | smithing | -90% | 4110 | 40000 | src/content/aelgard/training-methods.js |
+| gather_dense_essence_rock | 1 | skilling_xp | mining | -88% | 3600 | 30400 | src/content/aelgard/training-methods.js |
+| kill_pigeon | 1 | combat | combat | -87% | 2660 | 19800 | src/content/aelgard/monsters-blitz2.js |
+| gather_sandstone_rock | 4 | skilling_xp | mining | -86% | 9000 | 65000 | src/content/aelgard/training-methods.js |
+| runecrafting_craft_air_runes | 4 | skilling_xp | runecrafting | -85% | 10000 | 65000 | src/engine/skills/runecrafting.js |
+| thieving_pickpocket_man | 4 | skilling_xp | thieving | -85% | 9600 | 65000 | src/engine/skills/thieving.js |
+| process_smelt_gold | 2 | skilling_xp | smithing | -83% | 6750 | 40000 | src/content/aelgard/training-methods.js |
+| runecrafting_craft_mind_runes | 4 | skilling_xp | runecrafting | -83% | 11000 | 65000 | src/engine/skills/runecrafting.js |
+| runecrafting_craft_water_runes | 4 | skilling_xp | runecrafting | -82% | 12000 | 65000 | src/engine/skills/runecrafting.js |
 | runecrafting_craft_wrath_runes | 6 | skilling_xp | runecrafting | -82% | 22000 | 122300 | src/engine/skills/runecrafting.js |
-| runecrafting_craft_earth_runes | 4 | skilling_xp | runecrafting | -81% | 13000 | 69600 | src/engine/skills/runecrafting.js |
-| runecrafting_craft_fire_runes | 4 | skilling_xp | runecrafting | -80% | 14000 | 69600 | src/engine/skills/runecrafting.js |
-| runecrafting_craft_body_runes | 4 | skilling_xp | runecrafting | -78% | 15000 | 69600 | src/engine/skills/runecrafting.js |
-| smithing_smelt_bronze_bar | 1 | skilling_xp | smithing | -77% | 7440 | 32000 | src/engine/skills/smithing.js |
-| crafting_tan_leather | 1 | skilling_xp | crafting | -77% | 7500 | 32000 | src/engine/skills/crafting.js |
-| runecrafting_craft_cosmic_runes | 4 | skilling_xp | runecrafting | -77% | 16000 | 69600 | src/engine/skills/runecrafting.js |
+| gather_achey_tree | 2 | skilling_xp | woodcutting | -81% | 7500 | 40000 | src/content/aelgard/training-methods.js |
+| gather_sardine_spot | 1 | skilling_xp | fishing | -80% | 6000 | 30400 | src/content/aelgard/training-methods.js |
+| runecrafting_craft_earth_runes | 4 | skilling_xp | runecrafting | -80% | 13000 | 65000 | src/engine/skills/runecrafting.js |
+| runecrafting_craft_fire_runes | 4 | skilling_xp | runecrafting | -78% | 14000 | 65000 | src/engine/skills/runecrafting.js |
+| runecrafting_craft_body_runes | 4 | skilling_xp | runecrafting | -77% | 15000 | 65000 | src/engine/skills/runecrafting.js |
+| gather_granite_rock | 4 | skilling_xp | mining | -77% | 15000 | 65000 | src/content/aelgard/training-methods.js |
 | magic_water_strike | 4 | combat | magic | -77% | 15000 | 65542 | src/engine/skills/magic.js |
-| runecrafting_craft_chaos_runes | 4 | skilling_xp | runecrafting | -76% | 17000 | 69600 | src/engine/skills/runecrafting.js |
-| heartlands_range_meat_basic | 1 | skilling_xp | cooking | -75% | 8000 | 32000 | data/methods/cooking.json |
-| heartlands_wool_spin | 1 | skilling_xp | crafting | -75% | 8000 | 32000 | data/methods/crafting.json |
-| heartlands_log_burn_trail | 1 | skilling_xp | firemaking | -75% | 8000 | 32000 | data/methods/firemaking.json |
-| heartlands_lumbrick_shrimp_net | 1 | skilling_xp | fishing | -75% | 8000 | 32000 | data/methods/fishing.json |
-| heartlands_arrow_shaft_cut | 1 | skilling_xp | fletching | -75% | 8000 | 32000 | data/methods/fletching.json |
-| heartlands_guam_clean_bulk | 1 | skilling_xp | herblore | -75% | 8000 | 32000 | data/methods/herblore.json |
+| smithing_smelt_bronze_bar | 1 | skilling_xp | smithing | -76% | 7440 | 30400 | src/engine/skills/smithing.js |
+| crafting_tan_leather | 1 | skilling_xp | crafting | -75% | 7500 | 30400 | src/engine/skills/crafting.js |
 
 ## Per-skill coverage matrix
 
@@ -78,6 +78,6 @@ Total: **300** misery entries across bands (family-aware: skilling vs combat med
 | runecrafting | 1, 2, 3, 4, 5, 6, 7, 8 | 9, 10 |
 | slayer | 1, 2, 3, 4, 5, 6, 7 | 8, 9, 10 |
 | smithing | 1, 2, 3, 4, 5, 6, 7, 8 | 9, 10 |
-| strength | 4, 6 | 1, 2, 3, 5, 7, 8, 9, 10 |
+| strength | 1, 2, 3, 4, 5, 6, 7, 9 | 8, 10 |
 | thieving | 4, 6 | 1, 2, 3, 5, 7, 8, 9, 10 |
 | woodcutting | 1, 2, 4, 5, 6, 7, 8 | 3, 9, 10 |

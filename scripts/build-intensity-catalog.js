@@ -326,6 +326,61 @@ function combatPerHourFromStats(m) {
   return { xp_per_hour, gp_per_hour };
 }
 
+// Scan src/content/aelgard/training-methods.js for skill-specific defineNode /
+// defineCourse / etc calls. These are additional skill methods beyond the 23
+// manifest entries.
+function collectTrainingMethods(catalog) {
+  const f = path.join(AELGARD, 'training-methods.js');
+  if (!fs.existsSync(f)) return 0;
+  const src = fs.readFileSync(f, 'utf8');
+  let count = 0;
+  const PATTERNS = [
+    // { regex, activityPrefix, skillFallback, produceKey }
+    { re: /(?:gathering)\.defineNode\(\s*\{([^}]*)\}/g, prefix: 'gather_', skillFallback: 'mining' },
+    { re: /(?:gathering)\.defineFishSpot\(\s*\{([^}]*)\}/g, prefix: 'fish_', skillFallback: 'fishing' },
+    { re: /(?:gathering)\.defineTree\(\s*\{([^}]*)\}/g, prefix: 'chop_', skillFallback: 'woodcutting' },
+    { re: /(?:processing)\.defineRecipe\(\s*\{([^}]*)\}/g, prefix: 'process_', skillFallback: 'cooking' },
+    { re: /(?:agility)\.defineCourse\(\s*\{([^}]*)\}/g, prefix: 'course_', skillFallback: 'agility' },
+    { re: /(?:hunter)\.defineTrap\(\s*\{([^}]*)\}/g, prefix: 'trap_', skillFallback: 'hunter' },
+    { re: /(?:farming)\.definePatch\(\s*\{([^}]*)\}/g, prefix: 'farm_', skillFallback: 'farming' },
+    { re: /(?:thieving)\.defineTarget\(\s*\{([^}]*)\}/g, prefix: 'pickpocket_', skillFallback: 'thieving' },
+  ];
+  for (const { re, prefix, skillFallback } of PATTERNS) {
+    re.lastIndex = 0;
+    let m;
+    while ((m = re.exec(src))) {
+      const body = m[1];
+      const id = valStr(body, 'id') || '';
+      if (!id) continue;
+      const skill = valStr(body, 'skill') || skillFallback;
+      const level = Number((body.match(/\blevel:\s*(\d+)/) || [])[1]) || 1;
+      const xp = Number((body.match(/\bxp:\s*([\d.]+)/) || [])[1]) || 0;
+      // Heuristic intensity from xp density + whether depletes
+      let intensity = 2;
+      if (/depletes:\s*false/.test(body)) intensity = 1;
+      if (/granite|sandstone|amethyst/.test(id)) intensity = 4;
+      if (/tick|rotation|shattered|fey/.test(id)) intensity = 6;
+      // Per-hour rough estimate: 300 cycles/hr at 3.6s baseline.
+      const xp_per_hour = Math.round(xp * 300);
+      catalog.push({
+        activity_id: `${prefix}${id}`,
+        activity_type: 'skill_method',
+        skill,
+        intensity,
+        base_xp_per_hour: xp_per_hour,
+        base_gp_per_hour: 0,
+        region: 'unknown',
+        level_required: level,
+        gating: { quests: [], items: [], areas: [] },
+        notes: `${valStr(body, 'name') || id} — training-methods.js`,
+        source_file: `src/content/aelgard/training-methods.js`,
+      });
+      count++;
+    }
+  }
+  return count;
+}
+
 // Also scan the Inferno content — it defines NPCs via npcs.defineNpc rather
 // than mob()/boss() so the main loop misses it.
 function collectInferno(catalog) {
@@ -1049,6 +1104,10 @@ function main() {
   console.log('[intensity] gathering monsters + bosses...');
   const mobs = collectMonstersAndBosses(catalog);
   console.log(`  ${mobs} monster/boss entries`);
+
+  console.log('[intensity] gathering training-methods.js nodes...');
+  const tm = collectTrainingMethods(catalog);
+  console.log(`  ${tm} training-method nodes`);
 
   console.log('[intensity] gathering Inferno...');
   const inferno = collectInferno(catalog);

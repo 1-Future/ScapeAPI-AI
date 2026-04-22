@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-04-22T15:23:40.028Z",
-  "total_activities": 1166,
+  "generated_at": "2026-04-22T15:25:37.842Z",
+  "total_activities": 1232,
   "intensity_taxonomy": {
     "1": "pure AFK (click every 30s+)",
     "2": "light interaction (click every 10-20s)",
@@ -3330,6 +3330,25 @@
         "areas": []
       },
       "notes": "Rock crabs. 10-min aggro refresh cycle.",
+      "source_file": "data/methods/attack.json"
+    },
+    {
+      "activity_id": "saltbrine_pirate_crew_active",
+      "activity_type": "skill_method",
+      "skill": "attack",
+      "intensity": 4,
+      "base_xp_per_hour": 42100,
+      "base_gp_per_hour": 95000,
+      "region": "saltbrine",
+      "level_required": 45,
+      "gating": {
+        "quests": [],
+        "items": [
+          "rune_scimitar"
+        ],
+        "areas": []
+      },
+      "notes": "Pirate crew multi-combat with respawn pressure.",
       "source_file": "data/methods/attack.json"
     },
     {
@@ -7725,6 +7744,420 @@
       },
       "notes": "Cannonball mould casting. Slowest Smithing XP but profit-leading. AFK.",
       "source_file": "data/methods/smithing.json"
+    },
+    {
+      "activity_id": "heartlands_dummy_aggressive",
+      "activity_type": "skill_method",
+      "skill": "strength",
+      "intensity": 1,
+      "base_xp_per_hour": 8000,
+      "base_gp_per_hour": 0,
+      "region": "heartlands",
+      "level_required": 1,
+      "gating": {
+        "quests": [],
+        "items": [
+          "bronze_scimitar"
+        ],
+        "areas": []
+      },
+      "notes": "Dummy on aggressive. AFK baseline.",
+      "source_file": "data/methods/strength.json"
+    },
+    {
+      "activity_id": "heartlands_giant_rat_aggressive",
+      "activity_type": "skill_method",
+      "skill": "strength",
+      "intensity": 2,
+      "base_xp_per_hour": 13900,
+      "base_gp_per_hour": 1800,
+      "region": "heartlands",
+      "level_required": 3,
+      "gating": {
+        "quests": [],
+        "items": [
+          "bronze_scimitar"
+        ],
+        "areas": []
+      },
+      "notes": "Sewer rats on aggressive. Auto-AFK.",
+      "source_file": "data/methods/strength.json"
+    },
+    {
+      "activity_id": "heartlands_cow_aggressive",
+      "activity_type": "skill_method",
+      "skill": "strength",
+      "intensity": 1,
+      "base_xp_per_hour": 10900,
+      "base_gp_per_hour": 5800,
+      "region": "heartlands",
+      "level_required": 10,
+      "gating": {
+        "quests": [],
+        "items": [
+          "steel_scimitar"
+        ],
+        "areas": []
+      },
+      "notes": "Cows on aggressive. Pure AFK.",
+      "source_file": "data/methods/strength.json"
+    },
+    {
+      "activity_id": "heartlands_knight_safespot_aggressive",
+      "activity_type": "skill_method",
+      "skill": "strength",
+      "intensity": 3,
+      "base_xp_per_hour": 22500,
+      "base_gp_per_hour": 12000,
+      "region": "heartlands",
+      "level_required": 15,
+      "gating": {
+        "quests": [],
+        "items": [
+          "steel_longsword"
+        ],
+        "areas": []
+      },
+      "notes": "Safespot knights through a gate rail.",
+      "source_file": "data/methods/strength.json"
+    },
+    {
+      "activity_id": "boneyard_hill_giant_afk",
+      "activity_type": "skill_method",
+      "skill": "strength",
+      "intensity": 1,
+      "base_xp_per_hour": 17400,
+      "base_gp_per_hour": 18000,
+      "region": "boneyard",
+      "level_required": 22,
+      "gating": {
+        "quests": [],
+        "items": [
+          "mithril_scimitar"
+        ],
+        "areas": []
+      },
+      "notes": "Hill giants on aggressive. Multi-combat AFK.",
+      "source_file": "data/methods/strength.json"
+    },
+    {
+      "activity_id": "boneyard_hill_giant_pull",
+      "activity_type": "skill_method",
+      "skill": "strength",
+      "intensity": 5,
+      "base_xp_per_hour": 36200,
+      "base_gp_per_hour": 65000,
+      "region": "boneyard",
+      "level_required": 25,
+      "gating": {
+        "quests": [],
+        "items": [
+          "mithril_scimitar"
+        ],
+        "areas": []
+      },
+      "notes": "Multi-pull hill giants through the gorge.",
+      "source_file": "data/methods/strength.json"
+    },
+    {
+      "activity_id": "heartlands_sand_crab_str",
+      "activity_type": "skill_method",
+      "skill": "strength",
+      "intensity": 1,
+      "base_xp_per_hour": 19800,
+      "base_gp_per_hour": 0,
+      "region": "heartlands",
+      "level_required": 30,
+      "gating": {
+        "quests": [],
+        "items": [
+          "adamant_scimitar"
+        ],
+        "areas": []
+      },
+      "notes": "Sand crabs aggressive. AFK.",
+      "source_file": "data/methods/strength.json"
+    },
+    {
+      "activity_id": "heartlands_black_knight_active",
+      "activity_type": "skill_method",
+      "skill": "strength",
+      "intensity": 5,
+      "base_xp_per_hour": 40300,
+      "base_gp_per_hour": 48000,
+      "region": "heartlands",
+      "level_required": 35,
+      "gating": {
+        "quests": [],
+        "items": [
+          "adamant_scimitar"
+        ],
+        "areas": []
+      },
+      "notes": "Active multi-pull black knights.",
+      "source_file": "data/methods/strength.json"
+    },
+    {
+      "activity_id": "saltbrine_rock_crab_str",
+      "activity_type": "skill_method",
+      "skill": "strength",
+      "intensity": 1,
+      "base_xp_per_hour": 23800,
+      "base_gp_per_hour": 0,
+      "region": "saltbrine",
+      "level_required": 40,
+      "gating": {
+        "quests": [],
+        "items": [
+          "rune_scimitar"
+        ],
+        "areas": []
+      },
+      "notes": "Rock crabs on aggressive. 10-min cycle.",
+      "source_file": "data/methods/strength.json"
+    },
+    {
+      "activity_id": "saltbrine_experiment_pit_active",
+      "activity_type": "skill_method",
+      "skill": "strength",
+      "intensity": 4,
+      "base_xp_per_hour": 42100,
+      "base_gp_per_hour": 58000,
+      "region": "saltbrine",
+      "level_required": 45,
+      "gating": {
+        "quests": [
+          "the_dark_port"
+        ],
+        "items": [
+          "rune_scimitar"
+        ],
+        "areas": []
+      },
+      "notes": "Dark warriors in a pit. Multi-combat.",
+      "source_file": "data/methods/strength.json"
+    },
+    {
+      "activity_id": "heartlands_ammonite_crab_str",
+      "activity_type": "skill_method",
+      "skill": "strength",
+      "intensity": 1,
+      "base_xp_per_hour": 32000,
+      "base_gp_per_hour": 0,
+      "region": "heartlands",
+      "level_required": 50,
+      "gating": {
+        "quests": [],
+        "items": [
+          "rune_scimitar"
+        ],
+        "areas": []
+      },
+      "notes": "Ammonite crabs. 100 HP version.",
+      "source_file": "data/methods/strength.json"
+    },
+    {
+      "activity_id": "moryskah_flesh_crawler_active",
+      "activity_type": "skill_method",
+      "skill": "strength",
+      "intensity": 5,
+      "base_xp_per_hour": 46700,
+      "base_gp_per_hour": 72000,
+      "region": "moryskah",
+      "level_required": 50,
+      "gating": {
+        "quests": [],
+        "items": [
+          "rune_scimitar"
+        ],
+        "areas": []
+      },
+      "notes": "Flesh crawler multi-combat. Low def, rapid XP.",
+      "source_file": "data/methods/strength.json"
+    },
+    {
+      "activity_id": "veilwood_nightmare_trainer_str",
+      "activity_type": "skill_method",
+      "skill": "strength",
+      "intensity": 1,
+      "base_xp_per_hour": 40000,
+      "base_gp_per_hour": 0,
+      "region": "veilwood",
+      "level_required": 60,
+      "gating": {
+        "quests": [
+          "swan_song_of_veilwood"
+        ],
+        "items": [
+          "dragon_scimitar"
+        ],
+        "areas": []
+      },
+      "notes": "Grove NPCs aggressive. Pure AFK.",
+      "source_file": "data/methods/strength.json"
+    },
+    {
+      "activity_id": "inkweald_brutal_nightmare_pull",
+      "activity_type": "skill_method",
+      "skill": "strength",
+      "intensity": 6,
+      "base_xp_per_hour": 76300,
+      "base_gp_per_hour": 145000,
+      "region": "inkweald",
+      "level_required": 67,
+      "gating": {
+        "quests": [
+          "unwake_the_dreamer"
+        ],
+        "items": [
+          "abyssal_whip"
+        ],
+        "areas": []
+      },
+      "notes": "Multi-pull brutal nightmares on aggressive + chinchompa chinning.",
+      "source_file": "data/methods/strength.json"
+    },
+    {
+      "activity_id": "moryskah_nightmare_chains_str",
+      "activity_type": "skill_method",
+      "skill": "strength",
+      "intensity": 2,
+      "base_xp_per_hour": 60000,
+      "base_gp_per_hour": 78000,
+      "region": "moryskah",
+      "level_required": 70,
+      "gating": {
+        "quests": [],
+        "items": [
+          "abyssal_whip"
+        ],
+        "areas": []
+      },
+      "notes": "Chained nightmares aggressive. AFK.",
+      "source_file": "data/methods/strength.json"
+    },
+    {
+      "activity_id": "inkweald_abyssal_demon_str",
+      "activity_type": "skill_method",
+      "skill": "strength",
+      "intensity": 4,
+      "base_xp_per_hour": 88100,
+      "base_gp_per_hour": 195000,
+      "region": "inkweald",
+      "level_required": 75,
+      "gating": {
+        "quests": [
+          "slayer_ascension"
+        ],
+        "items": [
+          "abyssal_whip"
+        ],
+        "areas": []
+      },
+      "notes": "Abyssal demon task on aggressive.",
+      "source_file": "data/methods/strength.json"
+    },
+    {
+      "activity_id": "wilds_lava_dragon_str",
+      "activity_type": "skill_method",
+      "skill": "strength",
+      "intensity": 2,
+      "base_xp_per_hour": 72400,
+      "base_gp_per_hour": 285000,
+      "region": "wilds",
+      "level_required": 80,
+      "gating": {
+        "quests": [],
+        "items": [
+          "abyssal_whip"
+        ],
+        "areas": []
+      },
+      "notes": "Lava dragons aggressive, melee range only.",
+      "source_file": "data/methods/strength.json"
+    },
+    {
+      "activity_id": "veilwood_gargoyle_str",
+      "activity_type": "skill_method",
+      "skill": "strength",
+      "intensity": 1,
+      "base_xp_per_hour": 78200,
+      "base_gp_per_hour": 175000,
+      "region": "veilwood",
+      "level_required": 82,
+      "gating": {
+        "quests": [],
+        "items": [
+          "ghrazi_rapier",
+          "rock_hammer"
+        ],
+        "areas": []
+      },
+      "notes": "Gargoyle tower AFK rock-hammer.",
+      "source_file": "data/methods/strength.json"
+    },
+    {
+      "activity_id": "wilds_demonic_gorilla_str",
+      "activity_type": "skill_method",
+      "skill": "strength",
+      "intensity": 7,
+      "base_xp_per_hour": 107500,
+      "base_gp_per_hour": 485000,
+      "region": "wilds",
+      "level_required": 85,
+      "gating": {
+        "quests": [
+          "ape_madrigal"
+        ],
+        "items": [
+          "ghrazi_rapier"
+        ],
+        "areas": []
+      },
+      "notes": "Demonic gorillas with prayer switch.",
+      "source_file": "data/methods/strength.json"
+    },
+    {
+      "activity_id": "veilwood_greater_nechryael_str",
+      "activity_type": "skill_method",
+      "skill": "strength",
+      "intensity": 4,
+      "base_xp_per_hour": 128000,
+      "base_gp_per_hour": 320000,
+      "region": "inkweald",
+      "level_required": 90,
+      "gating": {
+        "quests": [
+          "slayer_ascension"
+        ],
+        "items": [
+          "ghrazi_rapier",
+          "slayer_helm"
+        ],
+        "areas": []
+      },
+      "notes": "Nechryael slayer + aggressive.",
+      "source_file": "data/methods/strength.json"
+    },
+    {
+      "activity_id": "wilds_revenants_str",
+      "activity_type": "skill_method",
+      "skill": "strength",
+      "intensity": 9,
+      "base_xp_per_hour": 194500,
+      "base_gp_per_hour": 1200000,
+      "region": "wilds",
+      "level_required": 95,
+      "gating": {
+        "quests": [],
+        "items": [
+          "bracelet_of_ethereum",
+          "ghrazi_rapier"
+        ],
+        "areas": []
+      },
+      "notes": "Revenants aggressive.",
+      "source_file": "data/methods/strength.json"
     },
     {
       "activity_id": "heartlands_logwood_grove",
@@ -19393,6 +19826,754 @@
       },
       "notes": "The Veilmother — combat 130 hp 300 maxHit 16 tags:plant/boss",
       "source_file": "src/content/aelgard/veilwood.js"
+    },
+    {
+      "activity_id": "gather_silver_rock",
+      "activity_type": "skill_method",
+      "skill": "mining",
+      "intensity": 2,
+      "base_xp_per_hour": 12000,
+      "base_gp_per_hour": 0,
+      "region": "unknown",
+      "level_required": 20,
+      "gating": {
+        "quests": [],
+        "items": [],
+        "areas": []
+      },
+      "notes": "Silver rock — training-methods.js",
+      "source_file": "src/content/aelgard/training-methods.js"
+    },
+    {
+      "activity_id": "gather_gold_rock",
+      "activity_type": "skill_method",
+      "skill": "mining",
+      "intensity": 2,
+      "base_xp_per_hour": 19500,
+      "base_gp_per_hour": 0,
+      "region": "unknown",
+      "level_required": 40,
+      "gating": {
+        "quests": [],
+        "items": [],
+        "areas": []
+      },
+      "notes": "Gold rock — training-methods.js",
+      "source_file": "src/content/aelgard/training-methods.js"
+    },
+    {
+      "activity_id": "gather_gem_rock",
+      "activity_type": "skill_method",
+      "skill": "mining",
+      "intensity": 2,
+      "base_xp_per_hour": 19500,
+      "base_gp_per_hour": 0,
+      "region": "unknown",
+      "level_required": 40,
+      "gating": {
+        "quests": [],
+        "items": [],
+        "areas": []
+      },
+      "notes": "Gem rock — training-methods.js",
+      "source_file": "src/content/aelgard/training-methods.js"
+    },
+    {
+      "activity_id": "gather_sandstone_rock",
+      "activity_type": "skill_method",
+      "skill": "mining",
+      "intensity": 4,
+      "base_xp_per_hour": 9000,
+      "base_gp_per_hour": 0,
+      "region": "unknown",
+      "level_required": 35,
+      "gating": {
+        "quests": [],
+        "items": [],
+        "areas": []
+      },
+      "notes": "Sandstone — training-methods.js",
+      "source_file": "src/content/aelgard/training-methods.js"
+    },
+    {
+      "activity_id": "gather_granite_rock",
+      "activity_type": "skill_method",
+      "skill": "mining",
+      "intensity": 4,
+      "base_xp_per_hour": 15000,
+      "base_gp_per_hour": 0,
+      "region": "unknown",
+      "level_required": 45,
+      "gating": {
+        "quests": [],
+        "items": [],
+        "areas": []
+      },
+      "notes": "Granite — training-methods.js",
+      "source_file": "src/content/aelgard/training-methods.js"
+    },
+    {
+      "activity_id": "gather_amethyst_rock",
+      "activity_type": "skill_method",
+      "skill": "mining",
+      "intensity": 4,
+      "base_xp_per_hour": 72000,
+      "base_gp_per_hour": 0,
+      "region": "unknown",
+      "level_required": 92,
+      "gating": {
+        "quests": [],
+        "items": [],
+        "areas": []
+      },
+      "notes": "Amethyst — training-methods.js",
+      "source_file": "src/content/aelgard/training-methods.js"
+    },
+    {
+      "activity_id": "gather_volcanic_mine_node",
+      "activity_type": "skill_method",
+      "skill": "mining",
+      "intensity": 1,
+      "base_xp_per_hour": 21000,
+      "base_gp_per_hour": 0,
+      "region": "unknown",
+      "level_required": 50,
+      "gating": {
+        "quests": [],
+        "items": [],
+        "areas": []
+      },
+      "notes": "Volcanic mine — training-methods.js",
+      "source_file": "src/content/aelgard/training-methods.js"
+    },
+    {
+      "activity_id": "gather_daeyalt_rock",
+      "activity_type": "skill_method",
+      "skill": "mining",
+      "intensity": 1,
+      "base_xp_per_hour": 0,
+      "base_gp_per_hour": 0,
+      "region": "unknown",
+      "level_required": 60,
+      "gating": {
+        "quests": [],
+        "items": [],
+        "areas": []
+      },
+      "notes": "Daeyalt essence mine — training-methods.js",
+      "source_file": "src/content/aelgard/training-methods.js"
+    },
+    {
+      "activity_id": "gather_dense_essence_rock",
+      "activity_type": "skill_method",
+      "skill": "mining",
+      "intensity": 1,
+      "base_xp_per_hour": 3600,
+      "base_gp_per_hour": 0,
+      "region": "unknown",
+      "level_required": 38,
+      "gating": {
+        "quests": [],
+        "items": [],
+        "areas": []
+      },
+      "notes": "Dense essence mine — training-methods.js",
+      "source_file": "src/content/aelgard/training-methods.js"
+    },
+    {
+      "activity_id": "gather_shooting_star",
+      "activity_type": "skill_method",
+      "skill": "mining",
+      "intensity": 2,
+      "base_xp_per_hour": 4200,
+      "base_gp_per_hour": 0,
+      "region": "unknown",
+      "level_required": 10,
+      "gating": {
+        "quests": [],
+        "items": [],
+        "areas": []
+      },
+      "notes": "Shooting star — training-methods.js",
+      "source_file": "src/content/aelgard/training-methods.js"
+    },
+    {
+      "activity_id": "gather_sardine_spot",
+      "activity_type": "skill_method",
+      "skill": "fishing",
+      "intensity": 1,
+      "base_xp_per_hour": 6000,
+      "base_gp_per_hour": 0,
+      "region": "unknown",
+      "level_required": 5,
+      "gating": {
+        "quests": [],
+        "items": [],
+        "areas": []
+      },
+      "notes": "Fishing spot (sardine) — training-methods.js",
+      "source_file": "src/content/aelgard/training-methods.js"
+    },
+    {
+      "activity_id": "gather_herring_spot",
+      "activity_type": "skill_method",
+      "skill": "fishing",
+      "intensity": 1,
+      "base_xp_per_hour": 9000,
+      "base_gp_per_hour": 0,
+      "region": "unknown",
+      "level_required": 10,
+      "gating": {
+        "quests": [],
+        "items": [],
+        "areas": []
+      },
+      "notes": "Fishing spot (herring) — training-methods.js",
+      "source_file": "src/content/aelgard/training-methods.js"
+    },
+    {
+      "activity_id": "gather_pike_spot",
+      "activity_type": "skill_method",
+      "skill": "fishing",
+      "intensity": 1,
+      "base_xp_per_hour": 18000,
+      "base_gp_per_hour": 0,
+      "region": "unknown",
+      "level_required": 25,
+      "gating": {
+        "quests": [],
+        "items": [],
+        "areas": []
+      },
+      "notes": "Fishing spot (pike) — training-methods.js",
+      "source_file": "src/content/aelgard/training-methods.js"
+    },
+    {
+      "activity_id": "gather_tuna_spot",
+      "activity_type": "skill_method",
+      "skill": "fishing",
+      "intensity": 1,
+      "base_xp_per_hour": 24000,
+      "base_gp_per_hour": 0,
+      "region": "unknown",
+      "level_required": 35,
+      "gating": {
+        "quests": [],
+        "items": [],
+        "areas": []
+      },
+      "notes": "Fishing spot (tuna) — training-methods.js",
+      "source_file": "src/content/aelgard/training-methods.js"
+    },
+    {
+      "activity_id": "gather_bass_spot",
+      "activity_type": "skill_method",
+      "skill": "fishing",
+      "intensity": 1,
+      "base_xp_per_hour": 30000,
+      "base_gp_per_hour": 0,
+      "region": "unknown",
+      "level_required": 46,
+      "gating": {
+        "quests": [],
+        "items": [],
+        "areas": []
+      },
+      "notes": "Fishing spot (bass) — training-methods.js",
+      "source_file": "src/content/aelgard/training-methods.js"
+    },
+    {
+      "activity_id": "gather_monkfish_spot",
+      "activity_type": "skill_method",
+      "skill": "fishing",
+      "intensity": 1,
+      "base_xp_per_hour": 36000,
+      "base_gp_per_hour": 0,
+      "region": "unknown",
+      "level_required": 62,
+      "gating": {
+        "quests": [],
+        "items": [],
+        "areas": []
+      },
+      "notes": "Fishing spot (monkfish) — training-methods.js",
+      "source_file": "src/content/aelgard/training-methods.js"
+    },
+    {
+      "activity_id": "gather_karambwan_spot",
+      "activity_type": "skill_method",
+      "skill": "fishing",
+      "intensity": 1,
+      "base_xp_per_hour": 15000,
+      "base_gp_per_hour": 0,
+      "region": "unknown",
+      "level_required": 65,
+      "gating": {
+        "quests": [],
+        "items": [],
+        "areas": []
+      },
+      "notes": "Fishing spot (karambwan) — training-methods.js",
+      "source_file": "src/content/aelgard/training-methods.js"
+    },
+    {
+      "activity_id": "gather_anglerfish_spot",
+      "activity_type": "skill_method",
+      "skill": "fishing",
+      "intensity": 1,
+      "base_xp_per_hour": 36000,
+      "base_gp_per_hour": 0,
+      "region": "unknown",
+      "level_required": 82,
+      "gating": {
+        "quests": [],
+        "items": [],
+        "areas": []
+      },
+      "notes": "Fishing spot (anglerfish) — training-methods.js",
+      "source_file": "src/content/aelgard/training-methods.js"
+    },
+    {
+      "activity_id": "gather_dark_crab_spot",
+      "activity_type": "skill_method",
+      "skill": "fishing",
+      "intensity": 1,
+      "base_xp_per_hour": 39000,
+      "base_gp_per_hour": 0,
+      "region": "unknown",
+      "level_required": 85,
+      "gating": {
+        "quests": [],
+        "items": [],
+        "areas": []
+      },
+      "notes": "Fishing spot (dark crab) — training-methods.js",
+      "source_file": "src/content/aelgard/training-methods.js"
+    },
+    {
+      "activity_id": "gather_manta_ray_spot",
+      "activity_type": "skill_method",
+      "skill": "fishing",
+      "intensity": 1,
+      "base_xp_per_hour": 13800,
+      "base_gp_per_hour": 0,
+      "region": "unknown",
+      "level_required": 81,
+      "gating": {
+        "quests": [],
+        "items": [],
+        "areas": []
+      },
+      "notes": "Fishing spot (manta ray) — training-methods.js",
+      "source_file": "src/content/aelgard/training-methods.js"
+    },
+    {
+      "activity_id": "gather_barb_trout",
+      "activity_type": "skill_method",
+      "skill": "fishing",
+      "intensity": 1,
+      "base_xp_per_hour": 15000,
+      "base_gp_per_hour": 0,
+      "region": "unknown",
+      "level_required": 48,
+      "gating": {
+        "quests": [],
+        "items": [],
+        "areas": []
+      },
+      "notes": "Barbarian fishing (trout) — training-methods.js",
+      "source_file": "src/content/aelgard/training-methods.js"
+    },
+    {
+      "activity_id": "gather_barb_salmon",
+      "activity_type": "skill_method",
+      "skill": "fishing",
+      "intensity": 1,
+      "base_xp_per_hour": 21000,
+      "base_gp_per_hour": 0,
+      "region": "unknown",
+      "level_required": 58,
+      "gating": {
+        "quests": [],
+        "items": [],
+        "areas": []
+      },
+      "notes": "Barbarian fishing (salmon) — training-methods.js",
+      "source_file": "src/content/aelgard/training-methods.js"
+    },
+    {
+      "activity_id": "gather_barb_sturgeon",
+      "activity_type": "skill_method",
+      "skill": "fishing",
+      "intensity": 1,
+      "base_xp_per_hour": 24000,
+      "base_gp_per_hour": 0,
+      "region": "unknown",
+      "level_required": 70,
+      "gating": {
+        "quests": [],
+        "items": [],
+        "areas": []
+      },
+      "notes": "Barbarian fishing (sturgeon) — training-methods.js",
+      "source_file": "src/content/aelgard/training-methods.js"
+    },
+    {
+      "activity_id": "gather_sacred_eel_spot",
+      "activity_type": "skill_method",
+      "skill": "fishing",
+      "intensity": 1,
+      "base_xp_per_hour": 31500,
+      "base_gp_per_hour": 0,
+      "region": "unknown",
+      "level_required": 87,
+      "gating": {
+        "quests": [],
+        "items": [],
+        "areas": []
+      },
+      "notes": "Fishing spot (sacred eel) — training-methods.js",
+      "source_file": "src/content/aelgard/training-methods.js"
+    },
+    {
+      "activity_id": "gather_infernal_eel_spot",
+      "activity_type": "skill_method",
+      "skill": "fishing",
+      "intensity": 1,
+      "base_xp_per_hour": 28500,
+      "base_gp_per_hour": 0,
+      "region": "unknown",
+      "level_required": 80,
+      "gating": {
+        "quests": [],
+        "items": [],
+        "areas": []
+      },
+      "notes": "Fishing spot (infernal eel) — training-methods.js",
+      "source_file": "src/content/aelgard/training-methods.js"
+    },
+    {
+      "activity_id": "gather_achey_tree",
+      "activity_type": "skill_method",
+      "skill": "woodcutting",
+      "intensity": 2,
+      "base_xp_per_hour": 7500,
+      "base_gp_per_hour": 0,
+      "region": "unknown",
+      "level_required": 1,
+      "gating": {
+        "quests": [],
+        "items": [],
+        "areas": []
+      },
+      "notes": "Achey tree — training-methods.js",
+      "source_file": "src/content/aelgard/training-methods.js"
+    },
+    {
+      "activity_id": "gather_teak_tree",
+      "activity_type": "skill_method",
+      "skill": "woodcutting",
+      "intensity": 2,
+      "base_xp_per_hour": 25500,
+      "base_gp_per_hour": 0,
+      "region": "unknown",
+      "level_required": 35,
+      "gating": {
+        "quests": [],
+        "items": [],
+        "areas": []
+      },
+      "notes": "Teak tree — training-methods.js",
+      "source_file": "src/content/aelgard/training-methods.js"
+    },
+    {
+      "activity_id": "gather_mahogany_tree",
+      "activity_type": "skill_method",
+      "skill": "woodcutting",
+      "intensity": 2,
+      "base_xp_per_hour": 37500,
+      "base_gp_per_hour": 0,
+      "region": "unknown",
+      "level_required": 50,
+      "gating": {
+        "quests": [],
+        "items": [],
+        "areas": []
+      },
+      "notes": "Mahogany tree — training-methods.js",
+      "source_file": "src/content/aelgard/training-methods.js"
+    },
+    {
+      "activity_id": "gather_arctic_pine",
+      "activity_type": "skill_method",
+      "skill": "woodcutting",
+      "intensity": 2,
+      "base_xp_per_hour": 12000,
+      "base_gp_per_hour": 0,
+      "region": "unknown",
+      "level_required": 42,
+      "gating": {
+        "quests": [],
+        "items": [],
+        "areas": []
+      },
+      "notes": "Arctic pine — training-methods.js",
+      "source_file": "src/content/aelgard/training-methods.js"
+    },
+    {
+      "activity_id": "gather_redwood_tree",
+      "activity_type": "skill_method",
+      "skill": "woodcutting",
+      "intensity": 2,
+      "base_xp_per_hour": 114000,
+      "base_gp_per_hour": 0,
+      "region": "unknown",
+      "level_required": 90,
+      "gating": {
+        "quests": [],
+        "items": [],
+        "areas": []
+      },
+      "notes": "Redwood tree — training-methods.js",
+      "source_file": "src/content/aelgard/training-methods.js"
+    },
+    {
+      "activity_id": "gather_hollow_tree",
+      "activity_type": "skill_method",
+      "skill": "woodcutting",
+      "intensity": 2,
+      "base_xp_per_hour": 24750,
+      "base_gp_per_hour": 0,
+      "region": "unknown",
+      "level_required": 45,
+      "gating": {
+        "quests": [],
+        "items": [],
+        "areas": []
+      },
+      "notes": "Hollow tree — training-methods.js",
+      "source_file": "src/content/aelgard/training-methods.js"
+    },
+    {
+      "activity_id": "gather_sulliuscep",
+      "activity_type": "skill_method",
+      "skill": "woodcutting",
+      "intensity": 2,
+      "base_xp_per_hour": 38100,
+      "base_gp_per_hour": 0,
+      "region": "unknown",
+      "level_required": 65,
+      "gating": {
+        "quests": [],
+        "items": [],
+        "areas": []
+      },
+      "notes": "Sulliuscep — training-methods.js",
+      "source_file": "src/content/aelgard/training-methods.js"
+    },
+    {
+      "activity_id": "process_cook_sardine",
+      "activity_type": "skill_method",
+      "skill": "cooking",
+      "intensity": 2,
+      "base_xp_per_hour": 12000,
+      "base_gp_per_hour": 0,
+      "region": "unknown",
+      "level_required": 1,
+      "gating": {
+        "quests": [],
+        "items": [],
+        "areas": []
+      },
+      "notes": "Cook sardine — training-methods.js",
+      "source_file": "src/content/aelgard/training-methods.js"
+    },
+    {
+      "activity_id": "process_cook_herring",
+      "activity_type": "skill_method",
+      "skill": "cooking",
+      "intensity": 2,
+      "base_xp_per_hour": 15000,
+      "base_gp_per_hour": 0,
+      "region": "unknown",
+      "level_required": 5,
+      "gating": {
+        "quests": [],
+        "items": [],
+        "areas": []
+      },
+      "notes": "Cook herring — training-methods.js",
+      "source_file": "src/content/aelgard/training-methods.js"
+    },
+    {
+      "activity_id": "process_cook_pike",
+      "activity_type": "skill_method",
+      "skill": "cooking",
+      "intensity": 2,
+      "base_xp_per_hour": 24000,
+      "base_gp_per_hour": 0,
+      "region": "unknown",
+      "level_required": 20,
+      "gating": {
+        "quests": [],
+        "items": [],
+        "areas": []
+      },
+      "notes": "Cook pike — training-methods.js",
+      "source_file": "src/content/aelgard/training-methods.js"
+    },
+    {
+      "activity_id": "process_cook_tuna",
+      "activity_type": "skill_method",
+      "skill": "cooking",
+      "intensity": 2,
+      "base_xp_per_hour": 30000,
+      "base_gp_per_hour": 0,
+      "region": "unknown",
+      "level_required": 30,
+      "gating": {
+        "quests": [],
+        "items": [],
+        "areas": []
+      },
+      "notes": "Cook tuna — training-methods.js",
+      "source_file": "src/content/aelgard/training-methods.js"
+    },
+    {
+      "activity_id": "process_cook_bass",
+      "activity_type": "skill_method",
+      "skill": "cooking",
+      "intensity": 2,
+      "base_xp_per_hour": 39000,
+      "base_gp_per_hour": 0,
+      "region": "unknown",
+      "level_required": 43,
+      "gating": {
+        "quests": [],
+        "items": [],
+        "areas": []
+      },
+      "notes": "Cook bass — training-methods.js",
+      "source_file": "src/content/aelgard/training-methods.js"
+    },
+    {
+      "activity_id": "process_cook_monkfish",
+      "activity_type": "skill_method",
+      "skill": "cooking",
+      "intensity": 2,
+      "base_xp_per_hour": 45000,
+      "base_gp_per_hour": 0,
+      "region": "unknown",
+      "level_required": 62,
+      "gating": {
+        "quests": [],
+        "items": [],
+        "areas": []
+      },
+      "notes": "Cook monkfish — training-methods.js",
+      "source_file": "src/content/aelgard/training-methods.js"
+    },
+    {
+      "activity_id": "process_cook_karambwan",
+      "activity_type": "skill_method",
+      "skill": "cooking",
+      "intensity": 2,
+      "base_xp_per_hour": 57000,
+      "base_gp_per_hour": 0,
+      "region": "unknown",
+      "level_required": 30,
+      "gating": {
+        "quests": [],
+        "items": [],
+        "areas": []
+      },
+      "notes": "Cook karambwan — training-methods.js",
+      "source_file": "src/content/aelgard/training-methods.js"
+    },
+    {
+      "activity_id": "process_cook_anglerfish",
+      "activity_type": "skill_method",
+      "skill": "cooking",
+      "intensity": 2,
+      "base_xp_per_hour": 69000,
+      "base_gp_per_hour": 0,
+      "region": "unknown",
+      "level_required": 84,
+      "gating": {
+        "quests": [],
+        "items": [],
+        "areas": []
+      },
+      "notes": "Cook anglerfish — training-methods.js",
+      "source_file": "src/content/aelgard/training-methods.js"
+    },
+    {
+      "activity_id": "process_cook_dark_crab",
+      "activity_type": "skill_method",
+      "skill": "cooking",
+      "intensity": 2,
+      "base_xp_per_hour": 64500,
+      "base_gp_per_hour": 0,
+      "region": "unknown",
+      "level_required": 90,
+      "gating": {
+        "quests": [],
+        "items": [],
+        "areas": []
+      },
+      "notes": "Cook dark crab — training-methods.js",
+      "source_file": "src/content/aelgard/training-methods.js"
+    },
+    {
+      "activity_id": "process_cook_manta_ray",
+      "activity_type": "skill_method",
+      "skill": "cooking",
+      "intensity": 2,
+      "base_xp_per_hour": 64800,
+      "base_gp_per_hour": 0,
+      "region": "unknown",
+      "level_required": 91,
+      "gating": {
+        "quests": [],
+        "items": [],
+        "areas": []
+      },
+      "notes": "Cook manta ray — training-methods.js",
+      "source_file": "src/content/aelgard/training-methods.js"
+    },
+    {
+      "activity_id": "process_smelt_silver",
+      "activity_type": "skill_method",
+      "skill": "smithing",
+      "intensity": 2,
+      "base_xp_per_hour": 4110,
+      "base_gp_per_hour": 0,
+      "region": "unknown",
+      "level_required": 20,
+      "gating": {
+        "quests": [],
+        "items": [],
+        "areas": []
+      },
+      "notes": "Smelt silver bar — training-methods.js",
+      "source_file": "src/content/aelgard/training-methods.js"
+    },
+    {
+      "activity_id": "process_smelt_gold",
+      "activity_type": "skill_method",
+      "skill": "smithing",
+      "intensity": 2,
+      "base_xp_per_hour": 6750,
+      "base_gp_per_hour": 0,
+      "region": "unknown",
+      "level_required": 40,
+      "gating": {
+        "quests": [],
+        "items": [],
+        "areas": []
+      },
+      "notes": "Smelt gold bar — training-methods.js",
+      "source_file": "src/content/aelgard/training-methods.js"
     },
     {
       "activity_id": "kill_jal_nib",
