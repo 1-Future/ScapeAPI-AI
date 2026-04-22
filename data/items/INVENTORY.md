@@ -60,4 +60,11 @@ Every item answers: **what is its niche? what is the tradeoff?**
 
 ## Counts (final)
 
-See commit `[burn-wave2] item DB complete` body for exact category counts.
+- **equipment.json**: 431 items (tier weapons + armor + tools + uniques + jewellery + skilling outfits)
+- **consumables.json**: 179 items (45 regional foods + 104 potion doses + 9 light sources + 15 teleports + 6 cures)
+- **resources.json**: 354 items (ores/bars/gems/logs/fish/herbs/seeds/runes/hides/meats)
+- **quest-items.json**: 51 items (keys/documents/plot tokens/passage tickets)
+- **reagents.json**: 49 reagents + 63 combine recipes (Marstead pillar 3: no content deprecation)
+- **recipes.json**: 322 skill recipes (smithing/herblore/cooking/fletching/crafting/runecrafting/farming)
+
+**Total unique items in canonical JSON DB: 1064**
