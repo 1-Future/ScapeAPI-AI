@@ -20,6 +20,7 @@ const { BotState }            = require('./state');
 const { GoalPlanner }         = require('./goal-planner');
 const { loadCatalog }         = require('./stub-catalog');
 const { loadDag }             = require('./stub-dag');
+const { loadQuests }          = require('./quest-loader');
 
 const EIGHT_HOURS_MS = 8 * 60 * 60 * 1000;
 const ARCHETYPES = ['low', 'medium', 'high', 'unlimited'];
@@ -47,11 +48,11 @@ function seedTargets(dag) {
 
 // ─── One bot's lifecycle ───────────────────────────────────────────────────
 class Bot {
-  constructor({ archetype, catalog, dag, log, seed }) {
+  constructor({ archetype, catalog, dag, log, seed, quests = [] }) {
     this.archetype = archetype;
     this.state     = new BotState(archetype);
     this.bar       = new AttentionBar(archetype);
-    this.planner   = new GoalPlanner({ catalog, dag, seed });
+    this.planner   = new GoalPlanner({ catalog, dag, seed, quests });
     this.log       = log;
     this.catalog   = catalog;
     this.dag       = dag;
@@ -117,6 +118,7 @@ class Bot {
       const timeCost = activity.time_ms || 3000;
 
       this.state.apply(activity);
+      this.state.recordTouch(activity.id);
       this.bar.drain(drain);
       this.state.day_ms += timeCost;
       this.state.tick += 1;
@@ -191,10 +193,20 @@ async function runDiagnostic({
   accounts = ARCHETYPES,
   seed = 1,
   reportsDir = null,
+  quests = null,
 } = {}) {
   const { catalog, source: catalogSource } = loadCatalog();
   const { dag, source: dagSource }         = loadDag();
   const targets = seedTargets(dag);
+
+  // Quest snapshot — load via quest-loader unless the caller passed their own
+  // (tests override this). Wrapped in try/catch so a bad pack can't abort.
+  let questRecords = quests;
+  if (!questRecords) {
+    try { questRecords = loadQuests({ silent: true }); }
+    catch (e) { questRecords = []; }
+  }
+  const questsSource = questRecords && questRecords.length ? 'real' : 'none';
 
   const outPath = resolveOutputPath(reportsDir);
   const log = new EventLog({ outPath });
@@ -205,6 +217,7 @@ async function runDiagnostic({
     dag,
     log,
     seed: seed + idx * 7919,
+    quests: questRecords,
   }));
 
   for (const b of bots) b.boot();
@@ -221,6 +234,8 @@ async function runDiagnostic({
     events: log.events.length,
     catalogSource,
     dagSource,
+    questsSource,
+    questsLoaded: (questRecords || []).length,
     accounts: accounts.slice(),
     days,
   };

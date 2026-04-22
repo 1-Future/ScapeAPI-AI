@@ -41,7 +41,7 @@ async function main() {
 
   console.log(`[sim] running ${args.days}-day diagnostic, accounts: ${args.accounts.join(',')}, seed: ${args.seed}`);
   const result = await runDiagnostic(args);
-  console.log(`[sim] catalog: ${result.catalogSource}, dag: ${result.dagSource}`);
+  console.log(`[sim] catalog: ${result.catalogSource}, dag: ${result.dagSource}, quests: ${result.questsSource} (${result.questsLoaded})`);
   console.log(`[sim] wrote ${result.events} events to ${result.outPath}`);
 
   if (!args.noHtml) {
