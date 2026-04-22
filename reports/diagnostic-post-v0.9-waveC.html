@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>Scape — Balance Diagnostic</title>
+<style>
+  :root {
+    --cream:  #F7EFD8;
+    --umber:  #3A2E1F;
+    --sienna: #8B5A2B;
+    --rust:   #A0522D;
+    --forest: #2F4F2F;
+    --ink:    #1C1C3B;
+    --ok:     #2F4F2F;
+    --bad:    #8B0000;
+  }
+  html, body {
+    margin: 0; padding: 0;
+    background: var(--cream);
+    color: var(--umber);
+    font-family: Georgia, 'Palatino Linotype', 'Book Antiqua', Palatino, serif;
+    font-size: 15px; line-height: 1.55;
+  }
+  main { max-width: 980px; margin: 0 auto; padding: 32px 28px 64px; }
+  header { border-bottom: 2px solid var(--umber); padding-bottom: 12px; margin-bottom: 24px; }
+  header h1 { margin: 0; font-size: 28px; letter-spacing: 0.5px; }
+  header .sub { font-style: italic; opacity: 0.78; }
+  h2 { border-bottom: 1px solid #C8BC9B; padding-bottom: 4px; margin-top: 32px; font-size: 20px; }
+  h3 { margin-top: 20px; font-size: 16px; }
+  table.headline {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 16px 0 24px;
+  }
+  table.headline th, table.headline td {
+    border: 1px solid #C8BC9B;
+    padding: 6px 10px;
+    text-align: right;
+  }
+  table.headline thead th { background: #EAE0C2; text-align: center; text-transform: capitalize; }
+  table.headline th.rowhead { text-align: left; background: #EAE0C2; font-weight: normal; }
+  .mix-block { margin-bottom: 20px; }
+  .mix-row {
+    display: grid;
+    grid-template-columns: 220px 1fr 60px;
+    gap: 8px;
+    align-items: center;
+    margin-bottom: 3px;
+    font-size: 13px;
+  }
+  .mix-label { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .mix-track { height: 12px; background: #EAE0C2; border: 1px solid #C8BC9B; position: relative; }
+  .mix-fill  { height: 100%; background: var(--sienna); }
+  .mix-pct   { text-align: right; }
+  .muted { color: #8A7A5C; font-style: italic; }
+  ul.ratios, ul.gaps { list-style: square; padding-left: 24px; }
+  ul.ratios li, ul.gaps li { margin-bottom: 4px; }
+  .ok  { color: var(--ok);  font-weight: bold; margin-left: 8px; }
+  .bad { color: var(--bad); font-weight: bold; margin-left: 8px; }
+  li.error { color: var(--bad); }
+  li.warn  { color: var(--sienna); }
+  footer { border-top: 1px solid #C8BC9B; padding-top: 10px; margin-top: 32px; font-size: 12px; opacity: 0.7; }
+</style>
+</head>
+<body>
+<main>
+  <header>
+    <h1>Balance Diagnostic</h1>
+    <div class="sub">Scape content-grid calibration probe — burn-v0.8</div>
+    <div class="muted">Accounts: low, medium, high, unlimited · Days simulated: 30 · Total events: 213914</div>
+  </header>
+
+  <h2>Headline</h2>
+  <table class="headline">
+    <thead>
+      <tr><th></th><th>low</th><th>medium</th><th>high</th><th>unlimited</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+    <th class="rowhead">Total attention</th>
+    <td>6,000</td><td>15,000</td><td>30,000</td><td>—</td>
+  </tr>
+      <tr>
+    <th class="rowhead">Active playtime</th>
+    <td>~232hr</td><td>~233hr</td><td>~233hr</td><td>~240hr</td>
+  </tr>
+      <tr>
+    <th class="rowhead">Total XP</th>
+    <td>405,084</td><td>981,552</td><td>2,026,841</td><td>11,889,254</td>
+  </tr>
+      <tr>
+    <th class="rowhead">Total GP</th>
+    <td>187,053</td><td>540,931</td><td>1,167,700</td><td>7,350,838</td>
+  </tr>
+      <tr>
+    <th class="rowhead">Quests completed</th>
+    <td>25</td><td>30</td><td>34</td><td>37</td>
+  </tr>
+      <tr>
+    <th class="rowhead">Highest skill</th>
+    <td>45</td><td>55</td><td>62</td><td>80</td>
+  </tr>
+      <tr>
+    <th class="rowhead">Unlocks reached</th>
+    <td>831</td><td>911</td><td>981</td><td>1087</td>
+  </tr>
+      <tr>
+    <th class="rowhead">Unique actions</th>
+    <td>134</td><td>149</td><td>161</td><td>170</td>
+  </tr>
+      <tr>
+    <th class="rowhead">Gap events</th>
+    <td>0</td><td>0</td><td>0</td><td>0</td>
+  </tr>
+    </tbody>
+  </table>
+
+  <h2>Progression — XP per simulated day</h2>
+  <svg width="720" height="320" viewBox="0 0 720 320" xmlns="http://www.w3.org/2000/svg">
+    <rect width="100%" height="100%" fill="#F7EFD8"/>
+    <line x1="60" y1="270" x2="690" y2="270" stroke="#3A2E1F" stroke-width="1.5"/>
+<line x1="60" y1="30"         x2="60"          y2="270" stroke="#3A2E1F" stroke-width="1.5"/>
+    <line x1="60.0" y1="270.0" x2="60.0" y2="274.0" stroke="#3A2E1F" stroke-width="1"/>
+<text x="60.0" y="288.0" text-anchor="middle" fill="#3A2E1F" font-family="Georgia, serif" font-size="11">d0</text>
+<line x1="168.6" y1="270.0" x2="168.6" y2="274.0" stroke="#3A2E1F" stroke-width="1"/>
+<text x="168.6" y="288.0" text-anchor="middle" fill="#3A2E1F" font-family="Georgia, serif" font-size="11">d5</text>
+<line x1="277.2" y1="270.0" x2="277.2" y2="274.0" stroke="#3A2E1F" stroke-width="1"/>
+<text x="277.2" y="288.0" text-anchor="middle" fill="#3A2E1F" font-family="Georgia, serif" font-size="11">d10</text>
+<line x1="385.9" y1="270.0" x2="385.9" y2="274.0" stroke="#3A2E1F" stroke-width="1"/>
+<text x="385.9" y="288.0" text-anchor="middle" fill="#3A2E1F" font-family="Georgia, serif" font-size="11">d15</text>
+<line x1="494.5" y1="270.0" x2="494.5" y2="274.0" stroke="#3A2E1F" stroke-width="1"/>
+<text x="494.5" y="288.0" text-anchor="middle" fill="#3A2E1F" font-family="Georgia, serif" font-size="11">d20</text>
+<line x1="603.1" y1="270.0" x2="603.1" y2="274.0" stroke="#3A2E1F" stroke-width="1"/>
+<text x="603.1" y="288.0" text-anchor="middle" fill="#3A2E1F" font-family="Georgia, serif" font-size="11">d25</text>
+    <line x1="56.0" y1="270.0" x2="60.0" y2="270.0" stroke="#3A2E1F" stroke-width="1"/>
+<text x="52.0" y="274.0" text-anchor="end" fill="#3A2E1F" font-family="Georgia, serif" font-size="11">0</text>
+<line x1="56.0" y1="222.0" x2="60.0" y2="222.0" stroke="#3A2E1F" stroke-width="1"/>
+<text x="52.0" y="226.0" text-anchor="end" fill="#3A2E1F" font-family="Georgia, serif" font-size="11">4,000,000</text>
+<line x1="56.0" y1="174.0" x2="60.0" y2="174.0" stroke="#3A2E1F" stroke-width="1"/>
+<text x="52.0" y="178.0" text-anchor="end" fill="#3A2E1F" font-family="Georgia, serif" font-size="11">8,000,000</text>
+<line x1="56.0" y1="126.0" x2="60.0" y2="126.0" stroke="#3A2E1F" stroke-width="1"/>
+<text x="52.0" y="130.0" text-anchor="end" fill="#3A2E1F" font-family="Georgia, serif" font-size="11">12,000,000</text>
+<line x1="56.0" y1="78.0" x2="60.0" y2="78.0" stroke="#3A2E1F" stroke-width="1"/>
+<text x="52.0" y="82.0" text-anchor="end" fill="#3A2E1F" font-family="Georgia, serif" font-size="11">16,000,000</text>
+<line x1="56.0" y1="30.0" x2="60.0" y2="30.0" stroke="#3A2E1F" stroke-width="1"/>
+<text x="52.0" y="34.0" text-anchor="end" fill="#3A2E1F" font-family="Georgia, serif" font-size="11">20,000,000</text>
+    <polyline fill="none" stroke="#8B5A2B" stroke-width="2.5" stroke-linejoin="round" points="60.0,269.4 81.7,269.3 103.4,269.1 125.2,269.0 146.9,268.9 168.6,268.8 190.3,268.7 212.1,268.6 233.8,268.5 255.5,268.3 277.2,268.2 299.0,268.1 320.7,268.0 342.4,267.8 364.1,267.6 385.9,267.5 407.6,267.4 429.3,267.2 451.0,267.1 472.8,266.9 494.5,266.8 516.2,266.6 537.9,266.3 559.7,266.0 581.4,265.8 603.1,265.7 624.8,265.5 646.6,265.4 668.3,265.3 690.0,265.1"/>
+<polyline fill="none" stroke="#A0522D" stroke-width="2.5" stroke-linejoin="round" points="60.0,269.3 81.7,268.9 103.4,268.6 125.2,268.3 146.9,268.0 168.6,267.7 190.3,267.3 212.1,266.9 233.8,266.3 255.5,265.8 277.2,265.5 299.0,265.1 320.7,264.8 342.4,264.5 364.1,264.1 385.9,263.7 407.6,263.3 429.3,263.0 451.0,262.6 472.8,262.1 494.5,261.7 516.2,261.4 537.9,261.0 559.7,260.5 581.4,260.1 603.1,259.7 624.8,259.4 646.6,259.0 668.3,258.6 690.0,258.2"/>
+<polyline fill="none" stroke="#2F4F2F" stroke-width="2.5" stroke-linejoin="round" points="60.0,268.9 81.7,268.3 103.4,267.7 125.2,266.9 146.9,265.8 168.6,265.1 190.3,264.5 212.1,263.7 233.8,263.0 255.5,262.1 277.2,261.3 299.0,260.5 320.7,259.7 342.4,259.0 364.1,258.2 385.9,257.5 407.6,256.7 429.3,255.9 451.0,255.1 472.8,254.3 494.5,253.5 516.2,252.6 537.9,251.7 559.7,250.9 581.4,250.1 603.1,249.2 624.8,248.2 646.6,247.4 668.3,246.5 690.0,245.7"/>
+<polyline fill="none" stroke="#1C1C3B" stroke-width="2.5" stroke-linejoin="round" points="60.0,268.2 81.7,266.4 103.4,263.5 125.2,260.6 146.9,256.1 168.6,251.9 190.3,247.9 212.1,242.9 233.8,238.6 255.5,234.0 277.2,229.0 299.0,223.8 320.7,218.5 342.4,213.2 364.1,207.8 385.9,202.4 407.6,197.6 429.3,192.2 451.0,186.9 472.8,181.5 494.5,176.2 516.2,170.8 537.9,165.5 559.7,160.1 581.4,154.7 603.1,149.4 624.8,144.0 646.6,138.7 668.3,133.0 690.0,127.3"/>
+    <text x="375" y="310" text-anchor="middle" fill="#3A2E1F" font-family="Georgia, serif" font-size="12">simulated day</text>
+    <text x="14" y="150" text-anchor="middle" fill="#3A2E1F" font-family="Georgia, serif" font-size="12" transform="rotate(-90 14 150)">total XP</text>
+    <rect x="68" y="34" width="12" height="12" fill="#8B5A2B"/><text x="86" y="44" fill="#3A2E1F" font-family="Georgia, serif" font-size="12">low</text>
+<rect x="68" y="52" width="12" height="12" fill="#A0522D"/><text x="86" y="62" fill="#3A2E1F" font-family="Georgia, serif" font-size="12">medium</text>
+<rect x="68" y="70" width="12" height="12" fill="#2F4F2F"/><text x="86" y="80" fill="#3A2E1F" font-family="Georgia, serif" font-size="12">high</text>
+<rect x="68" y="88" width="12" height="12" fill="#1C1C3B"/><text x="86" y="98" fill="#3A2E1F" font-family="Georgia, serif" font-size="12">unlimited</text>
+  </svg>
+
+  <h2>Ratios</h2>
+  <ul class="ratios"><li>
+        <strong>low / unlimited</strong> =
+        0.034
+        <span class="muted">(target 0.2 – 0.4)</span>
+        <span class="bad">out of band</span>
+      </li><li>
+        <strong>medium / unlimited</strong> =
+        0.083
+        <span class="muted">(target 0.4 – 0.7)</span>
+        <span class="bad">out of band</span>
+      </li><li>
+        <strong>high / unlimited</strong> =
+        0.170
+        <span class="muted">(target 0.7 – 0.9)</span>
+        <span class="bad">out of band</span>
+      </li></ul>
+
+  <h2>Activity mix</h2>
+  <section class="mix-block">
+    <h3>low — activity mix (top 10 by drain)</h3>
+    
+      <div class="mix-row">
+        <div class="mix-label">trainmethod_mining_copper_tin <span class="muted">(87×)</span></div>
+        <div class="mix-track"><div class="mix-fill" style="width:1.5%"></div></div>
+        <div class="mix-pct">1.5%</div>
+      </div>
+      <div class="mix-row">
+        <div class="mix-label">mining_mine_copper_rock <span class="muted">(86×)</span></div>
+        <div class="mix-track"><div class="mix-fill" style="width:1.4%"></div></div>
+        <div class="mix-pct">1.4%</div>
+      </div>
+      <div class="mix-row">
+        <div class="mix-label">mining_mine_tin_rock <span class="muted">(85×)</span></div>
+        <div class="mix-track"><div class="mix-fill" style="width:1.4%"></div></div>
+        <div class="mix-pct">1.4%</div>
+      </div>
+      <div class="mix-row">
+        <div class="mix-label">kill_desert_hawk <span class="muted">(80×)</span></div>
+        <div class="mix-track"><div class="mix-fill" style="width:1.3%"></div></div>
+        <div class="mix-pct">1.3%</div>
+      </div>
+      <div class="mix-row">
+        <div class="mix-label">kill_zombie_rat <span class="muted">(80×)</span></div>
+        <div class="mix-track"><div class="mix-fill" style="width:1.3%"></div></div>
+        <div class="mix-pct">1.3%</div>
+      </div>
+      <div class="mix-row">
+        <div class="mix-label">kill_imp <span class="muted">(80×)</span></div>
+        <div class="mix-track"><div class="mix-fill" style="width:1.3%"></div></div>
+        <div class="mix-pct">1.3%</div>
+      </div>
+      <div class="mix-row">
+        <div class="mix-label">kill_giant_rat <span class="muted">(77×)</span></div>
+        <div class="mix-track"><div class="mix-fill" style="width:1.3%"></div></div>
+        <div class="mix-pct">1.3%</div>
+      </div>
+      <div class="mix-row">
+        <div class="mix-label">mining_mine_iron_rock <span class="muted">(77×)</span></div>
+        <div class="mix-track"><div class="mix-fill" style="width:1.3%"></div></div>
+        <div class="mix-pct">1.3%</div>
+      </div>
+      <div class="mix-row">
+        <div class="mix-label">trainmethod_boneyard_salt_crystal_mining <span class="muted">(77×)</span></div>
+        <div class="mix-track"><div class="mix-fill" style="width:1.3%"></div></div>
+        <div class="mix-pct">1.3%</div>
+      </div>
+      <div class="mix-row">
+        <div class="mix-label">crafting_tan_leather <span class="muted">(76×)</span></div>
+        <div class="mix-track"><div class="mix-fill" style="width:1.3%"></div></div>
+        <div class="mix-pct">1.3%</div>
+      </div>
+  </section>
+<section class="mix-block">
+    <h3>medium — activity mix (top 10 by drain)</h3>
+    
+      <div class="mix-row">
+        <div class="mix-label">trainmethod_mining_copper_tin <span class="muted">(176×)</span></div>
+        <div class="mix-track"><div class="mix-fill" style="width:1.2%"></div></div>
+        <div class="mix-pct">1.2%</div>
+      </div>
+      <div class="mix-row">
+        <div class="mix-label">mining_mine_tin_rock <span class="muted">(175×)</span></div>
+        <div class="mix-track"><div class="mix-fill" style="width:1.2%"></div></div>
+        <div class="mix-pct">1.2%</div>
+      </div>
+      <div class="mix-row">
+        <div class="mix-label">mining_mine_copper_rock <span class="muted">(174×)</span></div>
+        <div class="mix-track"><div class="mix-fill" style="width:1.2%"></div></div>
+        <div class="mix-pct">1.2%</div>
+      </div>
+      <div class="mix-row">
+        <div class="mix-label">kill_zombie_rat <span class="muted">(170×)</span></div>
+        <div class="mix-track"><div class="mix-fill" style="width:1.1%"></div></div>
+        <div class="mix-pct">1.1%</div>
+      </div>
+      <div class="mix-row">
+        <div class="mix-label">kill_desert_hawk <span class="muted">(169×)</span></div>
+        <div class="mix-track"><div class="mix-fill" style="width:1.1%"></div></div>
+        <div class="mix-pct">1.1%</div>
+      </div>
+      <div class="mix-row">
+        <div class="mix-label">kill_imp <span class="muted">(168×)</span></div>
+        <div class="mix-track"><div class="mix-fill" style="width:1.1%"></div></div>
+        <div class="mix-pct">1.1%</div>
+      </div>
+      <div class="mix-row">
+        <div class="mix-label">mining_mine_iron_rock <span class="muted">(166×)</span></div>
+        <div class="mix-track"><div class="mix-fill" style="width:1.1%"></div></div>
+        <div class="mix-pct">1.1%</div>
+      </div>
+      <div class="mix-row">
+        <div class="mix-label">kill_giant_rat <span class="muted">(165×)</span></div>
+        <div class="mix-track"><div class="mix-fill" style="width:1.1%"></div></div>
+        <div class="mix-pct">1.1%</div>
+      </div>
+      <div class="mix-row">
+        <div class="mix-label">trainmethod_boneyard_salt_crystal_mining <span class="muted">(165×)</span></div>
+        <div class="mix-track"><div class="mix-fill" style="width:1.1%"></div></div>
+        <div class="mix-pct">1.1%</div>
+      </div>
+      <div class="mix-row">
+        <div class="mix-label">crafting_tan_leather <span class="muted">(164×)</span></div>
+        <div class="mix-track"><div class="mix-fill" style="width:1.1%"></div></div>
+        <div class="mix-pct">1.1%</div>
+      </div>
+  </section>
+<section class="mix-block">
+    <h3>high — activity mix (top 10 by drain)</h3>
+    
+      <div class="mix-row">
+        <div class="mix-label">trainmethod_mining_copper_tin <span class="muted">(324×)</span></div>
+        <div class="mix-track"><div class="mix-fill" style="width:1.1%"></div></div>
+        <div class="mix-pct">1.1%</div>
+      </div>
+      <div class="mix-row">
+        <div class="mix-label">mining_mine_copper_rock <span class="muted">(322×)</span></div>
+        <div class="mix-track"><div class="mix-fill" style="width:1.1%"></div></div>
+        <div class="mix-pct">1.1%</div>
+      </div>
+      <div class="mix-row">
+        <div class="mix-label">mining_mine_tin_rock <span class="muted">(322×)</span></div>
+        <div class="mix-track"><div class="mix-fill" style="width:1.1%"></div></div>
+        <div class="mix-pct">1.1%</div>
+      </div>
+      <div class="mix-row">
+        <div class="mix-label">kill_desert_hawk <span class="muted">(318×)</span></div>
+        <div class="mix-track"><div class="mix-fill" style="width:1.1%"></div></div>
+        <div class="mix-pct">1.1%</div>
+      </div>
+      <div class="mix-row">
+        <div class="mix-label">kill_zombie_rat <span class="muted">(318×)</span></div>
+        <div class="mix-track"><div class="mix-fill" style="width:1.1%"></div></div>
+        <div class="mix-pct">1.1%</div>
+      </div>
+      <div class="mix-row">
+        <div class="mix-label">kill_imp <span class="muted">(317×)</span></div>
+        <div class="mix-track"><div class="mix-fill" style="width:1.1%"></div></div>
+        <div class="mix-pct">1.1%</div>
+      </div>
+      <div class="mix-row">
+        <div class="mix-label">kill_giant_rat <span class="muted">(314×)</span></div>
+        <div class="mix-track"><div class="mix-fill" style="width:1.0%"></div></div>
+        <div class="mix-pct">1.0%</div>
+      </div>
+      <div class="mix-row">
+        <div class="mix-label">mining_mine_iron_rock <span class="muted">(314×)</span></div>
+        <div class="mix-track"><div class="mix-fill" style="width:1.0%"></div></div>
+        <div class="mix-pct">1.0%</div>
+      </div>
+      <div class="mix-row">
+        <div class="mix-label">kill_mugger <span class="muted">(313×)</span></div>
+        <div class="mix-track"><div class="mix-fill" style="width:1.0%"></div></div>
+        <div class="mix-pct">1.0%</div>
+      </div>
+      <div class="mix-row">
+        <div class="mix-label">trainmethod_boneyard_salt_crystal_mining <span class="muted">(313×)</span></div>
+        <div class="mix-track"><div class="mix-fill" style="width:1.0%"></div></div>
+        <div class="mix-pct">1.0%</div>
+      </div>
+  </section>
+<section class="mix-block">
+    <h3>unlimited — activity mix (top 10 by drain)</h3>
+    
+      <div class="mix-row">
+        <div class="mix-label">kill_desert_hawk <span class="muted">(1631×)</span></div>
+        <div class="mix-track"><div class="mix-fill" style="width:1.0%"></div></div>
+        <div class="mix-pct">1.0%</div>
+      </div>
+      <div class="mix-row">
+        <div class="mix-label">kill_zombie_rat <span class="muted">(1631×)</span></div>
+        <div class="mix-track"><div class="mix-fill" style="width:1.0%"></div></div>
+        <div class="mix-pct">1.0%</div>
+      </div>
+      <div class="mix-row">
+        <div class="mix-label">kill_imp <span class="muted">(1629×)</span></div>
+        <div class="mix-track"><div class="mix-fill" style="width:1.0%"></div></div>
+        <div class="mix-pct">1.0%</div>
+      </div>
+      <div class="mix-row">
+        <div class="mix-label">kill_giant_rat <span class="muted">(1629×)</span></div>
+        <div class="mix-track"><div class="mix-fill" style="width:1.0%"></div></div>
+        <div class="mix-pct">1.0%</div>
+      </div>
+      <div class="mix-row">
+        <div class="mix-label">crafting_tan_leather <span class="muted">(1627×)</span></div>
+        <div class="mix-track"><div class="mix-fill" style="width:1.0%"></div></div>
+        <div class="mix-pct">1.0%</div>
+      </div>
+      <div class="mix-row">
+        <div class="mix-label">kill_goblin <span class="muted">(1627×)</span></div>
+        <div class="mix-track"><div class="mix-fill" style="width:1.0%"></div></div>
+        <div class="mix-pct">1.0%</div>
+      </div>
+      <div class="mix-row">
+        <div class="mix-label">kill_mugger <span class="muted">(1627×)</span></div>
+        <div class="mix-track"><div class="mix-fill" style="width:1.0%"></div></div>
+        <div class="mix-pct">1.0%</div>
+      </div>
+      <div class="mix-row">
+        <div class="mix-label">heartlands_gymnasium_afk <span class="muted">(1626×)</span></div>
+        <div class="mix-track"><div class="mix-fill" style="width:1.0%"></div></div>
+        <div class="mix-pct">1.0%</div>
+      </div>
+      <div class="mix-row">
+        <div class="mix-label">kill_feral_cat <span class="muted">(1625×)</span></div>
+        <div class="mix-track"><div class="mix-fill" style="width:1.0%"></div></div>
+        <div class="mix-pct">1.0%</div>
+      </div>
+      <div class="mix-row">
+        <div class="mix-label">kill_giant_undead_chicken <span class="muted">(1624×)</span></div>
+        <div class="mix-track"><div class="mix-fill" style="width:1.0%"></div></div>
+        <div class="mix-pct">1.0%</div>
+      </div>
+  </section>
+
+  <h2>Content-gap callouts</h2>
+  <p class="muted">No content gaps detected above threshold.</p>
+
+  <footer>
+    Generated 2026-04-22T19:01:57.050Z · see <code>docs/balance-diagnostic.md</code> for methodology.
+  </footer>
+</main>
+</body>
+</html>
