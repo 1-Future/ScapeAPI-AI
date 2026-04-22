@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-04-22T15:31:33.488Z",
-  "total_activities": 2117,
+  "generated_at": "2026-04-22T17:14:40.437Z",
+  "total_activities": 2242,
   "intensity_taxonomy": {
     "1": "pure AFK (click every 30s+)",
     "2": "light interaction (click every 10-20s)",
@@ -2094,7 +2094,7 @@
       "skill": "farming",
       "intensity": 2,
       "base_xp_per_hour": 16000,
-      "base_gp_per_hour": 180000,
+      "base_gp_per_hour": 4000,
       "region": "heartlands",
       "level_required": 1,
       "gating": {
@@ -2111,7 +2111,7 @@
       "skill": "farming",
       "intensity": 2,
       "base_xp_per_hour": 22000,
-      "base_gp_per_hour": 80000,
+      "base_gp_per_hour": 2000,
       "region": "heartlands",
       "level_required": 9,
       "gating": {
@@ -2128,7 +2128,7 @@
       "skill": "farming",
       "intensity": 2,
       "base_xp_per_hour": 27000,
-      "base_gp_per_hour": 100000,
+      "base_gp_per_hour": 2000,
       "region": "heartlands",
       "level_required": 14,
       "gating": {
@@ -2145,7 +2145,7 @@
       "skill": "farming",
       "intensity": 2,
       "base_xp_per_hour": 21000,
-      "base_gp_per_hour": 40000,
+      "base_gp_per_hour": 2000,
       "region": "heartlands",
       "level_required": 20,
       "gating": {
@@ -2162,7 +2162,7 @@
       "skill": "farming",
       "intensity": 2,
       "base_xp_per_hour": 54000,
-      "base_gp_per_hour": 14000000,
+      "base_gp_per_hour": 70000,
       "region": "heartlands",
       "level_required": 32,
       "gating": {
@@ -2230,7 +2230,7 @@
       "skill": "farming",
       "intensity": 2,
       "base_xp_per_hour": 399000,
-      "base_gp_per_hour": 16000000,
+      "base_gp_per_hour": 80000,
       "region": "inkweald",
       "level_required": 85,
       "gating": {
@@ -2400,7 +2400,7 @@
       "skill": "smithing",
       "intensity": 1,
       "base_xp_per_hour": 7440,
-      "base_gp_per_hour": 9600,
+      "base_gp_per_hour": 2400,
       "region": "heartlands",
       "level_required": 1,
       "gating": {
@@ -2417,7 +2417,7 @@
       "skill": "smithing",
       "intensity": 1,
       "base_xp_per_hour": 15000,
-      "base_gp_per_hour": 40800,
+      "base_gp_per_hour": 9600,
       "region": "heartlands",
       "level_required": 15,
       "gating": {
@@ -2434,7 +2434,7 @@
       "skill": "smithing",
       "intensity": 1,
       "base_xp_per_hour": 24000,
-      "base_gp_per_hour": 144000,
+      "base_gp_per_hour": 21600,
       "region": "sootworks",
       "level_required": 25,
       "gating": {
@@ -2451,7 +2451,7 @@
       "skill": "smithing",
       "intensity": 1,
       "base_xp_per_hour": 21000,
-      "base_gp_per_hour": 120000,
+      "base_gp_per_hour": 21600,
       "region": "sootworks",
       "level_required": 30,
       "gating": {
@@ -2468,7 +2468,7 @@
       "skill": "smithing",
       "intensity": 1,
       "base_xp_per_hour": 36000,
-      "base_gp_per_hour": 360000,
+      "base_gp_per_hour": 48000,
       "region": "moryskah",
       "level_required": 50,
       "gating": {
@@ -2485,7 +2485,7 @@
       "skill": "smithing",
       "intensity": 2,
       "base_xp_per_hour": 37500,
-      "base_gp_per_hour": 1600000,
+      "base_gp_per_hour": 120000,
       "region": "moryskah",
       "level_required": 70,
       "gating": {
@@ -2502,7 +2502,7 @@
       "skill": "smithing",
       "intensity": 4,
       "base_xp_per_hour": 50000,
-      "base_gp_per_hour": 12800000,
+      "base_gp_per_hour": 450000,
       "region": "wilds",
       "level_required": 85,
       "gating": {
@@ -2570,7 +2570,7 @@
       "skill": "crafting",
       "intensity": 1,
       "base_xp_per_hour": 100000,
-      "base_gp_per_hour": 1900000,
+      "base_gp_per_hour": 80000,
       "region": "glass_desert",
       "level_required": 20,
       "gating": {
@@ -2587,7 +2587,7 @@
       "skill": "crafting",
       "intensity": 1,
       "base_xp_per_hour": 135000,
-      "base_gp_per_hour": 2800000,
+      "base_gp_per_hour": 120000,
       "region": "glass_desert",
       "level_required": 27,
       "gating": {
@@ -2604,7 +2604,7 @@
       "skill": "crafting",
       "intensity": 1,
       "base_xp_per_hour": 170000,
-      "base_gp_per_hour": 4200000,
+      "base_gp_per_hour": 180000,
       "region": "glass_desert",
       "level_required": 40,
       "gating": {
@@ -2621,7 +2621,7 @@
       "skill": "crafting",
       "intensity": 1,
       "base_xp_per_hour": 215000,
-      "base_gp_per_hour": 7600000,
+      "base_gp_per_hour": 360000,
       "region": "glass_desert",
       "level_required": 43,
       "gating": {
@@ -2638,7 +2638,7 @@
       "skill": "crafting",
       "intensity": 1,
       "base_xp_per_hour": 275000,
-      "base_gp_per_hour": 24000000,
+      "base_gp_per_hour": 640000,
       "region": "glass_desert",
       "level_required": 55,
       "gating": {
@@ -2655,7 +2655,7 @@
       "skill": "crafting",
       "intensity": 4,
       "base_xp_per_hour": 300000,
-      "base_gp_per_hour": 60000000,
+      "base_gp_per_hour": 600000,
       "region": "glass_desert",
       "level_required": 77,
       "gating": {
@@ -2672,7 +2672,7 @@
       "skill": "crafting",
       "intensity": 4,
       "base_xp_per_hour": 450000,
-      "base_gp_per_hour": 3750000000,
+      "base_gp_per_hour": 4350000,
       "region": "inkweald",
       "level_required": 89,
       "gating": {
@@ -2706,7 +2706,7 @@
       "skill": "fletching",
       "intensity": 1,
       "base_xp_per_hour": 20000,
-      "base_gp_per_hour": 60000,
+      "base_gp_per_hour": 8000,
       "region": "heartlands",
       "level_required": 5,
       "gating": {
@@ -2723,7 +2723,7 @@
       "skill": "fletching",
       "intensity": 1,
       "base_xp_per_hour": 33000,
-      "base_gp_per_hour": 110000,
+      "base_gp_per_hour": 16000,
       "region": "heartlands",
       "level_required": 20,
       "gating": {
@@ -2740,7 +2740,7 @@
       "skill": "fletching",
       "intensity": 1,
       "base_xp_per_hour": 67000,
-      "base_gp_per_hour": 240000,
+      "base_gp_per_hour": 32000,
       "region": "saltbrine",
       "level_required": 35,
       "gating": {
@@ -2757,7 +2757,7 @@
       "skill": "fletching",
       "intensity": 1,
       "base_xp_per_hour": 116000,
-      "base_gp_per_hour": 600000,
+      "base_gp_per_hour": 60000,
       "region": "inkweald",
       "level_required": 50,
       "gating": {
@@ -2774,7 +2774,7 @@
       "skill": "fletching",
       "intensity": 1,
       "base_xp_per_hour": 165000,
-      "base_gp_per_hour": 1600000,
+      "base_gp_per_hour": 180000,
       "region": "veilwood",
       "level_required": 65,
       "gating": {
@@ -2791,7 +2791,7 @@
       "skill": "fletching",
       "intensity": 1,
       "base_xp_per_hour": 183000,
-      "base_gp_per_hour": 3000000,
+      "base_gp_per_hour": 360000,
       "region": "veilwood",
       "level_required": 80,
       "gating": {
@@ -2808,7 +2808,7 @@
       "skill": "fletching",
       "intensity": 4,
       "base_xp_per_hour": 180000,
-      "base_gp_per_hour": 1200000,
+      "base_gp_per_hour": 120000,
       "region": "wilds",
       "level_required": 90,
       "gating": {
@@ -2825,7 +2825,7 @@
       "skill": "herblore",
       "intensity": 1,
       "base_xp_per_hour": 12000,
-      "base_gp_per_hour": 96000,
+      "base_gp_per_hour": 6000,
       "region": "heartlands",
       "level_required": 3,
       "gating": {
@@ -2842,7 +2842,7 @@
       "skill": "herblore",
       "intensity": 1,
       "base_xp_per_hour": 18000,
-      "base_gp_per_hour": 132000,
+      "base_gp_per_hour": 6000,
       "region": "heartlands",
       "level_required": 5,
       "gating": {
@@ -2859,7 +2859,7 @@
       "skill": "herblore",
       "intensity": 1,
       "base_xp_per_hour": 30000,
-      "base_gp_per_hour": 228000,
+      "base_gp_per_hour": 12000,
       "region": "veilwood",
       "level_required": 11,
       "gating": {
@@ -2876,7 +2876,7 @@
       "skill": "herblore",
       "intensity": 1,
       "base_xp_per_hour": 36000,
-      "base_gp_per_hour": 420000,
+      "base_gp_per_hour": 24000,
       "region": "veilwood",
       "level_required": 20,
       "gating": {
@@ -2893,7 +2893,7 @@
       "skill": "herblore",
       "intensity": 1,
       "base_xp_per_hour": 42000,
-      "base_gp_per_hour": 45000000,
+      "base_gp_per_hour": 120000,
       "region": "inkweald",
       "level_required": 25,
       "gating": {
@@ -2910,7 +2910,7 @@
       "skill": "herblore",
       "intensity": 1,
       "base_xp_per_hour": 50000,
-      "base_gp_per_hour": 300000,
+      "base_gp_per_hour": 40000,
       "region": "heartlands",
       "level_required": 3,
       "gating": {
@@ -2927,7 +2927,7 @@
       "skill": "herblore",
       "intensity": 1,
       "base_xp_per_hour": 100000,
-      "base_gp_per_hour": 560000,
+      "base_gp_per_hour": 80000,
       "region": "heartlands",
       "level_required": 12,
       "gating": {
@@ -2944,7 +2944,7 @@
       "skill": "herblore",
       "intensity": 1,
       "base_xp_per_hour": 150000,
-      "base_gp_per_hour": 680000,
+      "base_gp_per_hour": 100000,
       "region": "heartlands",
       "level_required": 30,
       "gating": {
@@ -2961,7 +2961,7 @@
       "skill": "herblore",
       "intensity": 1,
       "base_xp_per_hour": 175000,
-      "base_gp_per_hour": 21000000,
+      "base_gp_per_hour": 700000,
       "region": "moryskah",
       "level_required": 38,
       "gating": {
@@ -2978,7 +2978,7 @@
       "skill": "herblore",
       "intensity": 4,
       "base_xp_per_hour": 270000,
-      "base_gp_per_hour": 8700000,
+      "base_gp_per_hour": 300000,
       "region": "veilwood",
       "level_required": 72,
       "gating": {
@@ -2995,7 +2995,7 @@
       "skill": "herblore",
       "intensity": 4,
       "base_xp_per_hour": 213750,
-      "base_gp_per_hour": 17250000,
+      "base_gp_per_hour": 600000,
       "region": "veilwood",
       "level_required": 77,
       "gating": {
@@ -3012,7 +3012,7 @@
       "skill": "herblore",
       "intensity": 6,
       "base_xp_per_hour": 210000,
-      "base_gp_per_hour": 21750000,
+      "base_gp_per_hour": 750000,
       "region": "inkweald",
       "level_required": 91,
       "gating": {
@@ -3158,6 +3158,373 @@
       },
       "notes": "Offer Redwood pyre (Wilds) — attention Max Focus",
       "source_file": "src/engine/skills/firemaking.js"
+    },
+    {
+      "activity_id": "heartlands_rooftop_course",
+      "activity_type": "skill_method",
+      "skill": "agility",
+      "intensity": 2,
+      "base_xp_per_hour": 13900,
+      "base_gp_per_hour": 6000,
+      "region": "heartlands",
+      "level_required": 1,
+      "gating": {
+        "quests": [],
+        "items": [],
+        "areas": []
+      },
+      "notes": "Standard rooftop course.",
+      "source_file": "data/methods/agility.json"
+    },
+    {
+      "activity_id": "heartlands_gymnasium_afk",
+      "activity_type": "skill_method",
+      "skill": "agility",
+      "intensity": 1,
+      "base_xp_per_hour": 8000,
+      "base_gp_per_hour": 0,
+      "region": "heartlands",
+      "level_required": 1,
+      "gating": {
+        "quests": [],
+        "items": [],
+        "areas": []
+      },
+      "notes": "Single obstacle loop. Deeply AFK.",
+      "source_file": "data/methods/agility.json"
+    },
+    {
+      "activity_id": "heartlands_chelser_rooftop",
+      "activity_type": "skill_method",
+      "skill": "agility",
+      "intensity": 3,
+      "base_xp_per_hour": 22500,
+      "base_gp_per_hour": 12000,
+      "region": "heartlands",
+      "level_required": 10,
+      "gating": {
+        "quests": [],
+        "items": [],
+        "areas": []
+      },
+      "notes": "Chelser rooftop + grace spawns.",
+      "source_file": "data/methods/agility.json"
+    },
+    {
+      "activity_id": "heartlands_walls_shortcut_afk",
+      "activity_type": "skill_method",
+      "skill": "agility",
+      "intensity": 1,
+      "base_xp_per_hour": 10900,
+      "base_gp_per_hour": 0,
+      "region": "heartlands",
+      "level_required": 10,
+      "gating": {
+        "quests": [],
+        "items": [],
+        "areas": []
+      },
+      "notes": "Low-xp walls circuit.",
+      "source_file": "data/methods/agility.json"
+    },
+    {
+      "activity_id": "saltbrine_harbour_course",
+      "activity_type": "skill_method",
+      "skill": "agility",
+      "intensity": 3,
+      "base_xp_per_hour": 32300,
+      "base_gp_per_hour": 22000,
+      "region": "saltbrine",
+      "level_required": 20,
+      "gating": {
+        "quests": [],
+        "items": [],
+        "areas": []
+      },
+      "notes": "Harbour rooftop. Classic 20+ course.",
+      "source_file": "data/methods/agility.json"
+    },
+    {
+      "activity_id": "saltbrine_draynor_rooftop_afk",
+      "activity_type": "skill_method",
+      "skill": "agility",
+      "intensity": 1,
+      "base_xp_per_hour": 15400,
+      "base_gp_per_hour": 12000,
+      "region": "saltbrine",
+      "level_required": 20,
+      "gating": {
+        "quests": [],
+        "items": [],
+        "areas": []
+      },
+      "notes": "Rooftop with low-XP rest spots. AFK-able.",
+      "source_file": "data/methods/agility.json"
+    },
+    {
+      "activity_id": "boneyard_wilderness_course",
+      "activity_type": "skill_method",
+      "skill": "agility",
+      "intensity": 5,
+      "base_xp_per_hour": 54000,
+      "base_gp_per_hour": 28000,
+      "region": "boneyard",
+      "level_required": 30,
+      "gating": {
+        "quests": [],
+        "items": [],
+        "areas": []
+      },
+      "notes": "Wildernessy obstacle course.",
+      "source_file": "data/methods/agility.json"
+    },
+    {
+      "activity_id": "saltbrine_sandbar_course_afk",
+      "activity_type": "skill_method",
+      "skill": "agility",
+      "intensity": 1,
+      "base_xp_per_hour": 19800,
+      "base_gp_per_hour": 14000,
+      "region": "saltbrine",
+      "level_required": 30,
+      "gating": {
+        "quests": [],
+        "items": [],
+        "areas": []
+      },
+      "notes": "AFK-friendly sparse rooftop.",
+      "source_file": "data/methods/agility.json"
+    },
+    {
+      "activity_id": "inkweald_seers_rooftop",
+      "activity_type": "skill_method",
+      "skill": "agility",
+      "intensity": 3,
+      "base_xp_per_hour": 45200,
+      "base_gp_per_hour": 38000,
+      "region": "inkweald",
+      "level_required": 40,
+      "gating": {
+        "quests": [],
+        "items": [],
+        "areas": []
+      },
+      "notes": "Classic seers rooftop analog.",
+      "source_file": "data/methods/agility.json"
+    },
+    {
+      "activity_id": "inkweald_seers_afk",
+      "activity_type": "skill_method",
+      "skill": "agility",
+      "intensity": 1,
+      "base_xp_per_hour": 23800,
+      "base_gp_per_hour": 22000,
+      "region": "inkweald",
+      "level_required": 40,
+      "gating": {
+        "quests": [],
+        "items": [],
+        "areas": []
+      },
+      "notes": "AFK seers.",
+      "source_file": "data/methods/agility.json"
+    },
+    {
+      "activity_id": "sootworks_pipe_network",
+      "activity_type": "skill_method",
+      "skill": "agility",
+      "intensity": 4,
+      "base_xp_per_hour": 56400,
+      "base_gp_per_hour": 45000,
+      "region": "sootworks",
+      "level_required": 50,
+      "gating": {
+        "quests": [],
+        "items": [],
+        "areas": []
+      },
+      "notes": "Pipe network obstacle course.",
+      "source_file": "data/methods/agility.json"
+    },
+    {
+      "activity_id": "heartlands_pollnivneach_rooftop",
+      "activity_type": "skill_method",
+      "skill": "agility",
+      "intensity": 2,
+      "base_xp_per_hour": 41200,
+      "base_gp_per_hour": 32000,
+      "region": "glass_desert",
+      "level_required": 52,
+      "gating": {
+        "quests": [],
+        "items": [],
+        "areas": []
+      },
+      "notes": "Bazaar rooftop.",
+      "source_file": "data/methods/agility.json"
+    },
+    {
+      "activity_id": "veilwood_rellekka_rooftop",
+      "activity_type": "skill_method",
+      "skill": "agility",
+      "intensity": 3,
+      "base_xp_per_hour": 56100,
+      "base_gp_per_hour": 42000,
+      "region": "veilwood",
+      "level_required": 60,
+      "gating": {
+        "quests": [],
+        "items": [],
+        "areas": []
+      },
+      "notes": "Moonblade rooftop. Scenic.",
+      "source_file": "data/methods/agility.json"
+    },
+    {
+      "activity_id": "veilwood_rellekka_afk",
+      "activity_type": "skill_method",
+      "skill": "agility",
+      "intensity": 1,
+      "base_xp_per_hour": 32000,
+      "base_gp_per_hour": 22000,
+      "region": "veilwood",
+      "level_required": 60,
+      "gating": {
+        "quests": [],
+        "items": [],
+        "areas": []
+      },
+      "notes": "AFK moonblade.",
+      "source_file": "data/methods/agility.json"
+    },
+    {
+      "activity_id": "inkweald_dreamwalk",
+      "activity_type": "skill_method",
+      "skill": "agility",
+      "intensity": 4,
+      "base_xp_per_hour": 70600,
+      "base_gp_per_hour": 55000,
+      "region": "inkweald",
+      "level_required": 70,
+      "gating": {
+        "quests": [
+          "unwake_the_dreamer"
+        ],
+        "items": [],
+        "areas": []
+      },
+      "notes": "Dreamwalk course. Reality slip.",
+      "source_file": "data/methods/agility.json"
+    },
+    {
+      "activity_id": "inkweald_dreamwalk_afk",
+      "activity_type": "skill_method",
+      "skill": "agility",
+      "intensity": 1,
+      "base_xp_per_hour": 40000,
+      "base_gp_per_hour": 32000,
+      "region": "inkweald",
+      "level_required": 70,
+      "gating": {
+        "quests": [
+          "unwake_the_dreamer"
+        ],
+        "items": [],
+        "areas": []
+      },
+      "notes": "AFK Dreamwalk.",
+      "source_file": "data/methods/agility.json"
+    },
+    {
+      "activity_id": "veilwood_prifddinas_rooftop",
+      "activity_type": "skill_method",
+      "skill": "agility",
+      "intensity": 5,
+      "base_xp_per_hour": 98500,
+      "base_gp_per_hour": 85000,
+      "region": "veilwood",
+      "level_required": 75,
+      "gating": {
+        "quests": [
+          "song_of_the_mossborn"
+        ],
+        "items": [],
+        "areas": []
+      },
+      "notes": "Elfheim rooftop. Best mid-endgame.",
+      "source_file": "data/methods/agility.json"
+    },
+    {
+      "activity_id": "boneyard_sepulchre_course",
+      "activity_type": "skill_method",
+      "skill": "agility",
+      "intensity": 7,
+      "base_xp_per_hour": 150200,
+      "base_gp_per_hour": 420000,
+      "region": "boneyard",
+      "level_required": 82,
+      "gating": {
+        "quests": [
+          "keeper_of_the_dead"
+        ],
+        "items": [],
+        "areas": []
+      },
+      "notes": "Hallowed Sepulchre. Tick-perfect. Best XP in the game.",
+      "source_file": "data/methods/agility.json"
+    },
+    {
+      "activity_id": "veilwood_elfheim_afk",
+      "activity_type": "skill_method",
+      "skill": "agility",
+      "intensity": 1,
+      "base_xp_per_hour": 66800,
+      "base_gp_per_hour": 42000,
+      "region": "veilwood",
+      "level_required": 80,
+      "gating": {
+        "quests": [
+          "song_of_the_mossborn"
+        ],
+        "items": [],
+        "areas": []
+      },
+      "notes": "AFK elfheim.",
+      "source_file": "data/methods/agility.json"
+    },
+    {
+      "activity_id": "wilds_wildsgate_gauntlet",
+      "activity_type": "skill_method",
+      "skill": "agility",
+      "intensity": 6,
+      "base_xp_per_hour": 164000,
+      "base_gp_per_hour": 185000,
+      "region": "wilds",
+      "level_required": 90,
+      "gating": {
+        "quests": [],
+        "items": [],
+        "areas": []
+      },
+      "notes": "Wilderness gauntlet course. PK risk for elite XP.",
+      "source_file": "data/methods/agility.json"
+    },
+    {
+      "activity_id": "wilds_wildsgate_afk",
+      "activity_type": "skill_method",
+      "skill": "agility",
+      "intensity": 2,
+      "base_xp_per_hour": 94000,
+      "base_gp_per_hour": 85000,
+      "region": "wilds",
+      "level_required": 90,
+      "gating": {
+        "quests": [],
+        "items": [],
+        "areas": []
+      },
+      "notes": "Short-loop gauntlet AFK.",
+      "source_file": "data/methods/agility.json"
     },
     {
       "activity_id": "heartlands_training_dummies_afk",
@@ -3553,6 +3920,27 @@
       "source_file": "data/methods/attack.json"
     },
     {
+      "activity_id": "veilwood_sanctum_elder_afk",
+      "activity_type": "skill_method",
+      "skill": "attack",
+      "intensity": 2,
+      "base_xp_per_hour": 94000,
+      "base_gp_per_hour": 185000,
+      "region": "veilwood",
+      "level_required": 92,
+      "gating": {
+        "quests": [
+          "whisperwood_remembers"
+        ],
+        "items": [
+          "ghrazi_rapier"
+        ],
+        "areas": []
+      },
+      "notes": "Sanctum wardens AFK.",
+      "source_file": "data/methods/attack.json"
+    },
+    {
       "activity_id": "wilds_revenants_focus",
       "activity_type": "skill_method",
       "skill": "attack",
@@ -3571,6 +3959,485 @@
       },
       "notes": "Revenants in deep Wilds. Prayer-switch + PK-defense. Extreme.",
       "source_file": "data/methods/attack.json"
+    },
+    {
+      "activity_id": "heartlands_crude_chair",
+      "activity_type": "skill_method",
+      "skill": "construction",
+      "intensity": 1,
+      "base_xp_per_hour": 8000,
+      "base_gp_per_hour": -5000,
+      "region": "heartlands",
+      "level_required": 1,
+      "gating": {
+        "quests": [],
+        "items": [
+          "plank",
+          "nails",
+          "hammer",
+          "saw"
+        ],
+        "areas": []
+      },
+      "notes": "Build-and-dismantle chair loop.",
+      "source_file": "data/methods/construction.json"
+    },
+    {
+      "activity_id": "heartlands_plank_rotation",
+      "activity_type": "skill_method",
+      "skill": "construction",
+      "intensity": 5,
+      "base_xp_per_hour": 36200,
+      "base_gp_per_hour": -45000,
+      "region": "heartlands",
+      "level_required": 1,
+      "gating": {
+        "quests": [
+          "butler_s_accord"
+        ],
+        "items": [
+          "oak_plank",
+          "nails",
+          "hammer",
+          "saw",
+          "butler_service"
+        ],
+        "areas": []
+      },
+      "notes": "Butler-fetched oak planks. Build-dismantle rotation.",
+      "source_file": "data/methods/construction.json"
+    },
+    {
+      "activity_id": "heartlands_oak_chair",
+      "activity_type": "skill_method",
+      "skill": "construction",
+      "intensity": 1,
+      "base_xp_per_hour": 15400,
+      "base_gp_per_hour": -12000,
+      "region": "heartlands",
+      "level_required": 15,
+      "gating": {
+        "quests": [],
+        "items": [
+          "oak_plank",
+          "nails"
+        ],
+        "areas": []
+      },
+      "notes": "Oak chair build-loop.",
+      "source_file": "data/methods/construction.json"
+    },
+    {
+      "activity_id": "heartlands_oak_larder",
+      "activity_type": "skill_method",
+      "skill": "construction",
+      "intensity": 5,
+      "base_xp_per_hour": 62100,
+      "base_gp_per_hour": -125000,
+      "region": "heartlands",
+      "level_required": 15,
+      "gating": {
+        "quests": [
+          "butler_s_accord"
+        ],
+        "items": [
+          "oak_plank"
+        ],
+        "areas": []
+      },
+      "notes": "Butler-fetched oak larder. Peak 15-30 XP.",
+      "source_file": "data/methods/construction.json"
+    },
+    {
+      "activity_id": "heartlands_carved_chair_afk",
+      "activity_type": "skill_method",
+      "skill": "construction",
+      "intensity": 1,
+      "base_xp_per_hour": 17400,
+      "base_gp_per_hour": -25000,
+      "region": "heartlands",
+      "level_required": 22,
+      "gating": {
+        "quests": [],
+        "items": [
+          "oak_plank",
+          "nails"
+        ],
+        "areas": []
+      },
+      "notes": "Carved oak chair AFK.",
+      "source_file": "data/methods/construction.json"
+    },
+    {
+      "activity_id": "heartlands_oak_bench_rush",
+      "activity_type": "skill_method",
+      "skill": "construction",
+      "intensity": 5,
+      "base_xp_per_hour": 73700,
+      "base_gp_per_hour": -145000,
+      "region": "heartlands",
+      "level_required": 25,
+      "gating": {
+        "quests": [
+          "butler_s_accord"
+        ],
+        "items": [
+          "oak_plank"
+        ],
+        "areas": []
+      },
+      "notes": "Oak bench butler rotation.",
+      "source_file": "data/methods/construction.json"
+    },
+    {
+      "activity_id": "heartlands_teak_chair",
+      "activity_type": "skill_method",
+      "skill": "construction",
+      "intensity": 5,
+      "base_xp_per_hour": 94300,
+      "base_gp_per_hour": -180000,
+      "region": "heartlands",
+      "level_required": 35,
+      "gating": {
+        "quests": [
+          "butler_s_accord"
+        ],
+        "items": [
+          "teak_plank"
+        ],
+        "areas": []
+      },
+      "notes": "Teak chair butler spin. Peak 35-50 XP.",
+      "source_file": "data/methods/construction.json"
+    },
+    {
+      "activity_id": "heartlands_teak_chair_afk",
+      "activity_type": "skill_method",
+      "skill": "construction",
+      "intensity": 1,
+      "base_xp_per_hour": 22800,
+      "base_gp_per_hour": -45000,
+      "region": "heartlands",
+      "level_required": 35,
+      "gating": {
+        "quests": [],
+        "items": [
+          "teak_plank",
+          "nails"
+        ],
+        "areas": []
+      },
+      "notes": "Teak chair AFK.",
+      "source_file": "data/methods/construction.json"
+    },
+    {
+      "activity_id": "heartlands_oak_door_bed",
+      "activity_type": "skill_method",
+      "skill": "construction",
+      "intensity": 3,
+      "base_xp_per_hour": 38200,
+      "base_gp_per_hour": -68000,
+      "region": "heartlands",
+      "level_required": 45,
+      "gating": {
+        "quests": [],
+        "items": [
+          "oak_plank",
+          "nails"
+        ],
+        "areas": []
+      },
+      "notes": "Oak door + bed chain build.",
+      "source_file": "data/methods/construction.json"
+    },
+    {
+      "activity_id": "heartlands_altar_basic_afk",
+      "activity_type": "skill_method",
+      "skill": "construction",
+      "intensity": 1,
+      "base_xp_per_hour": 28000,
+      "base_gp_per_hour": -55000,
+      "region": "heartlands",
+      "level_required": 40,
+      "gating": {
+        "quests": [],
+        "items": [
+          "teak_plank",
+          "clean_marrentill"
+        ],
+        "areas": []
+      },
+      "notes": "Basic altar build + dismantle.",
+      "source_file": "data/methods/construction.json"
+    },
+    {
+      "activity_id": "heartlands_gilded_altar_rush",
+      "activity_type": "skill_method",
+      "skill": "construction",
+      "intensity": 6,
+      "base_xp_per_hour": 136500,
+      "base_gp_per_hour": -320000,
+      "region": "heartlands",
+      "level_required": 50,
+      "gating": {
+        "quests": [
+          "butler_s_accord"
+        ],
+        "items": [
+          "mahogany_plank",
+          "gold_leaf"
+        ],
+        "areas": []
+      },
+      "notes": "Gilded altar rush. Peak 50+ XP method.",
+      "source_file": "data/methods/construction.json"
+    },
+    {
+      "activity_id": "heartlands_gilded_altar_afk",
+      "activity_type": "skill_method",
+      "skill": "construction",
+      "intensity": 1,
+      "base_xp_per_hour": 32000,
+      "base_gp_per_hour": -135000,
+      "region": "heartlands",
+      "level_required": 50,
+      "gating": {
+        "quests": [],
+        "items": [
+          "mahogany_plank",
+          "gold_leaf"
+        ],
+        "areas": []
+      },
+      "notes": "Gilded altar AFK solo build.",
+      "source_file": "data/methods/construction.json"
+    },
+    {
+      "activity_id": "heartlands_mahogany_table",
+      "activity_type": "skill_method",
+      "skill": "construction",
+      "intensity": 5,
+      "base_xp_per_hour": 145500,
+      "base_gp_per_hour": -380000,
+      "region": "heartlands",
+      "level_required": 55,
+      "gating": {
+        "quests": [
+          "butler_s_accord"
+        ],
+        "items": [
+          "mahogany_plank"
+        ],
+        "areas": []
+      },
+      "notes": "Mahogany table butler spin.",
+      "source_file": "data/methods/construction.json"
+    },
+    {
+      "activity_id": "heartlands_mahogany_table_afk",
+      "activity_type": "skill_method",
+      "skill": "construction",
+      "intensity": 1,
+      "base_xp_per_hour": 40000,
+      "base_gp_per_hour": -120000,
+      "region": "heartlands",
+      "level_required": 55,
+      "gating": {
+        "quests": [],
+        "items": [
+          "mahogany_plank",
+          "nails"
+        ],
+        "areas": []
+      },
+      "notes": "Mahogany table solo AFK.",
+      "source_file": "data/methods/construction.json"
+    },
+    {
+      "activity_id": "veilwood_teleport_throne",
+      "activity_type": "skill_method",
+      "skill": "construction",
+      "intensity": 2,
+      "base_xp_per_hour": 52400,
+      "base_gp_per_hour": -185000,
+      "region": "veilwood",
+      "level_required": 65,
+      "gating": {
+        "quests": [],
+        "items": [
+          "oak_plank",
+          "lodestone_crystal"
+        ],
+        "areas": []
+      },
+      "notes": "Teleport throne build. Multi-step per-throne.",
+      "source_file": "data/methods/construction.json"
+    },
+    {
+      "activity_id": "heartlands_portal_chamber_afk",
+      "activity_type": "skill_method",
+      "skill": "construction",
+      "intensity": 1,
+      "base_xp_per_hour": 47000,
+      "base_gp_per_hour": -180000,
+      "region": "heartlands",
+      "level_required": 65,
+      "gating": {
+        "quests": [],
+        "items": [
+          "mahogany_plank",
+          "focus_stone"
+        ],
+        "areas": []
+      },
+      "notes": "Portal chamber single-build AFK.",
+      "source_file": "data/methods/construction.json"
+    },
+    {
+      "activity_id": "heartlands_mahogany_benches_rush",
+      "activity_type": "skill_method",
+      "skill": "construction",
+      "intensity": 6,
+      "base_xp_per_hour": 165600,
+      "base_gp_per_hour": -420000,
+      "region": "heartlands",
+      "level_required": 70,
+      "gating": {
+        "quests": [
+          "butler_s_accord"
+        ],
+        "items": [
+          "mahogany_plank"
+        ],
+        "areas": []
+      },
+      "notes": "Peak 70+ XP method.",
+      "source_file": "data/methods/construction.json"
+    },
+    {
+      "activity_id": "heartlands_mahogany_bench_afk",
+      "activity_type": "skill_method",
+      "skill": "construction",
+      "intensity": 1,
+      "base_xp_per_hour": 54700,
+      "base_gp_per_hour": -220000,
+      "region": "heartlands",
+      "level_required": 70,
+      "gating": {
+        "quests": [],
+        "items": [
+          "mahogany_plank",
+          "nails"
+        ],
+        "areas": []
+      },
+      "notes": "Mahogany bench solo AFK.",
+      "source_file": "data/methods/construction.json"
+    },
+    {
+      "activity_id": "boneyard_dungeon_room",
+      "activity_type": "skill_method",
+      "skill": "construction",
+      "intensity": 2,
+      "base_xp_per_hour": 78600,
+      "base_gp_per_hour": -285000,
+      "region": "boneyard",
+      "level_required": 80,
+      "gating": {
+        "quests": [],
+        "items": [
+          "mahogany_plank",
+          "steel_bar"
+        ],
+        "areas": []
+      },
+      "notes": "Dungeon room build — unlocks stage fights.",
+      "source_file": "data/methods/construction.json"
+    },
+    {
+      "activity_id": "heartlands_dungeon_room_afk",
+      "activity_type": "skill_method",
+      "skill": "construction",
+      "intensity": 1,
+      "base_xp_per_hour": 62800,
+      "base_gp_per_hour": -195000,
+      "region": "heartlands",
+      "level_required": 80,
+      "gating": {
+        "quests": [],
+        "items": [
+          "mahogany_plank",
+          "nails"
+        ],
+        "areas": []
+      },
+      "notes": "Dungeon staircase alone. AFK.",
+      "source_file": "data/methods/construction.json"
+    },
+    {
+      "activity_id": "veilwood_crystal_throne",
+      "activity_type": "skill_method",
+      "skill": "construction",
+      "intensity": 5,
+      "base_xp_per_hour": 152600,
+      "base_gp_per_hour": -520000,
+      "region": "veilwood",
+      "level_required": 90,
+      "gating": {
+        "quests": [
+          "song_of_the_mossborn"
+        ],
+        "items": [
+          "crystal_shard",
+          "mahogany_plank"
+        ],
+        "areas": []
+      },
+      "notes": "Crystal teleport throne build.",
+      "source_file": "data/methods/construction.json"
+    },
+    {
+      "activity_id": "wilds_boss_lair",
+      "activity_type": "skill_method",
+      "skill": "construction",
+      "intensity": 7,
+      "base_xp_per_hour": 212000,
+      "base_gp_per_hour": -720000,
+      "region": "wilds",
+      "level_required": 96,
+      "gating": {
+        "quests": [
+          "hearthing_right_grandmaster"
+        ],
+        "items": [
+          "mahogany_plank",
+          "runite_bar",
+          "dragon_bones"
+        ],
+        "areas": []
+      },
+      "notes": "Boss lair. Multi-stage build.",
+      "source_file": "data/methods/construction.json"
+    },
+    {
+      "activity_id": "heartlands_gem_fence_afk",
+      "activity_type": "skill_method",
+      "skill": "construction",
+      "intensity": 1,
+      "base_xp_per_hour": 94000,
+      "base_gp_per_hour": -420000,
+      "region": "heartlands",
+      "level_required": 92,
+      "gating": {
+        "quests": [],
+        "items": [
+          "mahogany_plank",
+          "uncut_diamond"
+        ],
+        "areas": []
+      },
+      "notes": "Diamond fence single-build AFK.",
+      "source_file": "data/methods/construction.json"
     },
     {
       "activity_id": "heartlands_range_meat_basic",
@@ -4839,6 +5706,27 @@
       "source_file": "data/methods/defence.json"
     },
     {
+      "activity_id": "veilwood_sanctum_elder_def",
+      "activity_type": "skill_method",
+      "skill": "defence",
+      "intensity": 2,
+      "base_xp_per_hour": 94000,
+      "base_gp_per_hour": 185000,
+      "region": "veilwood",
+      "level_required": 92,
+      "gating": {
+        "quests": [
+          "whisperwood_remembers"
+        ],
+        "items": [
+          "ghrazi_rapier"
+        ],
+        "areas": []
+      },
+      "notes": "Sanctum wardens defensive AFK.",
+      "source_file": "data/methods/defence.json"
+    },
+    {
       "activity_id": "wilds_revenants_def",
       "activity_type": "skill_method",
       "skill": "defence",
@@ -4857,6 +5745,436 @@
       },
       "notes": "Revenants defensive.",
       "source_file": "data/methods/defence.json"
+    },
+    {
+      "activity_id": "heartlands_potato_run",
+      "activity_type": "skill_method",
+      "skill": "farming",
+      "intensity": 2,
+      "base_xp_per_hour": 13900,
+      "base_gp_per_hour": 3500,
+      "region": "heartlands",
+      "level_required": 1,
+      "gating": {
+        "quests": [],
+        "items": [
+          "potato_seed",
+          "spade",
+          "rake"
+        ],
+        "areas": []
+      },
+      "notes": "40-min potato cycle. 4 allotments.",
+      "source_file": "data/methods/farming.json"
+    },
+    {
+      "activity_id": "heartlands_onion_afk",
+      "activity_type": "skill_method",
+      "skill": "farming",
+      "intensity": 1,
+      "base_xp_per_hour": 8500,
+      "base_gp_per_hour": 1800,
+      "region": "heartlands",
+      "level_required": 5,
+      "gating": {
+        "quests": [],
+        "items": [
+          "onion_seed",
+          "spade"
+        ],
+        "areas": []
+      },
+      "notes": "Single-patch onion AFK.",
+      "source_file": "data/methods/farming.json"
+    },
+    {
+      "activity_id": "heartlands_guam_run",
+      "activity_type": "skill_method",
+      "skill": "farming",
+      "intensity": 2,
+      "base_xp_per_hour": 11800,
+      "base_gp_per_hour": 14000,
+      "region": "heartlands",
+      "level_required": 9,
+      "gating": {
+        "quests": [],
+        "items": [
+          "guam_seed",
+          "spade"
+        ],
+        "areas": []
+      },
+      "notes": "Herb run guam.",
+      "source_file": "data/methods/farming.json"
+    },
+    {
+      "activity_id": "heartlands_hops_patch_rush",
+      "activity_type": "skill_method",
+      "skill": "farming",
+      "intensity": 4,
+      "base_xp_per_hour": 29200,
+      "base_gp_per_hour": 28000,
+      "region": "heartlands",
+      "level_required": 14,
+      "gating": {
+        "quests": [],
+        "items": [
+          "barley_seed",
+          "hammerstone_seed"
+        ],
+        "areas": []
+      },
+      "notes": "Barley/hops rotation. 8 patches.",
+      "source_file": "data/methods/farming.json"
+    },
+    {
+      "activity_id": "heartlands_marrentill_run",
+      "activity_type": "skill_method",
+      "skill": "farming",
+      "intensity": 1,
+      "base_xp_per_hour": 12500,
+      "base_gp_per_hour": 18000,
+      "region": "heartlands",
+      "level_required": 14,
+      "gating": {
+        "quests": [],
+        "items": [
+          "marrentill_seed",
+          "spade"
+        ],
+        "areas": []
+      },
+      "notes": "Marrentill AFK run.",
+      "source_file": "data/methods/farming.json"
+    },
+    {
+      "activity_id": "heartlands_watermelon_run",
+      "activity_type": "skill_method",
+      "skill": "farming",
+      "intensity": 2,
+      "base_xp_per_hour": 17400,
+      "base_gp_per_hour": 32000,
+      "region": "heartlands",
+      "level_required": 25,
+      "gating": {
+        "quests": [],
+        "items": [
+          "watermelon_seed"
+        ],
+        "areas": []
+      },
+      "notes": "Watermelon 80-min cycle across 4 patches.",
+      "source_file": "data/methods/farming.json"
+    },
+    {
+      "activity_id": "heartlands_sweetcorn_afk",
+      "activity_type": "skill_method",
+      "skill": "farming",
+      "intensity": 1,
+      "base_xp_per_hour": 15400,
+      "base_gp_per_hour": 18000,
+      "region": "heartlands",
+      "level_required": 20,
+      "gating": {
+        "quests": [],
+        "items": [
+          "sweetcorn_seed"
+        ],
+        "areas": []
+      },
+      "notes": "Sweetcorn AFK.",
+      "source_file": "data/methods/farming.json"
+    },
+    {
+      "activity_id": "heartlands_ranarr_run",
+      "activity_type": "skill_method",
+      "skill": "farming",
+      "intensity": 4,
+      "base_xp_per_hour": 50600,
+      "base_gp_per_hour": 385000,
+      "region": "heartlands",
+      "level_required": 32,
+      "gating": {
+        "quests": [],
+        "items": [
+          "ranarr_seed"
+        ],
+        "areas": []
+      },
+      "notes": "Ranarr run — 80-min cycle, all 5 herb patches, massive gp.",
+      "source_file": "data/methods/farming.json"
+    },
+    {
+      "activity_id": "heartlands_willow_sapling",
+      "activity_type": "skill_method",
+      "skill": "farming",
+      "intensity": 1,
+      "base_xp_per_hour": 22800,
+      "base_gp_per_hour": 18000,
+      "region": "heartlands",
+      "level_required": 30,
+      "gating": {
+        "quests": [],
+        "items": [
+          "willow_sapling"
+        ],
+        "areas": []
+      },
+      "notes": "Daily willow plant. AFK.",
+      "source_file": "data/methods/farming.json"
+    },
+    {
+      "activity_id": "heartlands_maple_sapling_afk",
+      "activity_type": "skill_method",
+      "skill": "farming",
+      "intensity": 1,
+      "base_xp_per_hour": 24500,
+      "base_gp_per_hour": 35000,
+      "region": "heartlands",
+      "level_required": 45,
+      "gating": {
+        "quests": [],
+        "items": [
+          "maple_sapling"
+        ],
+        "areas": []
+      },
+      "notes": "Daily maple sapling.",
+      "source_file": "data/methods/farming.json"
+    },
+    {
+      "activity_id": "heartlands_irit_run",
+      "activity_type": "skill_method",
+      "skill": "farming",
+      "intensity": 4,
+      "base_xp_per_hour": 64700,
+      "base_gp_per_hour": 185000,
+      "region": "heartlands",
+      "level_required": 44,
+      "gating": {
+        "quests": [],
+        "items": [
+          "irit_seed"
+        ],
+        "areas": []
+      },
+      "notes": "Irit herb tour.",
+      "source_file": "data/methods/farming.json"
+    },
+    {
+      "activity_id": "heartlands_kwuarm_run",
+      "activity_type": "skill_method",
+      "skill": "farming",
+      "intensity": 4,
+      "base_xp_per_hour": 79400,
+      "base_gp_per_hour": 245000,
+      "region": "heartlands",
+      "level_required": 56,
+      "gating": {
+        "quests": [],
+        "items": [
+          "kwuarm_seed"
+        ],
+        "areas": []
+      },
+      "notes": "Kwuarm run.",
+      "source_file": "data/methods/farming.json"
+    },
+    {
+      "activity_id": "heartlands_cactus_afk",
+      "activity_type": "skill_method",
+      "skill": "farming",
+      "intensity": 1,
+      "base_xp_per_hour": 35500,
+      "base_gp_per_hour": 28000,
+      "region": "glass_desert",
+      "level_required": 55,
+      "gating": {
+        "quests": [],
+        "items": [
+          "cactus_seed"
+        ],
+        "areas": []
+      },
+      "notes": "Daily cactus spines.",
+      "source_file": "data/methods/farming.json"
+    },
+    {
+      "activity_id": "heartlands_snapdragon_run",
+      "activity_type": "skill_method",
+      "skill": "farming",
+      "intensity": 4,
+      "base_xp_per_hour": 91100,
+      "base_gp_per_hour": 385000,
+      "region": "heartlands",
+      "level_required": 62,
+      "gating": {
+        "quests": [],
+        "items": [
+          "snapdragon_seed"
+        ],
+        "areas": []
+      },
+      "notes": "Snapdragon run.",
+      "source_file": "data/methods/farming.json"
+    },
+    {
+      "activity_id": "veilwood_yew_sapling_afk",
+      "activity_type": "skill_method",
+      "skill": "farming",
+      "intensity": 1,
+      "base_xp_per_hour": 40000,
+      "base_gp_per_hour": 45000,
+      "region": "veilwood",
+      "level_required": 60,
+      "gating": {
+        "quests": [],
+        "items": [
+          "yew_sapling"
+        ],
+        "areas": []
+      },
+      "notes": "Yew sapling AFK.",
+      "source_file": "data/methods/farming.json"
+    },
+    {
+      "activity_id": "veilwood_magic_sapling_afk",
+      "activity_type": "skill_method",
+      "skill": "farming",
+      "intensity": 1,
+      "base_xp_per_hour": 58700,
+      "base_gp_per_hour": 125000,
+      "region": "veilwood",
+      "level_required": 75,
+      "gating": {
+        "quests": [
+          "swan_song_of_veilwood"
+        ],
+        "items": [
+          "magic_sapling"
+        ],
+        "areas": []
+      },
+      "notes": "Magic sapling daily.",
+      "source_file": "data/methods/farming.json"
+    },
+    {
+      "activity_id": "heartlands_dwarf_weed_run",
+      "activity_type": "skill_method",
+      "skill": "farming",
+      "intensity": 4,
+      "base_xp_per_hour": 116600,
+      "base_gp_per_hour": 385000,
+      "region": "heartlands",
+      "level_required": 79,
+      "gating": {
+        "quests": [],
+        "items": [
+          "dwarf_weed_seed"
+        ],
+        "areas": []
+      },
+      "notes": "Dwarf weed herb run.",
+      "source_file": "data/methods/farming.json"
+    },
+    {
+      "activity_id": "heartlands_papaya_tree_afk",
+      "activity_type": "skill_method",
+      "skill": "farming",
+      "intensity": 1,
+      "base_xp_per_hour": 72100,
+      "base_gp_per_hour": 95000,
+      "region": "glass_desert",
+      "level_required": 83,
+      "gating": {
+        "quests": [],
+        "items": [
+          "papaya_tree_seed"
+        ],
+        "areas": []
+      },
+      "notes": "Papaya tree daily AFK.",
+      "source_file": "data/methods/farming.json"
+    },
+    {
+      "activity_id": "heartlands_torstol_run",
+      "activity_type": "skill_method",
+      "skill": "farming",
+      "intensity": 4,
+      "base_xp_per_hour": 155400,
+      "base_gp_per_hour": 525000,
+      "region": "inkweald",
+      "level_required": 85,
+      "gating": {
+        "quests": [],
+        "items": [
+          "torstol_seed"
+        ],
+        "areas": []
+      },
+      "notes": "Torstol herb run. Peak gp herb.",
+      "source_file": "data/methods/farming.json"
+    },
+    {
+      "activity_id": "wilds_redwood_farm",
+      "activity_type": "skill_method",
+      "skill": "farming",
+      "intensity": 2,
+      "base_xp_per_hour": 94000,
+      "base_gp_per_hour": 220000,
+      "region": "wilds",
+      "level_required": 90,
+      "gating": {
+        "quests": [],
+        "items": [
+          "redwood_sapling"
+        ],
+        "areas": []
+      },
+      "notes": "Redwood daily with PK risk.",
+      "source_file": "data/methods/farming.json"
+    },
+    {
+      "activity_id": "veilwood_crystal_tree_afk",
+      "activity_type": "skill_method",
+      "skill": "farming",
+      "intensity": 1,
+      "base_xp_per_hour": 78600,
+      "base_gp_per_hour": 185000,
+      "region": "veilwood",
+      "level_required": 90,
+      "gating": {
+        "quests": [
+          "song_of_the_mossborn"
+        ],
+        "items": [
+          "crystal_sapling"
+        ],
+        "areas": []
+      },
+      "notes": "Crystal tree sapling.",
+      "source_file": "data/methods/farming.json"
+    },
+    {
+      "activity_id": "moryskah_farming_seed_trading",
+      "activity_type": "skill_method",
+      "skill": "farming",
+      "intensity": 3,
+      "base_xp_per_hour": 32900,
+      "base_gp_per_hour": 85000,
+      "region": "moryskah",
+      "level_required": 40,
+      "gating": {
+        "quests": [
+          "ghost_of_tombseam"
+        ],
+        "items": [
+          "coffin_spore"
+        ],
+        "areas": []
+      },
+      "notes": "Coffin fungus grows only in a moryskah patch.",
+      "source_file": "data/methods/farming.json"
     },
     {
       "activity_id": "heartlands_log_burn_trail",
@@ -5265,6 +6583,28 @@
         "areas": []
       },
       "notes": "Ironwood log burning. Yields iron-ash for smithing alloys.",
+      "source_file": "data/methods/firemaking.json"
+    },
+    {
+      "activity_id": "veilwood_shrine_pyre_afk",
+      "activity_type": "skill_method",
+      "skill": "firemaking",
+      "intensity": 2,
+      "base_xp_per_hour": 94000,
+      "base_gp_per_hour": 95000,
+      "region": "veilwood",
+      "level_required": 90,
+      "gating": {
+        "quests": [
+          "whisperwood_remembers"
+        ],
+        "items": [
+          "tinderbox",
+          "magic_logs"
+        ],
+        "areas": []
+      },
+      "notes": "Shrine pyre with +40% XP, AFK feed.",
       "source_file": "data/methods/firemaking.json"
     },
     {
@@ -6196,6 +7536,26 @@
       "source_file": "data/methods/fletching.json"
     },
     {
+      "activity_id": "heartlands_rune_bolt_tipping_afk",
+      "activity_type": "skill_method",
+      "skill": "fletching",
+      "intensity": 1,
+      "base_xp_per_hour": 94000,
+      "base_gp_per_hour": 325000,
+      "region": "heartlands",
+      "level_required": 91,
+      "gating": {
+        "quests": [],
+        "items": [
+          "unfinished_rune_bolt",
+          "rune_bolt_tips"
+        ],
+        "areas": []
+      },
+      "notes": "Rune bolt tipping AFK.",
+      "source_file": "data/methods/fletching.json"
+    },
+    {
       "activity_id": "heartlands_crossbow_ornament",
       "activity_type": "skill_method",
       "skill": "fletching",
@@ -6658,6 +8018,26 @@
       "source_file": "data/methods/herblore.json"
     },
     {
+      "activity_id": "veilwood_extended_antifire_afk",
+      "activity_type": "skill_method",
+      "skill": "herblore",
+      "intensity": 1,
+      "base_xp_per_hour": 98500,
+      "base_gp_per_hour": 385000,
+      "region": "veilwood",
+      "level_required": 92,
+      "gating": {
+        "quests": [],
+        "items": [
+          "antifire_potion_4",
+          "lava_scale_shard"
+        ],
+        "areas": []
+      },
+      "notes": "Extended antifire AFK.",
+      "source_file": "data/methods/herblore.json"
+    },
+    {
       "activity_id": "veilwood_overload_brew",
       "activity_type": "skill_method",
       "skill": "herblore",
@@ -7098,6 +8478,27 @@
       "source_file": "data/methods/hitpoints.json"
     },
     {
+      "activity_id": "veilwood_sanctum_elder_hp",
+      "activity_type": "skill_method",
+      "skill": "hitpoints",
+      "intensity": 2,
+      "base_xp_per_hour": 31300,
+      "base_gp_per_hour": 185000,
+      "region": "veilwood",
+      "level_required": 92,
+      "gating": {
+        "quests": [
+          "whisperwood_remembers"
+        ],
+        "items": [
+          "ghrazi_rapier"
+        ],
+        "areas": []
+      },
+      "notes": "Sanctum HP passive.",
+      "source_file": "data/methods/hitpoints.json"
+    },
+    {
       "activity_id": "wilds_revenants_hp",
       "activity_type": "skill_method",
       "skill": "hitpoints",
@@ -7138,6 +8539,495 @@
       },
       "notes": "Heal pilgrims in real-time ring rotation. Direct HP XP.",
       "source_file": "data/methods/hitpoints.json"
+    },
+    {
+      "activity_id": "heartlands_crimson_snare",
+      "activity_type": "skill_method",
+      "skill": "hunter",
+      "intensity": 3,
+      "base_xp_per_hour": 22500,
+      "base_gp_per_hour": 12000,
+      "region": "heartlands",
+      "level_required": 1,
+      "gating": {
+        "quests": [],
+        "items": [
+          "bird_snare"
+        ],
+        "areas": []
+      },
+      "notes": "Bird snare crimson swifts.",
+      "source_file": "data/methods/hunter.json"
+    },
+    {
+      "activity_id": "heartlands_bird_snare_afk_single",
+      "activity_type": "skill_method",
+      "skill": "hunter",
+      "intensity": 1,
+      "base_xp_per_hour": 8000,
+      "base_gp_per_hour": 4500,
+      "region": "heartlands",
+      "level_required": 1,
+      "gating": {
+        "quests": [],
+        "items": [
+          "bird_snare"
+        ],
+        "areas": []
+      },
+      "notes": "Single-snare AFK.",
+      "source_file": "data/methods/hunter.json"
+    },
+    {
+      "activity_id": "heartlands_birdhouse_cycle",
+      "activity_type": "skill_method",
+      "skill": "hunter",
+      "intensity": 1,
+      "base_xp_per_hour": 12400,
+      "base_gp_per_hour": 25000,
+      "region": "heartlands",
+      "level_required": 5,
+      "gating": {
+        "quests": [
+          "fremennik_prelude"
+        ],
+        "items": [
+          "oak_logs",
+          "hop_seed"
+        ],
+        "areas": []
+      },
+      "notes": "50-minute cycle — set 4 birdhouses, wait for maple-trip return.",
+      "source_file": "data/methods/hunter.json"
+    },
+    {
+      "activity_id": "saltbrine_warbler_snare",
+      "activity_type": "skill_method",
+      "skill": "hunter",
+      "intensity": 3,
+      "base_xp_per_hour": 32300,
+      "base_gp_per_hour": 18000,
+      "region": "saltbrine",
+      "level_required": 9,
+      "gating": {
+        "quests": [],
+        "items": [
+          "bird_snare"
+        ],
+        "areas": []
+      },
+      "notes": "Warblers on cliffside.",
+      "source_file": "data/methods/hunter.json"
+    },
+    {
+      "activity_id": "heartlands_copper_longtail_afk",
+      "activity_type": "skill_method",
+      "skill": "hunter",
+      "intensity": 1,
+      "base_xp_per_hour": 15400,
+      "base_gp_per_hour": 12000,
+      "region": "heartlands",
+      "level_required": 19,
+      "gating": {
+        "quests": [],
+        "items": [
+          "bird_snare"
+        ],
+        "areas": []
+      },
+      "notes": "Copper longtail AFK.",
+      "source_file": "data/methods/hunter.json"
+    },
+    {
+      "activity_id": "heartlands_cerulean_twitch_snare",
+      "activity_type": "skill_method",
+      "skill": "hunter",
+      "intensity": 4,
+      "base_xp_per_hour": 27800,
+      "base_gp_per_hour": 18000,
+      "region": "heartlands",
+      "level_required": 11,
+      "gating": {
+        "quests": [],
+        "items": [
+          "bird_snare"
+        ],
+        "areas": []
+      },
+      "notes": "Double-spawn twitch.",
+      "source_file": "data/methods/hunter.json"
+    },
+    {
+      "activity_id": "heartlands_grey_chinchompa_afk_tropical",
+      "activity_type": "skill_method",
+      "skill": "hunter",
+      "intensity": 1,
+      "base_xp_per_hour": 22800,
+      "base_gp_per_hour": 22000,
+      "region": "heartlands",
+      "level_required": 33,
+      "gating": {
+        "quests": [],
+        "items": [
+          "bird_snare"
+        ],
+        "areas": []
+      },
+      "notes": "Single-snare tropical wagtail.",
+      "source_file": "data/methods/hunter.json"
+    },
+    {
+      "activity_id": "heartlands_ferret_box_trap",
+      "activity_type": "skill_method",
+      "skill": "hunter",
+      "intensity": 4,
+      "base_xp_per_hour": 36500,
+      "base_gp_per_hour": 32000,
+      "region": "heartlands",
+      "level_required": 27,
+      "gating": {
+        "quests": [],
+        "items": [
+          "box_trap"
+        ],
+        "areas": []
+      },
+      "notes": "Ferret box trap.",
+      "source_file": "data/methods/hunter.json"
+    },
+    {
+      "activity_id": "heartlands_chinchompa_single",
+      "activity_type": "skill_method",
+      "skill": "hunter",
+      "intensity": 1,
+      "base_xp_per_hour": 18300,
+      "base_gp_per_hour": 22000,
+      "region": "heartlands",
+      "level_required": 28,
+      "gating": {
+        "quests": [],
+        "items": [
+          "box_trap"
+        ],
+        "areas": []
+      },
+      "notes": "Single-trap grey chinchompa.",
+      "source_file": "data/methods/hunter.json"
+    },
+    {
+      "activity_id": "heartlands_chinchompa_multi",
+      "activity_type": "skill_method",
+      "skill": "hunter",
+      "intensity": 5,
+      "base_xp_per_hour": 58400,
+      "base_gp_per_hour": 85000,
+      "region": "heartlands",
+      "level_required": 35,
+      "gating": {
+        "quests": [],
+        "items": [
+          "box_trap"
+        ],
+        "areas": []
+      },
+      "notes": "4-trap chin farm. Tick-attention.",
+      "source_file": "data/methods/hunter.json"
+    },
+    {
+      "activity_id": "glass_desert_spotted_kebbit",
+      "activity_type": "skill_method",
+      "skill": "hunter",
+      "intensity": 3,
+      "base_xp_per_hour": 46900,
+      "base_gp_per_hour": 125000,
+      "region": "glass_desert",
+      "level_required": 43,
+      "gating": {
+        "quests": [],
+        "items": [
+          "box_trap"
+        ],
+        "areas": []
+      },
+      "notes": "Spotted kebbit for spotted fur.",
+      "source_file": "data/methods/hunter.json"
+    },
+    {
+      "activity_id": "glass_desert_kebbit_afk",
+      "activity_type": "skill_method",
+      "skill": "hunter",
+      "intensity": 1,
+      "base_xp_per_hour": 28000,
+      "base_gp_per_hour": 65000,
+      "region": "glass_desert",
+      "level_required": 43,
+      "gating": {
+        "quests": [],
+        "items": [
+          "box_trap"
+        ],
+        "areas": []
+      },
+      "notes": "Sabre kebbit AFK.",
+      "source_file": "data/methods/hunter.json"
+    },
+    {
+      "activity_id": "moryskah_dark_kebbit",
+      "activity_type": "skill_method",
+      "skill": "hunter",
+      "intensity": 4,
+      "base_xp_per_hour": 72100,
+      "base_gp_per_hour": 185000,
+      "region": "moryskah",
+      "level_required": 53,
+      "gating": {
+        "quests": [],
+        "items": [
+          "box_trap"
+        ],
+        "areas": []
+      },
+      "notes": "Dark kebbit for dark fur.",
+      "source_file": "data/methods/hunter.json"
+    },
+    {
+      "activity_id": "inkweald_kyatt_deadfall_afk",
+      "activity_type": "skill_method",
+      "skill": "hunter",
+      "intensity": 1,
+      "base_xp_per_hour": 35500,
+      "base_gp_per_hour": 145000,
+      "region": "inkweald",
+      "level_required": 55,
+      "gating": {
+        "quests": [],
+        "items": [
+          "logs"
+        ],
+        "areas": []
+      },
+      "notes": "Single deadfall AFK.",
+      "source_file": "data/methods/hunter.json"
+    },
+    {
+      "activity_id": "inkweald_kyatt_deadfall_multi",
+      "activity_type": "skill_method",
+      "skill": "hunter",
+      "intensity": 5,
+      "base_xp_per_hour": 83700,
+      "base_gp_per_hour": 285000,
+      "region": "inkweald",
+      "level_required": 60,
+      "gating": {
+        "quests": [],
+        "items": [
+          "logs"
+        ],
+        "areas": []
+      },
+      "notes": "3-deadfall rotation.",
+      "source_file": "data/methods/hunter.json"
+    },
+    {
+      "activity_id": "inkweald_kyatt_fur_afk_loop",
+      "activity_type": "skill_method",
+      "skill": "hunter",
+      "intensity": 1,
+      "base_xp_per_hour": 41200,
+      "base_gp_per_hour": 165000,
+      "region": "inkweald",
+      "level_required": 62,
+      "gating": {
+        "quests": [],
+        "items": [
+          "logs"
+        ],
+        "areas": []
+      },
+      "notes": "Pocket kyatt AFK.",
+      "source_file": "data/methods/hunter.json"
+    },
+    {
+      "activity_id": "glass_desert_salamander_net_trap",
+      "activity_type": "skill_method",
+      "skill": "hunter",
+      "intensity": 3,
+      "base_xp_per_hour": 80500,
+      "base_gp_per_hour": 220000,
+      "region": "glass_desert",
+      "level_required": 67,
+      "gating": {
+        "quests": [],
+        "items": [
+          "rope",
+          "net_trap"
+        ],
+        "areas": []
+      },
+      "notes": "Red salamander net trap.",
+      "source_file": "data/methods/hunter.json"
+    },
+    {
+      "activity_id": "veilwood_grenwall_track",
+      "activity_type": "skill_method",
+      "skill": "hunter",
+      "intensity": 4,
+      "base_xp_per_hour": 102300,
+      "base_gp_per_hour": 420000,
+      "region": "veilwood",
+      "level_required": 73,
+      "gating": {
+        "quests": [],
+        "items": [
+          "teasing_stick"
+        ],
+        "areas": []
+      },
+      "notes": "Track grenwall + teasing stick.",
+      "source_file": "data/methods/hunter.json"
+    },
+    {
+      "activity_id": "veilwood_grenwall_afk",
+      "activity_type": "skill_method",
+      "skill": "hunter",
+      "intensity": 1,
+      "base_xp_per_hour": 54700,
+      "base_gp_per_hour": 245000,
+      "region": "veilwood",
+      "level_required": 73,
+      "gating": {
+        "quests": [],
+        "items": [
+          "teasing_stick"
+        ],
+        "areas": []
+      },
+      "notes": "Single-track grenwall AFK.",
+      "source_file": "data/methods/hunter.json"
+    },
+    {
+      "activity_id": "inkweald_impling_butterfly",
+      "activity_type": "skill_method",
+      "skill": "hunter",
+      "intensity": 7,
+      "base_xp_per_hour": 155400,
+      "base_gp_per_hour": 425000,
+      "region": "inkweald",
+      "level_required": 80,
+      "gating": {
+        "quests": [
+          "unwake_the_dreamer"
+        ],
+        "items": [
+          "butterfly_net",
+          "impling_jars"
+        ],
+        "areas": []
+      },
+      "notes": "Impling chase chamber. Max-speed butterfly netting.",
+      "source_file": "data/methods/hunter.json"
+    },
+    {
+      "activity_id": "inkweald_impling_out_world_afk",
+      "activity_type": "skill_method",
+      "skill": "hunter",
+      "intensity": 1,
+      "base_xp_per_hour": 66800,
+      "base_gp_per_hour": 185000,
+      "region": "inkweald",
+      "level_required": 80,
+      "gating": {
+        "quests": [],
+        "items": [
+          "butterfly_net",
+          "impling_jars"
+        ],
+        "areas": []
+      },
+      "notes": "Open-world impling AFK.",
+      "source_file": "data/methods/hunter.json"
+    },
+    {
+      "activity_id": "wilds_black_salamander",
+      "activity_type": "skill_method",
+      "skill": "hunter",
+      "intensity": 5,
+      "base_xp_per_hour": 123000,
+      "base_gp_per_hour": 320000,
+      "region": "wilds",
+      "level_required": 83,
+      "gating": {
+        "quests": [],
+        "items": [
+          "rope",
+          "net_trap"
+        ],
+        "areas": []
+      },
+      "notes": "Black salamander net trap. PK risk.",
+      "source_file": "data/methods/hunter.json"
+    },
+    {
+      "activity_id": "veilwood_herbiboar_track",
+      "activity_type": "skill_method",
+      "skill": "hunter",
+      "intensity": 3,
+      "base_xp_per_hour": 108000,
+      "base_gp_per_hour": 385000,
+      "region": "veilwood",
+      "level_required": 80,
+      "gating": {
+        "quests": [
+          "the_herbal_hunt"
+        ],
+        "items": [
+          "seaweed_spore"
+        ],
+        "areas": []
+      },
+      "notes": "Track herbiboar. Multi-stage path. Yields herbs.",
+      "source_file": "data/methods/hunter.json"
+    },
+    {
+      "activity_id": "wilds_abyssal_lantern_rc",
+      "activity_type": "skill_method",
+      "skill": "hunter",
+      "intensity": 6,
+      "base_xp_per_hour": 164000,
+      "base_gp_per_hour": 620000,
+      "region": "wilds",
+      "level_required": 90,
+      "gating": {
+        "quests": [],
+        "items": [
+          "butterfly_net",
+          "rev_imp_jar"
+        ],
+        "areas": []
+      },
+      "notes": "Rev imp hunt in the Wilds.",
+      "source_file": "data/methods/hunter.json"
+    },
+    {
+      "activity_id": "inkweald_dream_koi_butterfly",
+      "activity_type": "skill_method",
+      "skill": "hunter",
+      "intensity": 2,
+      "base_xp_per_hour": 98500,
+      "base_gp_per_hour": 220000,
+      "region": "inkweald",
+      "level_required": 95,
+      "gating": {
+        "quests": [
+          "unwake_the_dreamer"
+        ],
+        "items": [
+          "butterfly_net"
+        ],
+        "areas": []
+      },
+      "notes": "Net dream koi in the air. AFK.",
+      "source_file": "data/methods/hunter.json"
     },
     {
       "activity_id": "heartlands_wind_strike_dummy",
@@ -9444,6 +11334,27 @@
       "source_file": "data/methods/runecrafting.json"
     },
     {
+      "activity_id": "veilwood_soul_altar_afk",
+      "activity_type": "skill_method",
+      "skill": "runecrafting",
+      "intensity": 2,
+      "base_xp_per_hour": 112300,
+      "base_gp_per_hour": 485000,
+      "region": "veilwood",
+      "level_required": 90,
+      "gating": {
+        "quests": [
+          "whisperwood_remembers"
+        ],
+        "items": [
+          "rune_essence"
+        ],
+        "areas": []
+      },
+      "notes": "Soul altar AFK walking.",
+      "source_file": "data/methods/runecrafting.json"
+    },
+    {
       "activity_id": "wilds_wrath_altar_rush",
       "activity_type": "skill_method",
       "skill": "runecrafting",
@@ -9834,6 +11745,27 @@
         "areas": []
       },
       "notes": "Demonic gorilla prayer-switch task.",
+      "source_file": "data/methods/slayer.json"
+    },
+    {
+      "activity_id": "inkweald_duradel_wyrm_afk",
+      "activity_type": "skill_method",
+      "skill": "slayer",
+      "intensity": 1,
+      "base_xp_per_hour": 118000,
+      "base_gp_per_hour": 285000,
+      "region": "inkweald",
+      "level_required": 94,
+      "gating": {
+        "quests": [
+          "lost_city_of_the_wyrms"
+        ],
+        "items": [
+          "dragon_hunter_lance"
+        ],
+        "areas": []
+      },
+      "notes": "Cave wyrm AFK with boots of stone.",
       "source_file": "data/methods/slayer.json"
     },
     {
@@ -10303,6 +12235,26 @@
       "source_file": "data/methods/smithing.json"
     },
     {
+      "activity_id": "moryskah_adamant_platebody_afk",
+      "activity_type": "skill_method",
+      "skill": "smithing",
+      "intensity": 1,
+      "base_xp_per_hour": 72700,
+      "base_gp_per_hour": 245000,
+      "region": "moryskah",
+      "level_required": 88,
+      "gating": {
+        "quests": [],
+        "items": [
+          "adamant_bar",
+          "hammer"
+        ],
+        "areas": []
+      },
+      "notes": "Adamant platebody for smithing reputation.",
+      "source_file": "data/methods/smithing.json"
+    },
+    {
       "activity_id": "sootworks_blade_of_soot_forge",
       "activity_type": "skill_method",
       "skill": "smithing",
@@ -10762,6 +12714,27 @@
       "source_file": "data/methods/strength.json"
     },
     {
+      "activity_id": "veilwood_sanctum_elder_str",
+      "activity_type": "skill_method",
+      "skill": "strength",
+      "intensity": 2,
+      "base_xp_per_hour": 94000,
+      "base_gp_per_hour": 185000,
+      "region": "veilwood",
+      "level_required": 92,
+      "gating": {
+        "quests": [
+          "whisperwood_remembers"
+        ],
+        "items": [
+          "ghrazi_rapier"
+        ],
+        "areas": []
+      },
+      "notes": "Sanctum wardens aggressive AFK.",
+      "source_file": "data/methods/strength.json"
+    },
+    {
       "activity_id": "wilds_revenants_str",
       "activity_type": "skill_method",
       "skill": "strength",
@@ -10780,6 +12753,435 @@
       },
       "notes": "Revenants aggressive.",
       "source_file": "data/methods/strength.json"
+    },
+    {
+      "activity_id": "heartlands_man_pickpocket",
+      "activity_type": "skill_method",
+      "skill": "thieving",
+      "intensity": 2,
+      "base_xp_per_hour": 13900,
+      "base_gp_per_hour": 22000,
+      "region": "heartlands",
+      "level_required": 1,
+      "gating": {
+        "quests": [],
+        "items": [],
+        "areas": []
+      },
+      "notes": "Pickpocket men.",
+      "source_file": "data/methods/thieving.json"
+    },
+    {
+      "activity_id": "heartlands_baker_stall_afk",
+      "activity_type": "skill_method",
+      "skill": "thieving",
+      "intensity": 1,
+      "base_xp_per_hour": 9400,
+      "base_gp_per_hour": 18000,
+      "region": "heartlands",
+      "level_required": 5,
+      "gating": {
+        "quests": [],
+        "items": [],
+        "areas": []
+      },
+      "notes": "Bakery stall. Deep AFK.",
+      "source_file": "data/methods/thieving.json"
+    },
+    {
+      "activity_id": "saltbrine_silk_rush",
+      "activity_type": "skill_method",
+      "skill": "thieving",
+      "intensity": 4,
+      "base_xp_per_hour": 29200,
+      "base_gp_per_hour": 95000,
+      "region": "saltbrine",
+      "level_required": 15,
+      "gating": {
+        "quests": [],
+        "items": [],
+        "areas": []
+      },
+      "notes": "Silk stall rotation with guard dodging.",
+      "source_file": "data/methods/thieving.json"
+    },
+    {
+      "activity_id": "heartlands_farmer_pickpocket",
+      "activity_type": "skill_method",
+      "skill": "thieving",
+      "intensity": 3,
+      "base_xp_per_hour": 22500,
+      "base_gp_per_hour": 45000,
+      "region": "heartlands",
+      "level_required": 25,
+      "gating": {
+        "quests": [],
+        "items": [],
+        "areas": []
+      },
+      "notes": "Farmer pickpocket.",
+      "source_file": "data/methods/thieving.json"
+    },
+    {
+      "activity_id": "saltbrine_silkstall_afk",
+      "activity_type": "skill_method",
+      "skill": "thieving",
+      "intensity": 1,
+      "base_xp_per_hour": 12500,
+      "base_gp_per_hour": 45000,
+      "region": "saltbrine",
+      "level_required": 15,
+      "gating": {
+        "quests": [],
+        "items": [],
+        "areas": []
+      },
+      "notes": "Silk stall AFK.",
+      "source_file": "data/methods/thieving.json"
+    },
+    {
+      "activity_id": "heartlands_warrior_pickpocket",
+      "activity_type": "skill_method",
+      "skill": "thieving",
+      "intensity": 1,
+      "base_xp_per_hour": 17400,
+      "base_gp_per_hour": 42000,
+      "region": "heartlands",
+      "level_required": 25,
+      "gating": {
+        "quests": [],
+        "items": [],
+        "areas": []
+      },
+      "notes": "Warrior women. Low stun.",
+      "source_file": "data/methods/thieving.json"
+    },
+    {
+      "activity_id": "heartlands_warrior_speed",
+      "activity_type": "skill_method",
+      "skill": "thieving",
+      "intensity": 5,
+      "base_xp_per_hour": 50600,
+      "base_gp_per_hour": 95000,
+      "region": "heartlands",
+      "level_required": 32,
+      "gating": {
+        "quests": [],
+        "items": [],
+        "areas": []
+      },
+      "notes": "Warrior speed-thieve with gloves of silence.",
+      "source_file": "data/methods/thieving.json"
+    },
+    {
+      "activity_id": "heartlands_guard_pickpocket",
+      "activity_type": "skill_method",
+      "skill": "thieving",
+      "intensity": 2,
+      "base_xp_per_hour": 36200,
+      "base_gp_per_hour": 72000,
+      "region": "heartlands",
+      "level_required": 40,
+      "gating": {
+        "quests": [],
+        "items": [],
+        "areas": []
+      },
+      "notes": "Guard pickpocket.",
+      "source_file": "data/methods/thieving.json"
+    },
+    {
+      "activity_id": "glass_desert_fruit_stall",
+      "activity_type": "skill_method",
+      "skill": "thieving",
+      "intensity": 4,
+      "base_xp_per_hour": 48300,
+      "base_gp_per_hour": 68000,
+      "region": "glass_desert",
+      "level_required": 42,
+      "gating": {
+        "quests": [],
+        "items": [],
+        "areas": []
+      },
+      "notes": "Fruit stall rotation. Dodge guard rotations.",
+      "source_file": "data/methods/thieving.json"
+    },
+    {
+      "activity_id": "heartlands_knight_pickpocket",
+      "activity_type": "skill_method",
+      "skill": "thieving",
+      "intensity": 4,
+      "base_xp_per_hour": 64700,
+      "base_gp_per_hour": 145000,
+      "region": "heartlands",
+      "level_required": 55,
+      "gating": {
+        "quests": [],
+        "items": [
+          "gloves_of_silence"
+        ],
+        "areas": []
+      },
+      "notes": "Knight active pickpocket + double-loot gloves.",
+      "source_file": "data/methods/thieving.json"
+    },
+    {
+      "activity_id": "heartlands_knight_afk",
+      "activity_type": "skill_method",
+      "skill": "thieving",
+      "intensity": 1,
+      "base_xp_per_hour": 41200,
+      "base_gp_per_hour": 95000,
+      "region": "heartlands",
+      "level_required": 55,
+      "gating": {
+        "quests": [],
+        "items": [],
+        "areas": []
+      },
+      "notes": "Knight AFK.",
+      "source_file": "data/methods/thieving.json"
+    },
+    {
+      "activity_id": "inkweald_blackjack_bandit",
+      "activity_type": "skill_method",
+      "skill": "thieving",
+      "intensity": 5,
+      "base_xp_per_hour": 56400,
+      "base_gp_per_hour": 120000,
+      "region": "inkweald",
+      "level_required": 45,
+      "gating": {
+        "quests": [
+          "the_bandit_breach"
+        ],
+        "items": [
+          "blackjack"
+        ],
+        "areas": []
+      },
+      "notes": "Blackjack-knock + loot. Multi-step.",
+      "source_file": "data/methods/thieving.json"
+    },
+    {
+      "activity_id": "saltbrine_pirate_pickpocket_afk",
+      "activity_type": "skill_method",
+      "skill": "thieving",
+      "intensity": 1,
+      "base_xp_per_hour": 32000,
+      "base_gp_per_hour": 82000,
+      "region": "saltbrine",
+      "level_required": 50,
+      "gating": {
+        "quests": [],
+        "items": [],
+        "areas": []
+      },
+      "notes": "Pirate pickpocket AFK.",
+      "source_file": "data/methods/thieving.json"
+    },
+    {
+      "activity_id": "heartlands_paladin_pickpocket",
+      "activity_type": "skill_method",
+      "skill": "thieving",
+      "intensity": 3,
+      "base_xp_per_hour": 66100,
+      "base_gp_per_hour": 225000,
+      "region": "heartlands",
+      "level_required": 65,
+      "gating": {
+        "quests": [],
+        "items": [],
+        "areas": []
+      },
+      "notes": "Paladin pickpocket. Big coin drops.",
+      "source_file": "data/methods/thieving.json"
+    },
+    {
+      "activity_id": "heartlands_paladin_active",
+      "activity_type": "skill_method",
+      "skill": "thieving",
+      "intensity": 6,
+      "base_xp_per_hour": 103500,
+      "base_gp_per_hour": 385000,
+      "region": "heartlands",
+      "level_required": 65,
+      "gating": {
+        "quests": [],
+        "items": [
+          "rogue_armour"
+        ],
+        "areas": []
+      },
+      "notes": "Paladin active with rogue armour for double-loot.",
+      "source_file": "data/methods/thieving.json"
+    },
+    {
+      "activity_id": "heartlands_paladin_afk",
+      "activity_type": "skill_method",
+      "skill": "thieving",
+      "intensity": 1,
+      "base_xp_per_hour": 47000,
+      "base_gp_per_hour": 155000,
+      "region": "heartlands",
+      "level_required": 65,
+      "gating": {
+        "quests": [],
+        "items": [],
+        "areas": []
+      },
+      "notes": "Paladin AFK pickpocket.",
+      "source_file": "data/methods/thieving.json"
+    },
+    {
+      "activity_id": "veilwood_gnome_pickpocket",
+      "activity_type": "skill_method",
+      "skill": "thieving",
+      "intensity": 3,
+      "base_xp_per_hour": 88100,
+      "base_gp_per_hour": 185000,
+      "region": "veilwood",
+      "level_required": 75,
+      "gating": {
+        "quests": [],
+        "items": [],
+        "areas": []
+      },
+      "notes": "Gnome pickpocket.",
+      "source_file": "data/methods/thieving.json"
+    },
+    {
+      "activity_id": "veilwood_gnome_afk",
+      "activity_type": "skill_method",
+      "skill": "thieving",
+      "intensity": 1,
+      "base_xp_per_hour": 54700,
+      "base_gp_per_hour": 125000,
+      "region": "veilwood",
+      "level_required": 75,
+      "gating": {
+        "quests": [],
+        "items": [],
+        "areas": []
+      },
+      "notes": "Gnome AFK.",
+      "source_file": "data/methods/thieving.json"
+    },
+    {
+      "activity_id": "heartlands_hero_pickpocket",
+      "activity_type": "skill_method",
+      "skill": "thieving",
+      "intensity": 4,
+      "base_xp_per_hour": 107600,
+      "base_gp_per_hour": 420000,
+      "region": "heartlands",
+      "level_required": 81,
+      "gating": {
+        "quests": [],
+        "items": [
+          "rogue_armour"
+        ],
+        "areas": []
+      },
+      "notes": "Hero pickpocket.",
+      "source_file": "data/methods/thieving.json"
+    },
+    {
+      "activity_id": "heartlands_hero_afk",
+      "activity_type": "skill_method",
+      "skill": "thieving",
+      "intensity": 1,
+      "base_xp_per_hour": 69100,
+      "base_gp_per_hour": 285000,
+      "region": "heartlands",
+      "level_required": 81,
+      "gating": {
+        "quests": [],
+        "items": [],
+        "areas": []
+      },
+      "notes": "Hero AFK.",
+      "source_file": "data/methods/thieving.json"
+    },
+    {
+      "activity_id": "veilwood_elf_pickpocket",
+      "activity_type": "skill_method",
+      "skill": "thieving",
+      "intensity": 5,
+      "base_xp_per_hour": 155400,
+      "base_gp_per_hour": 620000,
+      "region": "veilwood",
+      "level_required": 91,
+      "gating": {
+        "quests": [
+          "song_of_the_mossborn"
+        ],
+        "items": [
+          "rogue_armour"
+        ],
+        "areas": []
+      },
+      "notes": "Elf pickpocket with rogue armour. Peak XP.",
+      "source_file": "data/methods/thieving.json"
+    },
+    {
+      "activity_id": "veilwood_elf_safespot_afk",
+      "activity_type": "skill_method",
+      "skill": "thieving",
+      "intensity": 1,
+      "base_xp_per_hour": 98500,
+      "base_gp_per_hour": 420000,
+      "region": "veilwood",
+      "level_required": 91,
+      "gating": {
+        "quests": [
+          "song_of_the_mossborn"
+        ],
+        "items": [],
+        "areas": []
+      },
+      "notes": "Elf AFK.",
+      "source_file": "data/methods/thieving.json"
+    },
+    {
+      "activity_id": "inkweald_bank_vault_heist",
+      "activity_type": "skill_method",
+      "skill": "thieving",
+      "intensity": 8,
+      "base_xp_per_hour": 98400,
+      "base_gp_per_hour": 685000,
+      "region": "inkweald",
+      "level_required": 50,
+      "gating": {
+        "quests": [
+          "the_heist_contract"
+        ],
+        "items": [
+          "lockpick",
+          "stethoscope"
+        ],
+        "areas": []
+      },
+      "notes": "Multi-stage vault heist. Max attention. Uncommon gem reward.",
+      "source_file": "data/methods/thieving.json"
+    },
+    {
+      "activity_id": "heartlands_master_farmer",
+      "activity_type": "skill_method",
+      "skill": "thieving",
+      "intensity": 1,
+      "base_xp_per_hour": 23300,
+      "base_gp_per_hour": 185000,
+      "region": "heartlands",
+      "level_required": 38,
+      "gating": {
+        "quests": [],
+        "items": [],
+        "areas": []
+      },
+      "notes": "Master farmer for rare seeds.",
+      "source_file": "data/methods/thieving.json"
     },
     {
       "activity_id": "heartlands_logwood_grove",

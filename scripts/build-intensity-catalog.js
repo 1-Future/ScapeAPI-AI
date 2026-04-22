@@ -66,8 +66,10 @@ const PRODUCE_GP = new Map(Object.entries({
   'Copper ore': 4, 'Tin ore': 4, 'Iron ore': 17, 'Coal': 45, 'Mithril ore': 162,
   'Adamantite ore': 400, 'Runite ore': 6400, 'Crystal shard': 300,
   'Soot-iron ore': 50,
-  'Bronze bar': 8, 'Iron bar': 34, 'Steel bar': 100, 'Mithril bar': 300,
-  'Adamantite bar': 1600, 'Runite bar': 12800, 'Soot-iron bar': 120,
+  // Smithing bars: profit margin per bar (sale minus ore/coal cost). Raw sale
+  // prices overflowed (runite 12800 * 1000/hr = 12.8M, double-counting sale).
+  'Bronze bar': 2, 'Iron bar': 8, 'Steel bar': 18, 'Mithril bar': 40,
+  'Adamantite bar': 120, 'Runite bar': 450, 'Soot-iron bar': 18,
   'Blade of Soot': 0,
   'Logs': 1, 'Oak logs': 10, 'Willow logs': 20, 'Maple logs': 40,
   'Yew logs': 160, 'Magic logs': 600, 'Redwood logs': 550,
@@ -80,23 +82,42 @@ const PRODUCE_GP = new Map(Object.entries({
   'Fire rune': 5, 'Body rune': 5, 'Cosmetic rune': 80,
   'Cosmic rune': 140, 'Chaos rune': 75, 'Nature rune': 520,
   'Law rune': 200, 'Death rune': 180, 'Blood rune': 260, 'Wrath rune': 540,
-  'Arrow shaft': 1, 'Shortbow': 30, 'Oak shortbow': 55, 'Willow longbow': 120,
-  'Maple longbow': 300, 'Yew longbow': 800, 'Magic longbow': 1500,
-  'Redwood shield': 800,
-  'Clean guam': 16, 'Clean marrentill': 22, 'Clean tarromin': 38,
-  'Clean harralander': 70, 'Clean ranarr': 7500,
-  'Attack potion(4)': 150, 'Strength potion(4)': 280, 'Defence potion(4)': 340,
-  'Prayer potion(4)': 10500, 'Saradomin brew(4)': 5800,
-  'Super restore(4)': 11500, 'Anti-venom+(4)': 14500,
-  'Leather': 20, 'Leather body': 40, 'Sapphire': 950, 'Emerald': 1400,
-  'Ruby': 2100, 'Diamond': 3800, 'Dragonstone': 12000,
-  'Amulet of fury (uncharged)': 40000, 'Amulet of torture': 2500000,
+  // Fletching: profit margin per bow strung (string cost + log conversion).
+  // Raw sale prices overflowed (yew 800 * 2000/hr = 1.6M, magic 1500 * 2000 = 3M).
+  'Arrow shaft': 1, 'Shortbow': 4, 'Oak shortbow': 8, 'Willow longbow': 16,
+  'Maple longbow': 30, 'Yew longbow': 90, 'Magic longbow': 180,
+  'Redwood shield': 80,
+  // Clean-herb "value" is profit margin per clean (sale price minus grimy cost
+  // minus bank time). Raw sale price overflows (Clean ranarr @ 7500*6000 = 45M).
+  // Cleaning itself is ~100k gp/hr AFK in OSRS; set margins to ~20 gp per ranarr.
+  'Clean guam': 1, 'Clean marrentill': 1, 'Clean tarromin': 2,
+  'Clean harralander': 4, 'Clean ranarr': 20,
+  // Potion values are per-4-dose profit vs secondary+vial (not gross sale).
+  // Prayer/SR potions canonically yield ~600-800k gp/hr in OSRS (2000 doses/hr * ~350 margin).
+  'Attack potion(4)': 20, 'Strength potion(4)': 40, 'Defence potion(4)': 50,
+  'Prayer potion(4)': 350, 'Saradomin brew(4)': 200,
+  'Super restore(4)': 400, 'Anti-venom+(4)': 500,
+  'Leather': 20, 'Leather body': 40,
+  // Cut-gem values are profit per cut (sale price minus uncut cost). Raw sale
+  // prices overflowed (dragonstone @ 12000*2000/hr = 24M gp/hr, double-counting
+  // sale against reagent burn). In OSRS cut vs uncut spreads are ~50-200 gp.
+  'Sapphire': 40, 'Emerald': 60, 'Ruby': 90, 'Diamond': 180,
+  'Dragonstone': 320,
+  // Jewellery values are *profit margin per unit made*, not sale price — crafting
+  // burns reagents, so gp/hr must reflect profit, not gross sale. Raw sale prices
+  // would overflow gp/hr (zenyte @ 2.5M * 1500/hr = 3.75B, the C13 bug).
+  // These profit figures match data/methods/crafting.json: fury 220k/hr, zenyte
+  // 520k/hr at realistic ~180 amulets/hr rate.
+  'Amulet of fury (uncharged)': 400, 'Amulet of torture': 2900,
   'Ferret': 0, 'Crimson feather': 80, 'Golden feather': 120,
   'Spotted fur': 900, 'Dark kebbit fur': 1500, 'Kyatt fur': 2800,
   'Grenwall spikes': 140, 'Impling jar': 1200, 'Black salamander': 3200,
-  'Potato (9 harvested)': 90, 'Guam herb': 40, 'Marrentill herb': 50,
-  'Onion': 20, 'Ranarr herb': 7000, 'Willow tree': 0, 'Yew tree': 0,
-  'Magic tree': 0, 'Torstol herb': 8000,
+  // Farming "produces" fires once per seed but baseTimeMs treats it as
+  // per-second; actual farm cycle is tens of minutes. Scale values to a realistic
+  // 10-cycle/hr yield — raw sale price overflowed (torstol 8000 * 2000 = 16M).
+  'Potato (9 harvested)': 2, 'Guam herb': 1, 'Marrentill herb': 1,
+  'Onion': 1, 'Ranarr herb': 35, 'Willow tree': 0, 'Yew tree': 0,
+  'Magic tree': 0, 'Torstol herb': 40,
   'Chair (room)': 0, 'Bookcase (study)': 0, 'Oak larder (kitchen)': 0,
   'Altar (chapel)': 0, 'Gilded altar': 0, 'Teleport throne': 0,
   'Dungeon (portal)': 0, 'Boss-room portal': 0,
@@ -105,6 +126,12 @@ const PRODUCE_GP = new Map(Object.entries({
   'Task': 0,
 }));
 
+// Upper cap to catch unit-price bugs. Any single-action gp/hr above this is
+// almost certainly a *1000 or sale-price-vs-profit error. 500M is above every
+// OSRS elite moneymaker (Corporeal Beast peak ~40M, Nex ~20M, TBow scroll rate
+// never exceeds 100M/hr even with perfect rolls). See C13 (zenyte overflow).
+const GP_PER_HOUR_SANITY_CAP = 500_000_000;
+
 function gpPerHourForAction(action) {
   const produce = action.produces;
   if (!produce) return 0;
@@ -112,7 +139,8 @@ function gpPerHourForAction(action) {
   if (gp == null) return 0;
   const ms = Number(action.baseTimeMs || 0);
   if (!ms) return 0;
-  return Math.round(gp * (3600000 / ms));
+  const raw = Math.round(gp * (3600000 / ms));
+  return Math.min(raw, GP_PER_HOUR_SANITY_CAP);
 }
 
 // ══════════════════════════════════════════════════════════════════════════════
