@@ -1,5 +1,90 @@
 # Changelog
 
+## v0.8-play-api-tier1 — 2026-04-22
+
+Tier-1 content depth + balance diagnostic. Landed via a 5-agent parallel burn (methods + quests + progression DAG + intensity catalog + sim).
+
+### Content density
+
+- **525 methods** across all 23 skills at `C:\Users\username\ScapeAI\data\methods\*.json` —
+  every 10-level bracket (23 skills × 10 brackets = 230 slots) has 2+ methods at different
+  intensities, with at least one intensity 1-2 AFK baseline (Marstead Pillar 1 compliance).
+- **30 new Marstead quests** in 5 coherent chains at
+  `C:\Users\username\ScapeAI\src\content\aelgard\quests-v0.8-chain-{1..5}.js`. Each chain is
+  6 quests escalating novice → grandmaster; each ends in a unique non-interchangeable unlock
+  (Aureth spellbook / Oath-Sworn smithing tier / Stormcrown tide-teleport + tide-walking /
+  Moonsong 7-buff system / Pilgrim's Draught pre-cataclysm reagent). Cross-chain dependencies
+  create Metroidvania bleed. Total repo quest count: **193** (163 pre + 30 new).
+
+### Structural analysis
+
+- **Progression DAG** at `C:\Users\username\ScapeAI\data\progression-dag.json` — 2,698 nodes,
+  4,945 edges, 0 cycles, 210 broken refs (content gaps, not breaks), 336 breakpoints
+  (nodes unlocking 5+ downstream), 90.5% connected component. Health verdict: connected
+  Metroidvania. Region-gate areas dominate the breakpoint list (Wilds unlocks 91, Sootworks 88).
+- **Intensity catalog** at `C:\Users\username\ScapeAI\data\intensity-catalog.json` — 2,117
+  activities tagged with intensity 1-10, xp/hr, gp/hr, region. Full band coverage (every
+  intensity 1-10 has 5+ activities). 506 misery zones flagged; RC 1-77 is the systemic
+  offender (OSRS-parity time tax).
+
+### Balance diagnostic (new subsystem)
+
+- **Design doc** at `C:\Users\username\ScapeAI\docs\balance-diagnostic.md` — 4-account probe
+  (low=200 / medium=500 / high=1000 / unlimited=∞ attention bar caps), identical decision
+  logic, per-action drain, session ends at bar=0 or 8hr cap.
+- **Sim engine** at `C:\Users\username\ScapeAI\src\sim\` — 7 files, 1,374 LOC:
+  attention-bar, event-log, state, goal-planner, hyperspeed-runner, CLI, stubs.
+- **HTML renderer** at `C:\Users\username\ScapeAI\src\sim\render-html.js` — 460 lines,
+  single-file output, OSRS parchment palette, 4-column headline table + progression SVG +
+  activity mix bars + ratio callouts + gap callouts.
+- **43 new tests** (total suite now **153 tests**, was 110).
+
+### First 30-day diagnostic
+
+Output: `C:\Users\username\ScapeAI\reports\diagnostic-2026-04-22T15-41-16-794Z.html`
+
+Ran 30 simulated days × 4 accounts against full v0.8 data (2,117 activities, 2,698 DAG nodes):
+
+| | low | medium | high | unlimited |
+|---|---|---|---|---|
+| Total XP | 405k | 1.02M | 2.05M | 17.4M |
+| Total GP | 181k | 457k | 918k | 6.48M |
+| Highest skill | 63 | 73 | 80 | 99 |
+| Unlocks reached | 581 | 587 | 589 | 618 |
+| Unique actions | 6 | 6 | 6 | 15 |
+| Quests completed | 0 | 0 | 0 | 0 |
+
+**Ratios (all out of target bands):**
+- `low / unlimited = 0.023 xp, 0.028 gp` — target 0.2-0.4. Casuals ~10× underserved.
+- `medium / unlimited = 0.059 xp, 0.071 gp` — target ~0.5.
+- `high / unlimited = 0.117 xp, 0.142 gp` — target 0.7-0.9.
+
+**Signals for v0.9:**
+1. Goal planner doesn't pursue quests effectively (0 quests completed despite 193 available).
+2. Repetition trap — capped accounts funnel into 6 of 2,117 activities. Need novelty/exploration term in scoring.
+3. Content under-serves mid-intensity constrained play. Ratios suggest top methods are backloaded into very high-intensity endgame.
+
+### Follow-up tasks queued
+
+- Task 16: completion-time calculator (hours-to-complete-all per account, 8,760hr target)
+- Task 17: travel costs annotation (bank distance, teleport routes, shortcut unlocks)
+- Task 18: tradeoff economics (gp_cost, +XP-GP vs +GP-XP classification)
+- Task 19: niche power dimension (damage multipliers × class tags)
+- Task 20 (new): fix quest pursuit in goal planner
+- Task 21 (new): action diversity / novelty term to break repetition trap
+
+### Not in v0.8 (still deferred)
+
+- Real pixel art / sprites
+- Real audio files
+- 2D renderer / billboard sprite loader
+- Production deployment (localhost only)
+- PvP / Wilderness / spatial minigames
+- Build API (bot-callable content CRUD)
+- Build GUI polish
+
+---
+
 ## v0.7-content-foundation — 2026-04-22
 
 First tagged milestone in Scape's four-quadrant build path (bot/human × play/build, APIs first).
