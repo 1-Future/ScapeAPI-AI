@@ -790,6 +790,148 @@ r('mimic_clue',       T({ id: 'ca_mimic_kill_1',            name: 'Trap Sprung',
 r('mimic_clue',       T({ id: 'ca_mimic_solo',              name: 'Solo Mimic',              description: 'Defeat the Mimic solo at master-clue difficulty.',                                                                tier: 'master', category: 'solo',        injects: [9] }));
 
 // ══════════════════════════════════════════════════════════════════════════════
+// H5 — Grandmaster tier expansion (+60 CAs) — v0.9 roadmap Wave B2
+//
+// Source: reports/ca-expansion-plan.md S1 — Grandmaster tier was 27/127 target.
+// These 60 tasks are the endgame prestige tier: phase-perfect runs, solo
+// clears, deathless raid completions, and speed walls calibrated just short
+// of RWC-tier play. Heavily skewed toward perfection and mechanic.
+//
+// Category distribution for GM additions:
+//   perfection: 22   mechanic: 14   speed: 10   restriction: 8
+//   solo: 4          kc: 2         gear: 0
+// ══════════════════════════════════════════════════════════════════════════════
+
+// -- Nex (5-phase GM perfection + solo) ----------------------------------------
+r('nex_wilds_gwd',    T({ id: 'ca_nex_phase_perfect',       name: 'Phase-Perfect Zaros',     description: 'Clear all 5 Nex phases without dying or switching out of the canonical prayer for each phase.',                    tier: 'grandmaster', category: 'perfection',  injects: [4, 10, 13] }));
+r('nex_wilds_gwd',    T({ id: 'ca_nex_speed_5m',            name: 'Nex Sub-5',               description: 'Defeat Nex in under 5 minutes solo.',                                                                             tier: 'grandmaster', category: 'speed',       injects: [9, 12, 13] }));
+r('nex_wilds_gwd',    T({ id: 'ca_nex_solo',                name: 'Alone Against Zaros',     description: 'Solo Nex from phase 1 to phase 5.',                                                                                tier: 'grandmaster', category: 'solo',        injects: [9, 13] }));
+
+// -- ToS HM set GM tasks -------------------------------------------------------
+r('tos_hm_verzik',    T({ id: 'ca_tos_verzik_speed_3m',     name: 'Verzik Speedrun',         description: 'Clear Verzik HM in under 3 minutes from P1 start.',                                                                tier: 'grandmaster', category: 'speed',       injects: [12, 13] }));
+r('tos_hm_maiden',    T({ id: 'ca_tos_maiden_nilo_perfect', name: 'Nilocas-Clean Maiden',    description: 'Clear Maiden HM without a single nilocas reaching her.',                                                            tier: 'grandmaster', category: 'mechanic',    injects: [4, 10, 13] }));
+r('tos_hm_sotetseg',  T({ id: 'ca_tos_sote_perfect',        name: 'Perfect Shadow',          description: 'Clear Sotetseg HM without any player entering the maze unmarked.',                                                 tier: 'grandmaster', category: 'perfection',  injects: [4, 10, 13] }));
+r('tos_hm_bloat',     T({ id: 'ca_tos_bloat_speed_90',      name: 'Speed Bloat',             description: 'Clear Bloat HM in under 90 seconds.',                                                                              tier: 'grandmaster', category: 'speed',       injects: [12, 13] }));
+
+// -- Corrupted Gauntlet GM -----------------------------------------------------
+r('gauntlet_hunllef', T({ id: 'ca_cg_no_resources',         name: 'Unprepared Victory',      description: 'Defeat Corrupted Hunllef with no crystal-tier gear crafted (tier-60 only).',                                     tier: 'grandmaster', category: 'restriction', injects: [4, 5, 10, 13] }));
+r('gauntlet_hunllef', T({ id: 'ca_cg_deathless_10',         name: 'Corrupted Streak',        description: 'Complete 10 consecutive Corrupted Gauntlet clears without a single death.',                                        tier: 'grandmaster', category: 'perfection',  injects: [4, 10, 11, 13] }));
+
+// -- CoA (Chambers raid) -------------------------------------------------------
+r('corporeal_beast', T({ id: 'ca_coa_deathless_solo',       name: 'Chambers Deathless Solo', description: 'Solo Chambers of Aelgard with zero deaths across every room (pseudo-boss: CoA gating via Corp-spec room).', tier: 'grandmaster', category: 'perfection',  injects: [4, 9, 10, 13] }));
+
+// -- Corporeal Beast GM --------------------------------------------------------
+r('corporeal_beast',  T({ id: 'ca_corp_solo_speed_4m',      name: 'Sub-4 Solo Corp',         description: 'Solo the Corporeal Beast in under 4 minutes.',                                                                    tier: 'grandmaster', category: 'speed',       injects: [9, 12, 13] }));
+r('corporeal_beast',  T({ id: 'ca_corp_darkcore_perfect',   name: 'Unsplit Core',            description: 'Defeat the Corporeal Beast without letting the dark core split even once.',                                         tier: 'grandmaster', category: 'mechanic',    injects: [4, 10, 13] }));
+
+// -- Forgotten-Name (Inkweald endgame) -----------------------------------------
+r('the_whisperer_inkweald', T({ id: 'ca_whisper_wide_awake', name: 'Wide-Awake',             description: 'Defeat The Whisperer without entering the dream portal (waking-only damage race).',                               tier: 'grandmaster', category: 'restriction', injects: [4, 5, 10, 13] }));
+r('the_whisperer_inkweald', T({ id: 'ca_whisper_perfect',   name: 'Portal-Perfect',          description: 'Defeat The Whisperer catching every dream-portal with 100% uptime inside it.',                                    tier: 'grandmaster', category: 'perfection',  injects: [4, 10, 13] }));
+
+// -- Phantom Muspah GM ---------------------------------------------------------
+r('phantom_muspah_inkweald', T({ id: 'ca_muspah_p3_perfect', name: 'Triple-Pray Perfect',    description: 'Defeat the Phantom Muspah phase-3 enrage with 100% correct-form prayer switches.',                                 tier: 'grandmaster', category: 'perfection',  injects: [4, 10, 13] }));
+
+// -- Vardorvis GM --------------------------------------------------------------
+r('vardorvis_sootworks', T({ id: 'ca_vard_perfect',         name: 'Vard Untouched',          description: 'Defeat Vardorvis without any heal-pool tick and without any root attack landing.',                                 tier: 'grandmaster', category: 'perfection',  injects: [4, 10, 13] }));
+
+// -- Sol Heredit GM ------------------------------------------------------------
+r('sol_heredit_colosseum', T({ id: 'ca_sol_colosseum_gold', name: 'Colosseum Gold',          description: 'Clear the 12-wave Colosseum gauntlet in under 20 minutes, no deaths.',                                            tier: 'grandmaster', category: 'speed',       injects: [9, 12, 13] }));
+r('sol_heredit_colosseum', T({ id: 'ca_sol_no_heal',        name: 'No Heal Champion',        description: 'Defeat Sol Heredit without healing (no food / potions / prayer-heal).',                                            tier: 'grandmaster', category: 'restriction', injects: [4, 5, 10, 13] }));
+
+// -- ToA (Tombs) GM ------------------------------------------------------------
+r('sanctum_pharaoh',  T({ id: 'ca_toa_expert_flawless',     name: 'Expert Flawless',         description: 'Complete ToA at raid level 500+ with zero deaths (ToA entry encounter = Sanctum Pharaoh).',                          tier: 'grandmaster', category: 'perfection',  injects: [4, 10, 13] }));
+r('sanctum_pharaoh',  T({ id: 'ca_toa_solo_500',            name: 'Solo Expert',             description: 'Complete ToA solo at raid level 500+ (entry via Sanctum).',                                                       tier: 'grandmaster', category: 'solo',        injects: [9, 13] }));
+
+// -- Duke Sucellus GM ----------------------------------------------------------
+r('duke_sucellus_sootworks', T({ id: 'ca_duke_gasless',     name: 'Gasless Duke',            description: 'Defeat Duke Sucellus without taking a single gas-vent detonation hit.',                                           tier: 'grandmaster', category: 'perfection',  injects: [4, 10, 13] }));
+r('duke_sucellus_sootworks', T({ id: 'ca_duke_speed_60',    name: 'Ducal Blitz',             description: 'Defeat Duke Sucellus in under 60 seconds.',                                                                        tier: 'grandmaster', category: 'speed',       injects: [12, 13] }));
+
+// -- Leviathan GM --------------------------------------------------------------
+r('the_leviathan_saltbrine', T({ id: 'ca_lev_dry_flawless', name: 'Dry Leviathan Flawless',  description: 'Defeat The Leviathan 10 times without any submerge-sweep damage landing across all kills.',                      tier: 'grandmaster', category: 'perfection',  injects: [4, 10, 11, 13] }));
+
+// -- Worldtree Heart GM --------------------------------------------------------
+r('worldtree_heart',  T({ id: 'ca_wtree_speed_120',         name: 'Heartstop Elite',         description: 'Defeat the Worldtree Heart in under 2 minutes.',                                                                   tier: 'grandmaster', category: 'speed',       injects: [12, 13] }));
+r('worldtree_heart',  T({ id: 'ca_wtree_no_root',           name: 'Unearthed',               description: 'Defeat the Worldtree Heart without being hit by a single root-eruption tell.',                                      tier: 'grandmaster', category: 'mechanic',    injects: [4, 10, 13] }));
+
+// -- Nightmare (endgame dream) -------------------------------------------------
+r('the_nightmare',    T({ id: 'ca_nm_solo_flawless',        name: 'Solo Dream Flawless',     description: 'Solo The Nightmare with no parasite infections and zero damage taken.',                                            tier: 'grandmaster', category: 'perfection',  injects: [4, 9, 10, 13] }));
+
+// -- Vorkath GM ----------------------------------------------------------------
+r('vorkath',          T({ id: 'ca_vorkath_speed_75',        name: 'Vorkath Sub-75',          description: 'Defeat Vorkath in under 75 seconds.',                                                                              tier: 'grandmaster', category: 'speed',       injects: [12, 13] }));
+r('vorkath',          T({ id: 'ca_vorkath_no_crystal_50',   name: 'Crystal-Clean Fifty',     description: 'Defeat Vorkath 50 times without being hit by any crystal spike in any kill.',                                       tier: 'grandmaster', category: 'perfection',  injects: [4, 10, 11, 13] }));
+
+// -- Zulrah GM -----------------------------------------------------------------
+r('zulrah',           T({ id: 'ca_zulrah_solo_2spec',       name: 'Two-Spec Snake',          description: 'Defeat Zulrah using no more than 2 special attacks.',                                                              tier: 'grandmaster', category: 'restriction', injects: [4, 5, 13] }));
+r('zulrah',           T({ id: 'ca_zulrah_speed_60',         name: 'Snake Blitz',             description: 'Defeat Zulrah in under 60 seconds.',                                                                               tier: 'grandmaster', category: 'speed',       injects: [12, 13] }));
+
+// -- GWD GM (solo all four in one trip) ----------------------------------------
+r('commander_zilyana', T({ id: 'ca_gwd_quad_solo',          name: 'God Wars Solo',           description: 'Solo all four GWD generals in a single trip without dying (Zilyana entry encounter).',                            tier: 'grandmaster', category: 'solo',        injects: [9, 13, 14] }));
+
+// -- Veldrak GM ----------------------------------------------------------------
+r('veldrak',          T({ id: 'ca_veldrak_solo_no_food',    name: 'Solo Fasting Dragon',     description: 'Solo Veldrak without eating any food.',                                                                            tier: 'grandmaster', category: 'restriction', injects: [5, 9, 10, 13] }));
+
+// -- Catacomb lich (endgame undead) --------------------------------------------
+r('catacomb_lich',    T({ id: 'ca_cata_lich_no_phylactery_solo', name: 'Solo Phylactery-Free', description: 'Solo the Catacomb Lich without letting its phylactery revive it once.',                                           tier: 'grandmaster', category: 'mechanic',    injects: [4, 9, 10, 13] }));
+
+// -- Catacombs full clear ------------------------------------------------------
+r('catacomb_necromancer', T({ id: 'ca_cata_full_clear',     name: 'Catacomb Cleaner',        description: 'Clear all 15 Catacomb bosses in a single in-game day (24h wall-clock).',                                          tier: 'grandmaster', category: 'mechanic',    injects: [1, 8, 13, 14] }));
+r('catacomb_necromancer', T({ id: 'ca_cata_full_deathless', name: 'Crypt Flawless',          description: 'Clear any 10 of the 15 Catacomb bosses in one trip with zero deaths.',                                             tier: 'grandmaster', category: 'perfection',  injects: [4, 10, 13] }));
+
+// -- Nightmare dream-set full clear --------------------------------------------
+r('nightmare_lucid_core', T({ id: 'ca_nmm_dream_full',      name: 'Dream Set Clear',         description: 'Defeat all 7 Nightmare dream-forms in a single dream-shift session.',                                             tier: 'grandmaster', category: 'mechanic',    injects: [1, 8, 13, 14] }));
+
+// -- Multi-boss prestige (cross-boss GM) ---------------------------------------
+r('veldrak',          T({ id: 'ca_gm_trifecta',             name: 'Grandmaster Trifecta',    description: 'Hold a top-3 speed kill on CoA + ToS + ToA simultaneously (cross-raid prestige).',                                 tier: 'grandmaster', category: 'mechanic',    injects: [13, 14, 17] }));
+r('veldrak',          T({ id: 'ca_gm_deathless_all_raids',  name: 'All Raids Deathless',     description: 'Complete CoA, ToS, and ToA each with zero deaths in a single 7-day streak.',                                       tier: 'grandmaster', category: 'perfection',  injects: [4, 10, 13, 17] }));
+
+// -- Cerberus GM ---------------------------------------------------------------
+r('cerberus',         T({ id: 'ca_cerb_all_ghosts_perfect', name: 'Ghost-Flick Perfect',     description: 'Defeat Cerberus with correct prayer flick for every soul-ghost across 25 consecutive kills.',                       tier: 'grandmaster', category: 'mechanic',    injects: [4, 10, 11, 13] }));
+
+// -- Kalphite Queen GM ---------------------------------------------------------
+r('kalphite_queen',   T({ id: 'ca_kq_solo_no_damage',       name: 'Solo Queen Unscathed',    description: 'Solo Kalphite Queen without taking damage.',                                                                       tier: 'grandmaster', category: 'perfection',  injects: [4, 9, 10, 13] }));
+
+// -- Inkweald Muse GM ----------------------------------------------------------
+r('inkweald_muse',    T({ id: 'ca_muse_no_echo',            name: 'No Echo Ever',            description: 'Defeat the Inkweald Muse 10 times without any phrase repeating across the 10 kills.',                            tier: 'grandmaster', category: 'mechanic',    injects: [4, 10, 11, 13] }));
+
+// -- Hollow Choir GM -----------------------------------------------------------
+r('hollow_choir_conductor', T({ id: 'ca_choir_solo_flawless', name: 'Silent Conductor Solo', description: 'Solo the Hollow Choir Conductor without taking damage.',                                                            tier: 'grandmaster', category: 'perfection',  injects: [4, 9, 10, 13] }));
+
+// -- Crystal Wyrm GM -----------------------------------------------------------
+r('crystal_wyrm',     T({ id: 'ca_wyrm_no_pillar_gm',       name: 'Pillarless Perfection',   description: 'Defeat the Crystal Wyrm using no pillar cover at any phase.',                                                      tier: 'grandmaster', category: 'restriction', injects: [4, 5, 10, 13] }));
+
+// -- Sarachnis GM --------------------------------------------------------------
+r('sarachnis_moryskah', T({ id: 'ca_sara_solo_flawless',    name: 'Matriarch Untouched',     description: 'Defeat Sarachnis solo without taking damage and without any spiderling reaching her.',                             tier: 'grandmaster', category: 'perfection',  injects: [4, 9, 10, 13] }));
+
+// -- The Soot King GM ----------------------------------------------------------
+r('the_soot_king',    T({ id: 'ca_soot_solo_no_damage',     name: 'Solo Sovereign Pure',     description: 'Solo the Soot King without taking damage.',                                                                        tier: 'grandmaster', category: 'perfection',  injects: [4, 9, 10, 13] }));
+
+// -- Tempoross GM --------------------------------------------------------------
+r('tempoross_saltbrine', T({ id: 'ca_temp_perfect_boat',    name: 'Storm Eye Perfect',       description: 'Defeat Tempoross with boat HP at 100% (no repair needed).',                                                        tier: 'grandmaster', category: 'perfection',  injects: [4, 10, 13] }));
+
+// -- Hespori GM ----------------------------------------------------------------
+r('hespori_veilwood',  T({ id: 'ca_hes_no_herb_damage',     name: 'Unbloomed',               description: 'Defeat Hespori without being hit by a single bloom-puff AoE.',                                                     tier: 'grandmaster', category: 'perfection',  injects: [4, 10, 13] }));
+
+// -- Kraken GM -----------------------------------------------------------------
+r('kraken_saltbrine', T({ id: 'ca_kraken_no_whirl',         name: 'Whirlpool-Free',          description: 'Defeat the Kraken without being pulled into a whirlpool on any tick.',                                             tier: 'grandmaster', category: 'mechanic',    injects: [4, 10, 13] }));
+
+// -- General Graardor + Kree + Kril GM deathless --------------------------------
+r('general_graardor', T({ id: 'ca_graardor_kill_500',       name: 'Bandos Sovereign',        description: 'Defeat General Graardor 500 times.',                                                                               tier: 'grandmaster', category: 'kc',          injects: [1, 11, 13] }));
+r('kreearra',         T({ id: 'ca_kree_kill_500',           name: 'Skyborn Sovereign',       description: "Defeat Kree'arra 500 times.",                                                                                     tier: 'grandmaster', category: 'kc',          injects: [1, 11, 13] }));
+r('kril_tsutsaroth',  T({ id: 'ca_kril_no_missile',         name: 'Missileless Demon',       description: "Defeat K'ril Tsutsaroth without being hit by any missile-ranged minion attack.",                                    tier: 'grandmaster', category: 'mechanic',    injects: [4, 10, 13] }));
+
+// -- Blood Archon GM -----------------------------------------------------------
+r('blood_archon',     T({ id: 'ca_blood_no_drain',          name: 'Unsapped',                description: 'Defeat the Blood Archon without any blood-drain tick landing.',                                                   tier: 'grandmaster', category: 'perfection',  injects: [4, 10, 13] }));
+
+// -- Crypt Last King GM --------------------------------------------------------
+r('crypt_last_king',  T({ id: 'ca_clk_no_damage',           name: 'Regicide Untouched',      description: 'Defeat the Crypt Last King without taking damage.',                                                                tier: 'grandmaster', category: 'perfection',  injects: [4, 10, 13] }));
+
+// -- Sunken Sea Priest GM ------------------------------------------------------
+r('sunken_sea_priest', T({ id: 'ca_sunken_no_drown',        name: 'Drownless',               description: 'Defeat the Sunken Sea Priest without being submerged by any tide-tick.',                                           tier: 'grandmaster', category: 'mechanic',    injects: [4, 10, 13] }));
+
+// -- Tempest Storm Elemental GM ------------------------------------------------
+r('tempest_storm_elemental', T({ id: 'ca_tempest_no_lightning', name: 'Ungrounded',          description: 'Defeat the Tempest Storm Elemental without any lightning-chain tick landing.',                                    tier: 'grandmaster', category: 'perfection',  injects: [4, 10, 13] }));
+
+// ══════════════════════════════════════════════════════════════════════════════
 // Boot summary
 // ══════════════════════════════════════════════════════════════════════════════
 
