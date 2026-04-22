@@ -10,8 +10,16 @@
 //   - area      current Aelgard region (free travel between adjacent, no cost)
 //   - unlocks   Set of progression-DAG node ids reached
 //
-// The state object is mutated in place by `apply()`. Use `snapshot()` to get
-// a plain JSON-safe copy for event-log state_snapshot fields.
+// v0.9 Wave C adds:
+//   - touchHistory  ring buffer of last N action_ids
+//   - touchCounts   action_id → occurrences in the current window
+//
+// Touch tracking feeds the planner's novelty/diversity bonus (C9): an action
+// scores higher the less it has been chosen in the last window. Window size
+// is passed in at construction (default 100, matches the roadmap).
+//
+// The state object is mutated in place by `apply()` and `recordTouch()`. Use
+// `snapshot()` to get a plain JSON-safe copy for event-log state_snapshot.
 // ══════════════════════════════════════════════════════════════════════════════
 
 'use strict';
@@ -37,8 +45,10 @@ function levelForXp(xp) {
   return 1;
 }
 
+const DEFAULT_TOUCH_WINDOW = 100;
+
 class BotState {
-  constructor(archetype) {
+  constructor(archetype, opts = {}) {
     this.archetype = archetype;
     this.skills = Object.create(null);
     this.inventory = Object.create(null);
@@ -49,6 +59,34 @@ class BotState {
     this.day_ms = 0;
     this.sim_day = 0;
     this.tick = 0;
+
+    // ─── Novelty tracking (C9) ────────────────────────────────────────────
+    // Ring buffer + counter map so we can ask "how many times was action X
+    // chosen in the last N decisions?" in O(1).
+    this.touchWindow  = opts.touchWindow || DEFAULT_TOUCH_WINDOW;
+    this.touchHistory = [];                          // ring buffer of action_ids
+    this.touchCounts  = Object.create(null);         // action_id → count in window
+  }
+
+  /**
+   * Record that `action_id` was just chosen. Evicts the oldest entry if the
+   * window is full so `touchCounts` stays accurate for the last N picks.
+   */
+  recordTouch(action_id) {
+    if (action_id == null) return;
+    this.touchHistory.push(action_id);
+    this.touchCounts[action_id] = (this.touchCounts[action_id] || 0) + 1;
+    while (this.touchHistory.length > this.touchWindow) {
+      const evicted = this.touchHistory.shift();
+      if (evicted == null) continue;
+      this.touchCounts[evicted] -= 1;
+      if (this.touchCounts[evicted] <= 0) delete this.touchCounts[evicted];
+    }
+  }
+
+  /** How many times was `action_id` chosen in the last N picks? */
+  touchCount(action_id) {
+    return this.touchCounts[action_id] || 0;
   }
 
   /**
@@ -61,6 +99,11 @@ class BotState {
 
   /**
    * Does the bot satisfy the `requires` block of an activity?
+   *
+   * `requires` shape accepts both the catalog shape
+   *   { level: {...}, items: [...], quest: 'id', area: '...' }
+   * and the multi-quest shape used by synthesised quest actions
+   *   { quests: ['id1', 'id2'], level: {...} }
    */
   satisfies(requires) {
     if (!requires) return true;
@@ -77,6 +120,11 @@ class BotState {
     }
     if (requires.quest) {
       if (!this.quests.has(requires.quest)) return false;
+    }
+    if (Array.isArray(requires.quests)) {
+      for (const q of requires.quests) {
+        if (!this.quests.has(q)) return false;
+      }
     }
     if (requires.area) {
       // Area check is soft — bots auto-travel in the stub. Ignore for now.
@@ -118,6 +166,12 @@ class BotState {
 
     // Quest flip
     if (out.quest) this.quests.add(out.quest);
+
+    // DAG unlocks credit — used by synthesised quest actions so their
+    // downstream rewards register immediately.
+    if (Array.isArray(out.unlocks)) {
+      for (const id of out.unlocks) this.unlocks.add(id);
+    }
 
     // Area update if the action has a region property
     if (activity.region) this.area = activity.region;
@@ -165,4 +219,4 @@ class BotState {
   }
 }
 
-module.exports = { BotState, XP_TABLE, levelForXp, buildXpTable };
+module.exports = { BotState, XP_TABLE, levelForXp, buildXpTable, DEFAULT_TOUCH_WINDOW };
