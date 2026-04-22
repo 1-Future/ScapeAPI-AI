@@ -287,7 +287,7 @@ quests.define('poison_trail', {
 quests.define('barrows_brothers', {
   name: 'The Barrows Brothers',
   description: 'Six ancient warriors are buried beneath the Moryskah mounds. Defeat their spirits to loot their crypts. This is a repeatable miniquest.',
-  difficulty: 'Experienced', questPoints: 0,
+  difficulty: 'Experienced', questPoints: 2,
   requirements: { skills: { attack: 50, magic: 50, prayer: 45 }, quests: ['blood_rites'] },
   steps: [
     { text: 'Travel to the Barrows mounds in southern Moryskah.' },
@@ -298,11 +298,15 @@ quests.define('barrows_brothers', {
     { text: 'Loot the chest. Contents vary based on brothers killed.' },
   ],
   rewards: {
-    xp: {},
-    items: [],
-    questPoints: 0,
+    xp: { attack: 20000, magic: 15000, prayer: 12000, defence: 8000, strength: 8000 },
+    items: [
+      { id: 'dharoks_greataxe', name: "Dharok's greataxe", count: 1 },
+      { id: 'ahrims_staff', name: "Ahrim's staff", count: 1 },
+      { id: 'karils_crossbow', name: "Karil's crossbow", count: 1 },
+    ],
+    questPoints: 2,
     // Drops: Barrows equipment sets (Dharok, Guthan, Verac, Ahrim, Karil, Torag)
-    unlocks: ["training_method:barrows_farming"],
+    unlocks: ["training_method:barrows_farming", "area:moryskah_barrows", "minigame:barrows", "item_unlock:barrows_chest_access"],
   },
 });
 
@@ -350,7 +354,7 @@ quests.define('herb_run_mastery', {
 quests.define('fight_caves', {
   name: 'The Fight Caves',
   description: 'A legendary combat challenge in the Glass Desert. 63 waves of increasingly difficult monsters, ending with a final boss. Completing this earns the Fire Cape — the most prestigious item in Aelgard.',
-  difficulty: 'Grandmaster', questPoints: 0,
+  difficulty: 'Grandmaster', questPoints: 1,
   requirements: { skills: { attack: 70, ranged: 70, prayer: 55, hitpoints: 70 } },
   steps: [
     { text: 'Enter the Fight Caves in the Glass Desert.' },
@@ -359,11 +363,14 @@ quests.define('fight_caves', {
     { text: 'Claim the Fire Cape from the reward chest.' },
   ],
   rewards: {
-    xp: {},
-    items: [],
-    questPoints: 0,
+    xp: { ranged: 45000, prayer: 20000, hitpoints: 20000, attack: 12000 },
+    items: [
+      { id: 'fire_cape', name: 'Fire cape', count: 1 },
+      { id: 101, name: 'Coins', count: 50000 },
+    ],
+    questPoints: 1,
     // Drops: Fire Cape (BIS melee cape)
-    unlocks: ["item_unlock:fire_cape"],
+    unlocks: ["item_unlock:fire_cape", "area:glass_desert_fight_caves", "boss:tztok_jad", "achievement:fire_cape_first_claim"],
     chain_next: 'infernal_challenge',
   },
 });
@@ -371,7 +378,7 @@ quests.define('fight_caves', {
 quests.define('infernal_challenge', {
   name: 'The Infernal Challenge',
   description: 'The ultimate test. 69 waves. Harder than anything else in Aelgard. The Infernal Cape awaits — if you survive.',
-  difficulty: 'Grandmaster', questPoints: 0,
+  difficulty: 'Grandmaster', questPoints: 2,
   requirements: { skills: { attack: 90, ranged: 90, magic: 85, prayer: 75, hitpoints: 90 }, quests: ['fight_caves'] },
   steps: [
     { text: 'Enter the Infernal Challenge in the deepest Glass Desert cave.' },
@@ -380,11 +387,14 @@ quests.define('infernal_challenge', {
     { text: 'Claim the Infernal Cape.' },
   ],
   rewards: {
-    xp: {},
-    items: [],
-    questPoints: 0,
+    xp: { ranged: 75000, magic: 40000, prayer: 30000, hitpoints: 30000, attack: 20000 },
+    items: [
+      { id: 'infernal_cape', name: 'Infernal cape', count: 1 },
+      { id: 101, name: 'Coins', count: 200000 },
+    ],
+    questPoints: 2,
     // Drops: Infernal Cape (BIS cape in the game)
-    unlocks: ["item_unlock:infernal_cape"],
+    unlocks: ["item_unlock:infernal_cape", "area:glass_desert_inferno", "boss:tzkal_zuk", "achievement:infernal_cape_first_claim", "raid:colosseum"],
   },
 });
 

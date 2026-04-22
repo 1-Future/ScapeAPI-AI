@@ -180,10 +180,14 @@ quests.define('the_werewolfs_dilemma', {
   rewards: {
     // Cure path: Prayer + Herblore XP, access to human NPC shopkeeper in werewolf territory
     // Empower path: Strength + Attack XP, access to werewolf ally who fights alongside you
-    xp: { herblore: 2000, prayer: 1500, magic: 1000 },
-    items: [{ id: 101, name: 'Coins', count: 3000 }],
+    xp: { herblore: 18000, prayer: 15000, magic: 12000, crafting: 8000 },
+    items: [
+      { id: 101, name: 'Coins', count: 10000 },
+      { id: 'moonstone_amulet', name: 'Moonstone amulet (choice-gated)', count: 1 },
+      { id: 'wolfbane_cure_vial', name: 'Wolfbane cure vial (choice-gated)', count: 1 },
+    ],
     questPoints: 2,
-    unlocks: ["npc:cured_werewolf_shopkeeper", "npc:werewolf_ally"],
+    unlocks: ["npc:cured_werewolf_shopkeeper", "npc:werewolf_ally", "item_unlock:moonstone_amulet_werewolf_empower", "item_unlock:wolfbane_cure_vial_werewolf_cure", "area:moryskah_werewolf_territory"],
     chain_next: 'the_werewolfs_lineage',
   },
 });
