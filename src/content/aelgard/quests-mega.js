@@ -36,7 +36,7 @@ quests.define('the_runaway_golem', {
     { text: 'Approach the golem and use the control rod. If it fails, fight the golem (Attack 5) to weaken it, then try again.' },
   ],
   rewards: {
-    xp: { attack: 200, mining: 150, crafting: 150 },
+    xp: { attack: 500, mining: 400, crafting: 400 },
     items: [{ id: 101, name: 'Coins', count: 300 }, { id: 15001, name: 'Golem repair manual', count: 1 }],
     questPoints: 1,
     // Unlocks: Sootworks border mine shortcut
@@ -62,7 +62,7 @@ quests.define('the_tide_pool_collector', {
     { text: 'Return all 3 specimens to Corwyn. She teaches you the tide pool fishing technique.' },
   ],
   rewards: {
-    xp: { fishing: 250, cooking: 100, herblore: 100 },
+    xp: { fishing: 600, cooking: 350, herblore: 300 },
     items: [{ id: 101, name: 'Coins', count: 250 }, { id: 15002, name: 'Tide pool net', count: 1 }],
     questPoints: 1,
     // Unlocks: tide pool fishing spots (unique fish for early-game cooking XP)
@@ -89,7 +89,7 @@ quests.define('lamplighters_apprentice', {
     { text: 'Light the final 2 lanterns near the Moryskah border (Firemaking 8). The road is safe for another night.' },
   ],
   rewards: {
-    xp: { firemaking: 300, woodcutting: 100, prayer: 100 },
+    xp: { firemaking: 700, woodcutting: 400, prayer: 250 },
     items: [{ id: 101, name: 'Coins', count: 200 }, { id: 15003, name: 'Voss\'s tinderbox', count: 1 }],
     questPoints: 1,
     // Unlocks: Moryskah border lantern network (fast travel)
@@ -115,7 +115,7 @@ quests.define('the_apprentice_trapper', {
     { text: 'Catch a moonhawk chick and bring it to Wynn. She names it and gives you access to the canopy hunting grounds.' },
   ],
   rewards: {
-    xp: { hunter: 250, agility: 150, crafting: 150 },
+    xp: { hunter: 650, agility: 400, crafting: 300 },
     items: [{ id: 101, name: 'Coins', count: 300 }, { id: 15004, name: 'Canopy hunting permit', count: 1 }],
     questPoints: 1,
     // Unlocks: Veilwood canopy hunting grounds
@@ -141,7 +141,7 @@ quests.define('the_stolen_runes', {
     { text: 'Craft replacement runes for the ones that shattered during the theft (Runecrafting 5). Return everything to Ruven.' },
   ],
   rewards: {
-    xp: { runecrafting: 200, thieving: 150, magic: 200 },
+    xp: { runecrafting: 500, thieving: 400, magic: 400 },
     items: [{ id: 101, name: 'Coins', count: 400 }, { id: 15005, name: 'Ruven\'s rune pouch', count: 1 }],
     questPoints: 1,
     // Unlocks: permanent 10% discount at Heartlands Rune Shop
@@ -167,7 +167,7 @@ quests.define('the_fencepost_problem', {
     { text: 'Round up the 5 scattered cows by herding them back through the gate.' },
   ],
   rewards: {
-    xp: { construction: 200, smithing: 150, woodcutting: 150 },
+    xp: { construction: 500, smithing: 400, woodcutting: 300 },
     items: [{ id: 101, name: 'Coins', count: 350 }, { id: 15006, name: 'Rancher\'s bell', count: 1 }],
     questPoints: 1,
     // Unlocks: Heartlands ranch as a teleport destination
@@ -193,7 +193,7 @@ quests.define('the_bog_witchs_errand', {
     { text: 'Deliver the salve. The Bog Witch grants you access to her herb patch and teaches you a swamp herb recipe.' },
   ],
   rewards: {
-    xp: { herblore: 250, farming: 150, prayer: 100 },
+    xp: { herblore: 650, farming: 400, prayer: 250 },
     items: [{ id: 101, name: 'Coins', count: 200 }, { id: 15007, name: 'Swamp salve recipe', count: 1 }],
     questPoints: 1,
     // Unlocks: Moryskah herb patch
@@ -220,7 +220,7 @@ quests.define('target_practice', {
     { text: 'Report to Sergeant Holt for your militia badge. You now have permanent access to the archery range for daily practice.' },
   ],
   rewards: {
-    xp: { ranged: 250, fletching: 200, agility: 100 },
+    xp: { ranged: 600, fletching: 450, agility: 300 },
     items: [{ id: 101, name: 'Coins', count: 250 }, { id: 15008, name: 'Militia archer\'s badge', count: 1 }],
     questPoints: 1,
     // Unlocks: Heartlands archery range daily XP bonus
@@ -246,7 +246,7 @@ quests.define('the_boneyard_compass', {
     { text: 'Suri calibrates your compass and teaches you how to read it. You\'ll never get lost in Boneyard sandstorms again.' },
   ],
   rewards: {
-    xp: { mining: 300, smithing: 200, defence: 100 },
+    xp: { mining: 700, smithing: 500, defence: 300 },
     items: [{ id: 101, name: 'Coins', count: 300 }, { id: 15009, name: 'Boneyard compass', count: 1 }],
     questPoints: 1,
     // Unlocks: immunity to Boneyard sandstorm disorientation
@@ -272,7 +272,7 @@ quests.define('the_slayers_first_mark', {
     { text: 'Survive the nest mother\'s counter-attack (Hitpoints 5). Return to Kael with a Crawling Hand trophy.' },
   ],
   rewards: {
-    xp: { slayer: 200, strength: 200, hitpoints: 150 },
+    xp: { slayer: 500, strength: 500, hitpoints: 400 },
     items: [{ id: 101, name: 'Coins', count: 250 }, { id: 15010, name: 'Slayer\'s first mark', count: 1 }],
     questPoints: 1,
     // Unlocks: Novice slayer task assignments

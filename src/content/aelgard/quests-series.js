@@ -24,9 +24,10 @@ quests.define('rfd_start', {
     { text: 'Learn that each guest requires a specific dish to be freed.' },
   ],
   rewards: {
-    xp: { cooking: 500 },
+    xp: { cooking: 1000 },
+    items: [{ id: 15501, name: 'Culinaromancer\'s invitation', count: 1 }, { id: 101, name: 'Coins', count: 500 }],
     questPoints: 1,
-    unlocks: [],
+    unlocks: ["area:drifting_market", "shop:drifting_market_shops"],
     chain_next: 'rfd_heartlands',
   },
 });
@@ -44,9 +45,10 @@ quests.define('rfd_heartlands', {
     { text: 'Serve the pie to free Captain Alden.' },
   ],
   rewards: {
-    xp: { cooking: 1500, farming: 500, crafting: 300 },
+    xp: { cooking: 1800, farming: 700, crafting: 500 },
+    items: [{ id: 15502, name: 'Captain Alden\'s recipe card', count: 1 }, { id: 101, name: 'Coins', count: 800 }],
     questPoints: 1,
-    unlocks: [],
+    unlocks: ["shop:drifting_market_shops"],
     chain_next: 'rfd_moryskah',
   },
 });
@@ -64,9 +66,10 @@ quests.define('rfd_moryskah', {
     { text: 'Serve the stew to free Father Dorin.' },
   ],
   rewards: {
-    xp: { cooking: 2000, herblore: 1000, prayer: 800, fishing: 500 },
+    xp: { cooking: 2200, herblore: 1100, prayer: 900, fishing: 600 },
+    items: [{ id: 15503, name: 'Sanctified stew recipe', count: 1 }, { id: 101, name: 'Coins', count: 1200 }],
     questPoints: 1,
-    unlocks: [],
+    unlocks: ["shop:drifting_market_shops"],
     chain_next: 'rfd_sootworks',
   },
 });
@@ -85,9 +88,10 @@ quests.define('rfd_sootworks', {
     { text: 'Serve the cake to free Engineer Fizz.' },
   ],
   rewards: {
-    xp: { cooking: 3000, smithing: 1500, crafting: 1000, construction: 800 },
+    xp: { cooking: 3200, smithing: 1700, crafting: 1100, construction: 900 },
+    items: [{ id: 15504, name: 'Clockwork cake tin', count: 1 }, { id: 101, name: 'Coins', count: 1500 }],
     questPoints: 1,
-    unlocks: [],
+    unlocks: ["shop:drifting_market_shops"],
     chain_next: 'rfd_finale',
   },
 });

@@ -27,7 +27,7 @@ quests.define('the_green_thumb', {
     { text: 'Talk to Farmer Aldwin.' },
   ],
   rewards: {
-    xp: { farming: 500, herblore: 200, woodcutting: 200 },
+    xp: { farming: 900, herblore: 500, woodcutting: 400 },
     items: [{ id: 101, name: 'Coins', count: 500 }, { id: 12414, name: 'Ranarr seed', count: 3 }],
     questPoints: 1,
     unlocks: ["recipe:elven_soil_restoration"],

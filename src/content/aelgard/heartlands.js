@@ -382,7 +382,7 @@ quests.define('heartlands_patrol', {
     { text: 'Return the Patrol orders to Captain Alden.' },
   ],
   rewards: {
-    xp: { attack: 200, defence: 200 },
+    xp: { attack: 500, defence: 500 },
     items: [{ id: 101, name: 'Coins', count: 250 }, { id: 3003, name: 'Heartlands map', count: 1 }],
     questPoints: 1,
     unlocks: [],
@@ -404,7 +404,7 @@ quests.define('the_missing_miner', {
     { text: "Return to Overseer Greta." },
   ],
   rewards: {
-    xp: { mining: 300, hitpoints: 100 },
+    xp: { mining: 700, hitpoints: 400 },
     items: [{ id: 101, name: 'Coins', count: 500 }, { id: 2103, name: 'Iron ore', count: 10 }],
     questPoints: 1,
     unlocks: [],

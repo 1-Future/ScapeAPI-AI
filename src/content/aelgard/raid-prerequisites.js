@@ -125,8 +125,9 @@ quests.define('kings_crypt_key', {
   ],
   rewards: {
     xp: { prayer: 2000, magic: 1000, crafting: 500 },
+    items: [{ id: 15505, name: 'Silver ghost key', count: 1 }, { id: 101, name: 'Coins', count: 3000 }],
     questPoints: 2,
-    unlocks: ["raid:king_s_crypt"],
+    unlocks: ["raid:king_s_crypt", "area:boneyard_kings_crypt"],
     chain_next: 'crucible_key',
   },
 });
@@ -169,6 +170,7 @@ quests.define('crucible_key', {
   ],
   rewards: {
     xp: { smithing: 4000, mining: 2000, firemaking: 1500, agility: 1000 },
+    items: [{ id: 15506, name: 'Masterwork ingot', count: 1 }, { id: 101, name: 'Coins', count: 5000 }],
     questPoints: 2,
     unlocks: ["raid:crucible"],
     chain_next: 'sunken_temple_key',
@@ -191,6 +193,7 @@ quests.define('sunken_temple_key', {
   ],
   rewards: {
     xp: { fishing: 3000, magic: 2000, agility: 1500, prayer: 1000 },
+    items: [{ id: 15507, name: 'Waterbreathing amulet', count: 1 }, { id: 101, name: 'Coins', count: 4500 }],
     questPoints: 2,
     unlocks: ["raid:sunken_temple"],
     chain_next: 'prism_labyrinth_key',
@@ -235,8 +238,9 @@ quests.define('prism_labyrinth_key', {
   ],
   rewards: {
     xp: { magic: 3000, mining: 2000, crafting: 1500, firemaking: 1000 },
+    items: [{ id: 15508, name: 'Prism lens set', count: 1 }, { id: 101, name: 'Coins', count: 4500 }],
     questPoints: 2,
-    unlocks: ["raid:prism_labyrinth"],
+    unlocks: ["raid:prism_labyrinth", "item_unlock:prism_burst_tome"],
     chain_next: 'coa_key',
   },
 });
