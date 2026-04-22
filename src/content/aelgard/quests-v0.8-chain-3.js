@@ -83,6 +83,7 @@ quests.define('the_priestess_who_does_not_speak', {
     items: [{ id: 'stormcrown_tide_mark', name: 'Stormcrown Tide-Mark', count: 1 }],
     questPoints: 1,
     unlocks: ["item_unlock:elenne_acknowledged", "item_unlock:stormcrown_tide_mark", "npc:mara_tide_confidence"],
+    chain_next: 'lennas_second_fold',
   },
 });
 defineUnlock('the_priestess_who_does_not_speak', {
@@ -126,6 +127,7 @@ quests.define('lennas_second_fold', {
     items: [{ id: 'brighs_fold_weight_copy', name: "Brigh's Fold-Weight (a copy)", count: 1 }],
     questPoints: 2,
     unlocks: ["item_unlock:basin_rippled_once", "item_unlock:brighs_fold_weight_copy", "npc:lenna_third_fold_trust", "training_method:stormcrown_fold_practice"],
+    chain_next: 'the_tide_that_did_not_break',
   },
 });
 defineUnlock('lennas_second_fold', {
@@ -171,6 +173,7 @@ quests.define('the_tide_that_did_not_break', {
     items: [{ id: 'gailin_residue_shard', name: "Gailin's Residue Shard", count: 1 }],
     questPoints: 3,
     unlocks: ["area:stormcrown_inner_spine_trail", "item_unlock:cole_second_chart_shared", "item_unlock:gailin_residue_shard", "npc:orin_tide_correspondence"],
+    chain_next: 'gailins_last_residue',
   },
 });
 defineUnlock('the_tide_that_did_not_break', {
@@ -215,6 +218,7 @@ quests.define('gailins_last_residue', {
     items: [{ id: 'reef_song_memory', name: 'Reef-Song (memorised)', count: 1 }],
     questPoints: 3,
     unlocks: ["area:refraction_threshold_audience", "item_unlock:forgot_first_saltbrine_fish", "npc:wyrm_partial_ally", "spell_unlock:reef_song_memory"],
+    chain_next: 'the_seven_names_on_the_inner_spine',
   },
 });
 defineUnlock('gailins_last_residue', {
@@ -265,6 +269,7 @@ quests.define('the_seven_names_on_the_inner_spine', {
     items: [{ id: 'inner_spine_seven_names', name: 'Inner-Spine Seven Names (memorised)', count: 1 }],
     questPoints: 4,
     unlocks: ["area:stormcrown_inner_spine_trail_freely", "item_unlock:elenne_speaks", "item_unlock:inner_spine_seven_names", "npc:mara_sister_confirmed"],
+    chain_next: 'the_twin_tide_reconciled',
   },
 });
 defineUnlock('the_seven_names_on_the_inner_spine', {

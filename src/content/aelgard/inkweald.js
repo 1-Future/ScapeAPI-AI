@@ -181,6 +181,7 @@ quests.define('the_inkweald_door', {
     items: [{ id: 101, name: 'Coins', count: 5000 }, { id: 9002, name: 'Lucid essence', count: 5 }],
     questPoints: 2,
     unlocks: ["spell_unlock:dream_magic"],
+    chain_next: 'the_hollow_choirs_song',
   },
 });
 
@@ -204,6 +205,7 @@ quests.define('the_hollow_choirs_song', {
     items: [{ id: 101, name: 'Coins', count: 25000 }],
     questPoints: 5,
     unlocks: ["item_unlock:the_hollow_choirs_song_completion"],
+    chain_next: 'the_inkweald_second_door',
   },
 });
 

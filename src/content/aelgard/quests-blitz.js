@@ -122,6 +122,7 @@ quests.define('the_essence_convergence', {
     items: [{ id: 14020, name: 'Dream rune', count: 50 }, { id: 14021, name: 'Essence pouch (small)', count: 1 }],
     questPoints: 2,
     unlocks: ["item_unlock:the_essence_convergence_completion"],
+    chain_next: 'the_runecasters_paradox',
   },
 });
 
@@ -232,6 +233,7 @@ quests.define('blood_beneath_the_boughs', {
     items: [{ id: 14102, name: 'Bloodwood stake', count: 1 }, { id: 101, name: 'Coins', count: 7000 }],
     questPoints: 3,
     unlocks: ["item_unlock:blood_beneath_the_boughs_completion"],
+    chain_next: 'the_siege_of_hollow_mire',
   },
 });
 
@@ -338,6 +340,7 @@ quests.define('the_dreamers_debt', {
     items: [{ id: 14106, name: 'Ink Keeper\'s quill', count: 1 }, { id: 14020, name: 'Dream rune', count: 100 }],
     questPoints: 4,
     unlocks: ["item_unlock:the_dreamers_debt_completion"],
+    chain_next: 'the_dream_eater',
   },
 });
 
@@ -478,6 +481,7 @@ quests.define('the_iron_pilgrimage', {
     items: [{ id: 14203, name: 'Pilgrimage blade', count: 1 }],
     questPoints: 4,
     unlocks: ["item_unlock:the_iron_pilgrimage_completion"],
+    chain_next: 'the_god_forge',
   },
 });
 
@@ -648,6 +652,7 @@ quests.define('the_siren_of_saltbrine', {
     items: [{ id: 14301, name: 'Siren\'s conch', count: 1 }, { id: 101, name: 'Coins', count: 14000 }],
     questPoints: 4,
     unlocks: ["item_unlock:the_siren_of_saltbrine_completion"],
+    chain_next: 'the_leviathans_wake',
   },
 });
 
@@ -762,6 +767,7 @@ quests.define('the_great_aelgard_bakeoff', {
     items: [{ id: 14400, name: 'Festival apron', count: 1 }, { id: 101, name: 'Coins', count: 6000 }],
     questPoints: 2,
     unlocks: ["item_unlock:the_great_aelgard_bakeoff_completion"],
+    chain_next: 'the_ambassadors_soup',
   },
 });
 
@@ -816,6 +822,7 @@ quests.define('the_wilds_expedition', {
     items: [{ id: 14402, name: 'Wilds explorer\'s cape', count: 1 }, { id: 101, name: 'Coins', count: 15000 }],
     questPoints: 4,
     unlocks: ["item_unlock:the_wilds_expedition_completion"],
+    chain_next: 'the_hunt_for_the_wilds_king',
   },
 });
 

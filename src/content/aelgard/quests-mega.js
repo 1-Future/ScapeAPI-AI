@@ -67,6 +67,7 @@ quests.define('the_tide_pool_collector', {
     questPoints: 1,
     // Unlocks: tide pool fishing spots (unique fish for early-game cooking XP)
     unlocks: ["item_unlock:tide_pool_net", "training_method:tide_pool_fishing", "item_unlock:the_tide_pool_collector_tide_pool_fishing_spots_unique_fish_for_early_ga"],
+    chain_next: 'the_margin_net_refolded',
   },
 });
 
@@ -197,6 +198,7 @@ quests.define('the_bog_witchs_errand', {
     questPoints: 1,
     // Unlocks: Moryskah herb patch
     unlocks: ["recipe:swamp_salve", "training_method:moryskah_herb_patch", "item_unlock:the_bog_witchs_errand_moryskah_herb_patch"],
+    chain_next: 'the_bog_witchs_bargain',
   },
 });
 
@@ -275,6 +277,7 @@ quests.define('the_slayers_first_mark', {
     questPoints: 1,
     // Unlocks: Novice slayer task assignments
     unlocks: ["npc:slayer_apprentice_kael", "training_method:novice_slayer_tasks", "item_unlock:the_slayers_first_mark_novice_slayer_task_assignments"],
+    chain_next: 'slayers_gauntlet',
   },
 });
 
@@ -307,6 +310,7 @@ quests.define('the_counterfeit_ring', {
     questPoints: 2,
     // Unlocks: Saltbrine customs office access (sell contraband legally for better prices)
     unlocks: ["item_unlock:inspectors_loupe", "item_unlock:the_counterfeit_ring_saltbrine_customs_office_access_sell_contraband_"],
+    chain_next: 'the_counterfeit_empire',
   },
 });
 

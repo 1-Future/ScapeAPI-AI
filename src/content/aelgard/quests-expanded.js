@@ -31,6 +31,7 @@ quests.define('the_green_thumb', {
     items: [{ id: 101, name: 'Coins', count: 500 }, { id: 12414, name: 'Ranarr seed', count: 3 }],
     questPoints: 1,
     unlocks: ["recipe:elven_soil_restoration"],
+    chain_next: 'the_druids_covenant',
   },
 });
 
@@ -103,6 +104,7 @@ quests.define('slayers_gauntlet', {
     questPoints: 2,
     // Unlocks: Varrek as slayer master (access to Moryskah slayer tasks)
     unlocks: ["item_unlock:enchanted_gem", "npc:slayer_master_varrek", "item_unlock:slayers_gauntlet_varrek_as_slayer_master_access_to_moryskah_slaye"],
+    chain_next: 'the_slayers_creed',
   },
 });
 
@@ -126,6 +128,7 @@ quests.define('into_the_wilds', {
     items: [{ id: 101, name: 'Coins', count: 3000 }],
     questPoints: 2,
     unlocks: ["item_unlock:rangers_survival_kit", "training_method:wilderness_agility"],
+    chain_next: 'the_revenant_oath',
   },
 });
 
@@ -154,6 +157,7 @@ quests.define('drifting_market_charter', {
     questPoints: 3,
     // Unlocks: Drifting Market — mobile trade hub that moves weekly
     unlocks: ["shop:drifting_market_shops", "item_unlock:drifting_market_charter_drifting_market_mobile_trade_hub_that_moves_week"],
+    chain_next: 'rfd_start',
   },
 });
 
@@ -180,6 +184,7 @@ quests.define('the_werewolfs_dilemma', {
     items: [{ id: 101, name: 'Coins', count: 3000 }],
     questPoints: 2,
     unlocks: ["npc:cured_werewolf_shopkeeper", "npc:werewolf_ally"],
+    chain_next: 'the_werewolfs_lineage',
   },
 });
 
@@ -207,6 +212,7 @@ quests.define('echoes_of_the_deep', {
     items: [{ id: 101, name: 'Coins', count: 15000 }],
     questPoints: 3,
     unlocks: ["teleport:underground_tunnel_network", "training_method:crystal_mining"],
+    chain_next: 'prophecy_fragments',
   },
 });
 
@@ -259,6 +265,7 @@ quests.define('the_last_light', {
     items: [{ id: 101, name: 'Coins', count: 100000 }],
     questPoints: 5,
     unlocks: ["area:glass_desert_new_sun_zone", "boss:eclipse_guardian", "prayer_unlock:solar_blessing"],
+    chain_next: 'prophecy_fragments',
   },
 });
 

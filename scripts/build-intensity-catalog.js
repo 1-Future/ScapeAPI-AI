@@ -1305,6 +1305,21 @@ function main() {
   for (const e of catalog) byId.set(e.activity_id, e);
   const dedup = [...byId.values()];
 
+  // C14: stub-gp re-derivation. Training-knob entries came with perHour as item
+  // quantity but parsed as coin rate, yielding 1-999 gp/hr stubs. Re-derive
+  // from skill baseline × intensity scale. See scripts/rederive-gp-per-hr.js.
+  const rederiver = require('./rederive-gp-per-hr.js');
+  let rederived = 0;
+  for (const e of dedup) {
+    if (e.activity_type !== 'skill_method') continue;
+    const gp = Number(e.base_gp_per_hour) || 0;
+    if (gp < 1 || gp >= 1000) continue;
+    e.base_gp_per_hour = rederiver.rederiveGp(e);
+    e._gp_rederived = true;
+    rederived++;
+  }
+  console.log(`[intensity] rederived ${rederived} stub gp/hr entries (C14)`);
+
   const out = {
     generated_at: new Date().toISOString(),
     total_activities: dedup.length,

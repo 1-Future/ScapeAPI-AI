@@ -87,6 +87,7 @@ quests.define('the_whittlers_silent_lute', {
     items: [{ id: 'tarras_silent_lute', name: "Tarras Veil's Silent Lute", count: 1 }],
     questPoints: 1,
     unlocks: ["item_unlock:carries_tarras_lute", "item_unlock:tarras_silent_lute", "npc:whittler_partial_trust"],
+    chain_next: 'the_badger_who_remembers',
   },
 });
 defineUnlock('the_whittlers_silent_lute', {
@@ -128,6 +129,7 @@ quests.define('the_badger_who_remembers', {
     items: [{ id: 'second_moonsong_melody', name: 'Second Moonsong (melody memorised)', count: 1 }],
     questPoints: 2,
     unlocks: ["item_unlock:second_moonsong_melody", "npc:stub_trusts_you", "training_method:warren_listening_hunter"],
+    chain_next: 'the_burned_page_in_the_chapel',
   },
 });
 defineUnlock('the_badger_who_remembers', {
@@ -170,6 +172,7 @@ quests.define('the_burned_page_in_the_chapel', {
     items: [{ id: 'first_moonsong_fragment', name: 'First Moonsong (opening bar)', count: 1 }],
     questPoints: 3,
     unlocks: ["item_unlock:first_moonsong_fragment", "item_unlock:read_saels_burn_line", "npc:dorin_ash_keeper_trust", "training_method:chapel_ash_sifting_herblore"],
+    chain_next: 'the_dream_of_the_fifth_moonsong',
   },
 });
 defineUnlock('the_burned_page_in_the_chapel', {
@@ -217,6 +220,7 @@ quests.define('the_dream_of_the_fifth_moonsong', {
     items: [{ id: 'fifth_moonsong_dreamed', name: 'Fifth Moonsong (dreamed or transcribed)', count: 1 }],
     questPoints: 3,
     unlocks: ["item_unlock:fifth_moonsong_dreamed", "item_unlock:heard_fifth_moonsong", "npc:yara_full_trust", "training_method:lucid_dreaming_magic"],
+    chain_next: 'aureths_fragment_score',
   },
 });
 defineUnlock('the_dream_of_the_fifth_moonsong', {
@@ -266,6 +270,7 @@ quests.define('aureths_fragment_score', {
     items: [{ id: 'six_moonsong_lute', name: 'Six-Moonsong Lute (chain-bound)', count: 1 }],
     questPoints: 4,
     unlocks: ["item_unlock:knows_seventh_is_with_sael", "item_unlock:six_moonsong_lute", "npc:aureth_musical_confidante", "training_method:archive_cantorial_transcription"],
+    chain_next: 'the_seventh_moonsong_sung',
   },
 });
 defineUnlock('aureths_fragment_score', {

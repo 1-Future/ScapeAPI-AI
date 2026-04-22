@@ -310,6 +310,7 @@ quests.define('sand_and_secrets', {
     items: [{ id: 101, name: 'Coins', count: 3000 }, { id: 4002, name: 'Fossilized fang', count: 1 }],
     questPoints: 2,
     unlocks: ["training_method:sandstone_quarrying"],
+    chain_next: 'relics_of_the_old_world',
   },
 });
 
@@ -332,6 +333,7 @@ quests.define('relics_of_the_old_world', {
     items: [{ id: 101, name: 'Coins', count: 5000 }],
     questPoints: 2,
     unlocks: ["item_unlock:relics_of_the_old_world_completion"],
+    chain_next: 'pharaohs_reckoning_prelude',
   },
 });
 

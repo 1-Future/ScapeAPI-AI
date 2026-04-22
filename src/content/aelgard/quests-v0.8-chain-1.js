@@ -77,6 +77,7 @@ quests.define('the_glyph_beneath_the_glyph', {
     items: [{ id: 'under_glyph_rubbing', name: 'Under-Glyph Rubbing', count: 1 }],
     questPoints: 1,
     unlocks: ["item_unlock:saw_the_pre_crown_date", "item_unlock:under_glyph_rubbing", "npc:veris_archival_trust"],
+    chain_next: 'the_month_that_was_omitted',
   },
 });
 defineUnlock('the_glyph_beneath_the_glyph', {
@@ -119,6 +120,7 @@ quests.define('the_month_that_was_omitted', {
     items: [{ id: 'decree_rubbing_of_the_thirteenth', name: 'Decree-Rubbing of the Thirteenth', count: 1 }],
     questPoints: 2,
     unlocks: ["item_unlock:decree_rubbing_of_the_thirteenth", "item_unlock:knows_the_month_name", "training_method:chancery_archive_thieving"],
+    chain_next: 'the_twelve_graves_that_do_not_match',
   },
 });
 defineUnlock('the_month_that_was_omitted', {
@@ -162,6 +164,7 @@ quests.define('the_twelve_graves_that_do_not_match', {
     items: [{ id: 'consecration_rubbing_of_the_seventh', name: 'Consecration Rubbing of the Seventh', count: 1 }],
     questPoints: 3,
     unlocks: ["item_unlock:consecration_rubbing_of_the_seventh", "item_unlock:renewed_the_southern_wall", "npc:grael_private_counsel"],
+    chain_next: 'razaks_monthly_parcel',
   },
 });
 defineUnlock('the_twelve_graves_that_do_not_match', {
@@ -206,6 +209,7 @@ quests.define('razaks_monthly_parcel', {
     items: [{ id: 'pyramid_blue_pulse_pattern', name: 'Pyramid Blue-Pulse Pattern', count: 1 }],
     questPoints: 3,
     unlocks: ["item_unlock:hermits_bronze_key", "item_unlock:pyramid_blue_pulse_pattern", "item_unlock:spoke_aureths_name", "npc:razak_inner_confidence"],
+    chain_next: 'the_calendar_before_the_calendar',
   },
 });
 defineUnlock('razaks_monthly_parcel', {
@@ -254,6 +258,7 @@ quests.define('the_calendar_before_the_calendar', {
     items: [{ id: 'pre_crown_calendar_roll', name: 'Pre-Crown Calendar Roll', count: 1 }],
     questPoints: 4,
     unlocks: ["item_unlock:holds_the_calendar", "item_unlock:pre_crown_calendar_roll", "npc:sand_prince_reading_audience", "training_method:shard_mirror_runecrafting"],
+    chain_next: 'keeper_aureths_seal',
   },
 });
 defineUnlock('the_calendar_before_the_calendar', {

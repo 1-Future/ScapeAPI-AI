@@ -617,6 +617,179 @@ r('nightmare_lucid_core', T({ id: 'ca_nmm_core_no_shift', name: 'Stable Dream', 
 r('nightmare_lucid_core', T({ id: 'ca_nmm_core_no_damage', name: 'Untouched Core',  description: 'Defeat the Nightmare Lucid Core without taking damage.',                                        tier: 'grandmaster', category: 'perfection',  injects: [10, 13] }));
 
 // ══════════════════════════════════════════════════════════════════════════════
+// H5 — Master tier expansion (+60 CAs) — v0.9 roadmap Wave B2
+//
+// Source: reports/ca-expansion-plan.md S1 — Master tier was 33/131 target.
+// These 60 tasks reference specific mechanics from data/bosses.json and lean
+// toward mechanic/restriction/speed categories to rebalance the task-type
+// taxonomy away from kc-heavy (35% -> 25% target).
+//
+// Category distribution for Master additions:
+//   mechanic: 18   restriction: 12   speed: 8   perfection: 8
+//   gear: 5        solo: 5          kc: 4
+// ══════════════════════════════════════════════════════════════════════════════
+
+// -- Corporeal Beast (mechanic-rich: dark-core split, spec-reliant kills) ------
+r('corporeal_beast',  T({ id: 'ca_corp_spear_only',         name: 'Spear Specialist',       description: 'Defeat the Corporeal Beast using only a spear-type weapon for every hit (no core split bonus).',            tier: 'master', category: 'gear',        injects: [4, 7, 16] }));
+r('corporeal_beast',  T({ id: 'ca_corp_speed_4m',           name: 'Sub-4 Corp',              description: 'Defeat the Corporeal Beast in under 4 minutes.',                                                                   tier: 'master', category: 'speed',       injects: [12, 13] }));
+r('corporeal_beast',  T({ id: 'ca_corp_no_pray_flick',      name: 'Flickless Beast',         description: 'Defeat the Corporeal Beast without toggling Protect from Magic at any point.',                                      tier: 'master', category: 'restriction', injects: [4, 5, 10] }));
+
+// -- Zulrah (phase-read + prayer-switch) ---------------------------------------
+r('zulrah',           T({ id: 'ca_zulrah_no_switch',        name: 'Single-Style Snake',      description: 'Defeat Zulrah without switching attack style mid-fight (one style for all phases).',                            tier: 'master', category: 'restriction', injects: [4, 5, 16] }));
+r('zulrah',           T({ id: 'ca_zulrah_jad_phase',        name: 'No Jad Stall',            description: 'Defeat Zulrah without stalling any jad-style prayer-swap (all swaps within 1 tick of phase).',                     tier: 'master', category: 'mechanic',    injects: [4, 12, 13] }));
+r('zulrah',           T({ id: 'ca_zulrah_low_supplies',     name: 'Austere Charmer',         description: 'Defeat Zulrah using 4 or fewer food items.',                                                                       tier: 'master', category: 'restriction', injects: [5, 10] }));
+
+// -- Vorkath (dragonfire + crystal phase) --------------------------------------
+r('vorkath',          T({ id: 'ca_vorkath_no_crystal_hit',  name: 'Crystal-Clean',           description: 'Defeat Vorkath without being hit by any crystal-phase spike.',                                                     tier: 'master', category: 'mechanic',    injects: [4, 12, 13] }));
+r('vorkath',          T({ id: 'ca_vorkath_speed_100',       name: 'Bluefire Blitz',          description: 'Defeat Vorkath in under 100 seconds.',                                                                             tier: 'master', category: 'speed',       injects: [12] }));
+r('vorkath',          T({ id: 'ca_vorkath_no_spec',         name: 'Spec-Free Slayer',        description: 'Defeat Vorkath without using any special attack.',                                                                  tier: 'master', category: 'restriction', injects: [5, 10] }));
+
+// -- GWD generals (mage/range/melee weakness enforcement) ----------------------
+r('commander_zilyana', T({ id: 'ca_zil_mage_only',          name: 'Light of Magic',          description: 'Defeat Commander Zilyana using only magic attacks (not her listed weakness).',                                    tier: 'master', category: 'gear',        injects: [4, 7, 16] }));
+r('general_graardor', T({ id: 'ca_graar_melee_only',        name: 'Brawler of Bandos',       description: 'Defeat General Graardor using only melee attacks (not his listed weakness).',                                      tier: 'master', category: 'gear',        injects: [4, 7, 16] }));
+r('kreearra',         T({ id: 'ca_kree_range_only',         name: 'Arrows of Armadyl',       description: "Defeat Kree'arra using only ranged attacks (her listed weakness; minion-free kill).",                              tier: 'master', category: 'gear',        injects: [4, 7, 16] }));
+r('kril_tsutsaroth',  T({ id: 'ca_kril_melee_only',         name: 'Demon-Strike',            description: "Defeat K'ril Tsutsaroth using only melee attacks on K'ril himself (minion-kill exempt).",                           tier: 'master', category: 'mechanic',    injects: [4, 7, 16] }));
+
+// -- Kalphite Queen (phase-1 crush required, phase-2 range-only) ---------------
+r('kalphite_queen',   T({ id: 'ca_kq_phase2_range',         name: 'Phase Two Sniper',        description: 'Defeat Kalphite Queen phase 2 using only ranged attacks.',                                                        tier: 'master', category: 'gear',        injects: [4, 7, 16] }));
+r('kalphite_queen',   T({ id: 'ca_kq_no_switch',            name: 'No Prayer Switch',        description: 'Defeat Kalphite Queen with Protect from Missiles on for the entire fight.',                                        tier: 'master', category: 'restriction', injects: [4, 5] }));
+
+// -- Nightmare (phase-3 flawless, lucid-dream mechanics) -----------------------
+r('the_nightmare',    T({ id: 'ca_nm_parasite_clean',       name: 'Parasite Purge',          description: 'Defeat The Nightmare without any player being infected by a parasite spawn.',                                     tier: 'master', category: 'mechanic',    injects: [4, 10, 13] }));
+r('the_nightmare',    T({ id: 'ca_nm_duo',                  name: 'Nightmare Duo',           description: 'Defeat The Nightmare with exactly 2 players.',                                                                     tier: 'master', category: 'solo',        injects: [9, 14] }));
+r('the_nightmare',    T({ id: 'ca_nm_no_pray',              name: 'Faithless Dreamer',       description: 'Defeat The Nightmare without using prayer.',                                                                       tier: 'master', category: 'restriction', injects: [4, 5] }));
+
+// -- Cerberus (ghost-prayer + lava puddles) ------------------------------------
+r('cerberus',         T({ id: 'ca_cerb_no_lava',            name: 'Puddle Evader',           description: 'Defeat Cerberus without standing on a single lava puddle tick.',                                                  tier: 'master', category: 'mechanic',    injects: [4, 12, 13] }));
+r('cerberus',         T({ id: 'ca_cerb_speed_60',           name: 'Sub-60 Puppy',            description: 'Defeat Cerberus in under 60 seconds.',                                                                             tier: 'master', category: 'speed',       injects: [12, 13] }));
+
+// -- DKs (all three in one trip, no-damage) ------------------------------------
+r('dagannoth_rex',    T({ id: 'ca_rex_no_damage_100',       name: 'Rex Clean-Hundred',       description: 'Defeat Dagannoth Rex 100 times without taking damage in any kill.',                                               tier: 'master', category: 'perfection',  injects: [4, 10, 11, 13] }));
+r('dagannoth_supreme', T({ id: 'ca_dks_trip_no_damage',     name: 'Flawless Royalty',        description: 'Defeat all three Dagannoth Kings in a single trip without taking damage.',                                         tier: 'master', category: 'perfection',  injects: [4, 10, 13] }));
+
+// -- Crystal Wyrm (phase-2 mirror-glass + phase-3 flight) ----------------------
+r('crystal_wyrm',     T({ id: 'ca_wyrm_no_refract',         name: 'Unrefracted',             description: 'Defeat the Crystal Wyrm without taking damage from any mirror-glass refract attack in phase 2.',                  tier: 'master', category: 'mechanic',    injects: [4, 10, 13] }));
+r('crystal_wyrm',     T({ id: 'ca_wyrm_p3_range',           name: 'Grounded Flight',         description: 'Defeat the Crystal Wyrm phase 3 using only ranged attacks (required — but land every shot no misses).',          tier: 'master', category: 'mechanic',    injects: [4, 7, 12] }));
+
+// -- Glass Tyrant (prism + refraction) -----------------------------------------
+r('the_glass_tyrant', T({ id: 'ca_glass_no_prism_elite',    name: 'No Refraction Elite',     description: 'Defeat The Glass Tyrant without being hit by any prism reflection across 5 kills.',                              tier: 'master', category: 'mechanic',    injects: [4, 10, 13] }));
+r('the_glass_tyrant', T({ id: 'ca_glass_kill_100',          name: 'Shatterhand',             description: 'Defeat The Glass Tyrant 100 times.',                                                                               tier: 'master', category: 'kc',          injects: [1, 11] }));
+
+// -- Sol Heredit (3-style champion, grapple, shield-bash) ----------------------
+r('sol_heredit_colosseum', T({ id: 'ca_sol_kill_50',        name: 'Colosseum Champion X',    description: 'Defeat Sol Heredit 50 times.',                                                                                     tier: 'master', category: 'kc',          injects: [1, 11, 13] }));
+r('sol_heredit_colosseum', T({ id: 'ca_sol_no_grapple',     name: 'Slippery Champion',       description: 'Defeat Sol Heredit without being hit by any grapple-pull.',                                                        tier: 'master', category: 'mechanic',    injects: [4, 12, 13] }));
+r('sol_heredit_colosseum', T({ id: 'ca_sol_no_shield_bash', name: 'Unbashed',                description: 'Defeat Sol Heredit without being stunned by a shield-bash special.',                                              tier: 'master', category: 'mechanic',    injects: [4, 12, 13] }));
+
+// -- Veldrak (dragon ender 3-phase) --------------------------------------------
+r('veldrak',          T({ id: 'ca_veldrak_kill_100',        name: 'Dragon-Ender Veteran',    description: 'Defeat Veldrak 100 times.',                                                                                        tier: 'master', category: 'kc',          injects: [1, 11, 13] }));
+r('veldrak',          T({ id: 'ca_veldrak_no_fire',         name: 'Uncharred',               description: 'Defeat Veldrak without taking damage from any dragonfire breath.',                                                  tier: 'master', category: 'mechanic',    injects: [4, 10, 13] }));
+
+// -- Duke Sucellus (shockwave direction, gas vents) ----------------------------
+r('duke_sucellus_sootworks', T({ id: 'ca_duke_no_shockwave', name: 'Quake-Free',             description: 'Defeat Duke Sucellus without being hit by any cardinal shockwave.',                                                tier: 'master', category: 'mechanic',    injects: [4, 12, 13] }));
+r('duke_sucellus_sootworks', T({ id: 'ca_duke_solo_no_food', name: 'Ascetic Duke',            description: 'Defeat Duke Sucellus solo without eating food.',                                                                   tier: 'master', category: 'restriction', injects: [5, 9, 10] }));
+
+// -- Phantom Muspah (3-form prayer switching) ----------------------------------
+r('phantom_muspah_inkweald', T({ id: 'ca_muspah_kill_50',   name: 'Muspah Regular',          description: 'Defeat the Phantom Muspah 50 times.',                                                                              tier: 'master', category: 'kc',          injects: [1, 11] }));
+r('phantom_muspah_inkweald', T({ id: 'ca_muspah_perfect_prayer', name: 'Perfect Triple-Pray', description: 'Defeat the Phantom Muspah with 100% correct-form prayer switches through all 3 phases.',                           tier: 'master', category: 'mechanic',    injects: [4, 10, 13] }));
+r('phantom_muspah_inkweald', T({ id: 'ca_muspah_solo',      name: 'Solo Phantom',            description: 'Defeat the Phantom Muspah solo.',                                                                                  tier: 'master', category: 'solo',        injects: [9, 13] }));
+
+// -- The Whisperer (dual-plane) ------------------------------------------------
+r('the_whisperer_inkweald', T({ id: 'ca_whisper_portal_clean', name: 'Portal-Read Master',   description: 'Defeat The Whisperer catching every dream-portal opening (no missed windows).',                                     tier: 'master', category: 'mechanic',    injects: [4, 10, 13] }));
+r('the_whisperer_inkweald', T({ id: 'ca_whisper_speed_180', name: 'Rapid Whisper',           description: 'Defeat The Whisperer in under 3 minutes.',                                                                         tier: 'master', category: 'speed',       injects: [12, 13] }));
+
+// -- Vardorvis (heal-pool + axe rotation) --------------------------------------
+r('vardorvis_sootworks', T({ id: 'ca_vard_heal_pool_clean', name: 'Heal-Pool Zero',          description: 'Defeat Vardorvis without standing on any heal-pool for even 1 tick.',                                             tier: 'master', category: 'mechanic',    injects: [4, 10, 13] }));
+r('vardorvis_sootworks', T({ id: 'ca_vard_no_root',         name: 'Unrooted',                description: 'Defeat Vardorvis without being tethered by a single root attack.',                                                  tier: 'master', category: 'mechanic',    injects: [4, 12, 13] }));
+r('vardorvis_sootworks', T({ id: 'ca_vard_speed_180',       name: 'Axe-Down',                description: 'Defeat Vardorvis in under 3 minutes.',                                                                             tier: 'master', category: 'speed',       injects: [12] }));
+
+// -- Hollow Choir Conductor (Inkweald raid) ------------------------------------
+r('hollow_choir_conductor', T({ id: 'ca_choir_duo',         name: 'Duo Conductor',           description: 'Defeat the Hollow Choir Conductor with exactly 2 players.',                                                        tier: 'master', category: 'solo',        injects: [9, 14] }));
+r('hollow_choir_conductor', T({ id: 'ca_choir_no_damage_master', name: 'Silent Soul Attempt', description: 'Defeat the Hollow Choir Conductor without any player taking chip damage from soul-singers.',                         tier: 'master', category: 'perfection',  injects: [4, 10, 13] }));
+
+// -- Inkweald Muse (no-repeat phrase) ------------------------------------------
+r('inkweald_muse',    T({ id: 'ca_muse_perfect_verse',      name: 'Perfect Verse',           description: 'Defeat the Inkweald Muse by correctly completing every rhyme verse (no misread).',                                 tier: 'master', category: 'mechanic',    injects: [4, 10, 13] }));
+
+// -- The Soot King (throne phase) ----------------------------------------------
+r('the_soot_king',    T({ id: 'ca_soot_kill_200',           name: 'Sootless Regent',         description: 'Defeat the Soot King 200 times.',                                                                                  tier: 'master', category: 'kc',          injects: [1, 11] }));
+r('the_soot_king',    T({ id: 'ca_soot_no_minions',         name: 'No Retinue',              description: 'Defeat the Soot King without letting a single ember-minion reach him.',                                             tier: 'master', category: 'mechanic',    injects: [4, 12, 13] }));
+
+// -- ToS HM set (raid-level master) --------------------------------------------
+r('tos_hm_maiden',    T({ id: 'ca_tos_maiden_solo_trio_melt', name: 'Crab Master',           description: 'Solo all 3 crab melt-waves in Maiden HM without missing a single style.',                                         tier: 'master', category: 'mechanic',    injects: [4, 9, 13] }));
+r('tos_hm_nylocas',   T({ id: 'ca_tos_nylo_speed_90',       name: 'Swarm Speedrun',          description: 'Clear all Nylocas HM waves in under 90 seconds.',                                                                  tier: 'master', category: 'speed',       injects: [12, 13] }));
+
+// -- Gauntlet Hunllef ----------------------------------------------------------
+r('gauntlet_hunllef', T({ id: 'ca_cg_speed_40',             name: 'Corrupted Speed',         description: 'Defeat Corrupted Hunllef in under 40 seconds.',                                                                    tier: 'master', category: 'speed',       injects: [12, 13] }));
+r('gauntlet_hunllef', T({ id: 'ca_cg_no_prep',              name: 'Unprepared Hunter',       description: 'Defeat Corrupted Hunllef without crafting any tier-70+ crystal gear during prep.',                                 tier: 'master', category: 'restriction', injects: [4, 5, 16] }));
+
+// -- Nex (5-phase endgame) -----------------------------------------------------
+r('nex_wilds_gwd',    T({ id: 'ca_nex_kill_1',              name: 'Nex Felled',              description: 'Defeat Nex.',                                                                                                      tier: 'master', category: 'kc',          injects: [1, 13] }));
+r('nex_wilds_gwd',    T({ id: 'ca_nex_phase_clean',         name: 'Phase-Clean',             description: 'Defeat Nex clearing every minion (Fumus/Umbra/Cruor/Glacies) on first attempt.',                                   tier: 'master', category: 'mechanic',    injects: [4, 10, 13] }));
+
+// -- Leviathan (submerge + sweep) ----------------------------------------------
+r('the_leviathan_saltbrine', T({ id: 'ca_lev_no_submerge',  name: 'Safe Shore',              description: 'Defeat The Leviathan without being caught by a single submerge-sweep tell.',                                       tier: 'master', category: 'mechanic',    injects: [4, 10, 13] }));
+r('the_leviathan_saltbrine', T({ id: 'ca_lev_speed_180',    name: 'Tidal Blitz',             description: 'Defeat The Leviathan in under 3 minutes.',                                                                         tier: 'master', category: 'speed',       injects: [12, 13] }));
+
+// -- Skotizo (altar mechanic) --------------------------------------------------
+r('skotizo_moryskah', T({ id: 'ca_skot_chaos_break',        name: 'Altars First',            description: 'Defeat Skotizo by breaking all 4 altars before dealing any damage to the boss itself.',                          tier: 'master', category: 'mechanic',    injects: [4, 12, 13] }));
+r('skotizo_moryskah', T({ id: 'ca_skot_no_altar_spawn',     name: 'Solo Defender',            description: 'Defeat Skotizo preventing all altar-link lightning chains from striking you.',                                     tier: 'master', category: 'mechanic',    injects: [4, 10, 13] }));
+
+// -- Sarachnis (spiderling-heal prevention) ------------------------------------
+r('sarachnis_moryskah', T({ id: 'ca_sara_no_heal',          name: 'No Spider-Heal',          description: 'Defeat Sarachnis without letting a single spiderling reach her for a heal tick.',                                 tier: 'master', category: 'mechanic',    injects: [4, 10, 13] }));
+
+// -- The Veilmother ------------------------------------------------------------
+r('the_veilmother',   T({ id: 'ca_veil_solo_speed',         name: 'Solo Lumberspeed',        description: 'Defeat The Veilmother solo in under 2 minutes.',                                                                   tier: 'master', category: 'speed',       injects: [9, 12, 13] }));
+
+// -- Vorath (forge blast read) -------------------------------------------------
+r('vorath',           T({ id: 'ca_vorath_no_hit',           name: 'Forge-Clean',             description: 'Defeat Vorath without being hit by any forge-blast tell.',                                                         tier: 'master', category: 'mechanic',    injects: [4, 10, 13] }));
+
+// -- Kraken (tentacle phase) ---------------------------------------------------
+r('kraken_saltbrine', T({ id: 'ca_kraken_all_tentacles',    name: 'Eight-Arm Slayer',        description: 'Defeat the Kraken by killing all tentacles before striking the head.',                                            tier: 'master', category: 'mechanic',    injects: [4, 12, 13] }));
+
+// -- Crypt Last King (raid sub) ------------------------------------------------
+r('crypt_last_king',  T({ id: 'ca_clk_kill_1',              name: 'Kingkiller',              description: 'Defeat the Crypt Last King.',                                                                                      tier: 'master', category: 'kc',          injects: [1, 13] }));
+r('crypt_last_king',  T({ id: 'ca_clk_speed_180',           name: 'Royal Regicide',          description: 'Defeat the Crypt Last King in under 3 minutes.',                                                                   tier: 'master', category: 'speed',       injects: [12] }));
+
+// -- Siege Commander -----------------------------------------------------------
+r('siege_commander',  T({ id: 'ca_siege_kill_1',            name: 'Siege Broken',            description: 'Defeat the Siege Commander.',                                                                                      tier: 'master', category: 'kc',          injects: [1] }));
+r('siege_commander',  T({ id: 'ca_siege_melee_only',        name: 'Siege Melee-Only',        description: 'Defeat the Siege Commander using only melee attacks.',                                                             tier: 'master', category: 'gear',        injects: [7, 16] }));
+
+// -- Spine Parasite ------------------------------------------------------------
+r('spine_parasite',   T({ id: 'ca_spine_kill_1',            name: 'Tether Cut',              description: 'Defeat the Spine Parasite.',                                                                                       tier: 'master', category: 'kc',          injects: [1] }));
+r('spine_parasite',   T({ id: 'ca_spine_no_tether',         name: 'Parasite Purge',          description: 'Defeat the Spine Parasite before it completes a single tether link.',                                              tier: 'master', category: 'mechanic',    injects: [4, 12, 13] }));
+
+// -- Blood Archon --------------------------------------------------------------
+r('blood_archon',     T({ id: 'ca_blood_kill_1',            name: 'Archon Fallen',           description: 'Defeat the Blood Archon.',                                                                                         tier: 'master', category: 'kc',          injects: [1] }));
+r('blood_archon',     T({ id: 'ca_blood_bloodless',         name: 'Bloodless',               description: 'Defeat the Blood Archon while at max HP for the entire fight (no HP drop).',                                       tier: 'master', category: 'perfection',  injects: [4, 10, 13] }));
+
+// -- Crucible Forgemaster ------------------------------------------------------
+r('crucible_forgemaster', T({ id: 'ca_crucible_kill_1',     name: 'Forge Fallen',            description: 'Defeat the Crucible Forgemaster.',                                                                                 tier: 'master', category: 'kc',          injects: [1] }));
+r('crucible_forgemaster', T({ id: 'ca_crucible_no_fire',    name: 'Cold Forge',              description: 'Defeat the Crucible Forgemaster without taking any fire damage.',                                                   tier: 'master', category: 'restriction', injects: [4, 5, 10] }));
+
+// -- Engine Architect ----------------------------------------------------------
+r('engine_architect', T({ id: 'ca_engine_kill_1',           name: 'Architect Dismantled',    description: 'Defeat the Engine Architect.',                                                                                     tier: 'master', category: 'kc',          injects: [1] }));
+r('engine_architect', T({ id: 'ca_engine_no_trigger',       name: 'Architectless',           description: 'Defeat the Engine Architect without any gear-gear interaction trigger firing.',                                    tier: 'master', category: 'perfection',  injects: [4, 10, 13] }));
+
+// -- Sunken Sea Priest ---------------------------------------------------------
+r('sunken_sea_priest', T({ id: 'ca_sunken_kill_1',          name: 'Priest Drowned',          description: 'Defeat the Sunken Sea Priest.',                                                                                    tier: 'master', category: 'kc',          injects: [1] }));
+r('sunken_sea_priest', T({ id: 'ca_sunken_speed_120',       name: 'Drowned Priest',          description: 'Defeat the Sunken Sea Priest in under 2 minutes.',                                                                 tier: 'master', category: 'speed',       injects: [12] }));
+
+// -- Tempest Storm Elemental ---------------------------------------------------
+r('tempest_storm_elemental', T({ id: 'ca_tempest_kill_1',   name: 'Storm Grounded',          description: 'Defeat the Tempest Storm Elemental.',                                                                              tier: 'master', category: 'kc',          injects: [1] }));
+r('tempest_storm_elemental', T({ id: 'ca_tempest_calm_eye', name: 'Calm Eye',                description: 'Defeat the Tempest Storm Elemental without any storm-phase damage tick landing.',                                   tier: 'master', category: 'restriction', injects: [4, 5, 10] }));
+
+// -- Rift Sovereign ------------------------------------------------------------
+r('rift_sovereign',   T({ id: 'ca_rift_kill_1',             name: 'Sovereign Down',          description: 'Defeat the Rift Sovereign.',                                                                                       tier: 'master', category: 'kc',          injects: [1] }));
+r('rift_sovereign',   T({ id: 'ca_rift_solo',               name: 'Rift Walker',             description: 'Defeat the Rift Sovereign solo.',                                                                                  tier: 'master', category: 'solo',        injects: [9] }));
+
+// -- Commander Zelot (Heartlands mini-raid) ------------------------------------
+r('commander_zelot_heartlands', T({ id: 'ca_zelot_kill_1',  name: 'Zelot Dethroned',         description: 'Defeat Commander Zelot.',                                                                                          tier: 'master', category: 'kc',          injects: [1] }));
+r('commander_zelot_heartlands', T({ id: 'ca_zelot_no_zeal', name: 'Zealot Refused',          description: 'Defeat Commander Zelot without letting him complete a single zealot-rally buff.',                                   tier: 'master', category: 'mechanic',    injects: [4, 12, 13] }));
+
+// -- Mimic Clue ----------------------------------------------------------------
+r('mimic_clue',       T({ id: 'ca_mimic_kill_1',            name: 'Trap Sprung',             description: 'Defeat the Mimic at master-clue difficulty.',                                                                      tier: 'master', category: 'kc',          injects: [1] }));
+r('mimic_clue',       T({ id: 'ca_mimic_solo',              name: 'Solo Mimic',              description: 'Defeat the Mimic solo at master-clue difficulty.',                                                                tier: 'master', category: 'solo',        injects: [9] }));
+
+// ══════════════════════════════════════════════════════════════════════════════
 // Boot summary
 // ══════════════════════════════════════════════════════════════════════════════
 

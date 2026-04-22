@@ -92,6 +92,7 @@ quests.define('the_well_that_was', {
     items: [{ id: 'pilgrims_token', name: "Pilgrim's Token (1 of 7 stations)", count: 1 }],
     questPoints: 1,
     unlocks: ["item_unlock:confirmed_station_one", "item_unlock:pilgrims_token", "training_method:dry_well_meditation_prayer"],
+    chain_next: 'the_shadeless_cairn',
   },
 });
 defineUnlock('the_well_that_was', {
@@ -134,6 +135,7 @@ quests.define('the_shadeless_cairn', {
     items: [{ id: 'shade_held_in_trust', name: 'Shade Held In Trust', count: 1 }],
     questPoints: 2,
     unlocks: ["item_unlock:pilgrim_token_two", "item_unlock:shade_held_in_trust", "npc:hermit_pilgrim_acknowledgement"],
+    chain_next: 'the_weeping_glass_and_the_shard_that_sings',
   },
 });
 defineUnlock('the_shadeless_cairn', {
@@ -181,6 +183,7 @@ quests.define('the_weeping_glass_and_the_shard_that_sings', {
     items: [{ id: 'desert_memory_oil_jar', name: 'Desert Memory-Oil (jarred)', count: 1 }, { id: 'singing_shard_tone_memory', name: 'Singing Shard (tone memorised)', count: 1 }],
     questPoints: 3,
     unlocks: ["item_unlock:desert_memory_oil_jar", "item_unlock:pilgrim_token_four", "item_unlock:singing_shard_tone_memory", "training_method:mid_ring_runecrafting"],
+    chain_next: 'the_mirrored_step',
   },
 });
 defineUnlock('the_weeping_glass_and_the_shard_that_sings', {
@@ -226,6 +229,7 @@ quests.define('the_mirrored_step', {
     items: [{ id: 'should_have_been_self_image', name: 'Should-Have-Been Self (imaged)', count: 1 }],
     questPoints: 3,
     unlocks: ["area:spire_north_face_step", "item_unlock:pilgrim_token_five_committed", "item_unlock:should_have_been_self_image", "npc:pilgrim_echo_greets"],
+    chain_next: 'the_spires_foot',
   },
 });
 defineUnlock('the_mirrored_step', {
@@ -277,6 +281,7 @@ quests.define('the_spires_foot', {
     items: [{ id: 'companion_name_carved', name: "Companion's Name (under-glyph)", count: 1 }],
     questPoints: 4,
     unlocks: ["area:spire_foot_chamber", "item_unlock:companion_name_carved", "item_unlock:pilgrim_token_six_private", "npc:zel_quiet_confidante"],
+    chain_next: 'the_shrine_below',
   },
 });
 defineUnlock('the_spires_foot', {

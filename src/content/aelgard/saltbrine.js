@@ -209,6 +209,7 @@ quests.define('pirate_king', {
     items: [{ id: 101, name: 'Coins', count: 4000 }, { id: 8008, name: 'Cutlass', count: 1 }],
     questPoints: 2,
     unlocks: ["item_unlock:captains_hook", "teleport:charter_ships"],
+    chain_next: 'the_pirate_kings_gold',
   },
 });
 
@@ -236,6 +237,7 @@ quests.define('whispers_from_the_depths', {
     items: [{ id: 101, name: 'Coins', count: 8000 }],
     questPoints: 3,
     unlocks: ["item_unlock:whispers_from_the_depths_completion"],
+    chain_next: 'sunken_temple_key',
   },
 });
 

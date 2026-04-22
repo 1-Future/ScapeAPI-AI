@@ -293,6 +293,7 @@ quests.define('the_bog_witchs_bargain', {
     items: [{ id: 101, name: 'Coins', count: 2000 }, { id: 5010, name: 'Silver sickle', count: 1 }],
     questPoints: 2,
     unlocks: ["npc:bog_witch", "recipe:wolfbane_incense"],
+    chain_next: 'the_bog_witchs_hunger',
   },
 });
 

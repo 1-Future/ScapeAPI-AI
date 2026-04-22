@@ -31,6 +31,7 @@ quests.define('coa_key', {
     xp: { mining: 5000, magic: 3000, agility: 2000, prayer: 2000 },
     questPoints: 3,
     unlocks: ["raid:chambers_of_aelgard"],
+    chain_next: 'tos_key',
   },
 });
 
@@ -53,6 +54,7 @@ quests.define('tos_key', {
     xp: { attack: 5000, herblore: 3000, thieving: 2000, agility: 2000, crafting: 1500 },
     questPoints: 3,
     unlocks: ["raid:theatre_of_shadows"],
+    chain_next: 'toa_key',
   },
 });
 
@@ -75,6 +77,7 @@ quests.define('toa_key', {
     xp: { attack: 5000, mining: 3000, prayer: 3000, agility: 2000, thieving: 1500 },
     questPoints: 3,
     unlocks: ["raid:tombs_of_aelgard"],
+    chain_next: 'blood_sanctum_key',
   },
 });
 
@@ -97,6 +100,7 @@ quests.define('gauntlet_key', {
     xp: { agility: 10000, herblore: 5000, mining: 5000, smithing: 5000, crafting: 5000, woodcutting: 3000 },
     questPoints: 4,
     unlocks: ["raid:the_gauntlet"],
+    chain_next: 'exodus_key',
   },
 });
 
@@ -117,6 +121,7 @@ quests.define('kings_crypt_key', {
     xp: { prayer: 2000, magic: 1000, crafting: 500 },
     questPoints: 2,
     unlocks: ["raid:king_s_crypt"],
+    chain_next: 'crucible_key',
   },
 });
 
@@ -138,6 +143,7 @@ quests.define('blood_sanctum_key', {
     xp: { attack: 5000, prayer: 3000, herblore: 2000, crafting: 1500 },
     questPoints: 3,
     unlocks: ["raid:blood_sanctum"],
+    chain_next: 'lucid_nightmare_key',
   },
 });
 
@@ -159,6 +165,7 @@ quests.define('crucible_key', {
     xp: { smithing: 4000, mining: 2000, firemaking: 1500, agility: 1000 },
     questPoints: 2,
     unlocks: ["raid:crucible"],
+    chain_next: 'sunken_temple_key',
   },
 });
 
@@ -180,6 +187,7 @@ quests.define('sunken_temple_key', {
     xp: { fishing: 3000, magic: 2000, agility: 1500, prayer: 1000 },
     questPoints: 2,
     unlocks: ["raid:sunken_temple"],
+    chain_next: 'prism_labyrinth_key',
   },
 });
 
@@ -201,6 +209,7 @@ quests.define('lucid_nightmare_key', {
     xp: { magic: 8000, prayer: 5000, herblore: 3000, runecrafting: 3000 },
     questPoints: 3,
     unlocks: ["raid:lucid_nightmare"],
+    chain_next: 'gauntlet_key',
   },
 });
 
@@ -222,6 +231,7 @@ quests.define('prism_labyrinth_key', {
     xp: { magic: 3000, mining: 2000, crafting: 1500, firemaking: 1000 },
     questPoints: 2,
     unlocks: ["raid:prism_labyrinth"],
+    chain_next: 'coa_key',
   },
 });
 

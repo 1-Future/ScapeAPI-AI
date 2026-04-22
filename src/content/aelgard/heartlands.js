@@ -383,6 +383,7 @@ quests.define('heartlands_patrol', {
     items: [{ id: 101, name: 'Coins', count: 250 }, { id: 3003, name: 'Heartlands map', count: 1 }],
     questPoints: 1,
     unlocks: ["item_unlock:heartlands_patrol_completion"],
+    chain_next: 'the_missing_miner',
   },
 });
 
@@ -404,6 +405,7 @@ quests.define('the_missing_miner', {
     items: [{ id: 101, name: 'Coins', count: 500 }, { id: 2103, name: 'Iron ore', count: 10 }],
     questPoints: 1,
     unlocks: ["item_unlock:the_missing_miner_completion"],
+    chain_next: 'forge_of_duran',
   },
 });
 
@@ -424,6 +426,7 @@ quests.define('forge_of_duran', {
     items: [{ id: 101, name: 'Coins', count: 2000 }],
     questPoints: 2,
     unlocks: ["item_unlock:forge_of_duran_completion"],
+    chain_next: 'kings_crypt_key',
   },
 });
 

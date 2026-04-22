@@ -81,6 +81,7 @@ quests.define('the_report_filed_twice', {
     items: [{ id: 'fizzs_year_mark', name: "Fizz's Year-Mark (blank)", count: 1 }],
     questPoints: 1,
     unlocks: ["item_unlock:fizzs_year_mark", "item_unlock:hilde_knows_fizz_report", "npc:fizz_partial_trust"],
+    chain_next: 'hildes_black_ledger',
   },
 });
 defineUnlock('the_report_filed_twice', {
@@ -122,6 +123,7 @@ quests.define('hildes_black_ledger', {
     items: [{ id: 'black_ledger_contributors_list', name: 'Black Ledger Contributors List (sealed)', count: 1 }],
     questPoints: 2,
     unlocks: ["item_unlock:black_ledger_contributors_list", "item_unlock:nine_days_of_loaves", "npc:vash_back_room_access", "training_method:saltbrine_quay_fishing_pact"],
+    chain_next: 'the_bellows_wheels_second_name',
   },
 });
 defineUnlock('hildes_black_ledger', {
@@ -166,6 +168,7 @@ quests.define('the_bellows_wheels_second_name', {
     items: [{ id: 'wheelwrights_mirror_charm', name: "Wheelwright's Mirror-Charm", count: 1 }],
     questPoints: 3,
     unlocks: ["item_unlock:named_the_wheelwright", "item_unlock:wheelwrights_mirror_charm", "npc:kael_hald_correspondence_formal", "training_method:kael_hald_joint_smithing"],
+    chain_next: 'halds_letter_to_kael',
   },
 });
 defineUnlock('the_bellows_wheels_second_name', {
@@ -210,6 +213,7 @@ quests.define('halds_letter_to_kael', {
     items: [{ id: 'unread_pact_strip', name: 'Unread Pact Strip', count: 1 }],
     questPoints: 3,
     unlocks: ["item_unlock:strip_silent_triangle", "item_unlock:unread_pact_strip", "npc:vorath_audience_direct", "training_method:annex_open_door_runecrafting"],
+    chain_next: 'nine_days_to_pour_two_cold',
   },
 });
 defineUnlock('halds_letter_to_kael', {
@@ -261,6 +265,7 @@ quests.define('nine_days_to_pour_two_cold', {
     items: [{ id: 'nine_days_tally_stick', name: 'Nine Days Tally-Stick', count: 1 }],
     questPoints: 4,
     unlocks: ["item_unlock:nine_days_tally_stick", "item_unlock:pact_nine_day_held", "npc:crown_inspector_blind", "training_method:ring_replacement_construction"],
+    chain_next: 'the_oath_unwritten',
   },
 });
 defineUnlock('nine_days_to_pour_two_cold', {

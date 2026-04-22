@@ -27,6 +27,7 @@ quests.define('rfd_start', {
     xp: { cooking: 500 },
     questPoints: 1,
     unlocks: ["item_unlock:rfd_start_completion"],
+    chain_next: 'rfd_heartlands',
   },
 });
 
@@ -46,6 +47,7 @@ quests.define('rfd_heartlands', {
     xp: { cooking: 1500, farming: 500, crafting: 300 },
     questPoints: 1,
     unlocks: ["item_unlock:rfd_heartlands_completion"],
+    chain_next: 'rfd_moryskah',
   },
 });
 
@@ -65,6 +67,7 @@ quests.define('rfd_moryskah', {
     xp: { cooking: 2000, herblore: 1000, prayer: 800, fishing: 500 },
     questPoints: 1,
     unlocks: ["item_unlock:rfd_moryskah_completion"],
+    chain_next: 'rfd_sootworks',
   },
 });
 
@@ -85,6 +88,7 @@ quests.define('rfd_sootworks', {
     xp: { cooking: 3000, smithing: 1500, crafting: 1000, construction: 800 },
     questPoints: 1,
     unlocks: ["item_unlock:rfd_sootworks_completion"],
+    chain_next: 'rfd_finale',
   },
 });
 
@@ -360,6 +364,7 @@ quests.define('fight_caves', {
     questPoints: 0,
     // Drops: Fire Cape (BIS melee cape)
     unlocks: ["item_unlock:fire_cape"],
+    chain_next: 'infernal_challenge',
   },
 });
 

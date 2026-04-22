@@ -67,6 +67,7 @@ quests.define('the_falconers_quiet_debt', {
     items: [{ id: 'jess_of_quiet_thanks', name: 'Jess of Quiet Thanks', count: 1 }],
     questPoints: 1,
     unlocks: ["item_unlock:jess_of_quiet_thanks", "item_unlock:knows_the_quiet_household", "npc:royal_falconer_trusted"],
+    chain_next: 'sessens_last_flight',
   },
 });
 defineUnlock('the_falconers_quiet_debt', {
@@ -310,6 +311,7 @@ quests.define('crew_six_after_the_pour', {
     items: [{ id: 'pre_pour_ledger_copy', name: 'Pre-Pour Ledger (hand copy)', count: 1 }],
     questPoints: 4,
     unlocks: ["area:crew_six_memorial", "item_unlock:brazers_guilty_apron", "npc:ossen_maps_published", "training_method:furnace_two_midnight_shift"],
+    chain_next: 'the_map_that_was_never_drawn',
   },
 });
 defineUnlock('crew_six_after_the_pour', {

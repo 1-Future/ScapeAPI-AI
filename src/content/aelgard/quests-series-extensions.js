@@ -68,6 +68,7 @@ quests.define('the_slayers_creed', {
     items: [{ id: 101, name: 'Coins', count: 9000 }],
     questPoints: 2,
     unlocks: ["area:moryskah_slayer_tower_basement", "item_unlock:slayers_creed_ring", "training_method:creed_slayer_tasks"],
+    chain_next: 'slayers_grandmaster_trial',
   },
 });
 
@@ -137,6 +138,7 @@ quests.define('the_bog_witchs_hunger', {
     items: [{ id: 101, name: 'Coins', count: 6000 }],
     questPoints: 2,
     unlocks: ["npc:bog_witch_grandmaster", "recipe:witchs_long_broth", "training_method:moryskah_widdershins_herbing"],
+    chain_next: 'the_bog_witchs_final_curse',
   },
 });
 
@@ -202,6 +204,7 @@ quests.define('the_werewolfs_lineage', {
     items: [{ id: 101, name: 'Coins', count: 7500 }],
     questPoints: 2,
     unlocks: ["area:moryskah_werewolf_estate", "item_unlock:werewolf_family_token", "recipe:silvered_steel_alloy"],
+    chain_next: 'the_werewolfs_reckoning',
   },
 });
 
@@ -267,6 +270,7 @@ quests.define('the_pirate_kings_gold', {
     items: [{ id: 101, name: 'Coins', count: 15000 }],
     questPoints: 2,
     unlocks: ["item_unlock:broken_crown_charter", "shop:pirate_kings_quartermaster", "shortcut:saltbrine_smugglers_tunnel"],
+    chain_next: 'the_pirate_kings_throne',
   },
 });
 
@@ -297,6 +301,7 @@ quests.define('the_pirate_kings_throne', {
     items: [{ id: 101, name: 'Coins', count: 30000 }],
     questPoints: 3,
     unlocks: ["area:saltbrine_throne_rocks", "item_unlock:pirate_kings_crown", "npc:saltbrine_quartermaster_promoted"],
+    chain_next: 'admirals_last_voyage',
   },
 });
 
@@ -362,6 +367,7 @@ quests.define('the_druids_covenant', {
     items: [{ id: 101, name: 'Coins', count: 6500 }],
     questPoints: 2,
     unlocks: ["item_unlock:druids_covenant_staff", "prayer_unlock:covenant_rest", "training_method:veilwood_covenant_patches"],
+    chain_next: 'the_veilwood_grandmaster_rite',
   },
 });
 
@@ -428,6 +434,7 @@ quests.define('the_inkweald_second_door', {
     items: [{ id: 101, name: 'Coins', count: 20000 }],
     questPoints: 3,
     unlocks: ["area:inkweald_second_door_chambers", "item_unlock:dreamers_sigil", "spell_unlock:lucid_spellbook"],
+    chain_next: 'the_inkweald_grandmaster_dream',
   },
 });
 
@@ -495,6 +502,7 @@ quests.define('prophecy_fragments', {
     items: [{ id: 101, name: 'Coins', count: 18000 }],
     questPoints: 3,
     unlocks: ["area:glass_desert_prophecy_chamber", "item_unlock:orins_spectacles", "teleport:orins_tower_teleport"],
+    chain_next: 'sandglass_sage_ascension',
   },
 });
 
@@ -559,6 +567,7 @@ quests.define('foundations_of_flame', {
     items: [{ id: 101, name: 'Coins', count: 12000 }],
     questPoints: 2,
     unlocks: ["area:sootworks_foundation_seam", "recipe:fire_iron_alloy", "training_method:foundation_furnace_smithing"],
+    chain_next: 'sootworks_grandmaster_titan',
   },
 });
 
@@ -655,6 +664,7 @@ quests.define('pharaohs_reckoning_prelude', {
     items: [{ id: 101, name: 'Coins', count: 90000 }],
     questPoints: 5,
     unlocks: ["boss:senekhet_repeatable", "item_unlock:ankh_of_rebirth", "item_unlock:pharaohs_crown"],
+    chain_next: 'the_boneyard_first_empire_rite',
   },
 });
 
