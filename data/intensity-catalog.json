@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-04-22T19:36:51.015Z",
+  "generated_at": "2026-04-22T19:39:02.988Z",
   "total_activities": 2309,
   "intensity_taxonomy": {
     "1": "pure AFK (click every 30s+)",
@@ -33312,7 +33312,7 @@
       "trips_per_hour": 2,
       "effective_xp_per_hour": 98929,
       "effective_gp_per_hour": 14501547,
-      "expected_power_per_hour": 90.5
+      "expected_power_per_hour": 115.9
     },
     {
       "activity_id": "kill_crazy_archaeologist",
@@ -45650,7 +45650,7 @@
       "trips_per_hour": 2,
       "effective_xp_per_hour": 166268,
       "effective_gp_per_hour": 18814507,
-      "expected_power_per_hour": 49.87
+      "expected_power_per_hour": 50.99
     },
     {
       "activity_id": "kill_rockslug",

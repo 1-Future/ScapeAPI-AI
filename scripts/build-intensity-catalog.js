@@ -1265,6 +1265,428 @@ function computeMiseryAndGaps(catalog) {
 }
 
 // ══════════════════════════════════════════════════════════════════════════════
+// Niche power dimension — expected_power_per_hour
+//
+// Task #19 (v0.9-waveC): every combat activity (monster/boss/raid) annotates an
+// `expected_power_per_hour` field:
+//   expected_power_per_hour = kills_per_hour * sum over drops of (drop_rate × downstream_dag_value)
+//
+// Where:
+//   - drop_rate     = probability of a single kill yielding the drop (drop weight
+//                     ÷ total table weight, or 1/tertiary-chance for uniques).
+//   - downstream_dag_value = number of progression-DAG nodes transitively requiring
+//                     the item's unlock node (item_unlock:<id>). Falls back to a
+//                     small baseline for coins/bones/runes so pure-junk drops
+//                     still register a nonzero signal.
+//
+// This quantifies Marstead Pillar 4: "power is a vector, not a scalar." A boss
+// that drops only junk is low-power. A boss dropping content-gating items
+// (abyssal whip, fire cape, arclight) accrues proportionally larger power per
+// hour at the same kph. The planner can then weight content-gating kills over
+// pure-gp kills when the account needs unlocks.
+// ══════════════════════════════════════════════════════════════════════════════
+
+function buildDownstreamIndex() {
+  // For every DAG node id, compute the count of nodes that transitively depend
+  // on it (reverse-adjacency DP). Cycle-guarded. Returns Map<string, number>.
+  const dagPath = path.join(DATA, 'progression-dag.json');
+  if (!fs.existsSync(dagPath)) return new Map();
+  const dag = JSON.parse(fs.readFileSync(dagPath, 'utf8'));
+  const nodes = dag.nodes || [];
+  const byId = new Map();
+  for (const n of nodes) byId.set(n.id, n);
+  // reverseEdges[id] = set of node ids that list `id` in their `requires`.
+  const reverse = new Map();
+  for (const n of nodes) reverse.set(n.id, new Set());
+  for (const n of nodes) {
+    for (const r of (n.requires || [])) {
+      if (reverse.has(r)) reverse.get(r).add(n.id);
+    }
+  }
+  // Transitive downstream: depth-first with memoisation + visited-guard.
+  const cache = new Map();
+  function downstream(id, stack = new Set()) {
+    if (cache.has(id)) return cache.get(id);
+    if (stack.has(id)) return 0;
+    stack.add(id);
+    const dependents = reverse.get(id) || new Set();
+    const all = new Set(dependents);
+    for (const d of dependents) {
+      const sub = downstreamSet(d, stack);
+      for (const s of sub) all.add(s);
+    }
+    stack.delete(id);
+    cache.set(id, all.size);
+    return all.size;
+  }
+  const setCache = new Map();
+  function downstreamSet(id, stack) {
+    if (setCache.has(id)) return setCache.get(id);
+    if (stack.has(id)) return new Set();
+    stack.add(id);
+    const deps = reverse.get(id) || new Set();
+    const all = new Set(deps);
+    for (const d of deps) {
+      const sub = downstreamSet(d, stack);
+      for (const s of sub) all.add(s);
+    }
+    stack.delete(id);
+    setCache.set(id, all);
+    return all;
+  }
+  const counts = new Map();
+  for (const n of nodes) counts.set(n.id, downstream(n.id));
+  return counts;
+}
+
+// Item-name -> candidate DAG keys. Heuristic: lowercase snake name to match
+// item_unlock:<name> style. Drop table entries carry `name: 'Abyssal whip'` so
+// we snake-case it. Skips coins / bones / generic runes.
+function itemNameToUnlockKey(name) {
+  if (!name) return null;
+  const s = String(name).trim().toLowerCase();
+  if (/^(coins?|bones?|big bones|ashes?|nothing|empty vial|vial of water)$/.test(s)) return null;
+  // Drop trailing (4) / (3) etc potion suffixes
+  const cleaned = s.replace(/\([^)]+\)$/, '').trim();
+  return 'item_unlock:' + cleaned.replace(/[^a-z0-9]+/g, '_').replace(/^_+|_+$/g, '');
+}
+
+// Baseline downstream value for staple drops (coins, bones, common runes) so
+// every activity registers nonzero power.
+const BASELINE_ITEM_VALUE = {
+  'Coins': 0.5,
+  'Bones': 0.5,
+  'Big bones': 0.8,
+  'Dragon bones': 2.0,
+  'Wyvern bones': 2.0,
+  'Air rune': 0.5, 'Water rune': 0.5, 'Earth rune': 0.5, 'Fire rune': 0.5,
+  'Mind rune': 0.5, 'Body rune': 0.5, 'Chaos rune': 1.0, 'Death rune': 1.5,
+  'Nature rune': 1.5, 'Law rune': 1.5, 'Blood rune': 2.0, 'Wrath rune': 2.5,
+};
+
+// Equipment-id -> item value lookup, populated lazily. Used to add a scaled
+// gp-value signal when an item is in equipment.json but not in the DAG.
+let EQUIPMENT_BY_NAME = null;
+function getEquipmentValue(name) {
+  if (!EQUIPMENT_BY_NAME) {
+    EQUIPMENT_BY_NAME = new Map();
+    try {
+      const eq = JSON.parse(fs.readFileSync(path.join(DATA, 'items', 'equipment.json'), 'utf8'));
+      for (const it of eq) {
+        if (it.name) EQUIPMENT_BY_NAME.set(String(it.name).toLowerCase(), it.value || 0);
+        // also index by id with underscores->spaces for best-effort match
+      }
+    } catch (e) { /* ignore */ }
+  }
+  return EQUIPMENT_BY_NAME.get(String(name || '').toLowerCase()) || 0;
+}
+
+// Scale a raw gp-value into the power signal space. Log-scaled so a 1.4B
+// twisted bow doesn't nuke the ranking.
+function gpToPowerUnits(gp) {
+  if (gp <= 0) return 0;
+  // log10 mapping: 100gp -> 0.1, 10k -> 1, 1M -> 3, 100M -> 5, 1B -> 6
+  return Math.max(0, Math.log10(gp) - 1);
+}
+
+// Rough kills-per-hour heuristic — mirrors `combatPerHourFromStats` but
+// re-declared so annotatePower doesn't depend on the monster-parse pass.
+function kphFromCombat(combat) {
+  if (combat < 20) return 500;
+  if (combat < 50) return 350;
+  if (combat < 100) return 220;
+  if (combat < 200) return 150;
+  if (combat < 400) return 80;
+  if (combat < 600) return 40;
+  return 25;
+}
+
+// Parse every mob()/mega()/defineNpc definition's drop table and annotate
+// matching catalog entries with expected_power_per_hour.
+function annotatePowerPerHour(catalog, downstreamCounts) {
+  // Build a lookup: activity_id -> catalog entry.
+  const byActivityId = new Map();
+  for (const e of catalog) byActivityId.set(e.activity_id, e);
+
+  // Pass: parse every aelgard + inferno + crystal_wyrm file for drop tables
+  // associated with each monster id.
+  const ROOTS = [
+    path.join(REPO_ROOT, 'src', 'content', 'aelgard'),
+    path.join(REPO_ROOT, 'src', 'content', 'inferno'),
+    path.join(REPO_ROOT, 'src', 'content', 'crystal_wyrm'),
+  ];
+
+  let annotated = 0;
+  let zeroPower = 0;
+  for (const root of ROOTS) {
+    if (!fs.existsSync(root)) continue;
+    for (const f of fs.readdirSync(root).filter(n => /\.js$/.test(n))) {
+      const src = fs.readFileSync(path.join(root, f), 'utf8');
+
+      // Pattern A: mob('id', {body}, {drops-object}). We already scan the def
+      // body in collectMonstersAndBosses — here we need the SECOND-arg drops.
+      // The drop-object carries `always:[...]`, `main:[...]`, `tertiary:[...]`.
+      // We locate each mob() call and parse both arg-bodies.
+      const mobRe = /(?<![a-zA-Z_.])mob\(\s*'([a-z0-9_]+)'\s*,\s*/g;
+      let mm;
+      while ((mm = mobRe.exec(src))) {
+        const id = mm[1];
+        const firstBraceStart = src.indexOf('{', mm.index + mm[0].length - 1);
+        if (firstBraceStart === -1) continue;
+        const firstEnd = balancedEnd(src, firstBraceStart);
+        if (firstEnd === -1) continue;
+        // Look for the second-arg brace (after the comma)
+        let cursor = firstEnd + 1;
+        while (cursor < src.length && /\s/.test(src[cursor])) cursor++;
+        if (src[cursor] !== ',') { annotateFromDrops(id, null, byActivityId, downstreamCounts, (res) => { annotated += res.ok; zeroPower += res.zero; }); continue; }
+        cursor++;
+        while (cursor < src.length && /\s/.test(src[cursor])) cursor++;
+        if (src[cursor] !== '{') continue;
+        const secondEnd = balancedEnd(src, cursor);
+        const dropBody = src.slice(cursor + 1, secondEnd);
+        const drops = parseDropSections(dropBody);
+        const res = annotateFromDrops(id, drops, byActivityId, downstreamCounts);
+        annotated += res.ok; zeroPower += res.zero;
+      }
+
+      // Pattern B: mega({ id: 'x', ..., always_drops:[...], drops:[...], unique_drops:[...] })
+      const megaRe = /(?<![a-zA-Z_.])mega\(\s*\{/g;
+      let meg;
+      while ((meg = megaRe.exec(src))) {
+        const bodyStart = src.indexOf('{', meg.index);
+        const bodyEnd = balancedEnd(src, bodyStart);
+        if (bodyEnd === -1) continue;
+        const body = src.slice(bodyStart + 1, bodyEnd);
+        const id = valStr(body, 'id');
+        if (!id) continue;
+        const drops = parseMegaDrops(body);
+        const res = annotateFromDrops(id, drops, byActivityId, downstreamCounts);
+        annotated += res.ok; zeroPower += res.zero;
+      }
+
+      // Pattern C: boss('id', {body}, {drops}) — same shape as mob.
+      const bossRe = /(?<![a-zA-Z_.])boss\(\s*'([a-z0-9_]+)'\s*,\s*/g;
+      let bm;
+      while ((bm = bossRe.exec(src))) {
+        const id = bm[1];
+        const firstBraceStart = src.indexOf('{', bm.index + bm[0].length - 1);
+        if (firstBraceStart === -1) continue;
+        const firstEnd = balancedEnd(src, firstBraceStart);
+        let cursor = firstEnd + 1;
+        while (cursor < src.length && /\s/.test(src[cursor])) cursor++;
+        if (src[cursor] !== ',') continue;
+        cursor++;
+        while (cursor < src.length && /\s/.test(src[cursor])) cursor++;
+        if (src[cursor] !== '{') continue;
+        const secondEnd = balancedEnd(src, cursor);
+        const dropBody = src.slice(cursor + 1, secondEnd);
+        const drops = parseDropSections(dropBody);
+        const res = annotateFromDrops(id, drops, byActivityId, downstreamCounts);
+        annotated += res.ok; zeroPower += res.zero;
+      }
+    }
+  }
+
+  // Activities without drop tables get a low default based on intensity and
+  // activity-type. Raid/instance entries at int 9-10 get a nonzero baseline.
+  for (const e of catalog) {
+    if (e.expected_power_per_hour == null) {
+      if (e.activity_type === 'instance' || e.activity_type === 'raid_boss') {
+        e.expected_power_per_hour = Math.round((e.intensity || 5) * 12);
+      } else {
+        e.expected_power_per_hour = 0;
+      }
+    }
+  }
+
+  return { annotated, zeroPower };
+}
+
+function balancedEnd(src, start) {
+  if (src[start] !== '{') return -1;
+  let depth = 0;
+  for (let i = start; i < src.length; i++) {
+    const c = src[i];
+    if (c === '{') depth++;
+    else if (c === '}') { depth--; if (depth === 0) return i; }
+    else if (c === '/' && src[i + 1] === '/') { while (i < src.length && src[i] !== '\n') i++; }
+    else if (c === '/' && src[i + 1] === '*') {
+      i += 2;
+      while (i < src.length - 1 && !(src[i] === '*' && src[i + 1] === '/')) i++;
+      i++;
+    } else if (c === "'" || c === '"') {
+      const q = c; i++;
+      while (i < src.length && src[i] !== q) { if (src[i] === '\\') i++; i++; }
+    }
+  }
+  return -1;
+}
+
+// Parse a mob/boss second-arg drop body: { always:[...], main:[...], tertiary:[...] }
+function parseDropSections(body) {
+  return {
+    always: extractEntries(body, 'always'),
+    main: extractEntries(body, 'main'),
+    tertiary: extractEntries(body, 'tertiary'),
+  };
+}
+
+// Parse mega()'s inline always_drops / drops / unique_drops with `rarity:`.
+function parseMegaDrops(body) {
+  const always = extractArray(body, 'always_drops');
+  const drops = extractArray(body, 'drops');
+  const unique = extractArray(body, 'unique_drops');
+  const RARITY_WEIGHT = { always: null, common: 25, uncommon: 10, rare: 4, very_rare: 1 };
+  const main = [];
+  const tertiary = [];
+  const alw = [];
+  for (const d of always) alw.push({ name: d.name, weight: null, quantity: d.quantity });
+  for (const d of drops) {
+    if (d.rarity === 'always') { alw.push({ name: d.name, weight: null, quantity: d.quantity }); continue; }
+    const weight = Number(d.weight) || RARITY_WEIGHT[d.rarity] || 10;
+    main.push({ name: d.name, weight, quantity: d.quantity });
+  }
+  for (const d of unique) {
+    tertiary.push({ name: d.name, chance: Number(d.chance) || 1024, quantity: [1, 1] });
+  }
+  return { always: alw, main, tertiary };
+}
+
+// Pull an array of { name, weight?, chance?, quantity? } from a section
+function extractEntries(body, key) {
+  const re = new RegExp(`\\b${key}:\\s*\\[`);
+  const m = body.match(re);
+  if (!m) return [];
+  const startIdx = m.index + m[0].length - 1;
+  const endIdx = findArrayEnd(body, startIdx);
+  if (endIdx === -1) return [];
+  const section = body.slice(startIdx + 1, endIdx);
+  return parseEntryObjects(section);
+}
+
+function extractArray(body, key) {
+  const re = new RegExp(`\\b${key}:\\s*\\[`);
+  const m = body.match(re);
+  if (!m) return [];
+  const startIdx = m.index + m[0].length - 1;
+  const endIdx = findArrayEnd(body, startIdx);
+  if (endIdx === -1) return [];
+  const section = body.slice(startIdx + 1, endIdx);
+  return parseEntryObjects(section);
+}
+
+function findArrayEnd(s, startIdx) {
+  if (s[startIdx] !== '[') return -1;
+  let depth = 0;
+  for (let i = startIdx; i < s.length; i++) {
+    const c = s[i];
+    if (c === '[') depth++;
+    else if (c === ']') { depth--; if (depth === 0) return i; }
+    else if (c === "'" || c === '"') {
+      const q = c; i++;
+      while (i < s.length && s[i] !== q) { if (s[i] === '\\') i++; i++; }
+    }
+  }
+  return -1;
+}
+
+function parseEntryObjects(s) {
+  // Each entry: { name: '..', weight: N, min: N, max: N } or chance:N
+  const out = [];
+  let depth = 0, start = -1;
+  for (let i = 0; i < s.length; i++) {
+    const c = s[i];
+    if (c === '{') { if (depth === 0) start = i; depth++; }
+    else if (c === '}') { depth--; if (depth === 0 && start !== -1) { out.push(parseOneEntry(s.slice(start, i + 1))); start = -1; } }
+    else if (c === "'" || c === '"') {
+      const q = c; i++;
+      while (i < s.length && s[i] !== q) { if (s[i] === '\\') i++; i++; }
+    }
+  }
+  return out;
+}
+
+function parseOneEntry(src) {
+  const name = (src.match(/\bname:\s*(['"])([^'"]+?)\1/) || [])[2] || null;
+  const weight = Number((src.match(/\bweight:\s*(\d+)/) || [])[1]) || null;
+  const chance = Number((src.match(/\bchance:\s*(\d+)/) || [])[1]) || null;
+  const min = Number((src.match(/\bmin:\s*(\d+)/) || [])[1]) || 1;
+  const max = Number((src.match(/\bmax:\s*(\d+)/) || [])[1]) || 1;
+  const quantity = (src.match(/\bquantity:\s*\[\s*(\d+)\s*,\s*(\d+)\s*\]/) || null);
+  const rarity = (src.match(/\brarity:\s*(['"])([^'"]+?)\1/) || [])[2] || null;
+  return {
+    name, weight, chance, rarity,
+    quantity: quantity ? [Number(quantity[1]), Number(quantity[2])] : [min, max],
+  };
+}
+
+function dropValue(name, downstreamCounts) {
+  if (!name) return 0;
+  let power = 0;
+  // 1. Progression-DAG downstream count — the primary signal. When the item
+  //    unlocks content (fire cape -> inferno, abyssal whip -> bossing
+  //    rotations, etc.) this is nonzero. Currently most item_unlock nodes are
+  //    leaves so this contributes 0, but preserved so future DAG authors can
+  //    raise these numbers without changing the planner.
+  const key = itemNameToUnlockKey(name);
+  if (key && downstreamCounts.has(key)) {
+    power += downstreamCounts.get(key);
+  }
+  // 2. Equipment value — scaled log(gp). Makes high-tier unique drops register
+  //    above coin/bone drops so boss power/hr correlates with drop-table worth.
+  const gpVal = getEquipmentValue(name);
+  if (gpVal > 0) power += gpToPowerUnits(gpVal);
+  // 3. Baseline constants for coins/bones/runes so every activity registers nonzero.
+  for (const [k, v] of Object.entries(BASELINE_ITEM_VALUE)) {
+    if (String(name).toLowerCase() === k.toLowerCase()) return power + v;
+  }
+  // 4. Unknown named drop — small default (these are reagent / named-unique
+  //    drops that exist in content but not yet in equipment.json or the DAG.
+  //    Slight nonzero signal so the entry registers as "has drops".
+  return power + 0.1;
+}
+
+function annotateFromDrops(monsterId, drops, byActivityId, downstreamCounts) {
+  const activityId = `kill_${monsterId}`;
+  const entry = byActivityId.get(activityId);
+  if (!entry) return { ok: 0, zero: 0 };
+  if (!drops) {
+    entry.expected_power_per_hour = 0;
+    return { ok: 0, zero: 1 };
+  }
+
+  // Compute per-drop value * drop_rate
+  // rate(always) = 1.0
+  // rate(main) = weight / totalMainWeight
+  // rate(tertiary) = 1 / chance
+  let perKillPower = 0;
+  for (const d of drops.always || []) perKillPower += dropValue(d.name, downstreamCounts) * 1.0;
+  const totalMainWeight = (drops.main || []).reduce((s, d) => s + (Number(d.weight) || 0), 0);
+  if (totalMainWeight > 0) {
+    for (const d of drops.main || []) {
+      if (!d.name || /^nothing$/i.test(d.name)) continue;
+      const rate = (Number(d.weight) || 0) / totalMainWeight;
+      perKillPower += dropValue(d.name, downstreamCounts) * rate;
+    }
+  }
+  for (const d of drops.tertiary || []) {
+    const rate = 1 / Math.max(1, Number(d.chance) || 1024);
+    perKillPower += dropValue(d.name, downstreamCounts) * rate;
+  }
+
+  // Extract combat level from entry.notes (`combat NN hp ...`) to estimate kph.
+  const combat = Number((String(entry.notes || '').match(/combat\s+(\d+)/) || [])[1]) || 50;
+  const kph = kphFromCombat(combat);
+  entry.expected_power_per_hour = Math.round(perKillPower * kph * 100) / 100;
+  if (entry.expected_power_per_hour <= 0.001) {
+    // Ensure monotonic >0 for activities with at least one drop
+    if (perKillPower > 0) entry.expected_power_per_hour = Math.round(perKillPower * kph * 100) / 100;
+    else return { ok: 1, zero: 1 };
+  }
+  return { ok: 1, zero: 0 };
+}
+
+// ══════════════════════════════════════════════════════════════════════════════
 // Main
 // ══════════════════════════════════════════════════════════════════════════════
 
@@ -1359,6 +1781,15 @@ function main() {
   const effLog = effectiveRederiver.rederive(out);
   console.log(`[intensity] effective-xp rederive: ${effLog.appended_annotation} from methods, ${effLog.filled_default} default-filled`);
 
+  // v0.9-waveC Task #19 — niche-power dimension: annotate combat activities
+  // with expected_power_per_hour = kph × sum(drop_rate × downstream_dag_value).
+  // Reads progression-dag.json for downstream counts.
+  console.log('[intensity] computing expected_power_per_hour...');
+  const downstreamCounts = buildDownstreamIndex();
+  console.log(`  loaded ${downstreamCounts.size} DAG nodes for downstream lookup`);
+  const powerLog = annotatePowerPerHour(out.activities, downstreamCounts);
+  console.log(`  ${powerLog.annotated} activities annotated, ${powerLog.zeroPower} left at zero`);
+
   fs.writeFileSync(path.join(DATA, 'intensity-catalog.json'), JSON.stringify(out, null, 2));
 
   const report = computeMiseryAndGaps(dedup);
@@ -1419,6 +1850,28 @@ function renderReport(out, report) {
     const c = report.skillCoverage[s];
     lines.push(`| ${s} | ${c.bands_covered.join(', ')} | ${c.bands_missing.join(', ') || 'none'} |`);
   }
+  lines.push('');
+
+  // v0.9-waveC Task #19 — niche-power: top-20 activities by expected_power_per_hour
+  const poweredActs = (out.activities || [])
+    .filter(a => Number(a.expected_power_per_hour || 0) > 0)
+    .sort((a, b) => Number(b.expected_power_per_hour) - Number(a.expected_power_per_hour));
+  lines.push('## Top 20 activities by expected_power_per_hour');
+  lines.push('');
+  lines.push('power = kph × sum(drop_rate × downstream_dag_value). Signals which kills the planner should weight above pure xp/gp when the account needs content-gating unlocks.');
+  lines.push('');
+  if (poweredActs.length === 0) {
+    lines.push('_No activities registered nonzero power-per-hour. Check progression-dag.json coverage of item_unlock nodes._');
+  } else {
+    lines.push('| Rank | Activity | Type | Region | Intensity | XP/hr | GP/hr | Power/hr |');
+    lines.push('|---|---|---|---|---|---|---|---|');
+    for (let i = 0; i < Math.min(20, poweredActs.length); i++) {
+      const a = poweredActs[i];
+      lines.push(`| ${i + 1} | ${a.activity_id} | ${a.activity_type} | ${a.region} | ${a.intensity} | ${a.base_xp_per_hour} | ${a.base_gp_per_hour} | ${a.expected_power_per_hour} |`);
+    }
+  }
+  lines.push('');
+  lines.push(`_Total activities with nonzero power: **${poweredActs.length}** / ${out.activities.length}._`);
   lines.push('');
   lines.push('## Per-region coverage matrix');
   lines.push('');
