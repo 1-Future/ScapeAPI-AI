@@ -7,544 +7,1745 @@
       "skill": "slayer",
       "level_required": 1,
       "name": "Turael Cow Task",
-      "location": { "region": "heartlands", "spot": "Chelser cow field" },
+      "location": {
+        "region": "heartlands",
+        "spot": "Chelser cow field"
+      },
       "intensity": 1,
       "xp_per_hour": 8000,
       "gp_per_hour": 6000,
-      "requires": { "quests": [], "items": ["bronze_scimitar"], "skills": {} },
+      "requires": {
+        "quests": [],
+        "items": [
+          "bronze_scimitar"
+        ],
+        "skills": {}
+      },
       "description": "Turael cow task. AFK.",
-      "produces": [{ "item": "cowhide", "rate_per_hour": 420 }],
-      "marstead_note": "AFK baseline. Starter slayer."
+      "produces": [
+        {
+          "item": "cowhide",
+          "rate_per_hour": 420
+        }
+      ],
+      "marstead_note": "AFK baseline. Starter slayer.",
+      "travel_time_to_bank_seconds": 25,
+      "nearest_teleport": "Heartlands Teleport (Lumbrick)",
+      "banking_trip_cost": {
+        "gp": 35,
+        "intensity": 2
+      },
+      "travel_region_multiplier": 0,
+      "effective_xp_per_hour": 7778,
+      "effective_gp_per_hour": 5833,
+      "travel_minutes_per_hour": 1.7,
+      "active_minutes_per_hour": 58.3,
+      "trips_per_hour": 2
     },
     {
       "id": "heartlands_turael_spider_active",
       "skill": "slayer",
       "level_required": 3,
       "name": "Turael Spider Task Active",
-      "location": { "region": "heartlands", "spot": "Lumbrick Cellar spider pit" },
+      "location": {
+        "region": "heartlands",
+        "spot": "Lumbrick Cellar spider pit"
+      },
       "intensity": 3,
       "xp_per_hour": 19300,
       "gp_per_hour": 8500,
-      "requires": { "quests": [], "items": ["bronze_scimitar"], "skills": {} },
+      "requires": {
+        "quests": [],
+        "items": [
+          "bronze_scimitar"
+        ],
+        "skills": {}
+      },
       "description": "Active spider task multi-pull.",
-      "produces": [{ "item": "spider_silk", "rate_per_hour": 280 }],
-      "marstead_note": "Active."
+      "produces": [
+        {
+          "item": "spider_silk",
+          "rate_per_hour": 280
+        }
+      ],
+      "marstead_note": "Active.",
+      "travel_time_to_bank_seconds": 25,
+      "nearest_teleport": "Heartlands Teleport (Lumbrick)",
+      "banking_trip_cost": {
+        "gp": 35,
+        "intensity": 2
+      },
+      "travel_region_multiplier": 0,
+      "effective_xp_per_hour": 18764,
+      "effective_gp_per_hour": 8264,
+      "travel_minutes_per_hour": 1.7,
+      "active_minutes_per_hour": 58.3,
+      "trips_per_hour": 2
     },
     {
       "id": "heartlands_turael_bat_afk",
       "skill": "slayer",
       "level_required": 10,
       "name": "Turael Bat Task AFK",
-      "location": { "region": "heartlands", "spot": "Lumbrick Cellar bat pit" },
+      "location": {
+        "region": "heartlands",
+        "spot": "Lumbrick Cellar bat pit"
+      },
       "intensity": 1,
       "xp_per_hour": 10900,
       "gp_per_hour": 8000,
-      "requires": { "quests": [], "items": ["steel_scimitar"], "skills": {} },
+      "requires": {
+        "quests": [],
+        "items": [
+          "steel_scimitar"
+        ],
+        "skills": {}
+      },
       "description": "Bat task safespot.",
-      "produces": [{ "item": "bat_wing", "rate_per_hour": 420 }],
-      "marstead_note": "AFK baseline."
+      "produces": [
+        {
+          "item": "bat_wing",
+          "rate_per_hour": 420
+        }
+      ],
+      "marstead_note": "AFK baseline.",
+      "travel_time_to_bank_seconds": 25,
+      "nearest_teleport": "Heartlands Teleport (Lumbrick)",
+      "banking_trip_cost": {
+        "gp": 35,
+        "intensity": 2
+      },
+      "travel_region_multiplier": 0,
+      "effective_xp_per_hour": 10597,
+      "effective_gp_per_hour": 7778,
+      "travel_minutes_per_hour": 1.7,
+      "active_minutes_per_hour": 58.3,
+      "trips_per_hour": 2
     },
     {
       "id": "heartlands_banshee_rush",
       "skill": "slayer",
       "level_required": 15,
       "name": "Banshee Task Make-X",
-      "location": { "region": "heartlands", "spot": "Slayer Tower 1F dense zone" },
+      "location": {
+        "region": "heartlands",
+        "spot": "Slayer Tower 1F dense zone"
+      },
       "intensity": 4,
       "xp_per_hour": 29200,
       "gp_per_hour": 35000,
-      "requires": { "quests": [], "items": ["earmuffs", "steel_scimitar"], "skills": {"slayer": 15} },
+      "requires": {
+        "quests": [],
+        "items": [
+          "earmuffs",
+          "steel_scimitar"
+        ],
+        "skills": {
+          "slayer": 15
+        }
+      },
       "description": "Banshee active multi-pull.",
-      "produces": [{ "item": "banshee_essence", "rate_per_hour": 320 }],
-      "marstead_note": "Active."
+      "produces": [
+        {
+          "item": "banshee_essence",
+          "rate_per_hour": 320
+        }
+      ],
+      "marstead_note": "Active.",
+      "travel_time_to_bank_seconds": 44,
+      "nearest_teleport": "Heartlands Teleport (Lumbrick)",
+      "banking_trip_cost": {
+        "gp": 35,
+        "intensity": 2
+      },
+      "travel_region_multiplier": 0,
+      "effective_xp_per_hour": 27772,
+      "effective_gp_per_hour": 33289,
+      "travel_minutes_per_hour": 2.9,
+      "active_minutes_per_hour": 57.1,
+      "trips_per_hour": 2
     },
     {
       "id": "boneyard_mazchna_skeleton",
       "skill": "slayer",
       "level_required": 20,
       "name": "Mazchna Skeleton Task",
-      "location": { "region": "boneyard", "spot": "Gravelight skeleton cave" },
+      "location": {
+        "region": "boneyard",
+        "spot": "Gravelight skeleton cave"
+      },
       "intensity": 1,
       "xp_per_hour": 15400,
       "gp_per_hour": 12000,
-      "requires": { "quests": [], "items": ["mithril_scimitar"], "skills": {"slayer": 20} },
+      "requires": {
+        "quests": [],
+        "items": [
+          "mithril_scimitar"
+        ],
+        "skills": {
+          "slayer": 20
+        }
+      },
       "description": "Skeleton task AFK.",
-      "produces": [{ "item": "bones", "rate_per_hour": 620 }],
-      "marstead_note": "AFK baseline for 20+."
+      "produces": [
+        {
+          "item": "bones",
+          "rate_per_hour": 620
+        }
+      ],
+      "marstead_note": "AFK baseline for 20+.",
+      "travel_time_to_bank_seconds": 50,
+      "nearest_teleport": "Senntisten Teleport (Ancient)",
+      "banking_trip_cost": {
+        "gp": 180,
+        "intensity": 2
+      },
+      "travel_region_multiplier": 0.2,
+      "effective_xp_per_hour": 14544,
+      "effective_gp_per_hour": 11333,
+      "travel_minutes_per_hour": 3.3,
+      "active_minutes_per_hour": 56.7,
+      "trips_per_hour": 2
     },
     {
       "id": "boneyard_mazchna_crawler",
       "skill": "slayer",
       "level_required": 25,
       "name": "Mazchna Crawler Multi-Pull",
-      "location": { "region": "moryskah", "spot": "Gravechill crawler tunnels" },
+      "location": {
+        "region": "moryskah",
+        "spot": "Gravechill crawler tunnels"
+      },
       "intensity": 5,
       "xp_per_hour": 36200,
       "gp_per_hour": 48000,
-      "requires": { "quests": [], "items": ["mithril_scimitar"], "skills": {"slayer": 25} },
+      "requires": {
+        "quests": [],
+        "items": [
+          "mithril_scimitar"
+        ],
+        "skills": {
+          "slayer": 25
+        }
+      },
       "description": "Flesh crawler multi-pull task.",
-      "produces": [{ "item": "crawler_ichor", "rate_per_hour": 320 }],
-      "marstead_note": "Active."
+      "produces": [
+        {
+          "item": "crawler_ichor",
+          "rate_per_hour": 320
+        }
+      ],
+      "marstead_note": "Active.",
+      "travel_time_to_bank_seconds": 46,
+      "nearest_teleport": "Moryskah Teleport (Village)",
+      "banking_trip_cost": {
+        "gp": 85,
+        "intensity": 2
+      },
+      "travel_region_multiplier": 0.2,
+      "effective_xp_per_hour": 34350,
+      "effective_gp_per_hour": 45547,
+      "travel_minutes_per_hour": 3.1,
+      "active_minutes_per_hour": 56.9,
+      "trips_per_hour": 2
     },
     {
       "id": "saltbrine_vannaka_seagull",
       "skill": "slayer",
       "level_required": 30,
       "name": "Vannaka Seagull Chinning",
-      "location": { "region": "saltbrine", "spot": "Saltbrine Crag roost" },
+      "location": {
+        "region": "saltbrine",
+        "spot": "Saltbrine Crag roost"
+      },
       "intensity": 6,
       "xp_per_hour": 60900,
       "gp_per_hour": 42000,
-      "requires": { "quests": [], "items": ["black_chinchompa"], "skills": {"slayer": 30, "ranged": 45} },
+      "requires": {
+        "quests": [],
+        "items": [
+          "black_chinchompa"
+        ],
+        "skills": {
+          "slayer": 30,
+          "ranged": 45
+        }
+      },
       "description": "Seagull chinchompa task.",
       "produces": [],
-      "marstead_note": "Active."
+      "marstead_note": "Active.",
+      "travel_time_to_bank_seconds": 39,
+      "nearest_teleport": "Saltbrine Teleport (Harbor)",
+      "banking_trip_cost": {
+        "gp": 55,
+        "intensity": 2
+      },
+      "travel_region_multiplier": 0,
+      "effective_xp_per_hour": 58261,
+      "effective_gp_per_hour": 40180,
+      "travel_minutes_per_hour": 2.6,
+      "active_minutes_per_hour": 57.4,
+      "trips_per_hour": 2
     },
     {
       "id": "heartlands_vannaka_pyrefiend",
       "skill": "slayer",
       "level_required": 30,
       "name": "Vannaka Pyrefiend Task AFK",
-      "location": { "region": "sootworks", "spot": "Pyre Vent gallery" },
+      "location": {
+        "region": "sootworks",
+        "spot": "Pyre Vent gallery"
+      },
       "intensity": 1,
       "xp_per_hour": 19800,
       "gp_per_hour": 18000,
-      "requires": { "quests": [], "items": ["adamant_scimitar", "fire_cape_piece"], "skills": {"slayer": 30} },
+      "requires": {
+        "quests": [],
+        "items": [
+          "adamant_scimitar",
+          "fire_cape_piece"
+        ],
+        "skills": {
+          "slayer": 30
+        }
+      },
       "description": "Pyrefiend slayer task AFK.",
-      "produces": [{ "item": "pyre_dust", "rate_per_hour": 240 }],
-      "marstead_note": "AFK baseline."
+      "produces": [
+        {
+          "item": "pyre_dust",
+          "rate_per_hour": 240
+        }
+      ],
+      "marstead_note": "AFK baseline.",
+      "travel_time_to_bank_seconds": 35,
+      "nearest_teleport": "Sootworks Teleport (Forge Hall)",
+      "banking_trip_cost": {
+        "gp": 65,
+        "intensity": 2
+      },
+      "travel_region_multiplier": 0.1,
+      "effective_xp_per_hour": 19030,
+      "effective_gp_per_hour": 17300,
+      "travel_minutes_per_hour": 2.3,
+      "active_minutes_per_hour": 57.7,
+      "trips_per_hour": 2
     },
     {
       "id": "boneyard_vannaka_bloodveld",
       "skill": "slayer",
       "level_required": 50,
       "name": "Vannaka Bloodveld Task",
-      "location": { "region": "moryskah", "spot": "Bloodveld sanctum" },
+      "location": {
+        "region": "moryskah",
+        "spot": "Bloodveld sanctum"
+      },
       "intensity": 4,
       "xp_per_hour": 42500,
       "gp_per_hour": 75000,
-      "requires": { "quests": [], "items": ["rune_scimitar"], "skills": {"slayer": 50} },
+      "requires": {
+        "quests": [],
+        "items": [
+          "rune_scimitar"
+        ],
+        "skills": {
+          "slayer": 50
+        }
+      },
       "description": "Bloodveld task — drops prayer charms.",
-      "produces": [{ "item": "prayer_charm", "rate_per_hour": 55 }],
-      "marstead_note": "Active."
+      "produces": [
+        {
+          "item": "prayer_charm",
+          "rate_per_hour": 55
+        }
+      ],
+      "marstead_note": "Active.",
+      "travel_time_to_bank_seconds": 46,
+      "nearest_teleport": "Moryskah Teleport (Village)",
+      "banking_trip_cost": {
+        "gp": 85,
+        "intensity": 2
+      },
+      "travel_region_multiplier": 0.2,
+      "effective_xp_per_hour": 40328,
+      "effective_gp_per_hour": 71167,
+      "travel_minutes_per_hour": 3.1,
+      "active_minutes_per_hour": 56.9,
+      "trips_per_hour": 2
     },
     {
       "id": "moryskah_vannaka_bloodveld_afk",
       "skill": "slayer",
       "level_required": 50,
       "name": "Bloodveld AFK Safespot",
-      "location": { "region": "moryskah", "spot": "Bloodveld safespot ledge" },
+      "location": {
+        "region": "moryskah",
+        "spot": "Bloodveld safespot ledge"
+      },
       "intensity": 1,
       "xp_per_hour": 30400,
       "gp_per_hour": 48000,
-      "requires": { "quests": [], "items": ["rune_scimitar"], "skills": {"slayer": 50} },
+      "requires": {
+        "quests": [],
+        "items": [
+          "rune_scimitar"
+        ],
+        "skills": {
+          "slayer": 50
+        }
+      },
       "description": "Bloodveld safespot AFK.",
-      "produces": [{ "item": "prayer_charm", "rate_per_hour": 32 }],
-      "marstead_note": "AFK baseline."
+      "produces": [
+        {
+          "item": "prayer_charm",
+          "rate_per_hour": 32
+        }
+      ],
+      "marstead_note": "AFK baseline.",
+      "travel_time_to_bank_seconds": 18,
+      "nearest_teleport": "Moryskah Teleport (Village)",
+      "banking_trip_cost": {
+        "gp": 85,
+        "intensity": 2
+      },
+      "travel_region_multiplier": 0.2,
+      "effective_xp_per_hour": 29792,
+      "effective_gp_per_hour": 47040,
+      "travel_minutes_per_hour": 1.2,
+      "active_minutes_per_hour": 58.8,
+      "trips_per_hour": 2
     },
     {
       "id": "veilwood_chaeldar_gargoyle",
       "skill": "slayer",
       "level_required": 60,
       "name": "Chaeldar Gargoyle Task",
-      "location": { "region": "veilwood", "spot": "Slayer sanctum tower" },
+      "location": {
+        "region": "veilwood",
+        "spot": "Slayer sanctum tower"
+      },
       "intensity": 2,
       "xp_per_hour": 60000,
       "gp_per_hour": 175000,
-      "requires": { "quests": [], "items": ["dragon_scimitar", "rock_hammer"], "skills": {"slayer": 60} },
+      "requires": {
+        "quests": [],
+        "items": [
+          "dragon_scimitar",
+          "rock_hammer"
+        ],
+        "skills": {
+          "slayer": 60
+        }
+      },
       "description": "Gargoyle task.",
-      "produces": [{ "item": "granite_maul_piece", "rate_per_hour": 0.3 }],
-      "marstead_note": "AFK-Multitask."
+      "produces": [
+        {
+          "item": "granite_maul_piece",
+          "rate_per_hour": 0.3
+        }
+      ],
+      "marstead_note": "AFK-Multitask.",
+      "travel_time_to_bank_seconds": 39,
+      "nearest_teleport": "Necklace of Passage",
+      "banking_trip_cost": {
+        "gp": 500,
+        "intensity": 2
+      },
+      "travel_region_multiplier": 0.1,
+      "effective_xp_per_hour": 57400,
+      "effective_gp_per_hour": 167417,
+      "travel_minutes_per_hour": 2.6,
+      "active_minutes_per_hour": 57.4,
+      "trips_per_hour": 2
     },
     {
       "id": "veilwood_chaeldar_nechryael",
       "skill": "slayer",
       "level_required": 65,
       "name": "Chaeldar Nechryael Task",
-      "location": { "region": "veilwood", "spot": "Abyssal sanctum" },
+      "location": {
+        "region": "veilwood",
+        "spot": "Abyssal sanctum"
+      },
       "intensity": 5,
       "xp_per_hour": 76300,
       "gp_per_hour": 145000,
-      "requires": { "quests": [], "items": ["abyssal_whip"], "skills": {"slayer": 65} },
+      "requires": {
+        "quests": [],
+        "items": [
+          "abyssal_whip"
+        ],
+        "skills": {
+          "slayer": 65
+        }
+      },
       "description": "Nechryael task.",
-      "produces": [{ "item": "defender_hilt_piece", "rate_per_hour": 0.4 }],
-      "marstead_note": "Active."
+      "produces": [
+        {
+          "item": "defender_hilt_piece",
+          "rate_per_hour": 0.4
+        }
+      ],
+      "marstead_note": "Active.",
+      "travel_time_to_bank_seconds": 67,
+      "nearest_teleport": "Necklace of Passage",
+      "banking_trip_cost": {
+        "gp": 500,
+        "intensity": 2
+      },
+      "travel_region_multiplier": 0.1,
+      "effective_xp_per_hour": 70620,
+      "effective_gp_per_hour": 134206,
+      "travel_minutes_per_hour": 4.5,
+      "active_minutes_per_hour": 55.5,
+      "trips_per_hour": 2
     },
     {
       "id": "wilds_nieve_smoke_devil",
       "skill": "slayer",
       "level_required": 75,
       "name": "Nieve Smoke Devil Task",
-      "location": { "region": "sootworks", "spot": "Deep smoke shrine" },
+      "location": {
+        "region": "sootworks",
+        "spot": "Deep smoke shrine"
+      },
       "intensity": 6,
       "xp_per_hour": 104800,
       "gp_per_hour": 420000,
-      "requires": { "quests": ["smoke_of_the_deeps"], "items": ["facemask"], "skills": {"slayer": 75} },
+      "requires": {
+        "quests": [
+          "smoke_of_the_deeps"
+        ],
+        "items": [
+          "facemask"
+        ],
+        "skills": {
+          "slayer": 75
+        }
+      },
       "description": "Smoke devil task. Multi-combat, best slayer XP/hr 75+.",
-      "produces": [{ "item": "smoke_dust", "rate_per_hour": 3200 }],
-      "marstead_note": "Active-Max Focus."
+      "produces": [
+        {
+          "item": "smoke_dust",
+          "rate_per_hour": 3200
+        }
+      ],
+      "marstead_note": "Active-Max Focus.",
+      "travel_time_to_bank_seconds": 14,
+      "nearest_teleport": "Sootworks Teleport (Forge Hall)",
+      "banking_trip_cost": {
+        "gp": 65,
+        "intensity": 2
+      },
+      "travel_region_multiplier": 0.1,
+      "effective_xp_per_hour": 103170,
+      "effective_gp_per_hour": 413467,
+      "travel_minutes_per_hour": 0.9,
+      "active_minutes_per_hour": 59.1,
+      "trips_per_hour": 2
     },
     {
       "id": "veilwood_nieve_kurask_afk",
       "skill": "slayer",
       "level_required": 70,
       "name": "Nieve Kurask Task AFK",
-      "location": { "region": "veilwood", "spot": "Piscatoris Kurask cave" },
+      "location": {
+        "region": "veilwood",
+        "spot": "Piscatoris Kurask cave"
+      },
       "intensity": 1,
       "xp_per_hour": 54700,
       "gp_per_hour": 185000,
-      "requires": { "quests": [], "items": ["leaf_bladed_battleaxe"], "skills": {"slayer": 70} },
+      "requires": {
+        "quests": [],
+        "items": [
+          "leaf_bladed_battleaxe"
+        ],
+        "skills": {
+          "slayer": 70
+        }
+      },
       "description": "Kurask task AFK.",
-      "produces": [{ "item": "kurask_head", "rate_per_hour": 0.5 }],
-      "marstead_note": "AFK baseline for 70+."
+      "produces": [
+        {
+          "item": "kurask_head",
+          "rate_per_hour": 0.5
+        }
+      ],
+      "marstead_note": "AFK baseline for 70+.",
+      "travel_time_to_bank_seconds": 39,
+      "nearest_teleport": "Necklace of Passage",
+      "banking_trip_cost": {
+        "gp": 500,
+        "intensity": 2
+      },
+      "travel_region_multiplier": 0.1,
+      "effective_xp_per_hour": 52330,
+      "effective_gp_per_hour": 176983,
+      "travel_minutes_per_hour": 2.6,
+      "active_minutes_per_hour": 57.4,
+      "trips_per_hour": 2
     },
     {
       "id": "inkweald_nieve_abyssal",
       "skill": "slayer",
       "level_required": 85,
       "name": "Nieve Abyssal Demon Task",
-      "location": { "region": "inkweald", "spot": "Abyssal sanctum" },
+      "location": {
+        "region": "inkweald",
+        "spot": "Abyssal sanctum"
+      },
       "intensity": 3,
       "xp_per_hour": 82300,
       "gp_per_hour": 285000,
-      "requires": { "quests": [], "items": ["abyssal_whip", "slayer_helm"], "skills": {"slayer": 85} },
+      "requires": {
+        "quests": [],
+        "items": [
+          "abyssal_whip",
+          "slayer_helm"
+        ],
+        "skills": {
+          "slayer": 85
+        }
+      },
       "description": "Abyssal demon task.",
-      "produces": [{ "item": "abyssal_head", "rate_per_hour": 1.2 }],
-      "marstead_note": "Multitask-Active."
+      "produces": [
+        {
+          "item": "abyssal_head",
+          "rate_per_hour": 1.2
+        }
+      ],
+      "marstead_note": "Multitask-Active.",
+      "travel_time_to_bank_seconds": 95,
+      "nearest_teleport": "Moonclan Teleport (Lunar)",
+      "banking_trip_cost": {
+        "gp": 110,
+        "intensity": 2
+      },
+      "travel_region_multiplier": 0.2,
+      "effective_xp_per_hour": 73613,
+      "effective_gp_per_hour": 254917,
+      "travel_minutes_per_hour": 6.3,
+      "active_minutes_per_hour": 53.7,
+      "trips_per_hour": 2
     },
     {
       "id": "inkweald_nieve_abyssal_afk",
       "skill": "slayer",
       "level_required": 85,
       "name": "Abyssal Demon Safespot AFK",
-      "location": { "region": "inkweald", "spot": "Abyssal sanctum ledge" },
+      "location": {
+        "region": "inkweald",
+        "spot": "Abyssal sanctum ledge"
+      },
       "intensity": 2,
       "xp_per_hour": 61800,
       "gp_per_hour": 185000,
-      "requires": { "quests": [], "items": ["abyssal_whip", "slayer_helm"], "skills": {"slayer": 85} },
+      "requires": {
+        "quests": [],
+        "items": [
+          "abyssal_whip",
+          "slayer_helm"
+        ],
+        "skills": {
+          "slayer": 85
+        }
+      },
       "description": "Abyssal demon safespot.",
-      "produces": [{ "item": "abyssal_head", "rate_per_hour": 0.8 }],
-      "marstead_note": "AFK-Multitask."
+      "produces": [
+        {
+          "item": "abyssal_head",
+          "rate_per_hour": 0.8
+        }
+      ],
+      "marstead_note": "AFK-Multitask.",
+      "travel_time_to_bank_seconds": 22,
+      "nearest_teleport": "Moonclan Teleport (Lunar)",
+      "banking_trip_cost": {
+        "gp": 110,
+        "intensity": 2
+      },
+      "travel_region_multiplier": 0.2,
+      "effective_xp_per_hour": 60289,
+      "effective_gp_per_hour": 180478,
+      "travel_minutes_per_hour": 1.5,
+      "active_minutes_per_hour": 58.5,
+      "trips_per_hour": 2
     },
     {
       "id": "inkweald_duradel_dark_beast",
       "skill": "slayer",
       "level_required": 90,
       "name": "Duradel Dark Beast Task",
-      "location": { "region": "inkweald", "spot": "Dark Beast wood" },
+      "location": {
+        "region": "inkweald",
+        "spot": "Dark Beast wood"
+      },
       "intensity": 5,
       "xp_per_hour": 128000,
       "gp_per_hour": 420000,
-      "requires": { "quests": ["unwake_the_dreamer"], "items": ["ghrazi_rapier"], "skills": {"slayer": 90} },
+      "requires": {
+        "quests": [
+          "unwake_the_dreamer"
+        ],
+        "items": [
+          "ghrazi_rapier"
+        ],
+        "skills": {
+          "slayer": 90
+        }
+      },
       "description": "Dark beast task.",
-      "produces": [{ "item": "dark_bow_piece", "rate_per_hour": 0.2 }],
-      "marstead_note": "Active."
+      "produces": [
+        {
+          "item": "dark_bow_piece",
+          "rate_per_hour": 0.2
+        }
+      ],
+      "marstead_note": "Active.",
+      "travel_time_to_bank_seconds": 54,
+      "nearest_teleport": "Moonclan Teleport (Lunar)",
+      "banking_trip_cost": {
+        "gp": 110,
+        "intensity": 2
+      },
+      "travel_region_multiplier": 0.2,
+      "effective_xp_per_hour": 120320,
+      "effective_gp_per_hour": 394800,
+      "travel_minutes_per_hour": 3.6,
+      "active_minutes_per_hour": 56.4,
+      "trips_per_hour": 2
     },
     {
       "id": "wilds_duradel_demonic_gorilla",
       "skill": "slayer",
       "level_required": 92,
       "name": "Duradel Demonic Gorilla Task",
-      "location": { "region": "wilds", "spot": "Demon Hatchery deep Wilds" },
+      "location": {
+        "region": "wilds",
+        "spot": "Demon Hatchery deep Wilds"
+      },
       "intensity": 8,
       "xp_per_hour": 165500,
       "gp_per_hour": 620000,
-      "requires": { "quests": ["ape_madrigal"], "items": ["ghrazi_rapier", "blowpipe"], "skills": {"slayer": 92} },
+      "requires": {
+        "quests": [
+          "ape_madrigal"
+        ],
+        "items": [
+          "ghrazi_rapier",
+          "blowpipe"
+        ],
+        "skills": {
+          "slayer": 92
+        }
+      },
       "description": "Demonic gorilla prayer-switch task.",
-      "produces": [{ "item": "zenyte_shard", "rate_per_hour": 2.4 }],
-      "marstead_note": "Max Focus. Wilderness."
+      "produces": [
+        {
+          "item": "zenyte_shard",
+          "rate_per_hour": 2.4
+        }
+      ],
+      "marstead_note": "Max Focus. Wilderness.",
+      "travel_time_to_bank_seconds": 30,
+      "nearest_teleport": "Amulet of Glory (Wilds edge)",
+      "banking_trip_cost": {
+        "gp": 500,
+        "intensity": 2
+      },
+      "travel_region_multiplier": 0.3,
+      "effective_xp_per_hour": 157225,
+      "effective_gp_per_hour": 589000,
+      "travel_minutes_per_hour": 3,
+      "active_minutes_per_hour": 57,
+      "trips_per_hour": 3
     },
     {
       "id": "inkweald_duradel_wyrm_afk",
       "skill": "slayer",
       "level_required": 94,
       "name": "Duradel Cave Wyrm AFK",
-      "location": { "region": "inkweald", "spot": "Karuulm wyrm cave" },
+      "location": {
+        "region": "inkweald",
+        "spot": "Karuulm wyrm cave"
+      },
       "intensity": 1,
       "xp_per_hour": 118000,
       "gp_per_hour": 285000,
-      "requires": { "quests": ["lost_city_of_the_wyrms"], "items": ["dragon_hunter_lance"], "skills": {"slayer": 94} },
+      "requires": {
+        "quests": [
+          "lost_city_of_the_wyrms"
+        ],
+        "items": [
+          "dragon_hunter_lance"
+        ],
+        "skills": {
+          "slayer": 94
+        }
+      },
       "description": "Cave wyrm AFK with boots of stone.",
-      "produces": [{ "item": "wyrm_scales", "rate_per_hour": 380 }],
-      "marstead_note": "AFK baseline for 90+."
+      "produces": [
+        {
+          "item": "wyrm_scales",
+          "rate_per_hour": 380
+        }
+      ],
+      "marstead_note": "AFK baseline for 90+.",
+      "travel_time_to_bank_seconds": 54,
+      "nearest_teleport": "Moonclan Teleport (Lunar)",
+      "banking_trip_cost": {
+        "gp": 110,
+        "intensity": 2
+      },
+      "travel_region_multiplier": 0.2,
+      "effective_xp_per_hour": 110920,
+      "effective_gp_per_hour": 267900,
+      "travel_minutes_per_hour": 3.6,
+      "active_minutes_per_hour": 56.4,
+      "trips_per_hour": 2
     },
     {
       "id": "wilds_duradel_nightmare",
       "skill": "slayer",
       "level_required": 96,
       "name": "Duradel Kraken Task",
-      "location": { "region": "saltbrine", "spot": "Kraken abyss" },
+      "location": {
+        "region": "saltbrine",
+        "spot": "Kraken abyss"
+      },
       "intensity": 4,
       "xp_per_hour": 194500,
       "gp_per_hour": 685000,
-      "requires": { "quests": ["the_krakenmaw"], "items": ["trident_of_the_seas"], "skills": {"slayer": 96, "magic": 85} },
+      "requires": {
+        "quests": [
+          "the_krakenmaw"
+        ],
+        "items": [
+          "trident_of_the_seas"
+        ],
+        "skills": {
+          "slayer": 96,
+          "magic": 85
+        }
+      },
       "description": "Kraken instance.",
-      "produces": [{ "item": "trident_piece", "rate_per_hour": 0.35 }],
-      "marstead_note": "Active."
+      "produces": [
+        {
+          "item": "trident_piece",
+          "rate_per_hour": 0.35
+        }
+      ],
+      "marstead_note": "Active.",
+      "travel_time_to_bank_seconds": 39,
+      "nearest_teleport": "Saltbrine Teleport (Harbor)",
+      "banking_trip_cost": {
+        "gp": 55,
+        "intensity": 2
+      },
+      "travel_region_multiplier": 0,
+      "effective_xp_per_hour": 186072,
+      "effective_gp_per_hour": 655317,
+      "travel_minutes_per_hour": 2.6,
+      "active_minutes_per_hour": 57.4,
+      "trips_per_hour": 2
     },
     {
       "id": "heartlands_burthorpe_banshee",
       "skill": "slayer",
       "level_required": 15,
       "name": "Banshee Task AFK",
-      "location": { "region": "heartlands", "spot": "Slayer Tower 1F" },
+      "location": {
+        "region": "heartlands",
+        "spot": "Slayer Tower 1F"
+      },
       "intensity": 1,
       "xp_per_hour": 13300,
       "gp_per_hour": 12000,
-      "requires": { "quests": [], "items": ["earmuffs"], "skills": {"slayer": 15} },
+      "requires": {
+        "quests": [],
+        "items": [
+          "earmuffs"
+        ],
+        "skills": {
+          "slayer": 15
+        }
+      },
       "description": "Banshee task with earmuffs. AFK.",
-      "produces": [{ "item": "banshee_essence", "rate_per_hour": 180 }],
-      "marstead_note": "AFK baseline for 15+."
+      "produces": [
+        {
+          "item": "banshee_essence",
+          "rate_per_hour": 180
+        }
+      ],
+      "marstead_note": "AFK baseline for 15+.",
+      "travel_time_to_bank_seconds": 25,
+      "nearest_teleport": "Heartlands Teleport (Lumbrick)",
+      "banking_trip_cost": {
+        "gp": 35,
+        "intensity": 2
+      },
+      "travel_region_multiplier": 0,
+      "effective_xp_per_hour": 12931,
+      "effective_gp_per_hour": 11667,
+      "travel_minutes_per_hour": 1.7,
+      "active_minutes_per_hour": 58.3,
+      "trips_per_hour": 2
     },
     {
       "id": "moryskah_mazchna_ankou",
       "skill": "slayer",
       "level_required": 40,
       "name": "Ankou Task AFK",
-      "location": { "region": "moryskah", "spot": "Gravechill deep chamber" },
+      "location": {
+        "region": "moryskah",
+        "spot": "Gravechill deep chamber"
+      },
       "intensity": 1,
       "xp_per_hour": 23800,
       "gp_per_hour": 28000,
-      "requires": { "quests": [], "items": ["rune_scimitar"], "skills": {"slayer": 40} },
+      "requires": {
+        "quests": [],
+        "items": [
+          "rune_scimitar"
+        ],
+        "skills": {
+          "slayer": 40
+        }
+      },
       "description": "Ankou task AFK.",
-      "produces": [{ "item": "ancient_shard", "rate_per_hour": 4 }],
-      "marstead_note": "AFK baseline for 40+."
+      "produces": [
+        {
+          "item": "ancient_shard",
+          "rate_per_hour": 4
+        }
+      ],
+      "marstead_note": "AFK baseline for 40+.",
+      "travel_time_to_bank_seconds": 80,
+      "nearest_teleport": "Moryskah Teleport (Village)",
+      "banking_trip_cost": {
+        "gp": 85,
+        "intensity": 2
+      },
+      "travel_region_multiplier": 0.2,
+      "effective_xp_per_hour": 21684,
+      "effective_gp_per_hour": 25511,
+      "travel_minutes_per_hour": 5.3,
+      "active_minutes_per_hour": 54.7,
+      "trips_per_hour": 2
     },
     {
       "id": "moryskah_vannaka_hellhound",
       "skill": "slayer",
       "level_required": 45,
       "name": "Vannaka Hellhound Task",
-      "location": { "region": "moryskah", "spot": "Hellhound kennels" },
+      "location": {
+        "region": "moryskah",
+        "spot": "Hellhound kennels"
+      },
       "intensity": 3,
       "xp_per_hour": 38800,
       "gp_per_hour": 95000,
-      "requires": { "quests": [], "items": ["rune_scimitar"], "skills": {"slayer": 45} },
+      "requires": {
+        "quests": [],
+        "items": [
+          "rune_scimitar"
+        ],
+        "skills": {
+          "slayer": 45
+        }
+      },
       "description": "Hellhound task. Drops hard clue.",
-      "produces": [{ "item": "hard_clue", "rate_per_hour": 1.2 }],
-      "marstead_note": "Multitask-Active."
+      "produces": [
+        {
+          "item": "hard_clue",
+          "rate_per_hour": 1.2
+        }
+      ],
+      "marstead_note": "Multitask-Active.",
+      "travel_time_to_bank_seconds": 46,
+      "nearest_teleport": "Moryskah Teleport (Village)",
+      "banking_trip_cost": {
+        "gp": 85,
+        "intensity": 2
+      },
+      "travel_region_multiplier": 0.2,
+      "effective_xp_per_hour": 36817,
+      "effective_gp_per_hour": 90144,
+      "travel_minutes_per_hour": 3.1,
+      "active_minutes_per_hour": 56.9,
+      "trips_per_hour": 2
     },
     {
       "id": "heartlands_turael_bear",
       "skill": "slayer",
       "level_required": 5,
       "name": "Black Bear Task AFK",
-      "location": { "region": "heartlands", "spot": "Whistlegrove Bear Woods" },
+      "location": {
+        "region": "heartlands",
+        "spot": "Whistlegrove Bear Woods"
+      },
       "intensity": 1,
       "xp_per_hour": 9400,
       "gp_per_hour": 6500,
-      "requires": { "quests": [], "items": ["bronze_scimitar"], "skills": {} },
+      "requires": {
+        "quests": [],
+        "items": [
+          "bronze_scimitar"
+        ],
+        "skills": {}
+      },
       "description": "Black bear task. AFK.",
-      "produces": [{ "item": "bear_fur", "rate_per_hour": 220 }],
-      "marstead_note": "AFK baseline."
+      "produces": [
+        {
+          "item": "bear_fur",
+          "rate_per_hour": 220
+        }
+      ],
+      "marstead_note": "AFK baseline.",
+      "travel_time_to_bank_seconds": 25,
+      "nearest_teleport": "Heartlands Teleport (Lumbrick)",
+      "banking_trip_cost": {
+        "gp": 35,
+        "intensity": 2
+      },
+      "travel_region_multiplier": 0,
+      "effective_xp_per_hour": 9139,
+      "effective_gp_per_hour": 6319,
+      "travel_minutes_per_hour": 1.7,
+      "active_minutes_per_hour": 58.3,
+      "trips_per_hour": 2
     },
     {
       "id": "heartlands_brigand_mount_rotation",
       "skill": "slayer",
       "level_required": 68,
       "name": "Brigand Mounts Slayer Rotation",
-      "location": { "region": "heartlands", "spot": "Ironroad brigand-mount outpost" },
+      "location": {
+        "region": "heartlands",
+        "spot": "Ironroad brigand-mount outpost"
+      },
       "intensity": 7,
       "xp_per_hour": 118000,
       "gp_per_hour": 1300000,
-      "requires": { "quests": ["the_rangers_trust"], "items": ["slayer_helm", "rune_scimitar", "brigand_rope"], "skills": {"slayer": 68} },
+      "requires": {
+        "quests": [
+          "the_rangers_trust"
+        ],
+        "items": [
+          "slayer_helm",
+          "rune_scimitar",
+          "brigand_rope"
+        ],
+        "skills": {
+          "slayer": 68
+        }
+      },
       "description": "Mid-tier mounted brigand task. Dismount + cavalry rotation. Drops keys worth flipping.",
-      "produces": [{ "item": "brigand_key", "rate_per_hour": 60 }],
-      "marstead_note": "H11 Heartlands 1-2M moneymaker."
+      "produces": [
+        {
+          "item": "brigand_key",
+          "rate_per_hour": 60
+        }
+      ],
+      "marstead_note": "H11 Heartlands 1-2M moneymaker.",
+      "travel_time_to_bank_seconds": 25,
+      "nearest_teleport": "Heartlands Teleport (Lumbrick)",
+      "banking_trip_cost": {
+        "gp": 35,
+        "intensity": 2
+      },
+      "travel_region_multiplier": 0,
+      "effective_xp_per_hour": 113083,
+      "effective_gp_per_hour": 1245833,
+      "travel_minutes_per_hour": 2.5,
+      "active_minutes_per_hour": 57.5,
+      "trips_per_hour": 3
     },
     {
       "id": "glass_desert_sandwraith_summoner",
       "skill": "slayer",
       "level_required": 78,
       "name": "Sandwraith Summoner Task",
-      "location": { "region": "glass_desert", "spot": "Crescent dunes summoning ring" },
+      "location": {
+        "region": "glass_desert",
+        "spot": "Crescent dunes summoning ring"
+      },
       "intensity": 7,
       "xp_per_hour": 156000,
       "gp_per_hour": 1700000,
-      "requires": { "quests": ["the_dune_covenant"], "items": ["slayer_helm", "mirror_shield", "dragon_scimitar"], "skills": {"slayer": 78, "magic": 75} },
+      "requires": {
+        "quests": [
+          "the_dune_covenant"
+        ],
+        "items": [
+          "slayer_helm",
+          "mirror_shield",
+          "dragon_scimitar"
+        ],
+        "skills": {
+          "slayer": 78,
+          "magic": 75
+        }
+      },
       "description": "Mid-tier magic boss. Mirror shield flip to reflect petrify; summon rotation clears arena adds.",
-      "produces": [{ "item": "sandwraith_totem", "rate_per_hour": 22 }],
-      "marstead_note": "H11 Glass Desert 1-2M moneymaker."
+      "produces": [
+        {
+          "item": "sandwraith_totem",
+          "rate_per_hour": 22
+        }
+      ],
+      "marstead_note": "H11 Glass Desert 1-2M moneymaker.",
+      "travel_time_to_bank_seconds": 83,
+      "nearest_teleport": "Glass Desert Pendant",
+      "banking_trip_cost": {
+        "gp": 500,
+        "intensity": 2
+      },
+      "travel_region_multiplier": 0.5,
+      "effective_xp_per_hour": 134420,
+      "effective_gp_per_hour": 1464833,
+      "travel_minutes_per_hour": 8.3,
+      "active_minutes_per_hour": 51.7,
+      "trips_per_hour": 3
     },
     {
       "id": "veilwood_silvermoon_chanter",
       "skill": "slayer",
       "level_required": 80,
       "name": "Silvermoon Chanter",
-      "location": { "region": "veilwood", "spot": "Moonblade silvermoon chanter shrine" },
+      "location": {
+        "region": "veilwood",
+        "spot": "Moonblade silvermoon chanter shrine"
+      },
       "intensity": 6,
       "xp_per_hour": 168000,
       "gp_per_hour": 1500000,
-      "requires": { "quests": ["song_of_the_mossborn"], "items": ["slayer_helm", "silvermoon_bow"], "skills": {"slayer": 80, "magic": 80} },
+      "requires": {
+        "quests": [
+          "song_of_the_mossborn"
+        ],
+        "items": [
+          "slayer_helm",
+          "silvermoon_bow"
+        ],
+        "skills": {
+          "slayer": 80,
+          "magic": 80
+        }
+      },
       "description": "Mid-tier magic boss. Chant rotation interrupts healing; rune drops scale with chant-streak.",
-      "produces": [{ "item": "silvermoon_shard", "rate_per_hour": 84 }],
-      "marstead_note": "H11 Veilwood 1-2M moneymaker."
+      "produces": [
+        {
+          "item": "silvermoon_shard",
+          "rate_per_hour": 84
+        }
+      ],
+      "marstead_note": "H11 Veilwood 1-2M moneymaker.",
+      "travel_time_to_bank_seconds": 15,
+      "nearest_teleport": "Necklace of Passage",
+      "banking_trip_cost": {
+        "gp": 500,
+        "intensity": 2
+      },
+      "travel_region_multiplier": 0.1,
+      "effective_xp_per_hour": 165200,
+      "effective_gp_per_hour": 1475000,
+      "travel_minutes_per_hour": 1,
+      "active_minutes_per_hour": 59,
+      "trips_per_hour": 2
     },
     {
       "id": "inkweald_dreameater_lair",
       "skill": "slayer",
       "level_required": 85,
       "name": "Dreameater Lair",
-      "location": { "region": "inkweald", "spot": "Penseurlake dreameater den" },
+      "location": {
+        "region": "inkweald",
+        "spot": "Penseurlake dreameater den"
+      },
       "intensity": 6,
       "xp_per_hour": 182000,
       "gp_per_hour": 3400000,
-      "requires": { "quests": ["unwake_the_dreamer"], "items": ["slayer_helm", "salve_amulet_e", "blowpipe"], "skills": {"slayer": 85} },
+      "requires": {
+        "quests": [
+          "unwake_the_dreamer"
+        ],
+        "items": [
+          "slayer_helm",
+          "salve_amulet_e",
+          "blowpipe"
+        ],
+        "skills": {
+          "slayer": 85
+        }
+      },
       "description": "Solo midgame boss. Dreameater triggers sleep — wake rotation + prayer flick. Drops dreamscale.",
-      "produces": [{ "item": "dreamscale", "rate_per_hour": 32 }],
-      "marstead_note": "H11 Inkweald 2-5M moneymaker."
+      "produces": [
+        {
+          "item": "dreamscale",
+          "rate_per_hour": 32
+        }
+      ],
+      "marstead_note": "H11 Inkweald 2-5M moneymaker.",
+      "travel_time_to_bank_seconds": 95,
+      "nearest_teleport": "Moonclan Teleport (Lunar)",
+      "banking_trip_cost": {
+        "gp": 110,
+        "intensity": 2
+      },
+      "travel_region_multiplier": 0.2,
+      "effective_xp_per_hour": 162789,
+      "effective_gp_per_hour": 3041111,
+      "travel_minutes_per_hour": 6.3,
+      "active_minutes_per_hour": 53.7,
+      "trips_per_hour": 2
     },
     {
       "id": "moryskah_vampire_lord_duel",
       "skill": "slayer",
       "level_required": 92,
       "name": "Vampire Lord Duel",
-      "location": { "region": "moryskah", "spot": "Gravechill noble mausoleum" },
+      "location": {
+        "region": "moryskah",
+        "spot": "Gravechill noble mausoleum"
+      },
       "intensity": 6,
       "xp_per_hour": 192000,
       "gp_per_hour": 4200000,
-      "requires": { "quests": ["requiem_of_hollows"], "items": ["slayer_helm", "ivandis_flail", "blisterwood_stake"], "skills": {"slayer": 92} },
+      "requires": {
+        "quests": [
+          "requiem_of_hollows"
+        ],
+        "items": [
+          "slayer_helm",
+          "ivandis_flail",
+          "blisterwood_stake"
+        ],
+        "skills": {
+          "slayer": 92
+        }
+      },
       "description": "Solo mid-tier vampire boss. Stake-and-flail rotation — must burn before phase 3 resurrection. High loot table.",
-      "produces": [{ "item": "noble_vampire_dust", "rate_per_hour": 32 }],
-      "marstead_note": "H11 Moryskah 2-5M moneymaker."
+      "produces": [
+        {
+          "item": "noble_vampire_dust",
+          "rate_per_hour": 32
+        }
+      ],
+      "marstead_note": "H11 Moryskah 2-5M moneymaker.",
+      "travel_time_to_bank_seconds": 80,
+      "nearest_teleport": "Moryskah Teleport (Village)",
+      "banking_trip_cost": {
+        "gp": 85,
+        "intensity": 2
+      },
+      "travel_region_multiplier": 0.2,
+      "effective_xp_per_hour": 174933,
+      "effective_gp_per_hour": 3826667,
+      "travel_minutes_per_hour": 5.3,
+      "active_minutes_per_hour": 54.7,
+      "trips_per_hour": 2
     },
     {
       "id": "boneyard_tomb_marauder_task",
       "skill": "slayer",
       "level_required": 75,
       "name": "Tomb Marauder Ironman Task",
-      "location": { "region": "boneyard", "spot": "Gravelight marauder crypt" },
+      "location": {
+        "region": "boneyard",
+        "spot": "Gravelight marauder crypt"
+      },
       "intensity": 6,
       "xp_per_hour": 138000,
       "gp_per_hour": 1800000,
-      "requires": { "quests": ["the_crypt_warden"], "items": ["slayer_helm", "dragon_scimitar"], "skills": {"slayer": 75} },
+      "requires": {
+        "quests": [
+          "the_crypt_warden"
+        ],
+        "items": [
+          "slayer_helm",
+          "dragon_scimitar"
+        ],
+        "skills": {
+          "slayer": 75
+        }
+      },
       "description": "Mid-level wilderness-lite boss on the tomb circuit. Multi-spawn arena with crypt guardian interrupts.",
-      "produces": [{ "item": "marauder_relic", "rate_per_hour": 42 }],
-      "marstead_note": "H11 Boneyard 1-2M moneymaker."
+      "produces": [
+        {
+          "item": "marauder_relic",
+          "rate_per_hour": 42
+        }
+      ],
+      "marstead_note": "H11 Boneyard 1-2M moneymaker.",
+      "travel_time_to_bank_seconds": 89,
+      "nearest_teleport": "Senntisten Teleport (Ancient)",
+      "banking_trip_cost": {
+        "gp": 180,
+        "intensity": 2
+      },
+      "travel_region_multiplier": 0.2,
+      "effective_xp_per_hour": 124353,
+      "effective_gp_per_hour": 1622000,
+      "travel_minutes_per_hour": 5.9,
+      "active_minutes_per_hour": 54.1,
+      "trips_per_hour": 2
     },
     {
       "id": "boneyard_bone_pyramid_desecrator",
       "skill": "slayer",
       "level_required": 88,
       "name": "Bone Pyramid Desecrator",
-      "location": { "region": "boneyard", "spot": "Gravelight apex pyramid" },
+      "location": {
+        "region": "boneyard",
+        "spot": "Gravelight apex pyramid"
+      },
       "intensity": 7,
       "xp_per_hour": 178000,
       "gp_per_hour": 2600000,
-      "requires": { "quests": ["the_crypt_warden", "the_pyramid_oath"], "items": ["slayer_helm", "salve_amulet_e", "bonecrush"], "skills": {"slayer": 88, "prayer": 80} },
+      "requires": {
+        "quests": [
+          "the_crypt_warden",
+          "the_pyramid_oath"
+        ],
+        "items": [
+          "slayer_helm",
+          "salve_amulet_e",
+          "bonecrush"
+        ],
+        "skills": {
+          "slayer": 88,
+          "prayer": 80
+        }
+      },
       "description": "Elite desecrator boss. Ensouled drops across phases. Prayer drain on failed desecrate interrupt.",
-      "produces": [{ "item": "ensouled_dragon_head", "rate_per_hour": 8 }],
-      "marstead_note": "H11 Boneyard 2-5M moneymaker."
+      "produces": [
+        {
+          "item": "ensouled_dragon_head",
+          "rate_per_hour": 8
+        }
+      ],
+      "marstead_note": "H11 Boneyard 2-5M moneymaker.",
+      "travel_time_to_bank_seconds": 89,
+      "nearest_teleport": "Senntisten Teleport (Ancient)",
+      "banking_trip_cost": {
+        "gp": 180,
+        "intensity": 2
+      },
+      "travel_region_multiplier": 0.2,
+      "effective_xp_per_hour": 151597,
+      "effective_gp_per_hour": 2214333,
+      "travel_minutes_per_hour": 8.9,
+      "active_minutes_per_hour": 51.1,
+      "trips_per_hour": 3
     },
     {
       "id": "saltbrine_coral_reaver",
       "skill": "slayer",
       "level_required": 80,
       "name": "Coral Reaver Bounty",
-      "location": { "region": "saltbrine", "spot": "Saltbrine reef-hold arena" },
+      "location": {
+        "region": "saltbrine",
+        "spot": "Saltbrine reef-hold arena"
+      },
       "intensity": 7,
       "xp_per_hour": 162000,
       "gp_per_hour": 1600000,
-      "requires": { "quests": ["the_crystal_coast", "trawlers_call"], "items": ["slayer_helm", "trident_of_the_swamp", "swimming_charm"], "skills": {"slayer": 80} },
+      "requires": {
+        "quests": [
+          "the_crystal_coast",
+          "trawlers_call"
+        ],
+        "items": [
+          "slayer_helm",
+          "trident_of_the_swamp",
+          "swimming_charm"
+        ],
+        "skills": {
+          "slayer": 80
+        }
+      },
       "description": "Swimming combat boss — combat in half-submerged arena. Dive rotation exposes mag weakness.",
-      "produces": [{ "item": "coral_shard", "rate_per_hour": 38 }],
-      "marstead_note": "H11 Saltbrine 1-2M moneymaker."
+      "produces": [
+        {
+          "item": "coral_shard",
+          "rate_per_hour": 38
+        }
+      ],
+      "marstead_note": "H11 Saltbrine 1-2M moneymaker.",
+      "travel_time_to_bank_seconds": 39,
+      "nearest_teleport": "Saltbrine Teleport (Harbor)",
+      "banking_trip_cost": {
+        "gp": 55,
+        "intensity": 2
+      },
+      "travel_region_multiplier": 0,
+      "effective_xp_per_hour": 151470,
+      "effective_gp_per_hour": 1496000,
+      "travel_minutes_per_hour": 3.9,
+      "active_minutes_per_hour": 56.1,
+      "trips_per_hour": 3
     },
     {
       "id": "saltbrine_kraken_tentacle_loop",
       "skill": "slayer",
       "level_required": 87,
       "name": "Saltbrine Kraken Tentacle Loop",
-      "location": { "region": "saltbrine", "spot": "Saltbrine leviathan trench, kraken den" },
+      "location": {
+        "region": "saltbrine",
+        "spot": "Saltbrine leviathan trench, kraken den"
+      },
       "intensity": 6,
       "xp_per_hour": 184000,
       "gp_per_hour": 2400000,
-      "requires": { "quests": ["the_crystal_coast"], "items": ["slayer_helm", "trident_of_the_swamp"], "skills": {"slayer": 87, "magic": 87} },
+      "requires": {
+        "quests": [
+          "the_crystal_coast"
+        ],
+        "items": [
+          "slayer_helm",
+          "trident_of_the_swamp"
+        ],
+        "skills": {
+          "slayer": 87,
+          "magic": 87
+        }
+      },
       "description": "Kraken-style tentacle loop. Auto-detect spawn + trident rotation. OSRS Kraken analogue.",
-      "produces": [{ "item": "kraken_tentacle", "rate_per_hour": 4 }],
-      "marstead_note": "H11 Saltbrine 2-5M moneymaker."
+      "produces": [
+        {
+          "item": "kraken_tentacle",
+          "rate_per_hour": 4
+        }
+      ],
+      "marstead_note": "H11 Saltbrine 2-5M moneymaker.",
+      "travel_time_to_bank_seconds": 39,
+      "nearest_teleport": "Saltbrine Teleport (Harbor)",
+      "banking_trip_cost": {
+        "gp": 55,
+        "intensity": 2
+      },
+      "travel_region_multiplier": 0,
+      "effective_xp_per_hour": 176027,
+      "effective_gp_per_hour": 2296000,
+      "travel_minutes_per_hour": 2.6,
+      "active_minutes_per_hour": 57.4,
+      "trips_per_hour": 2
     },
     {
       "id": "wilds_chaos_shrine_salvage",
       "skill": "slayer",
       "level_required": 55,
       "name": "Chaos Shrine Prayer Salvage",
-      "location": { "region": "wilds", "spot": "Shattercrag chaos shrine, lv4 Wilderness" },
+      "location": {
+        "region": "wilds",
+        "spot": "Shattercrag chaos shrine, lv4 Wilderness"
+      },
       "intensity": 2,
       "xp_per_hour": 48000,
       "gp_per_hour": 650000,
-      "requires": { "quests": [], "items": ["bone_dagger", "prayer_potion"], "skills": {"slayer": 55} },
+      "requires": {
+        "quests": [],
+        "items": [
+          "bone_dagger",
+          "prayer_potion"
+        ],
+        "skills": {
+          "slayer": 55
+        }
+      },
       "description": "AFK chaos shrine — random attacker interruptions. Prayer salvage drops.",
-      "produces": [{ "item": "chaos_rune", "rate_per_hour": 2400 }],
-      "marstead_note": "H11 Wilds 500k-1M moneymaker. AFK with PK risk."
+      "produces": [
+        {
+          "item": "chaos_rune",
+          "rate_per_hour": 2400
+        }
+      ],
+      "marstead_note": "H11 Wilds 500k-1M moneymaker. AFK with PK risk.",
+      "travel_time_to_bank_seconds": 25,
+      "nearest_teleport": "Amulet of Glory (Wilds edge)",
+      "banking_trip_cost": {
+        "gp": 500,
+        "intensity": 2
+      },
+      "travel_region_multiplier": 0.3,
+      "effective_xp_per_hour": 46667,
+      "effective_gp_per_hour": 631944,
+      "travel_minutes_per_hour": 1.7,
+      "active_minutes_per_hour": 58.3,
+      "trips_per_hour": 2
     },
     {
       "id": "wilds_revenant_shard_flip",
       "skill": "slayer",
       "level_required": 60,
       "name": "Revenant Shard Flip",
-      "location": { "region": "wilds", "spot": "Revenant shard-trader outpost, lv20 Wilderness" },
+      "location": {
+        "region": "wilds",
+        "spot": "Revenant shard-trader outpost, lv20 Wilderness"
+      },
       "intensity": 3,
       "xp_per_hour": 62000,
       "gp_per_hour": 880000,
-      "requires": { "quests": [], "items": ["bracelet_of_ethereum"], "skills": {"slayer": 60} },
+      "requires": {
+        "quests": [],
+        "items": [
+          "bracelet_of_ethereum"
+        ],
+        "skills": {
+          "slayer": 60
+        }
+      },
       "description": "PvM-lite revenant imp chain with GE shard-trade cycle. Profit from shard spread.",
-      "produces": [{ "item": "revenant_shard", "rate_per_hour": 180 }],
-      "marstead_note": "H11 Wilds 500k-1M moneymaker. Lite PvM + trade."
+      "produces": [
+        {
+          "item": "revenant_shard",
+          "rate_per_hour": 180
+        }
+      ],
+      "marstead_note": "H11 Wilds 500k-1M moneymaker. Lite PvM + trade.",
+      "travel_time_to_bank_seconds": 109,
+      "nearest_teleport": "Amulet of Glory (Wilds edge)",
+      "banking_trip_cost": {
+        "gp": 500,
+        "intensity": 2
+      },
+      "travel_region_multiplier": 0.3,
+      "effective_xp_per_hour": 54491,
+      "effective_gp_per_hour": 773422,
+      "travel_minutes_per_hour": 7.3,
+      "active_minutes_per_hour": 52.7,
+      "trips_per_hour": 2
     },
     {
       "id": "multi_endgame_corrupted_gauntlet",
       "skill": "slayer",
       "level_required": 95,
       "name": "Corrupted Gauntlet Run (Solo)",
-      "location": { "region": "veilwood", "spot": "Singing Glade corrupted-gauntlet dungeon" },
+      "location": {
+        "region": "veilwood",
+        "spot": "Singing Glade corrupted-gauntlet dungeon"
+      },
       "intensity": 10,
       "xp_per_hour": 248000,
       "gp_per_hour": 5800000,
-      "requires": { "quests": ["song_of_the_mossborn", "the_binding_scroll"], "items": ["crystal_armour_seed", "blade_of_soot"], "skills": {"slayer": 95, "attack": 90, "defence": 90, "magic": 87, "ranged": 90} },
+      "requires": {
+        "quests": [
+          "song_of_the_mossborn",
+          "the_binding_scroll"
+        ],
+        "items": [
+          "crystal_armour_seed",
+          "blade_of_soot"
+        ],
+        "skills": {
+          "slayer": 95,
+          "attack": 90,
+          "defence": 90,
+          "magic": 87,
+          "ranged": 90
+        }
+      },
       "description": "Solo corrupted-gauntlet — 10 min prep + boss. Harvest-and-build rotation under time pressure. Band-10 non-Inferno elite.",
-      "produces": [{ "item": "corrupted_crystal_seed", "rate_per_hour": 1.8 }],
-      "marstead_note": "M13 band 10 beyond Inferno. Corrupted Gauntlet analogue."
+      "produces": [
+        {
+          "item": "corrupted_crystal_seed",
+          "rate_per_hour": 1.8
+        }
+      ],
+      "marstead_note": "M13 band 10 beyond Inferno. Corrupted Gauntlet analogue.",
+      "travel_time_to_bank_seconds": 30,
+      "nearest_teleport": "Necklace of Passage",
+      "banking_trip_cost": {
+        "gp": 500,
+        "intensity": 2
+      },
+      "travel_region_multiplier": 0.1,
+      "effective_xp_per_hour": 235600,
+      "effective_gp_per_hour": 5510000,
+      "travel_minutes_per_hour": 3,
+      "active_minutes_per_hour": 57,
+      "trips_per_hour": 3
     },
     {
       "id": "moryskah_cox_hard_mode_solo",
       "skill": "slayer",
       "level_required": 95,
       "name": "Chambers of Xeric Hard Mode Solo",
-      "location": { "region": "moryskah", "spot": "Gravechill Chambers of Xeric apex" },
+      "location": {
+        "region": "moryskah",
+        "spot": "Gravechill Chambers of Xeric apex"
+      },
       "intensity": 10,
       "xp_per_hour": 168000,
       "gp_per_hour": 7200000,
-      "requires": { "quests": ["requiem_of_hollows", "the_chalice_of_xeric"], "items": ["elder_maul", "dragonhunter_lance", "twisted_bow"], "skills": {"slayer": 95, "attack": 95, "defence": 95, "magic": 90, "ranged": 90, "prayer": 90} },
+      "requires": {
+        "quests": [
+          "requiem_of_hollows",
+          "the_chalice_of_xeric"
+        ],
+        "items": [
+          "elder_maul",
+          "dragonhunter_lance",
+          "twisted_bow"
+        ],
+        "skills": {
+          "slayer": 95,
+          "attack": 95,
+          "defence": 95,
+          "magic": 90,
+          "ranged": 90,
+          "prayer": 90
+        }
+      },
       "description": "CoX hard mode solo — triple-point-rate drops. Max rotation across all combat styles. Band-10 elite.",
-      "produces": [{ "item": "twisted_ancestral_seed", "rate_per_hour": 0.65 }],
-      "marstead_note": "M13 band 10 CoX hard mode variant."
+      "produces": [
+        {
+          "item": "twisted_ancestral_seed",
+          "rate_per_hour": 0.65
+        }
+      ],
+      "marstead_note": "M13 band 10 CoX hard mode variant.",
+      "travel_time_to_bank_seconds": 30,
+      "nearest_teleport": "Moryskah Teleport (Village)",
+      "banking_trip_cost": {
+        "gp": 85,
+        "intensity": 2
+      },
+      "travel_region_multiplier": 0.2,
+      "effective_xp_per_hour": 159600,
+      "effective_gp_per_hour": 6840000,
+      "travel_minutes_per_hour": 3,
+      "active_minutes_per_hour": 57,
+      "trips_per_hour": 3
     },
     {
       "id": "moryskah_tob_expert",
       "skill": "slayer",
       "level_required": 95,
       "name": "Theatre of Blood Expert Mode",
-      "location": { "region": "moryskah", "spot": "Vyrewatch Theatre — expert route" },
+      "location": {
+        "region": "moryskah",
+        "spot": "Vyrewatch Theatre — expert route"
+      },
       "intensity": 10,
       "xp_per_hour": 185000,
       "gp_per_hour": 8400000,
-      "requires": { "quests": ["requiem_of_hollows", "vyre_ascension"], "items": ["scythe_of_vitur", "sang_staff", "blowpipe"], "skills": {"slayer": 95, "attack": 95, "defence": 95, "magic": 90, "ranged": 92, "prayer": 92} },
+      "requires": {
+        "quests": [
+          "requiem_of_hollows",
+          "vyre_ascension"
+        ],
+        "items": [
+          "scythe_of_vitur",
+          "sang_staff",
+          "blowpipe"
+        ],
+        "skills": {
+          "slayer": 95,
+          "attack": 95,
+          "defence": 95,
+          "magic": 90,
+          "ranged": 92,
+          "prayer": 92
+        }
+      },
       "description": "ToB expert mode — no deaths tolerated, boss HP scaled. Drop-rate 2x vs normal.",
-      "produces": [{ "item": "scythe_fragment", "rate_per_hour": 0.28 }],
-      "marstead_note": "M13 band 10 ToB expert."
+      "produces": [
+        {
+          "item": "scythe_fragment",
+          "rate_per_hour": 0.28
+        }
+      ],
+      "marstead_note": "M13 band 10 ToB expert.",
+      "travel_time_to_bank_seconds": 30,
+      "nearest_teleport": "Moryskah Teleport (Village)",
+      "banking_trip_cost": {
+        "gp": 85,
+        "intensity": 2
+      },
+      "travel_region_multiplier": 0.2,
+      "effective_xp_per_hour": 175750,
+      "effective_gp_per_hour": 7980000,
+      "travel_minutes_per_hour": 3,
+      "active_minutes_per_hour": 57,
+      "trips_per_hour": 3
     }
   ],
   "bracket_coverage": {
-    "1-10":  { "count": 3, "intensities": [1, 3, 1] },
-    "10-20": { "count": 3, "intensities": [1, 1, 4] },
-    "20-30": { "count": 2, "intensities": [1, 5] },
-    "30-40": { "count": 2, "intensities": [6, 1] },
-    "40-50": { "count": 2, "intensities": [1, 3] },
-    "50-60": { "count": 2, "intensities": [4, 1] },
-    "60-70": { "count": 2, "intensities": [2, 5] },
-    "70-80": { "count": 2, "intensities": [6, 1] },
-    "80-90": { "count": 2, "intensities": [3, 2] },
-    "90-99": { "count": 4, "intensities": [5, 8, 4, 1] }
+    "1-10": {
+      "count": 3,
+      "intensities": [
+        1,
+        3,
+        1
+      ]
+    },
+    "10-20": {
+      "count": 3,
+      "intensities": [
+        1,
+        1,
+        4
+      ]
+    },
+    "20-30": {
+      "count": 2,
+      "intensities": [
+        1,
+        5
+      ]
+    },
+    "30-40": {
+      "count": 2,
+      "intensities": [
+        6,
+        1
+      ]
+    },
+    "40-50": {
+      "count": 2,
+      "intensities": [
+        1,
+        3
+      ]
+    },
+    "50-60": {
+      "count": 2,
+      "intensities": [
+        4,
+        1
+      ]
+    },
+    "60-70": {
+      "count": 2,
+      "intensities": [
+        2,
+        5
+      ]
+    },
+    "70-80": {
+      "count": 2,
+      "intensities": [
+        6,
+        1
+      ]
+    },
+    "80-90": {
+      "count": 2,
+      "intensities": [
+        3,
+        2
+      ]
+    },
+    "90-99": {
+      "count": 4,
+      "intensities": [
+        5,
+        8,
+        4,
+        1
+      ]
+    }
   }
 }

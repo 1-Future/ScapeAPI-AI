@@ -7,376 +7,1219 @@
       "skill": "crafting",
       "level_required": 1,
       "name": "Heartlands Wool Spinning",
-      "location": { "region": "heartlands", "spot": "Lumbrick tannery spinning wheel" },
+      "location": {
+        "region": "heartlands",
+        "spot": "Lumbrick tannery spinning wheel"
+      },
       "intensity": 1,
       "xp_per_hour": 8000,
       "gp_per_hour": 1800,
-      "requires": { "quests": [], "items": ["wool"], "skills": {} },
+      "requires": {
+        "quests": [],
+        "items": [
+          "wool"
+        ],
+        "skills": {}
+      },
       "description": "Wool on spinning wheel. AFK.",
-      "produces": [{ "item": "ball_of_wool", "rate_per_hour": 1700 }],
-      "marstead_note": "AFK baseline."
+      "produces": [
+        {
+          "item": "ball_of_wool",
+          "rate_per_hour": 1700
+        }
+      ],
+      "marstead_note": "AFK baseline.",
+      "travel_time_to_bank_seconds": 0,
+      "nearest_teleport": null,
+      "banking_trip_cost": {
+        "gp": 0,
+        "intensity": 0
+      },
+      "travel_region_multiplier": 0,
+      "effective_xp_per_hour": 8000,
+      "effective_gp_per_hour": 1800,
+      "travel_minutes_per_hour": 0,
+      "active_minutes_per_hour": 60,
+      "trips_per_hour": 0
     },
     {
       "id": "heartlands_clay_pot",
       "skill": "crafting",
       "level_required": 1,
       "name": "Clay Pot Throwing",
-      "location": { "region": "heartlands", "spot": "Lumbrick potter's wheel" },
+      "location": {
+        "region": "heartlands",
+        "spot": "Lumbrick potter's wheel"
+      },
       "intensity": 3,
       "xp_per_hour": 19300,
       "gp_per_hour": 3800,
-      "requires": { "quests": [], "items": ["soft_clay"], "skills": {} },
+      "requires": {
+        "quests": [],
+        "items": [
+          "soft_clay"
+        ],
+        "skills": {}
+      },
       "description": "Wheel + kiln rotation for clay pots. 2-step production.",
-      "produces": [{ "item": "pot", "rate_per_hour": 1500 }],
-      "marstead_note": "Active-Multitask. Multi-step."
+      "produces": [
+        {
+          "item": "pot",
+          "rate_per_hour": 1500
+        }
+      ],
+      "marstead_note": "Active-Multitask. Multi-step.",
+      "travel_time_to_bank_seconds": 0,
+      "nearest_teleport": null,
+      "banking_trip_cost": {
+        "gp": 0,
+        "intensity": 0
+      },
+      "travel_region_multiplier": 0,
+      "effective_xp_per_hour": 19300,
+      "effective_gp_per_hour": 3800,
+      "travel_minutes_per_hour": 0,
+      "active_minutes_per_hour": 60,
+      "trips_per_hour": 0
     },
     {
       "id": "heartlands_leather_tan",
       "skill": "crafting",
       "level_required": 10,
       "name": "Leather Tanning AFK",
-      "location": { "region": "heartlands", "spot": "Lumbrick tannery" },
+      "location": {
+        "region": "heartlands",
+        "spot": "Lumbrick tannery"
+      },
       "intensity": 1,
       "xp_per_hour": 10900,
       "gp_per_hour": 5200,
-      "requires": { "quests": [], "items": ["cowhide", "coins"], "skills": {} },
+      "requires": {
+        "quests": [],
+        "items": [
+          "cowhide",
+          "coins"
+        ],
+        "skills": {}
+      },
       "description": "Pay tanner for 27 tanned leather per trip. Pure AFK.",
-      "produces": [{ "item": "leather", "rate_per_hour": 3800 }],
-      "marstead_note": "AFK baseline for teens."
+      "produces": [
+        {
+          "item": "leather",
+          "rate_per_hour": 3800
+        }
+      ],
+      "marstead_note": "AFK baseline for teens.",
+      "travel_time_to_bank_seconds": 0,
+      "nearest_teleport": null,
+      "banking_trip_cost": {
+        "gp": 0,
+        "intensity": 0
+      },
+      "travel_region_multiplier": 0,
+      "effective_xp_per_hour": 10900,
+      "effective_gp_per_hour": 5200,
+      "travel_minutes_per_hour": 0,
+      "active_minutes_per_hour": 60,
+      "trips_per_hour": 0
     },
     {
       "id": "heartlands_leather_body_rotation",
       "skill": "crafting",
       "level_required": 14,
       "name": "Leather Body Craft Rotation",
-      "location": { "region": "heartlands", "spot": "Lumbrick bench + bank" },
+      "location": {
+        "region": "heartlands",
+        "spot": "Lumbrick bench + bank"
+      },
       "intensity": 4,
       "xp_per_hour": 30200,
       "gp_per_hour": 0,
-      "requires": { "quests": [], "items": ["leather", "needle", "thread"], "skills": {"crafting": 14} },
+      "requires": {
+        "quests": [],
+        "items": [
+          "leather",
+          "needle",
+          "thread"
+        ],
+        "skills": {
+          "crafting": 14
+        }
+      },
       "description": "Make-X 28 leather bodies.",
-      "produces": [{ "item": "leather_body", "rate_per_hour": 1180 }],
-      "marstead_note": "Active. Pure XP."
+      "produces": [
+        {
+          "item": "leather_body",
+          "rate_per_hour": 1180
+        }
+      ],
+      "marstead_note": "Active. Pure XP.",
+      "travel_time_to_bank_seconds": 0,
+      "nearest_teleport": null,
+      "banking_trip_cost": {
+        "gp": 0,
+        "intensity": 0
+      },
+      "travel_region_multiplier": 0,
+      "effective_xp_per_hour": 30200,
+      "effective_gp_per_hour": 0,
+      "travel_minutes_per_hour": 0,
+      "active_minutes_per_hour": 60,
+      "trips_per_hour": 0
     },
     {
       "id": "glass_desert_glass_blow",
       "skill": "crafting",
       "level_required": 20,
       "name": "Glass Desert Beadwork",
-      "location": { "region": "glass_desert", "spot": "Crescent glassworks" },
+      "location": {
+        "region": "glass_desert",
+        "spot": "Crescent glassworks"
+      },
       "intensity": 1,
       "xp_per_hour": 15400,
       "gp_per_hour": 12000,
-      "requires": { "quests": [], "items": ["molten_glass", "glass_blowing_pipe"], "skills": {"crafting": 20} },
+      "requires": {
+        "quests": [],
+        "items": [
+          "molten_glass",
+          "glass_blowing_pipe"
+        ],
+        "skills": {
+          "crafting": 20
+        }
+      },
       "description": "Glass beads via blowpipe. AFK if done with superheat magic nearby.",
-      "produces": [{ "item": "glass_beads", "rate_per_hour": 1200 }],
-      "marstead_note": "AFK baseline for 20+."
+      "produces": [
+        {
+          "item": "glass_beads",
+          "rate_per_hour": 1200
+        }
+      ],
+      "marstead_note": "AFK baseline for 20+.",
+      "travel_time_to_bank_seconds": 83,
+      "nearest_teleport": "Glass Desert Pendant",
+      "banking_trip_cost": {
+        "gp": 500,
+        "intensity": 2
+      },
+      "travel_region_multiplier": 0.5,
+      "effective_xp_per_hour": 9719,
+      "effective_gp_per_hour": 7573,
+      "travel_minutes_per_hour": 22.1,
+      "active_minutes_per_hour": 37.9,
+      "trips_per_hour": 8
     },
     {
       "id": "glass_desert_sapphire_cut",
       "skill": "crafting",
       "level_required": 20,
       "name": "Crescent Sapphire Cutting",
-      "location": { "region": "glass_desert", "spot": "Crescent gem-cutter bench" },
+      "location": {
+        "region": "glass_desert",
+        "spot": "Crescent gem-cutter bench"
+      },
       "intensity": 3,
       "xp_per_hour": 36500,
       "gp_per_hour": 95000,
-      "requires": { "quests": [], "items": ["uncut_sapphire", "chisel"], "skills": {"crafting": 20} },
+      "requires": {
+        "quests": [],
+        "items": [
+          "uncut_sapphire",
+          "chisel"
+        ],
+        "skills": {
+          "crafting": 20
+        }
+      },
       "description": "Cut sapphires for jewellery feed.",
-      "produces": [{ "item": "sapphire", "rate_per_hour": 2400 }],
-      "marstead_note": "Multitask-Active. Jewellery economy."
+      "produces": [
+        {
+          "item": "sapphire",
+          "rate_per_hour": 2400
+        }
+      ],
+      "marstead_note": "Multitask-Active. Jewellery economy.",
+      "travel_time_to_bank_seconds": 83,
+      "nearest_teleport": "Glass Desert Pendant",
+      "banking_trip_cost": {
+        "gp": 500,
+        "intensity": 2
+      },
+      "travel_region_multiplier": 0.5,
+      "effective_xp_per_hour": 23036,
+      "effective_gp_per_hour": 59956,
+      "travel_minutes_per_hour": 22.1,
+      "active_minutes_per_hour": 37.9,
+      "trips_per_hour": 8
     },
     {
       "id": "glass_desert_emerald_cut",
       "skill": "crafting",
       "level_required": 27,
       "name": "Emerald Gemcut",
-      "location": { "region": "glass_desert", "spot": "Crescent gem-cutter bench" },
+      "location": {
+        "region": "glass_desert",
+        "spot": "Crescent gem-cutter bench"
+      },
       "intensity": 3,
       "xp_per_hour": 32200,
       "gp_per_hour": 108000,
-      "requires": { "quests": [], "items": ["uncut_emerald", "chisel"], "skills": {"crafting": 27} },
+      "requires": {
+        "quests": [],
+        "items": [
+          "uncut_emerald",
+          "chisel"
+        ],
+        "skills": {
+          "crafting": 27
+        }
+      },
       "description": "Emerald cutting. Feed for ring of dueling.",
-      "produces": [{ "item": "emerald", "rate_per_hour": 2400 }],
-      "marstead_note": "Active. Feed economy."
+      "produces": [
+        {
+          "item": "emerald",
+          "rate_per_hour": 2400
+        }
+      ],
+      "marstead_note": "Active. Feed economy.",
+      "travel_time_to_bank_seconds": 83,
+      "nearest_teleport": "Glass Desert Pendant",
+      "banking_trip_cost": {
+        "gp": 500,
+        "intensity": 2
+      },
+      "travel_region_multiplier": 0.5,
+      "effective_xp_per_hour": 20322,
+      "effective_gp_per_hour": 68160,
+      "travel_minutes_per_hour": 22.1,
+      "active_minutes_per_hour": 37.9,
+      "trips_per_hour": 8
     },
     {
       "id": "heartlands_dhide_vamb",
       "skill": "crafting",
       "level_required": 32,
       "name": "Green Dhide Vamb Rotation",
-      "location": { "region": "heartlands", "spot": "Lumbrick bench + bank" },
+      "location": {
+        "region": "heartlands",
+        "spot": "Lumbrick bench + bank"
+      },
       "intensity": 4,
       "xp_per_hour": 45700,
       "gp_per_hour": 68000,
-      "requires": { "quests": [], "items": ["green_dragonhide", "needle", "thread"], "skills": {"crafting": 32} },
+      "requires": {
+        "quests": [],
+        "items": [
+          "green_dragonhide",
+          "needle",
+          "thread"
+        ],
+        "skills": {
+          "crafting": 32
+        }
+      },
       "description": "Green dhide vambraces. Peak make-X 32+.",
-      "produces": [{ "item": "green_dhide_vamb", "rate_per_hour": 1800 }],
-      "marstead_note": "Active."
+      "produces": [
+        {
+          "item": "green_dhide_vamb",
+          "rate_per_hour": 1800
+        }
+      ],
+      "marstead_note": "Active.",
+      "travel_time_to_bank_seconds": 0,
+      "nearest_teleport": null,
+      "banking_trip_cost": {
+        "gp": 0,
+        "intensity": 0
+      },
+      "travel_region_multiplier": 0,
+      "effective_xp_per_hour": 45700,
+      "effective_gp_per_hour": 68000,
+      "travel_minutes_per_hour": 0,
+      "active_minutes_per_hour": 60,
+      "trips_per_hour": 0
     },
     {
       "id": "heartlands_dhide_body_afk",
       "skill": "crafting",
       "level_required": 38,
       "name": "Green Dhide Body AFK",
-      "location": { "region": "heartlands", "spot": "Lumbrick bench" },
+      "location": {
+        "region": "heartlands",
+        "spot": "Lumbrick bench"
+      },
       "intensity": 1,
       "xp_per_hour": 23300,
       "gp_per_hour": 85000,
-      "requires": { "quests": [], "items": ["green_dragonhide", "needle", "thread"], "skills": {"crafting": 38} },
+      "requires": {
+        "quests": [],
+        "items": [
+          "green_dragonhide",
+          "needle",
+          "thread"
+        ],
+        "skills": {
+          "crafting": 38
+        }
+      },
       "description": "Green dhide body. AFK slow loop.",
-      "produces": [{ "item": "green_dhide_body", "rate_per_hour": 520 }],
-      "marstead_note": "AFK baseline."
+      "produces": [
+        {
+          "item": "green_dhide_body",
+          "rate_per_hour": 520
+        }
+      ],
+      "marstead_note": "AFK baseline.",
+      "travel_time_to_bank_seconds": 0,
+      "nearest_teleport": null,
+      "banking_trip_cost": {
+        "gp": 0,
+        "intensity": 0
+      },
+      "travel_region_multiplier": 0,
+      "effective_xp_per_hour": 23300,
+      "effective_gp_per_hour": 85000,
+      "travel_minutes_per_hour": 0,
+      "active_minutes_per_hour": 60,
+      "trips_per_hour": 0
     },
     {
       "id": "glass_desert_ruby_cut",
       "skill": "crafting",
       "level_required": 40,
       "name": "Ruby Cutting",
-      "location": { "region": "glass_desert", "spot": "Crescent gem-cutter bench" },
+      "location": {
+        "region": "glass_desert",
+        "spot": "Crescent gem-cutter bench"
+      },
       "intensity": 1,
       "xp_per_hour": 30800,
       "gp_per_hour": 145000,
-      "requires": { "quests": [], "items": ["uncut_ruby", "chisel"], "skills": {"crafting": 40} },
+      "requires": {
+        "quests": [],
+        "items": [
+          "uncut_ruby",
+          "chisel"
+        ],
+        "skills": {
+          "crafting": 40
+        }
+      },
       "description": "Ruby cutting. AFK profitable.",
-      "produces": [{ "item": "ruby", "rate_per_hour": 2400 }],
-      "marstead_note": "AFK baseline for 40+."
+      "produces": [
+        {
+          "item": "ruby",
+          "rate_per_hour": 2400
+        }
+      ],
+      "marstead_note": "AFK baseline for 40+.",
+      "travel_time_to_bank_seconds": 83,
+      "nearest_teleport": "Glass Desert Pendant",
+      "banking_trip_cost": {
+        "gp": 500,
+        "intensity": 2
+      },
+      "travel_region_multiplier": 0.5,
+      "effective_xp_per_hour": 19438,
+      "effective_gp_per_hour": 91511,
+      "travel_minutes_per_hour": 22.1,
+      "active_minutes_per_hour": 37.9,
+      "trips_per_hour": 8
     },
     {
       "id": "glass_desert_diamond_cut",
       "skill": "crafting",
       "level_required": 43,
       "name": "Diamond Cutting (Make-X)",
-      "location": { "region": "glass_desert", "spot": "Crescent bench" },
+      "location": {
+        "region": "glass_desert",
+        "spot": "Crescent bench"
+      },
       "intensity": 4,
       "xp_per_hour": 48300,
       "gp_per_hour": 220000,
-      "requires": { "quests": [], "items": ["uncut_diamond", "chisel"], "skills": {"crafting": 43} },
+      "requires": {
+        "quests": [],
+        "items": [
+          "uncut_diamond",
+          "chisel"
+        ],
+        "skills": {
+          "crafting": 43
+        }
+      },
       "description": "Diamond cutting with make-X.",
-      "produces": [{ "item": "diamond", "rate_per_hour": 2300 }],
-      "marstead_note": "Active."
+      "produces": [
+        {
+          "item": "diamond",
+          "rate_per_hour": 2300
+        }
+      ],
+      "marstead_note": "Active.",
+      "travel_time_to_bank_seconds": 83,
+      "nearest_teleport": "Glass Desert Pendant",
+      "banking_trip_cost": {
+        "gp": 500,
+        "intensity": 2
+      },
+      "travel_region_multiplier": 0.5,
+      "effective_xp_per_hour": 30483,
+      "effective_gp_per_hour": 138844,
+      "travel_minutes_per_hour": 22.1,
+      "active_minutes_per_hour": 37.9,
+      "trips_per_hour": 8
     },
     {
       "id": "heartlands_d_body_afk",
       "skill": "crafting",
       "level_required": 56,
       "name": "Blue Dhide Body AFK",
-      "location": { "region": "heartlands", "spot": "Lumbrick bench" },
+      "location": {
+        "region": "heartlands",
+        "spot": "Lumbrick bench"
+      },
       "intensity": 1,
       "xp_per_hour": 41200,
       "gp_per_hour": 135000,
-      "requires": { "quests": [], "items": ["blue_dragonhide", "needle", "thread"], "skills": {"crafting": 56} },
+      "requires": {
+        "quests": [],
+        "items": [
+          "blue_dragonhide",
+          "needle",
+          "thread"
+        ],
+        "skills": {
+          "crafting": 56
+        }
+      },
       "description": "Blue dhide body AFK.",
-      "produces": [{ "item": "blue_dhide_body", "rate_per_hour": 520 }],
-      "marstead_note": "AFK baseline."
+      "produces": [
+        {
+          "item": "blue_dhide_body",
+          "rate_per_hour": 520
+        }
+      ],
+      "marstead_note": "AFK baseline.",
+      "travel_time_to_bank_seconds": 0,
+      "nearest_teleport": null,
+      "banking_trip_cost": {
+        "gp": 0,
+        "intensity": 0
+      },
+      "travel_region_multiplier": 0,
+      "effective_xp_per_hour": 41200,
+      "effective_gp_per_hour": 135000,
+      "travel_minutes_per_hour": 0,
+      "active_minutes_per_hour": 60,
+      "trips_per_hour": 0
     },
     {
       "id": "glass_desert_dragonstone_cut",
       "skill": "crafting",
       "level_required": 55,
       "name": "Dragonstone Cutting",
-      "location": { "region": "glass_desert", "spot": "Crescent bench" },
+      "location": {
+        "region": "glass_desert",
+        "spot": "Crescent bench"
+      },
       "intensity": 3,
       "xp_per_hour": 56400,
       "gp_per_hour": 275000,
-      "requires": { "quests": [], "items": ["uncut_dragonstone", "chisel"], "skills": {"crafting": 55} },
+      "requires": {
+        "quests": [],
+        "items": [
+          "uncut_dragonstone",
+          "chisel"
+        ],
+        "skills": {
+          "crafting": 55
+        }
+      },
       "description": "Dragonstone cutting. High value.",
-      "produces": [{ "item": "dragonstone", "rate_per_hour": 2200 }],
-      "marstead_note": "Multitask-Active."
+      "produces": [
+        {
+          "item": "dragonstone",
+          "rate_per_hour": 2200
+        }
+      ],
+      "marstead_note": "Multitask-Active.",
+      "travel_time_to_bank_seconds": 83,
+      "nearest_teleport": "Glass Desert Pendant",
+      "banking_trip_cost": {
+        "gp": 500,
+        "intensity": 2
+      },
+      "travel_region_multiplier": 0.5,
+      "effective_xp_per_hour": 35595,
+      "effective_gp_per_hour": 173556,
+      "travel_minutes_per_hour": 22.1,
+      "active_minutes_per_hour": 37.9,
+      "trips_per_hour": 8
     },
     {
       "id": "heartlands_red_dhide_rotation",
       "skill": "crafting",
       "level_required": 63,
       "name": "Red Dhide Rotation",
-      "location": { "region": "heartlands", "spot": "Lumbrick bench + bank" },
+      "location": {
+        "region": "heartlands",
+        "spot": "Lumbrick bench + bank"
+      },
       "intensity": 5,
       "xp_per_hour": 79400,
       "gp_per_hour": 180000,
-      "requires": { "quests": [], "items": ["red_dragonhide", "needle", "thread"], "skills": {"crafting": 63} },
+      "requires": {
+        "quests": [],
+        "items": [
+          "red_dragonhide",
+          "needle",
+          "thread"
+        ],
+        "skills": {
+          "crafting": 63
+        }
+      },
       "description": "Red dhide body rotation. Peak 63+.",
-      "produces": [{ "item": "red_dhide_body", "rate_per_hour": 480 }],
-      "marstead_note": "Active."
+      "produces": [
+        {
+          "item": "red_dhide_body",
+          "rate_per_hour": 480
+        }
+      ],
+      "marstead_note": "Active.",
+      "travel_time_to_bank_seconds": 0,
+      "nearest_teleport": null,
+      "banking_trip_cost": {
+        "gp": 0,
+        "intensity": 0
+      },
+      "travel_region_multiplier": 0,
+      "effective_xp_per_hour": 79400,
+      "effective_gp_per_hour": 180000,
+      "travel_minutes_per_hour": 0,
+      "active_minutes_per_hour": 60,
+      "trips_per_hour": 0
     },
     {
       "id": "heartlands_red_dhide_body_afk",
       "skill": "crafting",
       "level_required": 65,
       "name": "Red Dhide Body AFK",
-      "location": { "region": "heartlands", "spot": "Lumbrick bench" },
+      "location": {
+        "region": "heartlands",
+        "spot": "Lumbrick bench"
+      },
       "intensity": 1,
       "xp_per_hour": 47000,
       "gp_per_hour": 160000,
-      "requires": { "quests": [], "items": ["red_dragonhide", "needle", "thread"], "skills": {"crafting": 65} },
+      "requires": {
+        "quests": [],
+        "items": [
+          "red_dragonhide",
+          "needle",
+          "thread"
+        ],
+        "skills": {
+          "crafting": 65
+        }
+      },
       "description": "Red dhide body single-click AFK.",
-      "produces": [{ "item": "red_dhide_body", "rate_per_hour": 340 }],
-      "marstead_note": "AFK baseline for 65+."
+      "produces": [
+        {
+          "item": "red_dhide_body",
+          "rate_per_hour": 340
+        }
+      ],
+      "marstead_note": "AFK baseline for 65+.",
+      "travel_time_to_bank_seconds": 0,
+      "nearest_teleport": null,
+      "banking_trip_cost": {
+        "gp": 0,
+        "intensity": 0
+      },
+      "travel_region_multiplier": 0,
+      "effective_xp_per_hour": 47000,
+      "effective_gp_per_hour": 160000,
+      "travel_minutes_per_hour": 0,
+      "active_minutes_per_hour": 60,
+      "trips_per_hour": 0
     },
     {
       "id": "heartlands_black_dhide_afk",
       "skill": "crafting",
       "level_required": 73,
       "name": "Black Dhide AFK",
-      "location": { "region": "heartlands", "spot": "Lumbrick bench" },
+      "location": {
+        "region": "heartlands",
+        "spot": "Lumbrick bench"
+      },
       "intensity": 1,
       "xp_per_hour": 61800,
       "gp_per_hour": 225000,
-      "requires": { "quests": [], "items": ["black_dragonhide", "needle", "thread"], "skills": {"crafting": 73} },
+      "requires": {
+        "quests": [],
+        "items": [
+          "black_dragonhide",
+          "needle",
+          "thread"
+        ],
+        "skills": {
+          "crafting": 73
+        }
+      },
       "description": "Black dhide body AFK.",
-      "produces": [{ "item": "black_dhide_body", "rate_per_hour": 480 }],
-      "marstead_note": "AFK baseline for 70+."
+      "produces": [
+        {
+          "item": "black_dhide_body",
+          "rate_per_hour": 480
+        }
+      ],
+      "marstead_note": "AFK baseline for 70+.",
+      "travel_time_to_bank_seconds": 0,
+      "nearest_teleport": null,
+      "banking_trip_cost": {
+        "gp": 0,
+        "intensity": 0
+      },
+      "travel_region_multiplier": 0,
+      "effective_xp_per_hour": 61800,
+      "effective_gp_per_hour": 225000,
+      "travel_minutes_per_hour": 0,
+      "active_minutes_per_hour": 60,
+      "trips_per_hour": 0
     },
     {
       "id": "glass_desert_onyx_amulet",
       "skill": "crafting",
       "level_required": 77,
       "name": "Onyx Amulet Assembly",
-      "location": { "region": "glass_desert", "spot": "Crescent master bench" },
+      "location": {
+        "region": "glass_desert",
+        "spot": "Crescent master bench"
+      },
       "intensity": 2,
       "xp_per_hour": 69100,
       "gp_per_hour": 385000,
-      "requires": { "quests": [], "items": ["onyx", "gold_bar", "amulet_mould"], "skills": {"crafting": 77} },
+      "requires": {
+        "quests": [],
+        "items": [
+          "onyx",
+          "gold_bar",
+          "amulet_mould"
+        ],
+        "skills": {
+          "crafting": 77
+        }
+      },
       "description": "Craft onyx amulets for fury upgrade. AFK profit.",
-      "produces": [{ "item": "onyx_amulet_u", "rate_per_hour": 210 }],
-      "marstead_note": "AFK-Multitask."
+      "produces": [
+        {
+          "item": "onyx_amulet_u",
+          "rate_per_hour": 210
+        }
+      ],
+      "marstead_note": "AFK-Multitask.",
+      "travel_time_to_bank_seconds": 83,
+      "nearest_teleport": "Glass Desert Pendant",
+      "banking_trip_cost": {
+        "gp": 500,
+        "intensity": 2
+      },
+      "travel_region_multiplier": 0.5,
+      "effective_xp_per_hour": 43610,
+      "effective_gp_per_hour": 242978,
+      "travel_minutes_per_hour": 22.1,
+      "active_minutes_per_hour": 37.9,
+      "trips_per_hour": 8
     },
     {
       "id": "inkweald_zenyte_craft",
       "skill": "crafting",
       "level_required": 89,
       "name": "Inkweald Zenyte Jewellery",
-      "location": { "region": "inkweald", "spot": "Dream-jeweller workshop" },
+      "location": {
+        "region": "inkweald",
+        "spot": "Dream-jeweller workshop"
+      },
       "intensity": 2,
       "xp_per_hour": 89700,
       "gp_per_hour": 520000,
-      "requires": { "quests": ["unwake_the_dreamer"], "items": ["zenyte", "gold_bar"], "skills": {"crafting": 89} },
+      "requires": {
+        "quests": [
+          "unwake_the_dreamer"
+        ],
+        "items": [
+          "zenyte",
+          "gold_bar"
+        ],
+        "skills": {
+          "crafting": 89
+        }
+      },
       "description": "Craft zenyte amulets/rings. AFK.",
-      "produces": [{ "item": "zenyte_amulet", "rate_per_hour": 180 }],
-      "marstead_note": "AFK-Multitask for 90+."
+      "produces": [
+        {
+          "item": "zenyte_amulet",
+          "rate_per_hour": 180
+        }
+      ],
+      "marstead_note": "AFK-Multitask for 90+.",
+      "travel_time_to_bank_seconds": 54,
+      "nearest_teleport": "Moonclan Teleport (Lunar)",
+      "banking_trip_cost": {
+        "gp": 110,
+        "intensity": 2
+      },
+      "travel_region_multiplier": 0.2,
+      "effective_xp_per_hour": 68172,
+      "effective_gp_per_hour": 395200,
+      "travel_minutes_per_hour": 14.4,
+      "active_minutes_per_hour": 45.6,
+      "trips_per_hour": 8
     },
     {
       "id": "saltbrine_glass_mass_production",
       "skill": "crafting",
       "level_required": 46,
       "name": "Saltbrine Glass Furnace Mass Production",
-      "location": { "region": "saltbrine", "spot": "Crystal Bay glass furnace" },
+      "location": {
+        "region": "saltbrine",
+        "spot": "Crystal Bay glass furnace"
+      },
       "intensity": 6,
       "xp_per_hour": 95500,
       "gp_per_hour": 125000,
-      "requires": { "quests": ["the_crystal_coast"], "items": ["soda_ash", "bucket_of_sand"], "skills": {"crafting": 46} },
+      "requires": {
+        "quests": [
+          "the_crystal_coast"
+        ],
+        "items": [
+          "soda_ash",
+          "bucket_of_sand"
+        ],
+        "skills": {
+          "crafting": 46
+        }
+      },
       "description": "Industrial glass blowing. Tick-perfect pipe work.",
-      "produces": [{ "item": "molten_glass", "rate_per_hour": 3400 }],
-      "marstead_note": "Max Focus. Crafting + magic cross-skill."
+      "produces": [
+        {
+          "item": "molten_glass",
+          "rate_per_hour": 3400
+        }
+      ],
+      "marstead_note": "Max Focus. Crafting + magic cross-skill.",
+      "travel_time_to_bank_seconds": 0,
+      "nearest_teleport": null,
+      "banking_trip_cost": {
+        "gp": 0,
+        "intensity": 0
+      },
+      "travel_region_multiplier": 0,
+      "effective_xp_per_hour": 95500,
+      "effective_gp_per_hour": 125000,
+      "travel_minutes_per_hour": 0,
+      "active_minutes_per_hour": 60,
+      "trips_per_hour": 0
     },
     {
       "id": "inkweald_zenyte_rush",
       "skill": "crafting",
       "level_required": 89,
       "name": "Inkweald Zenyte Make-X Rush",
-      "location": { "region": "inkweald", "spot": "Dream-jeweller workshop + bank" },
+      "location": {
+        "region": "inkweald",
+        "spot": "Dream-jeweller workshop + bank"
+      },
       "intensity": 6,
       "xp_per_hour": 165500,
       "gp_per_hour": 620000,
-      "requires": { "quests": ["unwake_the_dreamer"], "items": ["zenyte", "gold_bar"], "skills": {"crafting": 89} },
+      "requires": {
+        "quests": [
+          "unwake_the_dreamer"
+        ],
+        "items": [
+          "zenyte",
+          "gold_bar"
+        ],
+        "skills": {
+          "crafting": 89
+        }
+      },
       "description": "Zenyte make-X chain. Peak 89+ XP.",
-      "produces": [{ "item": "zenyte_amulet", "rate_per_hour": 320 }],
-      "marstead_note": "Max Focus. Endgame Zenyte spam."
+      "produces": [
+        {
+          "item": "zenyte_amulet",
+          "rate_per_hour": 320
+        }
+      ],
+      "marstead_note": "Max Focus. Endgame Zenyte spam.",
+      "travel_time_to_bank_seconds": 0,
+      "nearest_teleport": null,
+      "banking_trip_cost": {
+        "gp": 0,
+        "intensity": 0
+      },
+      "travel_region_multiplier": 0.2,
+      "effective_xp_per_hour": 165500,
+      "effective_gp_per_hour": 620000,
+      "travel_minutes_per_hour": 0,
+      "active_minutes_per_hour": 60,
+      "trips_per_hour": 0
     },
     {
       "id": "veilwood_crystal_shard_craft_afk",
       "skill": "crafting",
       "level_required": 90,
       "name": "Crystal Shard Tool Craft AFK",
-      "location": { "region": "veilwood", "spot": "Moonblade Glade workbench" },
+      "location": {
+        "region": "veilwood",
+        "spot": "Moonblade Glade workbench"
+      },
       "intensity": 2,
       "xp_per_hour": 108000,
       "gp_per_hour": 220000,
-      "requires": { "quests": ["song_of_the_mossborn"], "items": ["crystal_shard", "harmonic_dust"], "skills": {"crafting": 90} },
+      "requires": {
+        "quests": [
+          "song_of_the_mossborn"
+        ],
+        "items": [
+          "crystal_shard",
+          "harmonic_dust"
+        ],
+        "skills": {
+          "crafting": 90
+        }
+      },
       "description": "Craft crystal tools for farming/mining. AFK multi-stage.",
-      "produces": [{ "item": "crystal_pickaxe", "rate_per_hour": 85 }],
-      "marstead_note": "AFK-Multitask for 90+."
+      "produces": [
+        {
+          "item": "crystal_pickaxe",
+          "rate_per_hour": 85
+        }
+      ],
+      "marstead_note": "AFK-Multitask for 90+.",
+      "travel_time_to_bank_seconds": 39,
+      "nearest_teleport": "Necklace of Passage",
+      "banking_trip_cost": {
+        "gp": 500,
+        "intensity": 2
+      },
+      "travel_region_multiplier": 0.1,
+      "effective_xp_per_hour": 89280,
+      "effective_gp_per_hour": 181867,
+      "travel_minutes_per_hour": 10.4,
+      "active_minutes_per_hour": 49.6,
+      "trips_per_hour": 8
     },
     {
       "id": "veilwood_crystal_attuning",
       "skill": "crafting",
       "level_required": 95,
       "name": "Veilwood Crystal Singing",
-      "location": { "region": "veilwood", "spot": "Singing Glade resonator" },
+      "location": {
+        "region": "veilwood",
+        "spot": "Singing Glade resonator"
+      },
       "intensity": 8,
       "xp_per_hour": 173000,
       "gp_per_hour": 280000,
-      "requires": { "quests": ["song_of_the_mossborn"], "items": ["crystal_shard", "harmonic_dust"], "skills": {"crafting": 95, "smithing": 80} },
+      "requires": {
+        "quests": [
+          "song_of_the_mossborn"
+        ],
+        "items": [
+          "crystal_shard",
+          "harmonic_dust"
+        ],
+        "skills": {
+          "crafting": 95,
+          "smithing": 80
+        }
+      },
       "description": "Sing crystals into shape. Multi-tone attunement. Endgame crafting capstone.",
-      "produces": [{ "item": "crystal_weapon_seed", "rate_per_hour": 35 }],
-      "marstead_note": "Max Focus. Endgame craft ritual."
+      "produces": [
+        {
+          "item": "crystal_weapon_seed",
+          "rate_per_hour": 35
+        }
+      ],
+      "marstead_note": "Max Focus. Endgame craft ritual.",
+      "travel_time_to_bank_seconds": 30,
+      "nearest_teleport": "Necklace of Passage",
+      "banking_trip_cost": {
+        "gp": 500,
+        "intensity": 2
+      },
+      "travel_region_multiplier": 0.1,
+      "effective_xp_per_hour": 149933,
+      "effective_gp_per_hour": 242667,
+      "travel_minutes_per_hour": 8,
+      "active_minutes_per_hour": 52,
+      "trips_per_hour": 8
     },
     {
       "id": "glass_desert_sunken_spire_gem_cutter",
       "skill": "crafting",
       "level_required": 55,
       "name": "Sunken Spire Glass-Gem Cutter",
-      "location": { "region": "glass_desert", "spot": "Sunken Spire cutting pit" },
+      "location": {
+        "region": "glass_desert",
+        "spot": "Sunken Spire cutting pit"
+      },
       "intensity": 1,
       "xp_per_hour": 58000,
       "gp_per_hour": 800000,
-      "requires": { "quests": ["the_buried_star"], "items": ["uncut_spire_gem", "chisel"], "skills": {"crafting": 55} },
+      "requires": {
+        "quests": [
+          "the_buried_star"
+        ],
+        "items": [
+          "uncut_spire_gem",
+          "chisel"
+        ],
+        "skills": {
+          "crafting": 55
+        }
+      },
       "description": "AFK cutting of spire gems with small loss risk per cut. High margin from blue/red shard byproducts.",
-      "produces": [{ "item": "spire_gem", "rate_per_hour": 1800 }],
-      "marstead_note": "AFK baseline. Mid-tier profit with tiny loss risk per cut. H11 Glass Desert moneymaker."
+      "produces": [
+        {
+          "item": "spire_gem",
+          "rate_per_hour": 1800
+        }
+      ],
+      "marstead_note": "AFK baseline. Mid-tier profit with tiny loss risk per cut. H11 Glass Desert moneymaker.",
+      "travel_time_to_bank_seconds": 83,
+      "nearest_teleport": "Glass Desert Pendant",
+      "banking_trip_cost": {
+        "gp": 500,
+        "intensity": 2
+      },
+      "travel_region_multiplier": 0.5,
+      "effective_xp_per_hour": 36604,
+      "effective_gp_per_hour": 504889,
+      "travel_minutes_per_hour": 22.1,
+      "active_minutes_per_hour": 37.9,
+      "trips_per_hour": 8
     },
     {
       "id": "inkweald_dream_loom_tapestry",
       "skill": "crafting",
       "level_required": 95,
       "name": "Dream-Loom Tapestry Weave",
-      "location": { "region": "inkweald", "spot": "Penseurlake dream-loom" },
+      "location": {
+        "region": "inkweald",
+        "spot": "Penseurlake dream-loom"
+      },
       "intensity": 9,
       "xp_per_hour": 212000,
       "gp_per_hour": 3800000,
-      "requires": { "quests": ["unwake_the_dreamer", "weavers_threnody"], "items": ["dream_silk", "ink_thread", "bleed_catalyst"], "skills": {"crafting": 95, "thieving": 85, "magic": 90} },
+      "requires": {
+        "quests": [
+          "unwake_the_dreamer",
+          "weavers_threnody"
+        ],
+        "items": [
+          "dream_silk",
+          "ink_thread",
+          "bleed_catalyst"
+        ],
+        "skills": {
+          "crafting": 95,
+          "thieving": 85,
+          "magic": 90
+        }
+      },
       "description": "Weave dream-tapestries worn as capes granting re-dreaming passive. Tick-locked warp/weft rotation with ink-thread refresh between picks. Drops capstone dream-silk when loom overheats.",
-      "produces": [{ "item": "dream_tapestry", "rate_per_hour": 45 }],
-      "marstead_note": "M14 endgame crafting. Non-combat 5M-near high-tier processing. Raids-tier focus."
+      "produces": [
+        {
+          "item": "dream_tapestry",
+          "rate_per_hour": 45
+        }
+      ],
+      "marstead_note": "M14 endgame crafting. Non-combat 5M-near high-tier processing. Raids-tier focus.",
+      "travel_time_to_bank_seconds": 0,
+      "nearest_teleport": null,
+      "banking_trip_cost": {
+        "gp": 0,
+        "intensity": 0
+      },
+      "travel_region_multiplier": 0.2,
+      "effective_xp_per_hour": 212000,
+      "effective_gp_per_hour": 3800000,
+      "travel_minutes_per_hour": 0,
+      "active_minutes_per_hour": 60,
+      "trips_per_hour": 0
     },
     {
       "id": "moryskah_bone_inlay_reliquary",
       "skill": "crafting",
       "level_required": 92,
       "name": "Moryskah Reliquary Bone-Inlay",
-      "location": { "region": "moryskah", "spot": "Gravechill reliquary bench" },
+      "location": {
+        "region": "moryskah",
+        "spot": "Gravechill reliquary bench"
+      },
       "intensity": 7,
       "xp_per_hour": 184000,
       "gp_per_hour": 2400000,
-      "requires": { "quests": ["requiem_of_hollows"], "items": ["ensouled_shard", "runite_bar", "onyx"], "skills": {"crafting": 92, "prayer": 88, "smithing": 85} },
+      "requires": {
+        "quests": [
+          "requiem_of_hollows"
+        ],
+        "items": [
+          "ensouled_shard",
+          "runite_bar",
+          "onyx"
+        ],
+        "skills": {
+          "crafting": 92,
+          "prayer": 88,
+          "smithing": 85
+        }
+      },
       "description": "Inlay reliquary containers with bone-shard marquetry for prayer faithful. Multi-material rotation; prayer drain on failed fits.",
-      "produces": [{ "item": "reliquary_case", "rate_per_hour": 120 }],
-      "marstead_note": "M14 endgame craft. Prayer-faithful product economy. Profit from vendor demand."
+      "produces": [
+        {
+          "item": "reliquary_case",
+          "rate_per_hour": 120
+        }
+      ],
+      "marstead_note": "M14 endgame craft. Prayer-faithful product economy. Profit from vendor demand.",
+      "travel_time_to_bank_seconds": 46,
+      "nearest_teleport": "Moryskah Teleport (Village)",
+      "banking_trip_cost": {
+        "gp": 85,
+        "intensity": 2
+      },
+      "travel_region_multiplier": 0.2,
+      "effective_xp_per_hour": 146382,
+      "effective_gp_per_hour": 1909333,
+      "travel_minutes_per_hour": 12.3,
+      "active_minutes_per_hour": 47.7,
+      "trips_per_hour": 8
     },
     {
       "id": "veilwood_crystal_armour_refit",
       "skill": "crafting",
       "level_required": 94,
       "name": "Veilwood Crystal Armour Refit",
-      "location": { "region": "veilwood", "spot": "Moonblade Glade anvil" },
+      "location": {
+        "region": "veilwood",
+        "spot": "Moonblade Glade anvil"
+      },
       "intensity": 5,
       "xp_per_hour": 158000,
       "gp_per_hour": 1900000,
-      "requires": { "quests": ["song_of_the_mossborn"], "items": ["crystal_armour_seed", "harmonic_dust"], "skills": {"crafting": 94, "smithing": 90} },
+      "requires": {
+        "quests": [
+          "song_of_the_mossborn"
+        ],
+        "items": [
+          "crystal_armour_seed",
+          "harmonic_dust"
+        ],
+        "skills": {
+          "crafting": 94,
+          "smithing": 90
+        }
+      },
       "description": "Refit degraded crystal armour to max charge. Multi-piece rotation across helm/body/legs; seed + dust reagent spend. Brings raid gear back to 100%.",
-      "produces": [{ "item": "crystal_armour_charged", "rate_per_hour": 65 }],
-      "marstead_note": "M14 endgame craft. Service economy — sells to raid teams."
+      "produces": [
+        {
+          "item": "crystal_armour_charged",
+          "rate_per_hour": 65
+        }
+      ],
+      "marstead_note": "M14 endgame craft. Service economy — sells to raid teams.",
+      "travel_time_to_bank_seconds": 0,
+      "nearest_teleport": null,
+      "banking_trip_cost": {
+        "gp": 0,
+        "intensity": 0
+      },
+      "travel_region_multiplier": 0.1,
+      "effective_xp_per_hour": 158000,
+      "effective_gp_per_hour": 1900000,
+      "travel_minutes_per_hour": 0,
+      "active_minutes_per_hour": 60,
+      "trips_per_hour": 0
     }
   ],
   "bracket_coverage": {
-    "1-10":  { "count": 2, "intensities": [1, 3] },
-    "10-20": { "count": 2, "intensities": [1, 4] },
-    "20-30": { "count": 2, "intensities": [1, 3] },
-    "30-40": { "count": 3, "intensities": [3, 4, 1] },
-    "40-50": { "count": 3, "intensities": [1, 4, 6] },
-    "50-60": { "count": 2, "intensities": [1, 3] },
-    "60-70": { "count": 2, "intensities": [5, 1] },
-    "70-80": { "count": 2, "intensities": [1, 2] },
-    "80-90": { "count": 2, "intensities": [2, 6] },
-    "90-99": { "count": 2, "intensities": [2, 8] }
+    "1-10": {
+      "count": 2,
+      "intensities": [
+        1,
+        3
+      ]
+    },
+    "10-20": {
+      "count": 2,
+      "intensities": [
+        1,
+        4
+      ]
+    },
+    "20-30": {
+      "count": 2,
+      "intensities": [
+        1,
+        3
+      ]
+    },
+    "30-40": {
+      "count": 3,
+      "intensities": [
+        3,
+        4,
+        1
+      ]
+    },
+    "40-50": {
+      "count": 3,
+      "intensities": [
+        1,
+        4,
+        6
+      ]
+    },
+    "50-60": {
+      "count": 2,
+      "intensities": [
+        1,
+        3
+      ]
+    },
+    "60-70": {
+      "count": 2,
+      "intensities": [
+        5,
+        1
+      ]
+    },
+    "70-80": {
+      "count": 2,
+      "intensities": [
+        1,
+        2
+      ]
+    },
+    "80-90": {
+      "count": 2,
+      "intensities": [
+        2,
+        6
+      ]
+    },
+    "90-99": {
+      "count": 2,
+      "intensities": [
+        2,
+        8
+      ]
+    }
   }
 }

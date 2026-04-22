@@ -7,320 +7,997 @@
       "skill": "cooking",
       "level_required": 1,
       "name": "Lumbrick Range Meat-Cook",
-      "location": { "region": "heartlands", "spot": "Lumbrick inn range, bank 6 tiles away" },
+      "location": {
+        "region": "heartlands",
+        "spot": "Lumbrick inn range, bank 6 tiles away"
+      },
       "intensity": 1,
       "xp_per_hour": 8000,
       "gp_per_hour": 1500,
-      "requires": { "quests": [], "items": ["raw_shrimps"], "skills": {} },
+      "requires": {
+        "quests": [],
+        "items": [
+          "raw_shrimps"
+        ],
+        "skills": {}
+      },
       "description": "Cook raw shrimps and chicken on the inn range. Classic first-skill AFK loop.",
-      "produces": [{ "item": "shrimps", "rate_per_hour": 950 }],
-      "marstead_note": "AFK baseline."
+      "produces": [
+        {
+          "item": "shrimps",
+          "rate_per_hour": 950
+        }
+      ],
+      "marstead_note": "AFK baseline.",
+      "travel_time_to_bank_seconds": 0,
+      "nearest_teleport": null,
+      "banking_trip_cost": {
+        "gp": 0,
+        "intensity": 0
+      },
+      "travel_region_multiplier": 0,
+      "effective_xp_per_hour": 8000,
+      "effective_gp_per_hour": 1500,
+      "travel_minutes_per_hour": 0,
+      "active_minutes_per_hour": 60,
+      "trips_per_hour": 0
     },
     {
       "id": "heartlands_range_meat_rotation",
       "skill": "cooking",
       "level_required": 3,
       "name": "Lumbrick Meat Range Rotation",
-      "location": { "region": "heartlands", "spot": "Lumbrick range + deposit box" },
+      "location": {
+        "region": "heartlands",
+        "spot": "Lumbrick range + deposit box"
+      },
       "intensity": 3,
       "xp_per_hour": 19300,
       "gp_per_hour": 3200,
-      "requires": { "quests": [], "items": ["raw_shrimps", "raw_chicken"], "skills": {} },
+      "requires": {
+        "quests": [],
+        "items": [
+          "raw_shrimps",
+          "raw_chicken"
+        ],
+        "skills": {}
+      },
       "description": "Bank-cook-bank with deposit-box adjacency. Constant clicking but fast.",
-      "produces": [{ "item": "shrimps", "rate_per_hour": 2200 }],
-      "marstead_note": "Active. First speed method."
+      "produces": [
+        {
+          "item": "shrimps",
+          "rate_per_hour": 2200
+        }
+      ],
+      "marstead_note": "Active. First speed method.",
+      "travel_time_to_bank_seconds": 0,
+      "nearest_teleport": null,
+      "banking_trip_cost": {
+        "gp": 0,
+        "intensity": 0
+      },
+      "travel_region_multiplier": 0,
+      "effective_xp_per_hour": 19300,
+      "effective_gp_per_hour": 3200,
+      "travel_minutes_per_hour": 0,
+      "active_minutes_per_hour": 60,
+      "trips_per_hour": 0
     },
     {
       "id": "heartlands_range_trout_afk",
       "skill": "cooking",
       "level_required": 15,
       "name": "Range Trout AFK",
-      "location": { "region": "heartlands", "spot": "Lumbrick range, distant banker" },
+      "location": {
+        "region": "heartlands",
+        "spot": "Lumbrick range, distant banker"
+      },
       "intensity": 1,
       "xp_per_hour": 11300,
       "gp_per_hour": 4800,
-      "requires": { "quests": [], "items": ["raw_trout"], "skills": {} },
+      "requires": {
+        "quests": [],
+        "items": [
+          "raw_trout"
+        ],
+        "skills": {}
+      },
       "description": "Cook trout. Range + bank pattern. Burn rate reasonable.",
-      "produces": [{ "item": "trout", "rate_per_hour": 840 }],
-      "marstead_note": "AFK baseline for 15+."
+      "produces": [
+        {
+          "item": "trout",
+          "rate_per_hour": 840
+        }
+      ],
+      "marstead_note": "AFK baseline for 15+.",
+      "travel_time_to_bank_seconds": 0,
+      "nearest_teleport": null,
+      "banking_trip_cost": {
+        "gp": 0,
+        "intensity": 0
+      },
+      "travel_region_multiplier": 0,
+      "effective_xp_per_hour": 11300,
+      "effective_gp_per_hour": 4800,
+      "travel_minutes_per_hour": 0,
+      "active_minutes_per_hour": 60,
+      "trips_per_hour": 0
     },
     {
       "id": "heartlands_range_trout_rotation",
       "skill": "cooking",
       "level_required": 15,
       "name": "Bakery Trout Spin",
-      "location": { "region": "heartlands", "spot": "Lumbrick bakery — range+bank adjacent" },
+      "location": {
+        "region": "heartlands",
+        "spot": "Lumbrick bakery — range+bank adjacent"
+      },
       "intensity": 5,
       "xp_per_hour": 36200,
       "gp_per_hour": 12000,
-      "requires": { "quests": [], "items": ["raw_trout"], "skills": {} },
+      "requires": {
+        "quests": [],
+        "items": [
+          "raw_trout"
+        ],
+        "skills": {}
+      },
       "description": "Bakery's range is 1-tile from the bank chest. 1-tick deposit-withdraw-cook. Top 15+ XP.",
-      "produces": [{ "item": "trout", "rate_per_hour": 2560 }],
-      "marstead_note": "Active. Ideal 15+ XP."
+      "produces": [
+        {
+          "item": "trout",
+          "rate_per_hour": 2560
+        }
+      ],
+      "marstead_note": "Active. Ideal 15+ XP.",
+      "travel_time_to_bank_seconds": 0,
+      "nearest_teleport": null,
+      "banking_trip_cost": {
+        "gp": 0,
+        "intensity": 0
+      },
+      "travel_region_multiplier": 0,
+      "effective_xp_per_hour": 36200,
+      "effective_gp_per_hour": 12000,
+      "travel_minutes_per_hour": 0,
+      "active_minutes_per_hour": 60,
+      "trips_per_hour": 0
     },
     {
       "id": "saltbrine_range_salmon",
       "skill": "cooking",
       "level_required": 25,
       "name": "Saltbrine Quayside Salmon",
-      "location": { "region": "saltbrine", "spot": "Quayside pier grill" },
+      "location": {
+        "region": "saltbrine",
+        "spot": "Quayside pier grill"
+      },
       "intensity": 1,
       "xp_per_hour": 17400,
       "gp_per_hour": 9500,
-      "requires": { "quests": [], "items": ["raw_salmon"], "skills": {} },
+      "requires": {
+        "quests": [],
+        "items": [
+          "raw_salmon"
+        ],
+        "skills": {}
+      },
       "description": "Salmon on the open pier. Wind lowers range efficiency (5% burn) but that's the aesthetic.",
-      "produces": [{ "item": "salmon", "rate_per_hour": 760 }],
-      "marstead_note": "AFK baseline for 25+."
+      "produces": [
+        {
+          "item": "salmon",
+          "rate_per_hour": 760
+        }
+      ],
+      "marstead_note": "AFK baseline for 25+.",
+      "travel_time_to_bank_seconds": 22,
+      "nearest_teleport": "Saltbrine Teleport (Harbor)",
+      "banking_trip_cost": {
+        "gp": 55,
+        "intensity": 2
+      },
+      "travel_region_multiplier": 0,
+      "effective_xp_per_hour": 15699,
+      "effective_gp_per_hour": 8571,
+      "travel_minutes_per_hour": 5.9,
+      "active_minutes_per_hour": 54.1,
+      "trips_per_hour": 8
     },
     {
       "id": "saltbrine_range_salmon_pyro",
       "skill": "cooking",
       "level_required": 25,
       "name": "Saltbrine Salmon Pyro-Race",
-      "location": { "region": "saltbrine", "spot": "Storm Night event" },
+      "location": {
+        "region": "saltbrine",
+        "spot": "Storm Night event"
+      },
       "intensity": 6,
       "xp_per_hour": 50600,
       "gp_per_hour": 68000,
-      "requires": { "quests": [], "items": ["raw_salmon", "storm_charm"], "skills": {"cooking": 25} },
+      "requires": {
+        "quests": [],
+        "items": [
+          "raw_salmon",
+          "storm_charm"
+        ],
+        "skills": {
+          "cooking": 25
+        }
+      },
       "description": "During Storm Night event, ranges burn 2x hotter. Cook-speed-run with 0% burn if you time charms.",
-      "produces": [{ "item": "salmon", "rate_per_hour": 3800 }],
-      "marstead_note": "Active-Max Focus. Event-tied high-XP method."
+      "produces": [
+        {
+          "item": "salmon",
+          "rate_per_hour": 3800
+        }
+      ],
+      "marstead_note": "Active-Max Focus. Event-tied high-XP method.",
+      "travel_time_to_bank_seconds": 22,
+      "nearest_teleport": "Saltbrine Teleport (Harbor)",
+      "banking_trip_cost": {
+        "gp": 55,
+        "intensity": 2
+      },
+      "travel_region_multiplier": 0,
+      "effective_xp_per_hour": 45652,
+      "effective_gp_per_hour": 61351,
+      "travel_minutes_per_hour": 5.9,
+      "active_minutes_per_hour": 54.1,
+      "trips_per_hour": 8
     },
     {
       "id": "veilwood_winepress_mash_rotation",
       "skill": "cooking",
       "level_required": 35,
       "name": "Veilwood Winepress Mash",
-      "location": { "region": "veilwood", "spot": "Winepress grange" },
+      "location": {
+        "region": "veilwood",
+        "spot": "Winepress grange"
+      },
       "intensity": 4,
       "xp_per_hour": 46900,
       "gp_per_hour": 115000,
-      "requires": { "quests": [], "items": ["grapes", "wine_jug"], "skills": {} },
+      "requires": {
+        "quests": [],
+        "items": [
+          "grapes",
+          "wine_jug"
+        ],
+        "skills": {}
+      },
       "description": "Mash grapes with a foot-press. Physical XP, no burn. Moderate attention.",
-      "produces": [{ "item": "wine_mash", "rate_per_hour": 1950 }],
-      "marstead_note": "Active. Alt-XP wine path."
+      "produces": [
+        {
+          "item": "wine_mash",
+          "rate_per_hour": 1950
+        }
+      ],
+      "marstead_note": "Active. Alt-XP wine path.",
+      "travel_time_to_bank_seconds": 39,
+      "nearest_teleport": "Necklace of Passage",
+      "banking_trip_cost": {
+        "gp": 500,
+        "intensity": 2
+      },
+      "travel_region_multiplier": 0.1,
+      "effective_xp_per_hour": 38771,
+      "effective_gp_per_hour": 95067,
+      "travel_minutes_per_hour": 10.4,
+      "active_minutes_per_hour": 49.6,
+      "trips_per_hour": 8
     },
     {
       "id": "saltbrine_range_lobster",
       "skill": "cooking",
       "level_required": 40,
       "name": "Drifting Market Lobster Pot",
-      "location": { "region": "saltbrine", "spot": "Drifting Market roving range" },
+      "location": {
+        "region": "saltbrine",
+        "spot": "Drifting Market roving range"
+      },
       "intensity": 1,
       "xp_per_hour": 28000,
       "gp_per_hour": 45000,
-      "requires": { "quests": [], "items": ["raw_lobster"], "skills": {} },
+      "requires": {
+        "quests": [],
+        "items": [
+          "raw_lobster"
+        ],
+        "skills": {}
+      },
       "description": "The player-hosted roving market hosts ranges right on the fishing pier. Lobster-loop with zero banking distance.",
-      "produces": [{ "item": "lobster", "rate_per_hour": 950 }],
-      "marstead_note": "AFK baseline for 40+."
+      "produces": [
+        {
+          "item": "lobster",
+          "rate_per_hour": 950
+        }
+      ],
+      "marstead_note": "AFK baseline for 40+.",
+      "travel_time_to_bank_seconds": 9,
+      "nearest_teleport": "Saltbrine Teleport (Harbor)",
+      "banking_trip_cost": {
+        "gp": 0,
+        "intensity": 1
+      },
+      "travel_region_multiplier": 0,
+      "effective_xp_per_hour": 26880,
+      "effective_gp_per_hour": 43200,
+      "travel_minutes_per_hour": 2.4,
+      "active_minutes_per_hour": 57.6,
+      "trips_per_hour": 8
     },
     {
       "id": "heartlands_hosidius_range_lobster",
       "skill": "cooking",
       "level_required": 40,
       "name": "Hosidius Kitchen Lobster (Favoured Range)",
-      "location": { "region": "heartlands", "spot": "Hosidius favoured-kitchen" },
+      "location": {
+        "region": "heartlands",
+        "spot": "Hosidius favoured-kitchen"
+      },
       "intensity": 3,
       "xp_per_hour": 45900,
       "gp_per_hour": 78000,
-      "requires": { "quests": ["kingdom_favour"], "items": ["raw_lobster"], "skills": {"cooking": 40} },
+      "requires": {
+        "quests": [
+          "kingdom_favour"
+        ],
+        "items": [
+          "raw_lobster"
+        ],
+        "skills": {
+          "cooking": 40
+        }
+      },
       "description": "Hosidius kitchen provides -5% burn. Rotation with adjacent bank. Quest-gated.",
-      "produces": [{ "item": "lobster", "rate_per_hour": 1550 }],
-      "marstead_note": "Active. Quest-gated cooking method — Marstead metroidvania."
+      "produces": [
+        {
+          "item": "lobster",
+          "rate_per_hour": 1550
+        }
+      ],
+      "marstead_note": "Active. Quest-gated cooking method — Marstead metroidvania.",
+      "travel_time_to_bank_seconds": 25,
+      "nearest_teleport": "Heartlands Teleport (Lumbrick)",
+      "banking_trip_cost": {
+        "gp": 35,
+        "intensity": 2
+      },
+      "travel_region_multiplier": 0,
+      "effective_xp_per_hour": 40800,
+      "effective_gp_per_hour": 69333,
+      "travel_minutes_per_hour": 6.7,
+      "active_minutes_per_hour": 53.3,
+      "trips_per_hour": 8
     },
     {
       "id": "saltbrine_swordfish_cook",
       "skill": "cooking",
       "level_required": 45,
       "name": "Swordfish Quayside Grill",
-      "location": { "region": "saltbrine", "spot": "Quayside pier grill" },
+      "location": {
+        "region": "saltbrine",
+        "spot": "Quayside pier grill"
+      },
       "intensity": 1,
       "xp_per_hour": 30800,
       "gp_per_hour": 75000,
-      "requires": { "quests": [], "items": ["raw_swordfish"], "skills": {} },
+      "requires": {
+        "quests": [],
+        "items": [
+          "raw_swordfish"
+        ],
+        "skills": {}
+      },
       "description": "Swordfish on the pier. AFK, moderate burn, great profit.",
-      "produces": [{ "item": "swordfish", "rate_per_hour": 850 }],
-      "marstead_note": "AFK baseline."
+      "produces": [
+        {
+          "item": "swordfish",
+          "rate_per_hour": 850
+        }
+      ],
+      "marstead_note": "AFK baseline.",
+      "travel_time_to_bank_seconds": 22,
+      "nearest_teleport": "Saltbrine Teleport (Harbor)",
+      "banking_trip_cost": {
+        "gp": 55,
+        "intensity": 2
+      },
+      "travel_region_multiplier": 0,
+      "effective_xp_per_hour": 27788,
+      "effective_gp_per_hour": 67667,
+      "travel_minutes_per_hour": 5.9,
+      "active_minutes_per_hour": 54.1,
+      "trips_per_hour": 8
     },
     {
       "id": "veilwood_monkfish_cook_afk",
       "skill": "cooking",
       "level_required": 62,
       "name": "Moonblade Monkfish Cook",
-      "location": { "region": "veilwood", "spot": "Monastery kitchen (Moonblade Wharf)" },
+      "location": {
+        "region": "veilwood",
+        "spot": "Monastery kitchen (Moonblade Wharf)"
+      },
       "intensity": 1,
       "xp_per_hour": 46700,
       "gp_per_hour": 110000,
-      "requires": { "quests": ["swan_song_of_veilwood"], "items": ["raw_monkfish"], "skills": {"cooking": 62} },
+      "requires": {
+        "quests": [
+          "swan_song_of_veilwood"
+        ],
+        "items": [
+          "raw_monkfish"
+        ],
+        "skills": {
+          "cooking": 62
+        }
+      },
       "description": "Monkfish in the monastery kitchen. 0% burn at 62+ here.",
-      "produces": [{ "item": "monkfish", "rate_per_hour": 1420 }],
-      "marstead_note": "AFK baseline for 60+. The standard."
+      "produces": [
+        {
+          "item": "monkfish",
+          "rate_per_hour": 1420
+        }
+      ],
+      "marstead_note": "AFK baseline for 60+. The standard.",
+      "travel_time_to_bank_seconds": 39,
+      "nearest_teleport": "Necklace of Passage",
+      "banking_trip_cost": {
+        "gp": 500,
+        "intensity": 2
+      },
+      "travel_region_multiplier": 0.1,
+      "effective_xp_per_hour": 38605,
+      "effective_gp_per_hour": 90933,
+      "travel_minutes_per_hour": 10.4,
+      "active_minutes_per_hour": 49.6,
+      "trips_per_hour": 8
     },
     {
       "id": "heartlands_pie_rotation",
       "skill": "cooking",
       "level_required": 52,
       "name": "Admiral Pie Assembly Line",
-      "location": { "region": "heartlands", "spot": "Bakery oven + bank" },
+      "location": {
+        "region": "heartlands",
+        "spot": "Bakery oven + bank"
+      },
       "intensity": 5,
       "xp_per_hour": 72200,
       "gp_per_hour": 165000,
-      "requires": { "quests": [], "items": ["admiral_pie_unfired"], "skills": {} },
+      "requires": {
+        "quests": [],
+        "items": [
+          "admiral_pie_unfired"
+        ],
+        "skills": {}
+      },
       "description": "Unfired pies + oven rotation. Pies bake with multi-step: pastry, add fish, bake. Multi-skill reliant.",
-      "produces": [{ "item": "admiral_pie", "rate_per_hour": 1650 }],
-      "marstead_note": "Active. Multi-step food production."
+      "produces": [
+        {
+          "item": "admiral_pie",
+          "rate_per_hour": 1650
+        }
+      ],
+      "marstead_note": "Active. Multi-step food production.",
+      "travel_time_to_bank_seconds": 0,
+      "nearest_teleport": null,
+      "banking_trip_cost": {
+        "gp": 0,
+        "intensity": 0
+      },
+      "travel_region_multiplier": 0,
+      "effective_xp_per_hour": 72200,
+      "effective_gp_per_hour": 165000,
+      "travel_minutes_per_hour": 0,
+      "active_minutes_per_hour": 60,
+      "trips_per_hour": 0
     },
     {
       "id": "veilwood_wine_pour",
       "skill": "cooking",
       "level_required": 35,
       "name": "Veilwood Grape Wine Pour",
-      "location": { "region": "veilwood", "spot": "Winepress grange" },
+      "location": {
+        "region": "veilwood",
+        "spot": "Winepress grange"
+      },
       "intensity": 1,
       "xp_per_hour": 22800,
       "gp_per_hour": 54000,
-      "requires": { "quests": [], "items": ["grapes", "jug_of_water"], "skills": {} },
+      "requires": {
+        "quests": [],
+        "items": [
+          "grapes",
+          "jug_of_water"
+        ],
+        "skills": {}
+      },
       "description": "Pour grape wines. Low cost, steady XP. Wines age overnight for +1 tier.",
-      "produces": [{ "item": "wine_of_zamorak", "rate_per_hour": 1150 }],
-      "marstead_note": "AFK baseline for 35+. Delayed reward (aging)."
+      "produces": [
+        {
+          "item": "wine_of_zamorak",
+          "rate_per_hour": 1150
+        }
+      ],
+      "marstead_note": "AFK baseline for 35+. Delayed reward (aging).",
+      "travel_time_to_bank_seconds": 39,
+      "nearest_teleport": "Necklace of Passage",
+      "banking_trip_cost": {
+        "gp": 500,
+        "intensity": 2
+      },
+      "travel_region_multiplier": 0.1,
+      "effective_xp_per_hour": 18848,
+      "effective_gp_per_hour": 44640,
+      "travel_minutes_per_hour": 10.4,
+      "active_minutes_per_hour": 49.6,
+      "trips_per_hour": 8
     },
     {
       "id": "saltbrine_stew_cauldron",
       "skill": "cooking",
       "level_required": 55,
       "name": "Briny Stew Cauldron",
-      "location": { "region": "saltbrine", "spot": "Drifting Market shared cauldron" },
+      "location": {
+        "region": "saltbrine",
+        "spot": "Drifting Market shared cauldron"
+      },
       "intensity": 2,
       "xp_per_hour": 41200,
       "gp_per_hour": 95000,
-      "requires": { "quests": [], "items": ["saltbrine_mackerel", "spice"], "skills": {} },
+      "requires": {
+        "quests": [],
+        "items": [
+          "saltbrine_mackerel",
+          "spice"
+        ],
+        "skills": {}
+      },
       "description": "Communal stew cauldron. 7-ingredient mixes yield random-stat-boost stew.",
-      "produces": [{ "item": "saltbrine_stew", "rate_per_hour": 640 }],
-      "marstead_note": "Multitask. Unique output (stat-randomizing stew)."
+      "produces": [
+        {
+          "item": "saltbrine_stew",
+          "rate_per_hour": 640
+        }
+      ],
+      "marstead_note": "Multitask. Unique output (stat-randomizing stew).",
+      "travel_time_to_bank_seconds": 9,
+      "nearest_teleport": "Saltbrine Teleport (Harbor)",
+      "banking_trip_cost": {
+        "gp": 0,
+        "intensity": 1
+      },
+      "travel_region_multiplier": 0,
+      "effective_xp_per_hour": 39552,
+      "effective_gp_per_hour": 91200,
+      "travel_minutes_per_hour": 2.4,
+      "active_minutes_per_hour": 57.6,
+      "trips_per_hour": 8
     },
     {
       "id": "veilwood_shark_monastery",
       "skill": "cooking",
       "level_required": 80,
       "name": "Shark Monastery Oven",
-      "location": { "region": "veilwood", "spot": "Moonblade Monastery oven" },
+      "location": {
+        "region": "veilwood",
+        "spot": "Moonblade Monastery oven"
+      },
       "intensity": 1,
       "xp_per_hour": 66800,
       "gp_per_hour": 145000,
-      "requires": { "quests": ["swan_song_of_veilwood"], "items": ["raw_shark"], "skills": {"cooking": 80} },
+      "requires": {
+        "quests": [
+          "swan_song_of_veilwood"
+        ],
+        "items": [
+          "raw_shark"
+        ],
+        "skills": {
+          "cooking": 80
+        }
+      },
       "description": "Monastery shark-oven. 0% burn, AFK. The classic 80+ training.",
-      "produces": [{ "item": "shark", "rate_per_hour": 1620 }],
-      "marstead_note": "AFK baseline for 80+."
+      "produces": [
+        {
+          "item": "shark",
+          "rate_per_hour": 1620
+        }
+      ],
+      "marstead_note": "AFK baseline for 80+.",
+      "travel_time_to_bank_seconds": 39,
+      "nearest_teleport": "Necklace of Passage",
+      "banking_trip_cost": {
+        "gp": 500,
+        "intensity": 2
+      },
+      "travel_region_multiplier": 0.1,
+      "effective_xp_per_hour": 55221,
+      "effective_gp_per_hour": 119867,
+      "travel_minutes_per_hour": 10.4,
+      "active_minutes_per_hour": 49.6,
+      "trips_per_hour": 8
     },
     {
       "id": "veilwood_karambwan_cook_afk",
       "skill": "cooking",
       "level_required": 71,
       "name": "Karambwan Thatched-Oven AFK",
-      "location": { "region": "veilwood", "spot": "Mosswater village thatched-oven" },
+      "location": {
+        "region": "veilwood",
+        "spot": "Mosswater village thatched-oven"
+      },
       "intensity": 1,
       "xp_per_hour": 54700,
       "gp_per_hour": 110000,
-      "requires": { "quests": ["the_mosswater_accord"], "items": ["raw_karambwan"], "skills": {"cooking": 71} },
+      "requires": {
+        "quests": [
+          "the_mosswater_accord"
+        ],
+        "items": [
+          "raw_karambwan"
+        ],
+        "skills": {
+          "cooking": 71
+        }
+      },
       "description": "Thatched-oven karambwan. Slightly higher burn than the monastery but materials are cheap.",
-      "produces": [{ "item": "karambwan", "rate_per_hour": 1380 }],
-      "marstead_note": "AFK baseline for 70+."
+      "produces": [
+        {
+          "item": "karambwan",
+          "rate_per_hour": 1380
+        }
+      ],
+      "marstead_note": "AFK baseline for 70+.",
+      "travel_time_to_bank_seconds": 0,
+      "nearest_teleport": null,
+      "banking_trip_cost": {
+        "gp": 0,
+        "intensity": 0
+      },
+      "travel_region_multiplier": 0.1,
+      "effective_xp_per_hour": 54700,
+      "effective_gp_per_hour": 110000,
+      "travel_minutes_per_hour": 0,
+      "active_minutes_per_hour": 60,
+      "trips_per_hour": 0
     },
     {
       "id": "saltbrine_gauntlet_lobster",
       "skill": "cooking",
       "level_required": 70,
       "name": "Grill Gauntlet Lobster Sprint",
-      "location": { "region": "saltbrine", "spot": "Seaward Guild kitchen" },
+      "location": {
+        "region": "saltbrine",
+        "spot": "Seaward Guild kitchen"
+      },
       "intensity": 7,
       "xp_per_hour": 96300,
       "gp_per_hour": 180000,
-      "requires": { "quests": [], "items": ["raw_lobster"], "skills": {"cooking": 70} },
+      "requires": {
+        "quests": [],
+        "items": [
+          "raw_lobster"
+        ],
+        "skills": {
+          "cooking": 70
+        }
+      },
       "description": "6-burner range. 1-tick withdraw-cook-deposit. Top XP for 70s. Insane clicks.",
-      "produces": [{ "item": "lobster", "rate_per_hour": 4100 }],
-      "marstead_note": "Max Focus. The most-clicks cooking method in Scape."
+      "produces": [
+        {
+          "item": "lobster",
+          "rate_per_hour": 4100
+        }
+      ],
+      "marstead_note": "Max Focus. The most-clicks cooking method in Scape.",
+      "travel_time_to_bank_seconds": 22,
+      "nearest_teleport": "Saltbrine Teleport (Harbor)",
+      "banking_trip_cost": {
+        "gp": 55,
+        "intensity": 2
+      },
+      "travel_region_multiplier": 0,
+      "effective_xp_per_hour": 86884,
+      "effective_gp_per_hour": 162400,
+      "travel_minutes_per_hour": 5.9,
+      "active_minutes_per_hour": 54.1,
+      "trips_per_hour": 8
     },
     {
       "id": "veilwood_shark_press_rotation",
       "skill": "cooking",
       "level_required": 80,
       "name": "Monastery Shark-Bake Press",
-      "location": { "region": "veilwood", "spot": "Moonblade Monastery oven + adjacent bank" },
+      "location": {
+        "region": "veilwood",
+        "spot": "Moonblade Monastery oven + adjacent bank"
+      },
       "intensity": 5,
       "xp_per_hour": 98400,
       "gp_per_hour": 265000,
-      "requires": { "quests": ["swan_song_of_veilwood"], "items": ["raw_shark"], "skills": {"cooking": 80} },
+      "requires": {
+        "quests": [
+          "swan_song_of_veilwood"
+        ],
+        "items": [
+          "raw_shark"
+        ],
+        "skills": {
+          "cooking": 80
+        }
+      },
       "description": "Adjacent bank + 2-burner oven. Rotation press between bank and oven. Peak 80+ XP without pie chaining.",
-      "produces": [{ "item": "shark", "rate_per_hour": 3800 }],
-      "marstead_note": "Active. The shark XP meta."
+      "produces": [
+        {
+          "item": "shark",
+          "rate_per_hour": 3800
+        }
+      ],
+      "marstead_note": "Active. The shark XP meta.",
+      "travel_time_to_bank_seconds": 0,
+      "nearest_teleport": null,
+      "banking_trip_cost": {
+        "gp": 0,
+        "intensity": 0
+      },
+      "travel_region_multiplier": 0.1,
+      "effective_xp_per_hour": 98400,
+      "effective_gp_per_hour": 265000,
+      "travel_minutes_per_hour": 0,
+      "active_minutes_per_hour": 60,
+      "trips_per_hour": 0
     },
     {
       "id": "veilwood_anglerfish_boil",
       "skill": "cooking",
       "level_required": 90,
       "name": "Feast Anglerfish Boil",
-      "location": { "region": "veilwood", "spot": "Moonblade Monastery deep-pot" },
+      "location": {
+        "region": "veilwood",
+        "spot": "Moonblade Monastery deep-pot"
+      },
       "intensity": 1,
       "xp_per_hour": 84200,
       "gp_per_hour": 235000,
-      "requires": { "quests": ["whisperwood_remembers"], "items": ["raw_anglerfish"], "skills": {"cooking": 90} },
+      "requires": {
+        "quests": [
+          "whisperwood_remembers"
+        ],
+        "items": [
+          "raw_anglerfish"
+        ],
+        "skills": {
+          "cooking": 90
+        }
+      },
       "description": "Anglerfish boil in the deep-pot. Slow but 0% burn.",
-      "produces": [{ "item": "anglerfish", "rate_per_hour": 1600 }],
-      "marstead_note": "AFK baseline for 90+."
+      "produces": [
+        {
+          "item": "anglerfish",
+          "rate_per_hour": 1600
+        }
+      ],
+      "marstead_note": "AFK baseline for 90+.",
+      "travel_time_to_bank_seconds": 67,
+      "nearest_teleport": "Necklace of Passage",
+      "banking_trip_cost": {
+        "gp": 500,
+        "intensity": 2
+      },
+      "travel_region_multiplier": 0.1,
+      "effective_xp_per_hour": 59127,
+      "effective_gp_per_hour": 165022,
+      "travel_minutes_per_hour": 17.9,
+      "active_minutes_per_hour": 42.1,
+      "trips_per_hour": 8
     },
     {
       "id": "wilds_volcanic_dark_crab",
       "skill": "cooking",
       "level_required": 95,
       "name": "Volcanic Dark Crab Boil",
-      "location": { "region": "wilds", "spot": "Volcanic vent, lv12 Wilderness" },
+      "location": {
+        "region": "wilds",
+        "spot": "Volcanic vent, lv12 Wilderness"
+      },
       "intensity": 4,
       "xp_per_hour": 122000,
       "gp_per_hour": 350000,
-      "requires": { "quests": [], "items": ["raw_dark_crab"], "skills": {"cooking": 95} },
+      "requires": {
+        "quests": [],
+        "items": [
+          "raw_dark_crab"
+        ],
+        "skills": {
+          "cooking": 95
+        }
+      },
       "description": "Vent-boiled dark crabs. PK risk forces tight cooking. 10-minute sprints.",
-      "produces": [{ "item": "dark_crab", "rate_per_hour": 1820 }],
-      "marstead_note": "Active. Wilderness Principle — 5x gp but risk of losing stack."
+      "produces": [
+        {
+          "item": "dark_crab",
+          "rate_per_hour": 1820
+        }
+      ],
+      "marstead_note": "Active. Wilderness Principle — 5x gp but risk of losing stack.",
+      "travel_time_to_bank_seconds": 62,
+      "nearest_teleport": "Amulet of Glory (Wilds edge)",
+      "banking_trip_cost": {
+        "gp": 500,
+        "intensity": 2
+      },
+      "travel_region_multiplier": 0.3,
+      "effective_xp_per_hour": 88382,
+      "effective_gp_per_hour": 253556,
+      "travel_minutes_per_hour": 16.5,
+      "active_minutes_per_hour": 43.5,
+      "trips_per_hour": 8
     },
     {
       "id": "heartlands_jug_of_wine_bulk",
       "skill": "cooking",
       "level_required": 68,
       "name": "Bulk Wine Jug Pour",
-      "location": { "region": "heartlands", "spot": "Winepress estate" },
+      "location": {
+        "region": "heartlands",
+        "spot": "Winepress estate"
+      },
       "intensity": 3,
       "xp_per_hour": 68000,
       "gp_per_hour": 175000,
-      "requires": { "quests": [], "items": ["grapes", "jug_of_water"], "skills": {"cooking": 68} },
+      "requires": {
+        "quests": [],
+        "items": [
+          "grapes",
+          "jug_of_water"
+        ],
+        "skills": {
+          "cooking": 68
+        }
+      },
       "description": "Bulk pour wines with 28-slot inventory. Wine ages automatically in inventory (+30% XP/hr vs walk).",
-      "produces": [{ "item": "wine_of_zamorak", "rate_per_hour": 2900 }],
-      "marstead_note": "Multitask-Active. The sleeper XP wine method."
+      "produces": [
+        {
+          "item": "wine_of_zamorak",
+          "rate_per_hour": 2900
+        }
+      ],
+      "marstead_note": "Multitask-Active. The sleeper XP wine method.",
+      "travel_time_to_bank_seconds": 25,
+      "nearest_teleport": "Heartlands Teleport (Lumbrick)",
+      "banking_trip_cost": {
+        "gp": 35,
+        "intensity": 2
+      },
+      "travel_region_multiplier": 0,
+      "effective_xp_per_hour": 60444,
+      "effective_gp_per_hour": 155556,
+      "travel_minutes_per_hour": 6.7,
+      "active_minutes_per_hour": 53.3,
+      "trips_per_hour": 8
     },
     {
       "id": "glass_desert_spice_feast_catering",
       "skill": "cooking",
       "level_required": 92,
       "name": "Spice-Feast Catering Contracts",
-      "location": { "region": "glass_desert", "spot": "Crescent grand feast-hall catering bench" },
+      "location": {
+        "region": "glass_desert",
+        "spot": "Crescent grand feast-hall catering bench"
+      },
       "intensity": 4,
       "xp_per_hour": 168000,
       "gp_per_hour": 5200000,
-      "requires": { "quests": ["the_spice_accord"], "items": ["raw_shark", "glass_spice_bundle", "catering_license"], "skills": {"cooking": 92} },
+      "requires": {
+        "quests": [
+          "the_spice_accord"
+        ],
+        "items": [
+          "raw_shark",
+          "glass_spice_bundle",
+          "catering_license"
+        ],
+        "skills": {
+          "cooking": 92
+        }
+      },
       "description": "Catering multi-course feasts for raid parties — spice-feast contracts pay per-plate with premium for full-course sets. High-tier non-combat processing.",
-      "produces": [{ "item": "spice_feast_course", "rate_per_hour": 1800 }],
-      "marstead_note": "M15 non-combat 5M+. Elite catering service economy."
+      "produces": [
+        {
+          "item": "spice_feast_course",
+          "rate_per_hour": 1800
+        }
+      ],
+      "marstead_note": "M15 non-combat 5M+. Elite catering service economy.",
+      "travel_time_to_bank_seconds": 83,
+      "nearest_teleport": "Glass Desert Pendant",
+      "banking_trip_cost": {
+        "gp": 500,
+        "intensity": 2
+      },
+      "travel_region_multiplier": 0.5,
+      "effective_xp_per_hour": 106027,
+      "effective_gp_per_hour": 3281778,
+      "travel_minutes_per_hour": 22.1,
+      "active_minutes_per_hour": 37.9,
+      "trips_per_hour": 8
     }
   ],
   "bracket_coverage": {
-    "1-10":  { "count": 2, "intensities": [1, 3] },
-    "10-20": { "count": 2, "intensities": [1, 5] },
-    "20-30": { "count": 2, "intensities": [1, 6] },
-    "30-40": { "count": 2, "intensities": [1, 4] },
-    "40-50": { "count": 3, "intensities": [1, 3, 1] },
-    "50-60": { "count": 2, "intensities": [5, 2] },
-    "60-70": { "count": 2, "intensities": [1, 3] },
-    "70-80": { "count": 2, "intensities": [1, 7] },
-    "80-90": { "count": 2, "intensities": [1, 5] },
-    "90-99": { "count": 2, "intensities": [1, 4] }
+    "1-10": {
+      "count": 2,
+      "intensities": [
+        1,
+        3
+      ]
+    },
+    "10-20": {
+      "count": 2,
+      "intensities": [
+        1,
+        5
+      ]
+    },
+    "20-30": {
+      "count": 2,
+      "intensities": [
+        1,
+        6
+      ]
+    },
+    "30-40": {
+      "count": 2,
+      "intensities": [
+        1,
+        4
+      ]
+    },
+    "40-50": {
+      "count": 3,
+      "intensities": [
+        1,
+        3,
+        1
+      ]
+    },
+    "50-60": {
+      "count": 2,
+      "intensities": [
+        5,
+        2
+      ]
+    },
+    "60-70": {
+      "count": 2,
+      "intensities": [
+        1,
+        3
+      ]
+    },
+    "70-80": {
+      "count": 2,
+      "intensities": [
+        1,
+        7
+      ]
+    },
+    "80-90": {
+      "count": 2,
+      "intensities": [
+        1,
+        5
+      ]
+    },
+    "90-99": {
+      "count": 2,
+      "intensities": [
+        1,
+        4
+      ]
+    }
   }
 }

@@ -7,418 +7,1348 @@
       "skill": "runecrafting",
       "level_required": 1,
       "name": "Air Altar AFK Loop",
-      "location": { "region": "heartlands", "spot": "Airflow shrine, south Lumbrick" },
+      "location": {
+        "region": "heartlands",
+        "spot": "Airflow shrine, south Lumbrick"
+      },
       "intensity": 2,
       "xp_per_hour": 13900,
       "gp_per_hour": 22000,
-      "requires": { "quests": [], "items": ["rune_essence"], "skills": {} },
+      "requires": {
+        "quests": [],
+        "items": [
+          "rune_essence"
+        ],
+        "skills": {}
+      },
       "description": "Air rune altar single-essence run. Walk-craft-bank. AFK.",
-      "produces": [{ "item": "air_rune", "rate_per_hour": 4800 }],
-      "marstead_note": "AFK-Multitask baseline."
+      "produces": [
+        {
+          "item": "air_rune",
+          "rate_per_hour": 4800
+        }
+      ],
+      "marstead_note": "AFK-Multitask baseline.",
+      "travel_time_to_bank_seconds": 10,
+      "nearest_teleport": "Heartlands Teleport (Lumbrick)",
+      "banking_trip_cost": {
+        "gp": 0,
+        "intensity": 1
+      },
+      "travel_region_multiplier": 0,
+      "effective_xp_per_hour": 12973,
+      "effective_gp_per_hour": 20533,
+      "travel_minutes_per_hour": 4,
+      "active_minutes_per_hour": 56,
+      "trips_per_hour": 12
     },
     {
       "id": "heartlands_air_altar_pouch_rush",
       "skill": "runecrafting",
       "level_required": 5,
       "name": "Air Altar Pouch Rush",
-      "location": { "region": "heartlands", "spot": "Airflow shrine + bank chest" },
+      "location": {
+        "region": "heartlands",
+        "spot": "Airflow shrine + bank chest"
+      },
       "intensity": 5,
       "xp_per_hour": 45000,
       "gp_per_hour": 48000,
-      "requires": { "quests": ["the_binding_scroll"], "items": ["rune_essence", "small_pouch", "med_pouch"], "skills": {"runecrafting": 5} },
+      "requires": {
+        "quests": [
+          "the_binding_scroll"
+        ],
+        "items": [
+          "rune_essence",
+          "small_pouch",
+          "med_pouch"
+        ],
+        "skills": {
+          "runecrafting": 5
+        }
+      },
       "description": "Pouch-backed air altar. 3-4 trips/min using fancy boots.",
-      "produces": [{ "item": "air_rune", "rate_per_hour": 12500 }],
-      "marstead_note": "Active."
+      "produces": [
+        {
+          "item": "air_rune",
+          "rate_per_hour": 12500
+        }
+      ],
+      "marstead_note": "Active.",
+      "travel_time_to_bank_seconds": 0,
+      "nearest_teleport": null,
+      "banking_trip_cost": {
+        "gp": 0,
+        "intensity": 0
+      },
+      "travel_region_multiplier": 0,
+      "effective_xp_per_hour": 45000,
+      "effective_gp_per_hour": 48000,
+      "travel_minutes_per_hour": 0,
+      "active_minutes_per_hour": 60,
+      "trips_per_hour": 0
     },
     {
       "id": "heartlands_mind_altar",
       "skill": "runecrafting",
       "level_required": 2,
       "name": "Mind Altar AFK",
-      "location": { "region": "heartlands", "spot": "Mindbind shrine" },
+      "location": {
+        "region": "heartlands",
+        "spot": "Mindbind shrine"
+      },
       "intensity": 1,
       "xp_per_hour": 23000,
       "gp_per_hour": 12000,
-      "requires": { "quests": [], "items": ["rune_essence"], "skills": {"runecrafting": 2} },
+      "requires": {
+        "quests": [],
+        "items": [
+          "rune_essence"
+        ],
+        "skills": {
+          "runecrafting": 2
+        }
+      },
       "description": "Mind altar AFK.",
-      "produces": [{ "item": "mind_rune", "rate_per_hour": 3600 }],
-      "marstead_note": "AFK baseline."
+      "produces": [
+        {
+          "item": "mind_rune",
+          "rate_per_hour": 3600
+        }
+      ],
+      "marstead_note": "AFK baseline.",
+      "travel_time_to_bank_seconds": 10,
+      "nearest_teleport": "Heartlands Teleport (Lumbrick)",
+      "banking_trip_cost": {
+        "gp": 0,
+        "intensity": 1
+      },
+      "travel_region_multiplier": 0,
+      "effective_xp_per_hour": 21467,
+      "effective_gp_per_hour": 11200,
+      "travel_minutes_per_hour": 4,
+      "active_minutes_per_hour": 56,
+      "trips_per_hour": 12
     },
     {
       "id": "saltbrine_water_altar_afk",
       "skill": "runecrafting",
       "level_required": 9,
       "name": "Saltbrine Water Altar AFK",
-      "location": { "region": "saltbrine", "spot": "Tideshelf shrine" },
+      "location": {
+        "region": "saltbrine",
+        "spot": "Tideshelf shrine"
+      },
       "intensity": 1,
       "xp_per_hour": 11500,
       "gp_per_hour": 18000,
-      "requires": { "quests": [], "items": ["rune_essence"], "skills": {"runecrafting": 9} },
+      "requires": {
+        "quests": [],
+        "items": [
+          "rune_essence"
+        ],
+        "skills": {
+          "runecrafting": 9
+        }
+      },
       "description": "Water altar AFK.",
-      "produces": [{ "item": "water_rune", "rate_per_hour": 3500 }],
-      "marstead_note": "AFK baseline for 9+."
+      "produces": [
+        {
+          "item": "water_rune",
+          "rate_per_hour": 3500
+        }
+      ],
+      "marstead_note": "AFK baseline for 9+.",
+      "travel_time_to_bank_seconds": 9,
+      "nearest_teleport": "Saltbrine Teleport (Harbor)",
+      "banking_trip_cost": {
+        "gp": 0,
+        "intensity": 1
+      },
+      "travel_region_multiplier": 0,
+      "effective_xp_per_hour": 10810,
+      "effective_gp_per_hour": 16920,
+      "travel_minutes_per_hour": 3.6,
+      "active_minutes_per_hour": 56.4,
+      "trips_per_hour": 12
     },
     {
       "id": "saltbrine_water_altar_pouch_rush",
       "skill": "runecrafting",
       "level_required": 9,
       "name": "Water Altar Pouch Rush",
-      "location": { "region": "saltbrine", "spot": "Tideshelf shrine + teleport" },
+      "location": {
+        "region": "saltbrine",
+        "spot": "Tideshelf shrine + teleport"
+      },
       "intensity": 5,
       "xp_per_hour": 45000,
       "gp_per_hour": 65000,
-      "requires": { "quests": ["the_binding_scroll"], "items": ["rune_essence", "pouches"], "skills": {"runecrafting": 9} },
+      "requires": {
+        "quests": [
+          "the_binding_scroll"
+        ],
+        "items": [
+          "rune_essence",
+          "pouches"
+        ],
+        "skills": {
+          "runecrafting": 9
+        }
+      },
       "description": "Water altar pouch rush.",
-      "produces": [{ "item": "water_rune", "rate_per_hour": 10500 }],
-      "marstead_note": "Active."
+      "produces": [
+        {
+          "item": "water_rune",
+          "rate_per_hour": 10500
+        }
+      ],
+      "marstead_note": "Active.",
+      "travel_time_to_bank_seconds": 9,
+      "nearest_teleport": "Saltbrine Teleport (Harbor)",
+      "banking_trip_cost": {
+        "gp": 0,
+        "intensity": 1
+      },
+      "travel_region_multiplier": 0,
+      "effective_xp_per_hour": 42300,
+      "effective_gp_per_hour": 61100,
+      "travel_minutes_per_hour": 3.6,
+      "active_minutes_per_hour": 56.4,
+      "trips_per_hour": 12
     },
     {
       "id": "heartlands_earth_altar_afk",
       "skill": "runecrafting",
       "level_required": 14,
       "name": "Earth Altar AFK",
-      "location": { "region": "heartlands", "spot": "Rootshrine" },
+      "location": {
+        "region": "heartlands",
+        "spot": "Rootshrine"
+      },
       "intensity": 1,
       "xp_per_hour": 12500,
       "gp_per_hour": 22000,
-      "requires": { "quests": [], "items": ["rune_essence"], "skills": {"runecrafting": 14} },
+      "requires": {
+        "quests": [],
+        "items": [
+          "rune_essence"
+        ],
+        "skills": {
+          "runecrafting": 14
+        }
+      },
       "description": "Earth altar AFK.",
-      "produces": [{ "item": "earth_rune", "rate_per_hour": 3500 }],
-      "marstead_note": "AFK baseline."
+      "produces": [
+        {
+          "item": "earth_rune",
+          "rate_per_hour": 3500
+        }
+      ],
+      "marstead_note": "AFK baseline.",
+      "travel_time_to_bank_seconds": 10,
+      "nearest_teleport": "Heartlands Teleport (Lumbrick)",
+      "banking_trip_cost": {
+        "gp": 0,
+        "intensity": 1
+      },
+      "travel_region_multiplier": 0,
+      "effective_xp_per_hour": 11667,
+      "effective_gp_per_hour": 20533,
+      "travel_minutes_per_hour": 4,
+      "active_minutes_per_hour": 56,
+      "trips_per_hour": 12
     },
     {
       "id": "heartlands_earth_altar_tiara_rush",
       "skill": "runecrafting",
       "level_required": 14,
       "name": "Earth Altar Tiara Rush",
-      "location": { "region": "heartlands", "spot": "Rootshrine + bank chest" },
+      "location": {
+        "region": "heartlands",
+        "spot": "Rootshrine + bank chest"
+      },
       "intensity": 4,
       "xp_per_hour": 48000,
       "gp_per_hour": 48000,
-      "requires": { "quests": [], "items": ["rune_essence", "earth_tiara", "pouches"], "skills": {"runecrafting": 14} },
+      "requires": {
+        "quests": [],
+        "items": [
+          "rune_essence",
+          "earth_tiara",
+          "pouches"
+        ],
+        "skills": {
+          "runecrafting": 14
+        }
+      },
       "description": "Earth altar tiara rush.",
-      "produces": [{ "item": "earth_rune", "rate_per_hour": 11000 }],
-      "marstead_note": "Active."
+      "produces": [
+        {
+          "item": "earth_rune",
+          "rate_per_hour": 11000
+        }
+      ],
+      "marstead_note": "Active.",
+      "travel_time_to_bank_seconds": 0,
+      "nearest_teleport": null,
+      "banking_trip_cost": {
+        "gp": 0,
+        "intensity": 0
+      },
+      "travel_region_multiplier": 0,
+      "effective_xp_per_hour": 48000,
+      "effective_gp_per_hour": 48000,
+      "travel_minutes_per_hour": 0,
+      "active_minutes_per_hour": 60,
+      "trips_per_hour": 0
     },
     {
       "id": "sootworks_fire_altar_afk",
       "skill": "runecrafting",
       "level_required": 20,
       "name": "Sootworks Fire Altar",
-      "location": { "region": "sootworks", "spot": "Emberheart shrine" },
+      "location": {
+        "region": "sootworks",
+        "spot": "Emberheart shrine"
+      },
       "intensity": 2,
       "xp_per_hour": 38000,
       "gp_per_hour": 52000,
-      "requires": { "quests": [], "items": ["rune_essence"], "skills": {"runecrafting": 20} },
+      "requires": {
+        "quests": [],
+        "items": [
+          "rune_essence"
+        ],
+        "skills": {
+          "runecrafting": 20
+        }
+      },
       "description": "Fire altar. Heat-hazard on afk too long.",
-      "produces": [{ "item": "fire_rune", "rate_per_hour": 3400 }],
-      "marstead_note": "AFK-Multitask."
+      "produces": [
+        {
+          "item": "fire_rune",
+          "rate_per_hour": 3400
+        }
+      ],
+      "marstead_note": "AFK-Multitask.",
+      "travel_time_to_bank_seconds": 14,
+      "nearest_teleport": "Sootworks Teleport (Forge Hall)",
+      "banking_trip_cost": {
+        "gp": 65,
+        "intensity": 2
+      },
+      "travel_region_multiplier": 0.1,
+      "effective_xp_per_hour": 34453,
+      "effective_gp_per_hour": 47147,
+      "travel_minutes_per_hour": 5.6,
+      "active_minutes_per_hour": 54.4,
+      "trips_per_hour": 12
     },
     {
       "id": "sootworks_fire_altar_tiara_rush",
       "skill": "runecrafting",
       "level_required": 20,
       "name": "Fire Altar Tiara Rush",
-      "location": { "region": "sootworks", "spot": "Emberheart shrine + bank" },
+      "location": {
+        "region": "sootworks",
+        "spot": "Emberheart shrine + bank"
+      },
       "intensity": 5,
       "xp_per_hour": 50600,
       "gp_per_hour": 128000,
-      "requires": { "quests": [], "items": ["rune_essence", "fire_tiara", "pouches"], "skills": {"runecrafting": 20} },
+      "requires": {
+        "quests": [],
+        "items": [
+          "rune_essence",
+          "fire_tiara",
+          "pouches"
+        ],
+        "skills": {
+          "runecrafting": 20
+        }
+      },
       "description": "Fire altar with tiara bypass.",
-      "produces": [{ "item": "fire_rune", "rate_per_hour": 14500 }],
-      "marstead_note": "Active."
+      "produces": [
+        {
+          "item": "fire_rune",
+          "rate_per_hour": 14500
+        }
+      ],
+      "marstead_note": "Active.",
+      "travel_time_to_bank_seconds": 0,
+      "nearest_teleport": null,
+      "banking_trip_cost": {
+        "gp": 0,
+        "intensity": 0
+      },
+      "travel_region_multiplier": 0.1,
+      "effective_xp_per_hour": 50600,
+      "effective_gp_per_hour": 128000,
+      "travel_minutes_per_hour": 0,
+      "active_minutes_per_hour": 60,
+      "trips_per_hour": 0
     },
     {
       "id": "heartlands_body_altar_afk",
       "skill": "runecrafting",
       "level_required": 27,
       "name": "Body Altar AFK",
-      "location": { "region": "heartlands", "spot": "Reliquary shrine" },
+      "location": {
+        "region": "heartlands",
+        "spot": "Reliquary shrine"
+      },
       "intensity": 1,
       "xp_per_hour": 30000,
       "gp_per_hour": 35000,
-      "requires": { "quests": [], "items": ["rune_essence"], "skills": {"runecrafting": 27} },
+      "requires": {
+        "quests": [],
+        "items": [
+          "rune_essence"
+        ],
+        "skills": {
+          "runecrafting": 27
+        }
+      },
       "description": "Body altar AFK.",
-      "produces": [{ "item": "body_rune", "rate_per_hour": 3500 }],
-      "marstead_note": "AFK baseline."
+      "produces": [
+        {
+          "item": "body_rune",
+          "rate_per_hour": 3500
+        }
+      ],
+      "marstead_note": "AFK baseline.",
+      "travel_time_to_bank_seconds": 10,
+      "nearest_teleport": "Heartlands Teleport (Lumbrick)",
+      "banking_trip_cost": {
+        "gp": 0,
+        "intensity": 1
+      },
+      "travel_region_multiplier": 0,
+      "effective_xp_per_hour": 28000,
+      "effective_gp_per_hour": 32667,
+      "travel_minutes_per_hour": 4,
+      "active_minutes_per_hour": 56,
+      "trips_per_hour": 12
     },
     {
       "id": "glass_desert_cosmic_altar_rush",
       "skill": "runecrafting",
       "level_required": 35,
       "name": "Cosmic Altar Maze Rush",
-      "location": { "region": "glass_desert", "spot": "Sunken Glass shrine" },
+      "location": {
+        "region": "glass_desert",
+        "spot": "Sunken Glass shrine"
+      },
       "intensity": 4,
       "xp_per_hour": 62000,
       "gp_per_hour": 145000,
-      "requires": { "quests": ["the_mirror_labyrinth"], "items": ["rune_essence", "pouches"], "skills": {"runecrafting": 35} },
+      "requires": {
+        "quests": [
+          "the_mirror_labyrinth"
+        ],
+        "items": [
+          "rune_essence",
+          "pouches"
+        ],
+        "skills": {
+          "runecrafting": 35
+        }
+      },
       "description": "Cosmic altar through a mirror maze. Quest-gated attention.",
-      "produces": [{ "item": "cosmic_rune", "rate_per_hour": 5200 }],
-      "marstead_note": "Active. Labyrinth-gated — metroidvania."
+      "produces": [
+        {
+          "item": "cosmic_rune",
+          "rate_per_hour": 5200
+        }
+      ],
+      "marstead_note": "Active. Labyrinth-gated — metroidvania.",
+      "travel_time_to_bank_seconds": 33,
+      "nearest_teleport": "Glass Desert Pendant",
+      "banking_trip_cost": {
+        "gp": 500,
+        "intensity": 2
+      },
+      "travel_region_multiplier": 0.5,
+      "effective_xp_per_hour": 48360,
+      "effective_gp_per_hour": 113100,
+      "travel_minutes_per_hour": 13.2,
+      "active_minutes_per_hour": 46.8,
+      "trips_per_hour": 12
     },
     {
       "id": "glass_desert_cosmic_altar_afk",
       "skill": "runecrafting",
       "level_required": 35,
       "name": "Cosmic Altar AFK Walk",
-      "location": { "region": "glass_desert", "spot": "Sunken Glass shrine" },
+      "location": {
+        "region": "glass_desert",
+        "spot": "Sunken Glass shrine"
+      },
       "intensity": 1,
       "xp_per_hour": 23000,
       "gp_per_hour": 95000,
-      "requires": { "quests": ["the_mirror_labyrinth"], "items": ["rune_essence"], "skills": {"runecrafting": 35} },
+      "requires": {
+        "quests": [
+          "the_mirror_labyrinth"
+        ],
+        "items": [
+          "rune_essence"
+        ],
+        "skills": {
+          "runecrafting": 35
+        }
+      },
       "description": "AFK-walk cosmic altar.",
-      "produces": [{ "item": "cosmic_rune", "rate_per_hour": 3200 }],
-      "marstead_note": "AFK baseline."
+      "produces": [
+        {
+          "item": "cosmic_rune",
+          "rate_per_hour": 3200
+        }
+      ],
+      "marstead_note": "AFK baseline.",
+      "travel_time_to_bank_seconds": 33,
+      "nearest_teleport": "Glass Desert Pendant",
+      "banking_trip_cost": {
+        "gp": 500,
+        "intensity": 2
+      },
+      "travel_region_multiplier": 0.5,
+      "effective_xp_per_hour": 17940,
+      "effective_gp_per_hour": 74100,
+      "travel_minutes_per_hour": 13.2,
+      "active_minutes_per_hour": 46.8,
+      "trips_per_hour": 12
     },
     {
       "id": "wilds_chaos_altar_rush",
       "skill": "runecrafting",
       "level_required": 44,
       "name": "Wilds Chaos Altar Rush",
-      "location": { "region": "wilds", "spot": "Chaosbrand shrine, lv5 Wilderness" },
+      "location": {
+        "region": "wilds",
+        "spot": "Chaosbrand shrine, lv5 Wilderness"
+      },
       "intensity": 5,
       "xp_per_hour": 61900,
       "gp_per_hour": 285000,
-      "requires": { "quests": [], "items": ["rune_essence", "pouches"], "skills": {"runecrafting": 44} },
+      "requires": {
+        "quests": [],
+        "items": [
+          "rune_essence",
+          "pouches"
+        ],
+        "skills": {
+          "runecrafting": 44
+        }
+      },
       "description": "Chaos rune rush through shallow Wilds.",
-      "produces": [{ "item": "chaos_rune", "rate_per_hour": 6800 }],
-      "marstead_note": "Active. Wilderness Principle."
+      "produces": [
+        {
+          "item": "chaos_rune",
+          "rate_per_hour": 6800
+        }
+      ],
+      "marstead_note": "Active. Wilderness Principle.",
+      "travel_time_to_bank_seconds": 25,
+      "nearest_teleport": "Amulet of Glory (Wilds edge)",
+      "banking_trip_cost": {
+        "gp": 500,
+        "intensity": 2
+      },
+      "travel_region_multiplier": 0.3,
+      "effective_xp_per_hour": 51583,
+      "effective_gp_per_hour": 237500,
+      "travel_minutes_per_hour": 10,
+      "active_minutes_per_hour": 50,
+      "trips_per_hour": 12
     },
     {
       "id": "wilds_chaos_altar_afk",
       "skill": "runecrafting",
       "level_required": 44,
       "name": "Chaos Altar AFK Dense-World",
-      "location": { "region": "wilds", "spot": "Chaosbrand shrine, lv5 Wilderness dense-world" },
+      "location": {
+        "region": "wilds",
+        "spot": "Chaosbrand shrine, lv5 Wilderness dense-world"
+      },
       "intensity": 2,
       "xp_per_hour": 36100,
       "gp_per_hour": 160000,
-      "requires": { "quests": [], "items": ["rune_essence"], "skills": {"runecrafting": 44} },
+      "requires": {
+        "quests": [],
+        "items": [
+          "rune_essence"
+        ],
+        "skills": {
+          "runecrafting": 44
+        }
+      },
       "description": "AFK chaos altar in a dense world.",
-      "produces": [{ "item": "chaos_rune", "rate_per_hour": 3400 }],
-      "marstead_note": "AFK-Multitask baseline for 44+."
+      "produces": [
+        {
+          "item": "chaos_rune",
+          "rate_per_hour": 3400
+        }
+      ],
+      "marstead_note": "AFK-Multitask baseline for 44+.",
+      "travel_time_to_bank_seconds": 25,
+      "nearest_teleport": "Amulet of Glory (Wilds edge)",
+      "banking_trip_cost": {
+        "gp": 500,
+        "intensity": 2
+      },
+      "travel_region_multiplier": 0.3,
+      "effective_xp_per_hour": 30083,
+      "effective_gp_per_hour": 133333,
+      "travel_minutes_per_hour": 10,
+      "active_minutes_per_hour": 50,
+      "trips_per_hour": 12
     },
     {
       "id": "veilwood_nature_altar_rush",
       "skill": "runecrafting",
       "level_required": 54,
       "name": "Veilwood Nature Altar Rush",
-      "location": { "region": "veilwood", "spot": "Greenstone shrine" },
+      "location": {
+        "region": "veilwood",
+        "spot": "Greenstone shrine"
+      },
       "intensity": 6,
       "xp_per_hour": 83700,
       "gp_per_hour": 425000,
-      "requires": { "quests": [], "items": ["rune_essence", "pouches"], "skills": {"runecrafting": 54} },
+      "requires": {
+        "quests": [],
+        "items": [
+          "rune_essence",
+          "pouches"
+        ],
+        "skills": {
+          "runecrafting": 54
+        }
+      },
       "description": "Nature altar. Long walking loop. Cash-cow.",
-      "produces": [{ "item": "nature_rune", "rate_per_hour": 5500 }],
-      "marstead_note": "Active-Max Focus. Standard RC money-maker."
+      "produces": [
+        {
+          "item": "nature_rune",
+          "rate_per_hour": 5500
+        }
+      ],
+      "marstead_note": "Active-Max Focus. Standard RC money-maker.",
+      "travel_time_to_bank_seconds": 15,
+      "nearest_teleport": "Necklace of Passage",
+      "banking_trip_cost": {
+        "gp": 500,
+        "intensity": 2
+      },
+      "travel_region_multiplier": 0.1,
+      "effective_xp_per_hour": 75330,
+      "effective_gp_per_hour": 382500,
+      "travel_minutes_per_hour": 6,
+      "active_minutes_per_hour": 54,
+      "trips_per_hour": 12
     },
     {
       "id": "veilwood_nature_altar_afk",
       "skill": "runecrafting",
       "level_required": 54,
       "name": "Nature Altar AFK",
-      "location": { "region": "veilwood", "spot": "Greenstone shrine" },
+      "location": {
+        "region": "veilwood",
+        "spot": "Greenstone shrine"
+      },
       "intensity": 1,
       "xp_per_hour": 35500,
       "gp_per_hour": 245000,
-      "requires": { "quests": [], "items": ["rune_essence"], "skills": {"runecrafting": 54} },
+      "requires": {
+        "quests": [],
+        "items": [
+          "rune_essence"
+        ],
+        "skills": {
+          "runecrafting": 54
+        }
+      },
       "description": "Slow walk nature altar without pouches.",
-      "produces": [{ "item": "nature_rune", "rate_per_hour": 3300 }],
-      "marstead_note": "AFK baseline for 54+."
+      "produces": [
+        {
+          "item": "nature_rune",
+          "rate_per_hour": 3300
+        }
+      ],
+      "marstead_note": "AFK baseline for 54+.",
+      "travel_time_to_bank_seconds": 15,
+      "nearest_teleport": "Necklace of Passage",
+      "banking_trip_cost": {
+        "gp": 500,
+        "intensity": 2
+      },
+      "travel_region_multiplier": 0.1,
+      "effective_xp_per_hour": 31950,
+      "effective_gp_per_hour": 220500,
+      "travel_minutes_per_hour": 6,
+      "active_minutes_per_hour": 54,
+      "trips_per_hour": 12
     },
     {
       "id": "inkweald_law_altar_rush",
       "skill": "runecrafting",
       "level_required": 65,
       "name": "Inkweald Law Altar Rush",
-      "location": { "region": "inkweald", "spot": "Dreamlaw shrine" },
+      "location": {
+        "region": "inkweald",
+        "spot": "Dreamlaw shrine"
+      },
       "intensity": 6,
       "xp_per_hour": 104800,
       "gp_per_hour": 520000,
-      "requires": { "quests": ["the_bound_covenant"], "items": ["rune_essence", "pouches"], "skills": {"runecrafting": 65} },
+      "requires": {
+        "quests": [
+          "the_bound_covenant"
+        ],
+        "items": [
+          "rune_essence",
+          "pouches"
+        ],
+        "skills": {
+          "runecrafting": 65
+        }
+      },
       "description": "Law altar with dream-taxi teleport.",
-      "produces": [{ "item": "law_rune", "rate_per_hour": 5200 }],
-      "marstead_note": "Active-Max Focus."
+      "produces": [
+        {
+          "item": "law_rune",
+          "rate_per_hour": 5200
+        }
+      ],
+      "marstead_note": "Active-Max Focus.",
+      "travel_time_to_bank_seconds": 22,
+      "nearest_teleport": "Moonclan Teleport (Lunar)",
+      "banking_trip_cost": {
+        "gp": 110,
+        "intensity": 2
+      },
+      "travel_region_multiplier": 0.2,
+      "effective_xp_per_hour": 89429,
+      "effective_gp_per_hour": 443733,
+      "travel_minutes_per_hour": 8.8,
+      "active_minutes_per_hour": 51.2,
+      "trips_per_hour": 12
     },
     {
       "id": "inkweald_law_altar_afk",
       "skill": "runecrafting",
       "level_required": 65,
       "name": "Law Altar AFK Walk",
-      "location": { "region": "inkweald", "spot": "Dreamlaw shrine" },
+      "location": {
+        "region": "inkweald",
+        "spot": "Dreamlaw shrine"
+      },
       "intensity": 1,
       "xp_per_hour": 47300,
       "gp_per_hour": 285000,
-      "requires": { "quests": ["the_bound_covenant"], "items": ["rune_essence"], "skills": {"runecrafting": 65} },
+      "requires": {
+        "quests": [
+          "the_bound_covenant"
+        ],
+        "items": [
+          "rune_essence"
+        ],
+        "skills": {
+          "runecrafting": 65
+        }
+      },
       "description": "AFK law walk.",
-      "produces": [{ "item": "law_rune", "rate_per_hour": 3000 }],
-      "marstead_note": "AFK baseline."
+      "produces": [
+        {
+          "item": "law_rune",
+          "rate_per_hour": 3000
+        }
+      ],
+      "marstead_note": "AFK baseline.",
+      "travel_time_to_bank_seconds": 22,
+      "nearest_teleport": "Moonclan Teleport (Lunar)",
+      "banking_trip_cost": {
+        "gp": 110,
+        "intensity": 2
+      },
+      "travel_region_multiplier": 0.2,
+      "effective_xp_per_hour": 40363,
+      "effective_gp_per_hour": 243200,
+      "travel_minutes_per_hour": 8.8,
+      "active_minutes_per_hour": 51.2,
+      "trips_per_hour": 12
     },
     {
       "id": "boneyard_death_altar_rush",
       "skill": "runecrafting",
       "level_required": 77,
       "name": "Boneyard Death Altar",
-      "location": { "region": "boneyard", "spot": "Deathgrave shrine" },
+      "location": {
+        "region": "boneyard",
+        "spot": "Deathgrave shrine"
+      },
       "intensity": 6,
       "xp_per_hour": 124500,
       "gp_per_hour": 625000,
-      "requires": { "quests": ["the_dead_want_their_due"], "items": ["rune_essence", "pouches"], "skills": {"runecrafting": 77} },
+      "requires": {
+        "quests": [
+          "the_dead_want_their_due"
+        ],
+        "items": [
+          "rune_essence",
+          "pouches"
+        ],
+        "skills": {
+          "runecrafting": 77
+        }
+      },
       "description": "Death altar via Temple Trekking analog.",
-      "produces": [{ "item": "death_rune", "rate_per_hour": 5800 }],
-      "marstead_note": "Active-Max Focus. Endgame profit."
+      "produces": [
+        {
+          "item": "death_rune",
+          "rate_per_hour": 5800
+        }
+      ],
+      "marstead_note": "Active-Max Focus. Endgame profit.",
+      "travel_time_to_bank_seconds": 20,
+      "nearest_teleport": "Senntisten Teleport (Ancient)",
+      "banking_trip_cost": {
+        "gp": 180,
+        "intensity": 2
+      },
+      "travel_region_multiplier": 0.2,
+      "effective_xp_per_hour": 107900,
+      "effective_gp_per_hour": 541667,
+      "travel_minutes_per_hour": 8,
+      "active_minutes_per_hour": 52,
+      "trips_per_hour": 12
     },
     {
       "id": "boneyard_death_altar_afk",
       "skill": "runecrafting",
       "level_required": 77,
       "name": "Death Altar AFK Trek",
-      "location": { "region": "boneyard", "spot": "Deathgrave shrine" },
+      "location": {
+        "region": "boneyard",
+        "spot": "Deathgrave shrine"
+      },
       "intensity": 2,
       "xp_per_hour": 82300,
       "gp_per_hour": 325000,
-      "requires": { "quests": ["the_dead_want_their_due"], "items": ["rune_essence"], "skills": {"runecrafting": 77} },
+      "requires": {
+        "quests": [
+          "the_dead_want_their_due"
+        ],
+        "items": [
+          "rune_essence"
+        ],
+        "skills": {
+          "runecrafting": 77
+        }
+      },
       "description": "AFK-trek death altar without pouches.",
-      "produces": [{ "item": "death_rune", "rate_per_hour": 3200 }],
-      "marstead_note": "AFK-Multitask for 77+."
+      "produces": [
+        {
+          "item": "death_rune",
+          "rate_per_hour": 3200
+        }
+      ],
+      "marstead_note": "AFK-Multitask for 77+.",
+      "travel_time_to_bank_seconds": 20,
+      "nearest_teleport": "Senntisten Teleport (Ancient)",
+      "banking_trip_cost": {
+        "gp": 180,
+        "intensity": 2
+      },
+      "travel_region_multiplier": 0.2,
+      "effective_xp_per_hour": 71327,
+      "effective_gp_per_hour": 281667,
+      "travel_minutes_per_hour": 8,
+      "active_minutes_per_hour": 52,
+      "trips_per_hour": 12
     },
     {
       "id": "moryskah_blood_altar_rush",
       "skill": "runecrafting",
       "level_required": 85,
       "name": "Moryskah Blood Altar",
-      "location": { "region": "moryskah", "spot": "Gravechill crypt shrine" },
+      "location": {
+        "region": "moryskah",
+        "spot": "Gravechill crypt shrine"
+      },
       "intensity": 7,
       "xp_per_hour": 158100,
       "gp_per_hour": 685000,
-      "requires": { "quests": ["the_blooded_pick"], "items": ["rune_essence", "pouches", "dark_manuscript"], "skills": {"runecrafting": 85} },
+      "requires": {
+        "quests": [
+          "the_blooded_pick"
+        ],
+        "items": [
+          "rune_essence",
+          "pouches",
+          "dark_manuscript"
+        ],
+        "skills": {
+          "runecrafting": 85
+        }
+      },
       "description": "Blood rune altar. Tick-perfect chamber path.",
-      "produces": [{ "item": "blood_rune", "rate_per_hour": 6200 }],
-      "marstead_note": "Max Focus. Endgame RC."
+      "produces": [
+        {
+          "item": "blood_rune",
+          "rate_per_hour": 6200
+        }
+      ],
+      "marstead_note": "Max Focus. Endgame RC.",
+      "travel_time_to_bank_seconds": 18,
+      "nearest_teleport": "Moryskah Teleport (Village)",
+      "banking_trip_cost": {
+        "gp": 85,
+        "intensity": 2
+      },
+      "travel_region_multiplier": 0.2,
+      "effective_xp_per_hour": 139128,
+      "effective_gp_per_hour": 602800,
+      "travel_minutes_per_hour": 7.2,
+      "active_minutes_per_hour": 52.8,
+      "trips_per_hour": 12
     },
     {
       "id": "moryskah_blood_altar_afk",
       "skill": "runecrafting",
       "level_required": 85,
       "name": "Blood Altar AFK Walk",
-      "location": { "region": "moryskah", "spot": "Gravechill crypt shrine" },
+      "location": {
+        "region": "moryskah",
+        "spot": "Gravechill crypt shrine"
+      },
       "intensity": 2,
       "xp_per_hour": 91700,
       "gp_per_hour": 385000,
-      "requires": { "quests": ["the_blooded_pick"], "items": ["rune_essence"], "skills": {"runecrafting": 85} },
+      "requires": {
+        "quests": [
+          "the_blooded_pick"
+        ],
+        "items": [
+          "rune_essence"
+        ],
+        "skills": {
+          "runecrafting": 85
+        }
+      },
       "description": "Blood rune AFK walk variant.",
-      "produces": [{ "item": "blood_rune", "rate_per_hour": 3400 }],
-      "marstead_note": "AFK-Multitask baseline for 85+."
+      "produces": [
+        {
+          "item": "blood_rune",
+          "rate_per_hour": 3400
+        }
+      ],
+      "marstead_note": "AFK-Multitask baseline for 85+.",
+      "travel_time_to_bank_seconds": 18,
+      "nearest_teleport": "Moryskah Teleport (Village)",
+      "banking_trip_cost": {
+        "gp": 85,
+        "intensity": 2
+      },
+      "travel_region_multiplier": 0.2,
+      "effective_xp_per_hour": 80696,
+      "effective_gp_per_hour": 338800,
+      "travel_minutes_per_hour": 7.2,
+      "active_minutes_per_hour": 52.8,
+      "trips_per_hour": 12
     },
     {
       "id": "veilwood_soul_altar_afk",
       "skill": "runecrafting",
       "level_required": 90,
       "name": "Soul Altar AFK Walk",
-      "location": { "region": "veilwood", "spot": "Moonblade soul shrine" },
+      "location": {
+        "region": "veilwood",
+        "spot": "Moonblade soul shrine"
+      },
       "intensity": 2,
       "xp_per_hour": 112300,
       "gp_per_hour": 485000,
-      "requires": { "quests": ["whisperwood_remembers"], "items": ["rune_essence"], "skills": {"runecrafting": 90} },
+      "requires": {
+        "quests": [
+          "whisperwood_remembers"
+        ],
+        "items": [
+          "rune_essence"
+        ],
+        "skills": {
+          "runecrafting": 90
+        }
+      },
       "description": "Soul altar AFK walking.",
-      "produces": [{ "item": "soul_rune", "rate_per_hour": 3200 }],
-      "marstead_note": "AFK-Multitask baseline for 90+."
+      "produces": [
+        {
+          "item": "soul_rune",
+          "rate_per_hour": 3200
+        }
+      ],
+      "marstead_note": "AFK-Multitask baseline for 90+.",
+      "travel_time_to_bank_seconds": 15,
+      "nearest_teleport": "Necklace of Passage",
+      "banking_trip_cost": {
+        "gp": 500,
+        "intensity": 2
+      },
+      "travel_region_multiplier": 0.1,
+      "effective_xp_per_hour": 101070,
+      "effective_gp_per_hour": 436500,
+      "travel_minutes_per_hour": 6,
+      "active_minutes_per_hour": 54,
+      "trips_per_hour": 12
     },
     {
       "id": "wilds_wrath_altar_rush",
       "skill": "runecrafting",
       "level_required": 95,
       "name": "Wrath Altar Wilds Sprint",
-      "location": { "region": "wilds", "spot": "Shattercrag shrine, lv30 Wilderness" },
+      "location": {
+        "region": "wilds",
+        "spot": "Shattercrag shrine, lv30 Wilderness"
+      },
       "intensity": 8,
       "xp_per_hour": 222300,
       "gp_per_hour": 860000,
-      "requires": { "quests": [], "items": ["rune_essence", "pouches"], "skills": {"runecrafting": 95} },
+      "requires": {
+        "quests": [],
+        "items": [
+          "rune_essence",
+          "pouches"
+        ],
+        "skills": {
+          "runecrafting": 95
+        }
+      },
       "description": "Deep Wilds wrath altar. Tick-perfect + PK defense.",
-      "produces": [{ "item": "wrath_rune", "rate_per_hour": 6500 }],
-      "marstead_note": "Max Focus. Wilderness endgame."
+      "produces": [
+        {
+          "item": "wrath_rune",
+          "rate_per_hour": 6500
+        }
+      ],
+      "marstead_note": "Max Focus. Wilderness endgame.",
+      "travel_time_to_bank_seconds": 30,
+      "nearest_teleport": "Amulet of Glory (Wilds edge)",
+      "banking_trip_cost": {
+        "gp": 500,
+        "intensity": 2
+      },
+      "travel_region_multiplier": 0.3,
+      "effective_xp_per_hour": 177840,
+      "effective_gp_per_hour": 688000,
+      "travel_minutes_per_hour": 12,
+      "active_minutes_per_hour": 48,
+      "trips_per_hour": 12
     },
     {
       "id": "wilds_wrath_altar_afk",
       "skill": "runecrafting",
       "level_required": 95,
       "name": "Wrath Altar Dense World AFK",
-      "location": { "region": "wilds", "spot": "Shattercrag shrine, dense world" },
+      "location": {
+        "region": "wilds",
+        "spot": "Shattercrag shrine, dense world"
+      },
       "intensity": 3,
       "xp_per_hour": 128400,
       "gp_per_hour": 420000,
-      "requires": { "quests": [], "items": ["rune_essence"], "skills": {"runecrafting": 95} },
+      "requires": {
+        "quests": [],
+        "items": [
+          "rune_essence"
+        ],
+        "skills": {
+          "runecrafting": 95
+        }
+      },
       "description": "Quieter-world wrath AFK walking.",
-      "produces": [{ "item": "wrath_rune", "rate_per_hour": 3200 }],
-      "marstead_note": "Multitask-Active. Lower-intensity wrath."
+      "produces": [
+        {
+          "item": "wrath_rune",
+          "rate_per_hour": 3200
+        }
+      ],
+      "marstead_note": "Multitask-Active. Lower-intensity wrath.",
+      "travel_time_to_bank_seconds": 25,
+      "nearest_teleport": "Amulet of Glory (Wilds edge)",
+      "banking_trip_cost": {
+        "gp": 500,
+        "intensity": 2
+      },
+      "travel_region_multiplier": 0.3,
+      "effective_xp_per_hour": 107000,
+      "effective_gp_per_hour": 350000,
+      "travel_minutes_per_hour": 10,
+      "active_minutes_per_hour": 50,
+      "trips_per_hour": 12
     },
     {
       "id": "inkweald_ink_dyed_rune_batch",
       "skill": "runecrafting",
       "level_required": 88,
       "name": "Inkweald Ink-Dyed Rune Batch",
-      "location": { "region": "inkweald", "spot": "Penseurlake ink-shrine" },
+      "location": {
+        "region": "inkweald",
+        "spot": "Penseurlake ink-shrine"
+      },
       "intensity": 2,
       "xp_per_hour": 114000,
       "gp_per_hour": 2200000,
-      "requires": { "quests": ["unwake_the_dreamer"], "items": ["rune_essence", "ink_reagent", "dye_pair"], "skills": {"runecrafting": 88} },
+      "requires": {
+        "quests": [
+          "unwake_the_dreamer"
+        ],
+        "items": [
+          "rune_essence",
+          "ink_reagent",
+          "dye_pair"
+        ],
+        "skills": {
+          "runecrafting": 88
+        }
+      },
       "description": "Dual-dyed ink rune pairs. Reagent-paired craft with large batch yield. Light-interaction rune processing.",
-      "produces": [{ "item": "ink_dyed_rune", "rate_per_hour": 4800 }],
-      "marstead_note": "H11 Inkweald 2-5M moneymaker. Reagent-paired batch."
+      "produces": [
+        {
+          "item": "ink_dyed_rune",
+          "rate_per_hour": 4800
+        }
+      ],
+      "marstead_note": "H11 Inkweald 2-5M moneymaker. Reagent-paired batch.",
+      "travel_time_to_bank_seconds": 22,
+      "nearest_teleport": "Moonclan Teleport (Lunar)",
+      "banking_trip_cost": {
+        "gp": 110,
+        "intensity": 2
+      },
+      "travel_region_multiplier": 0.2,
+      "effective_xp_per_hour": 97280,
+      "effective_gp_per_hour": 1877333,
+      "travel_minutes_per_hour": 8.8,
+      "active_minutes_per_hour": 51.2,
+      "trips_per_hour": 12
     },
     {
       "id": "multi_rune_running_courier",
       "skill": "runecrafting",
       "level_required": 77,
       "name": "Rune Running Courier Circuit",
-      "location": { "region": "heartlands", "spot": "Chelser Rune Exchange → Tideshelf → Gravechill couriers" },
+      "location": {
+        "region": "heartlands",
+        "spot": "Chelser Rune Exchange → Tideshelf → Gravechill couriers"
+      },
       "intensity": 3,
       "xp_per_hour": 62000,
       "gp_per_hour": 6200000,
-      "requires": { "quests": ["the_binding_scroll", "the_ledger_and_the_oar"], "items": ["rune_pouch_all", "courier_bag", "trader_passport"], "skills": {"runecrafting": 77} },
+      "requires": {
+        "quests": [
+          "the_binding_scroll",
+          "the_ledger_and_the_oar"
+        ],
+        "items": [
+          "rune_pouch_all",
+          "courier_bag",
+          "trader_passport"
+        ],
+        "skills": {
+          "runecrafting": 77
+        }
+      },
       "description": "Courier-tier rune distribution across three altar-adjacent exchanges. Buy runes at cheap altar-source, deposit at courier bank for spread + volume bonus. Non-combat 5M+.",
-      "produces": [{ "item": "courier_receipt", "rate_per_hour": 420 }],
-      "marstead_note": "M15 non-combat 5M+. OSRS rune running analogue."
+      "produces": [
+        {
+          "item": "courier_receipt",
+          "rate_per_hour": 420
+        }
+      ],
+      "marstead_note": "M15 non-combat 5M+. OSRS rune running analogue.",
+      "travel_time_to_bank_seconds": 0,
+      "nearest_teleport": null,
+      "banking_trip_cost": {
+        "gp": 0,
+        "intensity": 0
+      },
+      "travel_region_multiplier": 0,
+      "effective_xp_per_hour": 62000,
+      "effective_gp_per_hour": 6200000,
+      "travel_minutes_per_hour": 0,
+      "active_minutes_per_hour": 60,
+      "trips_per_hour": 0
     },
     {
       "id": "veilwood_soul_altar_pouch_rush",
       "skill": "runecrafting",
       "level_required": 92,
       "name": "Soul Altar Pouch Rush",
-      "location": { "region": "veilwood", "spot": "Moonblade soul shrine, tick-perfect run" },
+      "location": {
+        "region": "veilwood",
+        "spot": "Moonblade soul shrine, tick-perfect run"
+      },
       "intensity": 8,
       "xp_per_hour": 208000,
       "gp_per_hour": 1600000,
-      "requires": { "quests": ["whisperwood_remembers"], "items": ["rune_essence", "all_pouches", "moon_staff"], "skills": {"runecrafting": 92} },
+      "requires": {
+        "quests": [
+          "whisperwood_remembers"
+        ],
+        "items": [
+          "rune_essence",
+          "all_pouches",
+          "moon_staff"
+        ],
+        "skills": {
+          "runecrafting": 92
+        }
+      },
       "description": "Tick-perfect soul altar with quadruple pouch + staff swap. Band 8 elite.",
-      "produces": [{ "item": "soul_rune", "rate_per_hour": 9200 }],
-      "marstead_note": "M14 endgame RC. Band 8 tick-perfect soul."
+      "produces": [
+        {
+          "item": "soul_rune",
+          "rate_per_hour": 9200
+        }
+      ],
+      "marstead_note": "M14 endgame RC. Band 8 tick-perfect soul.",
+      "travel_time_to_bank_seconds": 15,
+      "nearest_teleport": "Necklace of Passage",
+      "banking_trip_cost": {
+        "gp": 500,
+        "intensity": 2
+      },
+      "travel_region_multiplier": 0.1,
+      "effective_xp_per_hour": 187200,
+      "effective_gp_per_hour": 1440000,
+      "travel_minutes_per_hour": 6,
+      "active_minutes_per_hour": 54,
+      "trips_per_hour": 12
     },
     {
       "id": "inkweald_shadow_rune_weave",
       "skill": "runecrafting",
       "level_required": 99,
       "name": "Inkweald Shadow-Rune Weave",
-      "location": { "region": "inkweald", "spot": "Penseurlake hidden shrine, ink-channel" },
+      "location": {
+        "region": "inkweald",
+        "spot": "Penseurlake hidden shrine, ink-channel"
+      },
       "intensity": 9,
       "xp_per_hour": 248000,
       "gp_per_hour": 4800000,
-      "requires": { "quests": ["unwake_the_dreamer", "weavers_threnody"], "items": ["rune_essence", "shadow_veil_charm", "ink_reagent"], "skills": {"runecrafting": 99, "magic": 95} },
+      "requires": {
+        "quests": [
+          "unwake_the_dreamer",
+          "weavers_threnody"
+        ],
+        "items": [
+          "rune_essence",
+          "shadow_veil_charm",
+          "ink_reagent"
+        ],
+        "skills": {
+          "runecrafting": 99,
+          "magic": 95
+        }
+      },
       "description": "Capstone shadow-rune weave. Requires 99 RC — yields shadow-rune for Ancient Magicks.",
-      "produces": [{ "item": "shadow_rune", "rate_per_hour": 3600 }],
-      "marstead_note": "M14 endgame RC. Band 9 capstone rune."
+      "produces": [
+        {
+          "item": "shadow_rune",
+          "rate_per_hour": 3600
+        }
+      ],
+      "marstead_note": "M14 endgame RC. Band 9 capstone rune.",
+      "travel_time_to_bank_seconds": 22,
+      "nearest_teleport": "Moonclan Teleport (Lunar)",
+      "banking_trip_cost": {
+        "gp": 110,
+        "intensity": 2
+      },
+      "travel_region_multiplier": 0.2,
+      "effective_xp_per_hour": 211627,
+      "effective_gp_per_hour": 4096000,
+      "travel_minutes_per_hour": 8.8,
+      "active_minutes_per_hour": 51.2,
+      "trips_per_hour": 12
     }
   ],
   "bracket_coverage": {
-    "1-10":  { "count": 4, "intensities": [2, 5, 1, 1] },
-    "10-20": { "count": 2, "intensities": [1, 4] },
-    "20-30": { "count": 3, "intensities": [2, 5, 1] },
-    "30-40": { "count": 2, "intensities": [4, 1] },
-    "40-50": { "count": 2, "intensities": [5, 2] },
-    "50-60": { "count": 2, "intensities": [6, 1] },
-    "60-70": { "count": 2, "intensities": [6, 1] },
-    "70-80": { "count": 2, "intensities": [6, 2] },
-    "80-90": { "count": 2, "intensities": [7, 2] },
-    "90-99": { "count": 3, "intensities": [2, 8, 3] }
+    "1-10": {
+      "count": 4,
+      "intensities": [
+        2,
+        5,
+        1,
+        1
+      ]
+    },
+    "10-20": {
+      "count": 2,
+      "intensities": [
+        1,
+        4
+      ]
+    },
+    "20-30": {
+      "count": 3,
+      "intensities": [
+        2,
+        5,
+        1
+      ]
+    },
+    "30-40": {
+      "count": 2,
+      "intensities": [
+        4,
+        1
+      ]
+    },
+    "40-50": {
+      "count": 2,
+      "intensities": [
+        5,
+        2
+      ]
+    },
+    "50-60": {
+      "count": 2,
+      "intensities": [
+        6,
+        1
+      ]
+    },
+    "60-70": {
+      "count": 2,
+      "intensities": [
+        6,
+        1
+      ]
+    },
+    "70-80": {
+      "count": 2,
+      "intensities": [
+        6,
+        2
+      ]
+    },
+    "80-90": {
+      "count": 2,
+      "intensities": [
+        7,
+        2
+      ]
+    },
+    "90-99": {
+      "count": 3,
+      "intensities": [
+        2,
+        8,
+        3
+      ]
+    }
   }
 }

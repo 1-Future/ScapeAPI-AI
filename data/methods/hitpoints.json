@@ -7,334 +7,1039 @@
       "skill": "hitpoints",
       "level_required": 1,
       "name": "Lumbrick Training Dummy (Passive HP)",
-      "location": { "region": "heartlands", "spot": "Lumbrick training yard" },
+      "location": {
+        "region": "heartlands",
+        "spot": "Lumbrick training yard"
+      },
       "intensity": 1,
       "xp_per_hour": 2700,
       "gp_per_hour": 0,
-      "requires": { "quests": [], "items": ["bronze_scimitar"], "skills": {} },
+      "requires": {
+        "quests": [],
+        "items": [
+          "bronze_scimitar"
+        ],
+        "skills": {}
+      },
       "description": "Passive HP XP from hitting dummies.",
       "produces": [],
-      "marstead_note": "AFK baseline."
+      "marstead_note": "AFK baseline.",
+      "travel_time_to_bank_seconds": 25,
+      "nearest_teleport": "Heartlands Teleport (Lumbrick)",
+      "banking_trip_cost": {
+        "gp": 35,
+        "intensity": 2
+      },
+      "travel_region_multiplier": 0,
+      "effective_xp_per_hour": 2625,
+      "effective_gp_per_hour": 0,
+      "travel_minutes_per_hour": 1.7,
+      "active_minutes_per_hour": 58.3,
+      "trips_per_hour": 2
     },
     {
       "id": "heartlands_rat_hp",
       "skill": "hitpoints",
       "level_required": 3,
       "name": "Giant Rat Combat HP",
-      "location": { "region": "heartlands", "spot": "Lumbrick sewer" },
+      "location": {
+        "region": "heartlands",
+        "spot": "Lumbrick sewer"
+      },
       "intensity": 2,
       "xp_per_hour": 4600,
       "gp_per_hour": 2000,
-      "requires": { "quests": [], "items": ["bronze_scimitar"], "skills": {} },
+      "requires": {
+        "quests": [],
+        "items": [
+          "bronze_scimitar"
+        ],
+        "skills": {}
+      },
       "description": "Passive HP from rat combat.",
-      "produces": [{ "item": "raw_rat_meat", "rate_per_hour": 800 }],
-      "marstead_note": "AFK-Multitask."
+      "produces": [
+        {
+          "item": "raw_rat_meat",
+          "rate_per_hour": 800
+        }
+      ],
+      "marstead_note": "AFK-Multitask.",
+      "travel_time_to_bank_seconds": 44,
+      "nearest_teleport": "Heartlands Teleport (Lumbrick)",
+      "banking_trip_cost": {
+        "gp": 35,
+        "intensity": 2
+      },
+      "travel_region_multiplier": 0,
+      "effective_xp_per_hour": 4375,
+      "effective_gp_per_hour": 1902,
+      "travel_minutes_per_hour": 2.9,
+      "active_minutes_per_hour": 57.1,
+      "trips_per_hour": 2
     },
     {
       "id": "heartlands_cow_hp",
       "skill": "hitpoints",
       "level_required": 10,
       "name": "Cow Field HP AFK",
-      "location": { "region": "heartlands", "spot": "Chelser cow field" },
+      "location": {
+        "region": "heartlands",
+        "spot": "Chelser cow field"
+      },
       "intensity": 1,
       "xp_per_hour": 3600,
       "gp_per_hour": 6000,
-      "requires": { "quests": [], "items": ["steel_scimitar"], "skills": {} },
+      "requires": {
+        "quests": [],
+        "items": [
+          "steel_scimitar"
+        ],
+        "skills": {}
+      },
       "description": "HP XP from cow combat. Deep AFK.",
-      "produces": [{ "item": "cowhide", "rate_per_hour": 420 }],
-      "marstead_note": "AFK baseline."
+      "produces": [
+        {
+          "item": "cowhide",
+          "rate_per_hour": 420
+        }
+      ],
+      "marstead_note": "AFK baseline.",
+      "travel_time_to_bank_seconds": 25,
+      "nearest_teleport": "Heartlands Teleport (Lumbrick)",
+      "banking_trip_cost": {
+        "gp": 35,
+        "intensity": 2
+      },
+      "travel_region_multiplier": 0,
+      "effective_xp_per_hour": 3500,
+      "effective_gp_per_hour": 5833,
+      "travel_minutes_per_hour": 1.7,
+      "active_minutes_per_hour": 58.3,
+      "trips_per_hour": 2
     },
     {
       "id": "heartlands_healer_minigame_afk",
       "skill": "hitpoints",
       "level_required": 15,
       "name": "Barbarian Healer Minigame",
-      "location": { "region": "heartlands", "spot": "Barbarian Outpost minigame" },
+      "location": {
+        "region": "heartlands",
+        "spot": "Barbarian Outpost minigame"
+      },
       "intensity": 5,
       "xp_per_hour": 10000,
       "gp_per_hour": 0,
-      "requires": { "quests": ["tai_bwo_wannai_analog"], "items": ["healer_bag"], "skills": {"hitpoints": 15} },
+      "requires": {
+        "quests": [
+          "tai_bwo_wannai_analog"
+        ],
+        "items": [
+          "healer_bag"
+        ],
+        "skills": {
+          "hitpoints": 15
+        }
+      },
       "description": "Minigame-based direct HP XP via healing allies.",
-      "produces": [{ "item": "barbarian_token", "rate_per_hour": 150 }],
-      "marstead_note": "Active. Direct HP XP source — uncommon."
+      "produces": [
+        {
+          "item": "barbarian_token",
+          "rate_per_hour": 150
+        }
+      ],
+      "marstead_note": "Active. Direct HP XP source — uncommon.",
+      "travel_time_to_bank_seconds": 25,
+      "nearest_teleport": "Heartlands Teleport (Lumbrick)",
+      "banking_trip_cost": {
+        "gp": 35,
+        "intensity": 2
+      },
+      "travel_region_multiplier": 0,
+      "effective_xp_per_hour": 9583,
+      "effective_gp_per_hour": 0,
+      "travel_minutes_per_hour": 2.5,
+      "active_minutes_per_hour": 57.5,
+      "trips_per_hour": 3
     },
     {
       "id": "boneyard_skeleton_hp",
       "skill": "hitpoints",
       "level_required": 20,
       "name": "Skeleton Safespot HP",
-      "location": { "region": "boneyard", "spot": "Gravelight perimeter" },
+      "location": {
+        "region": "boneyard",
+        "spot": "Gravelight perimeter"
+      },
       "intensity": 1,
       "xp_per_hour": 5100,
       "gp_per_hour": 12000,
-      "requires": { "quests": [], "items": ["mithril_scimitar"], "skills": {"hitpoints": 20} },
+      "requires": {
+        "quests": [],
+        "items": [
+          "mithril_scimitar"
+        ],
+        "skills": {
+          "hitpoints": 20
+        }
+      },
       "description": "Passive HP from skeletons.",
-      "produces": [{ "item": "bones", "rate_per_hour": 620 }],
-      "marstead_note": "AFK baseline."
+      "produces": [
+        {
+          "item": "bones",
+          "rate_per_hour": 620
+        }
+      ],
+      "marstead_note": "AFK baseline.",
+      "travel_time_to_bank_seconds": 50,
+      "nearest_teleport": "Senntisten Teleport (Ancient)",
+      "banking_trip_cost": {
+        "gp": 180,
+        "intensity": 2
+      },
+      "travel_region_multiplier": 0.2,
+      "effective_xp_per_hour": 4817,
+      "effective_gp_per_hour": 11333,
+      "travel_minutes_per_hour": 3.3,
+      "active_minutes_per_hour": 56.7,
+      "trips_per_hour": 2
     },
     {
       "id": "boneyard_skeleton_hp_multi",
       "skill": "hitpoints",
       "level_required": 25,
       "name": "Skeleton Multi HP",
-      "location": { "region": "boneyard", "spot": "Ossarium multi-combat" },
+      "location": {
+        "region": "boneyard",
+        "spot": "Ossarium multi-combat"
+      },
       "intensity": 6,
       "xp_per_hour": 16900,
       "gp_per_hour": 45000,
-      "requires": { "quests": [], "items": ["mithril_scimitar"], "skills": {"hitpoints": 25} },
+      "requires": {
+        "quests": [],
+        "items": [
+          "mithril_scimitar"
+        ],
+        "skills": {
+          "hitpoints": 25
+        }
+      },
       "description": "Multi-pull HP XP.",
-      "produces": [{ "item": "bones", "rate_per_hour": 1400 }],
-      "marstead_note": "Active."
+      "produces": [
+        {
+          "item": "bones",
+          "rate_per_hour": 1400
+        }
+      ],
+      "marstead_note": "Active.",
+      "travel_time_to_bank_seconds": 50,
+      "nearest_teleport": "Senntisten Teleport (Ancient)",
+      "banking_trip_cost": {
+        "gp": 180,
+        "intensity": 2
+      },
+      "travel_region_multiplier": 0.2,
+      "effective_xp_per_hour": 15492,
+      "effective_gp_per_hour": 41250,
+      "travel_minutes_per_hour": 5,
+      "active_minutes_per_hour": 55,
+      "trips_per_hour": 3
     },
     {
       "id": "heartlands_sand_crab_hp",
       "skill": "hitpoints",
       "level_required": 30,
       "name": "Sand Crab HP AFK",
-      "location": { "region": "heartlands", "spot": "Gaff's Beach sand crabs" },
+      "location": {
+        "region": "heartlands",
+        "spot": "Gaff's Beach sand crabs"
+      },
       "intensity": 1,
       "xp_per_hour": 6600,
       "gp_per_hour": 0,
-      "requires": { "quests": [], "items": ["adamant_scimitar"], "skills": {"hitpoints": 30} },
+      "requires": {
+        "quests": [],
+        "items": [
+          "adamant_scimitar"
+        ],
+        "skills": {
+          "hitpoints": 30
+        }
+      },
       "description": "Sand crabs passive HP.",
       "produces": [],
-      "marstead_note": "AFK baseline."
+      "marstead_note": "AFK baseline.",
+      "travel_time_to_bank_seconds": 25,
+      "nearest_teleport": "Heartlands Teleport (Lumbrick)",
+      "banking_trip_cost": {
+        "gp": 35,
+        "intensity": 2
+      },
+      "travel_region_multiplier": 0,
+      "effective_xp_per_hour": 6417,
+      "effective_gp_per_hour": 0,
+      "travel_minutes_per_hour": 1.7,
+      "active_minutes_per_hour": 58.3,
+      "trips_per_hour": 2
     },
     {
       "id": "heartlands_experiments_hp",
       "skill": "hitpoints",
       "level_required": 38,
       "name": "Experiment Basement HP",
-      "location": { "region": "heartlands", "spot": "Draynor Manor basement" },
+      "location": {
+        "region": "heartlands",
+        "spot": "Draynor Manor basement"
+      },
       "intensity": 5,
       "xp_per_hour": 15600,
       "gp_per_hour": 38000,
-      "requires": { "quests": ["the_manor_below"], "items": ["adamant_scimitar"], "skills": {"hitpoints": 38} },
+      "requires": {
+        "quests": [
+          "the_manor_below"
+        ],
+        "items": [
+          "adamant_scimitar"
+        ],
+        "skills": {
+          "hitpoints": 38
+        }
+      },
       "description": "Active multi-pull experiment HP.",
-      "produces": [{ "item": "experiment_ooze", "rate_per_hour": 180 }],
-      "marstead_note": "Active."
+      "produces": [
+        {
+          "item": "experiment_ooze",
+          "rate_per_hour": 180
+        }
+      ],
+      "marstead_note": "Active.",
+      "travel_time_to_bank_seconds": 25,
+      "nearest_teleport": "Heartlands Teleport (Lumbrick)",
+      "banking_trip_cost": {
+        "gp": 35,
+        "intensity": 2
+      },
+      "travel_region_multiplier": 0,
+      "effective_xp_per_hour": 14950,
+      "effective_gp_per_hour": 36417,
+      "travel_minutes_per_hour": 2.5,
+      "active_minutes_per_hour": 57.5,
+      "trips_per_hour": 3
     },
     {
       "id": "saltbrine_rock_crab_hp",
       "skill": "hitpoints",
       "level_required": 40,
       "name": "Rock Crab HP AFK",
-      "location": { "region": "saltbrine", "spot": "Tideshelf rock crabs" },
+      "location": {
+        "region": "saltbrine",
+        "spot": "Tideshelf rock crabs"
+      },
       "intensity": 1,
       "xp_per_hour": 7900,
       "gp_per_hour": 0,
-      "requires": { "quests": [], "items": ["rune_scimitar"], "skills": {"hitpoints": 40} },
+      "requires": {
+        "quests": [],
+        "items": [
+          "rune_scimitar"
+        ],
+        "skills": {
+          "hitpoints": 40
+        }
+      },
       "description": "Rock crabs HP.",
       "produces": [],
-      "marstead_note": "AFK baseline."
+      "marstead_note": "AFK baseline.",
+      "travel_time_to_bank_seconds": 22,
+      "nearest_teleport": "Saltbrine Teleport (Harbor)",
+      "banking_trip_cost": {
+        "gp": 55,
+        "intensity": 2
+      },
+      "travel_region_multiplier": 0,
+      "effective_xp_per_hour": 7707,
+      "effective_gp_per_hour": 0,
+      "travel_minutes_per_hour": 1.5,
+      "active_minutes_per_hour": 58.5,
+      "trips_per_hour": 2
     },
     {
       "id": "saltbrine_dark_warrior_hp",
       "skill": "hitpoints",
       "level_required": 45,
       "name": "Dark Warrior HP Active",
-      "location": { "region": "saltbrine", "spot": "Dark Warriors pit" },
+      "location": {
+        "region": "saltbrine",
+        "spot": "Dark Warriors pit"
+      },
       "intensity": 4,
       "xp_per_hour": 14000,
       "gp_per_hour": 58000,
-      "requires": { "quests": ["the_dark_port"], "items": ["rune_scimitar"], "skills": {"hitpoints": 45} },
+      "requires": {
+        "quests": [
+          "the_dark_port"
+        ],
+        "items": [
+          "rune_scimitar"
+        ],
+        "skills": {
+          "hitpoints": 45
+        }
+      },
       "description": "Active dark warrior HP.",
-      "produces": [{ "item": "coins", "rate_per_hour": 48000 }],
-      "marstead_note": "Active."
+      "produces": [
+        {
+          "item": "coins",
+          "rate_per_hour": 48000
+        }
+      ],
+      "marstead_note": "Active.",
+      "travel_time_to_bank_seconds": 22,
+      "nearest_teleport": "Saltbrine Teleport (Harbor)",
+      "banking_trip_cost": {
+        "gp": 55,
+        "intensity": 2
+      },
+      "travel_region_multiplier": 0,
+      "effective_xp_per_hour": 13658,
+      "effective_gp_per_hour": 56582,
+      "travel_minutes_per_hour": 1.5,
+      "active_minutes_per_hour": 58.5,
+      "trips_per_hour": 2
     },
     {
       "id": "heartlands_ammonite_hp",
       "skill": "hitpoints",
       "level_required": 50,
       "name": "Ammonite Crab HP AFK",
-      "location": { "region": "heartlands", "spot": "Gaff's Beach deep tidepools" },
+      "location": {
+        "region": "heartlands",
+        "spot": "Gaff's Beach deep tidepools"
+      },
       "intensity": 1,
       "xp_per_hour": 10700,
       "gp_per_hour": 0,
-      "requires": { "quests": [], "items": ["rune_scimitar"], "skills": {"hitpoints": 50} },
+      "requires": {
+        "quests": [],
+        "items": [
+          "rune_scimitar"
+        ],
+        "skills": {
+          "hitpoints": 50
+        }
+      },
       "description": "Ammonite crabs HP.",
       "produces": [],
-      "marstead_note": "AFK baseline for 50+."
+      "marstead_note": "AFK baseline for 50+.",
+      "travel_time_to_bank_seconds": 44,
+      "nearest_teleport": "Heartlands Teleport (Lumbrick)",
+      "banking_trip_cost": {
+        "gp": 35,
+        "intensity": 2
+      },
+      "travel_region_multiplier": 0,
+      "effective_xp_per_hour": 10177,
+      "effective_gp_per_hour": 0,
+      "travel_minutes_per_hour": 2.9,
+      "active_minutes_per_hour": 57.1,
+      "trips_per_hour": 2
     },
     {
       "id": "moryskah_flesh_crawler_hp",
       "skill": "hitpoints",
       "level_required": 50,
       "name": "Flesh Crawler HP Active",
-      "location": { "region": "moryskah", "spot": "Gravechill crawler tunnels" },
+      "location": {
+        "region": "moryskah",
+        "spot": "Gravechill crawler tunnels"
+      },
       "intensity": 5,
       "xp_per_hour": 15600,
       "gp_per_hour": 72000,
-      "requires": { "quests": [], "items": ["rune_scimitar"], "skills": {"hitpoints": 50} },
+      "requires": {
+        "quests": [],
+        "items": [
+          "rune_scimitar"
+        ],
+        "skills": {
+          "hitpoints": 50
+        }
+      },
       "description": "Flesh crawler HP.",
-      "produces": [{ "item": "crawler_ichor", "rate_per_hour": 320 }],
-      "marstead_note": "Active."
+      "produces": [
+        {
+          "item": "crawler_ichor",
+          "rate_per_hour": 320
+        }
+      ],
+      "marstead_note": "Active.",
+      "travel_time_to_bank_seconds": 46,
+      "nearest_teleport": "Moryskah Teleport (Village)",
+      "banking_trip_cost": {
+        "gp": 85,
+        "intensity": 2
+      },
+      "travel_region_multiplier": 0.2,
+      "effective_xp_per_hour": 14404,
+      "effective_gp_per_hour": 66480,
+      "travel_minutes_per_hour": 4.6,
+      "active_minutes_per_hour": 55.4,
+      "trips_per_hour": 3
     },
     {
       "id": "veilwood_nightmare_hp",
       "skill": "hitpoints",
       "level_required": 60,
       "name": "Nightmare Grove HP",
-      "location": { "region": "veilwood", "spot": "Thorncourt glade" },
+      "location": {
+        "region": "veilwood",
+        "spot": "Thorncourt glade"
+      },
       "intensity": 1,
       "xp_per_hour": 13300,
       "gp_per_hour": 0,
-      "requires": { "quests": ["swan_song_of_veilwood"], "items": ["dragon_scimitar"], "skills": {"hitpoints": 60} },
+      "requires": {
+        "quests": [
+          "swan_song_of_veilwood"
+        ],
+        "items": [
+          "dragon_scimitar"
+        ],
+        "skills": {
+          "hitpoints": 60
+        }
+      },
       "description": "Grove NPCs. AFK HP.",
       "produces": [],
-      "marstead_note": "AFK baseline."
+      "marstead_note": "AFK baseline.",
+      "travel_time_to_bank_seconds": 39,
+      "nearest_teleport": "Necklace of Passage",
+      "banking_trip_cost": {
+        "gp": 500,
+        "intensity": 2
+      },
+      "travel_region_multiplier": 0.1,
+      "effective_xp_per_hour": 12724,
+      "effective_gp_per_hour": 0,
+      "travel_minutes_per_hour": 2.6,
+      "active_minutes_per_hour": 57.4,
+      "trips_per_hour": 2
     },
     {
       "id": "saltbrine_raider_hp",
       "skill": "hitpoints",
       "level_required": 65,
       "name": "Raider Crew HP Active",
-      "location": { "region": "saltbrine", "spot": "Raider Longship boarding" },
+      "location": {
+        "region": "saltbrine",
+        "spot": "Raider Longship boarding"
+      },
       "intensity": 6,
       "xp_per_hour": 25400,
       "gp_per_hour": 125000,
-      "requires": { "quests": [], "items": ["dragon_scimitar"], "skills": {"hitpoints": 65} },
+      "requires": {
+        "quests": [],
+        "items": [
+          "dragon_scimitar"
+        ],
+        "skills": {
+          "hitpoints": 65
+        }
+      },
       "description": "Raider boarding HP.",
-      "produces": [{ "item": "pirate_loot", "rate_per_hour": 24 }],
-      "marstead_note": "Active."
+      "produces": [
+        {
+          "item": "pirate_loot",
+          "rate_per_hour": 24
+        }
+      ],
+      "marstead_note": "Active.",
+      "travel_time_to_bank_seconds": 22,
+      "nearest_teleport": "Saltbrine Teleport (Harbor)",
+      "banking_trip_cost": {
+        "gp": 55,
+        "intensity": 2
+      },
+      "travel_region_multiplier": 0,
+      "effective_xp_per_hour": 24469,
+      "effective_gp_per_hour": 120417,
+      "travel_minutes_per_hour": 2.2,
+      "active_minutes_per_hour": 57.8,
+      "trips_per_hour": 3
     },
     {
       "id": "moryskah_nightmare_chains_hp",
       "skill": "hitpoints",
       "level_required": 70,
       "name": "Nightmare Chains HP",
-      "location": { "region": "moryskah", "spot": "Nightblight cathedral" },
+      "location": {
+        "region": "moryskah",
+        "spot": "Nightblight cathedral"
+      },
       "intensity": 2,
       "xp_per_hour": 20000,
       "gp_per_hour": 85000,
-      "requires": { "quests": [], "items": ["abyssal_whip"], "skills": {"hitpoints": 70} },
+      "requires": {
+        "quests": [],
+        "items": [
+          "abyssal_whip"
+        ],
+        "skills": {
+          "hitpoints": 70
+        }
+      },
       "description": "Chain nightmares HP.",
-      "produces": [{ "item": "nightmare_dust", "rate_per_hour": 180 }],
-      "marstead_note": "AFK-Multitask."
+      "produces": [
+        {
+          "item": "nightmare_dust",
+          "rate_per_hour": 180
+        }
+      ],
+      "marstead_note": "AFK-Multitask.",
+      "travel_time_to_bank_seconds": 46,
+      "nearest_teleport": "Moryskah Teleport (Village)",
+      "banking_trip_cost": {
+        "gp": 85,
+        "intensity": 2
+      },
+      "travel_region_multiplier": 0.2,
+      "effective_xp_per_hour": 18978,
+      "effective_gp_per_hour": 80656,
+      "travel_minutes_per_hour": 3.1,
+      "active_minutes_per_hour": 56.9,
+      "trips_per_hour": 2
     },
     {
       "id": "inkweald_abyssal_hp",
       "skill": "hitpoints",
       "level_required": 75,
       "name": "Abyssal Demon HP",
-      "location": { "region": "inkweald", "spot": "Abyssal sanctum" },
+      "location": {
+        "region": "inkweald",
+        "spot": "Abyssal sanctum"
+      },
       "intensity": 3,
       "xp_per_hour": 24700,
       "gp_per_hour": 185000,
-      "requires": { "quests": ["slayer_ascension"], "items": ["abyssal_whip", "slayer_helm"], "skills": {"hitpoints": 75, "slayer": 85} },
+      "requires": {
+        "quests": [
+          "slayer_ascension"
+        ],
+        "items": [
+          "abyssal_whip",
+          "slayer_helm"
+        ],
+        "skills": {
+          "hitpoints": 75,
+          "slayer": 85
+        }
+      },
       "description": "Abyssal demon HP.",
-      "produces": [{ "item": "abyssal_head", "rate_per_hour": 1.2 }],
-      "marstead_note": "Multitask-Active."
+      "produces": [
+        {
+          "item": "abyssal_head",
+          "rate_per_hour": 1.2
+        }
+      ],
+      "marstead_note": "Multitask-Active.",
+      "travel_time_to_bank_seconds": 95,
+      "nearest_teleport": "Moonclan Teleport (Lunar)",
+      "banking_trip_cost": {
+        "gp": 110,
+        "intensity": 2
+      },
+      "travel_region_multiplier": 0.2,
+      "effective_xp_per_hour": 22093,
+      "effective_gp_per_hour": 165472,
+      "travel_minutes_per_hour": 6.3,
+      "active_minutes_per_hour": 53.7,
+      "trips_per_hour": 2
     },
     {
       "id": "wilds_lava_hp",
       "skill": "hitpoints",
       "level_required": 80,
       "name": "Lava Dragon HP AFK",
-      "location": { "region": "wilds", "spot": "Lava Drake Island, lv32 Wilderness" },
+      "location": {
+        "region": "wilds",
+        "spot": "Lava Drake Island, lv32 Wilderness"
+      },
       "intensity": 2,
       "xp_per_hour": 24100,
       "gp_per_hour": 285000,
-      "requires": { "quests": [], "items": ["abyssal_whip"], "skills": {"hitpoints": 80} },
+      "requires": {
+        "quests": [],
+        "items": [
+          "abyssal_whip"
+        ],
+        "skills": {
+          "hitpoints": 80
+        }
+      },
       "description": "Lava dragon HP.",
-      "produces": [{ "item": "dragon_bones", "rate_per_hour": 120 }],
-      "marstead_note": "AFK-Multitask."
+      "produces": [
+        {
+          "item": "dragon_bones",
+          "rate_per_hour": 120
+        }
+      ],
+      "marstead_note": "AFK-Multitask.",
+      "travel_time_to_bank_seconds": 62,
+      "nearest_teleport": "Amulet of Glory (Wilds edge)",
+      "banking_trip_cost": {
+        "gp": 500,
+        "intensity": 2
+      },
+      "travel_region_multiplier": 0.3,
+      "effective_xp_per_hour": 22440,
+      "effective_gp_per_hour": 265367,
+      "travel_minutes_per_hour": 4.1,
+      "active_minutes_per_hour": 55.9,
+      "trips_per_hour": 2
     },
     {
       "id": "veilwood_gargoyle_hp",
       "skill": "hitpoints",
       "level_required": 82,
       "name": "Gargoyle HP AFK",
-      "location": { "region": "veilwood", "spot": "Slayer sanctum tower" },
+      "location": {
+        "region": "veilwood",
+        "spot": "Slayer sanctum tower"
+      },
       "intensity": 1,
       "xp_per_hour": 26100,
       "gp_per_hour": 185000,
-      "requires": { "quests": [], "items": ["ghrazi_rapier", "rock_hammer"], "skills": {"hitpoints": 82, "slayer": 75} },
+      "requires": {
+        "quests": [],
+        "items": [
+          "ghrazi_rapier",
+          "rock_hammer"
+        ],
+        "skills": {
+          "hitpoints": 82,
+          "slayer": 75
+        }
+      },
       "description": "Gargoyle HP AFK.",
-      "produces": [{ "item": "granite_maul_piece", "rate_per_hour": 0.3 }],
-      "marstead_note": "AFK baseline."
+      "produces": [
+        {
+          "item": "granite_maul_piece",
+          "rate_per_hour": 0.3
+        }
+      ],
+      "marstead_note": "AFK baseline.",
+      "travel_time_to_bank_seconds": 39,
+      "nearest_teleport": "Necklace of Passage",
+      "banking_trip_cost": {
+        "gp": 500,
+        "intensity": 2
+      },
+      "travel_region_multiplier": 0.1,
+      "effective_xp_per_hour": 24969,
+      "effective_gp_per_hour": 176983,
+      "travel_minutes_per_hour": 2.6,
+      "active_minutes_per_hour": 57.4,
+      "trips_per_hour": 2
     },
     {
       "id": "wilds_gorilla_hp",
       "skill": "hitpoints",
       "level_required": 85,
       "name": "Demonic Gorilla HP",
-      "location": { "region": "wilds", "spot": "Demon Hatchery deep Wilds" },
+      "location": {
+        "region": "wilds",
+        "spot": "Demon Hatchery deep Wilds"
+      },
       "intensity": 7,
       "xp_per_hour": 33500,
       "gp_per_hour": 485000,
-      "requires": { "quests": ["ape_madrigal"], "items": ["ghrazi_rapier"], "skills": {"hitpoints": 85} },
+      "requires": {
+        "quests": [
+          "ape_madrigal"
+        ],
+        "items": [
+          "ghrazi_rapier"
+        ],
+        "skills": {
+          "hitpoints": 85
+        }
+      },
       "description": "Demonic gorilla HP.",
-      "produces": [{ "item": "zenyte_shard", "rate_per_hour": 2.4 }],
-      "marstead_note": "Max Focus."
+      "produces": [
+        {
+          "item": "zenyte_shard",
+          "rate_per_hour": 2.4
+        }
+      ],
+      "marstead_note": "Max Focus.",
+      "travel_time_to_bank_seconds": 109,
+      "nearest_teleport": "Amulet of Glory (Wilds edge)",
+      "banking_trip_cost": {
+        "gp": 500,
+        "intensity": 2
+      },
+      "travel_region_multiplier": 0.3,
+      "effective_xp_per_hour": 25386,
+      "effective_gp_per_hour": 367522,
+      "travel_minutes_per_hour": 14.5,
+      "active_minutes_per_hour": 45.5,
+      "trips_per_hour": 4
     },
     {
       "id": "veilwood_sanctum_elder_hp",
       "skill": "hitpoints",
       "level_required": 92,
       "name": "Elder Sanctum HP AFK",
-      "location": { "region": "veilwood", "spot": "Moonblade sanctum wardens" },
+      "location": {
+        "region": "veilwood",
+        "spot": "Moonblade sanctum wardens"
+      },
       "intensity": 2,
       "xp_per_hour": 31300,
       "gp_per_hour": 185000,
-      "requires": { "quests": ["whisperwood_remembers"], "items": ["ghrazi_rapier"], "skills": {"hitpoints": 92} },
+      "requires": {
+        "quests": [
+          "whisperwood_remembers"
+        ],
+        "items": [
+          "ghrazi_rapier"
+        ],
+        "skills": {
+          "hitpoints": 92
+        }
+      },
       "description": "Sanctum HP passive.",
-      "produces": [{ "item": "elder_rune_fragment", "rate_per_hour": 8 }],
-      "marstead_note": "AFK-Multitask baseline."
+      "produces": [
+        {
+          "item": "elder_rune_fragment",
+          "rate_per_hour": 8
+        }
+      ],
+      "marstead_note": "AFK-Multitask baseline.",
+      "travel_time_to_bank_seconds": 67,
+      "nearest_teleport": "Necklace of Passage",
+      "banking_trip_cost": {
+        "gp": 500,
+        "intensity": 2
+      },
+      "travel_region_multiplier": 0.1,
+      "effective_xp_per_hour": 28970,
+      "effective_gp_per_hour": 171228,
+      "travel_minutes_per_hour": 4.5,
+      "active_minutes_per_hour": 55.5,
+      "trips_per_hour": 2
     },
     {
       "id": "wilds_revenants_hp",
       "skill": "hitpoints",
       "level_required": 95,
       "name": "Wilds Revenants HP",
-      "location": { "region": "wilds", "spot": "Revenant caves, lv42 Wilderness" },
+      "location": {
+        "region": "wilds",
+        "spot": "Revenant caves, lv42 Wilderness"
+      },
       "intensity": 9,
       "xp_per_hour": 64800,
       "gp_per_hour": 1200000,
-      "requires": { "quests": [], "items": ["bracelet_of_ethereum", "ghrazi_rapier"], "skills": {"hitpoints": 95} },
+      "requires": {
+        "quests": [],
+        "items": [
+          "bracelet_of_ethereum",
+          "ghrazi_rapier"
+        ],
+        "skills": {
+          "hitpoints": 95
+        }
+      },
       "description": "Revenants HP.",
-      "produces": [{ "item": "revenant_ether", "rate_per_hour": 3200 }],
-      "marstead_note": "Max Focus."
+      "produces": [
+        {
+          "item": "revenant_ether",
+          "rate_per_hour": 3200
+        }
+      ],
+      "marstead_note": "Max Focus.",
+      "travel_time_to_bank_seconds": 30,
+      "nearest_teleport": "Amulet of Glory (Wilds edge)",
+      "banking_trip_cost": {
+        "gp": 500,
+        "intensity": 2
+      },
+      "travel_region_multiplier": 0.3,
+      "effective_xp_per_hour": 60480,
+      "effective_gp_per_hour": 1120000,
+      "travel_minutes_per_hour": 4,
+      "active_minutes_per_hour": 56,
+      "trips_per_hour": 4
     },
     {
       "id": "veilwood_healing_minigame",
       "skill": "hitpoints",
       "level_required": 90,
       "name": "Veilwood Monastery Healing Rite",
-      "location": { "region": "veilwood", "spot": "Moonblade Monastery healing ring" },
+      "location": {
+        "region": "veilwood",
+        "spot": "Moonblade Monastery healing ring"
+      },
       "intensity": 6,
       "xp_per_hour": 60000,
       "gp_per_hour": 85000,
-      "requires": { "quests": ["whisperwood_remembers"], "items": ["holy_prayer_book", "saradomin_brew"], "skills": {"hitpoints": 90, "prayer": 77} },
+      "requires": {
+        "quests": [
+          "whisperwood_remembers"
+        ],
+        "items": [
+          "holy_prayer_book",
+          "saradomin_brew"
+        ],
+        "skills": {
+          "hitpoints": 90,
+          "prayer": 77
+        }
+      },
       "description": "Heal pilgrims in real-time ring rotation. Direct HP XP.",
-      "produces": [{ "item": "monastic_favour", "rate_per_hour": 240 }],
-      "marstead_note": "Active-Max Focus. Direct HP XP — rare."
+      "produces": [
+        {
+          "item": "monastic_favour",
+          "rate_per_hour": 240
+        }
+      ],
+      "marstead_note": "Active-Max Focus. Direct HP XP — rare.",
+      "travel_time_to_bank_seconds": 39,
+      "nearest_teleport": "Necklace of Passage",
+      "banking_trip_cost": {
+        "gp": 500,
+        "intensity": 2
+      },
+      "travel_region_multiplier": 0.1,
+      "effective_xp_per_hour": 56100,
+      "effective_gp_per_hour": 79475,
+      "travel_minutes_per_hour": 3.9,
+      "active_minutes_per_hour": 56.1,
+      "trips_per_hour": 3
     },
     {
       "id": "glass_desert_tombs_expert_hp",
       "skill": "hitpoints",
       "level_required": 95,
       "name": "Tombs of Amascut Expert Tank",
-      "location": { "region": "glass_desert", "spot": "Crescent Tombs of Amascut, expert invocation" },
+      "location": {
+        "region": "glass_desert",
+        "spot": "Crescent Tombs of Amascut, expert invocation"
+      },
       "intensity": 10,
       "xp_per_hour": 78000,
       "gp_per_hour": 8600000,
-      "requires": { "quests": ["the_tomb_oath"], "items": ["scythe_of_vitur", "justiciar_armour", "rainbow_cape"], "skills": {"hitpoints": 95, "defence": 95, "attack": 95, "prayer": 92} },
+      "requires": {
+        "quests": [
+          "the_tomb_oath"
+        ],
+        "items": [
+          "scythe_of_vitur",
+          "justiciar_armour",
+          "rainbow_cape"
+        ],
+        "skills": {
+          "hitpoints": 95,
+          "defence": 95,
+          "attack": 95,
+          "prayer": 92
+        }
+      },
       "description": "Tank role in ToA expert — HP XP from taking boss damage while guarding party. Band 10 support-tier elite.",
-      "produces": [{ "item": "masori_shard", "rate_per_hour": 0.9 }],
-      "marstead_note": "M13 band 10 ToA tank role."
+      "produces": [
+        {
+          "item": "masori_shard",
+          "rate_per_hour": 0.9
+        }
+      ],
+      "marstead_note": "M13 band 10 ToA tank role.",
+      "travel_time_to_bank_seconds": 30,
+      "nearest_teleport": "Glass Desert Pendant",
+      "banking_trip_cost": {
+        "gp": 500,
+        "intensity": 2
+      },
+      "travel_region_multiplier": 0.5,
+      "effective_xp_per_hour": 72800,
+      "effective_gp_per_hour": 8026667,
+      "travel_minutes_per_hour": 4,
+      "active_minutes_per_hour": 56,
+      "trips_per_hour": 4
     }
   ],
   "bracket_coverage": {
-    "1-10":  { "count": 2, "intensities": [1, 2] },
-    "10-20": { "count": 2, "intensities": [1, 5] },
-    "20-30": { "count": 2, "intensities": [1, 6] },
-    "30-40": { "count": 2, "intensities": [1, 5] },
-    "40-50": { "count": 2, "intensities": [1, 4] },
-    "50-60": { "count": 2, "intensities": [1, 5] },
-    "60-70": { "count": 2, "intensities": [1, 6] },
-    "70-80": { "count": 2, "intensities": [2, 3] },
-    "80-90": { "count": 3, "intensities": [2, 1, 7] },
-    "90-99": { "count": 3, "intensities": [2, 9, 6] }
+    "1-10": {
+      "count": 2,
+      "intensities": [
+        1,
+        2
+      ]
+    },
+    "10-20": {
+      "count": 2,
+      "intensities": [
+        1,
+        5
+      ]
+    },
+    "20-30": {
+      "count": 2,
+      "intensities": [
+        1,
+        6
+      ]
+    },
+    "30-40": {
+      "count": 2,
+      "intensities": [
+        1,
+        5
+      ]
+    },
+    "40-50": {
+      "count": 2,
+      "intensities": [
+        1,
+        4
+      ]
+    },
+    "50-60": {
+      "count": 2,
+      "intensities": [
+        1,
+        5
+      ]
+    },
+    "60-70": {
+      "count": 2,
+      "intensities": [
+        1,
+        6
+      ]
+    },
+    "70-80": {
+      "count": 2,
+      "intensities": [
+        2,
+        3
+      ]
+    },
+    "80-90": {
+      "count": 3,
+      "intensities": [
+        2,
+        1,
+        7
+      ]
+    },
+    "90-99": {
+      "count": 3,
+      "intensities": [
+        2,
+        9,
+        6
+      ]
+    }
   }
 }

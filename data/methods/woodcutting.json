@@ -7,334 +7,1027 @@
       "skill": "woodcutting",
       "level_required": 1,
       "name": "Logwood Grove Chop",
-      "location": { "region": "heartlands", "spot": "Logwood Grove behind Lumbrick" },
+      "location": {
+        "region": "heartlands",
+        "spot": "Logwood Grove behind Lumbrick"
+      },
       "intensity": 1,
       "xp_per_hour": 8000,
       "gp_per_hour": 1000,
-      "requires": { "quests": [], "items": ["bronze_axe"], "skills": {} },
+      "requires": {
+        "quests": [],
+        "items": [
+          "bronze_axe"
+        ],
+        "skills": {}
+      },
       "description": "Standard trees around Lumbrick. Press-once-a-minute tier.",
-      "produces": [{ "item": "logs", "rate_per_hour": 320 }],
-      "marstead_note": "AFK baseline. Background attention."
+      "produces": [
+        {
+          "item": "logs",
+          "rate_per_hour": 320
+        }
+      ],
+      "marstead_note": "AFK baseline. Background attention.",
+      "travel_time_to_bank_seconds": 25,
+      "nearest_teleport": "Heartlands Teleport (Lumbrick)",
+      "banking_trip_cost": {
+        "gp": 35,
+        "intensity": 2
+      },
+      "travel_region_multiplier": 0,
+      "effective_xp_per_hour": 7833,
+      "effective_gp_per_hour": 979,
+      "travel_minutes_per_hour": 1.3,
+      "active_minutes_per_hour": 58.8,
+      "trips_per_hour": 1.5
     },
     {
       "id": "heartlands_logwood_power",
       "skill": "woodcutting",
       "level_required": 5,
       "name": "Logwood Power-Chop",
-      "location": { "region": "heartlands", "spot": "Logwood Grove dense-tree patch" },
+      "location": {
+        "region": "heartlands",
+        "spot": "Logwood Grove dense-tree patch"
+      },
       "intensity": 4,
       "xp_per_hour": 24300,
       "gp_per_hour": 0,
-      "requires": { "quests": [], "items": ["steel_axe"], "skills": {} },
+      "requires": {
+        "quests": [],
+        "items": [
+          "steel_axe"
+        ],
+        "skills": {}
+      },
       "description": "Chop-and-drop rotation through the dense half of the grove. No banking, pure XP.",
-      "produces": [{ "item": "logs", "rate_per_hour": 900 }],
-      "marstead_note": "Active. Drop-XP method for starters."
+      "produces": [
+        {
+          "item": "logs",
+          "rate_per_hour": 900
+        }
+      ],
+      "marstead_note": "Active. Drop-XP method for starters.",
+      "travel_time_to_bank_seconds": 44,
+      "nearest_teleport": "Heartlands Teleport (Lumbrick)",
+      "banking_trip_cost": {
+        "gp": 35,
+        "intensity": 2
+      },
+      "travel_region_multiplier": 0,
+      "effective_xp_per_hour": 21924,
+      "effective_gp_per_hour": 0,
+      "travel_minutes_per_hour": 5.9,
+      "active_minutes_per_hour": 54.1,
+      "trips_per_hour": 4
     },
     {
       "id": "heartlands_oakhollow_chop",
       "skill": "woodcutting",
       "level_required": 15,
       "name": "Oakhollow Chop",
-      "location": { "region": "heartlands", "spot": "Oakhollow fields, scattered oaks" },
+      "location": {
+        "region": "heartlands",
+        "spot": "Oakhollow fields, scattered oaks"
+      },
       "intensity": 1,
       "xp_per_hour": 11300,
       "gp_per_hour": 6000,
-      "requires": { "quests": [], "items": ["iron_axe"], "skills": {} },
+      "requires": {
+        "quests": [],
+        "items": [
+          "iron_axe"
+        ],
+        "skills": {}
+      },
       "description": "Classic scattered-oak AFK. Walk between spawns.",
-      "produces": [{ "item": "oak_logs", "rate_per_hour": 300 }],
-      "marstead_note": "AFK baseline for 15+."
+      "produces": [
+        {
+          "item": "oak_logs",
+          "rate_per_hour": 300
+        }
+      ],
+      "marstead_note": "AFK baseline for 15+.",
+      "travel_time_to_bank_seconds": 25,
+      "nearest_teleport": "Heartlands Teleport (Lumbrick)",
+      "banking_trip_cost": {
+        "gp": 35,
+        "intensity": 2
+      },
+      "travel_region_multiplier": 0,
+      "effective_xp_per_hour": 11065,
+      "effective_gp_per_hour": 5875,
+      "travel_minutes_per_hour": 1.3,
+      "active_minutes_per_hour": 58.8,
+      "trips_per_hour": 1.5
     },
     {
       "id": "heartlands_oak_3tick_drop",
       "skill": "woodcutting",
       "level_required": 15,
       "name": "Oak 3-Tick Drop Chop",
-      "location": { "region": "heartlands", "spot": "Oakhollow dense cluster" },
+      "location": {
+        "region": "heartlands",
+        "spot": "Oakhollow dense cluster"
+      },
       "intensity": 6,
       "xp_per_hour": 47400,
       "gp_per_hour": 0,
-      "requires": { "quests": [], "items": ["steel_axe"], "skills": {} },
+      "requires": {
+        "quests": [],
+        "items": [
+          "steel_axe"
+        ],
+        "skills": {}
+      },
       "description": "3-tick tea-drinking drop-chop on oak. Pure XP, requires constant herblore-tea input.",
-      "produces": [{ "item": "oak_logs", "rate_per_hour": 1100 }],
-      "marstead_note": "Max Focus. 3-tick tea manip."
+      "produces": [
+        {
+          "item": "oak_logs",
+          "rate_per_hour": 1100
+        }
+      ],
+      "marstead_note": "Max Focus. 3-tick tea manip.",
+      "travel_time_to_bank_seconds": 44,
+      "nearest_teleport": "Heartlands Teleport (Lumbrick)",
+      "banking_trip_cost": {
+        "gp": 35,
+        "intensity": 2
+      },
+      "travel_region_multiplier": 0,
+      "effective_xp_per_hour": 42765,
+      "effective_gp_per_hour": 0,
+      "travel_minutes_per_hour": 5.9,
+      "active_minutes_per_hour": 54.1,
+      "trips_per_hour": 4
     },
     {
       "id": "sootworks_charred_stumps",
       "skill": "woodcutting",
       "level_required": 22,
       "name": "Charred Stump Pick",
-      "location": { "region": "sootworks", "spot": "Sootworks surface rim, charred post-forest" },
+      "location": {
+        "region": "sootworks",
+        "spot": "Sootworks surface rim, charred post-forest"
+      },
       "intensity": 2,
       "xp_per_hour": 17400,
       "gp_per_hour": 14000,
-      "requires": { "quests": [], "items": ["iron_axe"], "skills": {} },
+      "requires": {
+        "quests": [],
+        "items": [
+          "iron_axe"
+        ],
+        "skills": {}
+      },
       "description": "Charred stumps left over from old surface-fires. Slower than oak but yields heat-cured logs.",
-      "produces": [{ "item": "charred_logs", "rate_per_hour": 280 }],
-      "marstead_note": "Multitask. Regional ore (firemaking reagent)."
+      "produces": [
+        {
+          "item": "charred_logs",
+          "rate_per_hour": 280
+        }
+      ],
+      "marstead_note": "Multitask. Regional ore (firemaking reagent).",
+      "travel_time_to_bank_seconds": 35,
+      "nearest_teleport": "Sootworks Teleport (Forge Hall)",
+      "banking_trip_cost": {
+        "gp": 65,
+        "intensity": 2
+      },
+      "travel_region_multiplier": 0.1,
+      "effective_xp_per_hour": 16893,
+      "effective_gp_per_hour": 13592,
+      "travel_minutes_per_hour": 1.8,
+      "active_minutes_per_hour": 58.3,
+      "trips_per_hour": 1.5
     },
     {
       "id": "sootworks_charred_rotation",
       "skill": "woodcutting",
       "level_required": 25,
       "name": "Sootworks Charred Tree Rotation",
-      "location": { "region": "sootworks", "spot": "Emberwall ridge, 4-stump" },
+      "location": {
+        "region": "sootworks",
+        "spot": "Emberwall ridge, 4-stump"
+      },
       "intensity": 5,
       "xp_per_hour": 36600,
       "gp_per_hour": 32000,
-      "requires": { "quests": [], "items": ["mithril_axe"], "skills": {} },
+      "requires": {
+        "quests": [],
+        "items": [
+          "mithril_axe"
+        ],
+        "skills": {}
+      },
       "description": "Tight 4-stump rotation. Watch for coalshards falling from the canopy.",
-      "produces": [{ "item": "charred_logs", "rate_per_hour": 580 }],
-      "marstead_note": "Active. Regional ore tick-method."
+      "produces": [
+        {
+          "item": "charred_logs",
+          "rate_per_hour": 580
+        }
+      ],
+      "marstead_note": "Active. Regional ore tick-method.",
+      "travel_time_to_bank_seconds": 35,
+      "nearest_teleport": "Sootworks Teleport (Forge Hall)",
+      "banking_trip_cost": {
+        "gp": 65,
+        "intensity": 2
+      },
+      "travel_region_multiplier": 0.1,
+      "effective_xp_per_hour": 33753,
+      "effective_gp_per_hour": 29511,
+      "travel_minutes_per_hour": 4.7,
+      "active_minutes_per_hour": 55.3,
+      "trips_per_hour": 4
     },
     {
       "id": "saltbrine_willow_reeds",
       "skill": "woodcutting",
       "level_required": 30,
       "name": "Saltbrine Willow Reedbed",
-      "location": { "region": "saltbrine", "spot": "Draining Marsh, willow thicket" },
+      "location": {
+        "region": "saltbrine",
+        "spot": "Draining Marsh, willow thicket"
+      },
       "intensity": 1,
       "xp_per_hour": 19800,
       "gp_per_hour": 18000,
-      "requires": { "quests": [], "items": ["mithril_axe"], "skills": {} },
+      "requires": {
+        "quests": [],
+        "items": [
+          "mithril_axe"
+        ],
+        "skills": {}
+      },
       "description": "Dense salt-willow cluster. Press-and-AFK until logs fill.",
-      "produces": [{ "item": "willow_logs", "rate_per_hour": 450 }],
-      "marstead_note": "AFK baseline for 30+."
+      "produces": [
+        {
+          "item": "willow_logs",
+          "rate_per_hour": 450
+        }
+      ],
+      "marstead_note": "AFK baseline for 30+.",
+      "travel_time_to_bank_seconds": 22,
+      "nearest_teleport": "Saltbrine Teleport (Harbor)",
+      "banking_trip_cost": {
+        "gp": 55,
+        "intensity": 2
+      },
+      "travel_region_multiplier": 0,
+      "effective_xp_per_hour": 19437,
+      "effective_gp_per_hour": 17670,
+      "travel_minutes_per_hour": 1.1,
+      "active_minutes_per_hour": 58.9,
+      "trips_per_hour": 1.5
     },
     {
       "id": "saltbrine_willow_drop_chop",
       "skill": "woodcutting",
       "level_required": 30,
       "name": "Willow Drop-Chop Row",
-      "location": { "region": "saltbrine", "spot": "Draining Marsh dense-line" },
+      "location": {
+        "region": "saltbrine",
+        "spot": "Draining Marsh dense-line"
+      },
       "intensity": 6,
       "xp_per_hour": 83000,
       "gp_per_hour": 0,
-      "requires": { "quests": [], "items": ["mithril_axe"], "skills": {} },
+      "requires": {
+        "quests": [],
+        "items": [
+          "mithril_axe"
+        ],
+        "skills": {}
+      },
       "description": "Power-chop every willow, drop every log. Best XP/hr 30-45. Brutal for shoulders.",
-      "produces": [{ "item": "willow_logs", "rate_per_hour": 1800 }],
-      "marstead_note": "Max Focus. The willow drop-chop method."
+      "produces": [
+        {
+          "item": "willow_logs",
+          "rate_per_hour": 1800
+        }
+      ],
+      "marstead_note": "Max Focus. The willow drop-chop method.",
+      "travel_time_to_bank_seconds": 39,
+      "nearest_teleport": "Saltbrine Teleport (Harbor)",
+      "banking_trip_cost": {
+        "gp": 55,
+        "intensity": 2
+      },
+      "travel_region_multiplier": 0,
+      "effective_xp_per_hour": 75807,
+      "effective_gp_per_hour": 0,
+      "travel_minutes_per_hour": 5.2,
+      "active_minutes_per_hour": 54.8,
+      "trips_per_hour": 4
     },
     {
       "id": "inkweald_maple_lucent",
       "skill": "woodcutting",
       "level_required": 45,
       "name": "Lucent Maple Glade",
-      "location": { "region": "inkweald", "spot": "Lucent Glade, dreamy maples" },
+      "location": {
+        "region": "inkweald",
+        "spot": "Lucent Glade, dreamy maples"
+      },
       "intensity": 1,
       "xp_per_hour": 24500,
       "gp_per_hour": 28000,
-      "requires": { "quests": [], "items": ["rune_axe"], "skills": {} },
+      "requires": {
+        "quests": [],
+        "items": [
+          "rune_axe"
+        ],
+        "skills": {}
+      },
       "description": "Maples that glow faintly in half-real light. AFK-safe but you may lose track of time.",
-      "produces": [{ "item": "maple_logs", "rate_per_hour": 360 }],
-      "marstead_note": "AFK baseline for 45+. Atmospheric."
+      "produces": [
+        {
+          "item": "maple_logs",
+          "rate_per_hour": 360
+        }
+      ],
+      "marstead_note": "AFK baseline for 45+. Atmospheric.",
+      "travel_time_to_bank_seconds": 95,
+      "nearest_teleport": "Moonclan Teleport (Lunar)",
+      "banking_trip_cost": {
+        "gp": 110,
+        "intensity": 2
+      },
+      "travel_region_multiplier": 0.2,
+      "effective_xp_per_hour": 22560,
+      "effective_gp_per_hour": 25783,
+      "travel_minutes_per_hour": 4.8,
+      "active_minutes_per_hour": 55.3,
+      "trips_per_hour": 1.5
     },
     {
       "id": "inkweald_maple_tick_cluster",
       "skill": "woodcutting",
       "level_required": 48,
       "name": "Inkweald Maple Tick-Cluster",
-      "location": { "region": "inkweald", "spot": "Dream-knot, 3-tree tight cluster" },
+      "location": {
+        "region": "inkweald",
+        "spot": "Dream-knot, 3-tree tight cluster"
+      },
       "intensity": 4,
       "xp_per_hour": 51300,
       "gp_per_hour": 64000,
-      "requires": { "quests": [], "items": ["rune_axe"], "skills": {} },
+      "requires": {
+        "quests": [],
+        "items": [
+          "rune_axe"
+        ],
+        "skills": {}
+      },
       "description": "Three maples in a reality-bent triangle. Tick-rotation + lucid-tea = 30% XP boost.",
-      "produces": [{ "item": "maple_logs", "rate_per_hour": 650 }],
-      "marstead_note": "Active. Multi-skill reliance (herblore tea)."
+      "produces": [
+        {
+          "item": "maple_logs",
+          "rate_per_hour": 650
+        }
+      ],
+      "marstead_note": "Active. Multi-skill reliance (herblore tea).",
+      "travel_time_to_bank_seconds": 54,
+      "nearest_teleport": "Moonclan Teleport (Lunar)",
+      "banking_trip_cost": {
+        "gp": 110,
+        "intensity": 2
+      },
+      "travel_region_multiplier": 0.2,
+      "effective_xp_per_hour": 45144,
+      "effective_gp_per_hour": 56320,
+      "travel_minutes_per_hour": 7.2,
+      "active_minutes_per_hour": 52.8,
+      "trips_per_hour": 4
     },
     {
       "id": "heartlands_teak_plantation",
       "skill": "woodcutting",
       "level_required": 35,
       "name": "Teak Plantation Chop",
-      "location": { "region": "heartlands", "spot": "Teakring Plantation, scattered teaks" },
+      "location": {
+        "region": "heartlands",
+        "spot": "Teakring Plantation, scattered teaks"
+      },
       "intensity": 1,
       "xp_per_hour": 22800,
       "gp_per_hour": 42000,
-      "requires": { "quests": [], "items": ["rune_axe"], "skills": {} },
+      "requires": {
+        "quests": [],
+        "items": [
+          "rune_axe"
+        ],
+        "skills": {}
+      },
       "description": "Scattered teak trees on a planted estate. Walk between, AFK chop. The logs sell.",
-      "produces": [{ "item": "teak_logs", "rate_per_hour": 420 }],
-      "marstead_note": "AFK baseline. High profit for construction feeders."
+      "produces": [
+        {
+          "item": "teak_logs",
+          "rate_per_hour": 420
+        }
+      ],
+      "marstead_note": "AFK baseline. High profit for construction feeders.",
+      "travel_time_to_bank_seconds": 25,
+      "nearest_teleport": "Heartlands Teleport (Lumbrick)",
+      "banking_trip_cost": {
+        "gp": 35,
+        "intensity": 2
+      },
+      "travel_region_multiplier": 0,
+      "effective_xp_per_hour": 22325,
+      "effective_gp_per_hour": 41125,
+      "travel_minutes_per_hour": 1.3,
+      "active_minutes_per_hour": 58.8,
+      "trips_per_hour": 1.5
     },
     {
       "id": "heartlands_teak_tick_rotation",
       "skill": "woodcutting",
       "level_required": 35,
       "name": "Teak 2-Tick Rotation",
-      "location": { "region": "heartlands", "spot": "Teakring dense 4-tree" },
+      "location": {
+        "region": "heartlands",
+        "spot": "Teakring dense 4-tree"
+      },
       "intensity": 8,
       "xp_per_hour": 105700,
       "gp_per_hour": 280000,
-      "requires": { "quests": [], "items": ["rune_axe", "lit_tinderbox"], "skills": {"firemaking": 50} },
+      "requires": {
+        "quests": [],
+        "items": [
+          "rune_axe",
+          "lit_tinderbox"
+        ],
+        "skills": {
+          "firemaking": 50
+        }
+      },
       "description": "2-tick teak with dual lit-tinderbox cycle. The endgame XP method for 35-60. Requires firemaking.",
-      "produces": [{ "item": "teak_logs", "rate_per_hour": 1620 }],
-      "marstead_note": "Max Focus. 2-tick teak — the most intense WC method in the game."
+      "produces": [
+        {
+          "item": "teak_logs",
+          "rate_per_hour": 1620
+        }
+      ],
+      "marstead_note": "Max Focus. 2-tick teak — the most intense WC method in the game.",
+      "travel_time_to_bank_seconds": 30,
+      "nearest_teleport": "Heartlands Teleport (Lumbrick)",
+      "banking_trip_cost": {
+        "gp": 35,
+        "intensity": 2
+      },
+      "travel_region_multiplier": 0,
+      "effective_xp_per_hour": 98653,
+      "effective_gp_per_hour": 261333,
+      "travel_minutes_per_hour": 4,
+      "active_minutes_per_hour": 56,
+      "trips_per_hour": 4
     },
     {
       "id": "veilwood_yew_hermitage",
       "skill": "woodcutting",
       "level_required": 60,
       "name": "Veilwood Yew Hermitage",
-      "location": { "region": "veilwood", "spot": "Singing Glade hermitage, yew copse" },
+      "location": {
+        "region": "veilwood",
+        "spot": "Singing Glade hermitage, yew copse"
+      },
       "intensity": 1,
       "xp_per_hour": 32000,
       "gp_per_hour": 85000,
-      "requires": { "quests": [], "items": ["dragon_axe"], "skills": {} },
+      "requires": {
+        "quests": [],
+        "items": [
+          "dragon_axe"
+        ],
+        "skills": {}
+      },
       "description": "Scattered yews in a hermit's glade. The hermits provide tea. Genuinely peaceful.",
-      "produces": [{ "item": "yew_logs", "rate_per_hour": 280 }],
-      "marstead_note": "AFK baseline for 60+. Pure chill method."
+      "produces": [
+        {
+          "item": "yew_logs",
+          "rate_per_hour": 280
+        }
+      ],
+      "marstead_note": "AFK baseline for 60+. Pure chill method.",
+      "travel_time_to_bank_seconds": 39,
+      "nearest_teleport": "Necklace of Passage",
+      "banking_trip_cost": {
+        "gp": 500,
+        "intensity": 2
+      },
+      "travel_region_multiplier": 0.1,
+      "effective_xp_per_hour": 30960,
+      "effective_gp_per_hour": 82238,
+      "travel_minutes_per_hour": 2,
+      "active_minutes_per_hour": 58.1,
+      "trips_per_hour": 1.5
     },
     {
       "id": "saltbrine_yew_shanty",
       "skill": "woodcutting",
       "level_required": 62,
       "name": "Saltbrine Yew Shanty Row",
-      "location": { "region": "saltbrine", "spot": "Shanty Row piers, 3-yew cluster" },
+      "location": {
+        "region": "saltbrine",
+        "spot": "Shanty Row piers, 3-yew cluster"
+      },
       "intensity": 5,
       "xp_per_hour": 56200,
       "gp_per_hour": 140000,
-      "requires": { "quests": [], "items": ["dragon_axe"], "skills": {} },
+      "requires": {
+        "quests": [],
+        "items": [
+          "dragon_axe"
+        ],
+        "skills": {}
+      },
       "description": "3-yew cluster on the docks. Dust-of-aggression from Saltbrine cats makes AFK mid-chop unsafe. Worth the XP.",
-      "produces": [{ "item": "yew_logs", "rate_per_hour": 420 }],
-      "marstead_note": "Active. Multitask XP + gold for 60+."
+      "produces": [
+        {
+          "item": "yew_logs",
+          "rate_per_hour": 420
+        }
+      ],
+      "marstead_note": "Active. Multitask XP + gold for 60+.",
+      "travel_time_to_bank_seconds": 9,
+      "nearest_teleport": "Saltbrine Teleport (Harbor)",
+      "banking_trip_cost": {
+        "gp": 0,
+        "intensity": 1
+      },
+      "travel_region_multiplier": 0,
+      "effective_xp_per_hour": 55076,
+      "effective_gp_per_hour": 137200,
+      "travel_minutes_per_hour": 1.2,
+      "active_minutes_per_hour": 58.8,
+      "trips_per_hour": 4
     },
     {
       "id": "veilwood_magic_tree_grove",
       "skill": "woodcutting",
       "level_required": 75,
       "name": "Veilwood Magic Tree Grove",
-      "location": { "region": "veilwood", "spot": "Blessed Grove, old magic trees" },
+      "location": {
+        "region": "veilwood",
+        "spot": "Blessed Grove, old magic trees"
+      },
       "intensity": 2,
       "xp_per_hour": 58700,
       "gp_per_hour": 185000,
-      "requires": { "quests": ["swan_song_of_veilwood"], "items": ["dragon_axe"], "skills": {"woodcutting": 75} },
+      "requires": {
+        "quests": [
+          "swan_song_of_veilwood"
+        ],
+        "items": [
+          "dragon_axe"
+        ],
+        "skills": {
+          "woodcutting": 75
+        }
+      },
       "description": "Ancient magic trees. Slow respawn, high value. The pre-sleep-before-work training method.",
-      "produces": [{ "item": "magic_logs", "rate_per_hour": 160 }],
-      "marstead_note": "AFK-Multitask. Classic magic log training."
+      "produces": [
+        {
+          "item": "magic_logs",
+          "rate_per_hour": 160
+        }
+      ],
+      "marstead_note": "AFK-Multitask. Classic magic log training.",
+      "travel_time_to_bank_seconds": 39,
+      "nearest_teleport": "Necklace of Passage",
+      "banking_trip_cost": {
+        "gp": 500,
+        "intensity": 2
+      },
+      "travel_region_multiplier": 0.1,
+      "effective_xp_per_hour": 56792,
+      "effective_gp_per_hour": 178987,
+      "travel_minutes_per_hour": 2,
+      "active_minutes_per_hour": 58.1,
+      "trips_per_hour": 1.5
     },
     {
       "id": "veilwood_magic_panic_chop",
       "skill": "woodcutting",
       "level_required": 78,
       "name": "Magic Panic-Chop (Blessed Row)",
-      "location": { "region": "veilwood", "spot": "Blessed Grove 4-tree row" },
+      "location": {
+        "region": "veilwood",
+        "spot": "Blessed Grove 4-tree row"
+      },
       "intensity": 7,
       "xp_per_hour": 112200,
       "gp_per_hour": 420000,
-      "requires": { "quests": ["swan_song_of_veilwood"], "items": ["dragon_axe", "axe_warp_scroll"], "skills": {"woodcutting": 78, "magic": 85} },
+      "requires": {
+        "quests": [
+          "swan_song_of_veilwood"
+        ],
+        "items": [
+          "dragon_axe",
+          "axe_warp_scroll"
+        ],
+        "skills": {
+          "woodcutting": 78,
+          "magic": 85
+        }
+      },
       "description": "4-tree magic row with axe-warp scrolls to teleport between them. Tick-perfect chop.",
-      "produces": [{ "item": "magic_logs", "rate_per_hour": 340 }],
-      "marstead_note": "Max Focus. Multi-skill dependency (magic 85)."
+      "produces": [
+        {
+          "item": "magic_logs",
+          "rate_per_hour": 340
+        }
+      ],
+      "marstead_note": "Max Focus. Multi-skill dependency (magic 85).",
+      "travel_time_to_bank_seconds": 39,
+      "nearest_teleport": "Necklace of Passage",
+      "banking_trip_cost": {
+        "gp": 500,
+        "intensity": 2
+      },
+      "travel_region_multiplier": 0.1,
+      "effective_xp_per_hour": 102476,
+      "effective_gp_per_hour": 383600,
+      "travel_minutes_per_hour": 5.2,
+      "active_minutes_per_hour": 54.8,
+      "trips_per_hour": 4
     },
     {
       "id": "veilwood_ironwood_grove",
       "skill": "woodcutting",
       "level_required": 82,
       "name": "Veilwood Ironwood Grove",
-      "location": { "region": "veilwood", "spot": "Ironshade thicket, ironwood row" },
+      "location": {
+        "region": "veilwood",
+        "spot": "Ironshade thicket, ironwood row"
+      },
       "intensity": 1,
       "xp_per_hour": 69400,
       "gp_per_hour": 220000,
-      "requires": { "quests": ["ironwood_and_axe"], "items": ["dragon_axe"], "skills": {"woodcutting": 82} },
+      "requires": {
+        "quests": [
+          "ironwood_and_axe"
+        ],
+        "items": [
+          "dragon_axe"
+        ],
+        "skills": {
+          "woodcutting": 82
+        }
+      },
       "description": "Ironwood trees. Slow, AFK, and the logs are used in endgame construction. Safer than magic.",
-      "produces": [{ "item": "ironwood_logs", "rate_per_hour": 240 }],
-      "marstead_note": "AFK baseline for 82+. Quest-gated unique material."
+      "produces": [
+        {
+          "item": "ironwood_logs",
+          "rate_per_hour": 240
+        }
+      ],
+      "marstead_note": "AFK baseline for 82+. Quest-gated unique material.",
+      "travel_time_to_bank_seconds": 67,
+      "nearest_teleport": "Necklace of Passage",
+      "banking_trip_cost": {
+        "gp": 500,
+        "intensity": 2
+      },
+      "travel_region_multiplier": 0.1,
+      "effective_xp_per_hour": 65525,
+      "effective_gp_per_hour": 207717,
+      "travel_minutes_per_hour": 3.4,
+      "active_minutes_per_hour": 56.7,
+      "trips_per_hour": 1.5
     },
     {
       "id": "inkweald_dreamwood_rush",
       "skill": "woodcutting",
       "level_required": 85,
       "name": "Dreamwood Echo-Rush",
-      "location": { "region": "inkweald", "spot": "Penseurlake west, dreamwoods" },
+      "location": {
+        "region": "inkweald",
+        "spot": "Penseurlake west, dreamwoods"
+      },
       "intensity": 6,
       "xp_per_hour": 97500,
       "gp_per_hour": 315000,
-      "requires": { "quests": ["unwake_the_dreamer"], "items": ["dragon_axe", "silver_whistle"], "skills": {"woodcutting": 85} },
+      "requires": {
+        "quests": [
+          "unwake_the_dreamer"
+        ],
+        "items": [
+          "dragon_axe",
+          "silver_whistle"
+        ],
+        "skills": {
+          "woodcutting": 85
+        }
+      },
       "description": "Dreamwoods only exist when you whistle. Maintain the tune while chopping. Severe attention cost.",
-      "produces": [{ "item": "dreamwood_logs", "rate_per_hour": 300 }],
-      "marstead_note": "Active-Max Focus. Unique attention profile — sustained tune."
+      "produces": [
+        {
+          "item": "dreamwood_logs",
+          "rate_per_hour": 300
+        }
+      ],
+      "marstead_note": "Active-Max Focus. Unique attention profile — sustained tune.",
+      "travel_time_to_bank_seconds": 54,
+      "nearest_teleport": "Moonclan Teleport (Lunar)",
+      "banking_trip_cost": {
+        "gp": 110,
+        "intensity": 2
+      },
+      "travel_region_multiplier": 0.2,
+      "effective_xp_per_hour": 85800,
+      "effective_gp_per_hour": 277200,
+      "travel_minutes_per_hour": 7.2,
+      "active_minutes_per_hour": 52.8,
+      "trips_per_hour": 4
     },
     {
       "id": "wilds_redwood_felling",
       "skill": "woodcutting",
       "level_required": 90,
       "name": "Wilds Redwood Felling",
-      "location": { "region": "wilds", "spot": "Redwood stand, lv22 Wilderness" },
+      "location": {
+        "region": "wilds",
+        "spot": "Redwood stand, lv22 Wilderness"
+      },
       "intensity": 2,
       "xp_per_hour": 94000,
       "gp_per_hour": 240000,
-      "requires": { "quests": [], "items": ["dragon_axe"], "skills": {} },
+      "requires": {
+        "quests": [],
+        "items": [
+          "dragon_axe"
+        ],
+        "skills": {}
+      },
       "description": "Redwoods in the Wilderness. Low PK risk but constantly watching. AFK with paranoia.",
-      "produces": [{ "item": "redwood_logs", "rate_per_hour": 220 }],
-      "marstead_note": "AFK-Multitask. Wilderness Principle applies."
+      "produces": [
+        {
+          "item": "redwood_logs",
+          "rate_per_hour": 220
+        }
+      ],
+      "marstead_note": "AFK-Multitask. Wilderness Principle applies.",
+      "travel_time_to_bank_seconds": 109,
+      "nearest_teleport": "Amulet of Glory (Wilds edge)",
+      "banking_trip_cost": {
+        "gp": 500,
+        "intensity": 2
+      },
+      "travel_region_multiplier": 0.3,
+      "effective_xp_per_hour": 85462,
+      "effective_gp_per_hour": 218200,
+      "travel_minutes_per_hour": 5.5,
+      "active_minutes_per_hour": 54.6,
+      "trips_per_hour": 1.5
     },
     {
       "id": "wilds_redwood_tick_pull",
       "skill": "woodcutting",
       "level_required": 92,
       "name": "Redwood Tick-Pull Instance",
-      "location": { "region": "wilds", "spot": "Redwood Stand instance (quest unlocked)" },
+      "location": {
+        "region": "wilds",
+        "spot": "Redwood Stand instance (quest unlocked)"
+      },
       "intensity": 8,
       "xp_per_hour": 149100,
       "gp_per_hour": 480000,
-      "requires": { "quests": ["ironwood_and_axe"], "items": ["dragon_axe"], "skills": {"woodcutting": 92} },
+      "requires": {
+        "quests": [
+          "ironwood_and_axe"
+        ],
+        "items": [
+          "dragon_axe"
+        ],
+        "skills": {
+          "woodcutting": 92
+        }
+      },
       "description": "Instanced redwood stand with fast respawn. Tick-chop + log drop sequence. Best WC in Scape.",
-      "produces": [{ "item": "redwood_logs", "rate_per_hour": 380 }],
-      "marstead_note": "Max Focus. The endgame WC breakpoint."
+      "produces": [
+        {
+          "item": "redwood_logs",
+          "rate_per_hour": 380
+        }
+      ],
+      "marstead_note": "Max Focus. The endgame WC breakpoint.",
+      "travel_time_to_bank_seconds": 30,
+      "nearest_teleport": "Amulet of Glory (Wilds edge)",
+      "banking_trip_cost": {
+        "gp": 500,
+        "intensity": 2
+      },
+      "travel_region_multiplier": 0.3,
+      "effective_xp_per_hour": 139160,
+      "effective_gp_per_hour": 448000,
+      "travel_minutes_per_hour": 4,
+      "active_minutes_per_hour": 56,
+      "trips_per_hour": 4
     },
     {
       "id": "boneyard_dead_wood_haul",
       "skill": "woodcutting",
       "level_required": 55,
       "name": "Boneyard Dead-Wood Haul",
-      "location": { "region": "boneyard", "spot": "Ossarium Grove, petrified trees" },
+      "location": {
+        "region": "boneyard",
+        "spot": "Ossarium Grove, petrified trees"
+      },
       "intensity": 1,
       "xp_per_hour": 28900,
       "gp_per_hour": 72000,
-      "requires": { "quests": [], "items": ["rune_axe"], "skills": {} },
+      "requires": {
+        "quests": [],
+        "items": [
+          "rune_axe"
+        ],
+        "skills": {}
+      },
       "description": "Petrified trees yield bone-wood logs for Moryskah construction. Slow, AFK, creepy.",
-      "produces": [{ "item": "bonewood_logs", "rate_per_hour": 260 }],
-      "marstead_note": "AFK baseline for 55+. Regional material."
+      "produces": [
+        {
+          "item": "bonewood_logs",
+          "rate_per_hour": 260
+        }
+      ],
+      "marstead_note": "AFK baseline for 55+. Regional material.",
+      "travel_time_to_bank_seconds": 50,
+      "nearest_teleport": "Senntisten Teleport (Ancient)",
+      "banking_trip_cost": {
+        "gp": 180,
+        "intensity": 2
+      },
+      "travel_region_multiplier": 0.2,
+      "effective_xp_per_hour": 27696,
+      "effective_gp_per_hour": 69000,
+      "travel_minutes_per_hour": 2.5,
+      "active_minutes_per_hour": 57.5,
+      "trips_per_hour": 1.5
     },
     {
       "id": "boneyard_bonewood_rotation",
       "skill": "woodcutting",
       "level_required": 58,
       "name": "Bonewood Rotation",
-      "location": { "region": "boneyard", "spot": "Ossarium Grove row" },
+      "location": {
+        "region": "boneyard",
+        "spot": "Ossarium Grove row"
+      },
       "intensity": 4,
       "xp_per_hour": 44300,
       "gp_per_hour": 135000,
-      "requires": { "quests": [], "items": ["rune_axe"], "skills": {} },
+      "requires": {
+        "quests": [],
+        "items": [
+          "rune_axe"
+        ],
+        "skills": {}
+      },
       "description": "Rotation through 3 petrified trees. Screamers in the trees add attention cost.",
-      "produces": [{ "item": "bonewood_logs", "rate_per_hour": 360 }],
-      "marstead_note": "Active. Regional unique material."
+      "produces": [
+        {
+          "item": "bonewood_logs",
+          "rate_per_hour": 360
+        }
+      ],
+      "marstead_note": "Active. Regional unique material.",
+      "travel_time_to_bank_seconds": 50,
+      "nearest_teleport": "Senntisten Teleport (Ancient)",
+      "banking_trip_cost": {
+        "gp": 180,
+        "intensity": 2
+      },
+      "travel_region_multiplier": 0.2,
+      "effective_xp_per_hour": 39378,
+      "effective_gp_per_hour": 120000,
+      "travel_minutes_per_hour": 6.7,
+      "active_minutes_per_hour": 53.3,
+      "trips_per_hour": 4
     },
     {
       "id": "inkweald_dreamwood_logger_elite",
       "skill": "woodcutting",
       "level_required": 98,
       "name": "Inkweald Dreamwood Logger Elite",
-      "location": { "region": "inkweald", "spot": "Penseurlake dream-grove, capstone tree circuit" },
+      "location": {
+        "region": "inkweald",
+        "spot": "Penseurlake dream-grove, capstone tree circuit"
+      },
       "intensity": 5,
       "xp_per_hour": 158000,
       "gp_per_hour": 5400000,
-      "requires": { "quests": ["unwake_the_dreamer", "weavers_threnody"], "items": ["crystal_axe", "spirit_tree_ward"], "skills": {"woodcutting": 98, "farming": 85} },
+      "requires": {
+        "quests": [
+          "unwake_the_dreamer",
+          "weavers_threnody"
+        ],
+        "items": [
+          "crystal_axe",
+          "spirit_tree_ward"
+        ],
+        "skills": {
+          "woodcutting": 98,
+          "farming": 85
+        }
+      },
       "description": "Dreamwood capstone logger. Trees phase in/out — click only when real. Drops dreamwood logs used in elite fletching.",
-      "produces": [{ "item": "dreamwood_logs", "rate_per_hour": 280 }],
-      "marstead_note": "M14 endgame woodcutting. M15 non-combat 5M+ processing."
+      "produces": [
+        {
+          "item": "dreamwood_logs",
+          "rate_per_hour": 280
+        }
+      ],
+      "marstead_note": "M14 endgame woodcutting. M15 non-combat 5M+ processing.",
+      "travel_time_to_bank_seconds": 95,
+      "nearest_teleport": "Moonclan Teleport (Lunar)",
+      "banking_trip_cost": {
+        "gp": 110,
+        "intensity": 2
+      },
+      "travel_region_multiplier": 0.2,
+      "effective_xp_per_hour": 124644,
+      "effective_gp_per_hour": 4260000,
+      "travel_minutes_per_hour": 12.7,
+      "active_minutes_per_hour": 47.3,
+      "trips_per_hour": 4
     }
   ],
   "bracket_coverage": {
-    "1-10":  { "count": 2, "intensities": [1, 4] },
-    "10-20": { "count": 2, "intensities": [1, 6] },
-    "20-30": { "count": 2, "intensities": [2, 5] },
-    "30-40": { "count": 4, "intensities": [1, 6, 1, 8] },
-    "40-50": { "count": 2, "intensities": [1, 4] },
-    "50-60": { "count": 2, "intensities": [1, 4] },
-    "60-70": { "count": 2, "intensities": [1, 5] },
-    "70-80": { "count": 2, "intensities": [2, 7] },
-    "80-90": { "count": 2, "intensities": [1, 6] },
-    "90-99": { "count": 2, "intensities": [2, 8] }
+    "1-10": {
+      "count": 2,
+      "intensities": [
+        1,
+        4
+      ]
+    },
+    "10-20": {
+      "count": 2,
+      "intensities": [
+        1,
+        6
+      ]
+    },
+    "20-30": {
+      "count": 2,
+      "intensities": [
+        2,
+        5
+      ]
+    },
+    "30-40": {
+      "count": 4,
+      "intensities": [
+        1,
+        6,
+        1,
+        8
+      ]
+    },
+    "40-50": {
+      "count": 2,
+      "intensities": [
+        1,
+        4
+      ]
+    },
+    "50-60": {
+      "count": 2,
+      "intensities": [
+        1,
+        4
+      ]
+    },
+    "60-70": {
+      "count": 2,
+      "intensities": [
+        1,
+        5
+      ]
+    },
+    "70-80": {
+      "count": 2,
+      "intensities": [
+        2,
+        7
+      ]
+    },
+    "80-90": {
+      "count": 2,
+      "intensities": [
+        1,
+        6
+      ]
+    },
+    "90-99": {
+      "count": 2,
+      "intensities": [
+        2,
+        8
+      ]
+    }
   }
 }

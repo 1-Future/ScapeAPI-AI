@@ -7,362 +7,1151 @@
       "skill": "magic",
       "level_required": 1,
       "name": "Lumbrick Wind Strike Dummy",
-      "location": { "region": "heartlands", "spot": "Lumbrick training yard dummy" },
+      "location": {
+        "region": "heartlands",
+        "spot": "Lumbrick training yard dummy"
+      },
       "intensity": 1,
       "xp_per_hour": 8000,
       "gp_per_hour": 0,
-      "requires": { "quests": [], "items": ["air_rune", "mind_rune", "staff_of_air"], "skills": {} },
+      "requires": {
+        "quests": [],
+        "items": [
+          "air_rune",
+          "mind_rune",
+          "staff_of_air"
+        ],
+        "skills": {}
+      },
       "description": "Wind strike on a training dummy.",
       "produces": [],
-      "marstead_note": "AFK baseline."
+      "marstead_note": "AFK baseline.",
+      "travel_time_to_bank_seconds": 25,
+      "nearest_teleport": "Heartlands Teleport (Lumbrick)",
+      "banking_trip_cost": {
+        "gp": 35,
+        "intensity": 2
+      },
+      "travel_region_multiplier": 0,
+      "effective_xp_per_hour": 7667,
+      "effective_gp_per_hour": 0,
+      "travel_minutes_per_hour": 2.5,
+      "active_minutes_per_hour": 57.5,
+      "trips_per_hour": 3
     },
     {
       "id": "heartlands_wind_strike_rats",
       "skill": "magic",
       "level_required": 1,
       "name": "Sewer Rat Wind Strike",
-      "location": { "region": "heartlands", "spot": "Lumbrick sewer" },
+      "location": {
+        "region": "heartlands",
+        "spot": "Lumbrick sewer"
+      },
       "intensity": 3,
       "xp_per_hour": 19300,
       "gp_per_hour": 1600,
-      "requires": { "quests": [], "items": ["air_rune", "mind_rune", "staff_of_air"], "skills": {} },
+      "requires": {
+        "quests": [],
+        "items": [
+          "air_rune",
+          "mind_rune",
+          "staff_of_air"
+        ],
+        "skills": {}
+      },
       "description": "Active wind strike on rats.",
-      "produces": [{ "item": "raw_rat_meat", "rate_per_hour": 420 }],
-      "marstead_note": "Active."
+      "produces": [
+        {
+          "item": "raw_rat_meat",
+          "rate_per_hour": 420
+        }
+      ],
+      "marstead_note": "Active.",
+      "travel_time_to_bank_seconds": 44,
+      "nearest_teleport": "Heartlands Teleport (Lumbrick)",
+      "banking_trip_cost": {
+        "gp": 35,
+        "intensity": 2
+      },
+      "travel_region_multiplier": 0,
+      "effective_xp_per_hour": 17885,
+      "effective_gp_per_hour": 1483,
+      "travel_minutes_per_hour": 4.4,
+      "active_minutes_per_hour": 55.6,
+      "trips_per_hour": 3
     },
     {
       "id": "heartlands_water_strike_cows",
       "skill": "magic",
       "level_required": 5,
       "name": "Water Strike Cows",
-      "location": { "region": "heartlands", "spot": "Chelser cow field" },
+      "location": {
+        "region": "heartlands",
+        "spot": "Chelser cow field"
+      },
       "intensity": 1,
       "xp_per_hour": 10900,
       "gp_per_hour": 6500,
-      "requires": { "quests": [], "items": ["water_rune", "mind_rune", "staff_of_water"], "skills": {"magic": 5} },
+      "requires": {
+        "quests": [],
+        "items": [
+          "water_rune",
+          "mind_rune",
+          "staff_of_water"
+        ],
+        "skills": {
+          "magic": 5
+        }
+      },
       "description": "Water strike cows. AFK-slow.",
-      "produces": [{ "item": "cowhide", "rate_per_hour": 200 }],
-      "marstead_note": "AFK baseline."
+      "produces": [
+        {
+          "item": "cowhide",
+          "rate_per_hour": 200
+        }
+      ],
+      "marstead_note": "AFK baseline.",
+      "travel_time_to_bank_seconds": 25,
+      "nearest_teleport": "Heartlands Teleport (Lumbrick)",
+      "banking_trip_cost": {
+        "gp": 35,
+        "intensity": 2
+      },
+      "travel_region_multiplier": 0,
+      "effective_xp_per_hour": 10446,
+      "effective_gp_per_hour": 6229,
+      "travel_minutes_per_hour": 2.5,
+      "active_minutes_per_hour": 57.5,
+      "trips_per_hour": 3
     },
     {
       "id": "heartlands_earth_strike_goblin",
       "skill": "magic",
       "level_required": 13,
       "name": "Goblin Earth Strike Safespot",
-      "location": { "region": "heartlands", "spot": "Goblin Village safespot" },
+      "location": {
+        "region": "heartlands",
+        "spot": "Goblin Village safespot"
+      },
       "intensity": 3,
       "xp_per_hour": 22500,
       "gp_per_hour": 4200,
-      "requires": { "quests": [], "items": ["earth_rune", "chaos_rune", "staff_of_earth"], "skills": {"magic": 13} },
+      "requires": {
+        "quests": [],
+        "items": [
+          "earth_rune",
+          "chaos_rune",
+          "staff_of_earth"
+        ],
+        "skills": {
+          "magic": 13
+        }
+      },
       "description": "Earth strike goblins at safespot.",
-      "produces": [{ "item": "coins", "rate_per_hour": 6000 }],
-      "marstead_note": "Multitask."
+      "produces": [
+        {
+          "item": "coins",
+          "rate_per_hour": 6000
+        }
+      ],
+      "marstead_note": "Multitask.",
+      "travel_time_to_bank_seconds": 0,
+      "nearest_teleport": null,
+      "banking_trip_cost": {
+        "gp": 0,
+        "intensity": 0
+      },
+      "travel_region_multiplier": 0,
+      "effective_xp_per_hour": 22500,
+      "effective_gp_per_hour": 4200,
+      "travel_minutes_per_hour": 0,
+      "active_minutes_per_hour": 60,
+      "trips_per_hour": 0
     },
     {
       "id": "heartlands_wind_bolt_cow",
       "skill": "magic",
       "level_required": 17,
       "name": "Wind Bolt Cow AFK",
-      "location": { "region": "heartlands", "spot": "Chelser cow field" },
+      "location": {
+        "region": "heartlands",
+        "spot": "Chelser cow field"
+      },
       "intensity": 1,
       "xp_per_hour": 14100,
       "gp_per_hour": 4200,
-      "requires": { "quests": [], "items": ["chaos_rune", "air_rune"], "skills": {"magic": 17} },
+      "requires": {
+        "quests": [],
+        "items": [
+          "chaos_rune",
+          "air_rune"
+        ],
+        "skills": {
+          "magic": 17
+        }
+      },
       "description": "Wind bolt cows. Pure AFK.",
-      "produces": [{ "item": "cowhide", "rate_per_hour": 220 }],
-      "marstead_note": "AFK baseline for 17+."
+      "produces": [
+        {
+          "item": "cowhide",
+          "rate_per_hour": 220
+        }
+      ],
+      "marstead_note": "AFK baseline for 17+.",
+      "travel_time_to_bank_seconds": 25,
+      "nearest_teleport": "Heartlands Teleport (Lumbrick)",
+      "banking_trip_cost": {
+        "gp": 35,
+        "intensity": 2
+      },
+      "travel_region_multiplier": 0,
+      "effective_xp_per_hour": 13513,
+      "effective_gp_per_hour": 4025,
+      "travel_minutes_per_hour": 2.5,
+      "active_minutes_per_hour": 57.5,
+      "trips_per_hour": 3
     },
     {
       "id": "heartlands_teleport_varrock_afk",
       "skill": "magic",
       "level_required": 25,
       "name": "Varrock Teleport Spam",
-      "location": { "region": "heartlands", "spot": "Lumbrick bank + tele anywhere" },
+      "location": {
+        "region": "heartlands",
+        "spot": "Lumbrick bank + tele anywhere"
+      },
       "intensity": 1,
       "xp_per_hour": 17400,
       "gp_per_hour": 0,
-      "requires": { "quests": [], "items": ["law_rune", "fire_rune", "air_rune"], "skills": {"magic": 25} },
+      "requires": {
+        "quests": [],
+        "items": [
+          "law_rune",
+          "fire_rune",
+          "air_rune"
+        ],
+        "skills": {
+          "magic": 25
+        }
+      },
       "description": "Varrock tele spam. Resource-drain AFK.",
       "produces": [],
-      "marstead_note": "AFK baseline for utility mage."
+      "marstead_note": "AFK baseline for utility mage.",
+      "travel_time_to_bank_seconds": 0,
+      "nearest_teleport": null,
+      "banking_trip_cost": {
+        "gp": 0,
+        "intensity": 0
+      },
+      "travel_region_multiplier": 0,
+      "effective_xp_per_hour": 17400,
+      "effective_gp_per_hour": 0,
+      "travel_minutes_per_hour": 0,
+      "active_minutes_per_hour": 60,
+      "trips_per_hour": 0
     },
     {
       "id": "saltbrine_tele_alch_combo",
       "skill": "magic",
       "level_required": 25,
       "name": "Low-Alch + Teleport Chain",
-      "location": { "region": "saltbrine", "spot": "Drifting Market bank" },
+      "location": {
+        "region": "saltbrine",
+        "spot": "Drifting Market bank"
+      },
       "intensity": 4,
       "xp_per_hour": 40300,
       "gp_per_hour": -85000,
-      "requires": { "quests": [], "items": ["low_alch_items", "law_rune"], "skills": {"magic": 25} },
+      "requires": {
+        "quests": [],
+        "items": [
+          "low_alch_items",
+          "law_rune"
+        ],
+        "skills": {
+          "magic": 25
+        }
+      },
       "description": "Low-alch spam + Varrock tele for tick resets. Pure XP, GP negative.",
       "produces": [],
-      "marstead_note": "Active."
+      "marstead_note": "Active.",
+      "travel_time_to_bank_seconds": 0,
+      "nearest_teleport": null,
+      "banking_trip_cost": {
+        "gp": 0,
+        "intensity": 0
+      },
+      "travel_region_multiplier": 0,
+      "effective_xp_per_hour": 40300,
+      "effective_gp_per_hour": -85000,
+      "travel_minutes_per_hour": 0,
+      "active_minutes_per_hour": 60,
+      "trips_per_hour": 0
     },
     {
       "id": "sootworks_superheat_bar_chain",
       "skill": "magic",
       "level_required": 35,
       "name": "Superheat Iron Chain",
-      "location": { "region": "sootworks", "spot": "Sootworks Blast Furnace" },
+      "location": {
+        "region": "sootworks",
+        "spot": "Sootworks Blast Furnace"
+      },
       "intensity": 5,
       "xp_per_hour": 72500,
       "gp_per_hour": 95000,
-      "requires": { "quests": [], "items": ["iron_ore", "coal", "nature_rune", "fire_rune"], "skills": {"magic": 35, "smithing": 30} },
+      "requires": {
+        "quests": [],
+        "items": [
+          "iron_ore",
+          "coal",
+          "nature_rune",
+          "fire_rune"
+        ],
+        "skills": {
+          "magic": 35,
+          "smithing": 30
+        }
+      },
       "description": "Superheat iron ore in a blast furnace. Smithing + Magic XP.",
-      "produces": [{ "item": "iron_bar", "rate_per_hour": 1600 }],
-      "marstead_note": "Active. Multi-skill."
+      "produces": [
+        {
+          "item": "iron_bar",
+          "rate_per_hour": 1600
+        }
+      ],
+      "marstead_note": "Active. Multi-skill.",
+      "travel_time_to_bank_seconds": 0,
+      "nearest_teleport": null,
+      "banking_trip_cost": {
+        "gp": 0,
+        "intensity": 0
+      },
+      "travel_region_multiplier": 0.1,
+      "effective_xp_per_hour": 72500,
+      "effective_gp_per_hour": 95000,
+      "travel_minutes_per_hour": 0,
+      "active_minutes_per_hour": 60,
+      "trips_per_hour": 0
     },
     {
       "id": "sootworks_superheat_afk",
       "skill": "magic",
       "level_required": 35,
       "name": "Superheat AFK",
-      "location": { "region": "sootworks", "spot": "Emberwall furnace" },
+      "location": {
+        "region": "sootworks",
+        "spot": "Emberwall furnace"
+      },
       "intensity": 1,
       "xp_per_hour": 23300,
       "gp_per_hour": 45000,
-      "requires": { "quests": [], "items": ["iron_ore", "coal", "nature_rune", "fire_rune"], "skills": {"magic": 35} },
+      "requires": {
+        "quests": [],
+        "items": [
+          "iron_ore",
+          "coal",
+          "nature_rune",
+          "fire_rune"
+        ],
+        "skills": {
+          "magic": 35
+        }
+      },
       "description": "Superheat AFK.",
-      "produces": [{ "item": "iron_bar", "rate_per_hour": 480 }],
-      "marstead_note": "AFK baseline for 35+."
+      "produces": [
+        {
+          "item": "iron_bar",
+          "rate_per_hour": 480
+        }
+      ],
+      "marstead_note": "AFK baseline for 35+.",
+      "travel_time_to_bank_seconds": 0,
+      "nearest_teleport": null,
+      "banking_trip_cost": {
+        "gp": 0,
+        "intensity": 0
+      },
+      "travel_region_multiplier": 0.1,
+      "effective_xp_per_hour": 23300,
+      "effective_gp_per_hour": 45000,
+      "travel_minutes_per_hour": 0,
+      "active_minutes_per_hour": 60,
+      "trips_per_hour": 0
     },
     {
       "id": "heartlands_fire_bolt_safespot",
       "skill": "magic",
       "level_required": 35,
       "name": "Fire Bolt Safespot Ogress",
-      "location": { "region": "heartlands", "spot": "Ogre Glen safespot" },
+      "location": {
+        "region": "heartlands",
+        "spot": "Ogre Glen safespot"
+      },
       "intensity": 2,
       "xp_per_hour": 30400,
       "gp_per_hour": 22000,
-      "requires": { "quests": [], "items": ["chaos_rune", "fire_rune", "air_rune"], "skills": {"magic": 35} },
+      "requires": {
+        "quests": [],
+        "items": [
+          "chaos_rune",
+          "fire_rune",
+          "air_rune"
+        ],
+        "skills": {
+          "magic": 35
+        }
+      },
       "description": "Fire bolt ogresses at safespot.",
-      "produces": [{ "item": "ogre_tooth", "rate_per_hour": 85 }],
-      "marstead_note": "AFK-Multitask."
+      "produces": [
+        {
+          "item": "ogre_tooth",
+          "rate_per_hour": 85
+        }
+      ],
+      "marstead_note": "AFK-Multitask.",
+      "travel_time_to_bank_seconds": 25,
+      "nearest_teleport": "Heartlands Teleport (Lumbrick)",
+      "banking_trip_cost": {
+        "gp": 35,
+        "intensity": 2
+      },
+      "travel_region_multiplier": 0,
+      "effective_xp_per_hour": 29133,
+      "effective_gp_per_hour": 21083,
+      "travel_minutes_per_hour": 2.5,
+      "active_minutes_per_hour": 57.5,
+      "trips_per_hour": 3
     },
     {
       "id": "heartlands_mid_alch_afk",
       "skill": "magic",
       "level_required": 43,
       "name": "Mid-Alch Cycle AFK",
-      "location": { "region": "heartlands", "spot": "Lumbrick bank chest" },
+      "location": {
+        "region": "heartlands",
+        "spot": "Lumbrick bank chest"
+      },
       "intensity": 1,
       "xp_per_hour": 28000,
       "gp_per_hour": 35000,
-      "requires": { "quests": [], "items": ["nature_rune", "fire_rune", "low_alch_items"], "skills": {"magic": 43} },
+      "requires": {
+        "quests": [],
+        "items": [
+          "nature_rune",
+          "fire_rune",
+          "low_alch_items"
+        ],
+        "skills": {
+          "magic": 43
+        }
+      },
       "description": "Sustained alchemy cycle. Full AFK.",
       "produces": [],
-      "marstead_note": "AFK baseline for 43+."
+      "marstead_note": "AFK baseline for 43+.",
+      "travel_time_to_bank_seconds": 0,
+      "nearest_teleport": null,
+      "banking_trip_cost": {
+        "gp": 0,
+        "intensity": 0
+      },
+      "travel_region_multiplier": 0,
+      "effective_xp_per_hour": 28000,
+      "effective_gp_per_hour": 35000,
+      "travel_minutes_per_hour": 0,
+      "active_minutes_per_hour": 60,
+      "trips_per_hour": 0
     },
     {
       "id": "heartlands_high_alch_spam_afk",
       "skill": "magic",
       "level_required": 55,
       "name": "High Alchemy Spam (Bank Chest)",
-      "location": { "region": "heartlands", "spot": "Lumbrick bank" },
+      "location": {
+        "region": "heartlands",
+        "spot": "Lumbrick bank"
+      },
       "intensity": 1,
       "xp_per_hour": 46200,
       "gp_per_hour": 120000,
-      "requires": { "quests": [], "items": ["high_alch_items", "nature_rune", "fire_rune"], "skills": {"magic": 55} },
+      "requires": {
+        "quests": [],
+        "items": [
+          "high_alch_items",
+          "nature_rune",
+          "fire_rune"
+        ],
+        "skills": {
+          "magic": 55
+        }
+      },
       "description": "High-alch nat + fire spam. Background.",
       "produces": [],
-      "marstead_note": "AFK baseline. Classic background XP."
+      "marstead_note": "AFK baseline. Classic background XP.",
+      "travel_time_to_bank_seconds": 0,
+      "nearest_teleport": null,
+      "banking_trip_cost": {
+        "gp": 0,
+        "intensity": 0
+      },
+      "travel_region_multiplier": 0,
+      "effective_xp_per_hour": 46200,
+      "effective_gp_per_hour": 120000,
+      "travel_minutes_per_hour": 0,
+      "active_minutes_per_hour": 60,
+      "trips_per_hour": 0
     },
     {
       "id": "heartlands_high_alch_active",
       "skill": "magic",
       "level_required": 55,
       "name": "High Alchemy Active-Tick",
-      "location": { "region": "heartlands", "spot": "Lumbrick bank" },
+      "location": {
+        "region": "heartlands",
+        "spot": "Lumbrick bank"
+      },
       "intensity": 5,
       "xp_per_hour": 78100,
       "gp_per_hour": 220000,
-      "requires": { "quests": [], "items": ["high_alch_items", "nature_rune", "fire_rune"], "skills": {"magic": 55} },
+      "requires": {
+        "quests": [],
+        "items": [
+          "high_alch_items",
+          "nature_rune",
+          "fire_rune"
+        ],
+        "skills": {
+          "magic": 55
+        }
+      },
       "description": "Click tick-perfect alching between other tasks for max XP rate.",
       "produces": [],
-      "marstead_note": "Active."
+      "marstead_note": "Active.",
+      "travel_time_to_bank_seconds": 0,
+      "nearest_teleport": null,
+      "banking_trip_cost": {
+        "gp": 0,
+        "intensity": 0
+      },
+      "travel_region_multiplier": 0,
+      "effective_xp_per_hour": 78100,
+      "effective_gp_per_hour": 220000,
+      "travel_minutes_per_hour": 0,
+      "active_minutes_per_hour": 60,
+      "trips_per_hour": 0
     },
     {
       "id": "glass_desert_fire_wave_desert",
       "skill": "magic",
       "level_required": 47,
       "name": "Glass Desert Fire Wave Combat",
-      "location": { "region": "glass_desert", "spot": "Shattered Dune oasis skirmish" },
+      "location": {
+        "region": "glass_desert",
+        "spot": "Shattered Dune oasis skirmish"
+      },
       "intensity": 3,
       "xp_per_hour": 46900,
       "gp_per_hour": 72000,
-      "requires": { "quests": [], "items": ["chaos_rune", "fire_rune", "death_rune"], "skills": {"magic": 47} },
+      "requires": {
+        "quests": [],
+        "items": [
+          "chaos_rune",
+          "fire_rune",
+          "death_rune"
+        ],
+        "skills": {
+          "magic": 47
+        }
+      },
       "description": "Fire wave. Glass desert fire resistance -2.",
-      "produces": [{ "item": "blasted_crystal", "rate_per_hour": 60 }],
-      "marstead_note": "Active."
+      "produces": [
+        {
+          "item": "blasted_crystal",
+          "rate_per_hour": 60
+        }
+      ],
+      "marstead_note": "Active.",
+      "travel_time_to_bank_seconds": 83,
+      "nearest_teleport": "Glass Desert Pendant",
+      "banking_trip_cost": {
+        "gp": 500,
+        "intensity": 2
+      },
+      "travel_region_multiplier": 0.5,
+      "effective_xp_per_hour": 40412,
+      "effective_gp_per_hour": 62040,
+      "travel_minutes_per_hour": 8.3,
+      "active_minutes_per_hour": 51.7,
+      "trips_per_hour": 3
     },
     {
       "id": "veilwood_tele_block_afk",
       "skill": "magic",
       "level_required": 63,
       "name": "Veilwood Bank-Alch + Tele-Chain",
-      "location": { "region": "veilwood", "spot": "Whisperthorn bank" },
+      "location": {
+        "region": "veilwood",
+        "spot": "Whisperthorn bank"
+      },
       "intensity": 2,
       "xp_per_hour": 58700,
       "gp_per_hour": 185000,
-      "requires": { "quests": [], "items": ["nature_rune", "fire_rune", "air_rune", "law_rune"], "skills": {"magic": 63} },
+      "requires": {
+        "quests": [],
+        "items": [
+          "nature_rune",
+          "fire_rune",
+          "air_rune",
+          "law_rune"
+        ],
+        "skills": {
+          "magic": 63
+        }
+      },
       "description": "Passive alch + tele chain, no mob required. Background AFK.",
       "produces": [],
-      "marstead_note": "AFK-Multitask for 60s."
+      "marstead_note": "AFK-Multitask for 60s.",
+      "travel_time_to_bank_seconds": 0,
+      "nearest_teleport": null,
+      "banking_trip_cost": {
+        "gp": 0,
+        "intensity": 0
+      },
+      "travel_region_multiplier": 0.1,
+      "effective_xp_per_hour": 58700,
+      "effective_gp_per_hour": 185000,
+      "travel_minutes_per_hour": 0,
+      "active_minutes_per_hour": 60,
+      "trips_per_hour": 0
     },
     {
       "id": "inkweald_ice_burst_afk",
       "skill": "magic",
       "level_required": 70,
       "name": "Inkweald Ice Burst Cave AFK",
-      "location": { "region": "inkweald", "spot": "Frozen sanctum" },
+      "location": {
+        "region": "inkweald",
+        "spot": "Frozen sanctum"
+      },
       "intensity": 2,
       "xp_per_hour": 60000,
       "gp_per_hour": 95000,
-      "requires": { "quests": ["the_icebound_covenant"], "items": ["water_rune", "death_rune", "chaos_rune"], "skills": {"magic": 70} },
+      "requires": {
+        "quests": [
+          "the_icebound_covenant"
+        ],
+        "items": [
+          "water_rune",
+          "death_rune",
+          "chaos_rune"
+        ],
+        "skills": {
+          "magic": 70
+        }
+      },
       "description": "Ice burst multi-cave AFK.",
-      "produces": [{ "item": "ice_dust", "rate_per_hour": 180 }],
-      "marstead_note": "AFK-Multitask."
+      "produces": [
+        {
+          "item": "ice_dust",
+          "rate_per_hour": 180
+        }
+      ],
+      "marstead_note": "AFK-Multitask.",
+      "travel_time_to_bank_seconds": 54,
+      "nearest_teleport": "Moonclan Teleport (Lunar)",
+      "banking_trip_cost": {
+        "gp": 110,
+        "intensity": 2
+      },
+      "travel_region_multiplier": 0.2,
+      "effective_xp_per_hour": 54600,
+      "effective_gp_per_hour": 86450,
+      "travel_minutes_per_hour": 5.4,
+      "active_minutes_per_hour": 54.6,
+      "trips_per_hour": 3
     },
     {
       "id": "inkweald_ice_barrage_spam",
       "skill": "magic",
       "level_required": 75,
       "name": "Ice Barrage Spam (Dream-Cave)",
-      "location": { "region": "inkweald", "spot": "Dream-cave barrage pit" },
+      "location": {
+        "region": "inkweald",
+        "spot": "Dream-cave barrage pit"
+      },
       "intensity": 6,
       "xp_per_hour": 104800,
       "gp_per_hour": 240000,
-      "requires": { "quests": ["unwake_the_dreamer"], "items": ["water_rune", "blood_rune", "death_rune"], "skills": {"magic": 75} },
+      "requires": {
+        "quests": [
+          "unwake_the_dreamer"
+        ],
+        "items": [
+          "water_rune",
+          "blood_rune",
+          "death_rune"
+        ],
+        "skills": {
+          "magic": 75
+        }
+      },
       "description": "Ice barrage AoE at peak density.",
-      "produces": [{ "item": "dream_dust", "rate_per_hour": 380 }],
-      "marstead_note": "Active-Max Focus. Endgame mage XP."
+      "produces": [
+        {
+          "item": "dream_dust",
+          "rate_per_hour": 380
+        }
+      ],
+      "marstead_note": "Active-Max Focus. Endgame mage XP.",
+      "travel_time_to_bank_seconds": 0,
+      "nearest_teleport": null,
+      "banking_trip_cost": {
+        "gp": 0,
+        "intensity": 0
+      },
+      "travel_region_multiplier": 0.2,
+      "effective_xp_per_hour": 104800,
+      "effective_gp_per_hour": 240000,
+      "travel_minutes_per_hour": 0,
+      "active_minutes_per_hour": 60,
+      "trips_per_hour": 0
     },
     {
       "id": "moryskah_blood_blitz_rotation",
       "skill": "magic",
       "level_required": 80,
       "name": "Blood Blitz Chamber Rotation",
-      "location": { "region": "moryskah", "spot": "Gravechill blitz chamber" },
+      "location": {
+        "region": "moryskah",
+        "spot": "Gravechill blitz chamber"
+      },
       "intensity": 5,
       "xp_per_hour": 123000,
       "gp_per_hour": 285000,
-      "requires": { "quests": ["the_blooded_pick"], "items": ["blood_rune", "death_rune", "chaos_rune"], "skills": {"magic": 80} },
+      "requires": {
+        "quests": [
+          "the_blooded_pick"
+        ],
+        "items": [
+          "blood_rune",
+          "death_rune",
+          "chaos_rune"
+        ],
+        "skills": {
+          "magic": 80
+        }
+      },
       "description": "Blood blitz rotation. Heal-on-damage attention flow.",
-      "produces": [{ "item": "blood_dust", "rate_per_hour": 280 }],
-      "marstead_note": "Active."
+      "produces": [
+        {
+          "item": "blood_dust",
+          "rate_per_hour": 280
+        }
+      ],
+      "marstead_note": "Active.",
+      "travel_time_to_bank_seconds": 46,
+      "nearest_teleport": "Moryskah Teleport (Village)",
+      "banking_trip_cost": {
+        "gp": 85,
+        "intensity": 2
+      },
+      "travel_region_multiplier": 0.2,
+      "effective_xp_per_hour": 113570,
+      "effective_gp_per_hour": 263150,
+      "travel_minutes_per_hour": 4.6,
+      "active_minutes_per_hour": 55.4,
+      "trips_per_hour": 3
     },
     {
       "id": "veilwood_blood_blitz_afk",
       "skill": "magic",
       "level_required": 80,
       "name": "Blood Blitz Safespot AFK",
-      "location": { "region": "veilwood", "spot": "Sanctum safespot" },
+      "location": {
+        "region": "veilwood",
+        "spot": "Sanctum safespot"
+      },
       "intensity": 2,
       "xp_per_hour": 84200,
       "gp_per_hour": 170000,
-      "requires": { "quests": ["swan_song_of_veilwood"], "items": ["blood_rune", "death_rune", "chaos_rune"], "skills": {"magic": 80} },
+      "requires": {
+        "quests": [
+          "swan_song_of_veilwood"
+        ],
+        "items": [
+          "blood_rune",
+          "death_rune",
+          "chaos_rune"
+        ],
+        "skills": {
+          "magic": 80
+        }
+      },
       "description": "Blood blitz safespot AFK.",
-      "produces": [{ "item": "blood_dust", "rate_per_hour": 180 }],
-      "marstead_note": "AFK-Multitask for 80+."
+      "produces": [
+        {
+          "item": "blood_dust",
+          "rate_per_hour": 180
+        }
+      ],
+      "marstead_note": "AFK-Multitask for 80+.",
+      "travel_time_to_bank_seconds": 39,
+      "nearest_teleport": "Necklace of Passage",
+      "banking_trip_cost": {
+        "gp": 500,
+        "intensity": 2
+      },
+      "travel_region_multiplier": 0.1,
+      "effective_xp_per_hour": 78727,
+      "effective_gp_per_hour": 158950,
+      "travel_minutes_per_hour": 3.9,
+      "active_minutes_per_hour": 56.1,
+      "trips_per_hour": 3
     },
     {
       "id": "wilds_nmz_barrage",
       "skill": "magic",
       "level_required": 91,
       "name": "Nightmare Zone Barrage Meta",
-      "location": { "region": "inkweald", "spot": "Nightmare Zone chamber" },
+      "location": {
+        "region": "inkweald",
+        "spot": "Nightmare Zone chamber"
+      },
       "intensity": 7,
       "xp_per_hour": 163500,
       "gp_per_hour": 285000,
-      "requires": { "quests": ["the_dream_contract"], "items": ["barrage_runes", "overload"], "skills": {"magic": 91} },
+      "requires": {
+        "quests": [
+          "the_dream_contract"
+        ],
+        "items": [
+          "barrage_runes",
+          "overload"
+        ],
+        "skills": {
+          "magic": 91
+        }
+      },
       "description": "Multi-target barrage meta with overload. Peak XP in the game.",
-      "produces": [{ "item": "nightmare_token", "rate_per_hour": 85000 }],
-      "marstead_note": "Max Focus."
+      "produces": [
+        {
+          "item": "nightmare_token",
+          "rate_per_hour": 85000
+        }
+      ],
+      "marstead_note": "Max Focus.",
+      "travel_time_to_bank_seconds": 0,
+      "nearest_teleport": null,
+      "banking_trip_cost": {
+        "gp": 0,
+        "intensity": 0
+      },
+      "travel_region_multiplier": 0.2,
+      "effective_xp_per_hour": 163500,
+      "effective_gp_per_hour": 285000,
+      "travel_minutes_per_hour": 0,
+      "active_minutes_per_hour": 60,
+      "trips_per_hour": 0
     },
     {
       "id": "wilds_ancient_raid_cast",
       "skill": "magic",
       "level_required": 94,
       "name": "Wilds Ancient Raid Cast",
-      "location": { "region": "wilds", "spot": "Ancient raid, Wilds lv50" },
+      "location": {
+        "region": "wilds",
+        "spot": "Ancient raid, Wilds lv50"
+      },
       "intensity": 9,
       "xp_per_hour": 212000,
       "gp_per_hour": 620000,
-      "requires": { "quests": ["the_seven_seals"], "items": ["ancient_staff", "wrath_rune"], "skills": {"magic": 94} },
+      "requires": {
+        "quests": [
+          "the_seven_seals"
+        ],
+        "items": [
+          "ancient_staff",
+          "wrath_rune"
+        ],
+        "skills": {
+          "magic": 94
+        }
+      },
       "description": "Raid-scaled ancient casting.",
-      "produces": [{ "item": "ancient_shard", "rate_per_hour": 14 }],
-      "marstead_note": "Max Focus. Endgame."
+      "produces": [
+        {
+          "item": "ancient_shard",
+          "rate_per_hour": 14
+        }
+      ],
+      "marstead_note": "Max Focus. Endgame.",
+      "travel_time_to_bank_seconds": 30,
+      "nearest_teleport": "Amulet of Glory (Wilds edge)",
+      "banking_trip_cost": {
+        "gp": 500,
+        "intensity": 2
+      },
+      "travel_region_multiplier": 0.3,
+      "effective_xp_per_hour": 194333,
+      "effective_gp_per_hour": 568333,
+      "travel_minutes_per_hour": 5,
+      "active_minutes_per_hour": 55,
+      "trips_per_hour": 5
     },
     {
       "id": "veilwood_alch_stall_afk",
       "skill": "magic",
       "level_required": 95,
       "name": "Veilwood Alchemy Stall AFK",
-      "location": { "region": "veilwood", "spot": "Moonblade Monastery alch stall" },
+      "location": {
+        "region": "veilwood",
+        "spot": "Moonblade Monastery alch stall"
+      },
       "intensity": 1,
       "xp_per_hour": 98500,
       "gp_per_hour": 425000,
-      "requires": { "quests": [], "items": ["nature_rune", "fire_rune", "alchemy_stall_items"], "skills": {"magic": 95} },
+      "requires": {
+        "quests": [],
+        "items": [
+          "nature_rune",
+          "fire_rune",
+          "alchemy_stall_items"
+        ],
+        "skills": {
+          "magic": 95
+        }
+      },
       "description": "Stall-alchemy AFK. Bulk items preloaded by NPC.",
       "produces": [],
-      "marstead_note": "AFK baseline for 95+."
+      "marstead_note": "AFK baseline for 95+.",
+      "travel_time_to_bank_seconds": 39,
+      "nearest_teleport": "Necklace of Passage",
+      "banking_trip_cost": {
+        "gp": 500,
+        "intensity": 2
+      },
+      "travel_region_multiplier": 0.1,
+      "effective_xp_per_hour": 92098,
+      "effective_gp_per_hour": 397375,
+      "travel_minutes_per_hour": 3.9,
+      "active_minutes_per_hour": 56.1,
+      "trips_per_hour": 3
     },
     {
       "id": "heartlands_teleport_crafter",
       "skill": "magic",
       "level_required": 60,
       "name": "Teleport-Tab Crafting",
-      "location": { "region": "heartlands", "spot": "Player house tele stand" },
+      "location": {
+        "region": "heartlands",
+        "spot": "Player house tele stand"
+      },
       "intensity": 4,
       "xp_per_hour": 68000,
       "gp_per_hour": 220000,
-      "requires": { "quests": [], "items": ["law_rune", "soft_clay", "staff"], "skills": {"magic": 60} },
+      "requires": {
+        "quests": [],
+        "items": [
+          "law_rune",
+          "soft_clay",
+          "staff"
+        ],
+        "skills": {
+          "magic": 60
+        }
+      },
       "description": "Craft teleport tabs. Multi-skill Make-X chain.",
-      "produces": [{ "item": "varrock_teleport_tab", "rate_per_hour": 2200 }],
-      "marstead_note": "Active. Profit + XP."
+      "produces": [
+        {
+          "item": "varrock_teleport_tab",
+          "rate_per_hour": 2200
+        }
+      ],
+      "marstead_note": "Active. Profit + XP.",
+      "travel_time_to_bank_seconds": 0,
+      "nearest_teleport": null,
+      "banking_trip_cost": {
+        "gp": 0,
+        "intensity": 0
+      },
+      "travel_region_multiplier": 0,
+      "effective_xp_per_hour": 68000,
+      "effective_gp_per_hour": 220000,
+      "travel_minutes_per_hour": 0,
+      "active_minutes_per_hour": 60,
+      "trips_per_hour": 0
     },
     {
       "id": "sootworks_pipeworks_rune_golem",
       "skill": "magic",
       "level_required": 77,
       "name": "Pipeworks Rune Golem",
-      "location": { "region": "sootworks", "spot": "Cindervault pipeworks sub-level" },
+      "location": {
+        "region": "sootworks",
+        "spot": "Cindervault pipeworks sub-level"
+      },
       "intensity": 6,
       "xp_per_hour": 158000,
       "gp_per_hour": 1400000,
-      "requires": { "quests": ["soot_and_ember", "the_pipeworks_run"], "items": ["staff_of_fire", "cannon_kit"], "skills": {"magic": 77, "ranged": 75} },
+      "requires": {
+        "quests": [
+          "soot_and_ember",
+          "the_pipeworks_run"
+        ],
+        "items": [
+          "staff_of_fire",
+          "cannon_kit"
+        ],
+        "skills": {
+          "magic": 77,
+          "ranged": 75
+        }
+      },
       "description": "Cannon-able rune golem in the pipes. Magic primary + cannon secondary for AoE. Elemental runes drop thick.",
-      "produces": [{ "item": "ancient_essence", "rate_per_hour": 1800 }],
-      "marstead_note": "H11 Sootworks 1-2M moneymaker. Cannon-able elemental."
+      "produces": [
+        {
+          "item": "ancient_essence",
+          "rate_per_hour": 1800
+        }
+      ],
+      "marstead_note": "H11 Sootworks 1-2M moneymaker. Cannon-able elemental.",
+      "travel_time_to_bank_seconds": 35,
+      "nearest_teleport": "Sootworks Teleport (Forge Hall)",
+      "banking_trip_cost": {
+        "gp": 65,
+        "intensity": 2
+      },
+      "travel_region_multiplier": 0.1,
+      "effective_xp_per_hour": 142639,
+      "effective_gp_per_hour": 1263889,
+      "travel_minutes_per_hour": 5.8,
+      "active_minutes_per_hour": 54.2,
+      "trips_per_hour": 5
     },
     {
       "id": "moryskah_shadow_nexus_mage",
       "skill": "magic",
       "level_required": 95,
       "name": "Moryskah Shadow Nexus Mage",
-      "location": { "region": "moryskah", "spot": "Gravechill shadow-nexus apex" },
+      "location": {
+        "region": "moryskah",
+        "spot": "Gravechill shadow-nexus apex"
+      },
       "intensity": 10,
       "xp_per_hour": 234000,
       "gp_per_hour": 6800000,
-      "requires": { "quests": ["requiem_of_hollows", "vyre_ascension"], "items": ["shadow_staff", "ancestral_robes", "augury_prayer_book"], "skills": {"magic": 95, "prayer": 90, "defence": 90} },
+      "requires": {
+        "quests": [
+          "requiem_of_hollows",
+          "vyre_ascension"
+        ],
+        "items": [
+          "shadow_staff",
+          "ancestral_robes",
+          "augury_prayer_book"
+        ],
+        "skills": {
+          "magic": 95,
+          "prayer": 90,
+          "defence": 90
+        }
+      },
       "description": "Solo shadow-nexus elite challenge — max focus multi-mechanic wipe on fail. Drops shadow-staff uniques. Band 10 non-Inferno.",
-      "produces": [{ "item": "shadow_fragment", "rate_per_hour": 0.85 }],
-      "marstead_note": "M13 band 10 elite magic. Shadow-nexus analogue."
+      "produces": [
+        {
+          "item": "shadow_fragment",
+          "rate_per_hour": 0.85
+        }
+      ],
+      "marstead_note": "M13 band 10 elite magic. Shadow-nexus analogue.",
+      "travel_time_to_bank_seconds": 30,
+      "nearest_teleport": "Moryskah Teleport (Village)",
+      "banking_trip_cost": {
+        "gp": 85,
+        "intensity": 2
+      },
+      "travel_region_multiplier": 0.2,
+      "effective_xp_per_hour": 214500,
+      "effective_gp_per_hour": 6233333,
+      "travel_minutes_per_hour": 5,
+      "active_minutes_per_hour": 55,
+      "trips_per_hour": 5
     }
   ],
   "bracket_coverage": {
-    "1-10":  { "count": 3, "intensities": [1, 3, 1] },
-    "10-20": { "count": 2, "intensities": [3, 1] },
-    "20-30": { "count": 2, "intensities": [1, 4] },
-    "30-40": { "count": 3, "intensities": [5, 1, 2] },
-    "40-50": { "count": 2, "intensities": [3, 1] },
-    "50-60": { "count": 2, "intensities": [1, 5] },
-    "60-70": { "count": 2, "intensities": [4, 2] },
-    "70-80": { "count": 2, "intensities": [2, 6] },
-    "80-90": { "count": 2, "intensities": [5, 2] },
-    "90-99": { "count": 3, "intensities": [7, 9, 1] }
+    "1-10": {
+      "count": 3,
+      "intensities": [
+        1,
+        3,
+        1
+      ]
+    },
+    "10-20": {
+      "count": 2,
+      "intensities": [
+        3,
+        1
+      ]
+    },
+    "20-30": {
+      "count": 2,
+      "intensities": [
+        1,
+        4
+      ]
+    },
+    "30-40": {
+      "count": 3,
+      "intensities": [
+        5,
+        1,
+        2
+      ]
+    },
+    "40-50": {
+      "count": 2,
+      "intensities": [
+        3,
+        1
+      ]
+    },
+    "50-60": {
+      "count": 2,
+      "intensities": [
+        1,
+        5
+      ]
+    },
+    "60-70": {
+      "count": 2,
+      "intensities": [
+        4,
+        2
+      ]
+    },
+    "70-80": {
+      "count": 2,
+      "intensities": [
+        2,
+        6
+      ]
+    },
+    "80-90": {
+      "count": 2,
+      "intensities": [
+        5,
+        2
+      ]
+    },
+    "90-99": {
+      "count": 3,
+      "intensities": [
+        7,
+        9,
+        1
+      ]
+    }
   }
 }

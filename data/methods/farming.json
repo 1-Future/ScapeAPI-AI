@@ -7,376 +7,1196 @@
       "skill": "farming",
       "level_required": 1,
       "name": "Heartlands Potato Run",
-      "location": { "region": "heartlands", "spot": "Chelser allotment" },
+      "location": {
+        "region": "heartlands",
+        "spot": "Chelser allotment"
+      },
       "intensity": 2,
       "xp_per_hour": 13900,
       "gp_per_hour": 3500,
-      "requires": { "quests": [], "items": ["potato_seed", "spade", "rake"], "skills": {} },
+      "requires": {
+        "quests": [],
+        "items": [
+          "potato_seed",
+          "spade",
+          "rake"
+        ],
+        "skills": {}
+      },
       "description": "40-min potato cycle. 4 allotments.",
-      "produces": [{ "item": "potato", "rate_per_hour": 350 }],
-      "marstead_note": "AFK-Multitask baseline. Cycle-based."
+      "produces": [
+        {
+          "item": "potato",
+          "rate_per_hour": 350
+        }
+      ],
+      "marstead_note": "AFK-Multitask baseline. Cycle-based.",
+      "travel_time_to_bank_seconds": 25,
+      "nearest_teleport": "Heartlands Teleport (Lumbrick)",
+      "banking_trip_cost": {
+        "gp": 35,
+        "intensity": 2
+      },
+      "travel_region_multiplier": 0,
+      "effective_xp_per_hour": 13707,
+      "effective_gp_per_hour": 3451,
+      "travel_minutes_per_hour": 0.8,
+      "active_minutes_per_hour": 59.2,
+      "trips_per_hour": 1
     },
     {
       "id": "heartlands_onion_afk",
       "skill": "farming",
       "level_required": 5,
       "name": "Onion Run (1 Patch AFK)",
-      "location": { "region": "heartlands", "spot": "Chelser single allotment" },
+      "location": {
+        "region": "heartlands",
+        "spot": "Chelser single allotment"
+      },
       "intensity": 1,
       "xp_per_hour": 8500,
       "gp_per_hour": 1800,
-      "requires": { "quests": [], "items": ["onion_seed", "spade"], "skills": {} },
+      "requires": {
+        "quests": [],
+        "items": [
+          "onion_seed",
+          "spade"
+        ],
+        "skills": {}
+      },
       "description": "Single-patch onion AFK.",
-      "produces": [{ "item": "onion", "rate_per_hour": 220 }],
-      "marstead_note": "AFK baseline."
+      "produces": [
+        {
+          "item": "onion",
+          "rate_per_hour": 220
+        }
+      ],
+      "marstead_note": "AFK baseline.",
+      "travel_time_to_bank_seconds": 25,
+      "nearest_teleport": "Heartlands Teleport (Lumbrick)",
+      "banking_trip_cost": {
+        "gp": 35,
+        "intensity": 2
+      },
+      "travel_region_multiplier": 0,
+      "effective_xp_per_hour": 8382,
+      "effective_gp_per_hour": 1775,
+      "travel_minutes_per_hour": 0.8,
+      "active_minutes_per_hour": 59.2,
+      "trips_per_hour": 1
     },
     {
       "id": "heartlands_guam_run",
       "skill": "farming",
       "level_required": 9,
       "name": "Guam Herb Run",
-      "location": { "region": "heartlands", "spot": "Chelser herb patch" },
+      "location": {
+        "region": "heartlands",
+        "spot": "Chelser herb patch"
+      },
       "intensity": 2,
       "xp_per_hour": 11800,
       "gp_per_hour": 14000,
-      "requires": { "quests": [], "items": ["guam_seed", "spade"], "skills": {"farming": 9} },
+      "requires": {
+        "quests": [],
+        "items": [
+          "guam_seed",
+          "spade"
+        ],
+        "skills": {
+          "farming": 9
+        }
+      },
       "description": "Herb run guam.",
-      "produces": [{ "item": "grimy_guam", "rate_per_hour": 180 }],
-      "marstead_note": "AFK-Multitask."
+      "produces": [
+        {
+          "item": "grimy_guam",
+          "rate_per_hour": 180
+        }
+      ],
+      "marstead_note": "AFK-Multitask.",
+      "travel_time_to_bank_seconds": 25,
+      "nearest_teleport": "Heartlands Teleport (Lumbrick)",
+      "banking_trip_cost": {
+        "gp": 35,
+        "intensity": 2
+      },
+      "travel_region_multiplier": 0,
+      "effective_xp_per_hour": 11636,
+      "effective_gp_per_hour": 13806,
+      "travel_minutes_per_hour": 0.8,
+      "active_minutes_per_hour": 59.2,
+      "trips_per_hour": 1
     },
     {
       "id": "heartlands_hops_patch_rush",
       "skill": "farming",
       "level_required": 14,
       "name": "Barley + Hops Rush",
-      "location": { "region": "heartlands", "spot": "Chelser hops patch + allotment" },
+      "location": {
+        "region": "heartlands",
+        "spot": "Chelser hops patch + allotment"
+      },
       "intensity": 4,
       "xp_per_hour": 29200,
       "gp_per_hour": 28000,
-      "requires": { "quests": [], "items": ["barley_seed", "hammerstone_seed"], "skills": {"farming": 14} },
+      "requires": {
+        "quests": [],
+        "items": [
+          "barley_seed",
+          "hammerstone_seed"
+        ],
+        "skills": {
+          "farming": 14
+        }
+      },
       "description": "Barley/hops rotation. 8 patches.",
-      "produces": [{ "item": "barley", "rate_per_hour": 420 }, { "item": "hops", "rate_per_hour": 380 }],
-      "marstead_note": "Active."
+      "produces": [
+        {
+          "item": "barley",
+          "rate_per_hour": 420
+        },
+        {
+          "item": "hops",
+          "rate_per_hour": 380
+        }
+      ],
+      "marstead_note": "Active.",
+      "travel_time_to_bank_seconds": 25,
+      "nearest_teleport": "Heartlands Teleport (Lumbrick)",
+      "banking_trip_cost": {
+        "gp": 35,
+        "intensity": 2
+      },
+      "travel_region_multiplier": 0,
+      "effective_xp_per_hour": 28794,
+      "effective_gp_per_hour": 27611,
+      "travel_minutes_per_hour": 0.8,
+      "active_minutes_per_hour": 59.2,
+      "trips_per_hour": 1
     },
     {
       "id": "heartlands_marrentill_run",
       "skill": "farming",
       "level_required": 14,
       "name": "Marrentill Herb Run AFK",
-      "location": { "region": "heartlands", "spot": "Chelser herb patch" },
+      "location": {
+        "region": "heartlands",
+        "spot": "Chelser herb patch"
+      },
       "intensity": 1,
       "xp_per_hour": 12500,
       "gp_per_hour": 18000,
-      "requires": { "quests": [], "items": ["marrentill_seed", "spade"], "skills": {"farming": 14} },
+      "requires": {
+        "quests": [],
+        "items": [
+          "marrentill_seed",
+          "spade"
+        ],
+        "skills": {
+          "farming": 14
+        }
+      },
       "description": "Marrentill AFK run.",
-      "produces": [{ "item": "grimy_marrentill", "rate_per_hour": 180 }],
-      "marstead_note": "AFK baseline."
+      "produces": [
+        {
+          "item": "grimy_marrentill",
+          "rate_per_hour": 180
+        }
+      ],
+      "marstead_note": "AFK baseline.",
+      "travel_time_to_bank_seconds": 25,
+      "nearest_teleport": "Heartlands Teleport (Lumbrick)",
+      "banking_trip_cost": {
+        "gp": 35,
+        "intensity": 2
+      },
+      "travel_region_multiplier": 0,
+      "effective_xp_per_hour": 12326,
+      "effective_gp_per_hour": 17750,
+      "travel_minutes_per_hour": 0.8,
+      "active_minutes_per_hour": 59.2,
+      "trips_per_hour": 1
     },
     {
       "id": "heartlands_watermelon_run",
       "skill": "farming",
       "level_required": 25,
       "name": "Watermelon Allotment Run",
-      "location": { "region": "heartlands", "spot": "Chelser + Drifting Market allotments" },
+      "location": {
+        "region": "heartlands",
+        "spot": "Chelser + Drifting Market allotments"
+      },
       "intensity": 2,
       "xp_per_hour": 17400,
       "gp_per_hour": 32000,
-      "requires": { "quests": [], "items": ["watermelon_seed"], "skills": {"farming": 25} },
+      "requires": {
+        "quests": [],
+        "items": [
+          "watermelon_seed"
+        ],
+        "skills": {
+          "farming": 25
+        }
+      },
       "description": "Watermelon 80-min cycle across 4 patches.",
-      "produces": [{ "item": "watermelon", "rate_per_hour": 52 }],
-      "marstead_note": "AFK-Multitask."
+      "produces": [
+        {
+          "item": "watermelon",
+          "rate_per_hour": 52
+        }
+      ],
+      "marstead_note": "AFK-Multitask.",
+      "travel_time_to_bank_seconds": 10,
+      "nearest_teleport": "Heartlands Teleport (Lumbrick)",
+      "banking_trip_cost": {
+        "gp": 0,
+        "intensity": 1
+      },
+      "travel_region_multiplier": 0,
+      "effective_xp_per_hour": 17303,
+      "effective_gp_per_hour": 31822,
+      "travel_minutes_per_hour": 0.3,
+      "active_minutes_per_hour": 59.7,
+      "trips_per_hour": 1
     },
     {
       "id": "heartlands_sweetcorn_afk",
       "skill": "farming",
       "level_required": 20,
       "name": "Sweetcorn Single AFK",
-      "location": { "region": "heartlands", "spot": "Chelser single allotment" },
+      "location": {
+        "region": "heartlands",
+        "spot": "Chelser single allotment"
+      },
       "intensity": 1,
       "xp_per_hour": 15400,
       "gp_per_hour": 18000,
-      "requires": { "quests": [], "items": ["sweetcorn_seed"], "skills": {"farming": 20} },
+      "requires": {
+        "quests": [],
+        "items": [
+          "sweetcorn_seed"
+        ],
+        "skills": {
+          "farming": 20
+        }
+      },
       "description": "Sweetcorn AFK.",
-      "produces": [{ "item": "sweetcorn", "rate_per_hour": 28 }],
-      "marstead_note": "AFK baseline."
+      "produces": [
+        {
+          "item": "sweetcorn",
+          "rate_per_hour": 28
+        }
+      ],
+      "marstead_note": "AFK baseline.",
+      "travel_time_to_bank_seconds": 25,
+      "nearest_teleport": "Heartlands Teleport (Lumbrick)",
+      "banking_trip_cost": {
+        "gp": 35,
+        "intensity": 2
+      },
+      "travel_region_multiplier": 0,
+      "effective_xp_per_hour": 15186,
+      "effective_gp_per_hour": 17750,
+      "travel_minutes_per_hour": 0.8,
+      "active_minutes_per_hour": 59.2,
+      "trips_per_hour": 1
     },
     {
       "id": "heartlands_ranarr_run",
       "skill": "farming",
       "level_required": 32,
       "name": "Ranarr Herb Run (5 Patches)",
-      "location": { "region": "heartlands", "spot": "All 5 herb patches tour" },
+      "location": {
+        "region": "heartlands",
+        "spot": "All 5 herb patches tour"
+      },
       "intensity": 4,
       "xp_per_hour": 50600,
       "gp_per_hour": 385000,
-      "requires": { "quests": [], "items": ["ranarr_seed"], "skills": {"farming": 32} },
+      "requires": {
+        "quests": [],
+        "items": [
+          "ranarr_seed"
+        ],
+        "skills": {
+          "farming": 32
+        }
+      },
       "description": "Ranarr run — 80-min cycle, all 5 herb patches, massive gp.",
-      "produces": [{ "item": "grimy_ranarr", "rate_per_hour": 42 }],
-      "marstead_note": "Active. Herb-run meta."
+      "produces": [
+        {
+          "item": "grimy_ranarr",
+          "rate_per_hour": 42
+        }
+      ],
+      "marstead_note": "Active. Herb-run meta.",
+      "travel_time_to_bank_seconds": 25,
+      "nearest_teleport": "Heartlands Teleport (Lumbrick)",
+      "banking_trip_cost": {
+        "gp": 35,
+        "intensity": 2
+      },
+      "travel_region_multiplier": 0,
+      "effective_xp_per_hour": 49897,
+      "effective_gp_per_hour": 379653,
+      "travel_minutes_per_hour": 0.8,
+      "active_minutes_per_hour": 59.2,
+      "trips_per_hour": 1
     },
     {
       "id": "heartlands_willow_sapling",
       "skill": "farming",
       "level_required": 30,
       "name": "Willow Sapling AFK",
-      "location": { "region": "heartlands", "spot": "Chelser tree patch" },
+      "location": {
+        "region": "heartlands",
+        "spot": "Chelser tree patch"
+      },
       "intensity": 1,
       "xp_per_hour": 22800,
       "gp_per_hour": 18000,
-      "requires": { "quests": [], "items": ["willow_sapling"], "skills": {"farming": 30} },
+      "requires": {
+        "quests": [],
+        "items": [
+          "willow_sapling"
+        ],
+        "skills": {
+          "farming": 30
+        }
+      },
       "description": "Daily willow plant. AFK.",
-      "produces": [{ "item": "willow_logs", "rate_per_hour": 85 }],
-      "marstead_note": "AFK baseline. Cycle-based."
+      "produces": [
+        {
+          "item": "willow_logs",
+          "rate_per_hour": 85
+        }
+      ],
+      "marstead_note": "AFK baseline. Cycle-based.",
+      "travel_time_to_bank_seconds": 25,
+      "nearest_teleport": "Heartlands Teleport (Lumbrick)",
+      "banking_trip_cost": {
+        "gp": 35,
+        "intensity": 2
+      },
+      "travel_region_multiplier": 0,
+      "effective_xp_per_hour": 22483,
+      "effective_gp_per_hour": 17750,
+      "travel_minutes_per_hour": 0.8,
+      "active_minutes_per_hour": 59.2,
+      "trips_per_hour": 1
     },
     {
       "id": "heartlands_maple_sapling_afk",
       "skill": "farming",
       "level_required": 45,
       "name": "Maple Tree Sapling AFK",
-      "location": { "region": "heartlands", "spot": "Inkweald tree patch" },
+      "location": {
+        "region": "heartlands",
+        "spot": "Inkweald tree patch"
+      },
       "intensity": 1,
       "xp_per_hour": 24500,
       "gp_per_hour": 35000,
-      "requires": { "quests": [], "items": ["maple_sapling"], "skills": {"farming": 45} },
+      "requires": {
+        "quests": [],
+        "items": [
+          "maple_sapling"
+        ],
+        "skills": {
+          "farming": 45
+        }
+      },
       "description": "Daily maple sapling.",
-      "produces": [{ "item": "maple_logs", "rate_per_hour": 62 }],
-      "marstead_note": "AFK baseline."
+      "produces": [
+        {
+          "item": "maple_logs",
+          "rate_per_hour": 62
+        }
+      ],
+      "marstead_note": "AFK baseline.",
+      "travel_time_to_bank_seconds": 25,
+      "nearest_teleport": "Heartlands Teleport (Lumbrick)",
+      "banking_trip_cost": {
+        "gp": 35,
+        "intensity": 2
+      },
+      "travel_region_multiplier": 0,
+      "effective_xp_per_hour": 24160,
+      "effective_gp_per_hour": 34514,
+      "travel_minutes_per_hour": 0.8,
+      "active_minutes_per_hour": 59.2,
+      "trips_per_hour": 1
     },
     {
       "id": "heartlands_irit_run",
       "skill": "farming",
       "level_required": 44,
       "name": "Irit Herb Run",
-      "location": { "region": "heartlands", "spot": "Herb patch tour" },
+      "location": {
+        "region": "heartlands",
+        "spot": "Herb patch tour"
+      },
       "intensity": 4,
       "xp_per_hour": 64700,
       "gp_per_hour": 185000,
-      "requires": { "quests": [], "items": ["irit_seed"], "skills": {"farming": 44} },
+      "requires": {
+        "quests": [],
+        "items": [
+          "irit_seed"
+        ],
+        "skills": {
+          "farming": 44
+        }
+      },
       "description": "Irit herb tour.",
-      "produces": [{ "item": "grimy_irit", "rate_per_hour": 48 }],
-      "marstead_note": "Active."
+      "produces": [
+        {
+          "item": "grimy_irit",
+          "rate_per_hour": 48
+        }
+      ],
+      "marstead_note": "Active.",
+      "travel_time_to_bank_seconds": 25,
+      "nearest_teleport": "Heartlands Teleport (Lumbrick)",
+      "banking_trip_cost": {
+        "gp": 35,
+        "intensity": 2
+      },
+      "travel_region_multiplier": 0,
+      "effective_xp_per_hour": 63801,
+      "effective_gp_per_hour": 182431,
+      "travel_minutes_per_hour": 0.8,
+      "active_minutes_per_hour": 59.2,
+      "trips_per_hour": 1
     },
     {
       "id": "heartlands_kwuarm_run",
       "skill": "farming",
       "level_required": 56,
       "name": "Kwuarm Herb Run",
-      "location": { "region": "heartlands", "spot": "Herb patch tour" },
+      "location": {
+        "region": "heartlands",
+        "spot": "Herb patch tour"
+      },
       "intensity": 4,
       "xp_per_hour": 79400,
       "gp_per_hour": 245000,
-      "requires": { "quests": [], "items": ["kwuarm_seed"], "skills": {"farming": 56} },
+      "requires": {
+        "quests": [],
+        "items": [
+          "kwuarm_seed"
+        ],
+        "skills": {
+          "farming": 56
+        }
+      },
       "description": "Kwuarm run.",
-      "produces": [{ "item": "grimy_kwuarm", "rate_per_hour": 48 }],
-      "marstead_note": "Active."
+      "produces": [
+        {
+          "item": "grimy_kwuarm",
+          "rate_per_hour": 48
+        }
+      ],
+      "marstead_note": "Active.",
+      "travel_time_to_bank_seconds": 25,
+      "nearest_teleport": "Heartlands Teleport (Lumbrick)",
+      "banking_trip_cost": {
+        "gp": 35,
+        "intensity": 2
+      },
+      "travel_region_multiplier": 0,
+      "effective_xp_per_hour": 78297,
+      "effective_gp_per_hour": 241597,
+      "travel_minutes_per_hour": 0.8,
+      "active_minutes_per_hour": 59.2,
+      "trips_per_hour": 1
     },
     {
       "id": "heartlands_cactus_afk",
       "skill": "farming",
       "level_required": 55,
       "name": "Glass Desert Cactus AFK",
-      "location": { "region": "glass_desert", "spot": "Al Kharid cactus patch" },
+      "location": {
+        "region": "glass_desert",
+        "spot": "Al Kharid cactus patch"
+      },
       "intensity": 1,
       "xp_per_hour": 35500,
       "gp_per_hour": 28000,
-      "requires": { "quests": [], "items": ["cactus_seed"], "skills": {"farming": 55} },
+      "requires": {
+        "quests": [],
+        "items": [
+          "cactus_seed"
+        ],
+        "skills": {
+          "farming": 55
+        }
+      },
       "description": "Daily cactus spines.",
-      "produces": [{ "item": "cactus_spine", "rate_per_hour": 18 }],
-      "marstead_note": "AFK baseline."
+      "produces": [
+        {
+          "item": "cactus_spine",
+          "rate_per_hour": 18
+        }
+      ],
+      "marstead_note": "AFK baseline.",
+      "travel_time_to_bank_seconds": 83,
+      "nearest_teleport": "Glass Desert Pendant",
+      "banking_trip_cost": {
+        "gp": 500,
+        "intensity": 2
+      },
+      "travel_region_multiplier": 0.5,
+      "effective_xp_per_hour": 33863,
+      "effective_gp_per_hour": 26709,
+      "travel_minutes_per_hour": 2.8,
+      "active_minutes_per_hour": 57.2,
+      "trips_per_hour": 1
     },
     {
       "id": "heartlands_snapdragon_run",
       "skill": "farming",
       "level_required": 62,
       "name": "Snapdragon Herb Run",
-      "location": { "region": "heartlands", "spot": "All 5 herb patches" },
+      "location": {
+        "region": "heartlands",
+        "spot": "All 5 herb patches"
+      },
       "intensity": 4,
       "xp_per_hour": 91100,
       "gp_per_hour": 385000,
-      "requires": { "quests": [], "items": ["snapdragon_seed"], "skills": {"farming": 62} },
+      "requires": {
+        "quests": [],
+        "items": [
+          "snapdragon_seed"
+        ],
+        "skills": {
+          "farming": 62
+        }
+      },
       "description": "Snapdragon run.",
-      "produces": [{ "item": "grimy_snapdragon", "rate_per_hour": 48 }],
-      "marstead_note": "Active."
+      "produces": [
+        {
+          "item": "grimy_snapdragon",
+          "rate_per_hour": 48
+        }
+      ],
+      "marstead_note": "Active.",
+      "travel_time_to_bank_seconds": 25,
+      "nearest_teleport": "Heartlands Teleport (Lumbrick)",
+      "banking_trip_cost": {
+        "gp": 35,
+        "intensity": 2
+      },
+      "travel_region_multiplier": 0,
+      "effective_xp_per_hour": 89835,
+      "effective_gp_per_hour": 379653,
+      "travel_minutes_per_hour": 0.8,
+      "active_minutes_per_hour": 59.2,
+      "trips_per_hour": 1
     },
     {
       "id": "veilwood_yew_sapling_afk",
       "skill": "farming",
       "level_required": 60,
       "name": "Yew Sapling AFK",
-      "location": { "region": "veilwood", "spot": "Veilwood tree patch" },
+      "location": {
+        "region": "veilwood",
+        "spot": "Veilwood tree patch"
+      },
       "intensity": 1,
       "xp_per_hour": 40000,
       "gp_per_hour": 45000,
-      "requires": { "quests": [], "items": ["yew_sapling"], "skills": {"farming": 60} },
+      "requires": {
+        "quests": [],
+        "items": [
+          "yew_sapling"
+        ],
+        "skills": {
+          "farming": 60
+        }
+      },
       "description": "Yew sapling AFK.",
-      "produces": [{ "item": "yew_logs", "rate_per_hour": 45 }],
-      "marstead_note": "AFK baseline for 60+."
+      "produces": [
+        {
+          "item": "yew_logs",
+          "rate_per_hour": 45
+        }
+      ],
+      "marstead_note": "AFK baseline for 60+.",
+      "travel_time_to_bank_seconds": 39,
+      "nearest_teleport": "Necklace of Passage",
+      "banking_trip_cost": {
+        "gp": 500,
+        "intensity": 2
+      },
+      "travel_region_multiplier": 0.1,
+      "effective_xp_per_hour": 39133,
+      "effective_gp_per_hour": 44025,
+      "travel_minutes_per_hour": 1.3,
+      "active_minutes_per_hour": 58.7,
+      "trips_per_hour": 1
     },
     {
       "id": "veilwood_magic_sapling_afk",
       "skill": "farming",
       "level_required": 75,
       "name": "Magic Sapling AFK",
-      "location": { "region": "veilwood", "spot": "Blessed Grove tree patch" },
+      "location": {
+        "region": "veilwood",
+        "spot": "Blessed Grove tree patch"
+      },
       "intensity": 1,
       "xp_per_hour": 58700,
       "gp_per_hour": 125000,
-      "requires": { "quests": ["swan_song_of_veilwood"], "items": ["magic_sapling"], "skills": {"farming": 75} },
+      "requires": {
+        "quests": [
+          "swan_song_of_veilwood"
+        ],
+        "items": [
+          "magic_sapling"
+        ],
+        "skills": {
+          "farming": 75
+        }
+      },
       "description": "Magic sapling daily.",
-      "produces": [{ "item": "magic_logs", "rate_per_hour": 32 }],
-      "marstead_note": "AFK baseline for 75+."
+      "produces": [
+        {
+          "item": "magic_logs",
+          "rate_per_hour": 32
+        }
+      ],
+      "marstead_note": "AFK baseline for 75+.",
+      "travel_time_to_bank_seconds": 39,
+      "nearest_teleport": "Necklace of Passage",
+      "banking_trip_cost": {
+        "gp": 500,
+        "intensity": 2
+      },
+      "travel_region_multiplier": 0.1,
+      "effective_xp_per_hour": 57428,
+      "effective_gp_per_hour": 122292,
+      "travel_minutes_per_hour": 1.3,
+      "active_minutes_per_hour": 58.7,
+      "trips_per_hour": 1
     },
     {
       "id": "heartlands_dwarf_weed_run",
       "skill": "farming",
       "level_required": 79,
       "name": "Dwarf Weed Herb Run",
-      "location": { "region": "heartlands", "spot": "5-patch herb tour" },
+      "location": {
+        "region": "heartlands",
+        "spot": "5-patch herb tour"
+      },
       "intensity": 4,
       "xp_per_hour": 116600,
       "gp_per_hour": 385000,
-      "requires": { "quests": [], "items": ["dwarf_weed_seed"], "skills": {"farming": 79} },
+      "requires": {
+        "quests": [],
+        "items": [
+          "dwarf_weed_seed"
+        ],
+        "skills": {
+          "farming": 79
+        }
+      },
       "description": "Dwarf weed herb run.",
-      "produces": [{ "item": "grimy_dwarf_weed", "rate_per_hour": 48 }],
-      "marstead_note": "Active."
+      "produces": [
+        {
+          "item": "grimy_dwarf_weed",
+          "rate_per_hour": 48
+        }
+      ],
+      "marstead_note": "Active.",
+      "travel_time_to_bank_seconds": 25,
+      "nearest_teleport": "Heartlands Teleport (Lumbrick)",
+      "banking_trip_cost": {
+        "gp": 35,
+        "intensity": 2
+      },
+      "travel_region_multiplier": 0,
+      "effective_xp_per_hour": 114981,
+      "effective_gp_per_hour": 379653,
+      "travel_minutes_per_hour": 0.8,
+      "active_minutes_per_hour": 59.2,
+      "trips_per_hour": 1
     },
     {
       "id": "heartlands_papaya_tree_afk",
       "skill": "farming",
       "level_required": 83,
       "name": "Papaya Tree AFK",
-      "location": { "region": "glass_desert", "spot": "Crescent Bazaar fruit patch" },
+      "location": {
+        "region": "glass_desert",
+        "spot": "Crescent Bazaar fruit patch"
+      },
       "intensity": 1,
       "xp_per_hour": 72100,
       "gp_per_hour": 95000,
-      "requires": { "quests": [], "items": ["papaya_tree_seed"], "skills": {"farming": 83} },
+      "requires": {
+        "quests": [],
+        "items": [
+          "papaya_tree_seed"
+        ],
+        "skills": {
+          "farming": 83
+        }
+      },
       "description": "Papaya tree daily AFK.",
-      "produces": [{ "item": "papaya_fruit", "rate_per_hour": 35 }],
-      "marstead_note": "AFK baseline for 80+."
+      "produces": [
+        {
+          "item": "papaya_fruit",
+          "rate_per_hour": 35
+        }
+      ],
+      "marstead_note": "AFK baseline for 80+.",
+      "travel_time_to_bank_seconds": 83,
+      "nearest_teleport": "Glass Desert Pendant",
+      "banking_trip_cost": {
+        "gp": 500,
+        "intensity": 2
+      },
+      "travel_region_multiplier": 0.5,
+      "effective_xp_per_hour": 68775,
+      "effective_gp_per_hour": 90619,
+      "travel_minutes_per_hour": 2.8,
+      "active_minutes_per_hour": 57.2,
+      "trips_per_hour": 1
     },
     {
       "id": "heartlands_torstol_run",
       "skill": "farming",
       "level_required": 85,
       "name": "Torstol Herb Run",
-      "location": { "region": "inkweald", "spot": "5-patch herb tour" },
+      "location": {
+        "region": "inkweald",
+        "spot": "5-patch herb tour"
+      },
       "intensity": 4,
       "xp_per_hour": 155400,
       "gp_per_hour": 525000,
-      "requires": { "quests": [], "items": ["torstol_seed"], "skills": {"farming": 85} },
+      "requires": {
+        "quests": [],
+        "items": [
+          "torstol_seed"
+        ],
+        "skills": {
+          "farming": 85
+        }
+      },
       "description": "Torstol herb run. Peak gp herb.",
-      "produces": [{ "item": "grimy_torstol", "rate_per_hour": 48 }],
-      "marstead_note": "Active."
+      "produces": [
+        {
+          "item": "grimy_torstol",
+          "rate_per_hour": 48
+        }
+      ],
+      "marstead_note": "Active.",
+      "travel_time_to_bank_seconds": 54,
+      "nearest_teleport": "Moonclan Teleport (Lunar)",
+      "banking_trip_cost": {
+        "gp": 110,
+        "intensity": 2
+      },
+      "travel_region_multiplier": 0.2,
+      "effective_xp_per_hour": 150738,
+      "effective_gp_per_hour": 509250,
+      "travel_minutes_per_hour": 1.8,
+      "active_minutes_per_hour": 58.2,
+      "trips_per_hour": 1
     },
     {
       "id": "wilds_redwood_farm",
       "skill": "farming",
       "level_required": 90,
       "name": "Wilds Redwood Tree Farm",
-      "location": { "region": "wilds", "spot": "Wildsgate tree patch, lv22 Wilderness" },
+      "location": {
+        "region": "wilds",
+        "spot": "Wildsgate tree patch, lv22 Wilderness"
+      },
       "intensity": 2,
       "xp_per_hour": 94000,
       "gp_per_hour": 220000,
-      "requires": { "quests": [], "items": ["redwood_sapling"], "skills": {"farming": 90} },
+      "requires": {
+        "quests": [],
+        "items": [
+          "redwood_sapling"
+        ],
+        "skills": {
+          "farming": 90
+        }
+      },
       "description": "Redwood daily with PK risk.",
-      "produces": [{ "item": "redwood_logs", "rate_per_hour": 48 }],
-      "marstead_note": "AFK-Multitask. Wilderness."
+      "produces": [
+        {
+          "item": "redwood_logs",
+          "rate_per_hour": 48
+        }
+      ],
+      "marstead_note": "AFK-Multitask. Wilderness.",
+      "travel_time_to_bank_seconds": 109,
+      "nearest_teleport": "Amulet of Glory (Wilds edge)",
+      "banking_trip_cost": {
+        "gp": 500,
+        "intensity": 2
+      },
+      "travel_region_multiplier": 0.3,
+      "effective_xp_per_hour": 88308,
+      "effective_gp_per_hour": 206678,
+      "travel_minutes_per_hour": 3.6,
+      "active_minutes_per_hour": 56.4,
+      "trips_per_hour": 1
     },
     {
       "id": "veilwood_crystal_tree_afk",
       "skill": "farming",
       "level_required": 90,
       "name": "Crystal Tree Sapling AFK",
-      "location": { "region": "veilwood", "spot": "Singing Glade crystal patch" },
+      "location": {
+        "region": "veilwood",
+        "spot": "Singing Glade crystal patch"
+      },
       "intensity": 1,
       "xp_per_hour": 78600,
       "gp_per_hour": 185000,
-      "requires": { "quests": ["song_of_the_mossborn"], "items": ["crystal_sapling"], "skills": {"farming": 90} },
+      "requires": {
+        "quests": [
+          "song_of_the_mossborn"
+        ],
+        "items": [
+          "crystal_sapling"
+        ],
+        "skills": {
+          "farming": 90
+        }
+      },
       "description": "Crystal tree sapling.",
-      "produces": [{ "item": "crystal_shard", "rate_per_hour": 22 }],
-      "marstead_note": "AFK baseline for 90+."
+      "produces": [
+        {
+          "item": "crystal_shard",
+          "rate_per_hour": 22
+        }
+      ],
+      "marstead_note": "AFK baseline for 90+.",
+      "travel_time_to_bank_seconds": 39,
+      "nearest_teleport": "Necklace of Passage",
+      "banking_trip_cost": {
+        "gp": 500,
+        "intensity": 2
+      },
+      "travel_region_multiplier": 0.1,
+      "effective_xp_per_hour": 76897,
+      "effective_gp_per_hour": 180992,
+      "travel_minutes_per_hour": 1.3,
+      "active_minutes_per_hour": 58.7,
+      "trips_per_hour": 1
     },
     {
       "id": "moryskah_farming_seed_trading",
       "skill": "farming",
       "level_required": 40,
       "name": "Moryskah Coffin Fungus Patch",
-      "location": { "region": "moryskah", "spot": "Gravechill fungi patch" },
+      "location": {
+        "region": "moryskah",
+        "spot": "Gravechill fungi patch"
+      },
       "intensity": 3,
       "xp_per_hour": 32900,
       "gp_per_hour": 85000,
-      "requires": { "quests": ["ghost_of_tombseam"], "items": ["coffin_spore"], "skills": {"farming": 40} },
+      "requires": {
+        "quests": [
+          "ghost_of_tombseam"
+        ],
+        "items": [
+          "coffin_spore"
+        ],
+        "skills": {
+          "farming": 40
+        }
+      },
       "description": "Coffin fungus grows only in a moryskah patch.",
-      "produces": [{ "item": "coffin_fungus", "rate_per_hour": 42 }],
-      "marstead_note": "Multitask. Regional unique crop."
+      "produces": [
+        {
+          "item": "coffin_fungus",
+          "rate_per_hour": 42
+        }
+      ],
+      "marstead_note": "Multitask. Regional unique crop.",
+      "travel_time_to_bank_seconds": 46,
+      "nearest_teleport": "Moryskah Teleport (Village)",
+      "banking_trip_cost": {
+        "gp": 85,
+        "intensity": 2
+      },
+      "travel_region_multiplier": 0.2,
+      "effective_xp_per_hour": 32059,
+      "effective_gp_per_hour": 82828,
+      "travel_minutes_per_hour": 1.5,
+      "active_minutes_per_hour": 58.5,
+      "trips_per_hour": 1
     },
     {
       "id": "heartlands_herb_patch_consortium",
       "skill": "farming",
       "level_required": 32,
       "name": "Heartlands Herb Patch Consortium",
-      "location": { "region": "heartlands", "spot": "Chelser + Lumbrick + Hollowrun triple patches" },
+      "location": {
+        "region": "heartlands",
+        "spot": "Chelser + Lumbrick + Hollowrun triple patches"
+      },
       "intensity": 3,
       "xp_per_hour": 78000,
       "gp_per_hour": 900000,
-      "requires": { "quests": ["the_greenhand_accord"], "items": ["ranarr_seed", "toadflax_seed", "compost"], "skills": {"farming": 32} },
+      "requires": {
+        "quests": [
+          "the_greenhand_accord"
+        ],
+        "items": [
+          "ranarr_seed",
+          "toadflax_seed",
+          "compost"
+        ],
+        "skills": {
+          "farming": 32
+        }
+      },
       "description": "Simultaneous ranarr/toadflax across three Heartlands patches on rotation. Herb pickup while waiting for next grow cycle. Attentive.",
-      "produces": [{ "item": "grimy_ranarr", "rate_per_hour": 120 }],
-      "marstead_note": "H11 Heartlands 500k-1M moneymaker. Multi-patch herb consortium."
+      "produces": [
+        {
+          "item": "grimy_ranarr",
+          "rate_per_hour": 120
+        }
+      ],
+      "marstead_note": "H11 Heartlands 500k-1M moneymaker. Multi-patch herb consortium.",
+      "travel_time_to_bank_seconds": 25,
+      "nearest_teleport": "Heartlands Teleport (Lumbrick)",
+      "banking_trip_cost": {
+        "gp": 35,
+        "intensity": 2
+      },
+      "travel_region_multiplier": 0,
+      "effective_xp_per_hour": 76917,
+      "effective_gp_per_hour": 887500,
+      "travel_minutes_per_hour": 0.8,
+      "active_minutes_per_hour": 59.2,
+      "trips_per_hour": 1
     },
     {
       "id": "veilwood_dreamroot_harvest",
       "skill": "farming",
       "level_required": 60,
       "name": "Veilwood Dreamroot Harvest",
-      "location": { "region": "veilwood", "spot": "Moonblade root-grove patches" },
+      "location": {
+        "region": "veilwood",
+        "spot": "Moonblade root-grove patches"
+      },
       "intensity": 2,
       "xp_per_hour": 62000,
       "gp_per_hour": 500000,
-      "requires": { "quests": ["whisperwood_remembers"], "items": ["dreamroot_seed", "ultracompost"], "skills": {"farming": 60} },
+      "requires": {
+        "quests": [
+          "whisperwood_remembers"
+        ],
+        "items": [
+          "dreamroot_seed",
+          "ultracompost"
+        ],
+        "skills": {
+          "farming": 60
+        }
+      },
       "description": "Dreamroot harvest run — high-margin moonlight herb. AFK aside from plant/pick.",
-      "produces": [{ "item": "dreamroot", "rate_per_hour": 85 }],
-      "marstead_note": "H11 Veilwood 500k-1M moneymaker. Herb-run analogue with regional flavour."
+      "produces": [
+        {
+          "item": "dreamroot",
+          "rate_per_hour": 85
+        }
+      ],
+      "marstead_note": "H11 Veilwood 500k-1M moneymaker. Herb-run analogue with regional flavour.",
+      "travel_time_to_bank_seconds": 39,
+      "nearest_teleport": "Necklace of Passage",
+      "banking_trip_cost": {
+        "gp": 500,
+        "intensity": 2
+      },
+      "travel_region_multiplier": 0.1,
+      "effective_xp_per_hour": 60657,
+      "effective_gp_per_hour": 489167,
+      "travel_minutes_per_hour": 1.3,
+      "active_minutes_per_hour": 58.7,
+      "trips_per_hour": 1
     },
     {
       "id": "glass_desert_spice_plantation",
       "skill": "farming",
       "level_required": 78,
       "name": "Glass Desert Spice Plantation",
-      "location": { "region": "glass_desert", "spot": "Crescent oasis spice beds" },
+      "location": {
+        "region": "glass_desert",
+        "spot": "Crescent oasis spice beds"
+      },
       "intensity": 4,
       "xp_per_hour": 128000,
       "gp_per_hour": 1800000,
-      "requires": { "quests": ["the_spice_accord"], "items": ["spice_seedling", "ultracompost", "magic_secateurs"], "skills": {"farming": 78, "herblore": 70} },
+      "requires": {
+        "quests": [
+          "the_spice_accord"
+        ],
+        "items": [
+          "spice_seedling",
+          "ultracompost",
+          "magic_secateurs"
+        ],
+        "skills": {
+          "farming": 78,
+          "herblore": 70
+        }
+      },
       "description": "Multi-plot spice plantation with fragment yield stacking. Active inspection-and-weed rotation.",
-      "produces": [{ "item": "glass_spice_bundle", "rate_per_hour": 180 }],
-      "marstead_note": "M14 endgame farming. Spice economy — feeds cooking bonuses."
+      "produces": [
+        {
+          "item": "glass_spice_bundle",
+          "rate_per_hour": 180
+        }
+      ],
+      "marstead_note": "M14 endgame farming. Spice economy — feeds cooking bonuses.",
+      "travel_time_to_bank_seconds": 83,
+      "nearest_teleport": "Glass Desert Pendant",
+      "banking_trip_cost": {
+        "gp": 500,
+        "intensity": 2
+      },
+      "travel_region_multiplier": 0.5,
+      "effective_xp_per_hour": 122098,
+      "effective_gp_per_hour": 1717000,
+      "travel_minutes_per_hour": 2.8,
+      "active_minutes_per_hour": 57.2,
+      "trips_per_hour": 1
     },
     {
       "id": "inkweald_nightbloom_sanctuary",
       "skill": "farming",
       "level_required": 93,
       "name": "Inkweald Nightbloom Sanctuary",
-      "location": { "region": "inkweald", "spot": "Penseurlake dream-garden" },
+      "location": {
+        "region": "inkweald",
+        "spot": "Penseurlake dream-garden"
+      },
       "intensity": 5,
       "xp_per_hour": 168000,
       "gp_per_hour": 3100000,
-      "requires": { "quests": ["unwake_the_dreamer", "weavers_threnody"], "items": ["nightbloom_seed", "dream_compost", "secateurs_infused"], "skills": {"farming": 93, "herblore": 85} },
+      "requires": {
+        "quests": [
+          "unwake_the_dreamer",
+          "weavers_threnody"
+        ],
+        "items": [
+          "nightbloom_seed",
+          "dream_compost",
+          "secateurs_infused"
+        ],
+        "skills": {
+          "farming": 93,
+          "herblore": 85
+        }
+      },
       "description": "Tend dream-garden plots that bloom only at night. Secateur rotation + pollen harvest. Multiple yield harvests per cycle. Endgame herb-tier profit.",
-      "produces": [{ "item": "nightbloom_petal", "rate_per_hour": 240 }],
-      "marstead_note": "M14 endgame farming. Pollen feeds elite antivenom+ and stam potions."
+      "produces": [
+        {
+          "item": "nightbloom_petal",
+          "rate_per_hour": 240
+        }
+      ],
+      "marstead_note": "M14 endgame farming. Pollen feeds elite antivenom+ and stam potions.",
+      "travel_time_to_bank_seconds": 0,
+      "nearest_teleport": null,
+      "banking_trip_cost": {
+        "gp": 0,
+        "intensity": 0
+      },
+      "travel_region_multiplier": 0.2,
+      "effective_xp_per_hour": 168000,
+      "effective_gp_per_hour": 3100000,
+      "travel_minutes_per_hour": 0,
+      "active_minutes_per_hour": 60,
+      "trips_per_hour": 0
     }
   ],
   "bracket_coverage": {
-    "1-10":  { "count": 3, "intensities": [2, 1, 2] },
-    "10-20": { "count": 2, "intensities": [4, 1] },
-    "20-30": { "count": 2, "intensities": [2, 1] },
-    "30-40": { "count": 2, "intensities": [4, 1] },
-    "40-50": { "count": 3, "intensities": [1, 4, 3] },
-    "50-60": { "count": 2, "intensities": [4, 1] },
-    "60-70": { "count": 2, "intensities": [4, 1] },
-    "70-80": { "count": 2, "intensities": [1, 4] },
-    "80-90": { "count": 2, "intensities": [4, 1] },
-    "90-99": { "count": 2, "intensities": [2, 1] }
+    "1-10": {
+      "count": 3,
+      "intensities": [
+        2,
+        1,
+        2
+      ]
+    },
+    "10-20": {
+      "count": 2,
+      "intensities": [
+        4,
+        1
+      ]
+    },
+    "20-30": {
+      "count": 2,
+      "intensities": [
+        2,
+        1
+      ]
+    },
+    "30-40": {
+      "count": 2,
+      "intensities": [
+        4,
+        1
+      ]
+    },
+    "40-50": {
+      "count": 3,
+      "intensities": [
+        1,
+        4,
+        3
+      ]
+    },
+    "50-60": {
+      "count": 2,
+      "intensities": [
+        4,
+        1
+      ]
+    },
+    "60-70": {
+      "count": 2,
+      "intensities": [
+        4,
+        1
+      ]
+    },
+    "70-80": {
+      "count": 2,
+      "intensities": [
+        1,
+        4
+      ]
+    },
+    "80-90": {
+      "count": 2,
+      "intensities": [
+        4,
+        1
+      ]
+    },
+    "90-99": {
+      "count": 2,
+      "intensities": [
+        2,
+        1
+      ]
+    }
   }
 }

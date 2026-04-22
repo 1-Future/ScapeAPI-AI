@@ -7,432 +7,1332 @@
       "skill": "thieving",
       "level_required": 1,
       "name": "Pickpocket Man",
-      "location": { "region": "heartlands", "spot": "Lumbrick town square" },
+      "location": {
+        "region": "heartlands",
+        "spot": "Lumbrick town square"
+      },
       "intensity": 2,
       "xp_per_hour": 13900,
       "gp_per_hour": 22000,
-      "requires": { "quests": [], "items": [], "skills": {} },
+      "requires": {
+        "quests": [],
+        "items": [],
+        "skills": {}
+      },
       "description": "Pickpocket men.",
-      "produces": [{ "item": "coins", "rate_per_hour": 22000 }],
-      "marstead_note": "AFK-Multitask baseline."
+      "produces": [
+        {
+          "item": "coins",
+          "rate_per_hour": 22000
+        }
+      ],
+      "marstead_note": "AFK-Multitask baseline.",
+      "travel_time_to_bank_seconds": 0,
+      "nearest_teleport": null,
+      "banking_trip_cost": {
+        "gp": 0,
+        "intensity": 0
+      },
+      "travel_region_multiplier": 0,
+      "effective_xp_per_hour": 13900,
+      "effective_gp_per_hour": 22000,
+      "travel_minutes_per_hour": 0,
+      "active_minutes_per_hour": 60,
+      "trips_per_hour": 0
     },
     {
       "id": "heartlands_baker_stall_afk",
       "skill": "thieving",
       "level_required": 5,
       "name": "Bakery Stall AFK",
-      "location": { "region": "heartlands", "spot": "Lumbrick bakery stall" },
+      "location": {
+        "region": "heartlands",
+        "spot": "Lumbrick bakery stall"
+      },
       "intensity": 1,
       "xp_per_hour": 9400,
       "gp_per_hour": 18000,
-      "requires": { "quests": [], "items": [], "skills": {"thieving": 5} },
+      "requires": {
+        "quests": [],
+        "items": [],
+        "skills": {
+          "thieving": 5
+        }
+      },
       "description": "Bakery stall. Deep AFK.",
-      "produces": [{ "item": "bread", "rate_per_hour": 600 }],
-      "marstead_note": "AFK baseline."
+      "produces": [
+        {
+          "item": "bread",
+          "rate_per_hour": 600
+        }
+      ],
+      "marstead_note": "AFK baseline.",
+      "travel_time_to_bank_seconds": 25,
+      "nearest_teleport": "Heartlands Teleport (Lumbrick)",
+      "banking_trip_cost": {
+        "gp": 35,
+        "intensity": 2
+      },
+      "travel_region_multiplier": 0,
+      "effective_xp_per_hour": 9008,
+      "effective_gp_per_hour": 17250,
+      "travel_minutes_per_hour": 2.5,
+      "active_minutes_per_hour": 57.5,
+      "trips_per_hour": 3
     },
     {
       "id": "saltbrine_silk_rush",
       "skill": "thieving",
       "level_required": 15,
       "name": "Silk Stall Rush",
-      "location": { "region": "saltbrine", "spot": "Drifting Market silk stall" },
+      "location": {
+        "region": "saltbrine",
+        "spot": "Drifting Market silk stall"
+      },
       "intensity": 4,
       "xp_per_hour": 29200,
       "gp_per_hour": 95000,
-      "requires": { "quests": [], "items": [], "skills": {"thieving": 15} },
+      "requires": {
+        "quests": [],
+        "items": [],
+        "skills": {
+          "thieving": 15
+        }
+      },
       "description": "Silk stall rotation with guard dodging.",
-      "produces": [{ "item": "silk", "rate_per_hour": 1800 }],
-      "marstead_note": "Active."
+      "produces": [
+        {
+          "item": "silk",
+          "rate_per_hour": 1800
+        }
+      ],
+      "marstead_note": "Active.",
+      "travel_time_to_bank_seconds": 9,
+      "nearest_teleport": "Saltbrine Teleport (Harbor)",
+      "banking_trip_cost": {
+        "gp": 0,
+        "intensity": 1
+      },
+      "travel_region_multiplier": 0,
+      "effective_xp_per_hour": 28762,
+      "effective_gp_per_hour": 93575,
+      "travel_minutes_per_hour": 0.9,
+      "active_minutes_per_hour": 59.1,
+      "trips_per_hour": 3
     },
     {
       "id": "heartlands_farmer_pickpocket",
       "skill": "thieving",
       "level_required": 25,
       "name": "Farmer Pickpocket",
-      "location": { "region": "heartlands", "spot": "Chelser farm square" },
+      "location": {
+        "region": "heartlands",
+        "spot": "Chelser farm square"
+      },
       "intensity": 3,
       "xp_per_hour": 22500,
       "gp_per_hour": 45000,
-      "requires": { "quests": [], "items": [], "skills": {"thieving": 25} },
+      "requires": {
+        "quests": [],
+        "items": [],
+        "skills": {
+          "thieving": 25
+        }
+      },
       "description": "Farmer pickpocket.",
-      "produces": [{ "item": "coins", "rate_per_hour": 45000 }],
-      "marstead_note": "Multitask."
+      "produces": [
+        {
+          "item": "coins",
+          "rate_per_hour": 45000
+        }
+      ],
+      "marstead_note": "Multitask.",
+      "travel_time_to_bank_seconds": 10,
+      "nearest_teleport": "Heartlands Teleport (Lumbrick)",
+      "banking_trip_cost": {
+        "gp": 0,
+        "intensity": 1
+      },
+      "travel_region_multiplier": 0,
+      "effective_xp_per_hour": 22125,
+      "effective_gp_per_hour": 44250,
+      "travel_minutes_per_hour": 1,
+      "active_minutes_per_hour": 59,
+      "trips_per_hour": 3
     },
     {
       "id": "saltbrine_silkstall_afk",
       "skill": "thieving",
       "level_required": 15,
       "name": "Silk Stall AFK",
-      "location": { "region": "saltbrine", "spot": "Drifting Market silk stall" },
+      "location": {
+        "region": "saltbrine",
+        "spot": "Drifting Market silk stall"
+      },
       "intensity": 1,
       "xp_per_hour": 12500,
       "gp_per_hour": 45000,
-      "requires": { "quests": [], "items": [], "skills": {"thieving": 15} },
+      "requires": {
+        "quests": [],
+        "items": [],
+        "skills": {
+          "thieving": 15
+        }
+      },
       "description": "Silk stall AFK.",
-      "produces": [{ "item": "silk", "rate_per_hour": 600 }],
-      "marstead_note": "AFK baseline for 15+."
+      "produces": [
+        {
+          "item": "silk",
+          "rate_per_hour": 600
+        }
+      ],
+      "marstead_note": "AFK baseline for 15+.",
+      "travel_time_to_bank_seconds": 9,
+      "nearest_teleport": "Saltbrine Teleport (Harbor)",
+      "banking_trip_cost": {
+        "gp": 0,
+        "intensity": 1
+      },
+      "travel_region_multiplier": 0,
+      "effective_xp_per_hour": 12313,
+      "effective_gp_per_hour": 44325,
+      "travel_minutes_per_hour": 0.9,
+      "active_minutes_per_hour": 59.1,
+      "trips_per_hour": 3
     },
     {
       "id": "heartlands_warrior_pickpocket",
       "skill": "thieving",
       "level_required": 25,
       "name": "Warrior Women Pickpocket Safespot",
-      "location": { "region": "heartlands", "spot": "Garrison yard" },
+      "location": {
+        "region": "heartlands",
+        "spot": "Garrison yard"
+      },
       "intensity": 1,
       "xp_per_hour": 17400,
       "gp_per_hour": 42000,
-      "requires": { "quests": [], "items": [], "skills": {"thieving": 25} },
+      "requires": {
+        "quests": [],
+        "items": [],
+        "skills": {
+          "thieving": 25
+        }
+      },
       "description": "Warrior women. Low stun.",
-      "produces": [{ "item": "coins", "rate_per_hour": 42000 }],
-      "marstead_note": "AFK baseline."
+      "produces": [
+        {
+          "item": "coins",
+          "rate_per_hour": 42000
+        }
+      ],
+      "marstead_note": "AFK baseline.",
+      "travel_time_to_bank_seconds": 25,
+      "nearest_teleport": "Heartlands Teleport (Lumbrick)",
+      "banking_trip_cost": {
+        "gp": 35,
+        "intensity": 2
+      },
+      "travel_region_multiplier": 0,
+      "effective_xp_per_hour": 16675,
+      "effective_gp_per_hour": 40250,
+      "travel_minutes_per_hour": 2.5,
+      "active_minutes_per_hour": 57.5,
+      "trips_per_hour": 3
     },
     {
       "id": "heartlands_warrior_speed",
       "skill": "thieving",
       "level_required": 32,
       "name": "Ardougne Warrior Speed-Thieve",
-      "location": { "region": "heartlands", "spot": "Ardougne-analog square" },
+      "location": {
+        "region": "heartlands",
+        "spot": "Ardougne-analog square"
+      },
       "intensity": 5,
       "xp_per_hour": 50600,
       "gp_per_hour": 95000,
-      "requires": { "quests": [], "items": [], "skills": {"thieving": 32} },
+      "requires": {
+        "quests": [],
+        "items": [],
+        "skills": {
+          "thieving": 32
+        }
+      },
       "description": "Warrior speed-thieve with gloves of silence.",
-      "produces": [{ "item": "coins", "rate_per_hour": 95000 }],
-      "marstead_note": "Active."
+      "produces": [
+        {
+          "item": "coins",
+          "rate_per_hour": 95000
+        }
+      ],
+      "marstead_note": "Active.",
+      "travel_time_to_bank_seconds": 10,
+      "nearest_teleport": "Heartlands Teleport (Lumbrick)",
+      "banking_trip_cost": {
+        "gp": 0,
+        "intensity": 1
+      },
+      "travel_region_multiplier": 0,
+      "effective_xp_per_hour": 49757,
+      "effective_gp_per_hour": 93417,
+      "travel_minutes_per_hour": 1,
+      "active_minutes_per_hour": 59,
+      "trips_per_hour": 3
     },
     {
       "id": "heartlands_guard_pickpocket",
       "skill": "thieving",
       "level_required": 40,
       "name": "Guard Pickpocket",
-      "location": { "region": "heartlands", "spot": "Garrison entry" },
+      "location": {
+        "region": "heartlands",
+        "spot": "Garrison entry"
+      },
       "intensity": 2,
       "xp_per_hour": 36200,
       "gp_per_hour": 72000,
-      "requires": { "quests": [], "items": [], "skills": {"thieving": 40} },
+      "requires": {
+        "quests": [],
+        "items": [],
+        "skills": {
+          "thieving": 40
+        }
+      },
       "description": "Guard pickpocket.",
-      "produces": [{ "item": "coins", "rate_per_hour": 72000 }],
-      "marstead_note": "AFK-Multitask baseline."
+      "produces": [
+        {
+          "item": "coins",
+          "rate_per_hour": 72000
+        }
+      ],
+      "marstead_note": "AFK-Multitask baseline.",
+      "travel_time_to_bank_seconds": 25,
+      "nearest_teleport": "Heartlands Teleport (Lumbrick)",
+      "banking_trip_cost": {
+        "gp": 35,
+        "intensity": 2
+      },
+      "travel_region_multiplier": 0,
+      "effective_xp_per_hour": 34692,
+      "effective_gp_per_hour": 69000,
+      "travel_minutes_per_hour": 2.5,
+      "active_minutes_per_hour": 57.5,
+      "trips_per_hour": 3
     },
     {
       "id": "glass_desert_fruit_stall",
       "skill": "thieving",
       "level_required": 42,
       "name": "Glass Desert Fruit Stall",
-      "location": { "region": "glass_desert", "spot": "Crescent Bazaar" },
+      "location": {
+        "region": "glass_desert",
+        "spot": "Crescent Bazaar"
+      },
       "intensity": 4,
       "xp_per_hour": 48300,
       "gp_per_hour": 68000,
-      "requires": { "quests": [], "items": [], "skills": {"thieving": 42} },
+      "requires": {
+        "quests": [],
+        "items": [],
+        "skills": {
+          "thieving": 42
+        }
+      },
       "description": "Fruit stall rotation. Dodge guard rotations.",
-      "produces": [{ "item": "mango", "rate_per_hour": 820 }],
-      "marstead_note": "Active."
+      "produces": [
+        {
+          "item": "mango",
+          "rate_per_hour": 820
+        }
+      ],
+      "marstead_note": "Active.",
+      "travel_time_to_bank_seconds": 83,
+      "nearest_teleport": "Glass Desert Pendant",
+      "banking_trip_cost": {
+        "gp": 500,
+        "intensity": 2
+      },
+      "travel_region_multiplier": 0.5,
+      "effective_xp_per_hour": 41619,
+      "effective_gp_per_hour": 58593,
+      "travel_minutes_per_hour": 8.3,
+      "active_minutes_per_hour": 51.7,
+      "trips_per_hour": 3
     },
     {
       "id": "heartlands_knight_pickpocket",
       "skill": "thieving",
       "level_required": 55,
       "name": "Knight Pickpocket",
-      "location": { "region": "heartlands", "spot": "Garrison knight yard" },
+      "location": {
+        "region": "heartlands",
+        "spot": "Garrison knight yard"
+      },
       "intensity": 4,
       "xp_per_hour": 64700,
       "gp_per_hour": 145000,
-      "requires": { "quests": [], "items": ["gloves_of_silence"], "skills": {"thieving": 55} },
+      "requires": {
+        "quests": [],
+        "items": [
+          "gloves_of_silence"
+        ],
+        "skills": {
+          "thieving": 55
+        }
+      },
       "description": "Knight active pickpocket + double-loot gloves.",
-      "produces": [{ "item": "coins", "rate_per_hour": 145000 }],
-      "marstead_note": "Active."
+      "produces": [
+        {
+          "item": "coins",
+          "rate_per_hour": 145000
+        }
+      ],
+      "marstead_note": "Active.",
+      "travel_time_to_bank_seconds": 25,
+      "nearest_teleport": "Heartlands Teleport (Lumbrick)",
+      "banking_trip_cost": {
+        "gp": 35,
+        "intensity": 2
+      },
+      "travel_region_multiplier": 0,
+      "effective_xp_per_hour": 62004,
+      "effective_gp_per_hour": 138958,
+      "travel_minutes_per_hour": 2.5,
+      "active_minutes_per_hour": 57.5,
+      "trips_per_hour": 3
     },
     {
       "id": "heartlands_knight_afk",
       "skill": "thieving",
       "level_required": 55,
       "name": "Knight Safespot AFK",
-      "location": { "region": "heartlands", "spot": "Garrison corner safespot" },
+      "location": {
+        "region": "heartlands",
+        "spot": "Garrison corner safespot"
+      },
       "intensity": 1,
       "xp_per_hour": 41200,
       "gp_per_hour": 95000,
-      "requires": { "quests": [], "items": [], "skills": {"thieving": 55} },
+      "requires": {
+        "quests": [],
+        "items": [],
+        "skills": {
+          "thieving": 55
+        }
+      },
       "description": "Knight AFK.",
-      "produces": [{ "item": "coins", "rate_per_hour": 95000 }],
-      "marstead_note": "AFK baseline."
+      "produces": [
+        {
+          "item": "coins",
+          "rate_per_hour": 95000
+        }
+      ],
+      "marstead_note": "AFK baseline.",
+      "travel_time_to_bank_seconds": 25,
+      "nearest_teleport": "Heartlands Teleport (Lumbrick)",
+      "banking_trip_cost": {
+        "gp": 35,
+        "intensity": 2
+      },
+      "travel_region_multiplier": 0,
+      "effective_xp_per_hour": 39483,
+      "effective_gp_per_hour": 91042,
+      "travel_minutes_per_hour": 2.5,
+      "active_minutes_per_hour": 57.5,
+      "trips_per_hour": 3
     },
     {
       "id": "inkweald_blackjack_bandit",
       "skill": "thieving",
       "level_required": 45,
       "name": "Inkweald Blackjack Bandit",
-      "location": { "region": "inkweald", "spot": "Dream-camp bandits" },
+      "location": {
+        "region": "inkweald",
+        "spot": "Dream-camp bandits"
+      },
       "intensity": 5,
       "xp_per_hour": 56400,
       "gp_per_hour": 120000,
-      "requires": { "quests": ["the_bandit_breach"], "items": ["blackjack"], "skills": {"thieving": 45} },
+      "requires": {
+        "quests": [
+          "the_bandit_breach"
+        ],
+        "items": [
+          "blackjack"
+        ],
+        "skills": {
+          "thieving": 45
+        }
+      },
       "description": "Blackjack-knock + loot. Multi-step.",
-      "produces": [{ "item": "bandit_loot", "rate_per_hour": 72 }],
-      "marstead_note": "Active. Multi-step."
+      "produces": [
+        {
+          "item": "bandit_loot",
+          "rate_per_hour": 72
+        }
+      ],
+      "marstead_note": "Active. Multi-step.",
+      "travel_time_to_bank_seconds": 54,
+      "nearest_teleport": "Moonclan Teleport (Lunar)",
+      "banking_trip_cost": {
+        "gp": 110,
+        "intensity": 2
+      },
+      "travel_region_multiplier": 0.2,
+      "effective_xp_per_hour": 51324,
+      "effective_gp_per_hour": 109200,
+      "travel_minutes_per_hour": 5.4,
+      "active_minutes_per_hour": 54.6,
+      "trips_per_hour": 3
     },
     {
       "id": "saltbrine_pirate_pickpocket_afk",
       "skill": "thieving",
       "level_required": 50,
       "name": "Saltbrine Pirate Pickpocket AFK",
-      "location": { "region": "saltbrine", "spot": "Drifting Market pirates" },
+      "location": {
+        "region": "saltbrine",
+        "spot": "Drifting Market pirates"
+      },
       "intensity": 1,
       "xp_per_hour": 32000,
       "gp_per_hour": 82000,
-      "requires": { "quests": [], "items": [], "skills": {"thieving": 50} },
+      "requires": {
+        "quests": [],
+        "items": [],
+        "skills": {
+          "thieving": 50
+        }
+      },
       "description": "Pirate pickpocket AFK.",
-      "produces": [{ "item": "pirate_coin", "rate_per_hour": 82000 }],
-      "marstead_note": "AFK baseline."
+      "produces": [
+        {
+          "item": "pirate_coin",
+          "rate_per_hour": 82000
+        }
+      ],
+      "marstead_note": "AFK baseline.",
+      "travel_time_to_bank_seconds": 9,
+      "nearest_teleport": "Saltbrine Teleport (Harbor)",
+      "banking_trip_cost": {
+        "gp": 0,
+        "intensity": 1
+      },
+      "travel_region_multiplier": 0,
+      "effective_xp_per_hour": 31520,
+      "effective_gp_per_hour": 80770,
+      "travel_minutes_per_hour": 0.9,
+      "active_minutes_per_hour": 59.1,
+      "trips_per_hour": 3
     },
     {
       "id": "heartlands_paladin_pickpocket",
       "skill": "thieving",
       "level_required": 65,
       "name": "Paladin Pickpocket",
-      "location": { "region": "heartlands", "spot": "Ardougne-analog paladin hall" },
+      "location": {
+        "region": "heartlands",
+        "spot": "Ardougne-analog paladin hall"
+      },
       "intensity": 3,
       "xp_per_hour": 66100,
       "gp_per_hour": 225000,
-      "requires": { "quests": [], "items": [], "skills": {"thieving": 65} },
+      "requires": {
+        "quests": [],
+        "items": [],
+        "skills": {
+          "thieving": 65
+        }
+      },
       "description": "Paladin pickpocket. Big coin drops.",
-      "produces": [{ "item": "coins", "rate_per_hour": 225000 }],
-      "marstead_note": "Multitask-Active."
+      "produces": [
+        {
+          "item": "coins",
+          "rate_per_hour": 225000
+        }
+      ],
+      "marstead_note": "Multitask-Active.",
+      "travel_time_to_bank_seconds": 25,
+      "nearest_teleport": "Heartlands Teleport (Lumbrick)",
+      "banking_trip_cost": {
+        "gp": 35,
+        "intensity": 2
+      },
+      "travel_region_multiplier": 0,
+      "effective_xp_per_hour": 63346,
+      "effective_gp_per_hour": 215625,
+      "travel_minutes_per_hour": 2.5,
+      "active_minutes_per_hour": 57.5,
+      "trips_per_hour": 3
     },
     {
       "id": "heartlands_paladin_active",
       "skill": "thieving",
       "level_required": 65,
       "name": "Paladin Active-Thieving",
-      "location": { "region": "heartlands", "spot": "Ardougne paladin hall + banker" },
+      "location": {
+        "region": "heartlands",
+        "spot": "Ardougne paladin hall + banker"
+      },
       "intensity": 6,
       "xp_per_hour": 103500,
       "gp_per_hour": 385000,
-      "requires": { "quests": [], "items": ["rogue_armour"], "skills": {"thieving": 65} },
+      "requires": {
+        "quests": [],
+        "items": [
+          "rogue_armour"
+        ],
+        "skills": {
+          "thieving": 65
+        }
+      },
       "description": "Paladin active with rogue armour for double-loot.",
-      "produces": [{ "item": "coins", "rate_per_hour": 385000 }],
-      "marstead_note": "Active-Max Focus."
+      "produces": [
+        {
+          "item": "coins",
+          "rate_per_hour": 385000
+        }
+      ],
+      "marstead_note": "Active-Max Focus.",
+      "travel_time_to_bank_seconds": 0,
+      "nearest_teleport": null,
+      "banking_trip_cost": {
+        "gp": 0,
+        "intensity": 0
+      },
+      "travel_region_multiplier": 0,
+      "effective_xp_per_hour": 103500,
+      "effective_gp_per_hour": 385000,
+      "travel_minutes_per_hour": 0,
+      "active_minutes_per_hour": 60,
+      "trips_per_hour": 0
     },
     {
       "id": "heartlands_paladin_afk",
       "skill": "thieving",
       "level_required": 65,
       "name": "Paladin AFK Safespot",
-      "location": { "region": "heartlands", "spot": "Ardougne paladin alcove" },
+      "location": {
+        "region": "heartlands",
+        "spot": "Ardougne paladin alcove"
+      },
       "intensity": 1,
       "xp_per_hour": 47000,
       "gp_per_hour": 155000,
-      "requires": { "quests": [], "items": [], "skills": {"thieving": 65} },
+      "requires": {
+        "quests": [],
+        "items": [],
+        "skills": {
+          "thieving": 65
+        }
+      },
       "description": "Paladin AFK pickpocket.",
-      "produces": [{ "item": "coins", "rate_per_hour": 155000 }],
-      "marstead_note": "AFK baseline for 65+."
+      "produces": [
+        {
+          "item": "coins",
+          "rate_per_hour": 155000
+        }
+      ],
+      "marstead_note": "AFK baseline for 65+.",
+      "travel_time_to_bank_seconds": 25,
+      "nearest_teleport": "Heartlands Teleport (Lumbrick)",
+      "banking_trip_cost": {
+        "gp": 35,
+        "intensity": 2
+      },
+      "travel_region_multiplier": 0,
+      "effective_xp_per_hour": 45042,
+      "effective_gp_per_hour": 148542,
+      "travel_minutes_per_hour": 2.5,
+      "active_minutes_per_hour": 57.5,
+      "trips_per_hour": 3
     },
     {
       "id": "veilwood_gnome_pickpocket",
       "skill": "thieving",
       "level_required": 75,
       "name": "Veilwood Gnome Pickpocket",
-      "location": { "region": "veilwood", "spot": "Greenstone grove" },
+      "location": {
+        "region": "veilwood",
+        "spot": "Greenstone grove"
+      },
       "intensity": 3,
       "xp_per_hour": 88100,
       "gp_per_hour": 185000,
-      "requires": { "quests": [], "items": [], "skills": {"thieving": 75} },
+      "requires": {
+        "quests": [],
+        "items": [],
+        "skills": {
+          "thieving": 75
+        }
+      },
       "description": "Gnome pickpocket.",
-      "produces": [{ "item": "coins", "rate_per_hour": 185000 }],
-      "marstead_note": "Multitask-Active."
+      "produces": [
+        {
+          "item": "coins",
+          "rate_per_hour": 185000
+        }
+      ],
+      "marstead_note": "Multitask-Active.",
+      "travel_time_to_bank_seconds": 39,
+      "nearest_teleport": "Necklace of Passage",
+      "banking_trip_cost": {
+        "gp": 500,
+        "intensity": 2
+      },
+      "travel_region_multiplier": 0.1,
+      "effective_xp_per_hour": 82374,
+      "effective_gp_per_hour": 172975,
+      "travel_minutes_per_hour": 3.9,
+      "active_minutes_per_hour": 56.1,
+      "trips_per_hour": 3
     },
     {
       "id": "veilwood_gnome_afk",
       "skill": "thieving",
       "level_required": 75,
       "name": "Gnome Safespot AFK",
-      "location": { "region": "veilwood", "spot": "Greenstone sparse pattern" },
+      "location": {
+        "region": "veilwood",
+        "spot": "Greenstone sparse pattern"
+      },
       "intensity": 1,
       "xp_per_hour": 54700,
       "gp_per_hour": 125000,
-      "requires": { "quests": [], "items": [], "skills": {"thieving": 75} },
+      "requires": {
+        "quests": [],
+        "items": [],
+        "skills": {
+          "thieving": 75
+        }
+      },
       "description": "Gnome AFK.",
-      "produces": [{ "item": "coins", "rate_per_hour": 125000 }],
-      "marstead_note": "AFK baseline for 75+."
+      "produces": [
+        {
+          "item": "coins",
+          "rate_per_hour": 125000
+        }
+      ],
+      "marstead_note": "AFK baseline for 75+.",
+      "travel_time_to_bank_seconds": 39,
+      "nearest_teleport": "Necklace of Passage",
+      "banking_trip_cost": {
+        "gp": 500,
+        "intensity": 2
+      },
+      "travel_region_multiplier": 0.1,
+      "effective_xp_per_hour": 51145,
+      "effective_gp_per_hour": 116875,
+      "travel_minutes_per_hour": 3.9,
+      "active_minutes_per_hour": 56.1,
+      "trips_per_hour": 3
     },
     {
       "id": "heartlands_hero_pickpocket",
       "skill": "thieving",
       "level_required": 81,
       "name": "Hero Pickpocket",
-      "location": { "region": "heartlands", "spot": "Ardougne hero hall" },
+      "location": {
+        "region": "heartlands",
+        "spot": "Ardougne hero hall"
+      },
       "intensity": 4,
       "xp_per_hour": 107600,
       "gp_per_hour": 420000,
-      "requires": { "quests": [], "items": ["rogue_armour"], "skills": {"thieving": 81} },
+      "requires": {
+        "quests": [],
+        "items": [
+          "rogue_armour"
+        ],
+        "skills": {
+          "thieving": 81
+        }
+      },
       "description": "Hero pickpocket.",
-      "produces": [{ "item": "coins", "rate_per_hour": 420000 }],
-      "marstead_note": "Active."
+      "produces": [
+        {
+          "item": "coins",
+          "rate_per_hour": 420000
+        }
+      ],
+      "marstead_note": "Active.",
+      "travel_time_to_bank_seconds": 25,
+      "nearest_teleport": "Heartlands Teleport (Lumbrick)",
+      "banking_trip_cost": {
+        "gp": 35,
+        "intensity": 2
+      },
+      "travel_region_multiplier": 0,
+      "effective_xp_per_hour": 103117,
+      "effective_gp_per_hour": 402500,
+      "travel_minutes_per_hour": 2.5,
+      "active_minutes_per_hour": 57.5,
+      "trips_per_hour": 3
     },
     {
       "id": "heartlands_hero_afk",
       "skill": "thieving",
       "level_required": 81,
       "name": "Hero Safespot AFK",
-      "location": { "region": "heartlands", "spot": "Ardougne hero alcove" },
+      "location": {
+        "region": "heartlands",
+        "spot": "Ardougne hero alcove"
+      },
       "intensity": 1,
       "xp_per_hour": 69100,
       "gp_per_hour": 285000,
-      "requires": { "quests": [], "items": [], "skills": {"thieving": 81} },
+      "requires": {
+        "quests": [],
+        "items": [],
+        "skills": {
+          "thieving": 81
+        }
+      },
       "description": "Hero AFK.",
-      "produces": [{ "item": "coins", "rate_per_hour": 285000 }],
-      "marstead_note": "AFK baseline."
+      "produces": [
+        {
+          "item": "coins",
+          "rate_per_hour": 285000
+        }
+      ],
+      "marstead_note": "AFK baseline.",
+      "travel_time_to_bank_seconds": 25,
+      "nearest_teleport": "Heartlands Teleport (Lumbrick)",
+      "banking_trip_cost": {
+        "gp": 35,
+        "intensity": 2
+      },
+      "travel_region_multiplier": 0,
+      "effective_xp_per_hour": 66221,
+      "effective_gp_per_hour": 273125,
+      "travel_minutes_per_hour": 2.5,
+      "active_minutes_per_hour": 57.5,
+      "trips_per_hour": 3
     },
     {
       "id": "veilwood_elf_pickpocket",
       "skill": "thieving",
       "level_required": 91,
       "name": "Veilwood Elf Pickpocket",
-      "location": { "region": "veilwood", "spot": "Elfheim plaza" },
+      "location": {
+        "region": "veilwood",
+        "spot": "Elfheim plaza"
+      },
       "intensity": 5,
       "xp_per_hour": 155400,
       "gp_per_hour": 620000,
-      "requires": { "quests": ["song_of_the_mossborn"], "items": ["rogue_armour"], "skills": {"thieving": 91} },
+      "requires": {
+        "quests": [
+          "song_of_the_mossborn"
+        ],
+        "items": [
+          "rogue_armour"
+        ],
+        "skills": {
+          "thieving": 91
+        }
+      },
       "description": "Elf pickpocket with rogue armour. Peak XP.",
-      "produces": [{ "item": "coins", "rate_per_hour": 620000 }],
-      "marstead_note": "Active."
+      "produces": [
+        {
+          "item": "coins",
+          "rate_per_hour": 620000
+        }
+      ],
+      "marstead_note": "Active.",
+      "travel_time_to_bank_seconds": 39,
+      "nearest_teleport": "Necklace of Passage",
+      "banking_trip_cost": {
+        "gp": 500,
+        "intensity": 2
+      },
+      "travel_region_multiplier": 0.1,
+      "effective_xp_per_hour": 145299,
+      "effective_gp_per_hour": 579700,
+      "travel_minutes_per_hour": 3.9,
+      "active_minutes_per_hour": 56.1,
+      "trips_per_hour": 3
     },
     {
       "id": "veilwood_elf_safespot_afk",
       "skill": "thieving",
       "level_required": 91,
       "name": "Elf Safespot AFK",
-      "location": { "region": "veilwood", "spot": "Elfheim alcove" },
+      "location": {
+        "region": "veilwood",
+        "spot": "Elfheim alcove"
+      },
       "intensity": 1,
       "xp_per_hour": 98500,
       "gp_per_hour": 420000,
-      "requires": { "quests": ["song_of_the_mossborn"], "items": [], "skills": {"thieving": 91} },
+      "requires": {
+        "quests": [
+          "song_of_the_mossborn"
+        ],
+        "items": [],
+        "skills": {
+          "thieving": 91
+        }
+      },
       "description": "Elf AFK.",
-      "produces": [{ "item": "coins", "rate_per_hour": 420000 }],
-      "marstead_note": "AFK baseline for 90+."
+      "produces": [
+        {
+          "item": "coins",
+          "rate_per_hour": 420000
+        }
+      ],
+      "marstead_note": "AFK baseline for 90+.",
+      "travel_time_to_bank_seconds": 39,
+      "nearest_teleport": "Necklace of Passage",
+      "banking_trip_cost": {
+        "gp": 500,
+        "intensity": 2
+      },
+      "travel_region_multiplier": 0.1,
+      "effective_xp_per_hour": 92098,
+      "effective_gp_per_hour": 392700,
+      "travel_minutes_per_hour": 3.9,
+      "active_minutes_per_hour": 56.1,
+      "trips_per_hour": 3
     },
     {
       "id": "inkweald_bank_vault_heist",
       "skill": "thieving",
       "level_required": 50,
       "name": "Inkweald Bank Vault Heist",
-      "location": { "region": "inkweald", "spot": "Dream-Bank vault" },
+      "location": {
+        "region": "inkweald",
+        "spot": "Dream-Bank vault"
+      },
       "intensity": 8,
       "xp_per_hour": 98400,
       "gp_per_hour": 685000,
-      "requires": { "quests": ["the_heist_contract"], "items": ["lockpick", "stethoscope"], "skills": {"thieving": 50} },
+      "requires": {
+        "quests": [
+          "the_heist_contract"
+        ],
+        "items": [
+          "lockpick",
+          "stethoscope"
+        ],
+        "skills": {
+          "thieving": 50
+        }
+      },
       "description": "Multi-stage vault heist. Max attention. Uncommon gem reward.",
-      "produces": [{ "item": "vault_gem", "rate_per_hour": 2.4 }],
-      "marstead_note": "Max Focus. Minigame-tier attention."
+      "produces": [
+        {
+          "item": "vault_gem",
+          "rate_per_hour": 2.4
+        }
+      ],
+      "marstead_note": "Max Focus. Minigame-tier attention.",
+      "travel_time_to_bank_seconds": 0,
+      "nearest_teleport": null,
+      "banking_trip_cost": {
+        "gp": 0,
+        "intensity": 0
+      },
+      "travel_region_multiplier": 0.2,
+      "effective_xp_per_hour": 98400,
+      "effective_gp_per_hour": 685000,
+      "travel_minutes_per_hour": 0,
+      "active_minutes_per_hour": 60,
+      "trips_per_hour": 0
     },
     {
       "id": "heartlands_master_farmer",
       "skill": "thieving",
       "level_required": 38,
       "name": "Master Farmer Pickpocket AFK",
-      "location": { "region": "heartlands", "spot": "Chelser Master Farm" },
+      "location": {
+        "region": "heartlands",
+        "spot": "Chelser Master Farm"
+      },
       "intensity": 1,
       "xp_per_hour": 23300,
       "gp_per_hour": 185000,
-      "requires": { "quests": [], "items": [], "skills": {"thieving": 38} },
+      "requires": {
+        "quests": [],
+        "items": [],
+        "skills": {
+          "thieving": 38
+        }
+      },
       "description": "Master farmer for rare seeds.",
-      "produces": [{ "item": "ranarr_seed", "rate_per_hour": 5 }],
-      "marstead_note": "AFK baseline. Seed economy feed."
+      "produces": [
+        {
+          "item": "ranarr_seed",
+          "rate_per_hour": 5
+        }
+      ],
+      "marstead_note": "AFK baseline. Seed economy feed.",
+      "travel_time_to_bank_seconds": 25,
+      "nearest_teleport": "Heartlands Teleport (Lumbrick)",
+      "banking_trip_cost": {
+        "gp": 35,
+        "intensity": 2
+      },
+      "travel_region_multiplier": 0,
+      "effective_xp_per_hour": 22329,
+      "effective_gp_per_hour": 177292,
+      "travel_minutes_per_hour": 2.5,
+      "active_minutes_per_hour": 57.5,
+      "trips_per_hour": 3
     },
     {
       "id": "moryskah_necropolis_toll_run",
       "skill": "thieving",
       "level_required": 72,
       "name": "Necropolis Toll-Run Circuit",
-      "location": { "region": "moryskah", "spot": "Gravechill necropolis gate-keepers" },
+      "location": {
+        "region": "moryskah",
+        "spot": "Gravechill necropolis gate-keepers"
+      },
       "intensity": 4,
       "xp_per_hour": 138000,
       "gp_per_hour": 2700000,
-      "requires": { "quests": ["requiem_of_hollows"], "items": ["rogue_outfit", "stethoscope", "toll_disguise"], "skills": {"thieving": 72} },
+      "requires": {
+        "quests": [
+          "requiem_of_hollows"
+        ],
+        "items": [
+          "rogue_outfit",
+          "stethoscope",
+          "toll_disguise"
+        ],
+        "skills": {
+          "thieving": 72
+        }
+      },
       "description": "Four-gate toll-run pilfering crypt priests. Disguise rotation + route memorisation. Drops sealed toll-purses.",
-      "produces": [{ "item": "toll_purse", "rate_per_hour": 340 }],
-      "marstead_note": "H11 Moryskah 2-5M moneymaker. Active-tier thieving circuit."
+      "produces": [
+        {
+          "item": "toll_purse",
+          "rate_per_hour": 340
+        }
+      ],
+      "marstead_note": "H11 Moryskah 2-5M moneymaker. Active-tier thieving circuit.",
+      "travel_time_to_bank_seconds": 46,
+      "nearest_teleport": "Moryskah Teleport (Village)",
+      "banking_trip_cost": {
+        "gp": 85,
+        "intensity": 2
+      },
+      "travel_region_multiplier": 0.2,
+      "effective_xp_per_hour": 127420,
+      "effective_gp_per_hour": 2493000,
+      "travel_minutes_per_hour": 4.6,
+      "active_minutes_per_hour": 55.4,
+      "trips_per_hour": 3
     },
     {
       "id": "multi_mercantile_trade_route",
       "skill": "thieving",
       "level_required": 45,
       "name": "Mercantile Route (Three-City Cycle)",
-      "location": { "region": "heartlands", "spot": "Chelser → Crescent → Tideshelf merchant courier desks" },
+      "location": {
+        "region": "heartlands",
+        "spot": "Chelser → Crescent → Tideshelf merchant courier desks"
+      },
       "intensity": 3,
       "xp_per_hour": 52000,
       "gp_per_hour": 750000,
-      "requires": { "quests": ["the_ledger_and_the_oar"], "items": ["trader_passport", "courier_bag"], "skills": {"thieving": 45} },
+      "requires": {
+        "quests": [
+          "the_ledger_and_the_oar"
+        ],
+        "items": [
+          "trader_passport",
+          "courier_bag"
+        ],
+        "skills": {
+          "thieving": 45
+        }
+      },
       "description": "Three-city trade circuit: buy low on spice/silk/preserved fish at price-split regions and resell at the third city. Attentive but not tick-perfect. Passport rotation.",
-      "produces": [{ "item": "mercantile_ledger", "rate_per_hour": 12 }],
-      "marstead_note": "H11 int3 500k+ moneymaker. Cross-region mercantile — fills the int3/500k+ empty cell."
+      "produces": [
+        {
+          "item": "mercantile_ledger",
+          "rate_per_hour": 12
+        }
+      ],
+      "marstead_note": "H11 int3 500k+ moneymaker. Cross-region mercantile — fills the int3/500k+ empty cell.",
+      "travel_time_to_bank_seconds": 25,
+      "nearest_teleport": "Heartlands Teleport (Lumbrick)",
+      "banking_trip_cost": {
+        "gp": 35,
+        "intensity": 2
+      },
+      "travel_region_multiplier": 0,
+      "effective_xp_per_hour": 49833,
+      "effective_gp_per_hour": 718750,
+      "travel_minutes_per_hour": 2.5,
+      "active_minutes_per_hour": 57.5,
+      "trips_per_hour": 3
     },
     {
       "id": "heartlands_ge_arbitrage_desk",
       "skill": "thieving",
       "level_required": 88,
       "name": "Grand Exchange Arbitrage Desk",
-      "location": { "region": "heartlands", "spot": "Chelser Grand Exchange broker pit" },
+      "location": {
+        "region": "heartlands",
+        "spot": "Chelser Grand Exchange broker pit"
+      },
       "intensity": 2,
       "xp_per_hour": 38000,
       "gp_per_hour": 5800000,
-      "requires": { "quests": ["the_ledger_and_the_oar", "the_broker_s_word"], "items": ["trader_passport", "broker_license"], "skills": {"thieving": 88, "magic": 75} },
+      "requires": {
+        "quests": [
+          "the_ledger_and_the_oar",
+          "the_broker_s_word"
+        ],
+        "items": [
+          "trader_passport",
+          "broker_license"
+        ],
+        "skills": {
+          "thieving": 88,
+          "magic": 75
+        }
+      },
       "description": "Flip bulk goods across margin spreads. Place + cancel + re-list cycles. Cap on simultaneous orders; profit scales with GE volume. Non-combat 5M+ method.",
-      "produces": [{ "item": "arbitrage_receipt", "rate_per_hour": 85 }],
-      "marstead_note": "M15 non-combat 5M+. OSRS GE flipping analogue. Light-interaction mercantile."
+      "produces": [
+        {
+          "item": "arbitrage_receipt",
+          "rate_per_hour": 85
+        }
+      ],
+      "marstead_note": "M15 non-combat 5M+. OSRS GE flipping analogue. Light-interaction mercantile.",
+      "travel_time_to_bank_seconds": 0,
+      "nearest_teleport": null,
+      "banking_trip_cost": {
+        "gp": 0,
+        "intensity": 0
+      },
+      "travel_region_multiplier": 0,
+      "effective_xp_per_hour": 38000,
+      "effective_gp_per_hour": 5800000,
+      "travel_minutes_per_hour": 0,
+      "active_minutes_per_hour": 60,
+      "trips_per_hour": 0
     },
     {
       "id": "inkweald_dream_vault_master_theft",
       "skill": "thieving",
       "level_required": 95,
       "name": "Dream-Vault Master Theft",
-      "location": { "region": "inkweald", "spot": "Penseurlake dream-vault inner sanctum" },
+      "location": {
+        "region": "inkweald",
+        "spot": "Penseurlake dream-vault inner sanctum"
+      },
       "intensity": 9,
       "xp_per_hour": 232000,
       "gp_per_hour": 4100000,
-      "requires": { "quests": ["unwake_the_dreamer", "the_ledger_and_the_oar"], "items": ["dream_lockpick", "shadow_cloak", "silence_charm"], "skills": {"thieving": 95, "agility": 85, "magic": 90} },
+      "requires": {
+        "quests": [
+          "unwake_the_dreamer",
+          "the_ledger_and_the_oar"
+        ],
+        "items": [
+          "dream_lockpick",
+          "shadow_cloak",
+          "silence_charm"
+        ],
+        "skills": {
+          "thieving": 95,
+          "agility": 85,
+          "magic": 90
+        }
+      },
       "description": "Master-tier dream vault heist. Route memorisation + silence-charm rotation + shadow clock synchronisation. One failed roll = eject.",
-      "produces": [{ "item": "dream_lockpick_charge", "rate_per_hour": 180 }],
-      "marstead_note": "M14 endgame thieving. Band 9 elite heist."
+      "produces": [
+        {
+          "item": "dream_lockpick_charge",
+          "rate_per_hour": 180
+        }
+      ],
+      "marstead_note": "M14 endgame thieving. Band 9 elite heist.",
+      "travel_time_to_bank_seconds": 30,
+      "nearest_teleport": "Moonclan Teleport (Lunar)",
+      "banking_trip_cost": {
+        "gp": 110,
+        "intensity": 2
+      },
+      "travel_region_multiplier": 0.2,
+      "effective_xp_per_hour": 220400,
+      "effective_gp_per_hour": 3895000,
+      "travel_minutes_per_hour": 3,
+      "active_minutes_per_hour": 57,
+      "trips_per_hour": 3
     },
     {
       "id": "saltbrine_drifting_market_silk_flip",
       "skill": "thieving",
       "level_required": 42,
       "name": "Drifting Market Silk Flip",
-      "location": { "region": "saltbrine", "spot": "Saltbrine Crag drifting market" },
+      "location": {
+        "region": "saltbrine",
+        "spot": "Saltbrine Crag drifting market"
+      },
       "intensity": 2,
       "xp_per_hour": 34000,
       "gp_per_hour": 600000,
-      "requires": { "quests": ["the_crystal_coast"], "items": ["trader_passport", "silk_dye_kit"], "skills": {"thieving": 42} },
+      "requires": {
+        "quests": [
+          "the_crystal_coast"
+        ],
+        "items": [
+          "trader_passport",
+          "silk_dye_kit"
+        ],
+        "skills": {
+          "thieving": 42
+        }
+      },
       "description": "Flip silk at the drifting market — buy raw silk at dockside, re-dye at market bench, resell at higher tier. Mercantile AFK.",
-      "produces": [{ "item": "dyed_silk", "rate_per_hour": 380 }],
-      "marstead_note": "H11 Saltbrine 500k-1M moneymaker. Mercantile AFK."
+      "produces": [
+        {
+          "item": "dyed_silk",
+          "rate_per_hour": 380
+        }
+      ],
+      "marstead_note": "H11 Saltbrine 500k-1M moneymaker. Mercantile AFK.",
+      "travel_time_to_bank_seconds": 9,
+      "nearest_teleport": "Saltbrine Teleport (Harbor)",
+      "banking_trip_cost": {
+        "gp": 0,
+        "intensity": 1
+      },
+      "travel_region_multiplier": 0,
+      "effective_xp_per_hour": 33490,
+      "effective_gp_per_hour": 591000,
+      "travel_minutes_per_hour": 0.9,
+      "active_minutes_per_hour": 59.1,
+      "trips_per_hour": 3
     },
     {
       "id": "boneyard_cryptstalker_relic_run",
       "skill": "thieving",
       "level_required": 52,
       "name": "Cryptstalker Relic Run",
-      "location": { "region": "boneyard", "spot": "Gravelight cryptstalker obelisk circuit" },
+      "location": {
+        "region": "boneyard",
+        "spot": "Gravelight cryptstalker obelisk circuit"
+      },
       "intensity": 3,
       "xp_per_hour": 68000,
       "gp_per_hour": 680000,
-      "requires": { "quests": ["the_crypt_warden"], "items": ["stethoscope", "relic_kit"], "skills": {"thieving": 52, "agility": 45} },
+      "requires": {
+        "quests": [
+          "the_crypt_warden"
+        ],
+        "items": [
+          "stethoscope",
+          "relic_kit"
+        ],
+        "skills": {
+          "thieving": 52,
+          "agility": 45
+        }
+      },
       "description": "AFK-Multitask obelisk circuit. Loot obelisks across a four-node run; agility shortcuts speed the loop. Safe but attentive.",
-      "produces": [{ "item": "crypt_relic", "rate_per_hour": 85 }],
-      "marstead_note": "H11 Boneyard 500k-1M moneymaker. Agility+thieving circuit."
+      "produces": [
+        {
+          "item": "crypt_relic",
+          "rate_per_hour": 85
+        }
+      ],
+      "marstead_note": "H11 Boneyard 500k-1M moneymaker. Agility+thieving circuit.",
+      "travel_time_to_bank_seconds": 89,
+      "nearest_teleport": "Senntisten Teleport (Ancient)",
+      "banking_trip_cost": {
+        "gp": 180,
+        "intensity": 2
+      },
+      "travel_region_multiplier": 0.2,
+      "effective_xp_per_hour": 57913,
+      "effective_gp_per_hour": 579133,
+      "travel_minutes_per_hour": 8.9,
+      "active_minutes_per_hour": 51.1,
+      "trips_per_hour": 3
     }
   ],
   "bracket_coverage": {
-    "1-10":  { "count": 2, "intensities": [2, 1] },
-    "10-20": { "count": 2, "intensities": [1, 4] },
-    "20-30": { "count": 2, "intensities": [3, 1] },
-    "30-40": { "count": 2, "intensities": [5, 1] },
-    "40-50": { "count": 4, "intensities": [2, 4, 5, 8] },
-    "50-60": { "count": 2, "intensities": [4, 1] },
-    "60-70": { "count": 3, "intensities": [3, 6, 1] },
-    "70-80": { "count": 2, "intensities": [3, 1] },
-    "80-90": { "count": 2, "intensities": [4, 1] },
-    "90-99": { "count": 2, "intensities": [5, 1] }
+    "1-10": {
+      "count": 2,
+      "intensities": [
+        2,
+        1
+      ]
+    },
+    "10-20": {
+      "count": 2,
+      "intensities": [
+        1,
+        4
+      ]
+    },
+    "20-30": {
+      "count": 2,
+      "intensities": [
+        3,
+        1
+      ]
+    },
+    "30-40": {
+      "count": 2,
+      "intensities": [
+        5,
+        1
+      ]
+    },
+    "40-50": {
+      "count": 4,
+      "intensities": [
+        2,
+        4,
+        5,
+        8
+      ]
+    },
+    "50-60": {
+      "count": 2,
+      "intensities": [
+        4,
+        1
+      ]
+    },
+    "60-70": {
+      "count": 3,
+      "intensities": [
+        3,
+        6,
+        1
+      ]
+    },
+    "70-80": {
+      "count": 2,
+      "intensities": [
+        3,
+        1
+      ]
+    },
+    "80-90": {
+      "count": 2,
+      "intensities": [
+        4,
+        1
+      ]
+    },
+    "90-99": {
+      "count": 2,
+      "intensities": [
+        5,
+        1
+      ]
+    }
   }
 }

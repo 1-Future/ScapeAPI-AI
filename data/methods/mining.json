@@ -7,390 +7,1231 @@
       "skill": "mining",
       "level_required": 1,
       "name": "Heartlands Copperpit Surface Tap",
-      "location": { "region": "heartlands", "spot": "Copperpit outskirts, walking distance from Lumbrick Village bank" },
+      "location": {
+        "region": "heartlands",
+        "spot": "Copperpit outskirts, walking distance from Lumbrick Village bank"
+      },
       "intensity": 1,
       "xp_per_hour": 8000,
       "gp_per_hour": 4000,
-      "requires": { "quests": [], "items": ["bronze_pickaxe"], "skills": {} },
+      "requires": {
+        "quests": [],
+        "items": [
+          "bronze_pickaxe"
+        ],
+        "skills": {}
+      },
       "description": "Tap exposed copper veins in the sun-warmed outcrop outside Lumbrick. The ore almost flakes off the rock. Ideal AFK opener for the first five levels.",
-      "produces": [{ "item": "copper_ore", "rate_per_hour": 400 }],
-      "marstead_note": "AFK baseline. Background attention. Players can read quest dialogue while training."
+      "produces": [
+        {
+          "item": "copper_ore",
+          "rate_per_hour": 400
+        }
+      ],
+      "marstead_note": "AFK baseline. Background attention. Players can read quest dialogue while training.",
+      "travel_time_to_bank_seconds": 0,
+      "nearest_teleport": null,
+      "banking_trip_cost": {
+        "gp": 0,
+        "intensity": 0
+      },
+      "travel_region_multiplier": 0,
+      "effective_xp_per_hour": 8000,
+      "effective_gp_per_hour": 4000,
+      "travel_minutes_per_hour": 0,
+      "active_minutes_per_hour": 60,
+      "trips_per_hour": 0
     },
     {
       "id": "heartlands_tinhook_vein",
       "skill": "mining",
       "level_required": 1,
       "name": "Tinhook Vein Clicking",
-      "location": { "region": "heartlands", "spot": "Tinhook Crossing, two-rock node just south of the mill" },
+      "location": {
+        "region": "heartlands",
+        "spot": "Tinhook Crossing, two-rock node just south of the mill"
+      },
       "intensity": 2,
       "xp_per_hour": 13900,
       "gp_per_hour": 7500,
-      "requires": { "quests": [], "items": ["bronze_pickaxe"], "skills": {} },
+      "requires": {
+        "quests": [],
+        "items": [
+          "bronze_pickaxe"
+        ],
+        "skills": {}
+      },
       "description": "A tight two-rock tin formation that demands you hop between nodes. Slightly faster XP but you need to watch respawns.",
-      "produces": [{ "item": "tin_ore", "rate_per_hour": 620 }],
-      "marstead_note": "Multitask. First step off the AFK baseline."
+      "produces": [
+        {
+          "item": "tin_ore",
+          "rate_per_hour": 620
+        }
+      ],
+      "marstead_note": "Multitask. First step off the AFK baseline.",
+      "travel_time_to_bank_seconds": 25,
+      "nearest_teleport": "Heartlands Teleport (Lumbrick)",
+      "banking_trip_cost": {
+        "gp": 35,
+        "intensity": 2
+      },
+      "travel_region_multiplier": 0,
+      "effective_xp_per_hour": 13610,
+      "effective_gp_per_hour": 7344,
+      "travel_minutes_per_hour": 1.3,
+      "active_minutes_per_hour": 58.8,
+      "trips_per_hour": 1.5
     },
     {
       "id": "heartlands_chelser_pick_rush",
       "skill": "mining",
       "level_required": 5,
       "name": "Chelser Quarry Pick Rush",
-      "location": { "region": "heartlands", "spot": "Chelser Quarry, crowded 3x3 rock grid" },
+      "location": {
+        "region": "heartlands",
+        "spot": "Chelser Quarry, crowded 3x3 rock grid"
+      },
       "intensity": 4,
       "xp_per_hour": 24300,
       "gp_per_hour": 12000,
-      "requires": { "quests": [], "items": ["iron_pickaxe"], "skills": {} },
+      "requires": {
+        "quests": [],
+        "items": [
+          "iron_pickaxe"
+        ],
+        "skills": {}
+      },
       "description": "A clustered quarry where you 3-tick between copper and tin rocks to keep the pick swinging every tick. Attention-intensive, but fastest pre-15 Mining.",
-      "produces": [{ "item": "copper_ore", "rate_per_hour": 700 }, { "item": "tin_ore", "rate_per_hour": 700 }],
-      "marstead_note": "Active attention. A player paying attention out-trains an AFK player at this level by ~3x."
+      "produces": [
+        {
+          "item": "copper_ore",
+          "rate_per_hour": 700
+        },
+        {
+          "item": "tin_ore",
+          "rate_per_hour": 700
+        }
+      ],
+      "marstead_note": "Active attention. A player paying attention out-trains an AFK player at this level by ~3x.",
+      "travel_time_to_bank_seconds": 25,
+      "nearest_teleport": "Heartlands Teleport (Lumbrick)",
+      "banking_trip_cost": {
+        "gp": 35,
+        "intensity": 2
+      },
+      "travel_region_multiplier": 0,
+      "effective_xp_per_hour": 22950,
+      "effective_gp_per_hour": 11333,
+      "travel_minutes_per_hour": 3.3,
+      "active_minutes_per_hour": 56.7,
+      "trips_per_hour": 4
     },
     {
       "id": "sootworks_iron_soot_seam",
       "skill": "mining",
       "level_required": 15,
       "name": "Sootworks Iron Seam Skim",
-      "location": { "region": "sootworks", "spot": "Old Duct 7, long linear seam" },
+      "location": {
+        "region": "sootworks",
+        "spot": "Old Duct 7, long linear seam"
+      },
       "intensity": 1,
       "xp_per_hour": 12500,
       "gp_per_hour": 22000,
-      "requires": { "quests": [], "items": ["iron_pickaxe"], "skills": {} },
+      "requires": {
+        "quests": [],
+        "items": [
+          "iron_pickaxe"
+        ],
+        "skills": {}
+      },
       "description": "Narrow seam of iron threading a collapsed industrial duct. The seam respawns slowly but constantly, so one click every few seconds is enough. Classic AFK iron.",
-      "produces": [{ "item": "iron_ore", "rate_per_hour": 320 }],
-      "marstead_note": "AFK baseline for the teens. Background attention."
+      "produces": [
+        {
+          "item": "iron_ore",
+          "rate_per_hour": 320
+        }
+      ],
+      "marstead_note": "AFK baseline for the teens. Background attention.",
+      "travel_time_to_bank_seconds": 35,
+      "nearest_teleport": "Sootworks Teleport (Forge Hall)",
+      "banking_trip_cost": {
+        "gp": 65,
+        "intensity": 2
+      },
+      "travel_region_multiplier": 0.1,
+      "effective_xp_per_hour": 12135,
+      "effective_gp_per_hour": 21358,
+      "travel_minutes_per_hour": 1.8,
+      "active_minutes_per_hour": 58.3,
+      "trips_per_hour": 1.5
     },
     {
       "id": "sootworks_iron_cluster_spam",
       "skill": "mining",
       "level_required": 15,
       "name": "Cindermouth Iron Cluster Spam",
-      "location": { "region": "sootworks", "spot": "Cindermouth Cavity, tight 3-rock cluster" },
+      "location": {
+        "region": "sootworks",
+        "spot": "Cindermouth Cavity, tight 3-rock cluster"
+      },
       "intensity": 5,
       "xp_per_hour": 36200,
       "gp_per_hour": 48000,
-      "requires": { "quests": [], "items": ["steel_pickaxe"], "skills": {} },
+      "requires": {
+        "quests": [],
+        "items": [
+          "steel_pickaxe"
+        ],
+        "skills": {}
+      },
       "description": "Three iron rocks stacked in a triangle with staggered respawn timers. Tick-perfect rotations yield ~720 ore/hr. Bank 3 tiles away.",
-      "produces": [{ "item": "iron_ore", "rate_per_hour": 720 }],
-      "marstead_note": "Active-Max Focus. The tick-perfect iron method. Exhausting."
+      "produces": [
+        {
+          "item": "iron_ore",
+          "rate_per_hour": 720
+        }
+      ],
+      "marstead_note": "Active-Max Focus. The tick-perfect iron method. Exhausting.",
+      "travel_time_to_bank_seconds": 35,
+      "nearest_teleport": "Sootworks Teleport (Forge Hall)",
+      "banking_trip_cost": {
+        "gp": 65,
+        "intensity": 2
+      },
+      "travel_region_multiplier": 0.1,
+      "effective_xp_per_hour": 33384,
+      "effective_gp_per_hour": 44267,
+      "travel_minutes_per_hour": 4.7,
+      "active_minutes_per_hour": 55.3,
+      "trips_per_hour": 4
     },
     {
       "id": "sootworks_soot_iron_drift",
       "skill": "mining",
       "level_required": 25,
       "name": "Soot-Iron Drift, Lower Furnace",
-      "location": { "region": "sootworks", "spot": "Lower Furnace gallery, soot-iron pocket" },
+      "location": {
+        "region": "sootworks",
+        "spot": "Lower Furnace gallery, soot-iron pocket"
+      },
       "intensity": 1,
       "xp_per_hour": 18300,
       "gp_per_hour": 28000,
-      "requires": { "quests": [], "items": ["mithril_pickaxe"], "skills": {} },
+      "requires": {
+        "quests": [],
+        "items": [
+          "mithril_pickaxe"
+        ],
+        "skills": {}
+      },
       "description": "Soot-iron is a Sootworks-exclusive alloy ore. Slow-respawn linear vein, pure AFK.",
-      "produces": [{ "item": "soot_iron_ore", "rate_per_hour": 310 }],
-      "marstead_note": "AFK baseline for 25+. Regional ore."
+      "produces": [
+        {
+          "item": "soot_iron_ore",
+          "rate_per_hour": 310
+        }
+      ],
+      "marstead_note": "AFK baseline for 25+. Regional ore.",
+      "travel_time_to_bank_seconds": 0,
+      "nearest_teleport": null,
+      "banking_trip_cost": {
+        "gp": 0,
+        "intensity": 0
+      },
+      "travel_region_multiplier": 0.1,
+      "effective_xp_per_hour": 18300,
+      "effective_gp_per_hour": 28000,
+      "travel_minutes_per_hour": 0,
+      "active_minutes_per_hour": 60,
+      "trips_per_hour": 0
     },
     {
       "id": "sootworks_soot_iron_cluster",
       "skill": "mining",
       "level_required": 28,
       "name": "Soot-Iron Cluster Rotation",
-      "location": { "region": "sootworks", "spot": "Lower Furnace, 4-rock cluster" },
+      "location": {
+        "region": "sootworks",
+        "spot": "Lower Furnace, 4-rock cluster"
+      },
       "intensity": 5,
       "xp_per_hour": 45700,
       "gp_per_hour": 75000,
-      "requires": { "quests": [], "items": ["mithril_pickaxe"], "skills": {} },
+      "requires": {
+        "quests": [],
+        "items": [
+          "mithril_pickaxe"
+        ],
+        "skills": {}
+      },
       "description": "Four soot-iron rocks around a heat vent. Tick-rotation with vent dodges. Competitive worlds only.",
-      "produces": [{ "item": "soot_iron_ore", "rate_per_hour": 780 }],
-      "marstead_note": "Active. High-XP for 20s mining."
+      "produces": [
+        {
+          "item": "soot_iron_ore",
+          "rate_per_hour": 780
+        }
+      ],
+      "marstead_note": "Active. High-XP for 20s mining.",
+      "travel_time_to_bank_seconds": 0,
+      "nearest_teleport": null,
+      "banking_trip_cost": {
+        "gp": 0,
+        "intensity": 0
+      },
+      "travel_region_multiplier": 0.1,
+      "effective_xp_per_hour": 45700,
+      "effective_gp_per_hour": 75000,
+      "travel_minutes_per_hour": 0,
+      "active_minutes_per_hour": 60,
+      "trips_per_hour": 0
     },
     {
       "id": "sootworks_coal_drift_aft",
       "skill": "mining",
       "level_required": 30,
       "name": "Coal Drift 12 AFK Pull",
-      "location": { "region": "sootworks", "spot": "Drift 12, deep abandoned coal gallery" },
+      "location": {
+        "region": "sootworks",
+        "spot": "Drift 12, deep abandoned coal gallery"
+      },
       "intensity": 2,
       "xp_per_hour": 20870,
       "gp_per_hour": 65000,
-      "requires": { "quests": [], "items": ["mithril_pickaxe"], "skills": {} },
+      "requires": {
+        "quests": [],
+        "items": [
+          "mithril_pickaxe"
+        ],
+        "skills": {}
+      },
       "description": "Deep coal gallery with 5-rock spacing. You AFK one rock, mine, walk three tiles, AFK the next. Easy, profitable, bank-heavy.",
-      "produces": [{ "item": "coal", "rate_per_hour": 340 }],
-      "marstead_note": "AFK baseline for 30+."
+      "produces": [
+        {
+          "item": "coal",
+          "rate_per_hour": 340
+        }
+      ],
+      "marstead_note": "AFK baseline for 30+.",
+      "travel_time_to_bank_seconds": 62,
+      "nearest_teleport": "Sootworks Teleport (Forge Hall)",
+      "banking_trip_cost": {
+        "gp": 65,
+        "intensity": 2
+      },
+      "travel_region_multiplier": 0.1,
+      "effective_xp_per_hour": 19792,
+      "effective_gp_per_hour": 61642,
+      "travel_minutes_per_hour": 3.1,
+      "active_minutes_per_hour": 56.9,
+      "trips_per_hour": 1.5
     },
     {
       "id": "sootworks_coal_tick_rotation",
       "skill": "mining",
       "level_required": 30,
       "name": "Coal Tick Rotation (Forgehall)",
-      "location": { "region": "sootworks", "spot": "Forgehall gate, 4-rock compact coal" },
+      "location": {
+        "region": "sootworks",
+        "spot": "Forgehall gate, 4-rock compact coal"
+      },
       "intensity": 6,
       "xp_per_hour": 48300,
       "gp_per_hour": 135000,
-      "requires": { "quests": [], "items": ["mithril_pickaxe"], "skills": {} },
+      "requires": {
+        "quests": [],
+        "items": [
+          "mithril_pickaxe"
+        ],
+        "skills": {}
+      },
       "description": "Four coal rocks at cardinal points around a player tile. 3-tick rotation yields ~720 coal/hr. Must rebank every 27 pulls — superb money.",
-      "produces": [{ "item": "coal", "rate_per_hour": 720 }],
-      "marstead_note": "Max Focus. The click-farm coal method for ironmen and profit chasers."
+      "produces": [
+        {
+          "item": "coal",
+          "rate_per_hour": 720
+        }
+      ],
+      "marstead_note": "Max Focus. The click-farm coal method for ironmen and profit chasers.",
+      "travel_time_to_bank_seconds": 35,
+      "nearest_teleport": "Sootworks Teleport (Forge Hall)",
+      "banking_trip_cost": {
+        "gp": 65,
+        "intensity": 2
+      },
+      "travel_region_multiplier": 0.1,
+      "effective_xp_per_hour": 44543,
+      "effective_gp_per_hour": 124500,
+      "travel_minutes_per_hour": 4.7,
+      "active_minutes_per_hour": 55.3,
+      "trips_per_hour": 4
     },
     {
       "id": "moryskah_gravelight_gold",
       "skill": "mining",
       "level_required": 40,
       "name": "Gravelight Cemetery Gold Vein",
-      "location": { "region": "moryskah", "spot": "Gravelight Cemetery wall, dim vein behind broken crypt" },
+      "location": {
+        "region": "moryskah",
+        "spot": "Gravelight Cemetery wall, dim vein behind broken crypt"
+      },
       "intensity": 1,
       "xp_per_hour": 23800,
       "gp_per_hour": 58000,
-      "requires": { "quests": [], "items": ["adamant_pickaxe"], "skills": {} },
+      "requires": {
+        "quests": [],
+        "items": [
+          "adamant_pickaxe"
+        ],
+        "skills": {}
+      },
       "description": "A thin gold vein glowing faintly in the cemetery wall. Respawns slow enough to chat through. Mildly creepy atmosphere.",
-      "produces": [{ "item": "gold_ore", "rate_per_hour": 210 }],
-      "marstead_note": "AFK baseline for 40s."
+      "produces": [
+        {
+          "item": "gold_ore",
+          "rate_per_hour": 210
+        }
+      ],
+      "marstead_note": "AFK baseline for 40s.",
+      "travel_time_to_bank_seconds": 80,
+      "nearest_teleport": "Moryskah Teleport (Village)",
+      "banking_trip_cost": {
+        "gp": 85,
+        "intensity": 2
+      },
+      "travel_region_multiplier": 0.2,
+      "effective_xp_per_hour": 22213,
+      "effective_gp_per_hour": 54133,
+      "travel_minutes_per_hour": 4,
+      "active_minutes_per_hour": 56,
+      "trips_per_hour": 1.5
     },
     {
       "id": "glass_desert_sand_panning",
       "skill": "mining",
       "level_required": 42,
       "name": "Glass Desert Sand Panning",
-      "location": { "region": "glass_desert", "spot": "Heatshiver Dune, sand wash north of the spire" },
+      "location": {
+        "region": "glass_desert",
+        "spot": "Heatshiver Dune, sand wash north of the spire"
+      },
       "intensity": 3,
       "xp_per_hour": 36500,
       "gp_per_hour": 95000,
-      "requires": { "quests": [], "items": ["panning_sieve", "adamant_pickaxe"], "skills": {} },
+      "requires": {
+        "quests": [],
+        "items": [
+          "panning_sieve",
+          "adamant_pickaxe"
+        ],
+        "skills": {}
+      },
       "description": "Pan mineral-rich sand through a sieve to recover gold shards, silver, and raw glass. Moderate attention due to sieve resets. Only gathering method that produces raw glass outside of Saltbrine crash-sites.",
-      "produces": [{ "item": "gold_ore", "rate_per_hour": 180 }, { "item": "silver_ore", "rate_per_hour": 140 }, { "item": "glass_sand", "rate_per_hour": 200 }],
-      "marstead_note": "Multitask-Active. Unique output profile — only source of silver ore outside Wilds."
+      "produces": [
+        {
+          "item": "gold_ore",
+          "rate_per_hour": 180
+        },
+        {
+          "item": "silver_ore",
+          "rate_per_hour": 140
+        },
+        {
+          "item": "glass_sand",
+          "rate_per_hour": 200
+        }
+      ],
+      "marstead_note": "Multitask-Active. Unique output profile — only source of silver ore outside Wilds.",
+      "travel_time_to_bank_seconds": 83,
+      "nearest_teleport": "Glass Desert Pendant",
+      "banking_trip_cost": {
+        "gp": 500,
+        "intensity": 2
+      },
+      "travel_region_multiplier": 0.5,
+      "effective_xp_per_hour": 31451,
+      "effective_gp_per_hour": 81858,
+      "travel_minutes_per_hour": 8.3,
+      "active_minutes_per_hour": 51.7,
+      "trips_per_hour": 3
     },
     {
       "id": "moryskah_silver_drip_crypt",
       "skill": "mining",
       "level_required": 50,
       "name": "Silver Drip Crypt",
-      "location": { "region": "moryskah", "spot": "Undercrypt Sepulchre, single-silver-rock loop" },
+      "location": {
+        "region": "moryskah",
+        "spot": "Undercrypt Sepulchre, single-silver-rock loop"
+      },
       "intensity": 2,
       "xp_per_hour": 30400,
       "gp_per_hour": 44000,
-      "requires": { "quests": [], "items": ["adamant_pickaxe"], "skills": {} },
+      "requires": {
+        "quests": [],
+        "items": [
+          "adamant_pickaxe"
+        ],
+        "skills": {}
+      },
       "description": "Wet crypt where silver condenses on the walls. Single rock, slow respawn, AFK-safe (ghosts nearby but are hard-passed).",
-      "produces": [{ "item": "silver_ore", "rate_per_hour": 245 }],
-      "marstead_note": "AFK baseline for the 50s."
+      "produces": [
+        {
+          "item": "silver_ore",
+          "rate_per_hour": 245
+        }
+      ],
+      "marstead_note": "AFK baseline for the 50s.",
+      "travel_time_to_bank_seconds": 80,
+      "nearest_teleport": "Moryskah Teleport (Village)",
+      "banking_trip_cost": {
+        "gp": 85,
+        "intensity": 2
+      },
+      "travel_region_multiplier": 0.2,
+      "effective_xp_per_hour": 28373,
+      "effective_gp_per_hour": 41067,
+      "travel_minutes_per_hour": 4,
+      "active_minutes_per_hour": 56,
+      "trips_per_hour": 1.5
     },
     {
       "id": "moryskah_mithril_grid_depths",
       "skill": "mining",
       "level_required": 55,
       "name": "Mithril Grid Depths",
-      "location": { "region": "moryskah", "spot": "Gravechill Gallery, 6-rock mithril bank" },
+      "location": {
+        "region": "moryskah",
+        "spot": "Gravechill Gallery, 6-rock mithril bank"
+      },
       "intensity": 5,
       "xp_per_hour": 46700,
       "gp_per_hour": 92000,
-      "requires": { "quests": ["gravechill_rite"], "items": ["rune_pickaxe"], "skills": {"mining": 55} },
+      "requires": {
+        "quests": [
+          "gravechill_rite"
+        ],
+        "items": [
+          "rune_pickaxe"
+        ],
+        "skills": {
+          "mining": 55
+        }
+      },
       "description": "Six mithril rocks in a hex, unlocked after completing the Gravechill Rite minor quest. Tick-rotated mithril. Players' best pre-70 XP.",
-      "produces": [{ "item": "mithril_ore", "rate_per_hour": 410 }],
-      "marstead_note": "Active. Quest-gated — this is the kind of breakpoint Marstead talks about."
+      "produces": [
+        {
+          "item": "mithril_ore",
+          "rate_per_hour": 410
+        }
+      ],
+      "marstead_note": "Active. Quest-gated — this is the kind of breakpoint Marstead talks about.",
+      "travel_time_to_bank_seconds": 0,
+      "nearest_teleport": null,
+      "banking_trip_cost": {
+        "gp": 0,
+        "intensity": 0
+      },
+      "travel_region_multiplier": 0.2,
+      "effective_xp_per_hour": 46700,
+      "effective_gp_per_hour": 92000,
+      "travel_minutes_per_hour": 0,
+      "active_minutes_per_hour": 60,
+      "trips_per_hour": 0
     },
     {
       "id": "boneyard_scavage_heap",
       "skill": "mining",
       "level_required": 52,
       "name": "Boneyard Scavage Heap",
-      "location": { "region": "boneyard", "spot": "Scavage Flats, tumbled mineral piles" },
+      "location": {
+        "region": "boneyard",
+        "spot": "Scavage Flats, tumbled mineral piles"
+      },
       "intensity": 1,
       "xp_per_hour": 33700,
       "gp_per_hour": 40000,
-      "requires": { "quests": [], "items": ["rune_pickaxe"], "skills": {} },
+      "requires": {
+        "quests": [],
+        "items": [
+          "rune_pickaxe"
+        ],
+        "skills": {}
+      },
       "description": "Chip at weathered mineral heaps scoured out of old battlefields. Yields a lottery of tin/iron/coal/silver. No competition, deeply AFK.",
-      "produces": [{ "item": "iron_ore", "rate_per_hour": 220 }, { "item": "silver_ore", "rate_per_hour": 90 }, { "item": "coal", "rate_per_hour": 180 }],
-      "marstead_note": "AFK baseline with mixed output. Ironman friendly."
+      "produces": [
+        {
+          "item": "iron_ore",
+          "rate_per_hour": 220
+        },
+        {
+          "item": "silver_ore",
+          "rate_per_hour": 90
+        },
+        {
+          "item": "coal",
+          "rate_per_hour": 180
+        }
+      ],
+      "marstead_note": "AFK baseline with mixed output. Ironman friendly.",
+      "travel_time_to_bank_seconds": 0,
+      "nearest_teleport": null,
+      "banking_trip_cost": {
+        "gp": 0,
+        "intensity": 0
+      },
+      "travel_region_multiplier": 0.2,
+      "effective_xp_per_hour": 33700,
+      "effective_gp_per_hour": 40000,
+      "travel_minutes_per_hour": 0,
+      "active_minutes_per_hour": 60,
+      "trips_per_hour": 0
     },
     {
       "id": "heartlands_gemseam_pick",
       "skill": "mining",
       "level_required": 62,
       "name": "Gemseam Quarry Pick",
-      "location": { "region": "heartlands", "spot": "Gemseam Quarry, mixed-gem node" },
+      "location": {
+        "region": "heartlands",
+        "spot": "Gemseam Quarry, mixed-gem node"
+      },
       "intensity": 2,
       "xp_per_hour": 41200,
       "gp_per_hour": 88000,
-      "requires": { "quests": [], "items": ["dragon_pickaxe"], "skills": {} },
+      "requires": {
+        "quests": [],
+        "items": [
+          "dragon_pickaxe"
+        ],
+        "skills": {}
+      },
       "description": "Mixed gem node in a limestone quarry. Multitask AFK. Yields random gems — including 1/5000 dragonstone.",
-      "produces": [{ "item": "uncut_sapphire", "rate_per_hour": 90 }, { "item": "uncut_emerald", "rate_per_hour": 65 }, { "item": "uncut_ruby", "rate_per_hour": 40 }],
-      "marstead_note": "AFK-Multitask for 60s mining. Marstead itemization: dragonstone trickle supports jewellery economy."
+      "produces": [
+        {
+          "item": "uncut_sapphire",
+          "rate_per_hour": 90
+        },
+        {
+          "item": "uncut_emerald",
+          "rate_per_hour": 65
+        },
+        {
+          "item": "uncut_ruby",
+          "rate_per_hour": 40
+        }
+      ],
+      "marstead_note": "AFK-Multitask for 60s mining. Marstead itemization: dragonstone trickle supports jewellery economy.",
+      "travel_time_to_bank_seconds": 25,
+      "nearest_teleport": "Heartlands Teleport (Lumbrick)",
+      "banking_trip_cost": {
+        "gp": 35,
+        "intensity": 2
+      },
+      "travel_region_multiplier": 0,
+      "effective_xp_per_hour": 40342,
+      "effective_gp_per_hour": 86167,
+      "travel_minutes_per_hour": 1.3,
+      "active_minutes_per_hour": 58.8,
+      "trips_per_hour": 1.5
     },
     {
       "id": "moryskah_rubygraven_swing",
       "skill": "mining",
       "level_required": 65,
       "name": "Rubygraven Swing Row",
-      "location": { "region": "moryskah", "spot": "Rubygraven tomb row, 3-ruby-rock line" },
+      "location": {
+        "region": "moryskah",
+        "spot": "Rubygraven tomb row, 3-ruby-rock line"
+      },
       "intensity": 5,
       "xp_per_hour": 56800,
       "gp_per_hour": 190000,
-      "requires": { "quests": ["the_rubygraven_pact"], "items": ["rune_pickaxe"], "skills": {"mining": 65} },
+      "requires": {
+        "quests": [
+          "the_rubygraven_pact"
+        ],
+        "items": [
+          "rune_pickaxe"
+        ],
+        "skills": {
+          "mining": 65
+        }
+      },
       "description": "A row of three dense ruby gem rocks. Tick-swing rotation yields ~300 cut rubies/hr after processing.",
-      "produces": [{ "item": "uncut_ruby", "rate_per_hour": 180 }],
-      "marstead_note": "Active. Quest-gated ruby farm for the 65+ bracket."
+      "produces": [
+        {
+          "item": "uncut_ruby",
+          "rate_per_hour": 180
+        }
+      ],
+      "marstead_note": "Active. Quest-gated ruby farm for the 65+ bracket.",
+      "travel_time_to_bank_seconds": 80,
+      "nearest_teleport": "Moryskah Teleport (Village)",
+      "banking_trip_cost": {
+        "gp": 85,
+        "intensity": 2
+      },
+      "travel_region_multiplier": 0.2,
+      "effective_xp_per_hour": 46702,
+      "effective_gp_per_hour": 156222,
+      "travel_minutes_per_hour": 10.7,
+      "active_minutes_per_hour": 49.3,
+      "trips_per_hour": 4
     },
     {
       "id": "veilwood_crystal_shard_grove",
       "skill": "mining",
       "level_required": 70,
       "name": "Veilwood Crystal Shard Grove",
-      "location": { "region": "veilwood", "spot": "Moonblade Glade, slow-spawn crystal outcrops" },
+      "location": {
+        "region": "veilwood",
+        "spot": "Moonblade Glade, slow-spawn crystal outcrops"
+      },
       "intensity": 1,
       "xp_per_hour": 54000,
       "gp_per_hour": 75000,
-      "requires": { "quests": ["song_of_the_mossborn"], "items": ["crystal_pickaxe"], "skills": {"mining": 70} },
+      "requires": {
+        "quests": [
+          "song_of_the_mossborn"
+        ],
+        "items": [
+          "crystal_pickaxe"
+        ],
+        "skills": {
+          "mining": 70
+        }
+      },
       "description": "Shimmering shard rocks in a grove. The trees politely heal you. Wildly AFK and pretty — the 'reading a book' method.",
-      "produces": [{ "item": "crystal_shard", "rate_per_hour": 180 }],
-      "marstead_note": "AFK baseline for 70s. Quest-gated behind a major Veilwood chain."
+      "produces": [
+        {
+          "item": "crystal_shard",
+          "rate_per_hour": 180
+        }
+      ],
+      "marstead_note": "AFK baseline for 70s. Quest-gated behind a major Veilwood chain.",
+      "travel_time_to_bank_seconds": 39,
+      "nearest_teleport": "Necklace of Passage",
+      "banking_trip_cost": {
+        "gp": 500,
+        "intensity": 2
+      },
+      "travel_region_multiplier": 0.1,
+      "effective_xp_per_hour": 52245,
+      "effective_gp_per_hour": 72563,
+      "travel_minutes_per_hour": 2,
+      "active_minutes_per_hour": 58.1,
+      "trips_per_hour": 1.5
     },
     {
       "id": "moryskah_adamant_tick_cluster",
       "skill": "mining",
       "level_required": 70,
       "name": "Adamant Tick Cluster, Tombseam",
-      "location": { "region": "moryskah", "spot": "Tombseam Rift, 4-rock adamant" },
+      "location": {
+        "region": "moryskah",
+        "spot": "Tombseam Rift, 4-rock adamant"
+      },
       "intensity": 6,
       "xp_per_hour": 65200,
       "gp_per_hour": 155000,
-      "requires": { "quests": [], "items": ["rune_pickaxe"], "skills": {} },
+      "requires": {
+        "quests": [],
+        "items": [
+          "rune_pickaxe"
+        ],
+        "skills": {}
+      },
       "description": "Four adamant rocks, one ruby gem rock rare-spawn. 3-tick rotation requires staring at respawn clocks.",
-      "produces": [{ "item": "adamantite_ore", "rate_per_hour": 290 }, { "item": "uncut_ruby", "rate_per_hour": 8 }],
-      "marstead_note": "Max Focus. Genuinely exhausting for 90 minutes."
+      "produces": [
+        {
+          "item": "adamantite_ore",
+          "rate_per_hour": 290
+        },
+        {
+          "item": "uncut_ruby",
+          "rate_per_hour": 8
+        }
+      ],
+      "marstead_note": "Max Focus. Genuinely exhausting for 90 minutes.",
+      "travel_time_to_bank_seconds": 80,
+      "nearest_teleport": "Moryskah Teleport (Village)",
+      "banking_trip_cost": {
+        "gp": 85,
+        "intensity": 2
+      },
+      "travel_region_multiplier": 0.2,
+      "effective_xp_per_hour": 53609,
+      "effective_gp_per_hour": 127444,
+      "travel_minutes_per_hour": 10.7,
+      "active_minutes_per_hour": 49.3,
+      "trips_per_hour": 4
     },
     {
       "id": "saltbrine_crabbed_granite",
       "skill": "mining",
       "level_required": 72,
       "name": "Crabbed Granite Cliff",
-      "location": { "region": "saltbrine", "spot": "Tideshelf cliffs north of Drifting Market" },
+      "location": {
+        "region": "saltbrine",
+        "spot": "Tideshelf cliffs north of Drifting Market"
+      },
       "intensity": 3,
       "xp_per_hour": 56400,
       "gp_per_hour": 18000,
-      "requires": { "quests": [], "items": ["rune_pickaxe", "desert_waterskin"], "skills": {} },
+      "requires": {
+        "quests": [],
+        "items": [
+          "rune_pickaxe",
+          "desert_waterskin"
+        ],
+        "skills": {}
+      },
       "description": "Granite slabs baked by sun and spray. The slab weight matters (5kg / 10kg / 500g) — waterskin drain is real. Low gp/hr, high XP/hr.",
-      "produces": [{ "item": "granite_10kg", "rate_per_hour": 420 }, { "item": "granite_5kg", "rate_per_hour": 160 }],
-      "marstead_note": "Multitask-Active. The classic granite XP farm — no gp return, pure XP efficiency."
+      "produces": [
+        {
+          "item": "granite_10kg",
+          "rate_per_hour": 420
+        },
+        {
+          "item": "granite_5kg",
+          "rate_per_hour": 160
+        }
+      ],
+      "marstead_note": "Multitask-Active. The classic granite XP farm — no gp return, pure XP efficiency.",
+      "travel_time_to_bank_seconds": 9,
+      "nearest_teleport": "Saltbrine Teleport (Harbor)",
+      "banking_trip_cost": {
+        "gp": 0,
+        "intensity": 1
+      },
+      "travel_region_multiplier": 0,
+      "effective_xp_per_hour": 55554,
+      "effective_gp_per_hour": 17730,
+      "travel_minutes_per_hour": 0.9,
+      "active_minutes_per_hour": 59.1,
+      "trips_per_hour": 3
     },
     {
       "id": "sootworks_bluesoot_amethyst",
       "skill": "mining",
       "level_required": 75,
       "name": "Bluesoot Amethyst Tap",
-      "location": { "region": "sootworks", "spot": "Bluesoot Vent, amethyst geode" },
+      "location": {
+        "region": "sootworks",
+        "spot": "Bluesoot Vent, amethyst geode"
+      },
       "intensity": 2,
       "xp_per_hour": 49200,
       "gp_per_hour": 175000,
-      "requires": { "quests": [], "items": ["crystal_chisel", "rune_pickaxe"], "skills": {} },
+      "requires": {
+        "quests": [],
+        "items": [
+          "crystal_chisel",
+          "rune_pickaxe"
+        ],
+        "skills": {}
+      },
       "description": "Tap chips from a deep amethyst geode. Slow yield but each shard is a dartable/boltable treasure. High profit, low attention.",
-      "produces": [{ "item": "amethyst_shard", "rate_per_hour": 85 }],
-      "marstead_note": "Multitask. Great gp/hr for modest XP."
+      "produces": [
+        {
+          "item": "amethyst_shard",
+          "rate_per_hour": 85
+        }
+      ],
+      "marstead_note": "Multitask. Great gp/hr for modest XP.",
+      "travel_time_to_bank_seconds": 35,
+      "nearest_teleport": "Sootworks Teleport (Forge Hall)",
+      "banking_trip_cost": {
+        "gp": 65,
+        "intensity": 2
+      },
+      "travel_region_multiplier": 0.1,
+      "effective_xp_per_hour": 47765,
+      "effective_gp_per_hour": 169896,
+      "travel_minutes_per_hour": 1.8,
+      "active_minutes_per_hour": 58.3,
+      "trips_per_hour": 1.5
     },
     {
       "id": "wilds_runite_fey_vein",
       "skill": "mining",
       "level_required": 85,
       "name": "Runite Fey-Vein (Wilds lv18)",
-      "location": { "region": "wilds", "spot": "Feyscar, lv18 runite spawn" },
+      "location": {
+        "region": "wilds",
+        "spot": "Feyscar, lv18 runite spawn"
+      },
       "intensity": 7,
       "xp_per_hour": 87900,
       "gp_per_hour": 460000,
-      "requires": { "quests": [], "items": ["rune_pickaxe"], "skills": {} },
+      "requires": {
+        "quests": [],
+        "items": [
+          "rune_pickaxe"
+        ],
+        "skills": {}
+      },
       "description": "Lv18 Wilderness runite with a 12-minute respawn. You fight, you hide, you mine, you teleport. Extreme risk for extreme profit.",
-      "produces": [{ "item": "runite_ore", "rate_per_hour": 55 }],
-      "marstead_note": "Active-Max Focus. Marstead's Wilderness Principle in action — 5x gp for the risk of getting PK'd."
+      "produces": [
+        {
+          "item": "runite_ore",
+          "rate_per_hour": 55
+        }
+      ],
+      "marstead_note": "Active-Max Focus. Marstead's Wilderness Principle in action — 5x gp for the risk of getting PK'd.",
+      "travel_time_to_bank_seconds": 62,
+      "nearest_teleport": "Amulet of Glory (Wilds edge)",
+      "banking_trip_cost": {
+        "gp": 500,
+        "intensity": 2
+      },
+      "travel_region_multiplier": 0.3,
+      "effective_xp_per_hour": 75789,
+      "effective_gp_per_hour": 396622,
+      "travel_minutes_per_hour": 8.3,
+      "active_minutes_per_hour": 51.7,
+      "trips_per_hour": 4
     },
     {
       "id": "wilds_runite_peaceful_deep",
       "skill": "mining",
       "level_required": 85,
       "name": "Deep Runite Heathsands (non-PvP Wilds hop)",
-      "location": { "region": "wilds", "spot": "Heathsands deep pocket, dense world only" },
+      "location": {
+        "region": "wilds",
+        "spot": "Heathsands deep pocket, dense world only"
+      },
       "intensity": 3,
       "xp_per_hour": 43400,
       "gp_per_hour": 225000,
-      "requires": { "quests": [], "items": ["rune_pickaxe"], "skills": {} },
+      "requires": {
+        "quests": [],
+        "items": [
+          "rune_pickaxe"
+        ],
+        "skills": {}
+      },
       "description": "Sparse runite in a deep fold of the Wilds. PK risk is modest on dense worlds. AFK between cycles.",
-      "produces": [{ "item": "runite_ore", "rate_per_hour": 28 }],
-      "marstead_note": "Multitask-Active. Safer, slower runite. Marstead knobs: lower attention, lower reward."
+      "produces": [
+        {
+          "item": "runite_ore",
+          "rate_per_hour": 28
+        }
+      ],
+      "marstead_note": "Multitask-Active. Safer, slower runite. Marstead knobs: lower attention, lower reward.",
+      "travel_time_to_bank_seconds": 109,
+      "nearest_teleport": "Amulet of Glory (Wilds edge)",
+      "banking_trip_cost": {
+        "gp": 500,
+        "intensity": 2
+      },
+      "travel_region_multiplier": 0.3,
+      "effective_xp_per_hour": 35516,
+      "effective_gp_per_hour": 184125,
+      "travel_minutes_per_hour": 10.9,
+      "active_minutes_per_hour": 49.1,
+      "trips_per_hour": 3
     },
     {
       "id": "moryskah_bloodgem_quarry",
       "skill": "mining",
       "level_required": 88,
       "name": "Bloodgem Quarry",
-      "location": { "region": "moryskah", "spot": "Boneyard-Moryskah border, bloodgem quarry" },
+      "location": {
+        "region": "moryskah",
+        "spot": "Boneyard-Moryskah border, bloodgem quarry"
+      },
       "intensity": 1,
       "xp_per_hour": 61200,
       "gp_per_hour": 95000,
-      "requires": { "quests": ["the_blooded_pick"], "items": ["rune_pickaxe"], "skills": {"mining": 88} },
+      "requires": {
+        "quests": [
+          "the_blooded_pick"
+        ],
+        "items": [
+          "rune_pickaxe"
+        ],
+        "skills": {
+          "mining": 88
+        }
+      },
       "description": "Blood-red gemstones bloom on cave walls. AFK gathering unlocked by a mid-game quest. Modest XP but unique gem output for crafting.",
-      "produces": [{ "item": "uncut_bloodgem", "rate_per_hour": 110 }],
-      "marstead_note": "AFK baseline for the 80s. Quest-gated unique gem."
+      "produces": [
+        {
+          "item": "uncut_bloodgem",
+          "rate_per_hour": 110
+        }
+      ],
+      "marstead_note": "AFK baseline for the 80s. Quest-gated unique gem.",
+      "travel_time_to_bank_seconds": 46,
+      "nearest_teleport": "Moryskah Teleport (Village)",
+      "banking_trip_cost": {
+        "gp": 85,
+        "intensity": 2
+      },
+      "travel_region_multiplier": 0.2,
+      "effective_xp_per_hour": 58854,
+      "effective_gp_per_hour": 91358,
+      "travel_minutes_per_hour": 2.3,
+      "active_minutes_per_hour": 57.7,
+      "trips_per_hour": 1.5
     },
     {
       "id": "inkweald_voidstone_afk",
       "skill": "mining",
       "level_required": 90,
       "name": "Inkweald Voidstone Drift",
-      "location": { "region": "inkweald", "spot": "Dream-Quarry North, voidstone drift" },
+      "location": {
+        "region": "inkweald",
+        "spot": "Dream-Quarry North, voidstone drift"
+      },
       "intensity": 2,
       "xp_per_hour": 94000,
       "gp_per_hour": 68000,
-      "requires": { "quests": ["unwake_the_dreamer"], "items": ["crystal_pickaxe"], "skills": {"mining": 90, "magic": 60} },
+      "requires": {
+        "quests": [
+          "unwake_the_dreamer"
+        ],
+        "items": [
+          "crystal_pickaxe"
+        ],
+        "skills": {
+          "mining": 90,
+          "magic": 60
+        }
+      },
       "description": "Reality is thin here. Voidstone phases in and out of the cliff. Click it only when visible. Magic-warded pickaxe required.",
-      "produces": [{ "item": "voidstone", "rate_per_hour": 210 }],
-      "marstead_note": "Multitask. Uniquely atmospheric AFK method for the 90s."
+      "produces": [
+        {
+          "item": "voidstone",
+          "rate_per_hour": 210
+        }
+      ],
+      "marstead_note": "Multitask. Uniquely atmospheric AFK method for the 90s.",
+      "travel_time_to_bank_seconds": 54,
+      "nearest_teleport": "Moonclan Teleport (Lunar)",
+      "banking_trip_cost": {
+        "gp": 110,
+        "intensity": 2
+      },
+      "travel_region_multiplier": 0.2,
+      "effective_xp_per_hour": 89770,
+      "effective_gp_per_hour": 64940,
+      "travel_minutes_per_hour": 2.7,
+      "active_minutes_per_hour": 57.3,
+      "trips_per_hour": 1.5
     },
     {
       "id": "wilds_redshard_runite_rotation",
       "skill": "mining",
       "level_required": 92,
       "name": "Redshard Runite Rotation",
-      "location": { "region": "wilds", "spot": "Redshard Caves, 4-rock runite instance" },
+      "location": {
+        "region": "wilds",
+        "spot": "Redshard Caves, 4-rock runite instance"
+      },
       "intensity": 8,
       "xp_per_hour": 111600,
       "gp_per_hour": 720000,
-      "requires": { "quests": ["open_the_redshard_gate"], "items": ["dragon_pickaxe"], "skills": {"mining": 92} },
+      "requires": {
+        "quests": [
+          "open_the_redshard_gate"
+        ],
+        "items": [
+          "dragon_pickaxe"
+        ],
+        "skills": {
+          "mining": 92
+        }
+      },
       "description": "Four runite rocks in an instanced cave. Tick-perfect rotation + live-PvP exit corridor. The endgame mining chase.",
-      "produces": [{ "item": "runite_ore", "rate_per_hour": 95 }],
-      "marstead_note": "Max Focus. Marstead endgame — all 8 knobs cranked. Biggest mining breakpoint."
+      "produces": [
+        {
+          "item": "runite_ore",
+          "rate_per_hour": 95
+        }
+      ],
+      "marstead_note": "Max Focus. Marstead endgame — all 8 knobs cranked. Biggest mining breakpoint.",
+      "travel_time_to_bank_seconds": 30,
+      "nearest_teleport": "Amulet of Glory (Wilds edge)",
+      "banking_trip_cost": {
+        "gp": 500,
+        "intensity": 2
+      },
+      "travel_region_multiplier": 0.3,
+      "effective_xp_per_hour": 104160,
+      "effective_gp_per_hour": 672000,
+      "travel_minutes_per_hour": 4,
+      "active_minutes_per_hour": 56,
+      "trips_per_hour": 4
     },
     {
       "id": "veilwood_starfall_crystal",
       "skill": "mining",
       "level_required": 95,
       "name": "Starfall Crystal Rite",
-      "location": { "region": "veilwood", "spot": "Singing Glade — event spawn every 2h" },
+      "location": {
+        "region": "veilwood",
+        "spot": "Singing Glade — event spawn every 2h"
+      },
       "intensity": 4,
       "xp_per_hour": 128000,
       "gp_per_hour": 140000,
-      "requires": { "quests": ["song_of_the_mossborn"], "items": ["crystal_pickaxe"], "skills": {"mining": 95} },
+      "requires": {
+        "quests": [
+          "song_of_the_mossborn"
+        ],
+        "items": [
+          "crystal_pickaxe"
+        ],
+        "skills": {
+          "mining": 95
+        }
+      },
       "description": "A fallen star lands in the glade on a rotating timer. Ten minutes of intense multi-player gathering, shared XP, once-per-instance.",
-      "produces": [{ "item": "stardust", "rate_per_hour": 380 }],
-      "marstead_note": "Active. Social event mining. Timing + awareness."
+      "produces": [
+        {
+          "item": "stardust",
+          "rate_per_hour": 380
+        }
+      ],
+      "marstead_note": "Active. Social event mining. Timing + awareness.",
+      "travel_time_to_bank_seconds": 39,
+      "nearest_teleport": "Necklace of Passage",
+      "banking_trip_cost": {
+        "gp": 500,
+        "intensity": 2
+      },
+      "travel_region_multiplier": 0.1,
+      "effective_xp_per_hour": 116907,
+      "effective_gp_per_hour": 127867,
+      "travel_minutes_per_hour": 5.2,
+      "active_minutes_per_hour": 54.8,
+      "trips_per_hour": 4
     },
     {
       "id": "sootworks_engine_crawl_salvage",
       "skill": "mining",
       "level_required": 28,
       "name": "Engine Crawl Salvage",
-      "location": { "region": "sootworks", "spot": "Cindervault engine-lower corridor" },
+      "location": {
+        "region": "sootworks",
+        "spot": "Cindervault engine-lower corridor"
+      },
       "intensity": 2,
       "xp_per_hour": 34000,
       "gp_per_hour": 550000,
-      "requires": { "quests": ["soot_and_ember"], "items": ["dust_mask", "bronze_pickaxe"], "skills": {"mining": 28} },
+      "requires": {
+        "quests": [
+          "soot_and_ember"
+        ],
+        "items": [
+          "dust_mask",
+          "bronze_pickaxe"
+        ],
+        "skills": {
+          "mining": 28
+        }
+      },
       "description": "AFK scrap collection on engine conveyor. Salvaged scrap-iron and gear-cores sell well. Simple AFK with rare gearcore drop.",
-      "produces": [{ "item": "scrap_iron", "rate_per_hour": 640 }],
-      "marstead_note": "H11 Sootworks 500k-1M moneymaker. AFK scrap salvage."
+      "produces": [
+        {
+          "item": "scrap_iron",
+          "rate_per_hour": 640
+        }
+      ],
+      "marstead_note": "H11 Sootworks 500k-1M moneymaker. AFK scrap salvage.",
+      "travel_time_to_bank_seconds": 35,
+      "nearest_teleport": "Sootworks Teleport (Forge Hall)",
+      "banking_trip_cost": {
+        "gp": 65,
+        "intensity": 2
+      },
+      "travel_region_multiplier": 0.1,
+      "effective_xp_per_hour": 33008,
+      "effective_gp_per_hour": 533958,
+      "travel_minutes_per_hour": 1.8,
+      "active_minutes_per_hour": 58.3,
+      "trips_per_hour": 1.5
     }
   ],
   "bracket_coverage": {
-    "1-10":  { "count": 3, "intensities": [1, 2, 4] },
-    "10-20": { "count": 2, "intensities": [1, 5] },
-    "20-30": { "count": 2, "intensities": [1, 5] },
-    "30-40": { "count": 2, "intensities": [2, 6] },
-    "40-50": { "count": 2, "intensities": [1, 3] },
-    "50-60": { "count": 3, "intensities": [2, 5, 1] },
-    "60-70": { "count": 2, "intensities": [2, 5] },
-    "70-80": { "count": 4, "intensities": [1, 6, 3, 2] },
-    "80-90": { "count": 3, "intensities": [7, 3, 1] },
-    "90-99": { "count": 3, "intensities": [2, 8, 4] }
+    "1-10": {
+      "count": 3,
+      "intensities": [
+        1,
+        2,
+        4
+      ]
+    },
+    "10-20": {
+      "count": 2,
+      "intensities": [
+        1,
+        5
+      ]
+    },
+    "20-30": {
+      "count": 2,
+      "intensities": [
+        1,
+        5
+      ]
+    },
+    "30-40": {
+      "count": 2,
+      "intensities": [
+        2,
+        6
+      ]
+    },
+    "40-50": {
+      "count": 2,
+      "intensities": [
+        1,
+        3
+      ]
+    },
+    "50-60": {
+      "count": 3,
+      "intensities": [
+        2,
+        5,
+        1
+      ]
+    },
+    "60-70": {
+      "count": 2,
+      "intensities": [
+        2,
+        5
+      ]
+    },
+    "70-80": {
+      "count": 4,
+      "intensities": [
+        1,
+        6,
+        3,
+        2
+      ]
+    },
+    "80-90": {
+      "count": 3,
+      "intensities": [
+        7,
+        3,
+        1
+      ]
+    },
+    "90-99": {
+      "count": 3,
+      "intensities": [
+        2,
+        8,
+        4
+      ]
+    }
   }
 }

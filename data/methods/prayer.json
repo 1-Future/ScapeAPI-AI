@@ -7,306 +7,891 @@
       "skill": "prayer",
       "level_required": 1,
       "name": "Lumbrick Bury Bones AFK",
-      "location": { "region": "heartlands", "spot": "Lumbrick alley mounds" },
+      "location": {
+        "region": "heartlands",
+        "spot": "Lumbrick alley mounds"
+      },
       "intensity": 1,
       "xp_per_hour": 8000,
       "gp_per_hour": 0,
-      "requires": { "quests": [], "items": ["bones"], "skills": {} },
+      "requires": {
+        "quests": [],
+        "items": [
+          "bones"
+        ],
+        "skills": {}
+      },
       "description": "Bury bones one at a time. Starter.",
       "produces": [],
-      "marstead_note": "AFK baseline."
+      "marstead_note": "AFK baseline.",
+      "travel_time_to_bank_seconds": 25,
+      "nearest_teleport": "Heartlands Teleport (Lumbrick)",
+      "banking_trip_cost": {
+        "gp": 35,
+        "intensity": 2
+      },
+      "travel_region_multiplier": 0,
+      "effective_xp_per_hour": 7556,
+      "effective_gp_per_hour": 0,
+      "travel_minutes_per_hour": 3.3,
+      "active_minutes_per_hour": 56.7,
+      "trips_per_hour": 4
     },
     {
       "id": "heartlands_bury_big_bones",
       "skill": "prayer",
       "level_required": 1,
       "name": "Bury Big Bones Rotation",
-      "location": { "region": "heartlands", "spot": "Lumbrick alley" },
+      "location": {
+        "region": "heartlands",
+        "spot": "Lumbrick alley"
+      },
       "intensity": 3,
       "xp_per_hour": 19300,
       "gp_per_hour": 0,
-      "requires": { "quests": [], "items": ["big_bones"], "skills": {} },
+      "requires": {
+        "quests": [],
+        "items": [
+          "big_bones"
+        ],
+        "skills": {}
+      },
       "description": "Bury big bones — 3.3x XP.",
       "produces": [],
-      "marstead_note": "Multitask."
+      "marstead_note": "Multitask.",
+      "travel_time_to_bank_seconds": 25,
+      "nearest_teleport": "Heartlands Teleport (Lumbrick)",
+      "banking_trip_cost": {
+        "gp": 35,
+        "intensity": 2
+      },
+      "travel_region_multiplier": 0,
+      "effective_xp_per_hour": 18228,
+      "effective_gp_per_hour": 0,
+      "travel_minutes_per_hour": 3.3,
+      "active_minutes_per_hour": 56.7,
+      "trips_per_hour": 4
     },
     {
       "id": "heartlands_bones_altar_lumbar",
       "skill": "prayer",
       "level_required": 10,
       "name": "Lumbar Altar Bones Offering",
-      "location": { "region": "heartlands", "spot": "Lumbrick chapel altar" },
+      "location": {
+        "region": "heartlands",
+        "spot": "Lumbrick chapel altar"
+      },
       "intensity": 1,
       "xp_per_hour": 16400,
       "gp_per_hour": 0,
-      "requires": { "quests": [], "items": ["bones"], "skills": {"prayer": 10} },
+      "requires": {
+        "quests": [],
+        "items": [
+          "bones"
+        ],
+        "skills": {
+          "prayer": 10
+        }
+      },
       "description": "Offer bones on the common altar. 2x XP per bone.",
       "produces": [],
-      "marstead_note": "AFK baseline for 10+."
+      "marstead_note": "AFK baseline for 10+.",
+      "travel_time_to_bank_seconds": 3,
+      "nearest_teleport": "Heartlands Teleport (Lumbrick)",
+      "banking_trip_cost": {
+        "gp": 0,
+        "intensity": 1
+      },
+      "travel_region_multiplier": 0,
+      "effective_xp_per_hour": 16291,
+      "effective_gp_per_hour": 0,
+      "travel_minutes_per_hour": 0.4,
+      "active_minutes_per_hour": 59.6,
+      "trips_per_hour": 4
     },
     {
       "id": "heartlands_ectophial_farm",
       "skill": "prayer",
       "level_required": 15,
       "name": "Moryskah Ectofuntus Offering",
-      "location": { "region": "moryskah", "spot": "Ectofuntus machine" },
+      "location": {
+        "region": "moryskah",
+        "spot": "Ectofuntus machine"
+      },
       "intensity": 5,
       "xp_per_hour": 45200,
       "gp_per_hour": 0,
-      "requires": { "quests": ["ghost_of_tombseam"], "items": ["bones", "bonemeal_pot"], "skills": {"prayer": 15} },
+      "requires": {
+        "quests": [
+          "ghost_of_tombseam"
+        ],
+        "items": [
+          "bones",
+          "bonemeal_pot"
+        ],
+        "skills": {
+          "prayer": 15
+        }
+      },
       "description": "Grind bones + mix bucket + worship. 4x XP per bone. Multi-step.",
       "produces": [],
-      "marstead_note": "Active. Multi-step prayer XP."
+      "marstead_note": "Active. Multi-step prayer XP.",
+      "travel_time_to_bank_seconds": 46,
+      "nearest_teleport": "Moryskah Teleport (Village)",
+      "banking_trip_cost": {
+        "gp": 85,
+        "intensity": 2
+      },
+      "travel_region_multiplier": 0.2,
+      "effective_xp_per_hour": 40580,
+      "effective_gp_per_hour": 0,
+      "travel_minutes_per_hour": 6.1,
+      "active_minutes_per_hour": 53.9,
+      "trips_per_hour": 4
     },
     {
       "id": "boneyard_bury_big_bones_afk",
       "skill": "prayer",
       "level_required": 20,
       "name": "Boneyard Big Bones Burial AFK",
-      "location": { "region": "boneyard", "spot": "Gravelight skeleton cave" },
+      "location": {
+        "region": "boneyard",
+        "spot": "Gravelight skeleton cave"
+      },
       "intensity": 1,
       "xp_per_hour": 17400,
       "gp_per_hour": 12000,
-      "requires": { "quests": [], "items": ["big_bones"], "skills": {"prayer": 20} },
+      "requires": {
+        "quests": [],
+        "items": [
+          "big_bones"
+        ],
+        "skills": {
+          "prayer": 20
+        }
+      },
       "description": "Bury big bones from kills.",
       "produces": [],
-      "marstead_note": "AFK baseline."
+      "marstead_note": "AFK baseline.",
+      "travel_time_to_bank_seconds": 50,
+      "nearest_teleport": "Senntisten Teleport (Ancient)",
+      "banking_trip_cost": {
+        "gp": 180,
+        "intensity": 2
+      },
+      "travel_region_multiplier": 0.2,
+      "effective_xp_per_hour": 15467,
+      "effective_gp_per_hour": 10667,
+      "travel_minutes_per_hour": 6.7,
+      "active_minutes_per_hour": 53.3,
+      "trips_per_hour": 4
     },
     {
       "id": "heartlands_bones_gilded_altar",
       "skill": "prayer",
       "level_required": 25,
       "name": "Player Gilded Altar Big Bones",
-      "location": { "region": "heartlands", "spot": "Player house chapel" },
+      "location": {
+        "region": "heartlands",
+        "spot": "Player house chapel"
+      },
       "intensity": 4,
       "xp_per_hour": 45300,
       "gp_per_hour": 0,
-      "requires": { "quests": ["hearthing_right"], "items": ["big_bones"], "skills": {"prayer": 25, "construction": 50} },
+      "requires": {
+        "quests": [
+          "hearthing_right"
+        ],
+        "items": [
+          "big_bones"
+        ],
+        "skills": {
+          "prayer": 25,
+          "construction": 50
+        }
+      },
       "description": "Gilded altar big bones 3.5x.",
       "produces": [],
-      "marstead_note": "Active. Multi-skill (construction 50)."
+      "marstead_note": "Active. Multi-skill (construction 50).",
+      "travel_time_to_bank_seconds": 0,
+      "nearest_teleport": null,
+      "banking_trip_cost": {
+        "gp": 0,
+        "intensity": 0
+      },
+      "travel_region_multiplier": 0,
+      "effective_xp_per_hour": 45300,
+      "effective_gp_per_hour": 0,
+      "travel_minutes_per_hour": 0,
+      "active_minutes_per_hour": 60,
+      "trips_per_hour": 0
     },
     {
       "id": "heartlands_dragon_bones_afk",
       "skill": "prayer",
       "level_required": 30,
       "name": "Dragon Bones Common Altar AFK",
-      "location": { "region": "heartlands", "spot": "Lumbrick chapel" },
+      "location": {
+        "region": "heartlands",
+        "spot": "Lumbrick chapel"
+      },
       "intensity": 1,
       "xp_per_hour": 26800,
       "gp_per_hour": -85000,
-      "requires": { "quests": [], "items": ["dragon_bones"], "skills": {"prayer": 30} },
+      "requires": {
+        "quests": [],
+        "items": [
+          "dragon_bones"
+        ],
+        "skills": {
+          "prayer": 30
+        }
+      },
       "description": "Dragon bones on common altar.",
       "produces": [],
-      "marstead_note": "AFK baseline. Expensive."
+      "marstead_note": "AFK baseline. Expensive.",
+      "travel_time_to_bank_seconds": 3,
+      "nearest_teleport": "Heartlands Teleport (Lumbrick)",
+      "banking_trip_cost": {
+        "gp": 0,
+        "intensity": 1
+      },
+      "travel_region_multiplier": 0,
+      "effective_xp_per_hour": 26621,
+      "effective_gp_per_hour": -84433,
+      "travel_minutes_per_hour": 0.4,
+      "active_minutes_per_hour": 59.6,
+      "trips_per_hour": 4
     },
     {
       "id": "heartlands_dragon_bones_gilded",
       "skill": "prayer",
       "level_required": 30,
       "name": "Dragon Bones Gilded Altar",
-      "location": { "region": "heartlands", "spot": "Player gilded altar" },
+      "location": {
+        "region": "heartlands",
+        "spot": "Player gilded altar"
+      },
       "intensity": 5,
       "xp_per_hour": 78700,
       "gp_per_hour": -155000,
-      "requires": { "quests": ["hearthing_right"], "items": ["dragon_bones"], "skills": {"prayer": 30, "construction": 50} },
+      "requires": {
+        "quests": [
+          "hearthing_right"
+        ],
+        "items": [
+          "dragon_bones"
+        ],
+        "skills": {
+          "prayer": 30,
+          "construction": 50
+        }
+      },
       "description": "Dragon bones 3.5x gilded altar. Ultra-expensive, fastest XP.",
       "produces": [],
-      "marstead_note": "Active. Gilded altar meta."
+      "marstead_note": "Active. Gilded altar meta.",
+      "travel_time_to_bank_seconds": 3,
+      "nearest_teleport": "Heartlands Teleport (Lumbrick)",
+      "banking_trip_cost": {
+        "gp": 0,
+        "intensity": 1
+      },
+      "travel_region_multiplier": 0,
+      "effective_xp_per_hour": 78175,
+      "effective_gp_per_hour": -153967,
+      "travel_minutes_per_hour": 0.4,
+      "active_minutes_per_hour": 59.6,
+      "trips_per_hour": 4
     },
     {
       "id": "heartlands_dagannoth_bones",
       "skill": "prayer",
       "level_required": 40,
       "name": "Dagannoth Bones Altar AFK",
-      "location": { "region": "heartlands", "spot": "Player gilded altar" },
+      "location": {
+        "region": "heartlands",
+        "spot": "Player gilded altar"
+      },
       "intensity": 1,
       "xp_per_hour": 32000,
       "gp_per_hour": -95000,
-      "requires": { "quests": [], "items": ["dagannoth_bones"], "skills": {"prayer": 40} },
+      "requires": {
+        "quests": [],
+        "items": [
+          "dagannoth_bones"
+        ],
+        "skills": {
+          "prayer": 40
+        }
+      },
       "description": "Dagannoth bones. AFK.",
       "produces": [],
-      "marstead_note": "AFK baseline for 40+."
+      "marstead_note": "AFK baseline for 40+.",
+      "travel_time_to_bank_seconds": 3,
+      "nearest_teleport": "Heartlands Teleport (Lumbrick)",
+      "banking_trip_cost": {
+        "gp": 0,
+        "intensity": 1
+      },
+      "travel_region_multiplier": 0,
+      "effective_xp_per_hour": 31787,
+      "effective_gp_per_hour": -94367,
+      "travel_minutes_per_hour": 0.4,
+      "active_minutes_per_hour": 59.6,
+      "trips_per_hour": 4
     },
     {
       "id": "heartlands_wyvern_bones_altar",
       "skill": "prayer",
       "level_required": 45,
       "name": "Wyvern Bones Gilded",
-      "location": { "region": "heartlands", "spot": "Player gilded altar" },
+      "location": {
+        "region": "heartlands",
+        "spot": "Player gilded altar"
+      },
       "intensity": 4,
       "xp_per_hour": 58500,
       "gp_per_hour": -125000,
-      "requires": { "quests": ["hearthing_right"], "items": ["wyvern_bones"], "skills": {"prayer": 45, "construction": 50} },
+      "requires": {
+        "quests": [
+          "hearthing_right"
+        ],
+        "items": [
+          "wyvern_bones"
+        ],
+        "skills": {
+          "prayer": 45,
+          "construction": 50
+        }
+      },
       "description": "Wyvern bones on gilded altar.",
       "produces": [],
-      "marstead_note": "Active."
+      "marstead_note": "Active.",
+      "travel_time_to_bank_seconds": 3,
+      "nearest_teleport": "Heartlands Teleport (Lumbrick)",
+      "banking_trip_cost": {
+        "gp": 0,
+        "intensity": 1
+      },
+      "travel_region_multiplier": 0,
+      "effective_xp_per_hour": 58110,
+      "effective_gp_per_hour": -124167,
+      "travel_minutes_per_hour": 0.4,
+      "active_minutes_per_hour": 59.6,
+      "trips_per_hour": 4
     },
     {
       "id": "heartlands_superior_dragon_afk",
       "skill": "prayer",
       "level_required": 50,
       "name": "Superior Dragon Bones AFK",
-      "location": { "region": "heartlands", "spot": "Lumbrick chapel" },
+      "location": {
+        "region": "heartlands",
+        "spot": "Lumbrick chapel"
+      },
       "intensity": 1,
       "xp_per_hour": 41200,
       "gp_per_hour": -180000,
-      "requires": { "quests": [], "items": ["superior_dragon_bones"], "skills": {"prayer": 50} },
+      "requires": {
+        "quests": [],
+        "items": [
+          "superior_dragon_bones"
+        ],
+        "skills": {
+          "prayer": 50
+        }
+      },
       "description": "Superior dragon bones common altar.",
       "produces": [],
-      "marstead_note": "AFK baseline."
+      "marstead_note": "AFK baseline.",
+      "travel_time_to_bank_seconds": 25,
+      "nearest_teleport": "Heartlands Teleport (Lumbrick)",
+      "banking_trip_cost": {
+        "gp": 35,
+        "intensity": 2
+      },
+      "travel_region_multiplier": 0,
+      "effective_xp_per_hour": 38911,
+      "effective_gp_per_hour": -170000,
+      "travel_minutes_per_hour": 3.3,
+      "active_minutes_per_hour": 56.7,
+      "trips_per_hour": 4
     },
     {
       "id": "wilds_chaos_altar_sacrifice",
       "skill": "prayer",
       "level_required": 55,
       "name": "Wilds Chaos Altar Sacrifice",
-      "location": { "region": "wilds", "spot": "Chaos altar, lv38 Wilderness" },
+      "location": {
+        "region": "wilds",
+        "spot": "Chaos altar, lv38 Wilderness"
+      },
       "intensity": 7,
       "xp_per_hour": 115400,
       "gp_per_hour": -185000,
-      "requires": { "quests": [], "items": ["dragon_bones"], "skills": {"prayer": 55} },
+      "requires": {
+        "quests": [],
+        "items": [
+          "dragon_bones"
+        ],
+        "skills": {
+          "prayer": 55
+        }
+      },
       "description": "Chaos altar. 50% bone save. PK-risky. Max XP/bone.",
       "produces": [],
-      "marstead_note": "Max Focus. Wilderness Principle."
+      "marstead_note": "Max Focus. Wilderness Principle.",
+      "travel_time_to_bank_seconds": 20,
+      "nearest_teleport": "Amulet of Glory (Wilds edge)",
+      "banking_trip_cost": {
+        "gp": 500,
+        "intensity": 2
+      },
+      "travel_region_multiplier": 0.3,
+      "effective_xp_per_hour": 110271,
+      "effective_gp_per_hour": -176778,
+      "travel_minutes_per_hour": 2.7,
+      "active_minutes_per_hour": 57.3,
+      "trips_per_hour": 4
     },
     {
       "id": "heartlands_superior_gilded",
       "skill": "prayer",
       "level_required": 55,
       "name": "Superior Dragon Gilded Altar",
-      "location": { "region": "heartlands", "spot": "Player gilded altar" },
+      "location": {
+        "region": "heartlands",
+        "spot": "Player gilded altar"
+      },
       "intensity": 5,
       "xp_per_hour": 136500,
       "gp_per_hour": -285000,
-      "requires": { "quests": ["hearthing_right"], "items": ["superior_dragon_bones"], "skills": {"prayer": 55, "construction": 50} },
+      "requires": {
+        "quests": [
+          "hearthing_right"
+        ],
+        "items": [
+          "superior_dragon_bones"
+        ],
+        "skills": {
+          "prayer": 55,
+          "construction": 50
+        }
+      },
       "description": "Superior dragon gilded. Peak 55+.",
       "produces": [],
-      "marstead_note": "Active."
+      "marstead_note": "Active.",
+      "travel_time_to_bank_seconds": 3,
+      "nearest_teleport": "Heartlands Teleport (Lumbrick)",
+      "banking_trip_cost": {
+        "gp": 0,
+        "intensity": 1
+      },
+      "travel_region_multiplier": 0,
+      "effective_xp_per_hour": 135590,
+      "effective_gp_per_hour": -283100,
+      "travel_minutes_per_hour": 0.4,
+      "active_minutes_per_hour": 59.6,
+      "trips_per_hour": 4
     },
     {
       "id": "moryskah_ensouled_heads_afk",
       "skill": "prayer",
       "level_required": 60,
       "name": "Ensouled Heads Reanimate",
-      "location": { "region": "moryskah", "spot": "Necromancer altar" },
+      "location": {
+        "region": "moryskah",
+        "spot": "Necromancer altar"
+      },
       "intensity": 1,
       "xp_per_hour": 40000,
       "gp_per_hour": 45000,
-      "requires": { "quests": ["necromantic_pact"], "items": ["ensouled_head", "nature_rune"], "skills": {"prayer": 60, "magic": 48} },
+      "requires": {
+        "quests": [
+          "necromantic_pact"
+        ],
+        "items": [
+          "ensouled_head",
+          "nature_rune"
+        ],
+        "skills": {
+          "prayer": 60,
+          "magic": 48
+        }
+      },
       "description": "Reanimate ensouled heads for prayer XP.",
-      "produces": [{ "item": "ghost_essence", "rate_per_hour": 180 }],
-      "marstead_note": "AFK baseline for 60+."
+      "produces": [
+        {
+          "item": "ghost_essence",
+          "rate_per_hour": 180
+        }
+      ],
+      "marstead_note": "AFK baseline for 60+.",
+      "travel_time_to_bank_seconds": 4,
+      "nearest_teleport": "Moryskah Teleport (Village)",
+      "banking_trip_cost": {
+        "gp": 0,
+        "intensity": 1
+      },
+      "travel_region_multiplier": 0.2,
+      "effective_xp_per_hour": 39644,
+      "effective_gp_per_hour": 44600,
+      "travel_minutes_per_hour": 0.5,
+      "active_minutes_per_hour": 59.5,
+      "trips_per_hour": 4
     },
     {
       "id": "wilds_superior_chaos",
       "skill": "prayer",
       "level_required": 65,
       "name": "Superior Dragon Chaos Altar",
-      "location": { "region": "wilds", "spot": "Chaos altar, lv38 Wilderness" },
+      "location": {
+        "region": "wilds",
+        "spot": "Chaos altar, lv38 Wilderness"
+      },
       "intensity": 8,
       "xp_per_hour": 149300,
       "gp_per_hour": -285000,
-      "requires": { "quests": [], "items": ["superior_dragon_bones"], "skills": {"prayer": 65} },
+      "requires": {
+        "quests": [],
+        "items": [
+          "superior_dragon_bones"
+        ],
+        "skills": {
+          "prayer": 65
+        }
+      },
       "description": "Superior dragon Chaos altar. Endgame prayer.",
       "produces": [],
-      "marstead_note": "Max Focus. Endgame with Wilderness Principle."
+      "marstead_note": "Max Focus. Endgame with Wilderness Principle.",
+      "travel_time_to_bank_seconds": 20,
+      "nearest_teleport": "Amulet of Glory (Wilds edge)",
+      "banking_trip_cost": {
+        "gp": 500,
+        "intensity": 2
+      },
+      "travel_region_multiplier": 0.3,
+      "effective_xp_per_hour": 142664,
+      "effective_gp_per_hour": -272333,
+      "travel_minutes_per_hour": 2.7,
+      "active_minutes_per_hour": 57.3,
+      "trips_per_hour": 4
     },
     {
       "id": "veilwood_abyssal_altar",
       "skill": "prayer",
       "level_required": 70,
       "name": "Veilwood Abyssal Altar Worship",
-      "location": { "region": "veilwood", "spot": "Sanctum abyssal altar" },
+      "location": {
+        "region": "veilwood",
+        "spot": "Sanctum abyssal altar"
+      },
       "intensity": 2,
       "xp_per_hour": 60000,
       "gp_per_hour": 25000,
-      "requires": { "quests": ["swan_song_of_veilwood"], "items": ["abyssal_bones"], "skills": {"prayer": 70} },
+      "requires": {
+        "quests": [
+          "swan_song_of_veilwood"
+        ],
+        "items": [
+          "abyssal_bones"
+        ],
+        "skills": {
+          "prayer": 70
+        }
+      },
       "description": "Abyssal altar worship. AFK.",
       "produces": [],
-      "marstead_note": "AFK-Multitask."
+      "marstead_note": "AFK-Multitask.",
+      "travel_time_to_bank_seconds": 3,
+      "nearest_teleport": "Necklace of Passage",
+      "banking_trip_cost": {
+        "gp": 0,
+        "intensity": 1
+      },
+      "travel_region_multiplier": 0.1,
+      "effective_xp_per_hour": 59600,
+      "effective_gp_per_hour": 24833,
+      "travel_minutes_per_hour": 0.4,
+      "active_minutes_per_hour": 59.6,
+      "trips_per_hour": 4
     },
     {
       "id": "veilwood_ensouled_adamant",
       "skill": "prayer",
       "level_required": 75,
       "name": "Ensouled Dragon Head",
-      "location": { "region": "moryskah", "spot": "Necromancer altar" },
+      "location": {
+        "region": "moryskah",
+        "spot": "Necromancer altar"
+      },
       "intensity": 4,
       "xp_per_hour": 82300,
       "gp_per_hour": 125000,
-      "requires": { "quests": ["necromantic_pact"], "items": ["ensouled_dragon_head", "nature_rune"], "skills": {"prayer": 75, "magic": 83} },
+      "requires": {
+        "quests": [
+          "necromantic_pact"
+        ],
+        "items": [
+          "ensouled_dragon_head",
+          "nature_rune"
+        ],
+        "skills": {
+          "prayer": 75,
+          "magic": 83
+        }
+      },
       "description": "Ensouled dragon heads. Unique prayer XP path.",
-      "produces": [{ "item": "ghost_essence", "rate_per_hour": 120 }],
-      "marstead_note": "Active."
+      "produces": [
+        {
+          "item": "ghost_essence",
+          "rate_per_hour": 120
+        }
+      ],
+      "marstead_note": "Active.",
+      "travel_time_to_bank_seconds": 4,
+      "nearest_teleport": "Moryskah Teleport (Village)",
+      "banking_trip_cost": {
+        "gp": 0,
+        "intensity": 1
+      },
+      "travel_region_multiplier": 0.2,
+      "effective_xp_per_hour": 81568,
+      "effective_gp_per_hour": 123889,
+      "travel_minutes_per_hour": 0.5,
+      "active_minutes_per_hour": 59.5,
+      "trips_per_hour": 4
     },
     {
       "id": "heartlands_monstrous_bones_afk",
       "skill": "prayer",
       "level_required": 80,
       "name": "Monstrous Bones AFK",
-      "location": { "region": "heartlands", "spot": "Player gilded altar" },
+      "location": {
+        "region": "heartlands",
+        "spot": "Player gilded altar"
+      },
       "intensity": 1,
       "xp_per_hour": 66800,
       "gp_per_hour": -220000,
-      "requires": { "quests": [], "items": ["monstrous_bones"], "skills": {"prayer": 80} },
+      "requires": {
+        "quests": [],
+        "items": [
+          "monstrous_bones"
+        ],
+        "skills": {
+          "prayer": 80
+        }
+      },
       "description": "Monstrous bones AFK.",
       "produces": [],
-      "marstead_note": "AFK baseline for 80+."
+      "marstead_note": "AFK baseline for 80+.",
+      "travel_time_to_bank_seconds": 3,
+      "nearest_teleport": "Heartlands Teleport (Lumbrick)",
+      "banking_trip_cost": {
+        "gp": 0,
+        "intensity": 1
+      },
+      "travel_region_multiplier": 0,
+      "effective_xp_per_hour": 66355,
+      "effective_gp_per_hour": -218533,
+      "travel_minutes_per_hour": 0.4,
+      "active_minutes_per_hour": 59.6,
+      "trips_per_hour": 4
     },
     {
       "id": "heartlands_zogre_bones_gilded",
       "skill": "prayer",
       "level_required": 85,
       "name": "Zogre Bones Gilded",
-      "location": { "region": "heartlands", "spot": "Player gilded altar" },
+      "location": {
+        "region": "heartlands",
+        "spot": "Player gilded altar"
+      },
       "intensity": 5,
       "xp_per_hour": 172000,
       "gp_per_hour": -320000,
-      "requires": { "quests": ["hearthing_right", "tombhearer"], "items": ["zogre_bones"], "skills": {"prayer": 85} },
+      "requires": {
+        "quests": [
+          "hearthing_right",
+          "tombhearer"
+        ],
+        "items": [
+          "zogre_bones"
+        ],
+        "skills": {
+          "prayer": 85
+        }
+      },
       "description": "Zogre bones gilded altar.",
       "produces": [],
-      "marstead_note": "Active."
+      "marstead_note": "Active.",
+      "travel_time_to_bank_seconds": 3,
+      "nearest_teleport": "Heartlands Teleport (Lumbrick)",
+      "banking_trip_cost": {
+        "gp": 0,
+        "intensity": 1
+      },
+      "travel_region_multiplier": 0,
+      "effective_xp_per_hour": 170853,
+      "effective_gp_per_hour": -317867,
+      "travel_minutes_per_hour": 0.4,
+      "active_minutes_per_hour": 59.6,
+      "trips_per_hour": 4
     },
     {
       "id": "wilds_wyrm_chaos",
       "skill": "prayer",
       "level_required": 92,
       "name": "Crystal Wyrm Bones Chaos Altar",
-      "location": { "region": "wilds", "spot": "Chaos altar, lv38 Wilderness" },
+      "location": {
+        "region": "wilds",
+        "spot": "Chaos altar, lv38 Wilderness"
+      },
       "intensity": 9,
       "xp_per_hour": 222300,
       "gp_per_hour": -420000,
-      "requires": { "quests": [], "items": ["crystal_wyrm_bones"], "skills": {"prayer": 92} },
+      "requires": {
+        "quests": [],
+        "items": [
+          "crystal_wyrm_bones"
+        ],
+        "skills": {
+          "prayer": 92
+        }
+      },
       "description": "Crystal wyrm bones chaos altar.",
       "produces": [],
-      "marstead_note": "Max Focus. Endgame prayer."
+      "marstead_note": "Max Focus. Endgame prayer.",
+      "travel_time_to_bank_seconds": 20,
+      "nearest_teleport": "Amulet of Glory (Wilds edge)",
+      "banking_trip_cost": {
+        "gp": 500,
+        "intensity": 2
+      },
+      "travel_region_multiplier": 0.3,
+      "effective_xp_per_hour": 212420,
+      "effective_gp_per_hour": -401333,
+      "travel_minutes_per_hour": 2.7,
+      "active_minutes_per_hour": 57.3,
+      "trips_per_hour": 4
     },
     {
       "id": "veilwood_sanctum_prayer_afk",
       "skill": "prayer",
       "level_required": 90,
       "name": "Moonblade Monastery Prayer AFK",
-      "location": { "region": "veilwood", "spot": "Moonblade Monastery sanctum" },
+      "location": {
+        "region": "veilwood",
+        "spot": "Moonblade Monastery sanctum"
+      },
       "intensity": 2,
       "xp_per_hour": 94000,
       "gp_per_hour": 85000,
-      "requires": { "quests": ["whisperwood_remembers"], "items": ["holy_offering"], "skills": {"prayer": 90} },
+      "requires": {
+        "quests": [
+          "whisperwood_remembers"
+        ],
+        "items": [
+          "holy_offering"
+        ],
+        "skills": {
+          "prayer": 90
+        }
+      },
       "description": "Sanctum offering tablet. AFK.",
-      "produces": [{ "item": "monastic_favour", "rate_per_hour": 240 }],
-      "marstead_note": "AFK-Multitask for 90+."
+      "produces": [
+        {
+          "item": "monastic_favour",
+          "rate_per_hour": 240
+        }
+      ],
+      "marstead_note": "AFK-Multitask for 90+.",
+      "travel_time_to_bank_seconds": 39,
+      "nearest_teleport": "Necklace of Passage",
+      "banking_trip_cost": {
+        "gp": 500,
+        "intensity": 2
+      },
+      "travel_region_multiplier": 0.1,
+      "effective_xp_per_hour": 85853,
+      "effective_gp_per_hour": 77633,
+      "travel_minutes_per_hour": 5.2,
+      "active_minutes_per_hour": 54.8,
+      "trips_per_hour": 4
     }
   ],
   "bracket_coverage": {
-    "1-10":  { "count": 2, "intensities": [1, 3] },
-    "10-20": { "count": 2, "intensities": [1, 5] },
-    "20-30": { "count": 2, "intensities": [1, 4] },
-    "30-40": { "count": 2, "intensities": [1, 5] },
-    "40-50": { "count": 2, "intensities": [1, 4] },
-    "50-60": { "count": 3, "intensities": [1, 7, 5] },
-    "60-70": { "count": 2, "intensities": [1, 8] },
-    "70-80": { "count": 2, "intensities": [2, 4] },
-    "80-90": { "count": 2, "intensities": [1, 5] },
-    "90-99": { "count": 2, "intensities": [9, 2] }
+    "1-10": {
+      "count": 2,
+      "intensities": [
+        1,
+        3
+      ]
+    },
+    "10-20": {
+      "count": 2,
+      "intensities": [
+        1,
+        5
+      ]
+    },
+    "20-30": {
+      "count": 2,
+      "intensities": [
+        1,
+        4
+      ]
+    },
+    "30-40": {
+      "count": 2,
+      "intensities": [
+        1,
+        5
+      ]
+    },
+    "40-50": {
+      "count": 2,
+      "intensities": [
+        1,
+        4
+      ]
+    },
+    "50-60": {
+      "count": 3,
+      "intensities": [
+        1,
+        7,
+        5
+      ]
+    },
+    "60-70": {
+      "count": 2,
+      "intensities": [
+        1,
+        8
+      ]
+    },
+    "70-80": {
+      "count": 2,
+      "intensities": [
+        2,
+        4
+      ]
+    },
+    "80-90": {
+      "count": 2,
+      "intensities": [
+        1,
+        5
+      ]
+    },
+    "90-99": {
+      "count": 2,
+      "intensities": [
+        9,
+        2
+      ]
+    }
   }
 }

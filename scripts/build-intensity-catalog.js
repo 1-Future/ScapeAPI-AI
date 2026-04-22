@@ -1351,6 +1351,14 @@ function main() {
   const codemodCounts = codemod.applyAll(out.activities);
   console.log(`[intensity] codemod: canon=${codemodCounts.canon} m17=${codemodCounts.m17} c17=${codemodCounts.c17} h13=${codemodCounts.h13} h17=${codemodCounts.h17} c16=${codemodCounts.c16}`);
 
+  // burn-wave0 Task 17 + 18 — append travel cost and tradeoff-economics
+  // fields to every activity. See scripts/rederive-effective-xp.js for the
+  // formula and scripts/annotate-methods-travel-tradeoff.js for the source
+  // of the per-method annotations (populates data/methods/*.json).
+  const effectiveRederiver = require('./rederive-effective-xp.js');
+  const effLog = effectiveRederiver.rederive(out);
+  console.log(`[intensity] effective-xp rederive: ${effLog.appended_annotation} from methods, ${effLog.filled_default} default-filled`);
+
   fs.writeFileSync(path.join(DATA, 'intensity-catalog.json'), JSON.stringify(out, null, 2));
 
   const report = computeMiseryAndGaps(dedup);

@@ -7,348 +7,1084 @@
       "skill": "defence",
       "level_required": 1,
       "name": "Lumbrick Training Dummy (Defensive)",
-      "location": { "region": "heartlands", "spot": "Lumbrick training yard" },
+      "location": {
+        "region": "heartlands",
+        "spot": "Lumbrick training yard"
+      },
       "intensity": 1,
       "xp_per_hour": 8000,
       "gp_per_hour": 0,
-      "requires": { "quests": [], "items": ["bronze_scimitar"], "skills": {} },
+      "requires": {
+        "quests": [],
+        "items": [
+          "bronze_scimitar"
+        ],
+        "skills": {}
+      },
       "description": "Dummy on defensive.",
       "produces": [],
-      "marstead_note": "AFK baseline."
+      "marstead_note": "AFK baseline.",
+      "travel_time_to_bank_seconds": 25,
+      "nearest_teleport": "Heartlands Teleport (Lumbrick)",
+      "banking_trip_cost": {
+        "gp": 35,
+        "intensity": 2
+      },
+      "travel_region_multiplier": 0,
+      "effective_xp_per_hour": 7778,
+      "effective_gp_per_hour": 0,
+      "travel_minutes_per_hour": 1.7,
+      "active_minutes_per_hour": 58.3,
+      "trips_per_hour": 2
     },
     {
       "id": "heartlands_rat_def",
       "skill": "defence",
       "level_required": 3,
       "name": "Giant Rat Defensive",
-      "location": { "region": "heartlands", "spot": "Lumbrick sewer" },
+      "location": {
+        "region": "heartlands",
+        "spot": "Lumbrick sewer"
+      },
       "intensity": 2,
       "xp_per_hour": 13900,
       "gp_per_hour": 2000,
-      "requires": { "quests": [], "items": ["bronze_scimitar"], "skills": {} },
+      "requires": {
+        "quests": [],
+        "items": [
+          "bronze_scimitar"
+        ],
+        "skills": {}
+      },
       "description": "Sewer rats on defensive. Bronze armour required for DR.",
-      "produces": [{ "item": "raw_rat_meat", "rate_per_hour": 800 }],
-      "marstead_note": "AFK-Multitask."
+      "produces": [
+        {
+          "item": "raw_rat_meat",
+          "rate_per_hour": 800
+        }
+      ],
+      "marstead_note": "AFK-Multitask.",
+      "travel_time_to_bank_seconds": 44,
+      "nearest_teleport": "Heartlands Teleport (Lumbrick)",
+      "banking_trip_cost": {
+        "gp": 35,
+        "intensity": 2
+      },
+      "travel_region_multiplier": 0,
+      "effective_xp_per_hour": 13220,
+      "effective_gp_per_hour": 1902,
+      "travel_minutes_per_hour": 2.9,
+      "active_minutes_per_hour": 57.1,
+      "trips_per_hour": 2
     },
     {
       "id": "heartlands_cow_defensive",
       "skill": "defence",
       "level_required": 10,
       "name": "Cow Field Defensive AFK",
-      "location": { "region": "heartlands", "spot": "Chelser cow field" },
+      "location": {
+        "region": "heartlands",
+        "spot": "Chelser cow field"
+      },
       "intensity": 1,
       "xp_per_hour": 10900,
       "gp_per_hour": 6000,
-      "requires": { "quests": [], "items": ["steel_scimitar"], "skills": {} },
+      "requires": {
+        "quests": [],
+        "items": [
+          "steel_scimitar"
+        ],
+        "skills": {}
+      },
       "description": "Cows on defensive. Pure AFK.",
-      "produces": [{ "item": "cowhide", "rate_per_hour": 420 }],
-      "marstead_note": "AFK baseline."
+      "produces": [
+        {
+          "item": "cowhide",
+          "rate_per_hour": 420
+        }
+      ],
+      "marstead_note": "AFK baseline.",
+      "travel_time_to_bank_seconds": 25,
+      "nearest_teleport": "Heartlands Teleport (Lumbrick)",
+      "banking_trip_cost": {
+        "gp": 35,
+        "intensity": 2
+      },
+      "travel_region_multiplier": 0,
+      "effective_xp_per_hour": 10597,
+      "effective_gp_per_hour": 5833,
+      "travel_minutes_per_hour": 1.7,
+      "active_minutes_per_hour": 58.3,
+      "trips_per_hour": 2
     },
     {
       "id": "heartlands_man_def_guard_rotation",
       "skill": "defence",
       "level_required": 15,
       "name": "Garrison Guard Defensive Rotation",
-      "location": { "region": "heartlands", "spot": "Garrison yard" },
+      "location": {
+        "region": "heartlands",
+        "spot": "Garrison yard"
+      },
       "intensity": 4,
       "xp_per_hour": 30200,
       "gp_per_hour": 24000,
-      "requires": { "quests": [], "items": ["steel_scimitar"], "skills": {"defence": 15} },
+      "requires": {
+        "quests": [],
+        "items": [
+          "steel_scimitar"
+        ],
+        "skills": {
+          "defence": 15
+        }
+      },
       "description": "Active swap between guards on defensive. Thieving hybrid.",
-      "produces": [{ "item": "coins", "rate_per_hour": 24000 }],
-      "marstead_note": "Active. Multi-skill."
+      "produces": [
+        {
+          "item": "coins",
+          "rate_per_hour": 24000
+        }
+      ],
+      "marstead_note": "Active. Multi-skill.",
+      "travel_time_to_bank_seconds": 25,
+      "nearest_teleport": "Heartlands Teleport (Lumbrick)",
+      "banking_trip_cost": {
+        "gp": 35,
+        "intensity": 2
+      },
+      "travel_region_multiplier": 0,
+      "effective_xp_per_hour": 29361,
+      "effective_gp_per_hour": 23333,
+      "travel_minutes_per_hour": 1.7,
+      "active_minutes_per_hour": 58.3,
+      "trips_per_hour": 2
     },
     {
       "id": "boneyard_skeleton_def_safespot",
       "skill": "defence",
       "level_required": 20,
       "name": "Skeleton Defensive Safespot",
-      "location": { "region": "boneyard", "spot": "Gravelight perimeter" },
+      "location": {
+        "region": "boneyard",
+        "spot": "Gravelight perimeter"
+      },
       "intensity": 1,
       "xp_per_hour": 15400,
       "gp_per_hour": 12000,
-      "requires": { "quests": [], "items": ["mithril_scimitar"], "skills": {"defence": 20} },
+      "requires": {
+        "quests": [],
+        "items": [
+          "mithril_scimitar"
+        ],
+        "skills": {
+          "defence": 20
+        }
+      },
       "description": "Safespot skeletons defensive. AFK.",
-      "produces": [{ "item": "bones", "rate_per_hour": 620 }],
-      "marstead_note": "AFK baseline."
+      "produces": [
+        {
+          "item": "bones",
+          "rate_per_hour": 620
+        }
+      ],
+      "marstead_note": "AFK baseline.",
+      "travel_time_to_bank_seconds": 50,
+      "nearest_teleport": "Senntisten Teleport (Ancient)",
+      "banking_trip_cost": {
+        "gp": 180,
+        "intensity": 2
+      },
+      "travel_region_multiplier": 0.2,
+      "effective_xp_per_hour": 14544,
+      "effective_gp_per_hour": 11333,
+      "travel_minutes_per_hour": 3.3,
+      "active_minutes_per_hour": 56.7,
+      "trips_per_hour": 2
     },
     {
       "id": "boneyard_skeleton_def_multi",
       "skill": "defence",
       "level_required": 25,
       "name": "Skeleton Defensive Multi-Pull",
-      "location": { "region": "boneyard", "spot": "Ossarium multi-combat" },
+      "location": {
+        "region": "boneyard",
+        "spot": "Ossarium multi-combat"
+      },
       "intensity": 6,
       "xp_per_hour": 50600,
       "gp_per_hour": 45000,
-      "requires": { "quests": [], "items": ["mithril_scimitar"], "skills": {"defence": 25} },
+      "requires": {
+        "quests": [],
+        "items": [
+          "mithril_scimitar"
+        ],
+        "skills": {
+          "defence": 25
+        }
+      },
       "description": "Multi-pull defensive. Attention-hungry.",
-      "produces": [{ "item": "bones", "rate_per_hour": 1400 }],
-      "marstead_note": "Active."
+      "produces": [
+        {
+          "item": "bones",
+          "rate_per_hour": 1400
+        }
+      ],
+      "marstead_note": "Active.",
+      "travel_time_to_bank_seconds": 50,
+      "nearest_teleport": "Senntisten Teleport (Ancient)",
+      "banking_trip_cost": {
+        "gp": 180,
+        "intensity": 2
+      },
+      "travel_region_multiplier": 0.2,
+      "effective_xp_per_hour": 46383,
+      "effective_gp_per_hour": 41250,
+      "travel_minutes_per_hour": 5,
+      "active_minutes_per_hour": 55,
+      "trips_per_hour": 3
     },
     {
       "id": "heartlands_sand_crab_def",
       "skill": "defence",
       "level_required": 30,
       "name": "Sand Crab Defensive AFK",
-      "location": { "region": "heartlands", "spot": "Gaff's Beach sand crabs" },
+      "location": {
+        "region": "heartlands",
+        "spot": "Gaff's Beach sand crabs"
+      },
       "intensity": 1,
       "xp_per_hour": 19800,
       "gp_per_hour": 0,
-      "requires": { "quests": [], "items": ["adamant_scimitar"], "skills": {"defence": 30} },
+      "requires": {
+        "quests": [],
+        "items": [
+          "adamant_scimitar"
+        ],
+        "skills": {
+          "defence": 30
+        }
+      },
       "description": "Sand crabs defensive AFK.",
       "produces": [],
-      "marstead_note": "AFK baseline."
+      "marstead_note": "AFK baseline.",
+      "travel_time_to_bank_seconds": 25,
+      "nearest_teleport": "Heartlands Teleport (Lumbrick)",
+      "banking_trip_cost": {
+        "gp": 35,
+        "intensity": 2
+      },
+      "travel_region_multiplier": 0,
+      "effective_xp_per_hour": 19250,
+      "effective_gp_per_hour": 0,
+      "travel_minutes_per_hour": 1.7,
+      "active_minutes_per_hour": 58.3,
+      "trips_per_hour": 2
     },
     {
       "id": "heartlands_defender_grind",
       "skill": "defence",
       "level_required": 30,
       "name": "Defender Token Grind",
-      "location": { "region": "heartlands", "spot": "Warriors' Ring" },
+      "location": {
+        "region": "heartlands",
+        "spot": "Warriors' Ring"
+      },
       "intensity": 6,
       "xp_per_hour": 48300,
       "gp_per_hour": 25000,
-      "requires": { "quests": ["rite_of_the_ring"], "items": ["adamant_scimitar"], "skills": {"defence": 30} },
+      "requires": {
+        "quests": [
+          "rite_of_the_ring"
+        ],
+        "items": [
+          "adamant_scimitar"
+        ],
+        "skills": {
+          "defence": 30
+        }
+      },
       "description": "Warriors' Ring token grind for defenders. Long quest-gated.",
-      "produces": [{ "item": "adamant_defender", "rate_per_hour": 1.1 }],
-      "marstead_note": "Active. Marstead non-degenerate reward."
+      "produces": [
+        {
+          "item": "adamant_defender",
+          "rate_per_hour": 1.1
+        }
+      ],
+      "marstead_note": "Active. Marstead non-degenerate reward.",
+      "travel_time_to_bank_seconds": 25,
+      "nearest_teleport": "Heartlands Teleport (Lumbrick)",
+      "banking_trip_cost": {
+        "gp": 35,
+        "intensity": 2
+      },
+      "travel_region_multiplier": 0,
+      "effective_xp_per_hour": 46288,
+      "effective_gp_per_hour": 23958,
+      "travel_minutes_per_hour": 2.5,
+      "active_minutes_per_hour": 57.5,
+      "trips_per_hour": 3
     },
     {
       "id": "saltbrine_rock_crab_def",
       "skill": "defence",
       "level_required": 40,
       "name": "Rock Crab Defensive AFK",
-      "location": { "region": "saltbrine", "spot": "Tideshelf rock crabs" },
+      "location": {
+        "region": "saltbrine",
+        "spot": "Tideshelf rock crabs"
+      },
       "intensity": 1,
       "xp_per_hour": 23800,
       "gp_per_hour": 0,
-      "requires": { "quests": [], "items": ["rune_scimitar"], "skills": {"defence": 40} },
+      "requires": {
+        "quests": [],
+        "items": [
+          "rune_scimitar"
+        ],
+        "skills": {
+          "defence": 40
+        }
+      },
       "description": "Rock crabs defensive.",
       "produces": [],
-      "marstead_note": "AFK baseline for 40+."
+      "marstead_note": "AFK baseline for 40+.",
+      "travel_time_to_bank_seconds": 22,
+      "nearest_teleport": "Saltbrine Teleport (Harbor)",
+      "banking_trip_cost": {
+        "gp": 55,
+        "intensity": 2
+      },
+      "travel_region_multiplier": 0,
+      "effective_xp_per_hour": 23218,
+      "effective_gp_per_hour": 0,
+      "travel_minutes_per_hour": 1.5,
+      "active_minutes_per_hour": 58.5,
+      "trips_per_hour": 2
     },
     {
       "id": "heartlands_black_knight_def",
       "skill": "defence",
       "level_required": 45,
       "name": "Black Knight Defensive",
-      "location": { "region": "heartlands", "spot": "Black Knight Fortress" },
+      "location": {
+        "region": "heartlands",
+        "spot": "Black Knight Fortress"
+      },
       "intensity": 4,
       "xp_per_hour": 42100,
       "gp_per_hour": 48000,
-      "requires": { "quests": [], "items": ["rune_scimitar"], "skills": {"defence": 45} },
+      "requires": {
+        "quests": [],
+        "items": [
+          "rune_scimitar"
+        ],
+        "skills": {
+          "defence": 45
+        }
+      },
       "description": "Black knights defensive multi-combat.",
-      "produces": [{ "item": "coins", "rate_per_hour": 28000 }],
-      "marstead_note": "Active."
+      "produces": [
+        {
+          "item": "coins",
+          "rate_per_hour": 28000
+        }
+      ],
+      "marstead_note": "Active.",
+      "travel_time_to_bank_seconds": 25,
+      "nearest_teleport": "Heartlands Teleport (Lumbrick)",
+      "banking_trip_cost": {
+        "gp": 35,
+        "intensity": 2
+      },
+      "travel_region_multiplier": 0,
+      "effective_xp_per_hour": 40931,
+      "effective_gp_per_hour": 46667,
+      "travel_minutes_per_hour": 1.7,
+      "active_minutes_per_hour": 58.3,
+      "trips_per_hour": 2
     },
     {
       "id": "heartlands_ammonite_crab_def",
       "skill": "defence",
       "level_required": 50,
       "name": "Ammonite Crab Defensive AFK",
-      "location": { "region": "heartlands", "spot": "Gaff's Beach deep tidepools" },
+      "location": {
+        "region": "heartlands",
+        "spot": "Gaff's Beach deep tidepools"
+      },
       "intensity": 1,
       "xp_per_hour": 32000,
       "gp_per_hour": 0,
-      "requires": { "quests": [], "items": ["rune_scimitar"], "skills": {"defence": 50} },
+      "requires": {
+        "quests": [],
+        "items": [
+          "rune_scimitar"
+        ],
+        "skills": {
+          "defence": 50
+        }
+      },
       "description": "Ammonite crabs defensive.",
       "produces": [],
-      "marstead_note": "AFK baseline."
+      "marstead_note": "AFK baseline.",
+      "travel_time_to_bank_seconds": 44,
+      "nearest_teleport": "Heartlands Teleport (Lumbrick)",
+      "banking_trip_cost": {
+        "gp": 35,
+        "intensity": 2
+      },
+      "travel_region_multiplier": 0,
+      "effective_xp_per_hour": 30436,
+      "effective_gp_per_hour": 0,
+      "travel_minutes_per_hour": 2.9,
+      "active_minutes_per_hour": 57.1,
+      "trips_per_hour": 2
     },
     {
       "id": "moryskah_flesh_crawler_def",
       "skill": "defence",
       "level_required": 50,
       "name": "Flesh Crawler Defensive",
-      "location": { "region": "moryskah", "spot": "Gravechill crawler tunnels" },
+      "location": {
+        "region": "moryskah",
+        "spot": "Gravechill crawler tunnels"
+      },
       "intensity": 5,
       "xp_per_hour": 46700,
       "gp_per_hour": 72000,
-      "requires": { "quests": [], "items": ["rune_scimitar"], "skills": {"defence": 50} },
+      "requires": {
+        "quests": [],
+        "items": [
+          "rune_scimitar"
+        ],
+        "skills": {
+          "defence": 50
+        }
+      },
       "description": "Flesh crawler multi + defensive.",
-      "produces": [{ "item": "crawler_ichor", "rate_per_hour": 320 }],
-      "marstead_note": "Active."
+      "produces": [
+        {
+          "item": "crawler_ichor",
+          "rate_per_hour": 320
+        }
+      ],
+      "marstead_note": "Active.",
+      "travel_time_to_bank_seconds": 46,
+      "nearest_teleport": "Moryskah Teleport (Village)",
+      "banking_trip_cost": {
+        "gp": 85,
+        "intensity": 2
+      },
+      "travel_region_multiplier": 0.2,
+      "effective_xp_per_hour": 43120,
+      "effective_gp_per_hour": 66480,
+      "travel_minutes_per_hour": 4.6,
+      "active_minutes_per_hour": 55.4,
+      "trips_per_hour": 3
     },
     {
       "id": "veilwood_nightmare_def",
       "skill": "defence",
       "level_required": 60,
       "name": "Nightmare Grove Defensive",
-      "location": { "region": "veilwood", "spot": "Thorncourt glade" },
+      "location": {
+        "region": "veilwood",
+        "spot": "Thorncourt glade"
+      },
       "intensity": 1,
       "xp_per_hour": 40000,
       "gp_per_hour": 0,
-      "requires": { "quests": ["swan_song_of_veilwood"], "items": ["dragon_scimitar"], "skills": {"defence": 60} },
+      "requires": {
+        "quests": [
+          "swan_song_of_veilwood"
+        ],
+        "items": [
+          "dragon_scimitar"
+        ],
+        "skills": {
+          "defence": 60
+        }
+      },
       "description": "Grove NPCs defensive.",
       "produces": [],
-      "marstead_note": "AFK baseline for 60+."
+      "marstead_note": "AFK baseline for 60+.",
+      "travel_time_to_bank_seconds": 39,
+      "nearest_teleport": "Necklace of Passage",
+      "banking_trip_cost": {
+        "gp": 500,
+        "intensity": 2
+      },
+      "travel_region_multiplier": 0.1,
+      "effective_xp_per_hour": 38267,
+      "effective_gp_per_hour": 0,
+      "travel_minutes_per_hour": 2.6,
+      "active_minutes_per_hour": 57.4,
+      "trips_per_hour": 2
     },
     {
       "id": "saltbrine_blacktide_raiders_def",
       "skill": "defence",
       "level_required": 65,
       "name": "Saltbrine Raiders Defensive",
-      "location": { "region": "saltbrine", "spot": "Raider Longship boarding" },
+      "location": {
+        "region": "saltbrine",
+        "spot": "Raider Longship boarding"
+      },
       "intensity": 6,
       "xp_per_hour": 76300,
       "gp_per_hour": 125000,
-      "requires": { "quests": [], "items": ["dragon_scimitar"], "skills": {"defence": 65} },
+      "requires": {
+        "quests": [],
+        "items": [
+          "dragon_scimitar"
+        ],
+        "skills": {
+          "defence": 65
+        }
+      },
       "description": "Raider boarding event on defensive.",
-      "produces": [{ "item": "pirate_loot", "rate_per_hour": 24 }],
-      "marstead_note": "Active."
+      "produces": [
+        {
+          "item": "pirate_loot",
+          "rate_per_hour": 24
+        }
+      ],
+      "marstead_note": "Active.",
+      "travel_time_to_bank_seconds": 22,
+      "nearest_teleport": "Saltbrine Teleport (Harbor)",
+      "banking_trip_cost": {
+        "gp": 55,
+        "intensity": 2
+      },
+      "travel_region_multiplier": 0,
+      "effective_xp_per_hour": 73502,
+      "effective_gp_per_hour": 120417,
+      "travel_minutes_per_hour": 2.2,
+      "active_minutes_per_hour": 57.8,
+      "trips_per_hour": 3
     },
     {
       "id": "moryskah_nightmare_chains_def",
       "skill": "defence",
       "level_required": 70,
       "name": "Nightmare Chains Defensive",
-      "location": { "region": "moryskah", "spot": "Nightblight cathedral" },
+      "location": {
+        "region": "moryskah",
+        "spot": "Nightblight cathedral"
+      },
       "intensity": 2,
       "xp_per_hour": 60000,
       "gp_per_hour": 85000,
-      "requires": { "quests": [], "items": ["abyssal_whip"], "skills": {"defence": 70} },
+      "requires": {
+        "quests": [],
+        "items": [
+          "abyssal_whip"
+        ],
+        "skills": {
+          "defence": 70
+        }
+      },
       "description": "Chained nightmares defensive. AFK.",
-      "produces": [{ "item": "nightmare_dust", "rate_per_hour": 180 }],
-      "marstead_note": "AFK-Multitask."
+      "produces": [
+        {
+          "item": "nightmare_dust",
+          "rate_per_hour": 180
+        }
+      ],
+      "marstead_note": "AFK-Multitask.",
+      "travel_time_to_bank_seconds": 46,
+      "nearest_teleport": "Moryskah Teleport (Village)",
+      "banking_trip_cost": {
+        "gp": 85,
+        "intensity": 2
+      },
+      "travel_region_multiplier": 0.2,
+      "effective_xp_per_hour": 56933,
+      "effective_gp_per_hour": 80656,
+      "travel_minutes_per_hour": 3.1,
+      "active_minutes_per_hour": 56.9,
+      "trips_per_hour": 2
     },
     {
       "id": "inkweald_abyssal_demon_def",
       "skill": "defence",
       "level_required": 75,
       "name": "Abyssal Demon Defensive",
-      "location": { "region": "inkweald", "spot": "Abyssal sanctum" },
+      "location": {
+        "region": "inkweald",
+        "spot": "Abyssal sanctum"
+      },
       "intensity": 3,
       "xp_per_hour": 74200,
       "gp_per_hour": 185000,
-      "requires": { "quests": ["slayer_ascension"], "items": ["abyssal_whip", "slayer_helm"], "skills": {"defence": 75, "slayer": 85} },
+      "requires": {
+        "quests": [
+          "slayer_ascension"
+        ],
+        "items": [
+          "abyssal_whip",
+          "slayer_helm"
+        ],
+        "skills": {
+          "defence": 75,
+          "slayer": 85
+        }
+      },
       "description": "Abyssal demon defensive.",
-      "produces": [{ "item": "abyssal_head", "rate_per_hour": 1.2 }],
-      "marstead_note": "Multitask-Active."
+      "produces": [
+        {
+          "item": "abyssal_head",
+          "rate_per_hour": 1.2
+        }
+      ],
+      "marstead_note": "Multitask-Active.",
+      "travel_time_to_bank_seconds": 95,
+      "nearest_teleport": "Moonclan Teleport (Lunar)",
+      "banking_trip_cost": {
+        "gp": 110,
+        "intensity": 2
+      },
+      "travel_region_multiplier": 0.2,
+      "effective_xp_per_hour": 66368,
+      "effective_gp_per_hour": 165472,
+      "travel_minutes_per_hour": 6.3,
+      "active_minutes_per_hour": 53.7,
+      "trips_per_hour": 2
     },
     {
       "id": "wilds_lava_dragon_def",
       "skill": "defence",
       "level_required": 80,
       "name": "Wilds Lava Dragon Defensive",
-      "location": { "region": "wilds", "spot": "Lava Drake Island, lv32 Wilderness" },
+      "location": {
+        "region": "wilds",
+        "spot": "Lava Drake Island, lv32 Wilderness"
+      },
       "intensity": 2,
       "xp_per_hour": 72400,
       "gp_per_hour": 285000,
-      "requires": { "quests": [], "items": ["abyssal_whip"], "skills": {"defence": 80} },
+      "requires": {
+        "quests": [],
+        "items": [
+          "abyssal_whip"
+        ],
+        "skills": {
+          "defence": 80
+        }
+      },
       "description": "Lava dragons defensive. AFK with PK paranoia.",
-      "produces": [{ "item": "dragon_bones", "rate_per_hour": 120 }],
-      "marstead_note": "AFK-Multitask."
+      "produces": [
+        {
+          "item": "dragon_bones",
+          "rate_per_hour": 120
+        }
+      ],
+      "marstead_note": "AFK-Multitask.",
+      "travel_time_to_bank_seconds": 62,
+      "nearest_teleport": "Amulet of Glory (Wilds edge)",
+      "banking_trip_cost": {
+        "gp": 500,
+        "intensity": 2
+      },
+      "travel_region_multiplier": 0.3,
+      "effective_xp_per_hour": 67412,
+      "effective_gp_per_hour": 265367,
+      "travel_minutes_per_hour": 4.1,
+      "active_minutes_per_hour": 55.9,
+      "trips_per_hour": 2
     },
     {
       "id": "veilwood_gargoyle_def",
       "skill": "defence",
       "level_required": 82,
       "name": "Gargoyle Defensive AFK",
-      "location": { "region": "veilwood", "spot": "Slayer sanctum tower" },
+      "location": {
+        "region": "veilwood",
+        "spot": "Slayer sanctum tower"
+      },
       "intensity": 1,
       "xp_per_hour": 78200,
       "gp_per_hour": 175000,
-      "requires": { "quests": [], "items": ["ghrazi_rapier", "rock_hammer"], "skills": {"defence": 82, "slayer": 75} },
+      "requires": {
+        "quests": [],
+        "items": [
+          "ghrazi_rapier",
+          "rock_hammer"
+        ],
+        "skills": {
+          "defence": 82,
+          "slayer": 75
+        }
+      },
       "description": "Gargoyle tower defensive AFK.",
-      "produces": [{ "item": "granite_maul_piece", "rate_per_hour": 0.3 }],
-      "marstead_note": "AFK baseline."
+      "produces": [
+        {
+          "item": "granite_maul_piece",
+          "rate_per_hour": 0.3
+        }
+      ],
+      "marstead_note": "AFK baseline.",
+      "travel_time_to_bank_seconds": 39,
+      "nearest_teleport": "Necklace of Passage",
+      "banking_trip_cost": {
+        "gp": 500,
+        "intensity": 2
+      },
+      "travel_region_multiplier": 0.1,
+      "effective_xp_per_hour": 74811,
+      "effective_gp_per_hour": 167417,
+      "travel_minutes_per_hour": 2.6,
+      "active_minutes_per_hour": 57.4,
+      "trips_per_hour": 2
     },
     {
       "id": "wilds_gorilla_def",
       "skill": "defence",
       "level_required": 85,
       "name": "Demonic Gorilla Defensive",
-      "location": { "region": "wilds", "spot": "Demon Hatchery deep Wilds" },
+      "location": {
+        "region": "wilds",
+        "spot": "Demon Hatchery deep Wilds"
+      },
       "intensity": 7,
       "xp_per_hour": 100600,
       "gp_per_hour": 485000,
-      "requires": { "quests": ["ape_madrigal"], "items": ["ghrazi_rapier"], "skills": {"defence": 85} },
+      "requires": {
+        "quests": [
+          "ape_madrigal"
+        ],
+        "items": [
+          "ghrazi_rapier"
+        ],
+        "skills": {
+          "defence": 85
+        }
+      },
       "description": "Demonic gorillas with prayer-switch.",
-      "produces": [{ "item": "zenyte_shard", "rate_per_hour": 2.4 }],
-      "marstead_note": "Max Focus."
+      "produces": [
+        {
+          "item": "zenyte_shard",
+          "rate_per_hour": 2.4
+        }
+      ],
+      "marstead_note": "Max Focus.",
+      "travel_time_to_bank_seconds": 109,
+      "nearest_teleport": "Amulet of Glory (Wilds edge)",
+      "banking_trip_cost": {
+        "gp": 500,
+        "intensity": 2
+      },
+      "travel_region_multiplier": 0.3,
+      "effective_xp_per_hour": 76232,
+      "effective_gp_per_hour": 367522,
+      "travel_minutes_per_hour": 14.5,
+      "active_minutes_per_hour": 45.5,
+      "trips_per_hour": 4
     },
     {
       "id": "veilwood_greater_nech_def",
       "skill": "defence",
       "level_required": 90,
       "name": "Greater Nechryael Defensive",
-      "location": { "region": "inkweald", "spot": "Abyssal sanctum deep" },
+      "location": {
+        "region": "inkweald",
+        "spot": "Abyssal sanctum deep"
+      },
       "intensity": 4,
       "xp_per_hour": 128000,
       "gp_per_hour": 320000,
-      "requires": { "quests": ["slayer_ascension"], "items": ["ghrazi_rapier", "slayer_helm"], "skills": {"defence": 90, "slayer": 80} },
+      "requires": {
+        "quests": [
+          "slayer_ascension"
+        ],
+        "items": [
+          "ghrazi_rapier",
+          "slayer_helm"
+        ],
+        "skills": {
+          "defence": 90,
+          "slayer": 80
+        }
+      },
       "description": "Greater nechryael + defensive.",
-      "produces": [{ "item": "defender_hilt", "rate_per_hour": 0.4 }],
-      "marstead_note": "Active."
+      "produces": [
+        {
+          "item": "defender_hilt",
+          "rate_per_hour": 0.4
+        }
+      ],
+      "marstead_note": "Active.",
+      "travel_time_to_bank_seconds": 95,
+      "nearest_teleport": "Moonclan Teleport (Lunar)",
+      "banking_trip_cost": {
+        "gp": 110,
+        "intensity": 2
+      },
+      "travel_region_multiplier": 0.2,
+      "effective_xp_per_hour": 114489,
+      "effective_gp_per_hour": 286222,
+      "travel_minutes_per_hour": 6.3,
+      "active_minutes_per_hour": 53.7,
+      "trips_per_hour": 2
     },
     {
       "id": "veilwood_sanctum_elder_def",
       "skill": "defence",
       "level_required": 92,
       "name": "Elder Sanctum Defensive AFK",
-      "location": { "region": "veilwood", "spot": "Moonblade sanctum" },
+      "location": {
+        "region": "veilwood",
+        "spot": "Moonblade sanctum"
+      },
       "intensity": 2,
       "xp_per_hour": 94000,
       "gp_per_hour": 185000,
-      "requires": { "quests": ["whisperwood_remembers"], "items": ["ghrazi_rapier"], "skills": {"defence": 92} },
+      "requires": {
+        "quests": [
+          "whisperwood_remembers"
+        ],
+        "items": [
+          "ghrazi_rapier"
+        ],
+        "skills": {
+          "defence": 92
+        }
+      },
       "description": "Sanctum wardens defensive AFK.",
-      "produces": [{ "item": "elder_rune_fragment", "rate_per_hour": 8 }],
-      "marstead_note": "AFK-Multitask for 90+."
+      "produces": [
+        {
+          "item": "elder_rune_fragment",
+          "rate_per_hour": 8
+        }
+      ],
+      "marstead_note": "AFK-Multitask for 90+.",
+      "travel_time_to_bank_seconds": 39,
+      "nearest_teleport": "Necklace of Passage",
+      "banking_trip_cost": {
+        "gp": 500,
+        "intensity": 2
+      },
+      "travel_region_multiplier": 0.1,
+      "effective_xp_per_hour": 89927,
+      "effective_gp_per_hour": 176983,
+      "travel_minutes_per_hour": 2.6,
+      "active_minutes_per_hour": 57.4,
+      "trips_per_hour": 2
     },
     {
       "id": "wilds_revenants_def",
       "skill": "defence",
       "level_required": 95,
       "name": "Wilds Revenants Defensive",
-      "location": { "region": "wilds", "spot": "Revenant caves, lv42 Wilderness" },
+      "location": {
+        "region": "wilds",
+        "spot": "Revenant caves, lv42 Wilderness"
+      },
       "intensity": 9,
       "xp_per_hour": 194500,
       "gp_per_hour": 1200000,
-      "requires": { "quests": [], "items": ["bracelet_of_ethereum", "ghrazi_rapier"], "skills": {"defence": 95} },
+      "requires": {
+        "quests": [],
+        "items": [
+          "bracelet_of_ethereum",
+          "ghrazi_rapier"
+        ],
+        "skills": {
+          "defence": 95
+        }
+      },
       "description": "Revenants defensive.",
-      "produces": [{ "item": "revenant_ether", "rate_per_hour": 3200 }],
-      "marstead_note": "Max Focus."
+      "produces": [
+        {
+          "item": "revenant_ether",
+          "rate_per_hour": 3200
+        }
+      ],
+      "marstead_note": "Max Focus.",
+      "travel_time_to_bank_seconds": 30,
+      "nearest_teleport": "Amulet of Glory (Wilds edge)",
+      "banking_trip_cost": {
+        "gp": 500,
+        "intensity": 2
+      },
+      "travel_region_multiplier": 0.3,
+      "effective_xp_per_hour": 181533,
+      "effective_gp_per_hour": 1120000,
+      "travel_minutes_per_hour": 4,
+      "active_minutes_per_hour": 56,
+      "trips_per_hour": 4
     },
     {
       "id": "moryskah_catacomb_gauntlet_expert",
       "skill": "defence",
       "level_required": 95,
       "name": "Catacomb Gauntlet Expert",
-      "location": { "region": "moryskah", "spot": "Gravechill catacomb gauntlet, expert tier" },
+      "location": {
+        "region": "moryskah",
+        "spot": "Gravechill catacomb gauntlet, expert tier"
+      },
       "intensity": 10,
       "xp_per_hour": 196000,
       "gp_per_hour": 6800000,
-      "requires": { "quests": ["requiem_of_hollows"], "items": ["torag_set", "ring_of_suffering", "dinhs_bulwark"], "skills": {"defence": 95, "attack": 93, "prayer": 90} },
+      "requires": {
+        "quests": [
+          "requiem_of_hollows"
+        ],
+        "items": [
+          "torag_set",
+          "ring_of_suffering",
+          "dinhs_bulwark"
+        ],
+        "skills": {
+          "defence": 95,
+          "attack": 93,
+          "prayer": 90
+        }
+      },
       "description": "Catacomb gauntlet expert — shield-swap rotation defending the corpse-priest. Band 10 defensive elite.",
-      "produces": [{ "item": "catacomb_medallion", "rate_per_hour": 4.8 }],
-      "marstead_note": "M13 band 10 defensive gauntlet."
+      "produces": [
+        {
+          "item": "catacomb_medallion",
+          "rate_per_hour": 4.8
+        }
+      ],
+      "marstead_note": "M13 band 10 defensive gauntlet.",
+      "travel_time_to_bank_seconds": 30,
+      "nearest_teleport": "Moryskah Teleport (Village)",
+      "banking_trip_cost": {
+        "gp": 85,
+        "intensity": 2
+      },
+      "travel_region_multiplier": 0.2,
+      "effective_xp_per_hour": 182933,
+      "effective_gp_per_hour": 6346667,
+      "travel_minutes_per_hour": 4,
+      "active_minutes_per_hour": 56,
+      "trips_per_hour": 4
     },
     {
       "id": "glass_desert_warden_siege",
       "skill": "defence",
       "level_required": 97,
       "name": "Warden Siege (Flare Phase)",
-      "location": { "region": "glass_desert", "spot": "Crescent wardens' obelisk, flare phase" },
+      "location": {
+        "region": "glass_desert",
+        "spot": "Crescent wardens' obelisk, flare phase"
+      },
       "intensity": 10,
       "xp_per_hour": 215000,
       "gp_per_hour": 8100000,
-      "requires": { "quests": ["the_tomb_oath", "the_dune_covenant"], "items": ["masori_armour", "elidinis_ward", "ecumenical_prayer_book"], "skills": {"defence": 97, "attack": 95, "magic": 95, "prayer": 92} },
+      "requires": {
+        "quests": [
+          "the_tomb_oath",
+          "the_dune_covenant"
+        ],
+        "items": [
+          "masori_armour",
+          "elidinis_ward",
+          "ecumenical_prayer_book"
+        ],
+        "skills": {
+          "defence": 97,
+          "attack": 95,
+          "magic": 95,
+          "prayer": 92
+        }
+      },
       "description": "Warden siege at flare phase — continuous overhead prayer rotation + defensive set swap. Non-Inferno band 10.",
-      "produces": [{ "item": "warden_shard", "rate_per_hour": 3.8 }],
-      "marstead_note": "M13 band 10 Warden siege."
+      "produces": [
+        {
+          "item": "warden_shard",
+          "rate_per_hour": 3.8
+        }
+      ],
+      "marstead_note": "M13 band 10 Warden siege.",
+      "travel_time_to_bank_seconds": 25,
+      "nearest_teleport": "Glass Desert Pendant",
+      "banking_trip_cost": {
+        "gp": 500,
+        "intensity": 2
+      },
+      "travel_region_multiplier": 0.5,
+      "effective_xp_per_hour": 203056,
+      "effective_gp_per_hour": 7650000,
+      "travel_minutes_per_hour": 3.3,
+      "active_minutes_per_hour": 56.7,
+      "trips_per_hour": 4
     }
   ],
   "bracket_coverage": {
-    "1-10":  { "count": 2, "intensities": [1, 2] },
-    "10-20": { "count": 2, "intensities": [1, 4] },
-    "20-30": { "count": 2, "intensities": [1, 6] },
-    "30-40": { "count": 2, "intensities": [1, 6] },
-    "40-50": { "count": 2, "intensities": [1, 4] },
-    "50-60": { "count": 2, "intensities": [1, 5] },
-    "60-70": { "count": 2, "intensities": [1, 6] },
-    "70-80": { "count": 2, "intensities": [2, 3] },
-    "80-90": { "count": 3, "intensities": [2, 1, 7] },
-    "90-99": { "count": 3, "intensities": [4, 2, 9] }
+    "1-10": {
+      "count": 2,
+      "intensities": [
+        1,
+        2
+      ]
+    },
+    "10-20": {
+      "count": 2,
+      "intensities": [
+        1,
+        4
+      ]
+    },
+    "20-30": {
+      "count": 2,
+      "intensities": [
+        1,
+        6
+      ]
+    },
+    "30-40": {
+      "count": 2,
+      "intensities": [
+        1,
+        6
+      ]
+    },
+    "40-50": {
+      "count": 2,
+      "intensities": [
+        1,
+        4
+      ]
+    },
+    "50-60": {
+      "count": 2,
+      "intensities": [
+        1,
+        5
+      ]
+    },
+    "60-70": {
+      "count": 2,
+      "intensities": [
+        1,
+        6
+      ]
+    },
+    "70-80": {
+      "count": 2,
+      "intensities": [
+        2,
+        3
+      ]
+    },
+    "80-90": {
+      "count": 3,
+      "intensities": [
+        2,
+        1,
+        7
+      ]
+    },
+    "90-99": {
+      "count": 3,
+      "intensities": [
+        4,
+        2,
+        9
+      ]
+    }
   }
 }

@@ -7,376 +7,1189 @@
       "skill": "fishing",
       "level_required": 1,
       "name": "Lumbrick Shrimp Net",
-      "location": { "region": "heartlands", "spot": "Lumbrick Docks, sluggish estuary" },
+      "location": {
+        "region": "heartlands",
+        "spot": "Lumbrick Docks, sluggish estuary"
+      },
       "intensity": 1,
       "xp_per_hour": 8000,
       "gp_per_hour": 1200,
-      "requires": { "quests": [], "items": ["small_fishing_net"], "skills": {} },
+      "requires": {
+        "quests": [],
+        "items": [
+          "small_fishing_net"
+        ],
+        "skills": {}
+      },
       "description": "Lazy shrimp and anchovy pools behind the mill. The water is warm and the fish are stupid. Beginner AFK.",
-      "produces": [{ "item": "raw_shrimps", "rate_per_hour": 480 }],
-      "marstead_note": "AFK baseline. Background attention."
+      "produces": [
+        {
+          "item": "raw_shrimps",
+          "rate_per_hour": 480
+        }
+      ],
+      "marstead_note": "AFK baseline. Background attention.",
+      "travel_time_to_bank_seconds": 25,
+      "nearest_teleport": "Heartlands Teleport (Lumbrick)",
+      "banking_trip_cost": {
+        "gp": 35,
+        "intensity": 2
+      },
+      "travel_region_multiplier": 0,
+      "effective_xp_per_hour": 7833,
+      "effective_gp_per_hour": 1175,
+      "travel_minutes_per_hour": 1.3,
+      "active_minutes_per_hour": 58.8,
+      "trips_per_hour": 1.5
     },
     {
       "id": "heartlands_baitjar_anchovy",
       "skill": "fishing",
       "level_required": 5,
       "name": "Baitjar Anchovy Run",
-      "location": { "region": "heartlands", "spot": "Mudroost jetty, dual spot with rowdy competition" },
+      "location": {
+        "region": "heartlands",
+        "spot": "Mudroost jetty, dual spot with rowdy competition"
+      },
       "intensity": 3,
       "xp_per_hour": 19300,
       "gp_per_hour": 4000,
-      "requires": { "quests": [], "items": ["fishing_rod", "fishing_bait"], "skills": {} },
+      "requires": {
+        "quests": [],
+        "items": [
+          "fishing_rod",
+          "fishing_bait"
+        ],
+        "skills": {}
+      },
       "description": "Anchovy on bait with spot-hopping — the spot drifts every ~20 seconds so you must chase. Eats bait.",
-      "produces": [{ "item": "raw_anchovies", "rate_per_hour": 560 }],
-      "marstead_note": "Active. First real XP/hr jump."
+      "produces": [
+        {
+          "item": "raw_anchovies",
+          "rate_per_hour": 560
+        }
+      ],
+      "marstead_note": "Active. First real XP/hr jump.",
+      "travel_time_to_bank_seconds": 25,
+      "nearest_teleport": "Heartlands Teleport (Lumbrick)",
+      "banking_trip_cost": {
+        "gp": 35,
+        "intensity": 2
+      },
+      "travel_region_multiplier": 0,
+      "effective_xp_per_hour": 18496,
+      "effective_gp_per_hour": 3833,
+      "travel_minutes_per_hour": 2.5,
+      "active_minutes_per_hour": 57.5,
+      "trips_per_hour": 3
     },
     {
       "id": "heartlands_sardine_bait_loop",
       "skill": "fishing",
       "level_required": 10,
       "name": "Lumbrick Sardine Bait Loop",
-      "location": { "region": "heartlands", "spot": "Lumbrick far jetty" },
+      "location": {
+        "region": "heartlands",
+        "spot": "Lumbrick far jetty"
+      },
       "intensity": 1,
       "xp_per_hour": 10900,
       "gp_per_hour": 1400,
-      "requires": { "quests": [], "items": ["fishing_rod", "fishing_bait"], "skills": {} },
+      "requires": {
+        "quests": [],
+        "items": [
+          "fishing_rod",
+          "fishing_bait"
+        ],
+        "skills": {}
+      },
       "description": "Bait fishing for sardines. Slow but brainless.",
-      "produces": [{ "item": "raw_sardine", "rate_per_hour": 420 }],
-      "marstead_note": "AFK baseline for the teens."
+      "produces": [
+        {
+          "item": "raw_sardine",
+          "rate_per_hour": 420
+        }
+      ],
+      "marstead_note": "AFK baseline for the teens.",
+      "travel_time_to_bank_seconds": 25,
+      "nearest_teleport": "Heartlands Teleport (Lumbrick)",
+      "banking_trip_cost": {
+        "gp": 35,
+        "intensity": 2
+      },
+      "travel_region_multiplier": 0,
+      "effective_xp_per_hour": 10673,
+      "effective_gp_per_hour": 1371,
+      "travel_minutes_per_hour": 1.3,
+      "active_minutes_per_hour": 58.8,
+      "trips_per_hour": 1.5
     },
     {
       "id": "heartlands_herring_drop_loop",
       "skill": "fishing",
       "level_required": 10,
       "name": "Marshlock Herring Drop-Loop",
-      "location": { "region": "heartlands", "spot": "Marshlock Docks, dense 3-rod spot" },
+      "location": {
+        "region": "heartlands",
+        "spot": "Marshlock Docks, dense 3-rod spot"
+      },
       "intensity": 4,
       "xp_per_hour": 33000,
       "gp_per_hour": 0,
-      "requires": { "quests": [], "items": ["fishing_rod", "fishing_bait"], "skills": {} },
+      "requires": {
+        "quests": [],
+        "items": [
+          "fishing_rod",
+          "fishing_bait"
+        ],
+        "skills": {}
+      },
       "description": "Drop-fish herring with rotation between three bait fishermen. All gp is sacrificed for pure XP.",
-      "produces": [{ "item": "raw_herring", "rate_per_hour": 820 }],
-      "marstead_note": "Active. Drop-fishing for teens."
+      "produces": [
+        {
+          "item": "raw_herring",
+          "rate_per_hour": 820
+        }
+      ],
+      "marstead_note": "Active. Drop-fishing for teens.",
+      "travel_time_to_bank_seconds": 44,
+      "nearest_teleport": "Heartlands Teleport (Lumbrick)",
+      "banking_trip_cost": {
+        "gp": 35,
+        "intensity": 2
+      },
+      "travel_region_multiplier": 0,
+      "effective_xp_per_hour": 29773,
+      "effective_gp_per_hour": 0,
+      "travel_minutes_per_hour": 5.9,
+      "active_minutes_per_hour": 54.1,
+      "trips_per_hour": 4
     },
     {
       "id": "heartlands_troutmere_flyfish",
       "skill": "fishing",
       "level_required": 20,
       "name": "Troutmere Flyfish",
-      "location": { "region": "heartlands", "spot": "Troutmere Falls, calm flyfishing pool" },
+      "location": {
+        "region": "heartlands",
+        "spot": "Troutmere Falls, calm flyfishing pool"
+      },
       "intensity": 1,
       "xp_per_hour": 15400,
       "gp_per_hour": 2800,
-      "requires": { "quests": [], "items": ["fly_fishing_rod", "feathers"], "skills": {} },
+      "requires": {
+        "quests": [],
+        "items": [
+          "fly_fishing_rod",
+          "feathers"
+        ],
+        "skills": {}
+      },
       "description": "Classic calm river flyfishing. Trout and salmon spawns alternate. Background-AFK baseline for the teens.",
-      "produces": [{ "item": "raw_trout", "rate_per_hour": 340 }],
-      "marstead_note": "AFK baseline for 20+."
+      "produces": [
+        {
+          "item": "raw_trout",
+          "rate_per_hour": 340
+        }
+      ],
+      "marstead_note": "AFK baseline for 20+.",
+      "travel_time_to_bank_seconds": 25,
+      "nearest_teleport": "Heartlands Teleport (Lumbrick)",
+      "banking_trip_cost": {
+        "gp": 35,
+        "intensity": 2
+      },
+      "travel_region_multiplier": 0,
+      "effective_xp_per_hour": 15079,
+      "effective_gp_per_hour": 2742,
+      "travel_minutes_per_hour": 1.3,
+      "active_minutes_per_hour": 58.8,
+      "trips_per_hour": 1.5
     },
     {
       "id": "heartlands_troutmere_dropfish",
       "skill": "fishing",
       "level_required": 20,
       "name": "Troutmere Drop-Fish Rotation",
-      "location": { "region": "heartlands", "spot": "Troutmere Falls, 3 adjacent pools" },
+      "location": {
+        "region": "heartlands",
+        "spot": "Troutmere Falls, 3 adjacent pools"
+      },
       "intensity": 5,
       "xp_per_hour": 55700,
       "gp_per_hour": 0,
-      "requires": { "quests": [], "items": ["fly_fishing_rod", "feathers"], "skills": {} },
+      "requires": {
+        "quests": [],
+        "items": [
+          "fly_fishing_rod",
+          "feathers"
+        ],
+        "skills": {}
+      },
       "description": "Flyfish trout at pool A, drop-click pool B, drop-click pool C. 3-tick drop-fishing. No bank, no gp, just XP.",
-      "produces": [{ "item": "raw_trout", "rate_per_hour": 1220 }],
-      "marstead_note": "Active-Max Focus. The drop-fishing XP method. Shadow of OSRS 3-tick barbarian flyfishing."
+      "produces": [
+        {
+          "item": "raw_trout",
+          "rate_per_hour": 1220
+        }
+      ],
+      "marstead_note": "Active-Max Focus. The drop-fishing XP method. Shadow of OSRS 3-tick barbarian flyfishing.",
+      "travel_time_to_bank_seconds": 25,
+      "nearest_teleport": "Heartlands Teleport (Lumbrick)",
+      "banking_trip_cost": {
+        "gp": 35,
+        "intensity": 2
+      },
+      "travel_region_multiplier": 0,
+      "effective_xp_per_hour": 52606,
+      "effective_gp_per_hour": 0,
+      "travel_minutes_per_hour": 3.3,
+      "active_minutes_per_hour": 56.7,
+      "trips_per_hour": 4
     },
     {
       "id": "saltbrine_pike_rush",
       "skill": "fishing",
       "level_required": 30,
       "name": "Saltbrine Pike Rush",
-      "location": { "region": "saltbrine", "spot": "Pikefell Piers, dense pike pool" },
+      "location": {
+        "region": "saltbrine",
+        "spot": "Pikefell Piers, dense pike pool"
+      },
       "intensity": 5,
       "xp_per_hour": 54000,
       "gp_per_hour": 0,
-      "requires": { "quests": [], "items": ["fly_fishing_rod", "feathers"], "skills": {} },
+      "requires": {
+        "quests": [],
+        "items": [
+          "fly_fishing_rod",
+          "feathers"
+        ],
+        "skills": {}
+      },
       "description": "Tick-manipulated pike harvest with drop-fishing rotation. Best 30+ XP. Competitive worlds.",
-      "produces": [{ "item": "raw_pike", "rate_per_hour": 1100 }],
-      "marstead_note": "Active-Max Focus. The 30+ drop-fish method."
+      "produces": [
+        {
+          "item": "raw_pike",
+          "rate_per_hour": 1100
+        }
+      ],
+      "marstead_note": "Active-Max Focus. The 30+ drop-fish method.",
+      "travel_time_to_bank_seconds": 39,
+      "nearest_teleport": "Saltbrine Teleport (Harbor)",
+      "banking_trip_cost": {
+        "gp": 55,
+        "intensity": 2
+      },
+      "travel_region_multiplier": 0,
+      "effective_xp_per_hour": 49320,
+      "effective_gp_per_hour": 0,
+      "travel_minutes_per_hour": 5.2,
+      "active_minutes_per_hour": 54.8,
+      "trips_per_hour": 4
     },
     {
       "id": "saltbrine_pike_salmon_riff",
       "skill": "fishing",
       "level_required": 30,
       "name": "Pike Salmon Riff",
-      "location": { "region": "saltbrine", "spot": "Pike Riff, slow-flow brine pool" },
+      "location": {
+        "region": "saltbrine",
+        "spot": "Pike Riff, slow-flow brine pool"
+      },
       "intensity": 2,
       "xp_per_hour": 21800,
       "gp_per_hour": 12000,
-      "requires": { "quests": [], "items": ["fly_fishing_rod", "feathers"], "skills": {} },
+      "requires": {
+        "quests": [],
+        "items": [
+          "fly_fishing_rod",
+          "feathers"
+        ],
+        "skills": {}
+      },
       "description": "Saltwater flyfishing for salmon. The sea breeze is nice. Modest attention, modest gp.",
-      "produces": [{ "item": "raw_salmon", "rate_per_hour": 360 }],
-      "marstead_note": "AFK-Multitask. Pleasant."
+      "produces": [
+        {
+          "item": "raw_salmon",
+          "rate_per_hour": 360
+        }
+      ],
+      "marstead_note": "AFK-Multitask. Pleasant.",
+      "travel_time_to_bank_seconds": 22,
+      "nearest_teleport": "Saltbrine Teleport (Harbor)",
+      "banking_trip_cost": {
+        "gp": 55,
+        "intensity": 2
+      },
+      "travel_region_multiplier": 0,
+      "effective_xp_per_hour": 21400,
+      "effective_gp_per_hour": 11780,
+      "travel_minutes_per_hour": 1.1,
+      "active_minutes_per_hour": 58.9,
+      "trips_per_hour": 1.5
     },
     {
       "id": "saltbrine_lobster_cage_drift",
       "skill": "fishing",
       "level_required": 40,
       "name": "Lobster Cage Drift (Drifting Market)",
-      "location": { "region": "saltbrine", "spot": "Drifting Market pier, deep lobster cage spots" },
+      "location": {
+        "region": "saltbrine",
+        "spot": "Drifting Market pier, deep lobster cage spots"
+      },
       "intensity": 1,
       "xp_per_hour": 28000,
       "gp_per_hour": 58000,
-      "requires": { "quests": [], "items": ["lobster_pot"], "skills": {} },
+      "requires": {
+        "quests": [],
+        "items": [
+          "lobster_pot"
+        ],
+        "skills": {}
+      },
       "description": "Caged lobsters around the player-hosted Drifting Market. Deeply AFK — the market NPCs will even cook them for a fee.",
-      "produces": [{ "item": "raw_lobster", "rate_per_hour": 320 }],
-      "marstead_note": "AFK baseline for 40s. The go-to early-ironman method."
+      "produces": [
+        {
+          "item": "raw_lobster",
+          "rate_per_hour": 320
+        }
+      ],
+      "marstead_note": "AFK baseline for 40s. The go-to early-ironman method.",
+      "travel_time_to_bank_seconds": 0,
+      "nearest_teleport": null,
+      "banking_trip_cost": {
+        "gp": 0,
+        "intensity": 0
+      },
+      "travel_region_multiplier": 0,
+      "effective_xp_per_hour": 28000,
+      "effective_gp_per_hour": 58000,
+      "travel_minutes_per_hour": 0,
+      "active_minutes_per_hour": 60,
+      "trips_per_hour": 0
     },
     {
       "id": "saltbrine_tide_pool_netting",
       "skill": "fishing",
       "level_required": 45,
       "name": "Saltbrine Tide-Pool Netting",
-      "location": { "region": "saltbrine", "spot": "Tide pools north of Drifting Market" },
+      "location": {
+        "region": "saltbrine",
+        "spot": "Tide pools north of Drifting Market"
+      },
       "intensity": 2,
       "xp_per_hour": 42000,
       "gp_per_hour": 85000,
-      "requires": { "quests": [], "items": ["large_net"], "skills": {} },
+      "requires": {
+        "quests": [],
+        "items": [
+          "large_net"
+        ],
+        "skills": {}
+      },
       "description": "Skim brined mackerel from the shallow tide pools. Low attention but produces valuable Saltbrine food reagents.",
-      "produces": [{ "item": "raw_saltbrine_mackerel", "rate_per_hour": 420 }],
-      "marstead_note": "AFK baseline for 45+."
+      "produces": [
+        {
+          "item": "raw_saltbrine_mackerel",
+          "rate_per_hour": 420
+        }
+      ],
+      "marstead_note": "AFK baseline for 45+.",
+      "travel_time_to_bank_seconds": 9,
+      "nearest_teleport": "Saltbrine Teleport (Harbor)",
+      "banking_trip_cost": {
+        "gp": 0,
+        "intensity": 1
+      },
+      "travel_region_multiplier": 0,
+      "effective_xp_per_hour": 41685,
+      "effective_gp_per_hour": 84363,
+      "travel_minutes_per_hour": 0.5,
+      "active_minutes_per_hour": 59.6,
+      "trips_per_hour": 1.5
     },
     {
       "id": "saltbrine_swordfish_harpoon",
       "skill": "fishing",
       "level_required": 50,
       "name": "Swordfish Harpoon Run",
-      "location": { "region": "saltbrine", "spot": "Drifting Market deep-water spots" },
+      "location": {
+        "region": "saltbrine",
+        "spot": "Drifting Market deep-water spots"
+      },
       "intensity": 4,
       "xp_per_hour": 55200,
       "gp_per_hour": 120000,
-      "requires": { "quests": [], "items": ["harpoon"], "skills": {} },
+      "requires": {
+        "quests": [],
+        "items": [
+          "harpoon"
+        ],
+        "skills": {}
+      },
       "description": "Harpoon swordfish with trigger-timing on the strike animation. A miss wastes 4 seconds. Attention-hungry.",
-      "produces": [{ "item": "raw_swordfish", "rate_per_hour": 380 }, { "item": "raw_tuna", "rate_per_hour": 220 }],
-      "marstead_note": "Active. Swordfish + tuna dual-spawn harpooning."
+      "produces": [
+        {
+          "item": "raw_swordfish",
+          "rate_per_hour": 380
+        },
+        {
+          "item": "raw_tuna",
+          "rate_per_hour": 220
+        }
+      ],
+      "marstead_note": "Active. Swordfish + tuna dual-spawn harpooning.",
+      "travel_time_to_bank_seconds": 9,
+      "nearest_teleport": "Saltbrine Teleport (Harbor)",
+      "banking_trip_cost": {
+        "gp": 0,
+        "intensity": 1
+      },
+      "travel_region_multiplier": 0,
+      "effective_xp_per_hour": 54096,
+      "effective_gp_per_hour": 117600,
+      "travel_minutes_per_hour": 1.2,
+      "active_minutes_per_hour": 58.8,
+      "trips_per_hour": 4
     },
     {
       "id": "saltbrine_swordfish_drop_fast",
       "skill": "fishing",
       "level_required": 50,
       "name": "Swordfish Drop-Harpoon",
-      "location": { "region": "saltbrine", "spot": "Drifting Market deep-water, hot spot" },
+      "location": {
+        "region": "saltbrine",
+        "spot": "Drifting Market deep-water, hot spot"
+      },
       "intensity": 7,
       "xp_per_hour": 100900,
       "gp_per_hour": 0,
-      "requires": { "quests": [], "items": ["dragon_harpoon"], "skills": {"fishing": 50} },
+      "requires": {
+        "quests": [],
+        "items": [
+          "dragon_harpoon"
+        ],
+        "skills": {
+          "fishing": 50
+        }
+      },
       "description": "Tick-perfect drop-fish swordfish. All catches dropped. Pure XP.",
-      "produces": [{ "item": "raw_swordfish", "rate_per_hour": 720 }],
-      "marstead_note": "Max Focus. Drop-fishing swordfish for XP hunters."
+      "produces": [
+        {
+          "item": "raw_swordfish",
+          "rate_per_hour": 720
+        }
+      ],
+      "marstead_note": "Max Focus. Drop-fishing swordfish for XP hunters.",
+      "travel_time_to_bank_seconds": 9,
+      "nearest_teleport": "Saltbrine Teleport (Harbor)",
+      "banking_trip_cost": {
+        "gp": 0,
+        "intensity": 1
+      },
+      "travel_region_multiplier": 0,
+      "effective_xp_per_hour": 98882,
+      "effective_gp_per_hour": 0,
+      "travel_minutes_per_hour": 1.2,
+      "active_minutes_per_hour": 58.8,
+      "trips_per_hour": 4
     },
     {
       "id": "veilwood_karambwanji_shallows",
       "skill": "fishing",
       "level_required": 53,
       "name": "Karambwanji Shallows",
-      "location": { "region": "veilwood", "spot": "Mosswater Shallows, karambwanji schools" },
+      "location": {
+        "region": "veilwood",
+        "spot": "Mosswater Shallows, karambwanji schools"
+      },
       "intensity": 1,
       "xp_per_hour": 33400,
       "gp_per_hour": 35000,
-      "requires": { "quests": ["the_mosswater_accord"], "items": ["small_fishing_net"], "skills": {"fishing": 53} },
+      "requires": {
+        "quests": [
+          "the_mosswater_accord"
+        ],
+        "items": [
+          "small_fishing_net"
+        ],
+        "skills": {
+          "fishing": 53
+        }
+      },
       "description": "Small school fish used as bait for karambwan. Quest-gated, AFK, but you will drown if you ignore the tide warnings.",
-      "produces": [{ "item": "raw_karambwanji", "rate_per_hour": 1200 }],
-      "marstead_note": "AFK baseline for the 50s. Input for karambwan harpooning."
+      "produces": [
+        {
+          "item": "raw_karambwanji",
+          "rate_per_hour": 1200
+        }
+      ],
+      "marstead_note": "AFK baseline for the 50s. Input for karambwan harpooning.",
+      "travel_time_to_bank_seconds": 39,
+      "nearest_teleport": "Necklace of Passage",
+      "banking_trip_cost": {
+        "gp": 500,
+        "intensity": 2
+      },
+      "travel_region_multiplier": 0.1,
+      "effective_xp_per_hour": 32314,
+      "effective_gp_per_hour": 33863,
+      "travel_minutes_per_hour": 2,
+      "active_minutes_per_hour": 58.1,
+      "trips_per_hour": 1.5
     },
     {
       "id": "veilwood_karambwan_rapid_harpoon",
       "skill": "fishing",
       "level_required": 65,
       "name": "Karambwan Rapid Harpoon",
-      "location": { "region": "veilwood", "spot": "Thunderfall Delta, karambwan spawn" },
+      "location": {
+        "region": "veilwood",
+        "spot": "Thunderfall Delta, karambwan spawn"
+      },
       "intensity": 3,
       "xp_per_hour": 62100,
       "gp_per_hour": 180000,
-      "requires": { "quests": ["the_mosswater_accord"], "items": ["harpoon", "raw_karambwanji"], "skills": {"fishing": 65} },
+      "requires": {
+        "quests": [
+          "the_mosswater_accord"
+        ],
+        "items": [
+          "harpoon",
+          "raw_karambwanji"
+        ],
+        "skills": {
+          "fishing": 65
+        }
+      },
       "description": "Bait-harpoon karambwan in thunderfall. Uses 1 karambwanji per cast. Consistent even without perfect timing.",
-      "produces": [{ "item": "raw_karambwan", "rate_per_hour": 380 }],
-      "marstead_note": "Multitask-Active. Profitable 65+ method."
+      "produces": [
+        {
+          "item": "raw_karambwan",
+          "rate_per_hour": 380
+        }
+      ],
+      "marstead_note": "Multitask-Active. Profitable 65+ method.",
+      "travel_time_to_bank_seconds": 39,
+      "nearest_teleport": "Necklace of Passage",
+      "banking_trip_cost": {
+        "gp": 500,
+        "intensity": 2
+      },
+      "travel_region_multiplier": 0.1,
+      "effective_xp_per_hour": 58064,
+      "effective_gp_per_hour": 168300,
+      "travel_minutes_per_hour": 3.9,
+      "active_minutes_per_hour": 56.1,
+      "trips_per_hour": 3
     },
     {
       "id": "veilwood_monkfish_net",
       "skill": "fishing",
       "level_required": 62,
       "name": "Moonblade Monkfish Net",
-      "location": { "region": "veilwood", "spot": "Moonblade Wharf, monkfish deep nets" },
+      "location": {
+        "region": "veilwood",
+        "spot": "Moonblade Wharf, monkfish deep nets"
+      },
       "intensity": 1,
       "xp_per_hour": 47000,
       "gp_per_hour": 52000,
-      "requires": { "quests": ["swan_song_of_veilwood"], "items": ["small_fishing_net"], "skills": {"fishing": 62} },
+      "requires": {
+        "quests": [
+          "swan_song_of_veilwood"
+        ],
+        "items": [
+          "small_fishing_net"
+        ],
+        "skills": {
+          "fishing": 62
+        }
+      },
       "description": "Monkfish with simple small-net casting. Heavy quest-gate but once unlocked, deeply AFK and excellent food.",
-      "produces": [{ "item": "raw_monkfish", "rate_per_hour": 500 }],
-      "marstead_note": "AFK baseline for 60s. Unlock is a quest — Marstead metroidvania."
+      "produces": [
+        {
+          "item": "raw_monkfish",
+          "rate_per_hour": 500
+        }
+      ],
+      "marstead_note": "AFK baseline for 60s. Unlock is a quest — Marstead metroidvania.",
+      "travel_time_to_bank_seconds": 67,
+      "nearest_teleport": "Necklace of Passage",
+      "banking_trip_cost": {
+        "gp": 500,
+        "intensity": 2
+      },
+      "travel_region_multiplier": 0.1,
+      "effective_xp_per_hour": 44376,
+      "effective_gp_per_hour": 49097,
+      "travel_minutes_per_hour": 3.4,
+      "active_minutes_per_hour": 56.7,
+      "trips_per_hour": 1.5
     },
     {
       "id": "saltbrine_crab_cage",
       "skill": "fishing",
       "level_required": 62,
       "name": "Tidechain Crab Cage",
-      "location": { "region": "saltbrine", "spot": "Tidechain Harbor, deep crab cages" },
+      "location": {
+        "region": "saltbrine",
+        "spot": "Tidechain Harbor, deep crab cages"
+      },
       "intensity": 2,
       "xp_per_hour": 53800,
       "gp_per_hour": 72000,
-      "requires": { "quests": [], "items": ["crab_cage"], "skills": {} },
+      "requires": {
+        "quests": [],
+        "items": [
+          "crab_cage"
+        ],
+        "skills": {}
+      },
       "description": "Deep-water crab cages. 6-spot drift, background-grade AFK.",
-      "produces": [{ "item": "raw_crab", "rate_per_hour": 410 }, { "item": "raw_shrimps", "rate_per_hour": 180 }],
-      "marstead_note": "AFK-Multitask baseline for 60s."
+      "produces": [
+        {
+          "item": "raw_crab",
+          "rate_per_hour": 410
+        },
+        {
+          "item": "raw_shrimps",
+          "rate_per_hour": 180
+        }
+      ],
+      "marstead_note": "AFK-Multitask baseline for 60s.",
+      "travel_time_to_bank_seconds": 9,
+      "nearest_teleport": "Saltbrine Teleport (Harbor)",
+      "banking_trip_cost": {
+        "gp": 0,
+        "intensity": 1
+      },
+      "travel_region_multiplier": 0,
+      "effective_xp_per_hour": 53397,
+      "effective_gp_per_hour": 71460,
+      "travel_minutes_per_hour": 0.5,
+      "active_minutes_per_hour": 59.6,
+      "trips_per_hour": 1.5
     },
     {
       "id": "saltbrine_shark_harpoon_saintsea",
       "skill": "fishing",
       "level_required": 76,
       "name": "Saintsea Shark Harpoon",
-      "location": { "region": "saltbrine", "spot": "Saintsea Reef, shark deep spots" },
+      "location": {
+        "region": "saltbrine",
+        "spot": "Saintsea Reef, shark deep spots"
+      },
       "intensity": 2,
       "xp_per_hour": 69100,
       "gp_per_hour": 145000,
-      "requires": { "quests": [], "items": ["dragon_harpoon"], "skills": {} },
+      "requires": {
+        "quests": [],
+        "items": [
+          "dragon_harpoon"
+        ],
+        "skills": {}
+      },
       "description": "Sharks at the edge of the reef, two-spot drift. AFK, high profit, slow XP for level.",
-      "produces": [{ "item": "raw_shark", "rate_per_hour": 240 }],
-      "marstead_note": "AFK-Multitask. Classic ironman shark method."
+      "produces": [
+        {
+          "item": "raw_shark",
+          "rate_per_hour": 240
+        }
+      ],
+      "marstead_note": "AFK-Multitask. Classic ironman shark method.",
+      "travel_time_to_bank_seconds": 39,
+      "nearest_teleport": "Saltbrine Teleport (Harbor)",
+      "banking_trip_cost": {
+        "gp": 55,
+        "intensity": 2
+      },
+      "travel_region_multiplier": 0,
+      "effective_xp_per_hour": 66854,
+      "effective_gp_per_hour": 140288,
+      "travel_minutes_per_hour": 2,
+      "active_minutes_per_hour": 58.1,
+      "trips_per_hour": 1.5
     },
     {
       "id": "saltbrine_shark_drive_harpoon",
       "skill": "fishing",
       "level_required": 76,
       "name": "Saintsea Shark Drive-Harpoon",
-      "location": { "region": "saltbrine", "spot": "Saintsea Reef, dense shark pod" },
+      "location": {
+        "region": "saltbrine",
+        "spot": "Saintsea Reef, dense shark pod"
+      },
       "intensity": 6,
       "xp_per_hour": 122300,
       "gp_per_hour": 245000,
-      "requires": { "quests": [], "items": ["dragon_harpoon", "admiral_pie"], "skills": {"fishing": 76, "cooking": 70} },
+      "requires": {
+        "quests": [],
+        "items": [
+          "dragon_harpoon",
+          "admiral_pie"
+        ],
+        "skills": {
+          "fishing": 76,
+          "cooking": 70
+        }
+      },
       "description": "Drive sharks into the reef using admiral pie chum. High-XP, pie-drops mid-catch, requires tick-perfect pie usage.",
-      "produces": [{ "item": "raw_shark", "rate_per_hour": 430 }],
-      "marstead_note": "Max Focus. Shark XP method crossing cooking knowledge — skill interconnect."
+      "produces": [
+        {
+          "item": "raw_shark",
+          "rate_per_hour": 430
+        }
+      ],
+      "marstead_note": "Max Focus. Shark XP method crossing cooking knowledge — skill interconnect.",
+      "travel_time_to_bank_seconds": 39,
+      "nearest_teleport": "Saltbrine Teleport (Harbor)",
+      "banking_trip_cost": {
+        "gp": 55,
+        "intensity": 2
+      },
+      "travel_region_multiplier": 0,
+      "effective_xp_per_hour": 111701,
+      "effective_gp_per_hour": 223767,
+      "travel_minutes_per_hour": 5.2,
+      "active_minutes_per_hour": 54.8,
+      "trips_per_hour": 4
     },
     {
       "id": "veilwood_anglerfish_lasso",
       "skill": "fishing",
       "level_required": 82,
       "name": "Veilwood Anglerfish Lasso",
-      "location": { "region": "veilwood", "spot": "Lake of Listening, anglerfish glow-spot" },
+      "location": {
+        "region": "veilwood",
+        "spot": "Lake of Listening, anglerfish glow-spot"
+      },
       "intensity": 1,
       "xp_per_hour": 78500,
       "gp_per_hour": 175000,
-      "requires": { "quests": ["whisperwood_remembers"], "items": ["anglerfish_lasso", "sandworms"], "skills": {"fishing": 82} },
+      "requires": {
+        "quests": [
+          "whisperwood_remembers"
+        ],
+        "items": [
+          "anglerfish_lasso",
+          "sandworms"
+        ],
+        "skills": {
+          "fishing": 82
+        }
+      },
       "description": "Anglerfish lured with sandworms into a lasso trap. Profoundly AFK but burns sandworms — a hunter + cooking dependency.",
-      "produces": [{ "item": "raw_anglerfish", "rate_per_hour": 260 }],
-      "marstead_note": "AFK baseline for 82+. Multi-skill input."
+      "produces": [
+        {
+          "item": "raw_anglerfish",
+          "rate_per_hour": 260
+        }
+      ],
+      "marstead_note": "AFK baseline for 82+. Multi-skill input.",
+      "travel_time_to_bank_seconds": 39,
+      "nearest_teleport": "Necklace of Passage",
+      "banking_trip_cost": {
+        "gp": 500,
+        "intensity": 2
+      },
+      "travel_region_multiplier": 0.1,
+      "effective_xp_per_hour": 75949,
+      "effective_gp_per_hour": 169312,
+      "travel_minutes_per_hour": 2,
+      "active_minutes_per_hour": 58.1,
+      "trips_per_hour": 1.5
     },
     {
       "id": "wilds_darkcrab_trawl",
       "skill": "fishing",
       "level_required": 85,
       "name": "Darkcrab Trawl (Wilds lv28)",
-      "location": { "region": "wilds", "spot": "Grimtide Reef, lv28 Wilderness" },
+      "location": {
+        "region": "wilds",
+        "spot": "Grimtide Reef, lv28 Wilderness"
+      },
       "intensity": 7,
       "xp_per_hour": 132400,
       "gp_per_hour": 285000,
-      "requires": { "quests": [], "items": ["darkcrab_trawl"], "skills": {"fishing": 85} },
+      "requires": {
+        "quests": [],
+        "items": [
+          "darkcrab_trawl"
+        ],
+        "skills": {
+          "fishing": 85
+        }
+      },
       "description": "Trawl dark crab nets in the deep Wilderness. Constant PK threat. 5x food value, stackable in the wilderness per Marstead.",
-      "produces": [{ "item": "raw_dark_crab", "rate_per_hour": 280 }],
-      "marstead_note": "Active-Max Focus. Wilderness Principle — stackable darkcrab incentivises longer stays."
+      "produces": [
+        {
+          "item": "raw_dark_crab",
+          "rate_per_hour": 280
+        }
+      ],
+      "marstead_note": "Active-Max Focus. Wilderness Principle — stackable darkcrab incentivises longer stays.",
+      "travel_time_to_bank_seconds": 62,
+      "nearest_teleport": "Amulet of Glory (Wilds edge)",
+      "banking_trip_cost": {
+        "gp": 500,
+        "intensity": 2
+      },
+      "travel_region_multiplier": 0.3,
+      "effective_xp_per_hour": 114158,
+      "effective_gp_per_hour": 245733,
+      "travel_minutes_per_hour": 8.3,
+      "active_minutes_per_hour": 51.7,
+      "trips_per_hour": 4
     },
     {
       "id": "inkweald_dream_koi_skim",
       "skill": "fishing",
       "level_required": 90,
       "name": "Inkweald Dream-Koi Skim",
-      "location": { "region": "inkweald", "spot": "Penseurlake, dream koi shoals" },
+      "location": {
+        "region": "inkweald",
+        "spot": "Penseurlake, dream koi shoals"
+      },
       "intensity": 2,
       "xp_per_hour": 93700,
       "gp_per_hour": 220000,
-      "requires": { "quests": ["unwake_the_dreamer"], "items": ["silver_net"], "skills": {"fishing": 90, "magic": 75} },
+      "requires": {
+        "quests": [
+          "unwake_the_dreamer"
+        ],
+        "items": [
+          "silver_net"
+        ],
+        "skills": {
+          "fishing": 90,
+          "magic": 75
+        }
+      },
       "description": "Reality-warping koi that phase in and out. Silver net only catches them when visible. Easy rhythm but visuals mess with perception.",
-      "produces": [{ "item": "raw_dream_koi", "rate_per_hour": 260 }],
-      "marstead_note": "Multitask. 90+ AFK."
+      "produces": [
+        {
+          "item": "raw_dream_koi",
+          "rate_per_hour": 260
+        }
+      ],
+      "marstead_note": "Multitask. 90+ AFK.",
+      "travel_time_to_bank_seconds": 54,
+      "nearest_teleport": "Moonclan Teleport (Lunar)",
+      "banking_trip_cost": {
+        "gp": 110,
+        "intensity": 2
+      },
+      "travel_region_multiplier": 0.2,
+      "effective_xp_per_hour": 89484,
+      "effective_gp_per_hour": 210100,
+      "travel_minutes_per_hour": 2.7,
+      "active_minutes_per_hour": 57.3,
+      "trips_per_hour": 1.5
     },
     {
       "id": "inkweald_dream_koi_rush",
       "skill": "fishing",
       "level_required": 90,
       "name": "Inkweald Dream-Koi Panic Rush",
-      "location": { "region": "inkweald", "spot": "Penseurlake west bank, dense dream koi" },
+      "location": {
+        "region": "inkweald",
+        "spot": "Penseurlake west bank, dense dream koi"
+      },
       "intensity": 8,
       "xp_per_hour": 163500,
       "gp_per_hour": 380000,
-      "requires": { "quests": ["unwake_the_dreamer"], "items": ["silver_net", "stim_tonic"], "skills": {"fishing": 90, "herblore": 80, "magic": 75} },
+      "requires": {
+        "quests": [
+          "unwake_the_dreamer"
+        ],
+        "items": [
+          "silver_net",
+          "stim_tonic"
+        ],
+        "skills": {
+          "fishing": 90,
+          "herblore": 80,
+          "magic": 75
+        }
+      },
       "description": "Stim-tonic unlocks micro-windows where dream koi are fully real. Tick-perfect netting + tonic refresh. Brutal but unmatched.",
-      "produces": [{ "item": "raw_dream_koi", "rate_per_hour": 470 }],
-      "marstead_note": "Max Focus. Stim-tonic use — multi-skill dependency chain."
+      "produces": [
+        {
+          "item": "raw_dream_koi",
+          "rate_per_hour": 470
+        }
+      ],
+      "marstead_note": "Max Focus. Stim-tonic use — multi-skill dependency chain.",
+      "travel_time_to_bank_seconds": 0,
+      "nearest_teleport": null,
+      "banking_trip_cost": {
+        "gp": 0,
+        "intensity": 0
+      },
+      "travel_region_multiplier": 0.2,
+      "effective_xp_per_hour": 163500,
+      "effective_gp_per_hour": 380000,
+      "travel_minutes_per_hour": 0,
+      "active_minutes_per_hour": 60,
+      "trips_per_hour": 0
     },
     {
       "id": "saltbrine_minnow_storm_feast",
       "skill": "fishing",
       "level_required": 82,
       "name": "Storm-Feast Minnow",
-      "location": { "region": "saltbrine", "spot": "Storm-Feast Shoals, tidal wave event" },
+      "location": {
+        "region": "saltbrine",
+        "spot": "Storm-Feast Shoals, tidal wave event"
+      },
       "intensity": 5,
       "xp_per_hour": 142000,
       "gp_per_hour": 60000,
-      "requires": { "quests": [], "items": ["small_fishing_net"], "skills": {"fishing": 82} },
+      "requires": {
+        "quests": [],
+        "items": [
+          "small_fishing_net"
+        ],
+        "skills": {
+          "fishing": 82
+        }
+      },
       "description": "Tidal spawn event. Nets drift every 15 seconds. Exchange 40 minnow for 1 raw shark at the weighmaster (ironman loop).",
-      "produces": [{ "item": "raw_minnow", "rate_per_hour": 3600 }],
-      "marstead_note": "Active. The Marstead-approved pure XP shark input for ironmen."
+      "produces": [
+        {
+          "item": "raw_minnow",
+          "rate_per_hour": 3600
+        }
+      ],
+      "marstead_note": "Active. The Marstead-approved pure XP shark input for ironmen.",
+      "travel_time_to_bank_seconds": 22,
+      "nearest_teleport": "Saltbrine Teleport (Harbor)",
+      "banking_trip_cost": {
+        "gp": 55,
+        "intensity": 2
+      },
+      "travel_region_multiplier": 0,
+      "effective_xp_per_hour": 135058,
+      "effective_gp_per_hour": 57067,
+      "travel_minutes_per_hour": 2.9,
+      "active_minutes_per_hour": 57.1,
+      "trips_per_hour": 4
     },
     {
       "id": "saltbrine_tidecaller_reef_dive",
       "skill": "fishing",
       "level_required": 68,
       "name": "Tidecaller Reef Dive",
-      "location": { "region": "saltbrine", "spot": "Tidecaller reef shelf" },
+      "location": {
+        "region": "saltbrine",
+        "spot": "Tidecaller reef shelf"
+      },
       "intensity": 6,
       "xp_per_hour": 128000,
       "gp_per_hour": 1100000,
-      "requires": { "quests": ["the_crystal_coast", "trawlers_call"], "items": ["swimming_charm", "harpoon", "air_bladder"], "skills": {"fishing": 68} },
+      "requires": {
+        "quests": [
+          "the_crystal_coast",
+          "trawlers_call"
+        ],
+        "items": [
+          "swimming_charm",
+          "harpoon",
+          "air_bladder"
+        ],
+        "skills": {
+          "fishing": 68
+        }
+      },
       "description": "3-tick fishing reef pull with swim dodge between harpoon casts. Tidecaller pearls drop at 1 in 450.",
-      "produces": [{ "item": "tidecaller_pearl", "rate_per_hour": 8 }],
-      "marstead_note": "H11 Saltbrine 1-2M moneymaker. 3-tick fishing + swim dodge."
+      "produces": [
+        {
+          "item": "tidecaller_pearl",
+          "rate_per_hour": 8
+        }
+      ],
+      "marstead_note": "H11 Saltbrine 1-2M moneymaker. 3-tick fishing + swim dodge.",
+      "travel_time_to_bank_seconds": 22,
+      "nearest_teleport": "Saltbrine Teleport (Harbor)",
+      "banking_trip_cost": {
+        "gp": 55,
+        "intensity": 2
+      },
+      "travel_region_multiplier": 0,
+      "effective_xp_per_hour": 121742,
+      "effective_gp_per_hour": 1046222,
+      "travel_minutes_per_hour": 2.9,
+      "active_minutes_per_hour": 57.1,
+      "trips_per_hour": 4
     },
     {
       "id": "inkweald_ink_current_tick_net",
       "skill": "fishing",
       "level_required": 92,
       "name": "Ink-Current Three-Tick Net",
-      "location": { "region": "inkweald", "spot": "Penseurlake inkfall currents" },
+      "location": {
+        "region": "inkweald",
+        "spot": "Penseurlake inkfall currents"
+      },
       "intensity": 8,
       "xp_per_hour": 186000,
       "gp_per_hour": 2200000,
-      "requires": { "quests": ["unwake_the_dreamer"], "items": ["silver_net", "tick_weight", "stim_tonic"], "skills": {"fishing": 92, "herblore": 80} },
+      "requires": {
+        "quests": [
+          "unwake_the_dreamer"
+        ],
+        "items": [
+          "silver_net",
+          "tick_weight",
+          "stim_tonic"
+        ],
+        "skills": {
+          "fishing": 92,
+          "herblore": 80
+        }
+      },
       "description": "Elite tick-perfect net on ink-current shoals. Bleed rare catch; tonic refresh between shoal lines.",
-      "produces": [{ "item": "inkweald_caviar", "rate_per_hour": 420 }],
-      "marstead_note": "M14 endgame fishing. Band 8 tick-locked elite."
+      "produces": [
+        {
+          "item": "inkweald_caviar",
+          "rate_per_hour": 420
+        }
+      ],
+      "marstead_note": "M14 endgame fishing. Band 8 tick-locked elite.",
+      "travel_time_to_bank_seconds": 30,
+      "nearest_teleport": "Moonclan Teleport (Lunar)",
+      "banking_trip_cost": {
+        "gp": 110,
+        "intensity": 2
+      },
+      "travel_region_multiplier": 0.2,
+      "effective_xp_per_hour": 173600,
+      "effective_gp_per_hour": 2053333,
+      "travel_minutes_per_hour": 4,
+      "active_minutes_per_hour": 56,
+      "trips_per_hour": 4
     },
     {
       "id": "saltbrine_monkfish_rotation",
       "skill": "fishing",
       "level_required": 62,
       "name": "Saltbrine Monkfish Rotation",
-      "location": { "region": "saltbrine", "spot": "Saltbrine Crag monk pier, triple-spot rotation" },
+      "location": {
+        "region": "saltbrine",
+        "spot": "Saltbrine Crag monk pier, triple-spot rotation"
+      },
       "intensity": 3,
       "xp_per_hour": 62000,
       "gp_per_hour": 550000,
-      "requires": { "quests": ["trawlers_call"], "items": ["small_fishing_net", "monk_badge"], "skills": {"fishing": 62} },
+      "requires": {
+        "quests": [
+          "trawlers_call"
+        ],
+        "items": [
+          "small_fishing_net",
+          "monk_badge"
+        ],
+        "skills": {
+          "fishing": 62
+        }
+      },
       "description": "Three-spot monkfish rotation. Attentive but not tick-perfect — walk between depleting spots.",
-      "produces": [{ "item": "raw_monkfish", "rate_per_hour": 280 }],
-      "marstead_note": "H11 int3 500k+ moneymaker. Fills the int3/500k+ gap at saltbrine."
+      "produces": [
+        {
+          "item": "raw_monkfish",
+          "rate_per_hour": 280
+        }
+      ],
+      "marstead_note": "H11 int3 500k+ moneymaker. Fills the int3/500k+ gap at saltbrine.",
+      "travel_time_to_bank_seconds": 39,
+      "nearest_teleport": "Saltbrine Teleport (Harbor)",
+      "banking_trip_cost": {
+        "gp": 55,
+        "intensity": 2
+      },
+      "travel_region_multiplier": 0,
+      "effective_xp_per_hour": 57970,
+      "effective_gp_per_hour": 514250,
+      "travel_minutes_per_hour": 3.9,
+      "active_minutes_per_hour": 56.1,
+      "trips_per_hour": 3
     }
   ],
   "bracket_coverage": {
-    "1-10":  { "count": 2, "intensities": [1, 3] },
-    "10-20": { "count": 2, "intensities": [1, 4] },
-    "20-30": { "count": 2, "intensities": [1, 5] },
-    "30-40": { "count": 2, "intensities": [5, 2] },
-    "40-50": { "count": 3, "intensities": [1, 2, 4] },
-    "50-60": { "count": 2, "intensities": [7, 1] },
-    "60-70": { "count": 3, "intensities": [3, 1, 2] },
-    "70-80": { "count": 2, "intensities": [2, 6] },
-    "80-90": { "count": 3, "intensities": [1, 7, 5] },
-    "90-99": { "count": 2, "intensities": [2, 8] }
+    "1-10": {
+      "count": 2,
+      "intensities": [
+        1,
+        3
+      ]
+    },
+    "10-20": {
+      "count": 2,
+      "intensities": [
+        1,
+        4
+      ]
+    },
+    "20-30": {
+      "count": 2,
+      "intensities": [
+        1,
+        5
+      ]
+    },
+    "30-40": {
+      "count": 2,
+      "intensities": [
+        5,
+        2
+      ]
+    },
+    "40-50": {
+      "count": 3,
+      "intensities": [
+        1,
+        2,
+        4
+      ]
+    },
+    "50-60": {
+      "count": 2,
+      "intensities": [
+        7,
+        1
+      ]
+    },
+    "60-70": {
+      "count": 3,
+      "intensities": [
+        3,
+        1,
+        2
+      ]
+    },
+    "70-80": {
+      "count": 2,
+      "intensities": [
+        2,
+        6
+      ]
+    },
+    "80-90": {
+      "count": 3,
+      "intensities": [
+        1,
+        7,
+        5
+      ]
+    },
+    "90-99": {
+      "count": 2,
+      "intensities": [
+        2,
+        8
+      ]
+    }
   }
 }

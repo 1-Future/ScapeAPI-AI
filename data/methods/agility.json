@@ -7,334 +7,999 @@
       "skill": "agility",
       "level_required": 1,
       "name": "Heartlands Rooftop Course",
-      "location": { "region": "heartlands", "spot": "Lumbrick Rooftop Course" },
+      "location": {
+        "region": "heartlands",
+        "spot": "Lumbrick Rooftop Course"
+      },
       "intensity": 2,
       "xp_per_hour": 13900,
       "gp_per_hour": 6000,
-      "requires": { "quests": [], "items": [], "skills": {} },
+      "requires": {
+        "quests": [],
+        "items": [],
+        "skills": {}
+      },
       "description": "Standard rooftop course.",
-      "produces": [{ "item": "mark_of_grace", "rate_per_hour": 8 }],
-      "marstead_note": "AFK-Multitask baseline."
+      "produces": [
+        {
+          "item": "mark_of_grace",
+          "rate_per_hour": 8
+        }
+      ],
+      "marstead_note": "AFK-Multitask baseline.",
+      "travel_time_to_bank_seconds": 25,
+      "nearest_teleport": "Heartlands Teleport (Lumbrick)",
+      "banking_trip_cost": {
+        "gp": 35,
+        "intensity": 2
+      },
+      "travel_region_multiplier": 0,
+      "effective_xp_per_hour": 13803,
+      "effective_gp_per_hour": 5958,
+      "travel_minutes_per_hour": 0.4,
+      "active_minutes_per_hour": 59.6,
+      "trips_per_hour": 0.5
     },
     {
       "id": "heartlands_gymnasium_afk",
       "skill": "agility",
       "level_required": 1,
       "name": "Lumbrick Gymnasium AFK",
-      "location": { "region": "heartlands", "spot": "Lumbrick Gymnasium" },
+      "location": {
+        "region": "heartlands",
+        "spot": "Lumbrick Gymnasium"
+      },
       "intensity": 1,
       "xp_per_hour": 8000,
       "gp_per_hour": 0,
-      "requires": { "quests": [], "items": [], "skills": {} },
+      "requires": {
+        "quests": [],
+        "items": [],
+        "skills": {}
+      },
       "description": "Single obstacle loop. Deeply AFK.",
       "produces": [],
-      "marstead_note": "AFK baseline."
+      "marstead_note": "AFK baseline.",
+      "travel_time_to_bank_seconds": 25,
+      "nearest_teleport": "Heartlands Teleport (Lumbrick)",
+      "banking_trip_cost": {
+        "gp": 35,
+        "intensity": 2
+      },
+      "travel_region_multiplier": 0,
+      "effective_xp_per_hour": 7944,
+      "effective_gp_per_hour": 0,
+      "travel_minutes_per_hour": 0.4,
+      "active_minutes_per_hour": 59.6,
+      "trips_per_hour": 0.5
     },
     {
       "id": "heartlands_chelser_rooftop",
       "skill": "agility",
       "level_required": 10,
       "name": "Chelser Rooftop Course",
-      "location": { "region": "heartlands", "spot": "Chelser Village Rooftop" },
+      "location": {
+        "region": "heartlands",
+        "spot": "Chelser Village Rooftop"
+      },
       "intensity": 3,
       "xp_per_hour": 22500,
       "gp_per_hour": 12000,
-      "requires": { "quests": [], "items": [], "skills": {"agility": 10} },
+      "requires": {
+        "quests": [],
+        "items": [],
+        "skills": {
+          "agility": 10
+        }
+      },
       "description": "Chelser rooftop + grace spawns.",
-      "produces": [{ "item": "mark_of_grace", "rate_per_hour": 12 }],
-      "marstead_note": "Multitask."
+      "produces": [
+        {
+          "item": "mark_of_grace",
+          "rate_per_hour": 12
+        }
+      ],
+      "marstead_note": "Multitask.",
+      "travel_time_to_bank_seconds": 0,
+      "nearest_teleport": null,
+      "banking_trip_cost": {
+        "gp": 0,
+        "intensity": 0
+      },
+      "travel_region_multiplier": 0,
+      "effective_xp_per_hour": 22500,
+      "effective_gp_per_hour": 12000,
+      "travel_minutes_per_hour": 0,
+      "active_minutes_per_hour": 60,
+      "trips_per_hour": 0
     },
     {
       "id": "heartlands_walls_shortcut_afk",
       "skill": "agility",
       "level_required": 10,
       "name": "Wall Shortcut Circuit AFK",
-      "location": { "region": "heartlands", "spot": "Lumbrick town walls" },
+      "location": {
+        "region": "heartlands",
+        "spot": "Lumbrick town walls"
+      },
       "intensity": 1,
       "xp_per_hour": 10900,
       "gp_per_hour": 0,
-      "requires": { "quests": [], "items": [], "skills": {"agility": 10} },
+      "requires": {
+        "quests": [],
+        "items": [],
+        "skills": {
+          "agility": 10
+        }
+      },
       "description": "Low-xp walls circuit.",
       "produces": [],
-      "marstead_note": "AFK baseline for 10+."
+      "marstead_note": "AFK baseline for 10+.",
+      "travel_time_to_bank_seconds": 25,
+      "nearest_teleport": "Heartlands Teleport (Lumbrick)",
+      "banking_trip_cost": {
+        "gp": 35,
+        "intensity": 2
+      },
+      "travel_region_multiplier": 0,
+      "effective_xp_per_hour": 10824,
+      "effective_gp_per_hour": 0,
+      "travel_minutes_per_hour": 0.4,
+      "active_minutes_per_hour": 59.6,
+      "trips_per_hour": 0.5
     },
     {
       "id": "saltbrine_harbour_course",
       "skill": "agility",
       "level_required": 20,
       "name": "Saltbrine Harbour Course",
-      "location": { "region": "saltbrine", "spot": "Saltbrine Harbour rooftop" },
+      "location": {
+        "region": "saltbrine",
+        "spot": "Saltbrine Harbour rooftop"
+      },
       "intensity": 3,
       "xp_per_hour": 32300,
       "gp_per_hour": 22000,
-      "requires": { "quests": [], "items": [], "skills": {"agility": 20} },
+      "requires": {
+        "quests": [],
+        "items": [],
+        "skills": {
+          "agility": 20
+        }
+      },
       "description": "Harbour rooftop. Classic 20+ course.",
-      "produces": [{ "item": "mark_of_grace", "rate_per_hour": 16 }],
-      "marstead_note": "Multitask-Active."
+      "produces": [
+        {
+          "item": "mark_of_grace",
+          "rate_per_hour": 16
+        }
+      ],
+      "marstead_note": "Multitask-Active.",
+      "travel_time_to_bank_seconds": 9,
+      "nearest_teleport": "Saltbrine Teleport (Harbor)",
+      "banking_trip_cost": {
+        "gp": 0,
+        "intensity": 1
+      },
+      "travel_region_multiplier": 0,
+      "effective_xp_per_hour": 32219,
+      "effective_gp_per_hour": 21945,
+      "travel_minutes_per_hour": 0.2,
+      "active_minutes_per_hour": 59.9,
+      "trips_per_hour": 0.5
     },
     {
       "id": "saltbrine_draynor_rooftop_afk",
       "skill": "agility",
       "level_required": 20,
       "name": "Saltbrine Loop Rooftop AFK",
-      "location": { "region": "saltbrine", "spot": "Saltbrine Harbour sparse-pattern" },
+      "location": {
+        "region": "saltbrine",
+        "spot": "Saltbrine Harbour sparse-pattern"
+      },
       "intensity": 1,
       "xp_per_hour": 15400,
       "gp_per_hour": 12000,
-      "requires": { "quests": [], "items": [], "skills": {"agility": 20} },
+      "requires": {
+        "quests": [],
+        "items": [],
+        "skills": {
+          "agility": 20
+        }
+      },
       "description": "Rooftop with low-XP rest spots. AFK-able.",
-      "produces": [{ "item": "mark_of_grace", "rate_per_hour": 6 }],
-      "marstead_note": "AFK baseline."
+      "produces": [
+        {
+          "item": "mark_of_grace",
+          "rate_per_hour": 6
+        }
+      ],
+      "marstead_note": "AFK baseline.",
+      "travel_time_to_bank_seconds": 9,
+      "nearest_teleport": "Saltbrine Teleport (Harbor)",
+      "banking_trip_cost": {
+        "gp": 0,
+        "intensity": 1
+      },
+      "travel_region_multiplier": 0,
+      "effective_xp_per_hour": 15362,
+      "effective_gp_per_hour": 11970,
+      "travel_minutes_per_hour": 0.2,
+      "active_minutes_per_hour": 59.9,
+      "trips_per_hour": 0.5
     },
     {
       "id": "boneyard_wilderness_course",
       "skill": "agility",
       "level_required": 30,
       "name": "Boneyard Wilderness Course",
-      "location": { "region": "boneyard", "spot": "Boneyard border pit course" },
+      "location": {
+        "region": "boneyard",
+        "spot": "Boneyard border pit course"
+      },
       "intensity": 5,
       "xp_per_hour": 54000,
       "gp_per_hour": 28000,
-      "requires": { "quests": [], "items": [], "skills": {"agility": 30} },
+      "requires": {
+        "quests": [],
+        "items": [],
+        "skills": {
+          "agility": 30
+        }
+      },
       "description": "Wildernessy obstacle course.",
-      "produces": [{ "item": "mark_of_grace", "rate_per_hour": 22 }],
-      "marstead_note": "Active."
+      "produces": [
+        {
+          "item": "mark_of_grace",
+          "rate_per_hour": 22
+        }
+      ],
+      "marstead_note": "Active.",
+      "travel_time_to_bank_seconds": 50,
+      "nearest_teleport": "Senntisten Teleport (Ancient)",
+      "banking_trip_cost": {
+        "gp": 180,
+        "intensity": 2
+      },
+      "travel_region_multiplier": 0.2,
+      "effective_xp_per_hour": 53250,
+      "effective_gp_per_hour": 27611,
+      "travel_minutes_per_hour": 0.8,
+      "active_minutes_per_hour": 59.2,
+      "trips_per_hour": 0.5
     },
     {
       "id": "saltbrine_sandbar_course_afk",
       "skill": "agility",
       "level_required": 30,
       "name": "Sandbar Rooftop AFK",
-      "location": { "region": "saltbrine", "spot": "Sandbar coast" },
+      "location": {
+        "region": "saltbrine",
+        "spot": "Sandbar coast"
+      },
       "intensity": 1,
       "xp_per_hour": 19800,
       "gp_per_hour": 14000,
-      "requires": { "quests": [], "items": [], "skills": {"agility": 30} },
+      "requires": {
+        "quests": [],
+        "items": [],
+        "skills": {
+          "agility": 30
+        }
+      },
       "description": "AFK-friendly sparse rooftop.",
-      "produces": [{ "item": "mark_of_grace", "rate_per_hour": 7 }],
-      "marstead_note": "AFK baseline for 30+."
+      "produces": [
+        {
+          "item": "mark_of_grace",
+          "rate_per_hour": 7
+        }
+      ],
+      "marstead_note": "AFK baseline for 30+.",
+      "travel_time_to_bank_seconds": 22,
+      "nearest_teleport": "Saltbrine Teleport (Harbor)",
+      "banking_trip_cost": {
+        "gp": 55,
+        "intensity": 2
+      },
+      "travel_region_multiplier": 0,
+      "effective_xp_per_hour": 19679,
+      "effective_gp_per_hour": 13914,
+      "travel_minutes_per_hour": 0.4,
+      "active_minutes_per_hour": 59.6,
+      "trips_per_hour": 0.5
     },
     {
       "id": "inkweald_seers_rooftop",
       "skill": "agility",
       "level_required": 40,
       "name": "Inkweald Seers Rooftop",
-      "location": { "region": "inkweald", "spot": "Dream-seers rooftop course" },
+      "location": {
+        "region": "inkweald",
+        "spot": "Dream-seers rooftop course"
+      },
       "intensity": 3,
       "xp_per_hour": 45200,
       "gp_per_hour": 38000,
-      "requires": { "quests": [], "items": [], "skills": {"agility": 40} },
+      "requires": {
+        "quests": [],
+        "items": [],
+        "skills": {
+          "agility": 40
+        }
+      },
       "description": "Classic seers rooftop analog.",
-      "produces": [{ "item": "mark_of_grace", "rate_per_hour": 26 }],
-      "marstead_note": "Multitask-Active."
+      "produces": [
+        {
+          "item": "mark_of_grace",
+          "rate_per_hour": 26
+        }
+      ],
+      "marstead_note": "Multitask-Active.",
+      "travel_time_to_bank_seconds": 54,
+      "nearest_teleport": "Moonclan Teleport (Lunar)",
+      "banking_trip_cost": {
+        "gp": 110,
+        "intensity": 2
+      },
+      "travel_region_multiplier": 0.2,
+      "effective_xp_per_hour": 44522,
+      "effective_gp_per_hour": 37430,
+      "travel_minutes_per_hour": 0.9,
+      "active_minutes_per_hour": 59.1,
+      "trips_per_hour": 0.5
     },
     {
       "id": "inkweald_seers_afk",
       "skill": "agility",
       "level_required": 40,
       "name": "Seers Rooftop AFK",
-      "location": { "region": "inkweald", "spot": "Dream-seers sparse rooftop" },
+      "location": {
+        "region": "inkweald",
+        "spot": "Dream-seers sparse rooftop"
+      },
       "intensity": 1,
       "xp_per_hour": 23800,
       "gp_per_hour": 22000,
-      "requires": { "quests": [], "items": [], "skills": {"agility": 40} },
+      "requires": {
+        "quests": [],
+        "items": [],
+        "skills": {
+          "agility": 40
+        }
+      },
       "description": "AFK seers.",
-      "produces": [{ "item": "mark_of_grace", "rate_per_hour": 10 }],
-      "marstead_note": "AFK baseline."
+      "produces": [
+        {
+          "item": "mark_of_grace",
+          "rate_per_hour": 10
+        }
+      ],
+      "marstead_note": "AFK baseline.",
+      "travel_time_to_bank_seconds": 54,
+      "nearest_teleport": "Moonclan Teleport (Lunar)",
+      "banking_trip_cost": {
+        "gp": 110,
+        "intensity": 2
+      },
+      "travel_region_multiplier": 0.2,
+      "effective_xp_per_hour": 23443,
+      "effective_gp_per_hour": 21670,
+      "travel_minutes_per_hour": 0.9,
+      "active_minutes_per_hour": 59.1,
+      "trips_per_hour": 0.5
     },
     {
       "id": "sootworks_pipe_network",
       "skill": "agility",
       "level_required": 50,
       "name": "Sootworks Pipe Network Course",
-      "location": { "region": "sootworks", "spot": "Sootworks underground pipe" },
+      "location": {
+        "region": "sootworks",
+        "spot": "Sootworks underground pipe"
+      },
       "intensity": 4,
       "xp_per_hour": 56400,
       "gp_per_hour": 45000,
-      "requires": { "quests": [], "items": [], "skills": {"agility": 50} },
+      "requires": {
+        "quests": [],
+        "items": [],
+        "skills": {
+          "agility": 50
+        }
+      },
       "description": "Pipe network obstacle course.",
-      "produces": [{ "item": "mark_of_grace", "rate_per_hour": 30 }],
-      "marstead_note": "Active."
+      "produces": [
+        {
+          "item": "mark_of_grace",
+          "rate_per_hour": 30
+        }
+      ],
+      "marstead_note": "Active.",
+      "travel_time_to_bank_seconds": 35,
+      "nearest_teleport": "Sootworks Teleport (Forge Hall)",
+      "banking_trip_cost": {
+        "gp": 65,
+        "intensity": 2
+      },
+      "travel_region_multiplier": 0.1,
+      "effective_xp_per_hour": 55852,
+      "effective_gp_per_hour": 44563,
+      "travel_minutes_per_hour": 0.6,
+      "active_minutes_per_hour": 59.4,
+      "trips_per_hour": 0.5
     },
     {
       "id": "heartlands_pollnivneach_rooftop",
       "skill": "agility",
       "level_required": 52,
       "name": "Pollnivneach Rooftop Course",
-      "location": { "region": "glass_desert", "spot": "Crescent Bazaar rooftop" },
+      "location": {
+        "region": "glass_desert",
+        "spot": "Crescent Bazaar rooftop"
+      },
       "intensity": 2,
       "xp_per_hour": 41200,
       "gp_per_hour": 32000,
-      "requires": { "quests": [], "items": [], "skills": {"agility": 52} },
+      "requires": {
+        "quests": [],
+        "items": [],
+        "skills": {
+          "agility": 52
+        }
+      },
       "description": "Bazaar rooftop.",
-      "produces": [{ "item": "mark_of_grace", "rate_per_hour": 24 }],
-      "marstead_note": "AFK-Multitask baseline."
+      "produces": [
+        {
+          "item": "mark_of_grace",
+          "rate_per_hour": 24
+        }
+      ],
+      "marstead_note": "AFK-Multitask baseline.",
+      "travel_time_to_bank_seconds": 83,
+      "nearest_teleport": "Glass Desert Pendant",
+      "banking_trip_cost": {
+        "gp": 500,
+        "intensity": 2
+      },
+      "travel_region_multiplier": 0.5,
+      "effective_xp_per_hour": 40250,
+      "effective_gp_per_hour": 31262,
+      "travel_minutes_per_hour": 1.4,
+      "active_minutes_per_hour": 58.6,
+      "trips_per_hour": 0.5
     },
     {
       "id": "veilwood_rellekka_rooftop",
       "skill": "agility",
       "level_required": 60,
       "name": "Veilwood Moonblade Rooftop",
-      "location": { "region": "veilwood", "spot": "Moonblade Monastery rooftop" },
+      "location": {
+        "region": "veilwood",
+        "spot": "Moonblade Monastery rooftop"
+      },
       "intensity": 3,
       "xp_per_hour": 56100,
       "gp_per_hour": 42000,
-      "requires": { "quests": [], "items": [], "skills": {"agility": 60} },
+      "requires": {
+        "quests": [],
+        "items": [],
+        "skills": {
+          "agility": 60
+        }
+      },
       "description": "Moonblade rooftop. Scenic.",
-      "produces": [{ "item": "mark_of_grace", "rate_per_hour": 35 }],
-      "marstead_note": "Multitask-Active."
+      "produces": [
+        {
+          "item": "mark_of_grace",
+          "rate_per_hour": 35
+        }
+      ],
+      "marstead_note": "Multitask-Active.",
+      "travel_time_to_bank_seconds": 39,
+      "nearest_teleport": "Necklace of Passage",
+      "banking_trip_cost": {
+        "gp": 500,
+        "intensity": 2
+      },
+      "travel_region_multiplier": 0.1,
+      "effective_xp_per_hour": 55492,
+      "effective_gp_per_hour": 41545,
+      "travel_minutes_per_hour": 0.7,
+      "active_minutes_per_hour": 59.4,
+      "trips_per_hour": 0.5
     },
     {
       "id": "veilwood_rellekka_afk",
       "skill": "agility",
       "level_required": 60,
       "name": "Moonblade Rooftop AFK",
-      "location": { "region": "veilwood", "spot": "Moonblade Monastery sparse" },
+      "location": {
+        "region": "veilwood",
+        "spot": "Moonblade Monastery sparse"
+      },
       "intensity": 1,
       "xp_per_hour": 32000,
       "gp_per_hour": 22000,
-      "requires": { "quests": [], "items": [], "skills": {"agility": 60} },
+      "requires": {
+        "quests": [],
+        "items": [],
+        "skills": {
+          "agility": 60
+        }
+      },
       "description": "AFK moonblade.",
-      "produces": [{ "item": "mark_of_grace", "rate_per_hour": 12 }],
-      "marstead_note": "AFK baseline."
+      "produces": [
+        {
+          "item": "mark_of_grace",
+          "rate_per_hour": 12
+        }
+      ],
+      "marstead_note": "AFK baseline.",
+      "travel_time_to_bank_seconds": 39,
+      "nearest_teleport": "Necklace of Passage",
+      "banking_trip_cost": {
+        "gp": 500,
+        "intensity": 2
+      },
+      "travel_region_multiplier": 0.1,
+      "effective_xp_per_hour": 31653,
+      "effective_gp_per_hour": 21762,
+      "travel_minutes_per_hour": 0.7,
+      "active_minutes_per_hour": 59.4,
+      "trips_per_hour": 0.5
     },
     {
       "id": "inkweald_dreamwalk",
       "skill": "agility",
       "level_required": 70,
       "name": "Inkweald Dreamwalk Course",
-      "location": { "region": "inkweald", "spot": "Penseurlake dreamwalk" },
+      "location": {
+        "region": "inkweald",
+        "spot": "Penseurlake dreamwalk"
+      },
       "intensity": 4,
       "xp_per_hour": 70600,
       "gp_per_hour": 55000,
-      "requires": { "quests": ["unwake_the_dreamer"], "items": [], "skills": {"agility": 70} },
+      "requires": {
+        "quests": [
+          "unwake_the_dreamer"
+        ],
+        "items": [],
+        "skills": {
+          "agility": 70
+        }
+      },
       "description": "Dreamwalk course. Reality slip.",
-      "produces": [{ "item": "mark_of_grace", "rate_per_hour": 42 }],
-      "marstead_note": "Active."
+      "produces": [
+        {
+          "item": "mark_of_grace",
+          "rate_per_hour": 42
+        }
+      ],
+      "marstead_note": "Active.",
+      "travel_time_to_bank_seconds": 54,
+      "nearest_teleport": "Moonclan Teleport (Lunar)",
+      "banking_trip_cost": {
+        "gp": 110,
+        "intensity": 2
+      },
+      "travel_region_multiplier": 0.2,
+      "effective_xp_per_hour": 69541,
+      "effective_gp_per_hour": 54175,
+      "travel_minutes_per_hour": 0.9,
+      "active_minutes_per_hour": 59.1,
+      "trips_per_hour": 0.5
     },
     {
       "id": "inkweald_dreamwalk_afk",
       "skill": "agility",
       "level_required": 70,
       "name": "Dreamwalk AFK",
-      "location": { "region": "inkweald", "spot": "Penseurlake sparse" },
+      "location": {
+        "region": "inkweald",
+        "spot": "Penseurlake sparse"
+      },
       "intensity": 1,
       "xp_per_hour": 40000,
       "gp_per_hour": 32000,
-      "requires": { "quests": ["unwake_the_dreamer"], "items": [], "skills": {"agility": 70} },
+      "requires": {
+        "quests": [
+          "unwake_the_dreamer"
+        ],
+        "items": [],
+        "skills": {
+          "agility": 70
+        }
+      },
       "description": "AFK Dreamwalk.",
-      "produces": [{ "item": "mark_of_grace", "rate_per_hour": 18 }],
-      "marstead_note": "AFK baseline for 70+."
+      "produces": [
+        {
+          "item": "mark_of_grace",
+          "rate_per_hour": 18
+        }
+      ],
+      "marstead_note": "AFK baseline for 70+.",
+      "travel_time_to_bank_seconds": 54,
+      "nearest_teleport": "Moonclan Teleport (Lunar)",
+      "banking_trip_cost": {
+        "gp": 110,
+        "intensity": 2
+      },
+      "travel_region_multiplier": 0.2,
+      "effective_xp_per_hour": 39400,
+      "effective_gp_per_hour": 31520,
+      "travel_minutes_per_hour": 0.9,
+      "active_minutes_per_hour": 59.1,
+      "trips_per_hour": 0.5
     },
     {
       "id": "veilwood_prifddinas_rooftop",
       "skill": "agility",
       "level_required": 75,
       "name": "Veilwood Elfheim Rooftop",
-      "location": { "region": "veilwood", "spot": "Elfheim rooftop" },
+      "location": {
+        "region": "veilwood",
+        "spot": "Elfheim rooftop"
+      },
       "intensity": 5,
       "xp_per_hour": 98500,
       "gp_per_hour": 85000,
-      "requires": { "quests": ["song_of_the_mossborn"], "items": [], "skills": {"agility": 75} },
+      "requires": {
+        "quests": [
+          "song_of_the_mossborn"
+        ],
+        "items": [],
+        "skills": {
+          "agility": 75
+        }
+      },
       "description": "Elfheim rooftop. Best mid-endgame.",
-      "produces": [{ "item": "mark_of_grace", "rate_per_hour": 52 }],
-      "marstead_note": "Active."
+      "produces": [
+        {
+          "item": "mark_of_grace",
+          "rate_per_hour": 52
+        }
+      ],
+      "marstead_note": "Active.",
+      "travel_time_to_bank_seconds": 39,
+      "nearest_teleport": "Necklace of Passage",
+      "banking_trip_cost": {
+        "gp": 500,
+        "intensity": 2
+      },
+      "travel_region_multiplier": 0.1,
+      "effective_xp_per_hour": 97433,
+      "effective_gp_per_hour": 84079,
+      "travel_minutes_per_hour": 0.7,
+      "active_minutes_per_hour": 59.4,
+      "trips_per_hour": 0.5
     },
     {
       "id": "boneyard_sepulchre_course",
       "skill": "agility",
       "level_required": 82,
       "name": "Boneyard Hallowed Sepulchre",
-      "location": { "region": "boneyard", "spot": "Hallowed Sepulchre" },
+      "location": {
+        "region": "boneyard",
+        "spot": "Hallowed Sepulchre"
+      },
       "intensity": 7,
       "xp_per_hour": 150200,
       "gp_per_hour": 420000,
-      "requires": { "quests": ["keeper_of_the_dead"], "items": [], "skills": {"agility": 82} },
+      "requires": {
+        "quests": [
+          "keeper_of_the_dead"
+        ],
+        "items": [],
+        "skills": {
+          "agility": 82
+        }
+      },
       "description": "Hallowed Sepulchre. Tick-perfect. Best XP in the game.",
-      "produces": [{ "item": "hallowed_mark", "rate_per_hour": 420 }],
-      "marstead_note": "Max Focus. Endgame XP + loot."
+      "produces": [
+        {
+          "item": "hallowed_mark",
+          "rate_per_hour": 420
+        }
+      ],
+      "marstead_note": "Max Focus. Endgame XP + loot.",
+      "travel_time_to_bank_seconds": 50,
+      "nearest_teleport": "Senntisten Teleport (Ancient)",
+      "banking_trip_cost": {
+        "gp": 180,
+        "intensity": 2
+      },
+      "travel_region_multiplier": 0.2,
+      "effective_xp_per_hour": 148114,
+      "effective_gp_per_hour": 414167,
+      "travel_minutes_per_hour": 0.8,
+      "active_minutes_per_hour": 59.2,
+      "trips_per_hour": 0.5
     },
     {
       "id": "veilwood_elfheim_afk",
       "skill": "agility",
       "level_required": 80,
       "name": "Elfheim Rooftop AFK",
-      "location": { "region": "veilwood", "spot": "Elfheim sparse rooftop" },
+      "location": {
+        "region": "veilwood",
+        "spot": "Elfheim sparse rooftop"
+      },
       "intensity": 1,
       "xp_per_hour": 66800,
       "gp_per_hour": 42000,
-      "requires": { "quests": ["song_of_the_mossborn"], "items": [], "skills": {"agility": 80} },
+      "requires": {
+        "quests": [
+          "song_of_the_mossborn"
+        ],
+        "items": [],
+        "skills": {
+          "agility": 80
+        }
+      },
       "description": "AFK elfheim.",
-      "produces": [{ "item": "mark_of_grace", "rate_per_hour": 22 }],
-      "marstead_note": "AFK baseline for 80+."
+      "produces": [
+        {
+          "item": "mark_of_grace",
+          "rate_per_hour": 22
+        }
+      ],
+      "marstead_note": "AFK baseline for 80+.",
+      "travel_time_to_bank_seconds": 39,
+      "nearest_teleport": "Necklace of Passage",
+      "banking_trip_cost": {
+        "gp": 500,
+        "intensity": 2
+      },
+      "travel_region_multiplier": 0.1,
+      "effective_xp_per_hour": 66076,
+      "effective_gp_per_hour": 41545,
+      "travel_minutes_per_hour": 0.7,
+      "active_minutes_per_hour": 59.4,
+      "trips_per_hour": 0.5
     },
     {
       "id": "wilds_wildsgate_gauntlet",
       "skill": "agility",
       "level_required": 90,
       "name": "Wildsgate Gauntlet Course",
-      "location": { "region": "wilds", "spot": "Wildsgate courseway, lv20 Wilderness" },
+      "location": {
+        "region": "wilds",
+        "spot": "Wildsgate courseway, lv20 Wilderness"
+      },
       "intensity": 6,
       "xp_per_hour": 164000,
       "gp_per_hour": 185000,
-      "requires": { "quests": [], "items": [], "skills": {"agility": 90} },
+      "requires": {
+        "quests": [],
+        "items": [],
+        "skills": {
+          "agility": 90
+        }
+      },
       "description": "Wilderness gauntlet course. PK risk for elite XP.",
-      "produces": [{ "item": "mark_of_grace", "rate_per_hour": 85 }],
-      "marstead_note": "Active-Max Focus."
+      "produces": [
+        {
+          "item": "mark_of_grace",
+          "rate_per_hour": 85
+        }
+      ],
+      "marstead_note": "Active-Max Focus.",
+      "travel_time_to_bank_seconds": 109,
+      "nearest_teleport": "Amulet of Glory (Wilds edge)",
+      "banking_trip_cost": {
+        "gp": 500,
+        "intensity": 2
+      },
+      "travel_region_multiplier": 0.3,
+      "effective_xp_per_hour": 159034,
+      "effective_gp_per_hour": 179399,
+      "travel_minutes_per_hour": 1.8,
+      "active_minutes_per_hour": 58.2,
+      "trips_per_hour": 0.5
     },
     {
       "id": "wilds_wildsgate_afk",
       "skill": "agility",
       "level_required": 90,
       "name": "Wildsgate Short AFK",
-      "location": { "region": "wilds", "spot": "Wildsgate shortened loop" },
+      "location": {
+        "region": "wilds",
+        "spot": "Wildsgate shortened loop"
+      },
       "intensity": 2,
       "xp_per_hour": 94000,
       "gp_per_hour": 85000,
-      "requires": { "quests": [], "items": [], "skills": {"agility": 90} },
+      "requires": {
+        "quests": [],
+        "items": [],
+        "skills": {
+          "agility": 90
+        }
+      },
       "description": "Short-loop gauntlet AFK.",
-      "produces": [{ "item": "mark_of_grace", "rate_per_hour": 32 }],
-      "marstead_note": "AFK-Multitask baseline for 90+."
+      "produces": [
+        {
+          "item": "mark_of_grace",
+          "rate_per_hour": 32
+        }
+      ],
+      "marstead_note": "AFK-Multitask baseline for 90+.",
+      "travel_time_to_bank_seconds": 62,
+      "nearest_teleport": "Amulet of Glory (Wilds edge)",
+      "banking_trip_cost": {
+        "gp": 500,
+        "intensity": 2
+      },
+      "travel_region_multiplier": 0.3,
+      "effective_xp_per_hour": 92381,
+      "effective_gp_per_hour": 83536,
+      "travel_minutes_per_hour": 1,
+      "active_minutes_per_hour": 59,
+      "trips_per_hour": 0.5
     },
     {
       "id": "heartlands_lumbrick_rooftop_loot_chain",
       "skill": "agility",
       "level_required": 35,
       "name": "Lumbrick Rooftop Loot Chain",
-      "location": { "region": "heartlands", "spot": "Lumbrick rooftop course + timed stashes" },
+      "location": {
+        "region": "heartlands",
+        "spot": "Lumbrick rooftop course + timed stashes"
+      },
       "intensity": 5,
       "xp_per_hour": 61000,
       "gp_per_hour": 450000,
-      "requires": { "quests": ["tiled_rooftops"], "items": ["graceful_outfit"], "skills": {"agility": 35} },
+      "requires": {
+        "quests": [
+          "tiled_rooftops"
+        ],
+        "items": [
+          "graceful_outfit"
+        ],
+        "skills": {
+          "agility": 35
+        }
+      },
       "description": "Timed rooftop run — hit each stash before the 45s decay. Chain bonus awards loot multiplier. Active XP + gp loop.",
-      "produces": [{ "item": "timed_stash_loot", "rate_per_hour": 320 }],
-      "marstead_note": "H11 Heartlands 500k-1M moneymaker. Timed chain — loot bonus for not breaking rhythm."
+      "produces": [
+        {
+          "item": "timed_stash_loot",
+          "rate_per_hour": 320
+        }
+      ],
+      "marstead_note": "H11 Heartlands 500k-1M moneymaker. Timed chain — loot bonus for not breaking rhythm.",
+      "travel_time_to_bank_seconds": 25,
+      "nearest_teleport": "Heartlands Teleport (Lumbrick)",
+      "banking_trip_cost": {
+        "gp": 35,
+        "intensity": 2
+      },
+      "travel_region_multiplier": 0,
+      "effective_xp_per_hour": 60576,
+      "effective_gp_per_hour": 446875,
+      "travel_minutes_per_hour": 0.4,
+      "active_minutes_per_hour": 59.6,
+      "trips_per_hour": 0.5
     },
     {
       "id": "saltbrine_stormdeck_parkour",
       "skill": "agility",
       "level_required": 82,
       "name": "Stormdeck Reef Parkour",
-      "location": { "region": "saltbrine", "spot": "Saltbrine Stormdeck, wave-timed course" },
+      "location": {
+        "region": "saltbrine",
+        "spot": "Saltbrine Stormdeck, wave-timed course"
+      },
       "intensity": 7,
       "xp_per_hour": 142000,
       "gp_per_hour": 1500000,
-      "requires": { "quests": ["saltbrine_agility_course", "the_crystal_coast"], "items": ["graceful_outfit", "stormlink_anchor"], "skills": {"agility": 82} },
+      "requires": {
+        "quests": [
+          "saltbrine_agility_course",
+          "the_crystal_coast"
+        ],
+        "items": [
+          "graceful_outfit",
+          "stormlink_anchor"
+        ],
+        "skills": {
+          "agility": 82
+        }
+      },
       "description": "Tide-synced rooftop course: timing windows shrink during storm swells. Coral stashes. Elite-tier agility moneymaker.",
-      "produces": [{ "item": "coral_stash", "rate_per_hour": 420 }],
-      "marstead_note": "M14 endgame agility. Storm-synced timing."
+      "produces": [
+        {
+          "item": "coral_stash",
+          "rate_per_hour": 420
+        }
+      ],
+      "marstead_note": "M14 endgame agility. Storm-synced timing.",
+      "travel_time_to_bank_seconds": 22,
+      "nearest_teleport": "Saltbrine Teleport (Harbor)",
+      "banking_trip_cost": {
+        "gp": 55,
+        "intensity": 2
+      },
+      "travel_region_multiplier": 0,
+      "effective_xp_per_hour": 141132,
+      "effective_gp_per_hour": 1490833,
+      "travel_minutes_per_hour": 0.4,
+      "active_minutes_per_hour": 59.6,
+      "trips_per_hour": 0.5
     }
   ],
   "bracket_coverage": {
-    "1-10":  { "count": 2, "intensities": [2, 1] },
-    "10-20": { "count": 2, "intensities": [3, 1] },
-    "20-30": { "count": 2, "intensities": [3, 1] },
-    "30-40": { "count": 2, "intensities": [5, 1] },
-    "40-50": { "count": 2, "intensities": [3, 1] },
-    "50-60": { "count": 2, "intensities": [4, 2] },
-    "60-70": { "count": 2, "intensities": [3, 1] },
-    "70-80": { "count": 3, "intensities": [4, 1, 5] },
-    "80-90": { "count": 2, "intensities": [7, 1] },
-    "90-99": { "count": 2, "intensities": [6, 2] }
+    "1-10": {
+      "count": 2,
+      "intensities": [
+        2,
+        1
+      ]
+    },
+    "10-20": {
+      "count": 2,
+      "intensities": [
+        3,
+        1
+      ]
+    },
+    "20-30": {
+      "count": 2,
+      "intensities": [
+        3,
+        1
+      ]
+    },
+    "30-40": {
+      "count": 2,
+      "intensities": [
+        5,
+        1
+      ]
+    },
+    "40-50": {
+      "count": 2,
+      "intensities": [
+        3,
+        1
+      ]
+    },
+    "50-60": {
+      "count": 2,
+      "intensities": [
+        4,
+        2
+      ]
+    },
+    "60-70": {
+      "count": 2,
+      "intensities": [
+        3,
+        1
+      ]
+    },
+    "70-80": {
+      "count": 3,
+      "intensities": [
+        4,
+        1,
+        5
+      ]
+    },
+    "80-90": {
+      "count": 2,
+      "intensities": [
+        7,
+        1
+      ]
+    },
+    "90-99": {
+      "count": 2,
+      "intensities": [
+        6,
+        2
+      ]
+    }
   }
 }

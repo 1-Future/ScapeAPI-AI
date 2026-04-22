@@ -1,6 +1,6 @@
 # Intensity Catalog Report
 
-Generated 2026-04-22T18:39:51.046Z. 2309 activities indexed.
+Generated 2026-04-22T19:35:53.659Z. 2309 activities indexed.
 
 ## Intensity band histogram
 
@@ -62,12 +62,12 @@ _None. All activities within 30% of their band median._
 | Region | # Activities | Bands covered | Bands missing |
 |---|---|---|---|
 | heartlands | 501 | 1, 2, 3, 4, 5, 6, 7, 8, 9 | 10 |
-| sootworks | 221 | 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 | none |
-| moryskah | 285 | 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 | none |
+| sootworks | 220 | 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 | none |
+| moryskah | 284 | 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 | none |
 | boneyard | 140 | 1, 2, 3, 4, 5, 6, 7, 8, 9 | 10 |
 | glass_desert | 164 | 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 | none |
 | saltbrine | 199 | 1, 2, 3, 4, 5, 6, 7, 8, 9 | 10 |
 | veilwood | 226 | 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 | none |
 | inkweald | 201 | 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 | none |
 | wilds | 216 | 2, 3, 4, 5, 6, 7, 8, 9, 10 | 1 |
-| unknown | 152 | 1, 2, 3, 4, 5, 6, 7, 8, 9 | 10 |
+| unknown | 154 | 1, 2, 3, 4, 5, 6, 7, 8, 9 | 10 |

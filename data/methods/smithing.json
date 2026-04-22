@@ -7,376 +7,1213 @@
       "skill": "smithing",
       "level_required": 1,
       "name": "Lumbrick Bronze Smelt",
-      "location": { "region": "heartlands", "spot": "Lumbrick furnace" },
+      "location": {
+        "region": "heartlands",
+        "spot": "Lumbrick furnace"
+      },
       "intensity": 1,
       "xp_per_hour": 8000,
       "gp_per_hour": 1500,
-      "requires": { "quests": [], "items": ["copper_ore", "tin_ore"], "skills": {} },
+      "requires": {
+        "quests": [],
+        "items": [
+          "copper_ore",
+          "tin_ore"
+        ],
+        "skills": {}
+      },
       "description": "Smelt bronze bars. Starter training. Low burn.",
-      "produces": [{ "item": "bronze_bar", "rate_per_hour": 1300 }],
-      "marstead_note": "AFK baseline."
+      "produces": [
+        {
+          "item": "bronze_bar",
+          "rate_per_hour": 1300
+        }
+      ],
+      "marstead_note": "AFK baseline.",
+      "travel_time_to_bank_seconds": 0,
+      "nearest_teleport": null,
+      "banking_trip_cost": {
+        "gp": 0,
+        "intensity": 0
+      },
+      "travel_region_multiplier": 0,
+      "effective_xp_per_hour": 8000,
+      "effective_gp_per_hour": 1500,
+      "travel_minutes_per_hour": 0,
+      "active_minutes_per_hour": 60,
+      "trips_per_hour": 0
     },
     {
       "id": "heartlands_bronze_dagger_anvil",
       "skill": "smithing",
       "level_required": 1,
       "name": "Bronze Dagger Anvil Spin",
-      "location": { "region": "heartlands", "spot": "Lumbrick anvil + furnace chain" },
+      "location": {
+        "region": "heartlands",
+        "spot": "Lumbrick anvil + furnace chain"
+      },
       "intensity": 4,
       "xp_per_hour": 24300,
       "gp_per_hour": 0,
-      "requires": { "quests": [], "items": ["bronze_bar", "hammer"], "skills": {} },
+      "requires": {
+        "quests": [],
+        "items": [
+          "bronze_bar",
+          "hammer"
+        ],
+        "skills": {}
+      },
       "description": "Smelt bar + hammer dagger rotation. Ironman-grade pure XP.",
-      "produces": [{ "item": "bronze_dagger", "rate_per_hour": 1800 }],
-      "marstead_note": "Active."
+      "produces": [
+        {
+          "item": "bronze_dagger",
+          "rate_per_hour": 1800
+        }
+      ],
+      "marstead_note": "Active.",
+      "travel_time_to_bank_seconds": 0,
+      "nearest_teleport": null,
+      "banking_trip_cost": {
+        "gp": 0,
+        "intensity": 0
+      },
+      "travel_region_multiplier": 0,
+      "effective_xp_per_hour": 24300,
+      "effective_gp_per_hour": 0,
+      "travel_minutes_per_hour": 0,
+      "active_minutes_per_hour": 60,
+      "trips_per_hour": 0
     },
     {
       "id": "heartlands_iron_smelt",
       "skill": "smithing",
       "level_required": 15,
       "name": "Iron Bar Smelting (Lumbrick)",
-      "location": { "region": "heartlands", "spot": "Lumbrick furnace" },
+      "location": {
+        "region": "heartlands",
+        "spot": "Lumbrick furnace"
+      },
       "intensity": 1,
       "xp_per_hour": 12500,
       "gp_per_hour": 12000,
-      "requires": { "quests": [], "items": ["iron_ore"], "skills": {} },
+      "requires": {
+        "quests": [],
+        "items": [
+          "iron_ore"
+        ],
+        "skills": {}
+      },
       "description": "Iron bar smelting with ~50% success without ring of forging. AFK-friendly if you use the ring (+40% success).",
-      "produces": [{ "item": "iron_bar", "rate_per_hour": 640 }],
-      "marstead_note": "AFK baseline for 15+."
+      "produces": [
+        {
+          "item": "iron_bar",
+          "rate_per_hour": 640
+        }
+      ],
+      "marstead_note": "AFK baseline for 15+.",
+      "travel_time_to_bank_seconds": 0,
+      "nearest_teleport": null,
+      "banking_trip_cost": {
+        "gp": 0,
+        "intensity": 0
+      },
+      "travel_region_multiplier": 0,
+      "effective_xp_per_hour": 12500,
+      "effective_gp_per_hour": 12000,
+      "travel_minutes_per_hour": 0,
+      "active_minutes_per_hour": 60,
+      "trips_per_hour": 0
     },
     {
       "id": "heartlands_iron_dagger_rotation",
       "skill": "smithing",
       "level_required": 15,
       "name": "Iron Dagger Rotation",
-      "location": { "region": "heartlands", "spot": "Lumbrick anvil+furnace" },
+      "location": {
+        "region": "heartlands",
+        "spot": "Lumbrick anvil+furnace"
+      },
       "intensity": 4,
       "xp_per_hour": 37900,
       "gp_per_hour": 8500,
-      "requires": { "quests": [], "items": ["iron_bar", "hammer"], "skills": {"smithing": 15} },
+      "requires": {
+        "quests": [],
+        "items": [
+          "iron_bar",
+          "hammer"
+        ],
+        "skills": {
+          "smithing": 15
+        }
+      },
       "description": "Iron-dagger smith-and-drop rotation. Ring of forging required.",
-      "produces": [{ "item": "iron_dagger", "rate_per_hour": 2200 }],
-      "marstead_note": "Active. Pure XP iron."
+      "produces": [
+        {
+          "item": "iron_dagger",
+          "rate_per_hour": 2200
+        }
+      ],
+      "marstead_note": "Active. Pure XP iron.",
+      "travel_time_to_bank_seconds": 0,
+      "nearest_teleport": null,
+      "banking_trip_cost": {
+        "gp": 0,
+        "intensity": 0
+      },
+      "travel_region_multiplier": 0,
+      "effective_xp_per_hour": 37900,
+      "effective_gp_per_hour": 8500,
+      "travel_minutes_per_hour": 0,
+      "active_minutes_per_hour": 60,
+      "trips_per_hour": 0
     },
     {
       "id": "sootworks_soot_iron_afk",
       "skill": "smithing",
       "level_required": 25,
       "name": "Sootworks Soot-Iron AFK Smelt",
-      "location": { "region": "sootworks", "spot": "Emberwall furnace" },
+      "location": {
+        "region": "sootworks",
+        "spot": "Emberwall furnace"
+      },
       "intensity": 1,
       "xp_per_hour": 18300,
       "gp_per_hour": 42000,
-      "requires": { "quests": [], "items": ["soot_iron_ore"], "skills": {"smithing": 25} },
+      "requires": {
+        "quests": [],
+        "items": [
+          "soot_iron_ore"
+        ],
+        "skills": {
+          "smithing": 25
+        }
+      },
       "description": "Standard furnace smelt for soot-iron without blast. AFK.",
-      "produces": [{ "item": "soot_iron_bar", "rate_per_hour": 720 }],
-      "marstead_note": "AFK baseline for 25+."
+      "produces": [
+        {
+          "item": "soot_iron_bar",
+          "rate_per_hour": 720
+        }
+      ],
+      "marstead_note": "AFK baseline for 25+.",
+      "travel_time_to_bank_seconds": 0,
+      "nearest_teleport": null,
+      "banking_trip_cost": {
+        "gp": 0,
+        "intensity": 0
+      },
+      "travel_region_multiplier": 0.1,
+      "effective_xp_per_hour": 18300,
+      "effective_gp_per_hour": 42000,
+      "travel_minutes_per_hour": 0,
+      "active_minutes_per_hour": 60,
+      "trips_per_hour": 0
     },
     {
       "id": "sootworks_soot_iron_blast",
       "skill": "smithing",
       "level_required": 25,
       "name": "Sootworks Blast Furnace Soot-Iron",
-      "location": { "region": "sootworks", "spot": "Sootworks Blast Furnace" },
+      "location": {
+        "region": "sootworks",
+        "spot": "Sootworks Blast Furnace"
+      },
       "intensity": 5,
       "xp_per_hour": 46700,
       "gp_per_hour": 185000,
-      "requires": { "quests": ["keeper_of_the_blast"], "items": ["soot_iron_ore", "coins"], "skills": {"smithing": 25} },
+      "requires": {
+        "quests": [
+          "keeper_of_the_blast"
+        ],
+        "items": [
+          "soot_iron_ore",
+          "coins"
+        ],
+        "skills": {
+          "smithing": 25
+        }
+      },
       "description": "Blast furnace halves coal requirement for steel+. Constant conveyor-feed attention. Peak 25+.",
-      "produces": [{ "item": "soot_iron_bar", "rate_per_hour": 2200 }],
-      "marstead_note": "Active-Max Focus. Quest-gated blast furnace. Marstead metroidvania breakpoint."
+      "produces": [
+        {
+          "item": "soot_iron_bar",
+          "rate_per_hour": 2200
+        }
+      ],
+      "marstead_note": "Active-Max Focus. Quest-gated blast furnace. Marstead metroidvania breakpoint.",
+      "travel_time_to_bank_seconds": 0,
+      "nearest_teleport": null,
+      "banking_trip_cost": {
+        "gp": 0,
+        "intensity": 0
+      },
+      "travel_region_multiplier": 0.1,
+      "effective_xp_per_hour": 46700,
+      "effective_gp_per_hour": 185000,
+      "travel_minutes_per_hour": 0,
+      "active_minutes_per_hour": 60,
+      "trips_per_hour": 0
     },
     {
       "id": "sootworks_steel_blast",
       "skill": "smithing",
       "level_required": 30,
       "name": "Sootworks Blast Steel",
-      "location": { "region": "sootworks", "spot": "Sootworks Blast Furnace" },
+      "location": {
+        "region": "sootworks",
+        "spot": "Sootworks Blast Furnace"
+      },
       "intensity": 5,
       "xp_per_hour": 55300,
       "gp_per_hour": 265000,
-      "requires": { "quests": ["keeper_of_the_blast"], "items": ["iron_ore", "coal"], "skills": {"smithing": 30} },
+      "requires": {
+        "quests": [
+          "keeper_of_the_blast"
+        ],
+        "items": [
+          "iron_ore",
+          "coal"
+        ],
+        "skills": {
+          "smithing": 30
+        }
+      },
       "description": "Steel bars via blast furnace. 60-sec conveyor cycles. Classic 30+ XP.",
-      "produces": [{ "item": "steel_bar", "rate_per_hour": 2650 }],
-      "marstead_note": "Active. Best 30+ XP method."
+      "produces": [
+        {
+          "item": "steel_bar",
+          "rate_per_hour": 2650
+        }
+      ],
+      "marstead_note": "Active. Best 30+ XP method.",
+      "travel_time_to_bank_seconds": 0,
+      "nearest_teleport": null,
+      "banking_trip_cost": {
+        "gp": 0,
+        "intensity": 0
+      },
+      "travel_region_multiplier": 0.1,
+      "effective_xp_per_hour": 55300,
+      "effective_gp_per_hour": 265000,
+      "travel_minutes_per_hour": 0,
+      "active_minutes_per_hour": 60,
+      "trips_per_hour": 0
     },
     {
       "id": "heartlands_steel_anvil_afk",
       "skill": "smithing",
       "level_required": 30,
       "name": "Steel Platebody AFK Anvil",
-      "location": { "region": "heartlands", "spot": "Lumbrick anvil + bank" },
+      "location": {
+        "region": "heartlands",
+        "spot": "Lumbrick anvil + bank"
+      },
       "intensity": 1,
       "xp_per_hour": 20870,
       "gp_per_hour": 68000,
-      "requires": { "quests": [], "items": ["steel_bar", "hammer"], "skills": {} },
+      "requires": {
+        "quests": [],
+        "items": [
+          "steel_bar",
+          "hammer"
+        ],
+        "skills": {}
+      },
       "description": "Steel platebodies in bulk. AFK-grade anvil hammering.",
-      "produces": [{ "item": "steel_platebody", "rate_per_hour": 320 }],
-      "marstead_note": "AFK baseline for 30+."
+      "produces": [
+        {
+          "item": "steel_platebody",
+          "rate_per_hour": 320
+        }
+      ],
+      "marstead_note": "AFK baseline for 30+.",
+      "travel_time_to_bank_seconds": 0,
+      "nearest_teleport": null,
+      "banking_trip_cost": {
+        "gp": 0,
+        "intensity": 0
+      },
+      "travel_region_multiplier": 0,
+      "effective_xp_per_hour": 20870,
+      "effective_gp_per_hour": 68000,
+      "travel_minutes_per_hour": 0,
+      "active_minutes_per_hour": 60,
+      "trips_per_hour": 0
     },
     {
       "id": "glass_desert_goldsmith",
       "skill": "smithing",
       "level_required": 40,
       "name": "Glass Desert Goldsmith Forge",
-      "location": { "region": "glass_desert", "spot": "Crescent Bazaar goldsmith hub" },
+      "location": {
+        "region": "glass_desert",
+        "spot": "Crescent Bazaar goldsmith hub"
+      },
       "intensity": 2,
       "xp_per_hour": 36200,
       "gp_per_hour": 135000,
-      "requires": { "quests": [], "items": ["gold_ore", "goldsmith_gauntlets"], "skills": {"smithing": 40} },
+      "requires": {
+        "quests": [],
+        "items": [
+          "gold_ore",
+          "goldsmith_gauntlets"
+        ],
+        "skills": {
+          "smithing": 40
+        }
+      },
       "description": "Gold bar smelting with goldsmith gauntlets. 2x XP per bar. AFK-Multitask.",
-      "produces": [{ "item": "gold_bar", "rate_per_hour": 1400 }],
-      "marstead_note": "AFK-Multitask. Marstead gauntlet gating."
+      "produces": [
+        {
+          "item": "gold_bar",
+          "rate_per_hour": 1400
+        }
+      ],
+      "marstead_note": "AFK-Multitask. Marstead gauntlet gating.",
+      "travel_time_to_bank_seconds": 33,
+      "nearest_teleport": "Glass Desert Pendant",
+      "banking_trip_cost": {
+        "gp": 500,
+        "intensity": 2
+      },
+      "travel_region_multiplier": 0.5,
+      "effective_xp_per_hour": 32218,
+      "effective_gp_per_hour": 120150,
+      "travel_minutes_per_hour": 6.6,
+      "active_minutes_per_hour": 53.4,
+      "trips_per_hour": 6
     },
     {
       "id": "glass_desert_goldsmith_spam",
       "skill": "smithing",
       "level_required": 40,
       "name": "Crescent Goldsmith Tick Race",
-      "location": { "region": "glass_desert", "spot": "Crescent Bazaar, 4 goldsmith anvils" },
+      "location": {
+        "region": "glass_desert",
+        "spot": "Crescent Bazaar, 4 goldsmith anvils"
+      },
       "intensity": 7,
       "xp_per_hour": 87900,
       "gp_per_hour": 220000,
-      "requires": { "quests": [], "items": ["gold_bar", "hammer"], "skills": {"smithing": 40} },
+      "requires": {
+        "quests": [],
+        "items": [
+          "gold_bar",
+          "hammer"
+        ],
+        "skills": {
+          "smithing": 40
+        }
+      },
       "description": "Gold ring + amulet spam on 4 adjacent anvils. Tick-perfect withdraw-hammer.",
-      "produces": [{ "item": "gold_amulet_u", "rate_per_hour": 3400 }],
-      "marstead_note": "Max Focus. Jewelry chain into Magic alching."
+      "produces": [
+        {
+          "item": "gold_amulet_u",
+          "rate_per_hour": 3400
+        }
+      ],
+      "marstead_note": "Max Focus. Jewelry chain into Magic alching.",
+      "travel_time_to_bank_seconds": 25,
+      "nearest_teleport": "Glass Desert Pendant",
+      "banking_trip_cost": {
+        "gp": 500,
+        "intensity": 2
+      },
+      "travel_region_multiplier": 0.5,
+      "effective_xp_per_hour": 80575,
+      "effective_gp_per_hour": 201667,
+      "travel_minutes_per_hour": 5,
+      "active_minutes_per_hour": 55,
+      "trips_per_hour": 6
     },
     {
       "id": "moryskah_mithril_smelt",
       "skill": "smithing",
       "level_required": 50,
       "name": "Moryskah Mithril Bars",
-      "location": { "region": "moryskah", "spot": "Gravechill furnace" },
+      "location": {
+        "region": "moryskah",
+        "spot": "Gravechill furnace"
+      },
       "intensity": 1,
       "xp_per_hour": 30400,
       "gp_per_hour": 72000,
-      "requires": { "quests": [], "items": ["mithril_ore", "coal"], "skills": {"smithing": 50} },
+      "requires": {
+        "quests": [],
+        "items": [
+          "mithril_ore",
+          "coal"
+        ],
+        "skills": {
+          "smithing": 50
+        }
+      },
       "description": "Mithril bars at a moryskah furnace. AFK single-track smelting.",
-      "produces": [{ "item": "mithril_bar", "rate_per_hour": 580 }],
-      "marstead_note": "AFK baseline for 50+."
+      "produces": [
+        {
+          "item": "mithril_bar",
+          "rate_per_hour": 580
+        }
+      ],
+      "marstead_note": "AFK baseline for 50+.",
+      "travel_time_to_bank_seconds": 0,
+      "nearest_teleport": null,
+      "banking_trip_cost": {
+        "gp": 0,
+        "intensity": 0
+      },
+      "travel_region_multiplier": 0.2,
+      "effective_xp_per_hour": 30400,
+      "effective_gp_per_hour": 72000,
+      "travel_minutes_per_hour": 0,
+      "active_minutes_per_hour": 60,
+      "trips_per_hour": 0
     },
     {
       "id": "sootworks_blast_mithril",
       "skill": "smithing",
       "level_required": 50,
       "name": "Blast Furnace Mithril Run",
-      "location": { "region": "sootworks", "spot": "Sootworks Blast Furnace" },
+      "location": {
+        "region": "sootworks",
+        "spot": "Sootworks Blast Furnace"
+      },
       "intensity": 6,
       "xp_per_hour": 88400,
       "gp_per_hour": 295000,
-      "requires": { "quests": ["keeper_of_the_blast"], "items": ["mithril_ore", "coal"], "skills": {"smithing": 50} },
+      "requires": {
+        "quests": [
+          "keeper_of_the_blast"
+        ],
+        "items": [
+          "mithril_ore",
+          "coal"
+        ],
+        "skills": {
+          "smithing": 50
+        }
+      },
       "description": "Mithril via blast. 60-sec cycle. Peak 50+ XP.",
-      "produces": [{ "item": "mithril_bar", "rate_per_hour": 2400 }],
-      "marstead_note": "Active-Max Focus."
+      "produces": [
+        {
+          "item": "mithril_bar",
+          "rate_per_hour": 2400
+        }
+      ],
+      "marstead_note": "Active-Max Focus.",
+      "travel_time_to_bank_seconds": 0,
+      "nearest_teleport": null,
+      "banking_trip_cost": {
+        "gp": 0,
+        "intensity": 0
+      },
+      "travel_region_multiplier": 0.1,
+      "effective_xp_per_hour": 88400,
+      "effective_gp_per_hour": 295000,
+      "travel_minutes_per_hour": 0,
+      "active_minutes_per_hour": 60,
+      "trips_per_hour": 0
     },
     {
       "id": "sootworks_blast_adamant",
       "skill": "smithing",
       "level_required": 70,
       "name": "Blast Furnace Adamant Run",
-      "location": { "region": "sootworks", "spot": "Sootworks Blast Furnace" },
+      "location": {
+        "region": "sootworks",
+        "spot": "Sootworks Blast Furnace"
+      },
       "intensity": 6,
       "xp_per_hour": 120900,
       "gp_per_hour": 385000,
-      "requires": { "quests": ["keeper_of_the_blast"], "items": ["adamantite_ore", "coal"], "skills": {"smithing": 70} },
+      "requires": {
+        "quests": [
+          "keeper_of_the_blast"
+        ],
+        "items": [
+          "adamantite_ore",
+          "coal"
+        ],
+        "skills": {
+          "smithing": 70
+        }
+      },
       "description": "Adamant bars via blast.",
-      "produces": [{ "item": "adamant_bar", "rate_per_hour": 2200 }],
-      "marstead_note": "Active-Max Focus."
+      "produces": [
+        {
+          "item": "adamant_bar",
+          "rate_per_hour": 2200
+        }
+      ],
+      "marstead_note": "Active-Max Focus.",
+      "travel_time_to_bank_seconds": 0,
+      "nearest_teleport": null,
+      "banking_trip_cost": {
+        "gp": 0,
+        "intensity": 0
+      },
+      "travel_region_multiplier": 0.1,
+      "effective_xp_per_hour": 120900,
+      "effective_gp_per_hour": 385000,
+      "travel_minutes_per_hour": 0,
+      "active_minutes_per_hour": 60,
+      "trips_per_hour": 0
     },
     {
       "id": "moryskah_adamant_anvil_afk",
       "skill": "smithing",
       "level_required": 70,
       "name": "Adamant Anvil AFK (Moryskah)",
-      "location": { "region": "moryskah", "spot": "Gravechill anvil + bank" },
+      "location": {
+        "region": "moryskah",
+        "spot": "Gravechill anvil + bank"
+      },
       "intensity": 2,
       "xp_per_hour": 65800,
       "gp_per_hour": 145000,
-      "requires": { "quests": [], "items": ["adamant_bar", "hammer"], "skills": {"smithing": 70} },
+      "requires": {
+        "quests": [],
+        "items": [
+          "adamant_bar",
+          "hammer"
+        ],
+        "skills": {
+          "smithing": 70
+        }
+      },
       "description": "Adamant 2h swords. AFK anvil for 70+.",
-      "produces": [{ "item": "adamant_2h", "rate_per_hour": 220 }],
-      "marstead_note": "AFK-Multitask baseline."
+      "produces": [
+        {
+          "item": "adamant_2h",
+          "rate_per_hour": 220
+        }
+      ],
+      "marstead_note": "AFK-Multitask baseline.",
+      "travel_time_to_bank_seconds": 0,
+      "nearest_teleport": null,
+      "banking_trip_cost": {
+        "gp": 0,
+        "intensity": 0
+      },
+      "travel_region_multiplier": 0.2,
+      "effective_xp_per_hour": 65800,
+      "effective_gp_per_hour": 145000,
+      "travel_minutes_per_hour": 0,
+      "active_minutes_per_hour": 60,
+      "trips_per_hour": 0
     },
     {
       "id": "heartlands_giants_foundry",
       "skill": "smithing",
       "level_required": 60,
       "name": "Giant's Foundry Commissions",
-      "location": { "region": "heartlands", "spot": "Heartlands Royal Foundry" },
+      "location": {
+        "region": "heartlands",
+        "spot": "Heartlands Royal Foundry"
+      },
       "intensity": 4,
       "xp_per_hour": 72500,
       "gp_per_hour": 165000,
-      "requires": { "quests": ["forgeroyal"], "items": ["various_bars"], "skills": {"smithing": 60} },
+      "requires": {
+        "quests": [
+          "forgeroyal"
+        ],
+        "items": [
+          "various_bars"
+        ],
+        "skills": {
+          "smithing": 60
+        }
+      },
       "description": "Minigame-like sword commissioning. Multi-stage heat+quality management.",
-      "produces": [{ "item": "foundry_reputation", "rate_per_hour": 24 }],
-      "marstead_note": "Active. Minigame-adjacent smithing."
+      "produces": [
+        {
+          "item": "foundry_reputation",
+          "rate_per_hour": 24
+        }
+      ],
+      "marstead_note": "Active. Minigame-adjacent smithing.",
+      "travel_time_to_bank_seconds": 25,
+      "nearest_teleport": "Heartlands Teleport (Lumbrick)",
+      "banking_trip_cost": {
+        "gp": 35,
+        "intensity": 2
+      },
+      "travel_region_multiplier": 0,
+      "effective_xp_per_hour": 66458,
+      "effective_gp_per_hour": 151250,
+      "travel_minutes_per_hour": 5,
+      "active_minutes_per_hour": 55,
+      "trips_per_hour": 6
     },
     {
       "id": "heartlands_rune_scimitar_afk",
       "skill": "smithing",
       "level_required": 65,
       "name": "Rune Scimitar AFK Anvil",
-      "location": { "region": "heartlands", "spot": "Royal Foundry anvil + bank" },
+      "location": {
+        "region": "heartlands",
+        "spot": "Royal Foundry anvil + bank"
+      },
       "intensity": 1,
       "xp_per_hour": 52400,
       "gp_per_hour": 215000,
-      "requires": { "quests": [], "items": ["runite_bar", "hammer"], "skills": {"smithing": 65} },
+      "requires": {
+        "quests": [],
+        "items": [
+          "runite_bar",
+          "hammer"
+        ],
+        "skills": {
+          "smithing": 65
+        }
+      },
       "description": "Rune scimitar bulk. AFK anvil for 65+.",
-      "produces": [{ "item": "rune_scimitar", "rate_per_hour": 200 }],
-      "marstead_note": "AFK baseline for 65+."
+      "produces": [
+        {
+          "item": "rune_scimitar",
+          "rate_per_hour": 200
+        }
+      ],
+      "marstead_note": "AFK baseline for 65+.",
+      "travel_time_to_bank_seconds": 0,
+      "nearest_teleport": null,
+      "banking_trip_cost": {
+        "gp": 0,
+        "intensity": 0
+      },
+      "travel_region_multiplier": 0,
+      "effective_xp_per_hour": 52400,
+      "effective_gp_per_hour": 215000,
+      "travel_minutes_per_hour": 0,
+      "active_minutes_per_hour": 60,
+      "trips_per_hour": 0
     },
     {
       "id": "wilds_runite_smelt_camp",
       "skill": "smithing",
       "level_required": 85,
       "name": "Wilds Runite Forge Camp",
-      "location": { "region": "wilds", "spot": "Old King's Forge, lv14 Wilderness" },
+      "location": {
+        "region": "wilds",
+        "spot": "Old King's Forge, lv14 Wilderness"
+      },
       "intensity": 3,
       "xp_per_hour": 87900,
       "gp_per_hour": 420000,
-      "requires": { "quests": [], "items": ["runite_ore", "coal"], "skills": {"smithing": 85} },
+      "requires": {
+        "quests": [],
+        "items": [
+          "runite_ore",
+          "coal"
+        ],
+        "skills": {
+          "smithing": 85
+        }
+      },
       "description": "Runite smelting at an abandoned Wilds forge. Paranoia baseline high.",
-      "produces": [{ "item": "runite_bar", "rate_per_hour": 580 }],
-      "marstead_note": "Active. Wilderness runite smelt."
+      "produces": [
+        {
+          "item": "runite_bar",
+          "rate_per_hour": 580
+        }
+      ],
+      "marstead_note": "Active. Wilderness runite smelt.",
+      "travel_time_to_bank_seconds": 20,
+      "nearest_teleport": "Amulet of Glory (Wilds edge)",
+      "banking_trip_cost": {
+        "gp": 500,
+        "intensity": 2
+      },
+      "travel_region_multiplier": 0.3,
+      "effective_xp_per_hour": 82040,
+      "effective_gp_per_hour": 392000,
+      "travel_minutes_per_hour": 4,
+      "active_minutes_per_hour": 56,
+      "trips_per_hour": 6
     },
     {
       "id": "sootworks_runite_blast",
       "skill": "smithing",
       "level_required": 85,
       "name": "Blast Furnace Runite Run",
-      "location": { "region": "sootworks", "spot": "Sootworks Blast Furnace" },
+      "location": {
+        "region": "sootworks",
+        "spot": "Sootworks Blast Furnace"
+      },
       "intensity": 7,
       "xp_per_hour": 145500,
       "gp_per_hour": 485000,
-      "requires": { "quests": ["keeper_of_the_blast"], "items": ["runite_ore", "coal"], "skills": {"smithing": 85} },
+      "requires": {
+        "quests": [
+          "keeper_of_the_blast"
+        ],
+        "items": [
+          "runite_ore",
+          "coal"
+        ],
+        "skills": {
+          "smithing": 85
+        }
+      },
       "description": "Peak runite training. Full blast-conveyor cycle.",
-      "produces": [{ "item": "runite_bar", "rate_per_hour": 1400 }],
-      "marstead_note": "Max Focus. Endgame smithing speed."
+      "produces": [
+        {
+          "item": "runite_bar",
+          "rate_per_hour": 1400
+        }
+      ],
+      "marstead_note": "Max Focus. Endgame smithing speed.",
+      "travel_time_to_bank_seconds": 0,
+      "nearest_teleport": null,
+      "banking_trip_cost": {
+        "gp": 0,
+        "intensity": 0
+      },
+      "travel_region_multiplier": 0.1,
+      "effective_xp_per_hour": 145500,
+      "effective_gp_per_hour": 485000,
+      "travel_minutes_per_hour": 0,
+      "active_minutes_per_hour": 60,
+      "trips_per_hour": 0
     },
     {
       "id": "moryskah_adamant_platebody_afk",
       "skill": "smithing",
       "level_required": 88,
       "name": "Adamant Platebody AFK",
-      "location": { "region": "moryskah", "spot": "Gravechill master anvil" },
+      "location": {
+        "region": "moryskah",
+        "spot": "Gravechill master anvil"
+      },
       "intensity": 1,
       "xp_per_hour": 72700,
       "gp_per_hour": 245000,
-      "requires": { "quests": [], "items": ["adamant_bar", "hammer"], "skills": {"smithing": 88} },
+      "requires": {
+        "quests": [],
+        "items": [
+          "adamant_bar",
+          "hammer"
+        ],
+        "skills": {
+          "smithing": 88
+        }
+      },
       "description": "Adamant platebody for smithing reputation.",
-      "produces": [{ "item": "adamant_platebody", "rate_per_hour": 125 }],
-      "marstead_note": "AFK baseline for 88+."
+      "produces": [
+        {
+          "item": "adamant_platebody",
+          "rate_per_hour": 125
+        }
+      ],
+      "marstead_note": "AFK baseline for 88+.",
+      "travel_time_to_bank_seconds": 0,
+      "nearest_teleport": null,
+      "banking_trip_cost": {
+        "gp": 0,
+        "intensity": 0
+      },
+      "travel_region_multiplier": 0.2,
+      "effective_xp_per_hour": 72700,
+      "effective_gp_per_hour": 245000,
+      "travel_minutes_per_hour": 0,
+      "active_minutes_per_hour": 60,
+      "trips_per_hour": 0
     },
     {
       "id": "sootworks_blade_of_soot_forge",
       "skill": "smithing",
       "level_required": 90,
       "name": "Forge Blade of Soot",
-      "location": { "region": "sootworks", "spot": "Sootworks Master Forge" },
+      "location": {
+        "region": "sootworks",
+        "spot": "Sootworks Master Forge"
+      },
       "intensity": 8,
       "xp_per_hour": 173000,
       "gp_per_hour": 0,
-      "requires": { "quests": ["song_of_the_sootforge"], "items": ["runite_bar", "soot_iron_bar", "coal"], "skills": {"smithing": 90} },
+      "requires": {
+        "quests": [
+          "song_of_the_sootforge"
+        ],
+        "items": [
+          "runite_bar",
+          "soot_iron_bar",
+          "coal"
+        ],
+        "skills": {
+          "smithing": 90
+        }
+      },
       "description": "Forge the Blade of Soot. Multi-hammer sequence. Max XP in the game. Once-per-day cooldown.",
-      "produces": [{ "item": "blade_of_soot", "rate_per_hour": 2 }],
-      "marstead_note": "Max Focus. Quest-gated crafting ritual."
+      "produces": [
+        {
+          "item": "blade_of_soot",
+          "rate_per_hour": 2
+        }
+      ],
+      "marstead_note": "Max Focus. Quest-gated crafting ritual.",
+      "travel_time_to_bank_seconds": 0,
+      "nearest_teleport": null,
+      "banking_trip_cost": {
+        "gp": 0,
+        "intensity": 0
+      },
+      "travel_region_multiplier": 0.1,
+      "effective_xp_per_hour": 173000,
+      "effective_gp_per_hour": 0,
+      "travel_minutes_per_hour": 0,
+      "active_minutes_per_hour": 60,
+      "trips_per_hour": 0
     },
     {
       "id": "moryskah_runite_platebody_bulk",
       "skill": "smithing",
       "level_required": 92,
       "name": "Gravechill Runite Platebody Bulk",
-      "location": { "region": "moryskah", "spot": "Gravechill master anvil" },
+      "location": {
+        "region": "moryskah",
+        "spot": "Gravechill master anvil"
+      },
       "intensity": 1,
       "xp_per_hour": 112300,
       "gp_per_hour": 385000,
-      "requires": { "quests": [], "items": ["runite_bar", "hammer"], "skills": {"smithing": 92} },
+      "requires": {
+        "quests": [],
+        "items": [
+          "runite_bar",
+          "hammer"
+        ],
+        "skills": {
+          "smithing": 92
+        }
+      },
       "description": "Runite platebodies. AFK endgame anvil. Great profit.",
-      "produces": [{ "item": "runite_platebody", "rate_per_hour": 110 }],
-      "marstead_note": "AFK baseline for 90+."
+      "produces": [
+        {
+          "item": "runite_platebody",
+          "rate_per_hour": 110
+        }
+      ],
+      "marstead_note": "AFK baseline for 90+.",
+      "travel_time_to_bank_seconds": 0,
+      "nearest_teleport": null,
+      "banking_trip_cost": {
+        "gp": 0,
+        "intensity": 0
+      },
+      "travel_region_multiplier": 0.2,
+      "effective_xp_per_hour": 112300,
+      "effective_gp_per_hour": 385000,
+      "travel_minutes_per_hour": 0,
+      "active_minutes_per_hour": 60,
+      "trips_per_hour": 0
     },
     {
       "id": "heartlands_cannonball_mould",
       "skill": "smithing",
       "level_required": 35,
       "name": "Cannonball Mould Cycle",
-      "location": { "region": "heartlands", "spot": "Royal Foundry mould bench" },
+      "location": {
+        "region": "heartlands",
+        "spot": "Royal Foundry mould bench"
+      },
       "intensity": 1,
       "xp_per_hour": 24800,
       "gp_per_hour": 180000,
-      "requires": { "quests": ["dwarven_kings_quest"], "items": ["steel_bar", "ammo_mould"], "skills": {"smithing": 35} },
+      "requires": {
+        "quests": [
+          "dwarven_kings_quest"
+        ],
+        "items": [
+          "steel_bar",
+          "ammo_mould"
+        ],
+        "skills": {
+          "smithing": 35
+        }
+      },
       "description": "Cannonball mould casting. Slowest Smithing XP but profit-leading. AFK.",
-      "produces": [{ "item": "cannonball", "rate_per_hour": 3200 }],
-      "marstead_note": "AFK baseline. Profit-focused."
+      "produces": [
+        {
+          "item": "cannonball",
+          "rate_per_hour": 3200
+        }
+      ],
+      "marstead_note": "AFK baseline. Profit-focused.",
+      "travel_time_to_bank_seconds": 25,
+      "nearest_teleport": "Heartlands Teleport (Lumbrick)",
+      "banking_trip_cost": {
+        "gp": 35,
+        "intensity": 2
+      },
+      "travel_region_multiplier": 0,
+      "effective_xp_per_hour": 22733,
+      "effective_gp_per_hour": 165000,
+      "travel_minutes_per_hour": 5,
+      "active_minutes_per_hour": 55,
+      "trips_per_hour": 6
     },
     {
       "id": "sootworks_furnace_stoker_shift",
       "skill": "smithing",
       "level_required": 40,
       "name": "Sootworks Furnace Stoker Shift",
-      "location": { "region": "sootworks", "spot": "Cindervault main furnace, stoker pit" },
+      "location": {
+        "region": "sootworks",
+        "spot": "Cindervault main furnace, stoker pit"
+      },
       "intensity": 4,
       "xp_per_hour": 52000,
       "gp_per_hour": 900000,
-      "requires": { "quests": ["soot_and_ember"], "items": ["coal", "soot_iron_ore", "stoker_apron"], "skills": {"smithing": 40} },
+      "requires": {
+        "quests": [
+          "soot_and_ember"
+        ],
+        "items": [
+          "coal",
+          "soot_iron_ore",
+          "stoker_apron"
+        ],
+        "skills": {
+          "smithing": 40
+        }
+      },
       "description": "Stoke the main Cindervault furnace, output soot-steel bars while cycling coal pile. Active rotation — stoke/cycle/output.",
-      "produces": [{ "item": "soot_iron_bar", "rate_per_hour": 1200 }],
-      "marstead_note": "H11 Sootworks 500k-1M moneymaker. Active shift-rotation."
+      "produces": [
+        {
+          "item": "soot_iron_bar",
+          "rate_per_hour": 1200
+        }
+      ],
+      "marstead_note": "H11 Sootworks 500k-1M moneymaker. Active shift-rotation.",
+      "travel_time_to_bank_seconds": 0,
+      "nearest_teleport": null,
+      "banking_trip_cost": {
+        "gp": 0,
+        "intensity": 0
+      },
+      "travel_region_multiplier": 0.1,
+      "effective_xp_per_hour": 52000,
+      "effective_gp_per_hour": 900000,
+      "travel_minutes_per_hour": 0,
+      "active_minutes_per_hour": 60,
+      "trips_per_hour": 0
     },
     {
       "id": "sootworks_gearcore_shard_smith",
       "skill": "smithing",
       "level_required": 62,
       "name": "Gearcore Shard Smith",
-      "location": { "region": "sootworks", "spot": "Cindervault gearcore district, precision anvil" },
+      "location": {
+        "region": "sootworks",
+        "spot": "Cindervault gearcore district, precision anvil"
+      },
       "intensity": 5,
       "xp_per_hour": 92000,
       "gp_per_hour": 750000,
-      "requires": { "quests": ["soot_and_ember", "the_pipeworks_run"], "items": ["adamantite_bar", "gearcore_template"], "skills": {"smithing": 62} },
+      "requires": {
+        "quests": [
+          "soot_and_ember",
+          "the_pipeworks_run"
+        ],
+        "items": [
+          "adamantite_bar",
+          "gearcore_template"
+        ],
+        "skills": {
+          "smithing": 62
+        }
+      },
       "description": "Precision-hammer gearcore shards to vendor bars. High-level smithing producing high-value bars via template rotation.",
-      "produces": [{ "item": "gearcore_shard", "rate_per_hour": 480 }],
-      "marstead_note": "H11 Sootworks 500k-1M moneymaker. Template-based high-margin smith."
+      "produces": [
+        {
+          "item": "gearcore_shard",
+          "rate_per_hour": 480
+        }
+      ],
+      "marstead_note": "H11 Sootworks 500k-1M moneymaker. Template-based high-margin smith.",
+      "travel_time_to_bank_seconds": 0,
+      "nearest_teleport": null,
+      "banking_trip_cost": {
+        "gp": 0,
+        "intensity": 0
+      },
+      "travel_region_multiplier": 0.1,
+      "effective_xp_per_hour": 92000,
+      "effective_gp_per_hour": 750000,
+      "travel_minutes_per_hour": 0,
+      "active_minutes_per_hour": 60,
+      "trips_per_hour": 0
     },
     {
       "id": "sootworks_elder_rune_runetrace",
       "skill": "smithing",
       "level_required": 94,
       "name": "Elder Rune Runetrace",
-      "location": { "region": "sootworks", "spot": "Cindervault Elder Anvil" },
+      "location": {
+        "region": "sootworks",
+        "spot": "Cindervault Elder Anvil"
+      },
       "intensity": 8,
       "xp_per_hour": 212000,
       "gp_per_hour": 3200000,
-      "requires": { "quests": ["soot_and_ember", "the_forgeroyal_finale"], "items": ["runite_bar", "elder_rune_template", "harmonic_dust"], "skills": {"smithing": 94, "crafting": 85} },
+      "requires": {
+        "quests": [
+          "soot_and_ember",
+          "the_forgeroyal_finale"
+        ],
+        "items": [
+          "runite_bar",
+          "elder_rune_template",
+          "harmonic_dust"
+        ],
+        "skills": {
+          "smithing": 94,
+          "crafting": 85
+        }
+      },
       "description": "Elder-rune runetraced platebody — multi-rune inscription between hammer swings. Yields enchant-capable runite gear.",
-      "produces": [{ "item": "runetraced_platebody", "rate_per_hour": 120 }],
-      "marstead_note": "M14 endgame smithing. Band 8 inscription work."
+      "produces": [
+        {
+          "item": "runetraced_platebody",
+          "rate_per_hour": 120
+        }
+      ],
+      "marstead_note": "M14 endgame smithing. Band 8 inscription work.",
+      "travel_time_to_bank_seconds": 0,
+      "nearest_teleport": null,
+      "banking_trip_cost": {
+        "gp": 0,
+        "intensity": 0
+      },
+      "travel_region_multiplier": 0.1,
+      "effective_xp_per_hour": 212000,
+      "effective_gp_per_hour": 3200000,
+      "travel_minutes_per_hour": 0,
+      "active_minutes_per_hour": 60,
+      "trips_per_hour": 0
     },
     {
       "id": "moryskah_blisterwood_forge_contract",
       "skill": "smithing",
       "level_required": 91,
       "name": "Moryskah Blisterwood Forge Contract",
-      "location": { "region": "moryskah", "spot": "Gravechill vampiric contract anvil" },
+      "location": {
+        "region": "moryskah",
+        "spot": "Gravechill vampiric contract anvil"
+      },
       "intensity": 6,
       "xp_per_hour": 178000,
       "gp_per_hour": 2700000,
-      "requires": { "quests": ["requiem_of_hollows"], "items": ["runite_bar", "blisterwood_core", "holy_water"], "skills": {"smithing": 91, "prayer": 80} },
+      "requires": {
+        "quests": [
+          "requiem_of_hollows"
+        ],
+        "items": [
+          "runite_bar",
+          "blisterwood_core",
+          "holy_water"
+        ],
+        "skills": {
+          "smithing": 91,
+          "prayer": 80
+        }
+      },
       "description": "Vampire-hunter weapon contract. Forge blisterwood stakes on blessed anvil. Prayer drain between pieces. Endgame profit.",
-      "produces": [{ "item": "blisterwood_stake", "rate_per_hour": 180 }],
-      "marstead_note": "M14 endgame smithing. Service economy — sells to Vyrewatch hunters."
+      "produces": [
+        {
+          "item": "blisterwood_stake",
+          "rate_per_hour": 180
+        }
+      ],
+      "marstead_note": "M14 endgame smithing. Service economy — sells to Vyrewatch hunters.",
+      "travel_time_to_bank_seconds": 0,
+      "nearest_teleport": null,
+      "banking_trip_cost": {
+        "gp": 0,
+        "intensity": 0
+      },
+      "travel_region_multiplier": 0.2,
+      "effective_xp_per_hour": 178000,
+      "effective_gp_per_hour": 2700000,
+      "travel_minutes_per_hour": 0,
+      "active_minutes_per_hour": 60,
+      "trips_per_hour": 0
     }
   ],
   "bracket_coverage": {
-    "1-10":  { "count": 2, "intensities": [1, 4] },
-    "10-20": { "count": 2, "intensities": [1, 4] },
-    "20-30": { "count": 2, "intensities": [1, 5] },
-    "30-40": { "count": 3, "intensities": [5, 1, 1] },
-    "40-50": { "count": 2, "intensities": [2, 7] },
-    "50-60": { "count": 2, "intensities": [1, 6] },
-    "60-70": { "count": 2, "intensities": [1, 4] },
-    "70-80": { "count": 2, "intensities": [6, 2] },
-    "80-90": { "count": 3, "intensities": [3, 7, 1] },
-    "90-99": { "count": 2, "intensities": [8, 1] }
+    "1-10": {
+      "count": 2,
+      "intensities": [
+        1,
+        4
+      ]
+    },
+    "10-20": {
+      "count": 2,
+      "intensities": [
+        1,
+        4
+      ]
+    },
+    "20-30": {
+      "count": 2,
+      "intensities": [
+        1,
+        5
+      ]
+    },
+    "30-40": {
+      "count": 3,
+      "intensities": [
+        5,
+        1,
+        1
+      ]
+    },
+    "40-50": {
+      "count": 2,
+      "intensities": [
+        2,
+        7
+      ]
+    },
+    "50-60": {
+      "count": 2,
+      "intensities": [
+        1,
+        6
+      ]
+    },
+    "60-70": {
+      "count": 2,
+      "intensities": [
+        1,
+        4
+      ]
+    },
+    "70-80": {
+      "count": 2,
+      "intensities": [
+        6,
+        2
+      ]
+    },
+    "80-90": {
+      "count": 3,
+      "intensities": [
+        3,
+        7,
+        1
+      ]
+    },
+    "90-99": {
+      "count": 2,
+      "intensities": [
+        8,
+        1
+      ]
+    }
   }
 }

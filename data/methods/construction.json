@@ -7,376 +7,1095 @@
       "skill": "construction",
       "level_required": 1,
       "name": "Crude Wooden Chair Build",
-      "location": { "region": "heartlands", "spot": "Player house parlour" },
+      "location": {
+        "region": "heartlands",
+        "spot": "Player house parlour"
+      },
       "intensity": 1,
       "xp_per_hour": 8000,
       "gp_per_hour": -5000,
-      "requires": { "quests": [], "items": ["plank", "nails", "hammer", "saw"], "skills": {} },
+      "requires": {
+        "quests": [],
+        "items": [
+          "plank",
+          "nails",
+          "hammer",
+          "saw"
+        ],
+        "skills": {}
+      },
       "description": "Build-and-dismantle chair loop.",
       "produces": [],
-      "marstead_note": "AFK baseline."
+      "marstead_note": "AFK baseline.",
+      "travel_time_to_bank_seconds": 0,
+      "nearest_teleport": null,
+      "banking_trip_cost": {
+        "gp": 0,
+        "intensity": 0
+      },
+      "travel_region_multiplier": 0,
+      "effective_xp_per_hour": 8000,
+      "effective_gp_per_hour": -5000,
+      "travel_minutes_per_hour": 0,
+      "active_minutes_per_hour": 60,
+      "trips_per_hour": 0
     },
     {
       "id": "heartlands_plank_rotation",
       "skill": "construction",
       "level_required": 1,
       "name": "Oak Plank Butler Rotation",
-      "location": { "region": "heartlands", "spot": "Player house parlour + butler" },
+      "location": {
+        "region": "heartlands",
+        "spot": "Player house parlour + butler"
+      },
       "intensity": 5,
       "xp_per_hour": 36200,
       "gp_per_hour": -45000,
-      "requires": { "quests": ["butler_s_accord"], "items": ["oak_plank", "nails", "hammer", "saw", "butler_service"], "skills": {"construction": 1} },
+      "requires": {
+        "quests": [
+          "butler_s_accord"
+        ],
+        "items": [
+          "oak_plank",
+          "nails",
+          "hammer",
+          "saw",
+          "butler_service"
+        ],
+        "skills": {
+          "construction": 1
+        }
+      },
       "description": "Butler-fetched oak planks. Build-dismantle rotation.",
       "produces": [],
-      "marstead_note": "Active."
+      "marstead_note": "Active.",
+      "travel_time_to_bank_seconds": 0,
+      "nearest_teleport": null,
+      "banking_trip_cost": {
+        "gp": 0,
+        "intensity": 0
+      },
+      "travel_region_multiplier": 0,
+      "effective_xp_per_hour": 36200,
+      "effective_gp_per_hour": -45000,
+      "travel_minutes_per_hour": 0,
+      "active_minutes_per_hour": 60,
+      "trips_per_hour": 0
     },
     {
       "id": "heartlands_oak_chair",
       "skill": "construction",
       "level_required": 15,
       "name": "Oak Chair Construction",
-      "location": { "region": "heartlands", "spot": "Player house parlour" },
+      "location": {
+        "region": "heartlands",
+        "spot": "Player house parlour"
+      },
       "intensity": 1,
       "xp_per_hour": 15400,
       "gp_per_hour": -12000,
-      "requires": { "quests": [], "items": ["oak_plank", "nails"], "skills": {"construction": 15} },
+      "requires": {
+        "quests": [],
+        "items": [
+          "oak_plank",
+          "nails"
+        ],
+        "skills": {
+          "construction": 15
+        }
+      },
       "description": "Oak chair build-loop.",
       "produces": [],
-      "marstead_note": "AFK baseline for 15+."
+      "marstead_note": "AFK baseline for 15+.",
+      "travel_time_to_bank_seconds": 0,
+      "nearest_teleport": null,
+      "banking_trip_cost": {
+        "gp": 0,
+        "intensity": 0
+      },
+      "travel_region_multiplier": 0,
+      "effective_xp_per_hour": 15400,
+      "effective_gp_per_hour": -12000,
+      "travel_minutes_per_hour": 0,
+      "active_minutes_per_hour": 60,
+      "trips_per_hour": 0
     },
     {
       "id": "heartlands_oak_larder",
       "skill": "construction",
       "level_required": 15,
       "name": "Oak Larder Butler Spin",
-      "location": { "region": "heartlands", "spot": "Player house kitchen + butler" },
+      "location": {
+        "region": "heartlands",
+        "spot": "Player house kitchen + butler"
+      },
       "intensity": 5,
       "xp_per_hour": 62100,
       "gp_per_hour": -125000,
-      "requires": { "quests": ["butler_s_accord"], "items": ["oak_plank"], "skills": {"construction": 15} },
+      "requires": {
+        "quests": [
+          "butler_s_accord"
+        ],
+        "items": [
+          "oak_plank"
+        ],
+        "skills": {
+          "construction": 15
+        }
+      },
       "description": "Butler-fetched oak larder. Peak 15-30 XP.",
       "produces": [],
-      "marstead_note": "Active. Classic early-mid XP method."
+      "marstead_note": "Active. Classic early-mid XP method.",
+      "travel_time_to_bank_seconds": 0,
+      "nearest_teleport": null,
+      "banking_trip_cost": {
+        "gp": 0,
+        "intensity": 0
+      },
+      "travel_region_multiplier": 0,
+      "effective_xp_per_hour": 62100,
+      "effective_gp_per_hour": -125000,
+      "travel_minutes_per_hour": 0,
+      "active_minutes_per_hour": 60,
+      "trips_per_hour": 0
     },
     {
       "id": "heartlands_carved_chair_afk",
       "skill": "construction",
       "level_required": 22,
       "name": "Carved Oak Chair AFK",
-      "location": { "region": "heartlands", "spot": "Player house parlour" },
+      "location": {
+        "region": "heartlands",
+        "spot": "Player house parlour"
+      },
       "intensity": 1,
       "xp_per_hour": 17400,
       "gp_per_hour": -25000,
-      "requires": { "quests": [], "items": ["oak_plank", "nails"], "skills": {"construction": 22} },
+      "requires": {
+        "quests": [],
+        "items": [
+          "oak_plank",
+          "nails"
+        ],
+        "skills": {
+          "construction": 22
+        }
+      },
       "description": "Carved oak chair AFK.",
       "produces": [],
-      "marstead_note": "AFK baseline."
+      "marstead_note": "AFK baseline.",
+      "travel_time_to_bank_seconds": 0,
+      "nearest_teleport": null,
+      "banking_trip_cost": {
+        "gp": 0,
+        "intensity": 0
+      },
+      "travel_region_multiplier": 0,
+      "effective_xp_per_hour": 17400,
+      "effective_gp_per_hour": -25000,
+      "travel_minutes_per_hour": 0,
+      "active_minutes_per_hour": 60,
+      "trips_per_hour": 0
     },
     {
       "id": "heartlands_oak_bench_rush",
       "skill": "construction",
       "level_required": 25,
       "name": "Oak Bench Butler Rush",
-      "location": { "region": "heartlands", "spot": "Player house dining + butler" },
+      "location": {
+        "region": "heartlands",
+        "spot": "Player house dining + butler"
+      },
       "intensity": 5,
       "xp_per_hour": 73700,
       "gp_per_hour": -145000,
-      "requires": { "quests": ["butler_s_accord"], "items": ["oak_plank"], "skills": {"construction": 25} },
+      "requires": {
+        "quests": [
+          "butler_s_accord"
+        ],
+        "items": [
+          "oak_plank"
+        ],
+        "skills": {
+          "construction": 25
+        }
+      },
       "description": "Oak bench butler rotation.",
       "produces": [],
-      "marstead_note": "Active."
+      "marstead_note": "Active.",
+      "travel_time_to_bank_seconds": 0,
+      "nearest_teleport": null,
+      "banking_trip_cost": {
+        "gp": 0,
+        "intensity": 0
+      },
+      "travel_region_multiplier": 0,
+      "effective_xp_per_hour": 73700,
+      "effective_gp_per_hour": -145000,
+      "travel_minutes_per_hour": 0,
+      "active_minutes_per_hour": 60,
+      "trips_per_hour": 0
     },
     {
       "id": "heartlands_teak_chair",
       "skill": "construction",
       "level_required": 35,
       "name": "Teak Chair Butler",
-      "location": { "region": "heartlands", "spot": "Player house parlour + butler" },
+      "location": {
+        "region": "heartlands",
+        "spot": "Player house parlour + butler"
+      },
       "intensity": 5,
       "xp_per_hour": 94300,
       "gp_per_hour": -180000,
-      "requires": { "quests": ["butler_s_accord"], "items": ["teak_plank"], "skills": {"construction": 35} },
+      "requires": {
+        "quests": [
+          "butler_s_accord"
+        ],
+        "items": [
+          "teak_plank"
+        ],
+        "skills": {
+          "construction": 35
+        }
+      },
       "description": "Teak chair butler spin. Peak 35-50 XP.",
       "produces": [],
-      "marstead_note": "Active."
+      "marstead_note": "Active.",
+      "travel_time_to_bank_seconds": 0,
+      "nearest_teleport": null,
+      "banking_trip_cost": {
+        "gp": 0,
+        "intensity": 0
+      },
+      "travel_region_multiplier": 0,
+      "effective_xp_per_hour": 94300,
+      "effective_gp_per_hour": -180000,
+      "travel_minutes_per_hour": 0,
+      "active_minutes_per_hour": 60,
+      "trips_per_hour": 0
     },
     {
       "id": "heartlands_teak_chair_afk",
       "skill": "construction",
       "level_required": 35,
       "name": "Teak Chair AFK",
-      "location": { "region": "heartlands", "spot": "Player house parlour" },
+      "location": {
+        "region": "heartlands",
+        "spot": "Player house parlour"
+      },
       "intensity": 1,
       "xp_per_hour": 22800,
       "gp_per_hour": -45000,
-      "requires": { "quests": [], "items": ["teak_plank", "nails"], "skills": {"construction": 35} },
+      "requires": {
+        "quests": [],
+        "items": [
+          "teak_plank",
+          "nails"
+        ],
+        "skills": {
+          "construction": 35
+        }
+      },
       "description": "Teak chair AFK.",
       "produces": [],
-      "marstead_note": "AFK baseline for 35+."
+      "marstead_note": "AFK baseline for 35+.",
+      "travel_time_to_bank_seconds": 0,
+      "nearest_teleport": null,
+      "banking_trip_cost": {
+        "gp": 0,
+        "intensity": 0
+      },
+      "travel_region_multiplier": 0,
+      "effective_xp_per_hour": 22800,
+      "effective_gp_per_hour": -45000,
+      "travel_minutes_per_hour": 0,
+      "active_minutes_per_hour": 60,
+      "trips_per_hour": 0
     },
     {
       "id": "heartlands_oak_door_bed",
       "skill": "construction",
       "level_required": 45,
       "name": "Oak Door + Bed Chain",
-      "location": { "region": "heartlands", "spot": "Player house bedroom" },
+      "location": {
+        "region": "heartlands",
+        "spot": "Player house bedroom"
+      },
       "intensity": 3,
       "xp_per_hour": 38200,
       "gp_per_hour": -68000,
-      "requires": { "quests": [], "items": ["oak_plank", "nails"], "skills": {"construction": 45} },
+      "requires": {
+        "quests": [],
+        "items": [
+          "oak_plank",
+          "nails"
+        ],
+        "skills": {
+          "construction": 45
+        }
+      },
       "description": "Oak door + bed chain build.",
       "produces": [],
-      "marstead_note": "Active."
+      "marstead_note": "Active.",
+      "travel_time_to_bank_seconds": 0,
+      "nearest_teleport": null,
+      "banking_trip_cost": {
+        "gp": 0,
+        "intensity": 0
+      },
+      "travel_region_multiplier": 0,
+      "effective_xp_per_hour": 38200,
+      "effective_gp_per_hour": -68000,
+      "travel_minutes_per_hour": 0,
+      "active_minutes_per_hour": 60,
+      "trips_per_hour": 0
     },
     {
       "id": "heartlands_altar_basic_afk",
       "skill": "construction",
       "level_required": 40,
       "name": "Basic Altar Spam",
-      "location": { "region": "heartlands", "spot": "Player house chapel" },
+      "location": {
+        "region": "heartlands",
+        "spot": "Player house chapel"
+      },
       "intensity": 1,
       "xp_per_hour": 28000,
       "gp_per_hour": -55000,
-      "requires": { "quests": [], "items": ["teak_plank", "clean_marrentill"], "skills": {"construction": 40} },
+      "requires": {
+        "quests": [],
+        "items": [
+          "teak_plank",
+          "clean_marrentill"
+        ],
+        "skills": {
+          "construction": 40
+        }
+      },
       "description": "Basic altar build + dismantle.",
       "produces": [],
-      "marstead_note": "AFK baseline."
+      "marstead_note": "AFK baseline.",
+      "travel_time_to_bank_seconds": 0,
+      "nearest_teleport": null,
+      "banking_trip_cost": {
+        "gp": 0,
+        "intensity": 0
+      },
+      "travel_region_multiplier": 0,
+      "effective_xp_per_hour": 28000,
+      "effective_gp_per_hour": -55000,
+      "travel_minutes_per_hour": 0,
+      "active_minutes_per_hour": 60,
+      "trips_per_hour": 0
     },
     {
       "id": "heartlands_gilded_altar_rush",
       "skill": "construction",
       "level_required": 50,
       "name": "Gilded Altar Butler Rush",
-      "location": { "region": "heartlands", "spot": "Player house chapel + butler" },
+      "location": {
+        "region": "heartlands",
+        "spot": "Player house chapel + butler"
+      },
       "intensity": 6,
       "xp_per_hour": 136500,
       "gp_per_hour": -320000,
-      "requires": { "quests": ["butler_s_accord"], "items": ["mahogany_plank", "gold_leaf"], "skills": {"construction": 50} },
+      "requires": {
+        "quests": [
+          "butler_s_accord"
+        ],
+        "items": [
+          "mahogany_plank",
+          "gold_leaf"
+        ],
+        "skills": {
+          "construction": 50
+        }
+      },
       "description": "Gilded altar rush. Peak 50+ XP method.",
       "produces": [],
-      "marstead_note": "Active-Max Focus."
+      "marstead_note": "Active-Max Focus.",
+      "travel_time_to_bank_seconds": 0,
+      "nearest_teleport": null,
+      "banking_trip_cost": {
+        "gp": 0,
+        "intensity": 0
+      },
+      "travel_region_multiplier": 0,
+      "effective_xp_per_hour": 136500,
+      "effective_gp_per_hour": -320000,
+      "travel_minutes_per_hour": 0,
+      "active_minutes_per_hour": 60,
+      "trips_per_hour": 0
     },
     {
       "id": "heartlands_gilded_altar_afk",
       "skill": "construction",
       "level_required": 50,
       "name": "Gilded Altar Build AFK",
-      "location": { "region": "heartlands", "spot": "Player house chapel" },
+      "location": {
+        "region": "heartlands",
+        "spot": "Player house chapel"
+      },
       "intensity": 1,
       "xp_per_hour": 32000,
       "gp_per_hour": -135000,
-      "requires": { "quests": [], "items": ["mahogany_plank", "gold_leaf"], "skills": {"construction": 50} },
+      "requires": {
+        "quests": [],
+        "items": [
+          "mahogany_plank",
+          "gold_leaf"
+        ],
+        "skills": {
+          "construction": 50
+        }
+      },
       "description": "Gilded altar AFK solo build.",
       "produces": [],
-      "marstead_note": "AFK baseline for 50+."
+      "marstead_note": "AFK baseline for 50+.",
+      "travel_time_to_bank_seconds": 0,
+      "nearest_teleport": null,
+      "banking_trip_cost": {
+        "gp": 0,
+        "intensity": 0
+      },
+      "travel_region_multiplier": 0,
+      "effective_xp_per_hour": 32000,
+      "effective_gp_per_hour": -135000,
+      "travel_minutes_per_hour": 0,
+      "active_minutes_per_hour": 60,
+      "trips_per_hour": 0
     },
     {
       "id": "heartlands_mahogany_table",
       "skill": "construction",
       "level_required": 55,
       "name": "Mahogany Table Butler",
-      "location": { "region": "heartlands", "spot": "Player house dining + butler" },
+      "location": {
+        "region": "heartlands",
+        "spot": "Player house dining + butler"
+      },
       "intensity": 5,
       "xp_per_hour": 145500,
       "gp_per_hour": -380000,
-      "requires": { "quests": ["butler_s_accord"], "items": ["mahogany_plank"], "skills": {"construction": 55} },
+      "requires": {
+        "quests": [
+          "butler_s_accord"
+        ],
+        "items": [
+          "mahogany_plank"
+        ],
+        "skills": {
+          "construction": 55
+        }
+      },
       "description": "Mahogany table butler spin.",
       "produces": [],
-      "marstead_note": "Active."
+      "marstead_note": "Active.",
+      "travel_time_to_bank_seconds": 0,
+      "nearest_teleport": null,
+      "banking_trip_cost": {
+        "gp": 0,
+        "intensity": 0
+      },
+      "travel_region_multiplier": 0,
+      "effective_xp_per_hour": 145500,
+      "effective_gp_per_hour": -380000,
+      "travel_minutes_per_hour": 0,
+      "active_minutes_per_hour": 60,
+      "trips_per_hour": 0
     },
     {
       "id": "heartlands_mahogany_table_afk",
       "skill": "construction",
       "level_required": 55,
       "name": "Mahogany Table AFK",
-      "location": { "region": "heartlands", "spot": "Player house dining" },
+      "location": {
+        "region": "heartlands",
+        "spot": "Player house dining"
+      },
       "intensity": 1,
       "xp_per_hour": 40000,
       "gp_per_hour": -120000,
-      "requires": { "quests": [], "items": ["mahogany_plank", "nails"], "skills": {"construction": 55} },
+      "requires": {
+        "quests": [],
+        "items": [
+          "mahogany_plank",
+          "nails"
+        ],
+        "skills": {
+          "construction": 55
+        }
+      },
       "description": "Mahogany table solo AFK.",
       "produces": [],
-      "marstead_note": "AFK baseline."
+      "marstead_note": "AFK baseline.",
+      "travel_time_to_bank_seconds": 0,
+      "nearest_teleport": null,
+      "banking_trip_cost": {
+        "gp": 0,
+        "intensity": 0
+      },
+      "travel_region_multiplier": 0,
+      "effective_xp_per_hour": 40000,
+      "effective_gp_per_hour": -120000,
+      "travel_minutes_per_hour": 0,
+      "active_minutes_per_hour": 60,
+      "trips_per_hour": 0
     },
     {
       "id": "veilwood_teleport_throne",
       "skill": "construction",
       "level_required": 65,
       "name": "Oak Teleport Throne Build",
-      "location": { "region": "veilwood", "spot": "Player house throne room" },
+      "location": {
+        "region": "veilwood",
+        "spot": "Player house throne room"
+      },
       "intensity": 2,
       "xp_per_hour": 52400,
       "gp_per_hour": -185000,
-      "requires": { "quests": [], "items": ["oak_plank", "lodestone_crystal"], "skills": {"construction": 65} },
+      "requires": {
+        "quests": [],
+        "items": [
+          "oak_plank",
+          "lodestone_crystal"
+        ],
+        "skills": {
+          "construction": 65
+        }
+      },
       "description": "Teleport throne build. Multi-step per-throne.",
       "produces": [],
-      "marstead_note": "AFK-Multitask for 65+."
+      "marstead_note": "AFK-Multitask for 65+.",
+      "travel_time_to_bank_seconds": 0,
+      "nearest_teleport": null,
+      "banking_trip_cost": {
+        "gp": 0,
+        "intensity": 0
+      },
+      "travel_region_multiplier": 0.1,
+      "effective_xp_per_hour": 52400,
+      "effective_gp_per_hour": -185000,
+      "travel_minutes_per_hour": 0,
+      "active_minutes_per_hour": 60,
+      "trips_per_hour": 0
     },
     {
       "id": "heartlands_portal_chamber_afk",
       "skill": "construction",
       "level_required": 65,
       "name": "Portal Chamber AFK",
-      "location": { "region": "heartlands", "spot": "Player house portal chamber" },
+      "location": {
+        "region": "heartlands",
+        "spot": "Player house portal chamber"
+      },
       "intensity": 1,
       "xp_per_hour": 47000,
       "gp_per_hour": -180000,
-      "requires": { "quests": [], "items": ["mahogany_plank", "focus_stone"], "skills": {"construction": 65} },
+      "requires": {
+        "quests": [],
+        "items": [
+          "mahogany_plank",
+          "focus_stone"
+        ],
+        "skills": {
+          "construction": 65
+        }
+      },
       "description": "Portal chamber single-build AFK.",
       "produces": [],
-      "marstead_note": "AFK baseline."
+      "marstead_note": "AFK baseline.",
+      "travel_time_to_bank_seconds": 0,
+      "nearest_teleport": null,
+      "banking_trip_cost": {
+        "gp": 0,
+        "intensity": 0
+      },
+      "travel_region_multiplier": 0,
+      "effective_xp_per_hour": 47000,
+      "effective_gp_per_hour": -180000,
+      "travel_minutes_per_hour": 0,
+      "active_minutes_per_hour": 60,
+      "trips_per_hour": 0
     },
     {
       "id": "heartlands_mahogany_benches_rush",
       "skill": "construction",
       "level_required": 70,
       "name": "Mahogany Benches Butler Rush",
-      "location": { "region": "heartlands", "spot": "Player house workshop + butler" },
+      "location": {
+        "region": "heartlands",
+        "spot": "Player house workshop + butler"
+      },
       "intensity": 6,
       "xp_per_hour": 165600,
       "gp_per_hour": -420000,
-      "requires": { "quests": ["butler_s_accord"], "items": ["mahogany_plank"], "skills": {"construction": 70} },
+      "requires": {
+        "quests": [
+          "butler_s_accord"
+        ],
+        "items": [
+          "mahogany_plank"
+        ],
+        "skills": {
+          "construction": 70
+        }
+      },
       "description": "Peak 70+ XP method.",
       "produces": [],
-      "marstead_note": "Max Focus."
+      "marstead_note": "Max Focus.",
+      "travel_time_to_bank_seconds": 0,
+      "nearest_teleport": null,
+      "banking_trip_cost": {
+        "gp": 0,
+        "intensity": 0
+      },
+      "travel_region_multiplier": 0,
+      "effective_xp_per_hour": 165600,
+      "effective_gp_per_hour": -420000,
+      "travel_minutes_per_hour": 0,
+      "active_minutes_per_hour": 60,
+      "trips_per_hour": 0
     },
     {
       "id": "heartlands_mahogany_bench_afk",
       "skill": "construction",
       "level_required": 70,
       "name": "Mahogany Bench AFK",
-      "location": { "region": "heartlands", "spot": "Player house workshop" },
+      "location": {
+        "region": "heartlands",
+        "spot": "Player house workshop"
+      },
       "intensity": 1,
       "xp_per_hour": 54700,
       "gp_per_hour": -220000,
-      "requires": { "quests": [], "items": ["mahogany_plank", "nails"], "skills": {"construction": 70} },
+      "requires": {
+        "quests": [],
+        "items": [
+          "mahogany_plank",
+          "nails"
+        ],
+        "skills": {
+          "construction": 70
+        }
+      },
       "description": "Mahogany bench solo AFK.",
       "produces": [],
-      "marstead_note": "AFK baseline for 70+."
+      "marstead_note": "AFK baseline for 70+.",
+      "travel_time_to_bank_seconds": 0,
+      "nearest_teleport": null,
+      "banking_trip_cost": {
+        "gp": 0,
+        "intensity": 0
+      },
+      "travel_region_multiplier": 0,
+      "effective_xp_per_hour": 54700,
+      "effective_gp_per_hour": -220000,
+      "travel_minutes_per_hour": 0,
+      "active_minutes_per_hour": 60,
+      "trips_per_hour": 0
     },
     {
       "id": "boneyard_dungeon_room",
       "skill": "construction",
       "level_required": 80,
       "name": "Dungeon Room Build",
-      "location": { "region": "boneyard", "spot": "Player house dungeon slot" },
+      "location": {
+        "region": "boneyard",
+        "spot": "Player house dungeon slot"
+      },
       "intensity": 2,
       "xp_per_hour": 78600,
       "gp_per_hour": -285000,
-      "requires": { "quests": [], "items": ["mahogany_plank", "steel_bar"], "skills": {"construction": 80} },
+      "requires": {
+        "quests": [],
+        "items": [
+          "mahogany_plank",
+          "steel_bar"
+        ],
+        "skills": {
+          "construction": 80
+        }
+      },
       "description": "Dungeon room build — unlocks stage fights.",
       "produces": [],
-      "marstead_note": "AFK-Multitask for 80+."
+      "marstead_note": "AFK-Multitask for 80+.",
+      "travel_time_to_bank_seconds": 0,
+      "nearest_teleport": null,
+      "banking_trip_cost": {
+        "gp": 0,
+        "intensity": 0
+      },
+      "travel_region_multiplier": 0.2,
+      "effective_xp_per_hour": 78600,
+      "effective_gp_per_hour": -285000,
+      "travel_minutes_per_hour": 0,
+      "active_minutes_per_hour": 60,
+      "trips_per_hour": 0
     },
     {
       "id": "heartlands_dungeon_room_afk",
       "skill": "construction",
       "level_required": 80,
       "name": "Dungeon Access Staircase AFK",
-      "location": { "region": "heartlands", "spot": "Player house dungeon slot" },
+      "location": {
+        "region": "heartlands",
+        "spot": "Player house dungeon slot"
+      },
       "intensity": 1,
       "xp_per_hour": 62800,
       "gp_per_hour": -195000,
-      "requires": { "quests": [], "items": ["mahogany_plank", "nails"], "skills": {"construction": 80} },
+      "requires": {
+        "quests": [],
+        "items": [
+          "mahogany_plank",
+          "nails"
+        ],
+        "skills": {
+          "construction": 80
+        }
+      },
       "description": "Dungeon staircase alone. AFK.",
       "produces": [],
-      "marstead_note": "AFK baseline for 80+."
+      "marstead_note": "AFK baseline for 80+.",
+      "travel_time_to_bank_seconds": 0,
+      "nearest_teleport": null,
+      "banking_trip_cost": {
+        "gp": 0,
+        "intensity": 0
+      },
+      "travel_region_multiplier": 0,
+      "effective_xp_per_hour": 62800,
+      "effective_gp_per_hour": -195000,
+      "travel_minutes_per_hour": 0,
+      "active_minutes_per_hour": 60,
+      "trips_per_hour": 0
     },
     {
       "id": "veilwood_crystal_throne",
       "skill": "construction",
       "level_required": 90,
       "name": "Crystal Teleport Throne",
-      "location": { "region": "veilwood", "spot": "Player house throne room" },
+      "location": {
+        "region": "veilwood",
+        "spot": "Player house throne room"
+      },
       "intensity": 5,
       "xp_per_hour": 152600,
       "gp_per_hour": -520000,
-      "requires": { "quests": ["song_of_the_mossborn"], "items": ["crystal_shard", "mahogany_plank"], "skills": {"construction": 90} },
+      "requires": {
+        "quests": [
+          "song_of_the_mossborn"
+        ],
+        "items": [
+          "crystal_shard",
+          "mahogany_plank"
+        ],
+        "skills": {
+          "construction": 90
+        }
+      },
       "description": "Crystal teleport throne build.",
       "produces": [],
-      "marstead_note": "Active. Endgame."
+      "marstead_note": "Active. Endgame.",
+      "travel_time_to_bank_seconds": 0,
+      "nearest_teleport": null,
+      "banking_trip_cost": {
+        "gp": 0,
+        "intensity": 0
+      },
+      "travel_region_multiplier": 0.1,
+      "effective_xp_per_hour": 152600,
+      "effective_gp_per_hour": -520000,
+      "travel_minutes_per_hour": 0,
+      "active_minutes_per_hour": 60,
+      "trips_per_hour": 0
     },
     {
       "id": "wilds_boss_lair",
       "skill": "construction",
       "level_required": 96,
       "name": "Boss Lair Build",
-      "location": { "region": "wilds", "spot": "Player house boss slot" },
+      "location": {
+        "region": "wilds",
+        "spot": "Player house boss slot"
+      },
       "intensity": 7,
       "xp_per_hour": 212000,
       "gp_per_hour": -720000,
-      "requires": { "quests": ["hearthing_right_grandmaster"], "items": ["mahogany_plank", "runite_bar", "dragon_bones"], "skills": {"construction": 96} },
+      "requires": {
+        "quests": [
+          "hearthing_right_grandmaster"
+        ],
+        "items": [
+          "mahogany_plank",
+          "runite_bar",
+          "dragon_bones"
+        ],
+        "skills": {
+          "construction": 96
+        }
+      },
       "description": "Boss lair. Multi-stage build.",
       "produces": [],
-      "marstead_note": "Max Focus. Endgame construction capstone."
+      "marstead_note": "Max Focus. Endgame construction capstone.",
+      "travel_time_to_bank_seconds": 20,
+      "nearest_teleport": "Amulet of Glory (Wilds edge)",
+      "banking_trip_cost": {
+        "gp": 500,
+        "intensity": 2
+      },
+      "travel_region_multiplier": 0.3,
+      "effective_xp_per_hour": 193156,
+      "effective_gp_per_hour": -656000,
+      "travel_minutes_per_hour": 5.3,
+      "active_minutes_per_hour": 54.7,
+      "trips_per_hour": 8
     },
     {
       "id": "heartlands_gem_fence_afk",
       "skill": "construction",
       "level_required": 92,
       "name": "Diamond Fence AFK",
-      "location": { "region": "heartlands", "spot": "Player house garden" },
+      "location": {
+        "region": "heartlands",
+        "spot": "Player house garden"
+      },
       "intensity": 1,
       "xp_per_hour": 94000,
       "gp_per_hour": -420000,
-      "requires": { "quests": [], "items": ["mahogany_plank", "uncut_diamond"], "skills": {"construction": 92} },
+      "requires": {
+        "quests": [],
+        "items": [
+          "mahogany_plank",
+          "uncut_diamond"
+        ],
+        "skills": {
+          "construction": 92
+        }
+      },
       "description": "Diamond fence single-build AFK.",
       "produces": [],
-      "marstead_note": "AFK baseline for 90+."
+      "marstead_note": "AFK baseline for 90+.",
+      "travel_time_to_bank_seconds": 0,
+      "nearest_teleport": null,
+      "banking_trip_cost": {
+        "gp": 0,
+        "intensity": 0
+      },
+      "travel_region_multiplier": 0,
+      "effective_xp_per_hour": 94000,
+      "effective_gp_per_hour": -420000,
+      "travel_minutes_per_hour": 0,
+      "active_minutes_per_hour": 60,
+      "trips_per_hour": 0
     },
     {
       "id": "heartlands_mahogany_bench_elite_butler",
       "skill": "construction",
       "level_required": 91,
       "name": "Mahogany Bench Elite Butler Spin",
-      "location": { "region": "heartlands", "spot": "Player house garden + Demon butler" },
+      "location": {
+        "region": "heartlands",
+        "spot": "Player house garden + Demon butler"
+      },
       "intensity": 8,
       "xp_per_hour": 248000,
       "gp_per_hour": -980000,
-      "requires": { "quests": ["hearthing_right_grandmaster"], "items": ["mahogany_plank", "demon_butler_service"], "skills": {"construction": 91} },
+      "requires": {
+        "quests": [
+          "hearthing_right_grandmaster"
+        ],
+        "items": [
+          "mahogany_plank",
+          "demon_butler_service"
+        ],
+        "skills": {
+          "construction": 91
+        }
+      },
       "description": "Demon butler fetch loop with tick-perfect mahogany bench build-dismantle. Band 8 elite XP method.",
       "produces": [],
-      "marstead_note": "M14 endgame construction. Elite butler spin."
+      "marstead_note": "M14 endgame construction. Elite butler spin.",
+      "travel_time_to_bank_seconds": 0,
+      "nearest_teleport": null,
+      "banking_trip_cost": {
+        "gp": 0,
+        "intensity": 0
+      },
+      "travel_region_multiplier": 0,
+      "effective_xp_per_hour": 248000,
+      "effective_gp_per_hour": -980000,
+      "travel_minutes_per_hour": 0,
+      "active_minutes_per_hour": 60,
+      "trips_per_hour": 0
     },
     {
       "id": "inkweald_dream_aquarium",
       "skill": "construction",
       "level_required": 95,
       "name": "Dream-Aquarium Build",
-      "location": { "region": "inkweald", "spot": "Player house aquarium room" },
+      "location": {
+        "region": "inkweald",
+        "spot": "Player house aquarium room"
+      },
       "intensity": 4,
       "xp_per_hour": 158000,
       "gp_per_hour": -420000,
-      "requires": { "quests": ["unwake_the_dreamer"], "items": ["mahogany_plank", "dream_silk", "aquarium_stone"], "skills": {"construction": 95, "fishing": 90} },
+      "requires": {
+        "quests": [
+          "unwake_the_dreamer"
+        ],
+        "items": [
+          "mahogany_plank",
+          "dream_silk",
+          "aquarium_stone"
+        ],
+        "skills": {
+          "construction": 95,
+          "fishing": 90
+        }
+      },
       "description": "Dream-aquarium in aquarium room yields passive dream-koi every cycle. Build-dismantle XP.",
-      "produces": [{ "item": "dream_koi", "rate_per_hour": 120 }],
-      "marstead_note": "M14 endgame construction. Mid-intensity XP with passive fishing drop."
+      "produces": [
+        {
+          "item": "dream_koi",
+          "rate_per_hour": 120
+        }
+      ],
+      "marstead_note": "M14 endgame construction. Mid-intensity XP with passive fishing drop.",
+      "travel_time_to_bank_seconds": 0,
+      "nearest_teleport": null,
+      "banking_trip_cost": {
+        "gp": 0,
+        "intensity": 0
+      },
+      "travel_region_multiplier": 0.2,
+      "effective_xp_per_hour": 158000,
+      "effective_gp_per_hour": -420000,
+      "travel_minutes_per_hour": 0,
+      "active_minutes_per_hour": 60,
+      "trips_per_hour": 0
     },
     {
       "id": "heartlands_teleport_nexus_master",
       "skill": "construction",
       "level_required": 93,
       "name": "Master Teleport Nexus Build",
-      "location": { "region": "heartlands", "spot": "Player house portal chamber" },
+      "location": {
+        "region": "heartlands",
+        "spot": "Player house portal chamber"
+      },
       "intensity": 2,
       "xp_per_hour": 124000,
       "gp_per_hour": -285000,
-      "requires": { "quests": ["hearthing_right_grandmaster"], "items": ["mahogany_plank", "magic_stone", "law_rune"], "skills": {"construction": 93, "magic": 80} },
+      "requires": {
+        "quests": [
+          "hearthing_right_grandmaster"
+        ],
+        "items": [
+          "mahogany_plank",
+          "magic_stone",
+          "law_rune"
+        ],
+        "skills": {
+          "construction": 93,
+          "magic": 80
+        }
+      },
       "description": "Teleport nexus master-tier — one build lasts several minutes. Light-interaction endgame.",
       "produces": [],
-      "marstead_note": "M14 endgame construction. Low-intensity high-xp baseline."
+      "marstead_note": "M14 endgame construction. Low-intensity high-xp baseline.",
+      "travel_time_to_bank_seconds": 0,
+      "nearest_teleport": null,
+      "banking_trip_cost": {
+        "gp": 0,
+        "intensity": 0
+      },
+      "travel_region_multiplier": 0,
+      "effective_xp_per_hour": 124000,
+      "effective_gp_per_hour": -285000,
+      "travel_minutes_per_hour": 0,
+      "active_minutes_per_hour": 60,
+      "trips_per_hour": 0
     }
   ],
   "bracket_coverage": {
-    "1-10":  { "count": 2, "intensities": [1, 5] },
-    "10-20": { "count": 2, "intensities": [1, 5] },
-    "20-30": { "count": 2, "intensities": [1, 5] },
-    "30-40": { "count": 2, "intensities": [5, 1] },
-    "40-50": { "count": 2, "intensities": [3, 1] },
-    "50-60": { "count": 3, "intensities": [6, 1, 5] },
-    "60-70": { "count": 3, "intensities": [1, 2, 1] },
-    "70-80": { "count": 2, "intensities": [6, 1] },
-    "80-90": { "count": 2, "intensities": [2, 1] },
-    "90-99": { "count": 3, "intensities": [5, 7, 1] }
+    "1-10": {
+      "count": 2,
+      "intensities": [
+        1,
+        5
+      ]
+    },
+    "10-20": {
+      "count": 2,
+      "intensities": [
+        1,
+        5
+      ]
+    },
+    "20-30": {
+      "count": 2,
+      "intensities": [
+        1,
+        5
+      ]
+    },
+    "30-40": {
+      "count": 2,
+      "intensities": [
+        5,
+        1
+      ]
+    },
+    "40-50": {
+      "count": 2,
+      "intensities": [
+        3,
+        1
+      ]
+    },
+    "50-60": {
+      "count": 3,
+      "intensities": [
+        6,
+        1,
+        5
+      ]
+    },
+    "60-70": {
+      "count": 3,
+      "intensities": [
+        1,
+        2,
+        1
+      ]
+    },
+    "70-80": {
+      "count": 2,
+      "intensities": [
+        6,
+        1
+      ]
+    },
+    "80-90": {
+      "count": 2,
+      "intensities": [
+        2,
+        1
+      ]
+    },
+    "90-99": {
+      "count": 3,
+      "intensities": [
+        5,
+        7,
+        1
+      ]
+    }
   }
 }

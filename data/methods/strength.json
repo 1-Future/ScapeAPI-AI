@@ -7,348 +7,1092 @@
       "skill": "strength",
       "level_required": 1,
       "name": "Lumbrick Training Dummy (Aggressive)",
-      "location": { "region": "heartlands", "spot": "Lumbrick training yard, dummy" },
+      "location": {
+        "region": "heartlands",
+        "spot": "Lumbrick training yard, dummy"
+      },
       "intensity": 1,
       "xp_per_hour": 8000,
       "gp_per_hour": 0,
-      "requires": { "quests": [], "items": ["bronze_scimitar"], "skills": {} },
+      "requires": {
+        "quests": [],
+        "items": [
+          "bronze_scimitar"
+        ],
+        "skills": {}
+      },
       "description": "Dummy on aggressive. AFK baseline.",
       "produces": [],
-      "marstead_note": "AFK baseline."
+      "marstead_note": "AFK baseline.",
+      "travel_time_to_bank_seconds": 25,
+      "nearest_teleport": "Heartlands Teleport (Lumbrick)",
+      "banking_trip_cost": {
+        "gp": 35,
+        "intensity": 2
+      },
+      "travel_region_multiplier": 0,
+      "effective_xp_per_hour": 7778,
+      "effective_gp_per_hour": 0,
+      "travel_minutes_per_hour": 1.7,
+      "active_minutes_per_hour": 58.3,
+      "trips_per_hour": 2
     },
     {
       "id": "heartlands_giant_rat_aggressive",
       "skill": "strength",
       "level_required": 3,
       "name": "Giant Rat Aggressive Farm",
-      "location": { "region": "heartlands", "spot": "Lumbrick sewer" },
+      "location": {
+        "region": "heartlands",
+        "spot": "Lumbrick sewer"
+      },
       "intensity": 2,
       "xp_per_hour": 13900,
       "gp_per_hour": 1800,
-      "requires": { "quests": [], "items": ["bronze_scimitar"], "skills": {} },
+      "requires": {
+        "quests": [],
+        "items": [
+          "bronze_scimitar"
+        ],
+        "skills": {}
+      },
       "description": "Sewer rats on aggressive. Auto-AFK.",
-      "produces": [{ "item": "raw_rat_meat", "rate_per_hour": 800 }],
-      "marstead_note": "AFK-Multitask."
+      "produces": [
+        {
+          "item": "raw_rat_meat",
+          "rate_per_hour": 800
+        }
+      ],
+      "marstead_note": "AFK-Multitask.",
+      "travel_time_to_bank_seconds": 44,
+      "nearest_teleport": "Heartlands Teleport (Lumbrick)",
+      "banking_trip_cost": {
+        "gp": 35,
+        "intensity": 2
+      },
+      "travel_region_multiplier": 0,
+      "effective_xp_per_hour": 13220,
+      "effective_gp_per_hour": 1712,
+      "travel_minutes_per_hour": 2.9,
+      "active_minutes_per_hour": 57.1,
+      "trips_per_hour": 2
     },
     {
       "id": "heartlands_cow_aggressive",
       "skill": "strength",
       "level_required": 10,
       "name": "Cow Field Aggressive",
-      "location": { "region": "heartlands", "spot": "Chelser cow field" },
+      "location": {
+        "region": "heartlands",
+        "spot": "Chelser cow field"
+      },
       "intensity": 1,
       "xp_per_hour": 10900,
       "gp_per_hour": 5800,
-      "requires": { "quests": [], "items": ["steel_scimitar"], "skills": {} },
+      "requires": {
+        "quests": [],
+        "items": [
+          "steel_scimitar"
+        ],
+        "skills": {}
+      },
       "description": "Cows on aggressive. Pure AFK.",
-      "produces": [{ "item": "raw_beef", "rate_per_hour": 420 }, { "item": "cowhide", "rate_per_hour": 420 }],
-      "marstead_note": "AFK baseline for 10+."
+      "produces": [
+        {
+          "item": "raw_beef",
+          "rate_per_hour": 420
+        },
+        {
+          "item": "cowhide",
+          "rate_per_hour": 420
+        }
+      ],
+      "marstead_note": "AFK baseline for 10+.",
+      "travel_time_to_bank_seconds": 25,
+      "nearest_teleport": "Heartlands Teleport (Lumbrick)",
+      "banking_trip_cost": {
+        "gp": 35,
+        "intensity": 2
+      },
+      "travel_region_multiplier": 0,
+      "effective_xp_per_hour": 10597,
+      "effective_gp_per_hour": 5639,
+      "travel_minutes_per_hour": 1.7,
+      "active_minutes_per_hour": 58.3,
+      "trips_per_hour": 2
     },
     {
       "id": "heartlands_knight_safespot_aggressive",
       "skill": "strength",
       "level_required": 15,
       "name": "Garrison Knight Safespot",
-      "location": { "region": "heartlands", "spot": "Garrison sparring yard" },
+      "location": {
+        "region": "heartlands",
+        "spot": "Garrison sparring yard"
+      },
       "intensity": 3,
       "xp_per_hour": 22500,
       "gp_per_hour": 12000,
-      "requires": { "quests": [], "items": ["steel_longsword"], "skills": {"strength": 15} },
+      "requires": {
+        "quests": [],
+        "items": [
+          "steel_longsword"
+        ],
+        "skills": {
+          "strength": 15
+        }
+      },
       "description": "Safespot knights through a gate rail.",
-      "produces": [{ "item": "coins", "rate_per_hour": 18000 }],
-      "marstead_note": "Multitask."
+      "produces": [
+        {
+          "item": "coins",
+          "rate_per_hour": 18000
+        }
+      ],
+      "marstead_note": "Multitask.",
+      "travel_time_to_bank_seconds": 25,
+      "nearest_teleport": "Heartlands Teleport (Lumbrick)",
+      "banking_trip_cost": {
+        "gp": 35,
+        "intensity": 2
+      },
+      "travel_region_multiplier": 0,
+      "effective_xp_per_hour": 21875,
+      "effective_gp_per_hour": 11667,
+      "travel_minutes_per_hour": 1.7,
+      "active_minutes_per_hour": 58.3,
+      "trips_per_hour": 2
     },
     {
       "id": "boneyard_hill_giant_afk",
       "skill": "strength",
       "level_required": 22,
       "name": "Boneyard Hill Giant AFK",
-      "location": { "region": "boneyard", "spot": "Giant Hills gorge" },
+      "location": {
+        "region": "boneyard",
+        "spot": "Giant Hills gorge"
+      },
       "intensity": 1,
       "xp_per_hour": 17400,
       "gp_per_hour": 18000,
-      "requires": { "quests": [], "items": ["mithril_scimitar"], "skills": {"strength": 22} },
+      "requires": {
+        "quests": [],
+        "items": [
+          "mithril_scimitar"
+        ],
+        "skills": {
+          "strength": 22
+        }
+      },
       "description": "Hill giants on aggressive. Multi-combat AFK.",
-      "produces": [{ "item": "big_bones", "rate_per_hour": 280 }],
-      "marstead_note": "AFK baseline for 20+."
+      "produces": [
+        {
+          "item": "big_bones",
+          "rate_per_hour": 280
+        }
+      ],
+      "marstead_note": "AFK baseline for 20+.",
+      "travel_time_to_bank_seconds": 50,
+      "nearest_teleport": "Senntisten Teleport (Ancient)",
+      "banking_trip_cost": {
+        "gp": 180,
+        "intensity": 2
+      },
+      "travel_region_multiplier": 0.2,
+      "effective_xp_per_hour": 16433,
+      "effective_gp_per_hour": 17000,
+      "travel_minutes_per_hour": 3.3,
+      "active_minutes_per_hour": 56.7,
+      "trips_per_hour": 2
     },
     {
       "id": "boneyard_hill_giant_pull",
       "skill": "strength",
       "level_required": 25,
       "name": "Hill Giant Multi-Pull",
-      "location": { "region": "boneyard", "spot": "Giant Hills gorge center" },
+      "location": {
+        "region": "boneyard",
+        "spot": "Giant Hills gorge center"
+      },
       "intensity": 5,
       "xp_per_hour": 36200,
       "gp_per_hour": 65000,
-      "requires": { "quests": [], "items": ["mithril_scimitar"], "skills": {"strength": 25, "defence": 25} },
+      "requires": {
+        "quests": [],
+        "items": [
+          "mithril_scimitar"
+        ],
+        "skills": {
+          "strength": 25,
+          "defence": 25
+        }
+      },
       "description": "Multi-pull hill giants through the gorge.",
-      "produces": [{ "item": "big_bones", "rate_per_hour": 560 }],
-      "marstead_note": "Active."
+      "produces": [
+        {
+          "item": "big_bones",
+          "rate_per_hour": 560
+        }
+      ],
+      "marstead_note": "Active.",
+      "travel_time_to_bank_seconds": 0,
+      "nearest_teleport": null,
+      "banking_trip_cost": {
+        "gp": 0,
+        "intensity": 0
+      },
+      "travel_region_multiplier": 0.2,
+      "effective_xp_per_hour": 36200,
+      "effective_gp_per_hour": 65000,
+      "travel_minutes_per_hour": 0,
+      "active_minutes_per_hour": 60,
+      "trips_per_hour": 0
     },
     {
       "id": "heartlands_sand_crab_str",
       "skill": "strength",
       "level_required": 30,
       "name": "Sand Crab Aggressive AFK",
-      "location": { "region": "heartlands", "spot": "Gaff's Beach sand crabs" },
+      "location": {
+        "region": "heartlands",
+        "spot": "Gaff's Beach sand crabs"
+      },
       "intensity": 1,
       "xp_per_hour": 19800,
       "gp_per_hour": 0,
-      "requires": { "quests": [], "items": ["adamant_scimitar"], "skills": {"strength": 30} },
+      "requires": {
+        "quests": [],
+        "items": [
+          "adamant_scimitar"
+        ],
+        "skills": {
+          "strength": 30
+        }
+      },
       "description": "Sand crabs aggressive. AFK.",
       "produces": [],
-      "marstead_note": "AFK baseline."
+      "marstead_note": "AFK baseline.",
+      "travel_time_to_bank_seconds": 25,
+      "nearest_teleport": "Heartlands Teleport (Lumbrick)",
+      "banking_trip_cost": {
+        "gp": 35,
+        "intensity": 2
+      },
+      "travel_region_multiplier": 0,
+      "effective_xp_per_hour": 19250,
+      "effective_gp_per_hour": 0,
+      "travel_minutes_per_hour": 1.7,
+      "active_minutes_per_hour": 58.3,
+      "trips_per_hour": 2
     },
     {
       "id": "heartlands_black_knight_active",
       "skill": "strength",
       "level_required": 35,
       "name": "Black Knight Fortress Active",
-      "location": { "region": "heartlands", "spot": "Black Knight Fortress" },
+      "location": {
+        "region": "heartlands",
+        "spot": "Black Knight Fortress"
+      },
       "intensity": 5,
       "xp_per_hour": 40300,
       "gp_per_hour": 48000,
-      "requires": { "quests": [], "items": ["adamant_scimitar"], "skills": {"strength": 35} },
+      "requires": {
+        "quests": [],
+        "items": [
+          "adamant_scimitar"
+        ],
+        "skills": {
+          "strength": 35
+        }
+      },
       "description": "Active multi-pull black knights.",
-      "produces": [{ "item": "coins", "rate_per_hour": 28000 }],
-      "marstead_note": "Active."
+      "produces": [
+        {
+          "item": "coins",
+          "rate_per_hour": 28000
+        }
+      ],
+      "marstead_note": "Active.",
+      "travel_time_to_bank_seconds": 25,
+      "nearest_teleport": "Heartlands Teleport (Lumbrick)",
+      "banking_trip_cost": {
+        "gp": 35,
+        "intensity": 2
+      },
+      "travel_region_multiplier": 0,
+      "effective_xp_per_hour": 38621,
+      "effective_gp_per_hour": 46000,
+      "travel_minutes_per_hour": 2.5,
+      "active_minutes_per_hour": 57.5,
+      "trips_per_hour": 3
     },
     {
       "id": "saltbrine_rock_crab_str",
       "skill": "strength",
       "level_required": 40,
       "name": "Saltbrine Rock Crab Aggressive",
-      "location": { "region": "saltbrine", "spot": "Tideshelf rock crab beach" },
+      "location": {
+        "region": "saltbrine",
+        "spot": "Tideshelf rock crab beach"
+      },
       "intensity": 1,
       "xp_per_hour": 23800,
       "gp_per_hour": 0,
-      "requires": { "quests": [], "items": ["rune_scimitar"], "skills": {"strength": 40} },
+      "requires": {
+        "quests": [],
+        "items": [
+          "rune_scimitar"
+        ],
+        "skills": {
+          "strength": 40
+        }
+      },
       "description": "Rock crabs on aggressive. 10-min cycle.",
       "produces": [],
-      "marstead_note": "AFK baseline for 40+."
+      "marstead_note": "AFK baseline for 40+.",
+      "travel_time_to_bank_seconds": 22,
+      "nearest_teleport": "Saltbrine Teleport (Harbor)",
+      "banking_trip_cost": {
+        "gp": 55,
+        "intensity": 2
+      },
+      "travel_region_multiplier": 0,
+      "effective_xp_per_hour": 23218,
+      "effective_gp_per_hour": 0,
+      "travel_minutes_per_hour": 1.5,
+      "active_minutes_per_hour": 58.5,
+      "trips_per_hour": 2
     },
     {
       "id": "saltbrine_experiment_pit_active",
       "skill": "strength",
       "level_required": 45,
       "name": "Experiment Pit (Active)",
-      "location": { "region": "saltbrine", "spot": "Dark Warriors pit" },
+      "location": {
+        "region": "saltbrine",
+        "spot": "Dark Warriors pit"
+      },
       "intensity": 4,
       "xp_per_hour": 42100,
       "gp_per_hour": 58000,
-      "requires": { "quests": ["the_dark_port"], "items": ["rune_scimitar"], "skills": {"strength": 45} },
+      "requires": {
+        "quests": [
+          "the_dark_port"
+        ],
+        "items": [
+          "rune_scimitar"
+        ],
+        "skills": {
+          "strength": 45
+        }
+      },
       "description": "Dark warriors in a pit. Multi-combat.",
-      "produces": [{ "item": "coins", "rate_per_hour": 48000 }],
-      "marstead_note": "Active."
+      "produces": [
+        {
+          "item": "coins",
+          "rate_per_hour": 48000
+        }
+      ],
+      "marstead_note": "Active.",
+      "travel_time_to_bank_seconds": 22,
+      "nearest_teleport": "Saltbrine Teleport (Harbor)",
+      "banking_trip_cost": {
+        "gp": 55,
+        "intensity": 2
+      },
+      "travel_region_multiplier": 0,
+      "effective_xp_per_hour": 41071,
+      "effective_gp_per_hour": 56582,
+      "travel_minutes_per_hour": 1.5,
+      "active_minutes_per_hour": 58.5,
+      "trips_per_hour": 2
     },
     {
       "id": "heartlands_ammonite_crab_str",
       "skill": "strength",
       "level_required": 50,
       "name": "Ammonite Crab Aggressive AFK",
-      "location": { "region": "heartlands", "spot": "Gaff's Beach deep tidepools" },
+      "location": {
+        "region": "heartlands",
+        "spot": "Gaff's Beach deep tidepools"
+      },
       "intensity": 1,
       "xp_per_hour": 32000,
       "gp_per_hour": 0,
-      "requires": { "quests": [], "items": ["rune_scimitar"], "skills": {"strength": 50} },
+      "requires": {
+        "quests": [],
+        "items": [
+          "rune_scimitar"
+        ],
+        "skills": {
+          "strength": 50
+        }
+      },
       "description": "Ammonite crabs. 100 HP version.",
       "produces": [],
-      "marstead_note": "AFK baseline."
+      "marstead_note": "AFK baseline.",
+      "travel_time_to_bank_seconds": 44,
+      "nearest_teleport": "Heartlands Teleport (Lumbrick)",
+      "banking_trip_cost": {
+        "gp": 35,
+        "intensity": 2
+      },
+      "travel_region_multiplier": 0,
+      "effective_xp_per_hour": 30436,
+      "effective_gp_per_hour": 0,
+      "travel_minutes_per_hour": 2.9,
+      "active_minutes_per_hour": 57.1,
+      "trips_per_hour": 2
     },
     {
       "id": "moryskah_flesh_crawler_active",
       "skill": "strength",
       "level_required": 50,
       "name": "Flesh Crawler Active",
-      "location": { "region": "moryskah", "spot": "Gravechill crawler tunnels" },
+      "location": {
+        "region": "moryskah",
+        "spot": "Gravechill crawler tunnels"
+      },
       "intensity": 5,
       "xp_per_hour": 46700,
       "gp_per_hour": 72000,
-      "requires": { "quests": [], "items": ["rune_scimitar"], "skills": {"strength": 50} },
+      "requires": {
+        "quests": [],
+        "items": [
+          "rune_scimitar"
+        ],
+        "skills": {
+          "strength": 50
+        }
+      },
       "description": "Flesh crawler multi-combat. Low def, rapid XP.",
-      "produces": [{ "item": "crawler_ichor", "rate_per_hour": 320 }],
-      "marstead_note": "Active."
+      "produces": [
+        {
+          "item": "crawler_ichor",
+          "rate_per_hour": 320
+        }
+      ],
+      "marstead_note": "Active.",
+      "travel_time_to_bank_seconds": 46,
+      "nearest_teleport": "Moryskah Teleport (Village)",
+      "banking_trip_cost": {
+        "gp": 85,
+        "intensity": 2
+      },
+      "travel_region_multiplier": 0.2,
+      "effective_xp_per_hour": 43120,
+      "effective_gp_per_hour": 66480,
+      "travel_minutes_per_hour": 4.6,
+      "active_minutes_per_hour": 55.4,
+      "trips_per_hour": 3
     },
     {
       "id": "veilwood_nightmare_trainer_str",
       "skill": "strength",
       "level_required": 60,
       "name": "Nightmare Grove Aggressive",
-      "location": { "region": "veilwood", "spot": "Thorncourt glade" },
+      "location": {
+        "region": "veilwood",
+        "spot": "Thorncourt glade"
+      },
       "intensity": 1,
       "xp_per_hour": 40000,
       "gp_per_hour": 0,
-      "requires": { "quests": ["swan_song_of_veilwood"], "items": ["dragon_scimitar"], "skills": {"strength": 60} },
+      "requires": {
+        "quests": [
+          "swan_song_of_veilwood"
+        ],
+        "items": [
+          "dragon_scimitar"
+        ],
+        "skills": {
+          "strength": 60
+        }
+      },
       "description": "Grove NPCs aggressive. Pure AFK.",
       "produces": [],
-      "marstead_note": "AFK baseline."
+      "marstead_note": "AFK baseline.",
+      "travel_time_to_bank_seconds": 39,
+      "nearest_teleport": "Necklace of Passage",
+      "banking_trip_cost": {
+        "gp": 500,
+        "intensity": 2
+      },
+      "travel_region_multiplier": 0.1,
+      "effective_xp_per_hour": 38267,
+      "effective_gp_per_hour": 0,
+      "travel_minutes_per_hour": 2.6,
+      "active_minutes_per_hour": 57.4,
+      "trips_per_hour": 2
     },
     {
       "id": "inkweald_brutal_nightmare_pull",
       "skill": "strength",
       "level_required": 67,
       "name": "Inkweald Brutal Nightmare Pull",
-      "location": { "region": "inkweald", "spot": "Nightmare sanctuary deep" },
+      "location": {
+        "region": "inkweald",
+        "spot": "Nightmare sanctuary deep"
+      },
       "intensity": 6,
       "xp_per_hour": 76300,
       "gp_per_hour": 145000,
-      "requires": { "quests": ["unwake_the_dreamer"], "items": ["abyssal_whip"], "skills": {"strength": 67} },
+      "requires": {
+        "quests": [
+          "unwake_the_dreamer"
+        ],
+        "items": [
+          "abyssal_whip"
+        ],
+        "skills": {
+          "strength": 67
+        }
+      },
       "description": "Multi-pull brutal nightmares on aggressive + chinchompa chinning.",
-      "produces": [{ "item": "nightmare_essence", "rate_per_hour": 65 }],
-      "marstead_note": "Active-Max Focus."
+      "produces": [
+        {
+          "item": "nightmare_essence",
+          "rate_per_hour": 65
+        }
+      ],
+      "marstead_note": "Active-Max Focus.",
+      "travel_time_to_bank_seconds": 95,
+      "nearest_teleport": "Moonclan Teleport (Lunar)",
+      "banking_trip_cost": {
+        "gp": 110,
+        "intensity": 2
+      },
+      "travel_region_multiplier": 0.2,
+      "effective_xp_per_hour": 64219,
+      "effective_gp_per_hour": 122042,
+      "travel_minutes_per_hour": 9.5,
+      "active_minutes_per_hour": 50.5,
+      "trips_per_hour": 3
     },
     {
       "id": "moryskah_nightmare_chains_str",
       "skill": "strength",
       "level_required": 70,
       "name": "Nightmare Chains Aggressive",
-      "location": { "region": "moryskah", "spot": "Nightblight cathedral" },
+      "location": {
+        "region": "moryskah",
+        "spot": "Nightblight cathedral"
+      },
       "intensity": 2,
       "xp_per_hour": 60000,
       "gp_per_hour": 78000,
-      "requires": { "quests": [], "items": ["abyssal_whip"], "skills": {"strength": 70} },
+      "requires": {
+        "quests": [],
+        "items": [
+          "abyssal_whip"
+        ],
+        "skills": {
+          "strength": 70
+        }
+      },
       "description": "Chained nightmares aggressive. AFK.",
-      "produces": [{ "item": "nightmare_dust", "rate_per_hour": 170 }],
-      "marstead_note": "AFK-Multitask for 70+."
+      "produces": [
+        {
+          "item": "nightmare_dust",
+          "rate_per_hour": 170
+        }
+      ],
+      "marstead_note": "AFK-Multitask for 70+.",
+      "travel_time_to_bank_seconds": 46,
+      "nearest_teleport": "Moryskah Teleport (Village)",
+      "banking_trip_cost": {
+        "gp": 85,
+        "intensity": 2
+      },
+      "travel_region_multiplier": 0.2,
+      "effective_xp_per_hour": 56933,
+      "effective_gp_per_hour": 74013,
+      "travel_minutes_per_hour": 3.1,
+      "active_minutes_per_hour": 56.9,
+      "trips_per_hour": 2
     },
     {
       "id": "inkweald_abyssal_demon_str",
       "skill": "strength",
       "level_required": 75,
       "name": "Abyssal Demon Aggressive",
-      "location": { "region": "inkweald", "spot": "Abyssal sanctum" },
+      "location": {
+        "region": "inkweald",
+        "spot": "Abyssal sanctum"
+      },
       "intensity": 4,
       "xp_per_hour": 88100,
       "gp_per_hour": 195000,
-      "requires": { "quests": ["slayer_ascension"], "items": ["abyssal_whip"], "skills": {"strength": 75, "slayer": 85} },
+      "requires": {
+        "quests": [
+          "slayer_ascension"
+        ],
+        "items": [
+          "abyssal_whip"
+        ],
+        "skills": {
+          "strength": 75,
+          "slayer": 85
+        }
+      },
       "description": "Abyssal demon task on aggressive.",
-      "produces": [{ "item": "abyssal_head", "rate_per_hour": 1.2 }],
-      "marstead_note": "Active."
+      "produces": [
+        {
+          "item": "abyssal_head",
+          "rate_per_hour": 1.2
+        }
+      ],
+      "marstead_note": "Active.",
+      "travel_time_to_bank_seconds": 95,
+      "nearest_teleport": "Moonclan Teleport (Lunar)",
+      "banking_trip_cost": {
+        "gp": 110,
+        "intensity": 2
+      },
+      "travel_region_multiplier": 0.2,
+      "effective_xp_per_hour": 78801,
+      "effective_gp_per_hour": 174417,
+      "travel_minutes_per_hour": 6.3,
+      "active_minutes_per_hour": 53.7,
+      "trips_per_hour": 2
     },
     {
       "id": "wilds_lava_dragon_str",
       "skill": "strength",
       "level_required": 80,
       "name": "Wilds Lava Dragon Aggressive",
-      "location": { "region": "wilds", "spot": "Lava Drake Island, lv32 Wilderness" },
+      "location": {
+        "region": "wilds",
+        "spot": "Lava Drake Island, lv32 Wilderness"
+      },
       "intensity": 2,
       "xp_per_hour": 72400,
       "gp_per_hour": 285000,
-      "requires": { "quests": [], "items": ["abyssal_whip"], "skills": {"strength": 80} },
+      "requires": {
+        "quests": [],
+        "items": [
+          "abyssal_whip"
+        ],
+        "skills": {
+          "strength": 80
+        }
+      },
       "description": "Lava dragons aggressive, melee range only.",
-      "produces": [{ "item": "dragon_bones", "rate_per_hour": 120 }],
-      "marstead_note": "AFK-Multitask."
+      "produces": [
+        {
+          "item": "dragon_bones",
+          "rate_per_hour": 120
+        }
+      ],
+      "marstead_note": "AFK-Multitask.",
+      "travel_time_to_bank_seconds": 62,
+      "nearest_teleport": "Amulet of Glory (Wilds edge)",
+      "banking_trip_cost": {
+        "gp": 500,
+        "intensity": 2
+      },
+      "travel_region_multiplier": 0.3,
+      "effective_xp_per_hour": 67412,
+      "effective_gp_per_hour": 265367,
+      "travel_minutes_per_hour": 4.1,
+      "active_minutes_per_hour": 55.9,
+      "trips_per_hour": 2
     },
     {
       "id": "veilwood_gargoyle_str",
       "skill": "strength",
       "level_required": 82,
       "name": "Gargoyle Aggressive AFK",
-      "location": { "region": "veilwood", "spot": "Slayer sanctum tower" },
+      "location": {
+        "region": "veilwood",
+        "spot": "Slayer sanctum tower"
+      },
       "intensity": 1,
       "xp_per_hour": 78200,
       "gp_per_hour": 175000,
-      "requires": { "quests": [], "items": ["ghrazi_rapier", "rock_hammer"], "skills": {"strength": 82, "slayer": 75} },
+      "requires": {
+        "quests": [],
+        "items": [
+          "ghrazi_rapier",
+          "rock_hammer"
+        ],
+        "skills": {
+          "strength": 82,
+          "slayer": 75
+        }
+      },
       "description": "Gargoyle tower AFK rock-hammer.",
-      "produces": [{ "item": "granite_maul_piece", "rate_per_hour": 0.3 }],
-      "marstead_note": "AFK baseline."
+      "produces": [
+        {
+          "item": "granite_maul_piece",
+          "rate_per_hour": 0.3
+        }
+      ],
+      "marstead_note": "AFK baseline.",
+      "travel_time_to_bank_seconds": 39,
+      "nearest_teleport": "Necklace of Passage",
+      "banking_trip_cost": {
+        "gp": 500,
+        "intensity": 2
+      },
+      "travel_region_multiplier": 0.1,
+      "effective_xp_per_hour": 74811,
+      "effective_gp_per_hour": 167417,
+      "travel_minutes_per_hour": 2.6,
+      "active_minutes_per_hour": 57.4,
+      "trips_per_hour": 2
     },
     {
       "id": "wilds_demonic_gorilla_str",
       "skill": "strength",
       "level_required": 85,
       "name": "Demonic Gorilla Aggressive",
-      "location": { "region": "wilds", "spot": "Demon Hatchery deep Wilds" },
+      "location": {
+        "region": "wilds",
+        "spot": "Demon Hatchery deep Wilds"
+      },
       "intensity": 7,
       "xp_per_hour": 107500,
       "gp_per_hour": 485000,
-      "requires": { "quests": ["ape_madrigal"], "items": ["ghrazi_rapier"], "skills": {"strength": 85} },
+      "requires": {
+        "quests": [
+          "ape_madrigal"
+        ],
+        "items": [
+          "ghrazi_rapier"
+        ],
+        "skills": {
+          "strength": 85
+        }
+      },
       "description": "Demonic gorillas with prayer switch.",
-      "produces": [{ "item": "zenyte_shard", "rate_per_hour": 2.4 }],
-      "marstead_note": "Max Focus."
+      "produces": [
+        {
+          "item": "zenyte_shard",
+          "rate_per_hour": 2.4
+        }
+      ],
+      "marstead_note": "Max Focus.",
+      "travel_time_to_bank_seconds": 109,
+      "nearest_teleport": "Amulet of Glory (Wilds edge)",
+      "banking_trip_cost": {
+        "gp": 500,
+        "intensity": 2
+      },
+      "travel_region_multiplier": 0.3,
+      "effective_xp_per_hour": 81461,
+      "effective_gp_per_hour": 367522,
+      "travel_minutes_per_hour": 14.5,
+      "active_minutes_per_hour": 45.5,
+      "trips_per_hour": 4
     },
     {
       "id": "veilwood_greater_nechryael_str",
       "skill": "strength",
       "level_required": 90,
       "name": "Greater Nechryael Aggressive",
-      "location": { "region": "inkweald", "spot": "Abyssal sanctum deep" },
+      "location": {
+        "region": "inkweald",
+        "spot": "Abyssal sanctum deep"
+      },
       "intensity": 4,
       "xp_per_hour": 128000,
       "gp_per_hour": 320000,
-      "requires": { "quests": ["slayer_ascension"], "items": ["ghrazi_rapier", "slayer_helm"], "skills": {"strength": 90, "slayer": 80} },
+      "requires": {
+        "quests": [
+          "slayer_ascension"
+        ],
+        "items": [
+          "ghrazi_rapier",
+          "slayer_helm"
+        ],
+        "skills": {
+          "strength": 90,
+          "slayer": 80
+        }
+      },
       "description": "Nechryael slayer + aggressive.",
-      "produces": [{ "item": "defender_hilt", "rate_per_hour": 0.4 }],
-      "marstead_note": "Active."
+      "produces": [
+        {
+          "item": "defender_hilt",
+          "rate_per_hour": 0.4
+        }
+      ],
+      "marstead_note": "Active.",
+      "travel_time_to_bank_seconds": 95,
+      "nearest_teleport": "Moonclan Teleport (Lunar)",
+      "banking_trip_cost": {
+        "gp": 110,
+        "intensity": 2
+      },
+      "travel_region_multiplier": 0.2,
+      "effective_xp_per_hour": 114489,
+      "effective_gp_per_hour": 286222,
+      "travel_minutes_per_hour": 6.3,
+      "active_minutes_per_hour": 53.7,
+      "trips_per_hour": 2
     },
     {
       "id": "veilwood_sanctum_elder_str",
       "skill": "strength",
       "level_required": 92,
       "name": "Elder Sanctum Aggressive AFK",
-      "location": { "region": "veilwood", "spot": "Moonblade sanctum wardens" },
+      "location": {
+        "region": "veilwood",
+        "spot": "Moonblade sanctum wardens"
+      },
       "intensity": 2,
       "xp_per_hour": 94000,
       "gp_per_hour": 185000,
-      "requires": { "quests": ["whisperwood_remembers"], "items": ["ghrazi_rapier"], "skills": {"strength": 92} },
+      "requires": {
+        "quests": [
+          "whisperwood_remembers"
+        ],
+        "items": [
+          "ghrazi_rapier"
+        ],
+        "skills": {
+          "strength": 92
+        }
+      },
       "description": "Sanctum wardens aggressive AFK.",
-      "produces": [{ "item": "elder_rune_fragment", "rate_per_hour": 8 }],
-      "marstead_note": "AFK-Multitask for 90+."
+      "produces": [
+        {
+          "item": "elder_rune_fragment",
+          "rate_per_hour": 8
+        }
+      ],
+      "marstead_note": "AFK-Multitask for 90+.",
+      "travel_time_to_bank_seconds": 67,
+      "nearest_teleport": "Necklace of Passage",
+      "banking_trip_cost": {
+        "gp": 500,
+        "intensity": 2
+      },
+      "travel_region_multiplier": 0.1,
+      "effective_xp_per_hour": 87002,
+      "effective_gp_per_hour": 171228,
+      "travel_minutes_per_hour": 4.5,
+      "active_minutes_per_hour": 55.5,
+      "trips_per_hour": 2
     },
     {
       "id": "wilds_revenants_str",
       "skill": "strength",
       "level_required": 95,
       "name": "Wilds Revenants Aggressive",
-      "location": { "region": "wilds", "spot": "Revenant caves, lv42 Wilderness" },
+      "location": {
+        "region": "wilds",
+        "spot": "Revenant caves, lv42 Wilderness"
+      },
       "intensity": 9,
       "xp_per_hour": 194500,
       "gp_per_hour": 1200000,
-      "requires": { "quests": [], "items": ["bracelet_of_ethereum", "ghrazi_rapier"], "skills": {"strength": 95} },
+      "requires": {
+        "quests": [],
+        "items": [
+          "bracelet_of_ethereum",
+          "ghrazi_rapier"
+        ],
+        "skills": {
+          "strength": 95
+        }
+      },
       "description": "Revenants aggressive.",
-      "produces": [{ "item": "revenant_ether", "rate_per_hour": 3200 }],
-      "marstead_note": "Max Focus. Wilderness endgame."
+      "produces": [
+        {
+          "item": "revenant_ether",
+          "rate_per_hour": 3200
+        }
+      ],
+      "marstead_note": "Max Focus. Wilderness endgame.",
+      "travel_time_to_bank_seconds": 30,
+      "nearest_teleport": "Amulet of Glory (Wilds edge)",
+      "banking_trip_cost": {
+        "gp": 500,
+        "intensity": 2
+      },
+      "travel_region_multiplier": 0.3,
+      "effective_xp_per_hour": 181533,
+      "effective_gp_per_hour": 1120000,
+      "travel_minutes_per_hour": 4,
+      "active_minutes_per_hour": 56,
+      "trips_per_hour": 4
     },
     {
       "id": "moryskah_vyrewatch_expert",
       "skill": "strength",
       "level_required": 97,
       "name": "Vyrewatch Sentinel Expert",
-      "location": { "region": "moryskah", "spot": "Vyrewatch mausoleum, sentinel apex" },
+      "location": {
+        "region": "moryskah",
+        "spot": "Vyrewatch mausoleum, sentinel apex"
+      },
       "intensity": 10,
       "xp_per_hour": 204000,
       "gp_per_hour": 7600000,
-      "requires": { "quests": ["vyre_ascension", "requiem_of_hollows"], "items": ["scythe_of_vitur", "blood_fury", "avernic_defender"], "skills": {"strength": 97, "attack": 95, "defence": 93, "prayer": 92} },
+      "requires": {
+        "quests": [
+          "vyre_ascension",
+          "requiem_of_hollows"
+        ],
+        "items": [
+          "scythe_of_vitur",
+          "blood_fury",
+          "avernic_defender"
+        ],
+        "skills": {
+          "strength": 97,
+          "attack": 95,
+          "defence": 93,
+          "prayer": 92
+        }
+      },
       "description": "Vyrewatch sentinel expert — 6-phase vampire boss with HP regen on mechanic fail. Aggressive-style scythe rotation. Band 10 elite.",
-      "produces": [{ "item": "vyrewatch_seal", "rate_per_hour": 2.2 }],
-      "marstead_note": "M13 band 10 Vyrewatch expert mode."
+      "produces": [
+        {
+          "item": "vyrewatch_seal",
+          "rate_per_hour": 2.2
+        }
+      ],
+      "marstead_note": "M13 band 10 Vyrewatch expert mode.",
+      "travel_time_to_bank_seconds": 30,
+      "nearest_teleport": "Moryskah Teleport (Village)",
+      "banking_trip_cost": {
+        "gp": 85,
+        "intensity": 2
+      },
+      "travel_region_multiplier": 0.2,
+      "effective_xp_per_hour": 190400,
+      "effective_gp_per_hour": 7093333,
+      "travel_minutes_per_hour": 4,
+      "active_minutes_per_hour": 56,
+      "trips_per_hour": 4
     },
     {
       "id": "wilds_zuk_pit_challenge",
       "skill": "strength",
       "level_required": 99,
       "name": "Zuk-Pit Wilds Expert Challenge",
-      "location": { "region": "wilds", "spot": "Shattercrag zuk-pit, lv50 Wilderness" },
+      "location": {
+        "region": "wilds",
+        "spot": "Shattercrag zuk-pit, lv50 Wilderness"
+      },
       "intensity": 10,
       "xp_per_hour": 224000,
       "gp_per_hour": 6500000,
-      "requires": { "quests": ["the_ember_trial"], "items": ["fire_cape", "torture_amulet", "bandos_godsword"], "skills": {"strength": 99, "attack": 95, "defence": 92, "ranged": 92, "hitpoints": 95} },
+      "requires": {
+        "quests": [
+          "the_ember_trial"
+        ],
+        "items": [
+          "fire_cape",
+          "torture_amulet",
+          "bandos_godsword"
+        ],
+        "skills": {
+          "strength": 99,
+          "attack": 95,
+          "defence": 92,
+          "ranged": 92,
+          "hitpoints": 95
+        }
+      },
       "description": "Wilderness zuk-pit — Inferno-adjacent boss trial with PK risk overlay. Band 10 non-Inferno elite with PvP premium.",
-      "produces": [{ "item": "zuk_ember", "rate_per_hour": 3.2 }],
-      "marstead_note": "M13 band 10 wilderness Inferno-analogue."
+      "produces": [
+        {
+          "item": "zuk_ember",
+          "rate_per_hour": 3.2
+        }
+      ],
+      "marstead_note": "M13 band 10 wilderness Inferno-analogue.",
+      "travel_time_to_bank_seconds": 30,
+      "nearest_teleport": "Amulet of Glory (Wilds edge)",
+      "banking_trip_cost": {
+        "gp": 500,
+        "intensity": 2
+      },
+      "travel_region_multiplier": 0.3,
+      "effective_xp_per_hour": 209067,
+      "effective_gp_per_hour": 6066667,
+      "travel_minutes_per_hour": 4,
+      "active_minutes_per_hour": 56,
+      "trips_per_hour": 4
     }
   ],
   "bracket_coverage": {
-    "1-10":  { "count": 2, "intensities": [1, 2] },
-    "10-20": { "count": 2, "intensities": [1, 3] },
-    "20-30": { "count": 2, "intensities": [1, 5] },
-    "30-40": { "count": 2, "intensities": [1, 5] },
-    "40-50": { "count": 2, "intensities": [1, 4] },
-    "50-60": { "count": 2, "intensities": [1, 5] },
-    "60-70": { "count": 2, "intensities": [1, 6] },
-    "70-80": { "count": 2, "intensities": [2, 4] },
-    "80-90": { "count": 3, "intensities": [2, 1, 7] },
-    "90-99": { "count": 3, "intensities": [4, 2, 9] }
+    "1-10": {
+      "count": 2,
+      "intensities": [
+        1,
+        2
+      ]
+    },
+    "10-20": {
+      "count": 2,
+      "intensities": [
+        1,
+        3
+      ]
+    },
+    "20-30": {
+      "count": 2,
+      "intensities": [
+        1,
+        5
+      ]
+    },
+    "30-40": {
+      "count": 2,
+      "intensities": [
+        1,
+        5
+      ]
+    },
+    "40-50": {
+      "count": 2,
+      "intensities": [
+        1,
+        4
+      ]
+    },
+    "50-60": {
+      "count": 2,
+      "intensities": [
+        1,
+        5
+      ]
+    },
+    "60-70": {
+      "count": 2,
+      "intensities": [
+        1,
+        6
+      ]
+    },
+    "70-80": {
+      "count": 2,
+      "intensities": [
+        2,
+        4
+      ]
+    },
+    "80-90": {
+      "count": 3,
+      "intensities": [
+        2,
+        1,
+        7
+      ]
+    },
+    "90-99": {
+      "count": 3,
+      "intensities": [
+        4,
+        2,
+        9
+      ]
+    }
   }
 }
