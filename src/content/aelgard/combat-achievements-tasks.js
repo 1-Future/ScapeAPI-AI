@@ -456,6 +456,167 @@ r('sol_heredit_colosseum',  T({ id: 'ca_sol_no_food',             name: 'Fasting
 r('crystal_wyrm',           T({ id: 'ca_wyrm_no_damage_storm',    name: 'Unchilled Crystal',     description: 'Defeat the Crystal Wyrm without taking damage from the ice storm OR its basic attack.', tier: 'grandmaster', category: 'perfection', injects: [4, 10, 13] }));
 
 // ══════════════════════════════════════════════════════════════════════════════
+// H4 — Zero-coverage boss expansion (v0.9 roadmap Wave B2)
+//
+// Source: reports/ca-expansion-plan.md §2 — 33 bosses had 0 CAs. Each gets 3
+// CAs referencing specific boss mechanics from data/bosses.json and the
+// boss-registration sites (raids-mega1.js, raids-bosses-mega.js). Tier spread
+// skews Elite/Master to help close the endgame gap.
+//
+// Grouping:
+//   ToS-HM set (5): maiden, bloat, nylocas, sotetseg, verzik
+//   Raid/sub bosses (6): gauntlet_hunllef, tempoross, leviathan, hespori,
+//                        worldtree_heart, sanctum_pharaoh
+//   Catacomb set (15): bonelord, wraith_matron, flesh_golem, shade_warden,
+//                      abomination, blood_witch, crypt_knight, plaguebearer,
+//                      soul_collector, ghast_sovereign, barrow_wight,
+//                      revenant_lord, grave_hound, lich, necromancer
+//   Nightmare dream set (7): mirror, inferno_beast, merchant, void_walker,
+//                            tranquil, sleepwalker, lucid_core
+// ══════════════════════════════════════════════════════════════════════════════
+
+// ── Theatre of Shadows HM set (15 CAs) ────────────────────────────────────────
+
+r('tos_hm_maiden', T({ id: 'ca_tos_maiden_kill_1',     name: 'Mother Down',           description: 'Defeat Maiden of Sugadinti in Theatre of Shadows HM.',                                         tier: 'elite',       category: 'kc',          injects: [1] }));
+r('tos_hm_maiden', T({ id: 'ca_tos_maiden_no_bloodsplat', name: 'Clean Bleed',        description: 'Defeat Maiden HM without any player being hit by a blood-splat pool.',                         tier: 'master',      category: 'perfection',  injects: [4, 10, 13] }));
+r('tos_hm_maiden', T({ id: 'ca_tos_maiden_speed_90',   name: 'Speed Maiden',          description: 'Defeat Maiden HM in under 90 seconds.',                                                        tier: 'grandmaster', category: 'speed',       injects: [12, 13] }));
+
+r('tos_hm_bloat', T({ id: 'ca_tos_bloat_kill_1',       name: 'Bloat Burst',           description: 'Defeat Pestilent Bloat in Theatre of Shadows HM.',                                             tier: 'elite',       category: 'kc',          injects: [1] }));
+r('tos_hm_bloat', T({ id: 'ca_tos_bloat_vegan',        name: 'Vegan Bloat',           description: 'Clear Bloat HM without any player eating food.',                                               tier: 'grandmaster', category: 'restriction', injects: [5, 10, 13] }));
+r('tos_hm_bloat', T({ id: 'ca_tos_bloat_no_ceiling',   name: 'Heads Up',              description: 'Clear Bloat HM without any player being hit by a ceiling-flask drop.',                         tier: 'master',      category: 'mechanic',    injects: [4, 10, 13] }));
+
+r('tos_hm_nylocas', T({ id: 'ca_tos_nylo_kill_1',      name: 'Swarm Silenced',        description: 'Defeat the Nylocas waves in Theatre of Shadows HM.',                                           tier: 'elite',       category: 'kc',          injects: [1] }));
+r('tos_hm_nylocas', T({ id: 'ca_tos_nylo_style_perfect', name: 'Style-Perfect Nylos', description: 'Clear Nylocas HM with 100% correct weapon style on every Nylocas spawn (no off-style hits).',  tier: 'grandmaster', category: 'mechanic',    injects: [4, 10, 13, 16] }));
+r('tos_hm_nylocas', T({ id: 'ca_tos_nylo_no_waste',    name: 'Waste Not',             description: 'Clear Nylocas HM without letting any Nylocas reach the pillars.',                              tier: 'master',      category: 'mechanic',    injects: [4, 12, 13] }));
+
+r('tos_hm_sotetseg', T({ id: 'ca_tos_sote_kill_1',     name: 'Shadow Shattered',      description: 'Defeat Sotetseg in Theatre of Shadows HM.',                                                    tier: 'elite',       category: 'kc',          injects: [1] }));
+r('tos_hm_sotetseg', T({ id: 'ca_tos_sote_maze_solo',  name: 'Maze Solo',             description: 'Solo the dark-world maze on every Sotetseg appearance across a single HM clear.',             tier: 'grandmaster', category: 'mechanic',    injects: [4, 9, 13] }));
+r('tos_hm_sotetseg', T({ id: 'ca_tos_sote_no_ball',    name: 'Big Ball Dodger',       description: 'Clear Sotetseg HM without any player being hit by the big-ball projectile.',                  tier: 'master',      category: 'perfection',  injects: [4, 10, 13] }));
+
+r('tos_hm_verzik', T({ id: 'ca_tos_verzik_kill_1',     name: 'Queen Dethroned',       description: 'Defeat Verzik Vitur in Theatre of Shadows HM.',                                                tier: 'elite',       category: 'kc',          injects: [1] }));
+r('tos_hm_verzik', T({ id: 'ca_tos_verzik_no_tornado', name: 'Red Eyes',              description: 'Clear Verzik HM P3 without any tornado hitting any player.',                                   tier: 'grandmaster', category: 'perfection',  injects: [4, 10, 13] }));
+r('tos_hm_verzik', T({ id: 'ca_tos_verzik_p2_solo_tank', name: 'Solo Tank',           description: 'Tank all Verzik P2 purple-ball hits for the team across a HM clear.',                          tier: 'master',      category: 'mechanic',    injects: [4, 9, 13] }));
+
+// ── Corrupted Gauntlet + misc raid (6 CAs) ────────────────────────────────────
+
+r('gauntlet_hunllef', T({ id: 'ca_cg_kill_1',          name: 'Corrupted Clear',       description: 'Complete the Corrupted Gauntlet.',                                                             tier: 'elite',       category: 'kc',          injects: [1] }));
+r('gauntlet_hunllef', T({ id: 'ca_cg_kill_10',         name: 'Corrupted Regular',     description: 'Complete the Corrupted Gauntlet 10 times.',                                                    tier: 'master',      category: 'kc',          injects: [1, 11] }));
+r('gauntlet_hunllef', T({ id: 'ca_cg_perfect',         name: 'Corrupted Perfection',  description: 'Defeat Corrupted Hunllef without taking any hit from Hunllef itself (crystal spawns exempt).', tier: 'grandmaster', category: 'perfection',  injects: [4, 10, 13] }));
+
+r('tempoross_saltbrine', T({ id: 'ca_temp_kill_1',     name: 'Storm Survived',        description: 'Defeat Tempoross in Saltbrine.',                                                               tier: 'medium',      category: 'kc',          injects: [1] }));
+r('tempoross_saltbrine', T({ id: 'ca_temp_kill_100',   name: 'Storm Chaser',          description: 'Defeat Tempoross 100 times.',                                                                  tier: 'elite',       category: 'kc',          injects: [1, 11] }));
+r('tempoross_saltbrine', T({ id: 'ca_temp_surge',      name: 'Storm Surge',           description: 'Defeat Tempoross with boat HP above 90% at end of fight.',                                     tier: 'master',      category: 'mechanic',    injects: [4, 12, 13] }));
+
+r('the_leviathan_saltbrine', T({ id: 'ca_lev_kill_1',  name: 'Sea Dragon Slain',      description: 'Defeat The Leviathan.',                                                                        tier: 'elite',       category: 'kc',          injects: [1] }));
+r('the_leviathan_saltbrine', T({ id: 'ca_lev_kill_100', name: 'Leviathan Veteran',    description: 'Defeat The Leviathan 100 times.',                                                              tier: 'master',      category: 'kc',          injects: [1, 11] }));
+r('the_leviathan_saltbrine', T({ id: 'ca_lev_dry',     name: 'Dry Leviathan',         description: 'Defeat The Leviathan without being hit by a single submerge-sweep tail-breath.',              tier: 'grandmaster', category: 'perfection',  injects: [4, 10, 13] }));
+
+r('hespori_veilwood', T({ id: 'ca_hes_kill_1',         name: 'Garden Gouged',         description: 'Defeat Hespori in Veilwood.',                                                                  tier: 'medium',      category: 'kc',          injects: [1] }));
+r('hespori_veilwood', T({ id: 'ca_hes_kill_25',        name: 'Garden Keeper',         description: 'Defeat Hespori 25 times.',                                                                     tier: 'elite',       category: 'kc',          injects: [1, 11] }));
+r('hespori_veilwood', T({ id: 'ca_hes_barehanded',     name: 'Barehanded Hespori',    description: 'Defeat Hespori with no weapon equipped.',                                                      tier: 'master',      category: 'restriction', injects: [5, 10, 16] }));
+
+r('worldtree_heart', T({ id: 'ca_wtree_kill_1',        name: 'Heart Stopped',         description: 'Defeat the Worldtree Heart.',                                                                  tier: 'elite',       category: 'kc',          injects: [1] }));
+r('worldtree_heart', T({ id: 'ca_wtree_kill_25',       name: 'Root Render',           description: 'Defeat the Worldtree Heart 25 times.',                                                         tier: 'master',      category: 'kc',          injects: [1, 11] }));
+r('worldtree_heart', T({ id: 'ca_wtree_speed_180',     name: 'Heartstop',             description: 'Defeat the Worldtree Heart in under 3 minutes.',                                               tier: 'grandmaster', category: 'speed',       injects: [12, 13] }));
+
+r('sanctum_pharaoh', T({ id: 'ca_sanc_kill_1',         name: 'Decree Broken',         description: 'Defeat the Sanctum Pharaoh.',                                                                  tier: 'hard',        category: 'kc',          injects: [1] }));
+r('sanctum_pharaoh', T({ id: 'ca_sanc_kill_50',        name: 'Mummy Master',          description: 'Defeat the Sanctum Pharaoh 50 times.',                                                         tier: 'elite',       category: 'kc',          injects: [1, 11] }));
+r('sanctum_pharaoh', T({ id: 'ca_sanc_obedient',       name: 'Decree-Obedient',       description: 'Defeat the Sanctum Pharaoh honoring every decree (never violating a constraint once).',       tier: 'grandmaster', category: 'restriction', injects: [4, 5, 10, 13] }));
+
+// ── Catacombs wave-boss set (15 × 3 = 45 CAs) ─────────────────────────────────
+// Three-CA shape per catacomb boss: kill-1 (entry), mechanic-gated hard, solo/perfect elite-master.
+
+r('catacomb_bonelord', T({ id: 'ca_cata_bonelord_kill_1',  name: 'Bonelord Broken',   description: 'Defeat the Catacomb Bonelord.',                                                                tier: 'hard',        category: 'kc',          injects: [1] }));
+r('catacomb_bonelord', T({ id: 'ca_cata_bonelord_no_raise', name: 'Stay Down',         description: 'Defeat the Catacomb Bonelord without it reanimating any bones.',                               tier: 'elite',       category: 'mechanic',    injects: [4, 12, 13] }));
+r('catacomb_bonelord', T({ id: 'ca_cata_bonelord_solo',    name: 'Solo Bonelord',     description: 'Defeat the Catacomb Bonelord solo.',                                                           tier: 'master',      category: 'solo',        injects: [9] }));
+
+r('catacomb_wraith_matron', T({ id: 'ca_cata_wraith_kill_1',  name: 'Matron Banished', description: 'Defeat the Catacomb Wraith Matron.',                                                          tier: 'hard',        category: 'kc',          injects: [1] }));
+r('catacomb_wraith_matron', T({ id: 'ca_cata_wraith_no_drain', name: 'Undrained',     description: 'Defeat the Wraith Matron without any prayer-drain hit landing.',                               tier: 'elite',       category: 'mechanic',    injects: [4, 12, 13] }));
+r('catacomb_wraith_matron', T({ id: 'ca_cata_wraith_perfection', name: 'Unhaunted',   description: 'Defeat the Wraith Matron without taking damage.',                                              tier: 'master',      category: 'perfection',  injects: [10, 13] }));
+
+r('catacomb_flesh_golem', T({ id: 'ca_cata_flesh_kill_1',  name: 'Golem Down',        description: 'Defeat the Catacomb Flesh Golem.',                                                             tier: 'hard',        category: 'kc',          injects: [1] }));
+r('catacomb_flesh_golem', T({ id: 'ca_cata_flesh_dismember', name: 'Golem Dismember', description: 'Defeat the Flesh Golem by dismembering all 4 limbs before HP reaches zero.',                   tier: 'elite',       category: 'mechanic',    injects: [4, 12, 13] }));
+r('catacomb_flesh_golem', T({ id: 'ca_cata_flesh_no_damage', name: 'Untouched Flesh', description: 'Defeat the Catacomb Flesh Golem without taking damage.',                                       tier: 'master',      category: 'perfection',  injects: [10, 13] }));
+
+r('catacomb_shade_warden', T({ id: 'ca_cata_shade_kill_1',  name: 'Warden Wavered',   description: 'Defeat the Catacomb Shade Warden.',                                                            tier: 'hard',        category: 'kc',          injects: [1] }));
+r('catacomb_shade_warden', T({ id: 'ca_cata_shade_speed_90', name: 'Warden Swift',    description: 'Defeat the Shade Warden in under 90 seconds.',                                                 tier: 'elite',       category: 'speed',       injects: [12] }));
+r('catacomb_shade_warden', T({ id: 'ca_cata_shade_no_shade', name: 'Unshaded',        description: 'Defeat the Shade Warden without being hit by a single shadow-dash.',                           tier: 'master',      category: 'perfection',  injects: [4, 10, 13] }));
+
+r('catacomb_abomination', T({ id: 'ca_cata_abom_kill_1',  name: 'Horror Halted',     description: 'Defeat the Catacomb Abomination.',                                                              tier: 'hard',        category: 'kc',          injects: [1] }));
+r('catacomb_abomination', T({ id: 'ca_cata_abom_no_fear', name: 'Unfeared',          description: 'Defeat the Abomination without triggering its fear-aura.',                                     tier: 'elite',       category: 'mechanic',    injects: [4, 12, 13] }));
+r('catacomb_abomination', T({ id: 'ca_cata_abom_solo',    name: 'Solo Horror',       description: 'Defeat the Catacomb Abomination solo.',                                                         tier: 'master',      category: 'solo',        injects: [9] }));
+
+r('catacomb_blood_witch', T({ id: 'ca_cata_blood_kill_1',  name: 'Witch Burned',     description: 'Defeat the Catacomb Blood Witch.',                                                              tier: 'hard',        category: 'kc',          injects: [1] }));
+r('catacomb_blood_witch', T({ id: 'ca_cata_blood_no_heal', name: 'Anemic Witch',     description: 'Defeat the Blood Witch without letting her cast a single heal-siphon.',                         tier: 'elite',       category: 'mechanic',    injects: [4, 12, 13] }));
+r('catacomb_blood_witch', T({ id: 'ca_cata_blood_no_pray', name: 'Pagan Burning',    description: 'Defeat the Blood Witch without using prayer.',                                                  tier: 'master',      category: 'restriction', injects: [4, 5] }));
+
+r('catacomb_crypt_knight', T({ id: 'ca_cata_knight_kill_1',  name: 'Knight Unseated', description: 'Defeat the Catacomb Crypt Knight.',                                                            tier: 'hard',        category: 'kc',          injects: [1] }));
+r('catacomb_crypt_knight', T({ id: 'ca_cata_knight_no_block', name: 'Straight Blade', description: 'Defeat the Crypt Knight without him parrying any of your attacks.',                            tier: 'elite',       category: 'mechanic',    injects: [4, 12, 13] }));
+r('catacomb_crypt_knight', T({ id: 'ca_cata_knight_solo',    name: 'Solo Knight',   description: 'Defeat the Catacomb Crypt Knight solo.',                                                        tier: 'master',      category: 'solo',        injects: [9] }));
+
+r('catacomb_plaguebearer', T({ id: 'ca_cata_plague_kill_1',  name: 'Plague Cured',  description: 'Defeat the Catacomb Plaguebearer.',                                                              tier: 'hard',        category: 'kc',          injects: [1] }));
+r('catacomb_plaguebearer', T({ id: 'ca_cata_plague_no_pox',  name: 'Uninfected',    description: 'Defeat the Plaguebearer without taking any poison / disease tick damage.',                      tier: 'elite',       category: 'mechanic',    injects: [4, 12, 13] }));
+r('catacomb_plaguebearer', T({ id: 'ca_cata_plague_speed_120', name: 'Quick Cure',  description: 'Defeat the Plaguebearer in under 2 minutes.',                                                    tier: 'master',      category: 'speed',       injects: [12] }));
+
+r('catacomb_soul_collector', T({ id: 'ca_cata_soul_kill_1',  name: 'Soul Returned', description: 'Defeat the Catacomb Soul Collector.',                                                            tier: 'hard',        category: 'kc',          injects: [1] }));
+r('catacomb_soul_collector', T({ id: 'ca_cata_soul_no_harvest', name: 'No Harvest', description: 'Defeat the Soul Collector without it absorbing a single soul-fragment drop.',                   tier: 'elite',       category: 'mechanic',    injects: [4, 12, 13] }));
+r('catacomb_soul_collector', T({ id: 'ca_cata_soul_no_food',  name: 'Soulful Fasting', description: 'Defeat the Soul Collector without eating food.',                                              tier: 'master',      category: 'restriction', injects: [5, 10] }));
+
+r('catacomb_ghast_sovereign', T({ id: 'ca_cata_ghast_kill_1',  name: 'Sovereign Fallen', description: 'Defeat the Catacomb Ghast Sovereign.',                                                      tier: 'hard',        category: 'kc',          injects: [1] }));
+r('catacomb_ghast_sovereign', T({ id: 'ca_cata_ghast_no_summon', name: 'Sovereign Silenced', description: 'Defeat the Ghast Sovereign without it casting a single spectral summon.',              tier: 'elite',       category: 'mechanic',    injects: [4, 12, 13] }));
+r('catacomb_ghast_sovereign', T({ id: 'ca_cata_ghast_solo',    name: 'Solo Sovereign', description: 'Defeat the Catacomb Ghast Sovereign solo.',                                                   tier: 'master',      category: 'solo',        injects: [9] }));
+
+r('catacomb_barrow_wight', T({ id: 'ca_cata_bwight_kill_1',  name: 'Wight Routed',   description: 'Defeat the Catacomb Barrow Wight.',                                                             tier: 'hard',        category: 'kc',          injects: [1] }));
+r('catacomb_barrow_wight', T({ id: 'ca_cata_bwight_no_dispel', name: 'Undispelled',  description: 'Defeat the Barrow Wight without letting any player be dispelled by the cloak-strike.',         tier: 'elite',       category: 'mechanic',    injects: [4, 12, 13] }));
+r('catacomb_barrow_wight', T({ id: 'ca_cata_bwight_no_damage', name: 'Untouched Wight', description: 'Defeat the Catacomb Barrow Wight without taking damage.',                                    tier: 'master',      category: 'perfection',  injects: [10, 13] }));
+
+r('catacomb_revenant_lord', T({ id: 'ca_cata_rev_kill_1',  name: 'Revenant Retired', description: 'Defeat the Catacomb Revenant Lord.',                                                            tier: 'hard',        category: 'kc',          injects: [1] }));
+r('catacomb_revenant_lord', T({ id: 'ca_cata_rev_no_protect_item', name: 'Wildy-Pure', description: 'Defeat the Revenant Lord without equipping Protect Item prayer.',                             tier: 'elite',       category: 'restriction', injects: [4, 5, 10] }));
+r('catacomb_revenant_lord', T({ id: 'ca_cata_rev_speed_150', name: 'Revenant Rush', description: 'Defeat the Revenant Lord in under 2:30.',                                                        tier: 'master',      category: 'speed',       injects: [12] }));
+
+r('catacomb_grave_hound', T({ id: 'ca_cata_hound_kill_1',  name: 'Hound Put Down',  description: 'Defeat the Catacomb Grave Hound.',                                                               tier: 'hard',        category: 'kc',          injects: [1] }));
+r('catacomb_grave_hound', T({ id: 'ca_cata_hound_no_bite', name: 'Muzzled',         description: 'Defeat the Grave Hound without taking a single bite-lunge hit.',                                tier: 'elite',       category: 'mechanic',    injects: [4, 12, 13] }));
+r('catacomb_grave_hound', T({ id: 'ca_cata_hound_range', name: 'Distant Dog',       description: 'Defeat the Grave Hound using only ranged attacks.',                                             tier: 'master',      category: 'gear',        injects: [7, 16] }));
+
+r('catacomb_lich', T({ id: 'ca_cata_lich_kill_1',         name: 'Lichbane',         description: 'Defeat the Catacomb Lich.',                                                                    tier: 'elite',       category: 'kc',          injects: [1] }));
+r('catacomb_lich', T({ id: 'ca_cata_lich_no_phylactery', name: 'No Phylactery',    description: 'Defeat the Catacomb Lich without letting its phylactery revive it once.',                       tier: 'master',      category: 'mechanic',    injects: [4, 12, 13] }));
+r('catacomb_lich', T({ id: 'ca_cata_lich_solo',          name: 'Solo Lich',        description: 'Defeat the Catacomb Lich solo at raid-tier difficulty.',                                       tier: 'master',      category: 'solo',        injects: [9, 13] }));
+
+r('catacomb_necromancer', T({ id: 'ca_cata_necro_kill_1', name: 'Necromancer Ended', description: 'Defeat the Catacomb Necromancer.',                                                             tier: 'elite',       category: 'kc',          injects: [1] }));
+r('catacomb_necromancer', T({ id: 'ca_cata_necro_no_raise', name: 'Corpses Stay Cold', description: 'Defeat the Necromancer without letting any raised skeleton strike a player.',                tier: 'master',      category: 'mechanic',    injects: [4, 12, 13] }));
+r('catacomb_necromancer', T({ id: 'ca_cata_necro_no_pray', name: 'Heretic Huntsman', description: 'Defeat the Necromancer without using prayer.',                                                tier: 'grandmaster', category: 'restriction', injects: [4, 5, 13] }));
+
+// ── Nightmare dream set (7 × 3 = 21 CAs) ──────────────────────────────────────
+
+r('nightmare_mirror', T({ id: 'ca_nmm_mirror_kill_1',    name: 'Mirror Match',      description: 'Defeat the Nightmare Mirror.',                                                                  tier: 'elite',       category: 'kc',          injects: [1] }));
+r('nightmare_mirror', T({ id: 'ca_nmm_mirror_no_self',    name: 'Self-Untouched',    description: 'Defeat the Nightmare Mirror without dealing damage to yourself via a bounced reflection.',     tier: 'master',      category: 'mechanic',    injects: [4, 12, 13] }));
+r('nightmare_mirror', T({ id: 'ca_nmm_mirror_speed_90',   name: 'Quick Reflection',  description: 'Defeat the Nightmare Mirror in under 90 seconds.',                                              tier: 'master',      category: 'speed',       injects: [12] }));
+
+r('nightmare_inferno_beast', T({ id: 'ca_nmm_inferno_kill_1', name: 'Dream Burned',  description: 'Defeat the Nightmare Inferno Beast.',                                                           tier: 'elite',       category: 'kc',          injects: [1] }));
+r('nightmare_inferno_beast', T({ id: 'ca_nmm_inferno_no_flame', name: 'No Singe',    description: 'Defeat the Inferno Beast without taking flame-jet damage.',                                    tier: 'master',      category: 'perfection',  injects: [4, 10, 13] }));
+r('nightmare_inferno_beast', T({ id: 'ca_nmm_inferno_melee',    name: 'Close Flame', description: 'Defeat the Inferno Beast using only melee.',                                                    tier: 'master',      category: 'gear',        injects: [7, 16] }));
+
+r('nightmare_merchant', T({ id: 'ca_nmm_merch_kill_1',   name: 'Merchant Silenced', description: 'Defeat the Nightmare Merchant.',                                                                tier: 'elite',       category: 'kc',          injects: [1] }));
+r('nightmare_merchant', T({ id: 'ca_nmm_merch_refuse',   name: 'Merchant Refuser',  description: 'Defeat the Nightmare Merchant without equipping any merchant-dropped item.',                    tier: 'master',      category: 'gear',        injects: [7, 10, 16] }));
+r('nightmare_merchant', T({ id: 'ca_nmm_merch_no_food',  name: 'Empty Haggle',      description: 'Defeat the Nightmare Merchant without eating food.',                                            tier: 'master',      category: 'restriction', injects: [5, 10] }));
+
+r('nightmare_void_walker', T({ id: 'ca_nmm_void_kill_1', name: 'Void Closed',       description: 'Defeat the Nightmare Void Walker.',                                                             tier: 'elite',       category: 'kc',          injects: [1] }));
+r('nightmare_void_walker', T({ id: 'ca_nmm_void_dream_untouched', name: 'Dream-Untouched', description: 'Defeat the Void Walker phase without any dream-pool damage landing.',                     tier: 'master',      category: 'perfection',  injects: [4, 10, 13] }));
+r('nightmare_void_walker', T({ id: 'ca_nmm_void_solo',   name: 'Solo Voidwalker',   description: 'Defeat the Nightmare Void Walker solo.',                                                        tier: 'master',      category: 'solo',        injects: [9] }));
+
+r('nightmare_tranquil', T({ id: 'ca_nmm_tranq_kill_1',   name: 'Tranquil Broken',   description: 'Defeat the Nightmare Tranquil form.',                                                           tier: 'elite',       category: 'kc',          injects: [1] }));
+r('nightmare_tranquil', T({ id: 'ca_nmm_tranq_no_lull',  name: 'Wakeful',           description: 'Defeat the Tranquil form without being lulled into its sleep-aura once.',                       tier: 'master',      category: 'mechanic',    injects: [4, 12, 13] }));
+r('nightmare_tranquil', T({ id: 'ca_nmm_tranq_no_pray',  name: 'Unswayed Sleeper',  description: 'Defeat the Tranquil form without using prayer.',                                                 tier: 'master',      category: 'restriction', injects: [4, 5] }));
+
+r('nightmare_sleepwalker', T({ id: 'ca_nmm_sleep_kill_1', name: 'Sleeper Woken',    description: 'Defeat the Nightmare Sleepwalker.',                                                             tier: 'elite',       category: 'kc',          injects: [1] }));
+r('nightmare_sleepwalker', T({ id: 'ca_nmm_sleep_no_wake', name: 'Silent Footfall', description: 'Defeat the Sleepwalker without triggering its wake-scream AoE.',                                tier: 'master',      category: 'mechanic',    injects: [4, 12, 13] }));
+r('nightmare_sleepwalker', T({ id: 'ca_nmm_sleep_speed_90', name: 'Lucid Rush',     description: 'Defeat the Sleepwalker in under 90 seconds.',                                                   tier: 'master',      category: 'speed',       injects: [12] }));
+
+r('nightmare_lucid_core', T({ id: 'ca_nmm_core_kill_1',  name: 'Core Cracked',      description: 'Defeat the Nightmare Lucid Core.',                                                              tier: 'elite',       category: 'kc',          injects: [1] }));
+r('nightmare_lucid_core', T({ id: 'ca_nmm_core_no_shift', name: 'Stable Dream',     description: 'Defeat the Lucid Core without any plane-shift tick landing on a player.',                      tier: 'master',      category: 'perfection',  injects: [4, 10, 13] }));
+r('nightmare_lucid_core', T({ id: 'ca_nmm_core_no_damage', name: 'Untouched Core',  description: 'Defeat the Nightmare Lucid Core without taking damage.',                                        tier: 'grandmaster', category: 'perfection',  injects: [10, 13] }));
+
+// ══════════════════════════════════════════════════════════════════════════════
 // Boot summary
 // ══════════════════════════════════════════════════════════════════════════════
 
