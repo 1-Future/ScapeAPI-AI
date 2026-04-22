@@ -1,0 +1,283 @@
+{
+  "_comment": "Aelgard Inkweald bestiary. Dream-reality overlap region — lucid dreamers, ink-born creatures, nightmares that bleed through. Tone: unstable, introspective. Combat has a 'what are you fighting, really' undercurrent.",
+  "_version": "1.0.0",
+  "_region": "inkweald",
+  "_region_tone": "half-awake hum, ink-smell, sentences that start differently than they end. Time runs at a different rate inside the Weald. Threats wear faces the player recognises.",
+  "monsters": [
+    {
+      "id": "mega_ink_inkblot_horror",
+      "name": "Inkblot horror",
+      "region": "inkweald",
+      "combat_level": 52,
+      "hp": 65,
+      "max_hit": 9,
+      "attack_style": "magic",
+      "weakness": "ranged",
+      "aggression": "aggressive",
+      "slayer_level_required": 25,
+      "slayer_xp": 110,
+      "drop_table_id": "dt_ink_inkblot_horror",
+      "examine": "A stain that walks. Takes the shape of your last fear.",
+      "bible": [
+        "Inkblot horrors are dream-creatures that have bled through into material. They take the shape of the viewer's most recent nightmare, which is why no two inkblot horrors are seen the same by two different people.",
+        "Photography of an inkblot shows only a stain. Witness testimony is therefore useless in inkblot-related criminal cases.",
+        "They disperse when exposed to strong sunlight for more than a minute. Most Inkweald encounters are indoors or under cloud."
+      ],
+      "habitat": "dream-bleed zones, specifically the 12 catalogued Weald-pockets",
+      "reagent_callout": "Inkblot fragment (1/5) — reagent for ink-seared letter (a consumable that lets the player send a dream-letter to any NPC)."
+    },
+    {
+      "id": "mega_ink_nightmare_spawn",
+      "name": "Nightmare spawn",
+      "region": "inkweald",
+      "combat_level": 88,
+      "hp": 105,
+      "max_hit": 13,
+      "attack_style": "magic",
+      "weakness": "crush",
+      "aggression": "aggressive",
+      "slayer_level_required": 52,
+      "slayer_xp": 195,
+      "drop_table_id": "dt_ink_nightmare_spawn",
+      "examine": "A concept with teeth.",
+      "bible": [
+        "Nightmare spawn are not specific creatures; they are the waste products of a dreamer elsewhere suffering severely. A localised cluster of spawn in the Inkweald indicates that a particular dreamer, somewhere in Aelgard, is not well.",
+        "Killing spawn relieves the distant dreamer temporarily, which is why the Inkweald Dreamkeeper organisation pays a standing bounty.",
+        "The spawn retain residual memory of the dreamer's fears. A thoughtful adventurer can, over many kills, piece together the identity and therefore help the dreamer in person."
+      ],
+      "habitat": "the Nightmare Clearings, specifically the four haunted clearings in the deep Weald",
+      "reagent_callout": "Nightmare shard (1/24) — reagent for the Dreamwalker's Amulet (lets the player safely enter NPC dreams for quest purposes)."
+    },
+    {
+      "id": "mega_ink_lucid_crawler",
+      "name": "Lucid crawler",
+      "region": "inkweald",
+      "combat_level": 46,
+      "hp": 56,
+      "max_hit": 7,
+      "attack_style": "melee",
+      "weakness": "crush",
+      "aggression": "aggressive",
+      "slayer_level_required": 20,
+      "slayer_xp": 100,
+      "drop_table_id": "dt_ink_lucid_crawler",
+      "examine": "A spider made of awareness. It noticed you.",
+      "bible": [
+        "Lucid crawlers are the Inkweald's response to lucid dreaming. Every time someone in Aelgard achieves lucid-dream state, a lucid crawler forms in the Weald and proceeds to investigate the dreamer.",
+        "They are eight-legged and shaped like a spider for no reason anyone has determined. The shape appears to be a dream-convention, not an anatomical necessity.",
+        "A crawler communicates by thought-impression. Killing one in the Weald sometimes blocks a distant dreamer's next lucid attempt."
+      ],
+      "habitat": "dream-trails, lucid-dreamer proximity zones, the Spiral Path",
+      "reagent_callout": "Lucid essence (1/14) — reagent for waking-serum (consumable that disrupts any ongoing NPC dialogue into blunt truth-telling)."
+    },
+    {
+      "id": "mega_ink_echo_wraith",
+      "name": "Echo wraith",
+      "region": "inkweald",
+      "combat_level": 68,
+      "hp": 78,
+      "max_hit": 10,
+      "attack_style": "magic",
+      "weakness": "stab",
+      "aggression": "aggressive",
+      "slayer_level_required": 35,
+      "slayer_xp": 145,
+      "drop_table_id": "dt_ink_echo_wraith",
+      "examine": "Someone who died in the dream. Still saying a last word.",
+      "bible": [
+        "Echo wraiths are the lingering presence of dreamers who died inside a dream. They are not, strictly, dead in the waking world; most are still-living sleepers whose dream-self never returned.",
+        "A wraith speaks only one sentence, endlessly, from the moment of its dream-death. The sentences are usually private — names, requests, regrets.",
+        "Retrieving the wraith's sentence and returning it to the wraith's physical body sometimes wakes the sleeper. Sometimes it does not. The Inkweald Dreamkeeper pays either way."
+      ],
+      "habitat": "dream-death zones, along the Path of Unfinished Words",
+      "reagent_callout": "Echo petal (1/8) — reagent for the Returning Scroll (consumable that carries a spoken sentence to any NPC in Aelgard)."
+    },
+    {
+      "id": "mega_ink_dream_knight",
+      "name": "Dream knight",
+      "region": "inkweald",
+      "combat_level": 112,
+      "hp": 140,
+      "max_hit": 16,
+      "attack_style": "melee",
+      "weakness": "magic",
+      "aggression": "aggressive",
+      "slayer_level_required": 72,
+      "slayer_xp": 245,
+      "drop_table_id": "dt_ink_dream_knight",
+      "examine": "A knight from a dream that nobody is having anymore.",
+      "bible": [
+        "Dream knights are sworn to the service of the Dreamer-Queen, a figure who may not exist in the waking world. They patrol the deep Weald in armour that shifts subtly when not observed directly.",
+        "Each dream knight carries an oath-blade — a sword carved with the oath-text the knight swore in life (or in a dream of life). The text is sometimes readable; sometimes the oath has already been broken, and the text is silent.",
+        "A knight defeated in honourable single combat gives up his oath-blade willingly. A knight killed dishonourably does not; his blade dissolves."
+      ],
+      "habitat": "the Dream-Ride, the Deep Weald, the Queen's empty pavilion",
+      "reagent_callout": "Oath-blade (1/96 collection-log) — reagent for the Oathbound Sword (slayer-niche vs all dream-tag mobs and vs NPCs who have broken named oaths)."
+    },
+    {
+      "id": "mega_ink_forgotten_name",
+      "name": "Forgotten-name",
+      "region": "inkweald",
+      "combat_level": 180,
+      "hp": 240,
+      "max_hit": 21,
+      "attack_style": "magic",
+      "weakness": "ranged",
+      "aggression": "aggressive",
+      "slayer_level_required": 93,
+      "slayer_xp": 395,
+      "drop_table_id": "dt_ink_forgotten_name",
+      "examine": "You cannot remember what to call it. You never will.",
+      "bible": [
+        "The Forgotten-Name is a single specific boss species, though more than one individual exists — perhaps four, though counting them is part of the problem. Its name cannot be retained. A player who fights and kills a Forgotten-Name remembers the fight but cannot, upon any retelling, produce the creature's name.",
+        "This is a literal mechanic. Quest texts display as '————' where the name would be. NPCs refer to the creature by circumlocution.",
+        "The Forgotten-Name is the Inkweald's endgame combat check. Its loot is one of the few items in the game whose NAME the player cannot speak aloud — it is read but not voiced, in dialogue appearing as blanks."
+      ],
+      "habitat": "the Third Deep Weald, specifically the unmarked clearing",
+      "reagent_callout": "Blank-Name ring (1/256 collection-log) — the game's only unnameable item; confers a prayer-pool bonus that stacks uniquely with all existing prayer gear."
+    },
+    {
+      "id": "mega_ink_dreamer_imp",
+      "name": "Dreamer imp",
+      "region": "inkweald",
+      "combat_level": 24,
+      "hp": 28,
+      "max_hit": 4,
+      "attack_style": "melee",
+      "weakness": "ranged",
+      "aggression": "passive",
+      "slayer_level_required": 8,
+      "slayer_xp": 48,
+      "drop_table_id": "dt_ink_dreamer_imp",
+      "examine": "Small. Annoying. Hums a song you half-know.",
+      "bible": [
+        "Dreamer imps are the Weald's chorus of minor annoyances. They hum songs that seem familiar, ask questions in a voice that sounds like an old friend, and generally make a nuisance of themselves. They are not strictly hostile.",
+        "If a player remains still for 10 seconds, a dreamer imp will attempt a trade — offering a minor dream-trinket in exchange for a small random item from the player's inventory. The trade is often unfavorable but not malicious.",
+        "They cannot be followed back to wherever they come from. Every imp that leaves a visible area is genuinely gone."
+      ],
+      "habitat": "Weald edges, the path-boundary pockets, the outer dreamline",
+      "anti_pattern_note": "trade is a core interaction. Encounter script should NOT auto-combat."
+    },
+    {
+      "id": "mega_ink_memory_hag",
+      "name": "Memory hag",
+      "region": "inkweald",
+      "combat_level": 96,
+      "hp": 115,
+      "max_hit": 14,
+      "attack_style": "magic",
+      "weakness": "crush",
+      "aggression": "aggressive",
+      "slayer_level_required": 60,
+      "slayer_xp": 200,
+      "drop_table_id": "dt_ink_memory_hag",
+      "examine": "She remembers things you haven't done yet.",
+      "bible": [
+        "Memory hags live on the boundary between dream and memory. They claim to remember the future and the past indifferently; most encounters with a hag include her volunteering a memory the player does not yet have.",
+        "Her memories are usually wrong in details and correct in spirit. Ignoring them is common. Ignoring them has been the proximate cause of many Inkweald deaths.",
+        "She cannot be bargained with in the conventional sense, but she will accept a single specific memory as tribute: her preferred gift is the memory of a childhood meal, which she then eats."
+      ],
+      "habitat": "memory-crossings, the Backward Path, old-age homes adjacent to the Weald",
+      "reagent_callout": "Hag-memory locket (1/72 collection-log) — reagent for the Memoried Map (shows the Inkweald's shifting paths correctly for 10 minutes)."
+    },
+    {
+      "id": "mega_ink_inkblood_serpent",
+      "name": "Inkblood serpent",
+      "region": "inkweald",
+      "combat_level": 82,
+      "hp": 95,
+      "max_hit": 12,
+      "attack_style": "melee",
+      "weakness": "slash",
+      "aggression": "aggressive",
+      "slayer_level_required": 48,
+      "slayer_xp": 180,
+      "drop_table_id": "dt_ink_inkblood_serpent",
+      "examine": "Its blood writes. Its bite edits.",
+      "bible": [
+        "Inkblood serpents bleed black writing-ink, and their bite introduces a small typographical error into the text of any written item in the victim's inventory. This is usually cosmetic; occasionally, when it hits a spell scroll or a quest-document, it is a disaster.",
+        "The serpents are not hostile to the illiterate. They have no interest in anyone without written possessions. Farmers pass through serpent territory with no issue.",
+        "A bitten spellbook can be repaired at any Inkweald scribe for a fee. A bitten quest-document often cannot; this is a mechanic."
+      ],
+      "habitat": "scribe-trails, literacy-dense paths, the Archive Approach",
+      "anti_pattern_note": "bite does permanent item-text corruption. Warn the player. Do not spring this without telegraph."
+    },
+    {
+      "id": "ink_quill_wraith",
+      "name": "Quill wraith",
+      "region": "inkweald",
+      "combat_level": 44,
+      "hp": 50,
+      "max_hit": 7,
+      "attack_style": "magic",
+      "weakness": "ranged",
+      "aggression": "aggressive",
+      "slayer_level_required": 18,
+      "slayer_xp": 88,
+      "drop_table_id": "dt_ink_quill_wraith",
+      "examine": "The ghost of a scribe who did not finish his book.",
+      "bible": [
+        "Quill wraiths are scribes who died mid-sentence. Each is bound to finish that sentence. They cannot. They attack anyone holding a pen, a quill, or (in three observed cases) a stick of charcoal.",
+        "The sentence they were writing is often still inscribed on a nearby desk or parchment. Finishing it for them — provided the finishing is grammatically and stylistically correct — releases the wraith to peace.",
+        "The completions are assessed by the Inkweald Archive. The Archive is pedantic."
+      ],
+      "habitat": "archives, scriptoriums, the abandoned Third Scribes' Hall",
+      "anti_pattern_note": "'finish the sentence' is a genuine minigame, not just a flavour line. Rewards: 2x drop-table roll."
+    },
+    {
+      "id": "ink_dream_wolf",
+      "name": "Dream wolf",
+      "region": "inkweald",
+      "combat_level": 60,
+      "hp": 72,
+      "max_hit": 9,
+      "attack_style": "melee",
+      "weakness": "stab",
+      "aggression": "aggressive",
+      "slayer_level_required": 28,
+      "slayer_xp": 128,
+      "drop_table_id": "dt_ink_dream_wolf",
+      "examine": "A wolf. In a different way than the Veilwood wolves.",
+      "bible": [
+        "Dream wolves hunt in a pack of exactly seven. They are slightly translucent in daylight, fully opaque at night, and always exactly seven. If a member is killed, a new one joins the pack by the next full moon.",
+        "The pack's territory is stable over years. They do not expand. They do not contract.",
+        "Their fur, if harvested carefully without cutting, is black-to-gold iridescent and used in ceremonial Inkweald cloaks."
+      ],
+      "habitat": "the Seven-Wolf pack's fixed territory, the north Weald",
+      "reagent_callout": "Dream-wolf pelt (1/20) — reagent for the seven-seal ceremonial cloak (required for the Inkweald endgame quest)."
+    },
+    {
+      "id": "ink_scholar_of_inkblot",
+      "name": "Scholar of Inkblot",
+      "region": "inkweald",
+      "combat_level": 78,
+      "hp": 90,
+      "max_hit": 11,
+      "attack_style": "magic",
+      "weakness": "crush",
+      "aggression": "passive",
+      "slayer_level_required": 0,
+      "slayer_xp": 168,
+      "drop_table_id": "dt_ink_scholar_of_inkblot",
+      "examine": "A scholar studying the Inkweald from the inside. Possibly insane.",
+      "bible": [
+        "A Scholar of Inkblot is not a monster but a specialist — a researcher who has immersed himself in the Weald long enough to become partly Weald. Scholars are tenured at the Inkweald University and receive stipends from the Crown.",
+        "They are passive and often helpful. A scholar will volunteer research findings to any respectful inquirer, and will decline combat with dignity if provoked.",
+        "Killing a scholar is an academic crime with real consequences: the University issues research-embargoes against the offending player for 60 days in-game."
+      ],
+      "habitat": "university field-camps, annotated tree-trunks, the clearings with portable writing-desks",
+      "anti_pattern_note": "passive AND helpful. NEVER auto-aggro. Slayer tasks on scholars should trigger an 'abort task with master' flow."
+    }
+  ],
+  "region_flavor_drops": [
+    "Inkblot fragment (1/5 — reagent: ink-seared letter)",
+    "Nightmare shard (1/24 — reagent: Dreamwalker's Amulet)",
+    "Lucid essence (1/14 — reagent: waking-serum)",
+    "Echo petal (1/8 — reagent: Returning Scroll)",
+    "Dream thread (Inkweald crafting)",
+    "Oath-blade (1/96 collection-log — reagent: Oathbound Sword)",
+    "Blank-Name ring (1/256 collection-log — unnameable prayer-pool item)",
+    "Hag-memory locket (1/72 collection-log — reagent: Memoried Map)",
+    "Dream-wolf pelt (1/20 — reagent: seven-seal ceremonial cloak)"
+  ]
+}

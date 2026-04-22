@@ -1,0 +1,282 @@
+{
+  "_comment": "Aelgard Glass Desert bestiary. Crystalline wasteland where the sand is fused into prism-shards and dragons refract light. Tone: blinding, silent, hostile to iron. Threats here test eyes and resistance to magic.",
+  "_version": "1.0.0",
+  "_region": "glass_desert",
+  "_region_tone": "blinding-white glare, silent crystal-crack underfoot, everything made of fused silica. Reflections are not always honest.",
+  "monsters": [
+    {
+      "id": "mega_glass_prism_elemental",
+      "name": "Prism elemental",
+      "region": "glass_desert",
+      "combat_level": 90,
+      "hp": 110,
+      "max_hit": 12,
+      "attack_style": "magic",
+      "weakness": "crush",
+      "aggression": "aggressive",
+      "slayer_level_required": 55,
+      "slayer_xp": 200,
+      "drop_table_id": "dt_glass_prism_elemental",
+      "examine": "A being of pure refracted light.",
+      "bible": [
+        "Prism elementals form in sunstruck pockets of the Glass Desert where three or more crystalline surfaces intersect at the right angles. They are localised weather as much as life: dispel the sun or break the angles and the elemental vanishes.",
+        "They attack by refracted light — directing amplified sun against a target. The attack is blocked by any reflective polish.",
+        "Killing one releases the stored light in a brief, non-damaging flash that is readable from miles away. Glass Desert guides use prism-kills as signal flares."
+      ],
+      "habitat": "sun-trap crystal pockets, specifically the Refracted Flats and the Wall of Nine Angles",
+      "reagent_callout": "Refracted essence (1/10) — reagent for the mirror-cloak (light-damage immunity, Glass Desert-niche)."
+    },
+    {
+      "id": "mega_glass_crystal_dragon",
+      "name": "Crystal dragon",
+      "region": "glass_desert",
+      "combat_level": 220,
+      "hp": 280,
+      "max_hit": 25,
+      "attack_style": "magic",
+      "weakness": "stab",
+      "aggression": "aggressive",
+      "slayer_level_required": 95,
+      "slayer_xp": 410,
+      "drop_table_id": "dt_glass_crystal_dragon",
+      "examine": "A dragon with crystalline scales. Refracts magic.",
+      "bible": [
+        "Crystal dragons evolved from sand wyverns over thirty generations of Glass Desert adaptation. Their scales are grown silica, effectively prism-armor. Magic cast at a crystal dragon refracts off the scale and strikes a bystander.",
+        "Solo-hunting a crystal dragon is safer than group-hunting one; the refract mechanic punishes flank positioning.",
+        "Their breath is not fire but a sweeping beam of amplified light, which sets flammable materials alight at range."
+      ],
+      "habitat": "the Shard Spires, the Great Glass Flats, the deep interior beyond the sun-walkable zone",
+      "reagent_callout": "Crystal dragon scale (1/32 collection-log) — reagent for the Glass Desert ultimate shield 'The Ninth Angle' (magic-reflect back at attacker)."
+    },
+    {
+      "id": "mega_glass_sand_wraith",
+      "name": "Sand wraith",
+      "region": "glass_desert",
+      "combat_level": 80,
+      "hp": 92,
+      "max_hit": 11,
+      "attack_style": "magic",
+      "weakness": "ranged",
+      "aggression": "aggressive",
+      "slayer_level_required": 48,
+      "slayer_xp": 170,
+      "drop_table_id": "dt_glass_sand_wraith",
+      "examine": "An ancient spirit of the Glass Desert.",
+      "bible": [
+        "Sand wraiths are the ghosts of ancient Glass Desert travellers — not corpses, but compressed memories of journeys taken. Each wraith represents a single crossing that ended badly.",
+        "A wraith can be appeased by telling it, truthfully, that the crossing in question has been completed by someone else. This requires the player to look up the relevant crossing-log, which is archived at the Glass Desert Ranger Station.",
+        "Appeased wraiths yield their grudge-fragment willingly and vanish. Combat kills yield a different, corrupted fragment."
+      ],
+      "habitat": "crossing-routes, old caravan-tracks, the Seventh Ridge",
+      "reagent_callout": "Sand-wraith grudge (1/16, appeasement yields pure, combat yields corrupted — different downstream recipes)."
+    },
+    {
+      "id": "mega_glass_sunking",
+      "name": "Sunking",
+      "region": "glass_desert",
+      "combat_level": 170,
+      "hp": 225,
+      "max_hit": 19,
+      "attack_style": "magic",
+      "weakness": "ranged",
+      "aggression": "aggressive",
+      "slayer_level_required": 88,
+      "slayer_xp": 345,
+      "drop_table_id": "dt_glass_sunking",
+      "examine": "The ghost of a king who claimed the sun.",
+      "bible": [
+        "The Sunking is a single named boss: the ghost of a pre-Crown monarch who, in his final decree, claimed the sun as the property of his line. The claim was never honored, but the ghost has not surrendered it.",
+        "He fights only at noon. At other times he is invisible, immobile, and reciting the decree to himself. Only the noon hour permits him to project his claim outward as combat.",
+        "Killing the Sunking is a one-time event. Once defeated, he is gone. His decree remains legally contested in Crown archives."
+      ],
+      "habitat": "the Sunking's Pavilion, the exact centre of the Glass Desert, only at noon (game-clock)",
+      "reagent_callout": "Sunking's crown (1/1 one-shot drop) — reagent for a single unique 'Sun-claimed' crown (light-damage buff, once only; account-bound)."
+    },
+    {
+      "id": "mega_glass_mirage_knight",
+      "name": "Mirage knight",
+      "region": "glass_desert",
+      "combat_level": 115,
+      "hp": 135,
+      "max_hit": 14,
+      "attack_style": "melee",
+      "weakness": "magic",
+      "aggression": "aggressive",
+      "slayer_level_required": 68,
+      "slayer_xp": 240,
+      "drop_table_id": "dt_glass_mirage_knight",
+      "examine": "A knight of a kingdom that never existed.",
+      "bible": [
+        "Mirage knights are the Glass Desert's most elaborate optical illusion — fully-formed armoured warriors that exist only at specific sun-angle/wind-speed combinations. They fight with full material presence when the conditions are right.",
+        "A knight can be dispelled by introducing dust into the air (disrupting the light). Glass Desert tacticians carry dust-bombs for exactly this purpose.",
+        "Engaged in melee by a player without dust, the knight will fight to death and leave behind a small quantity of desert-glass as residue."
+      ],
+      "habitat": "sun-angle zones, the Mirage Fields, the afternoon approaches to the Shard Spires",
+      "anti_pattern_note": "dust-bomb counter is a core counterplay. Encounter should not spawn knights in environments where dust is trivially available."
+    },
+    {
+      "id": "mega_glass_shard_crawler",
+      "name": "Shard crawler",
+      "region": "glass_desert",
+      "combat_level": 44,
+      "hp": 55,
+      "max_hit": 7,
+      "attack_style": "melee",
+      "weakness": "crush",
+      "aggression": "aggressive",
+      "slayer_level_required": 20,
+      "slayer_xp": 90,
+      "drop_table_id": "dt_glass_shard_crawler",
+      "examine": "A crab of shards. Small, sharp, plentiful.",
+      "bible": [
+        "Shard crawlers are crab-like animals that nest inside fused silica rubble. They are the Glass Desert's most common encounter and the first threat a new crossing-rookie meets.",
+        "A single shard crawler is trivial. A swarm is not, and shard crawlers swarm reliably when one is killed — the sound of broken carapace attracts every crawler within 60 paces.",
+        "Veteran crossers kill shard crawlers by crushing, not cutting, because cutting makes more noise."
+      ],
+      "habitat": "silica rubble-fields, any broken-shard terrain, caravan-rest areas",
+      "anti_pattern_note": "sound-swarm mechanic. Slash weapons attract waves; crush weapons do not."
+    },
+    {
+      "id": "mega_glass_mirror_fiend",
+      "name": "Mirror fiend",
+      "region": "glass_desert",
+      "combat_level": 102,
+      "hp": 120,
+      "max_hit": 13,
+      "attack_style": "magic",
+      "weakness": "slash",
+      "aggression": "aggressive",
+      "slayer_level_required": 64,
+      "slayer_xp": 210,
+      "drop_table_id": "dt_glass_mirror_fiend",
+      "examine": "A demon-kin who entered a mirror and never left.",
+      "bible": [
+        "Mirror fiends are not Glass Desert natives. They are demons from elsewhere who crossed through a mirror-surface and, per the rules of whatever they entered, cannot leave through the same surface.",
+        "They live inside reflective surfaces in the Glass Desert, appearing when a reflective object is held at the correct angle. Fighting one requires engaging from within the mirror's spatial projection — effectively, fighting on the other side of a looking-glass.",
+        "Smashing the reflective object that hosts the fiend kills it. Smashing a mirror-fiend directly does nothing."
+      ],
+      "habitat": "polished surfaces, specifically the Mirror Market and the Scryer's Maze",
+      "reagent_callout": "Mirror-fiend glass (1/18, only obtained via mirror-break not combat) — reagent for the Mirror-Fiend Dagger (ignores magic reflection on crystal-tag enemies)."
+    },
+    {
+      "id": "mega_glass_dune_scarab_queen",
+      "name": "Dune scarab queen",
+      "region": "glass_desert",
+      "combat_level": 142,
+      "hp": 180,
+      "max_hit": 17,
+      "attack_style": "melee",
+      "weakness": "magic",
+      "aggression": "aggressive",
+      "slayer_level_required": 78,
+      "slayer_xp": 300,
+      "drop_table_id": "dt_glass_dune_scarab_queen",
+      "examine": "The matriarch of a shard-nest. Large, gold-rimmed, coordinated.",
+      "bible": [
+        "Each shard-crawler nest is ruled by a dune scarab queen — a larger, gold-rimmed specimen that coordinates the swarm. Queens do not leave their nests in ordinary circumstances.",
+        "A queen defends by deploying swarms of shard crawlers in waves. Killing waves consumes player resources until the queen emerges for a final confrontation.",
+        "Queen-shell is a prized Glass Desert material. Cut and polished, it refracts light in deliberate patterns, which is the basis for the Glass Desert's signalling lanterns."
+      ],
+      "habitat": "shard-crawler mega-nests, specifically the Broken Crescent and the Shardheart warren",
+      "reagent_callout": "Scarab queen shell (1/48 collection-log) — reagent for the Scarab-lantern (long-range signal device, used in several Glass Desert quests)."
+    },
+    {
+      "id": "glass_sunstalker_bird",
+      "name": "Sunstalker",
+      "region": "glass_desert",
+      "combat_level": 68,
+      "hp": 80,
+      "max_hit": 10,
+      "attack_style": "ranged",
+      "weakness": "magic",
+      "aggression": "aggressive",
+      "slayer_level_required": 35,
+      "slayer_xp": 148,
+      "drop_table_id": "dt_glass_sunstalker_bird",
+      "examine": "A hawk that hunts by sun-heat, not sight.",
+      "bible": [
+        "Sunstalkers are raptor-kin that hunt by detecting heat differentials. They strike any warm body crossing the Glass Desert in noontime — which is everything.",
+        "Their plumage is nearly black, absorbing sun-heat efficiently. A sunstalker descending from above is a visible dark speck at distance.",
+        "Their feathers, stripped, make exceptional fletching for arrows — sunstalker-fletched arrows fly noticeably faster than standard."
+      ],
+      "habitat": "high thermals above the desert, specifically 300+ paces above ground",
+      "reagent_callout": "Sunstalker feather (1/5) — reagent for fast-fletch arrow variant."
+    },
+    {
+      "id": "glass_glasshand_golem",
+      "name": "Glasshand golem",
+      "region": "glass_desert",
+      "combat_level": 124,
+      "hp": 150,
+      "max_hit": 15,
+      "attack_style": "melee",
+      "weakness": "crush",
+      "aggression": "aggressive",
+      "slayer_level_required": 72,
+      "slayer_xp": 265,
+      "drop_table_id": "dt_glass_glasshand_golem",
+      "examine": "A golem of hand-sized shards. Reassembles.",
+      "bible": [
+        "Glasshand golems are distributed creatures — their body is a collection of hand-sized shard-hands connected by a binding-thought rather than physical linkage. Damage separates hands; a separated hand drifts, relocates, and re-joins.",
+        "Killing a glasshand requires shattering enough hands faster than they can re-join. The math is: destroy 80% of the hands within 30 seconds.",
+        "Fragments of glasshand retain their animating thought weakly; a salvaged glasshand finger will, if held, point toward the nearest golem in any direction."
+      ],
+      "habitat": "the Hand-Fields, distributed across the southern Glass Desert",
+      "anti_pattern_note": "area-of-effect crush weapons are strongly preferred. Single-target attacks fail against reassembly."
+    },
+    {
+      "id": "glass_crystal_serpent",
+      "name": "Crystal serpent",
+      "region": "glass_desert",
+      "combat_level": 88,
+      "hp": 100,
+      "max_hit": 12,
+      "attack_style": "melee",
+      "weakness": "stab",
+      "aggression": "aggressive",
+      "slayer_level_required": 52,
+      "slayer_xp": 185,
+      "drop_table_id": "dt_glass_crystal_serpent",
+      "examine": "A snake of crystal. Cold. Sharp. Patient.",
+      "bible": [
+        "Crystal serpents are the apex ground-predator of the outer Glass Desert. Snake-shaped, crystal-bodied, venomless but lethally sharp-fanged. They hunt by patience — they can hold still for 12 hours waiting for a target to come within strike-range.",
+        "They are cold; surface temperature roughly equal to air temperature. This makes them difficult to detect by heat-sight (the sunstalker strategy).",
+        "Their skin, shed seasonally, is a durable crystalline leather. Veteran rangers collect shed skin in preference to combat — the shed is free and the serpent is still alive."
+      ],
+      "habitat": "sun-warmed rocks, predator-heaped dunes, the ambush zones along the Whistle Path",
+      "reagent_callout": "Crystal serpent shed (1/10) — reagent for crystal-scale boots (magic-defence footwear)."
+    },
+    {
+      "id": "glass_nomad_glassmaker",
+      "name": "Nomad glassmaker",
+      "region": "glass_desert",
+      "combat_level": 50,
+      "hp": 62,
+      "max_hit": 8,
+      "attack_style": "magic",
+      "weakness": "ranged",
+      "aggression": "passive",
+      "slayer_level_required": 0,
+      "slayer_xp": 105,
+      "drop_table_id": "dt_glass_nomad_glassmaker",
+      "examine": "A nomad craftsman. Would rather trade than fight.",
+      "bible": [
+        "Nomad glassmakers are itinerant Glass Desert crafters — small-cart, two-camel operations that travel between crystal deposits and buy shards from hunters. They are passive and often extraordinarily useful to travellers.",
+        "A glassmaker will trade raw crystals for worked items, small commissions for favours, and (rarely) travel-routes for gossip. Killing one is both stupid and taboo; the other nomads will remember the face.",
+        "They know every route through the desert. A glassmaker-friend is one of the most valuable allies a Glass Desert adventurer can cultivate."
+      ],
+      "habitat": "nomad-cart routes, specifically the three main traderails between shard-fields",
+      "anti_pattern_note": "passive, valuable NPC-like interactions. NEVER auto-aggro. Slayer tasks on glassmakers should trigger abort flow."
+    }
+  ],
+  "region_flavor_drops": [
+    "Crystal shard (Glass Desert core reagent)",
+    "Refracted essence (1/10 — reagent: mirror-cloak)",
+    "Crystal dragon scale (1/32 collection-log — reagent: The Ninth Angle shield)",
+    "Sunking's crown (1/1 one-shot — account-bound Sun-claimed crown)",
+    "Scarab queen shell (1/48 collection-log — reagent: Scarab-lantern)",
+    "Mirror-fiend glass (1/18 mirror-break only — reagent: Mirror-Fiend Dagger)",
+    "Sunstalker feather (1/5 — reagent: fast-fletch arrow)",
+    "Crystal serpent shed (1/10 — reagent: crystal-scale boots)"
+  ]
+}

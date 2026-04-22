@@ -1,0 +1,283 @@
+{
+  "_comment": "Aelgard Saltbrine Reach bestiary. Coastal pirate-and-kraken region. Tone: salt-cracked rope, ship-rum, deep-water superstition. Threats range from tavern enforcers to tentacled deep-watchers.",
+  "_version": "1.0.0",
+  "_region": "saltbrine",
+  "_region_tone": "brine-dried planks, cannon-scented mornings, a superstition for every foot of rigging. Fights break out in taverns; wars break out below the waterline.",
+  "monsters": [
+    {
+      "id": "mega_salt_reef_leviathan",
+      "name": "Reef leviathan",
+      "region": "saltbrine",
+      "combat_level": 130,
+      "hp": 170,
+      "max_hit": 17,
+      "attack_style": "melee",
+      "weakness": "ranged",
+      "aggression": "aggressive",
+      "slayer_level_required": 75,
+      "slayer_xp": 260,
+      "drop_table_id": "dt_salt_reef_leviathan",
+      "examine": "A shark that learned to walk. Briefly.",
+      "bible": [
+        "Reef leviathans are low-tide predators: shark-cousins with vestigial forelimbs that let them haul themselves across tide-pools and drying reefs to reach stranded prey. They are not fully amphibious; a stranded leviathan cannot last more than a day.",
+        "They hunt the tide boundary. At high tide they are mid-sea sharks, dangerous but conventional; at low tide they come ashore and take sheep, fishermen, and unwary hikers.",
+        "A leviathan's teeth are wedge-shaped and single-use; they shed constantly. The sheds wash up on Saltbrine beaches and are a minor trade good."
+      ],
+      "habitat": "tidal reefs, Saltbrine coastal shelf, rocks uncovered at low tide",
+      "reagent_callout": "Reef-leviathan tooth (1/6) — reagent for the Low-Tide cleaver (slayer-niche vs all aquatic-tag mobs)."
+    },
+    {
+      "id": "mega_salt_drowned_crew",
+      "name": "Drowned crew",
+      "region": "saltbrine",
+      "combat_level": 48,
+      "hp": 58,
+      "max_hit": 7,
+      "attack_style": "melee",
+      "weakness": "slash",
+      "aggression": "aggressive",
+      "slayer_level_required": 22,
+      "slayer_xp": 100,
+      "drop_table_id": "dt_salt_drowned_crew",
+      "examine": "A pirate crew who never noticed they drowned.",
+      "bible": [
+        "The Saltbrine underwater is studded with wrecks. The wrecks are crewed. A drowned crew is not reanimated in the usual sense; they simply did not update their self-image after the sinking. They still trim sails that are algae, raise flags that are rag, and fight boarders with cutlasses.",
+        "A drowned crew treats the player as a boarder. Combat is structured: one boarding volley, one cutlass rush, one desperate final stand. The pattern is reliable across all crews.",
+        "Surviving crew in reports do not leave the wreck they died on. They can be kited to the wreck-boundary but not beyond."
+      ],
+      "habitat": "Saltbrine shipwrecks (twelve catalogued), underwater grid squares 8-15",
+      "anti_pattern_note": "wreck-boundary soft-leash is core. Crew aggro drops outside the wreck."
+    },
+    {
+      "id": "mega_salt_kraken_scout",
+      "name": "Kraken scout",
+      "region": "saltbrine",
+      "combat_level": 104,
+      "hp": 125,
+      "max_hit": 14,
+      "attack_style": "magic",
+      "weakness": "ranged",
+      "aggression": "aggressive",
+      "slayer_level_required": 66,
+      "slayer_xp": 220,
+      "drop_table_id": "dt_salt_kraken_scout",
+      "examine": "A smaller tentacle. Still larger than a man.",
+      "bible": [
+        "Kraken are deep-water beings that dispatch scouts into shallower waters. A kraken scout is a single detached tentacle — not an independent animal, but a remote appendage linked to the parent kraken miles below.",
+        "A damaged scout retracts; a killed scout detaches, dies, and the kraken sprouts another within a day. The kraken itself is not meaningfully harmed by scout loss.",
+        "Ship-crews respect scouts: sighting one is good reason to turn back, but not fast — flight triggers pursuit."
+      ],
+      "habitat": "Saltbrine open water, deep-grid from square 20 outward",
+      "reagent_callout": "Kraken ink-vial (1/12) — reagent for deep-scribe quill (writes messages that surface only underwater)."
+    },
+    {
+      "id": "mega_salt_brine_wraith",
+      "name": "Brine wraith",
+      "region": "saltbrine",
+      "combat_level": 62,
+      "hp": 75,
+      "max_hit": 10,
+      "attack_style": "magic",
+      "weakness": "crush",
+      "aggression": "aggressive",
+      "slayer_level_required": 30,
+      "slayer_xp": 130,
+      "drop_table_id": "dt_salt_brine_wraith",
+      "examine": "The ghost of a drowned grudge.",
+      "bible": [
+        "A brine wraith is the ghost of a drowning victim who blamed a specific person for their death. Unlike other ghosts, brine wraiths retain the target-identity: they hunt the named offender across the Saltbrine until one of them finds peace.",
+        "If the original target is dead, the wraith widens its criteria (anyone wearing that family's crest, anyone from that home village, anyone with the target's build). This is an ethical slide the wraith is not aware of.",
+        "A Saltbrine priest can negotiate with a wraith for recited penance — the priest speaks the original offence on behalf of the accused, and the wraith can release its target. This works sometimes."
+      ],
+      "habitat": "coastal wrecks, pier-ends, the lighthouse approach",
+      "reagent_callout": "Brine wraith residue (1/18) — reagent for the Penance Gorget (rare bypass of wraith-aggro)."
+    },
+    {
+      "id": "mega_salt_tavern_enforcer",
+      "name": "Tavern enforcer",
+      "region": "saltbrine",
+      "combat_level": 34,
+      "hp": 45,
+      "max_hit": 6,
+      "attack_style": "melee",
+      "weakness": "stab",
+      "aggression": "aggressive",
+      "slayer_level_required": 0,
+      "slayer_xp": 72,
+      "drop_table_id": "dt_salt_tavern_enforcer",
+      "examine": "Paid by the inn-keeper. Cashes checks in teeth.",
+      "bible": [
+        "Saltbrine taverns are self-policing. An enforcer is contracted to each tavern — a large, slow, proud man whose job is to eject drunks, break fights, and collect tabs.",
+        "An enforcer will challenge a player only if the player runs a tab, breaks furniture, or brawls. Most enforcers have boxing backgrounds and prefer fists.",
+        "Killed (which is an escalation well beyond reasonable), their signature knuckle-dusters become a mid-tier crafting material."
+      ],
+      "habitat": "every Saltbrine tavern (23 catalogued), dockside brothels, the second-floor fighting pits",
+      "anti_pattern_note": "enforcers should only aggro in response to player actions (unpaid tab, brawl); never on walk-in."
+    },
+    {
+      "id": "mega_salt_deep_mother",
+      "name": "Deep-mother",
+      "region": "saltbrine",
+      "combat_level": 175,
+      "hp": 240,
+      "max_hit": 20,
+      "attack_style": "magic",
+      "weakness": "slash",
+      "aggression": "aggressive",
+      "slayer_level_required": 92,
+      "slayer_xp": 385,
+      "drop_table_id": "dt_salt_deep_mother",
+      "examine": "Not a kraken. Not a leviathan. Older.",
+      "bible": [
+        "The Deep-Mother is a sub-boss species, not strictly a singular boss. Two are known to exist: one in the Trench, one off the Far Banks. Both are the same size, both are female, both produce broods of smaller Saltbrine monsters that populate the shallower waters.",
+        "Killing a Deep-Mother suppresses all Saltbrine spawning for approximately four months. The population collapse has economic consequences; the fishing guild has opinions.",
+        "The Saltbrine guild formally rates Deep-Mothers as unkillable; the rating is a recommendation, not a law."
+      ],
+      "habitat": "the Trench and Far Banks, deep-grid 40+",
+      "reagent_callout": "Deep-Mother ambergris (1/256 collection-log) — reagent for the Saltbrine ultimate weapon 'Trench-Cleaver' (slayer-niche vs aquatic, stacks with Low-Tide cleaver effect)."
+    },
+    {
+      "id": "mega_salt_coral_golem",
+      "name": "Coral golem",
+      "region": "saltbrine",
+      "combat_level": 76,
+      "hp": 98,
+      "max_hit": 11,
+      "attack_style": "melee",
+      "weakness": "crush",
+      "aggression": "aggressive",
+      "slayer_level_required": 42,
+      "slayer_xp": 165,
+      "drop_table_id": "dt_salt_coral_golem",
+      "examine": "Living coral, armoured and angry.",
+      "bible": [
+        "Coral golems form around dropped anchors on live reefs. The coral grows over the iron, animates over decades, and eventually walks. Each golem is built on a specific anchor and walks only as long as the anchor's iron is intact.",
+        "Destroying the core anchor collapses the golem instantly; attacking the coral body alone is a long fight.",
+        "Coral fragments harvested from a fallen golem retain living mycelium and can be cultivated in a home aquarium to grow a much smaller, decorative coral-friend."
+      ],
+      "habitat": "reefs with fouled-anchor ruins, the Old Reef specifically",
+      "anti_pattern_note": "core-anchor weakness is explicit. Combat should surface this via examine or dialogue from a Saltbrine NPC."
+    },
+    {
+      "id": "mega_salt_sharkfriend_swarm",
+      "name": "Sharkfriend swarm",
+      "region": "saltbrine",
+      "combat_level": 40,
+      "hp": 50,
+      "max_hit": 6,
+      "attack_style": "ranged",
+      "weakness": "magic",
+      "aggression": "aggressive",
+      "slayer_level_required": 18,
+      "slayer_xp": 90,
+      "drop_table_id": "dt_salt_sharkfriend_swarm",
+      "examine": "Small fish. Coordinated bite.",
+      "bible": [
+        "Sharkfriends are small remora-like fish that coordinate around large predators. A 'swarm' is the coordinated action of thirty to fifty, directed by proximity to a nearby shark-tagged predator.",
+        "They are not individually dangerous. The swarm coordinates a harassment pattern that distracts a victim for a larger predator. They are essentially a spotter-team.",
+        "Killing a swarm drives the associated predator away from the area for one tide-cycle. This is a Saltbrine fishing guild tactic."
+      ],
+      "habitat": "mid-water around larger predator zones, specifically the leviathan-lanes",
+      "anti_pattern_note": "swarm removal reduces regional leviathan aggro for 1 tide. Encounter reward loop works."
+    },
+    {
+      "id": "mega_salt_pier_gremlin",
+      "name": "Pier gremlin",
+      "region": "saltbrine",
+      "combat_level": 16,
+      "hp": 20,
+      "max_hit": 3,
+      "attack_style": "melee",
+      "weakness": "ranged",
+      "aggression": "aggressive",
+      "slayer_level_required": 4,
+      "slayer_xp": 32,
+      "drop_table_id": "dt_salt_pier_gremlin",
+      "examine": "A pest. Rope-chewer. Pickpocket.",
+      "bible": [
+        "Pier gremlins are rodent-sized, barnacle-coated, and surprisingly dexterous. They gnaw through rope, steal small cargo, and occasionally bite a sleeping sailor on the nose.",
+        "The Saltbrine pier authority offers a bounty of two coppers per tail. Most port workers keep a pouch of gremlin tails for quick cash.",
+        "They are not a threat in combat, but they are persistent. A gremlin infestation on a pier can become a multi-week problem if ignored."
+      ],
+      "habitat": "every pier and quay, rope-storage lockers, ship-galleys at night",
+      "drops_note": "pier gremlin tails (always drop) are the starter bounty currency; don't inflate the reward."
+    },
+    {
+      "id": "mega_salt_ghost_galleon_captain",
+      "name": "Ghost galleon captain",
+      "region": "saltbrine",
+      "combat_level": 140,
+      "hp": 180,
+      "max_hit": 18,
+      "attack_style": "melee",
+      "weakness": "magic",
+      "aggression": "aggressive",
+      "slayer_level_required": 80,
+      "slayer_xp": 310,
+      "drop_table_id": "dt_salt_ghost_galleon_captain",
+      "examine": "Still flying a flag nobody reads anymore.",
+      "bible": [
+        "Ghost galleon captains are the senior officers of wrecks that sank with colours flying. They outrank the drowned crew and command respect even in death; lesser crew obey them reflexively.",
+        "A captain fights only from a wreck-deck, and only after the boarding-volley phase of the drowned crew has been cleared. Killing a captain frees the entire crew from the wreck; most drift away, a few beach themselves on dry land.",
+        "The captain's hat is a valuable item: it reduces aggro from all drowned crew for a week in-game, for any player who wears it."
+      ],
+      "habitat": "the captain's quarters of wrecks, specifically the 'named' wrecks (five catalogued)",
+      "reagent_callout": "Captain's hat (1/160 collection-log, 1 per named wreck) — wearable aggro-reduction item for drowned crew."
+    },
+    {
+      "id": "salt_lighthouse_keeper_ghost",
+      "name": "Lighthouse-keeper ghost",
+      "region": "saltbrine",
+      "combat_level": 56,
+      "hp": 68,
+      "max_hit": 9,
+      "attack_style": "magic",
+      "weakness": "ranged",
+      "aggression": "passive",
+      "slayer_level_required": 0,
+      "slayer_xp": 118,
+      "drop_table_id": "dt_salt_lighthouse_keeper_ghost",
+      "examine": "Still keeping the lamp lit. Still blaming himself.",
+      "bible": [
+        "The old Saltbrine lighthouse has a ghost. He is the keeper who let the lamp gutter one night in 1603; three ships ran aground before dawn. He has kept the lamp continuously since his death, and is still reliable.",
+        "He is passive to any traveller who does not suggest the lamp has ever been out. Mentioning the Gutter Night triggers aggressive apparition.",
+        "The Saltbrine fishing guild formally thanks him every winter solstice in a ceremony he does not attend but clearly enjoys."
+      ],
+      "habitat": "the Saltbrine lighthouse, all levels, with rotating duty by floor",
+      "anti_pattern_note": "passive unless provoked. Dialogue choice 'mention the Gutter Night' triggers combat; all other choices are safe."
+    },
+    {
+      "id": "salt_merman_scout",
+      "name": "Merman scout",
+      "region": "saltbrine",
+      "combat_level": 70,
+      "hp": 80,
+      "max_hit": 10,
+      "attack_style": "ranged",
+      "weakness": "slash",
+      "aggression": "passive",
+      "slayer_level_required": 0,
+      "slayer_xp": 150,
+      "drop_table_id": "dt_salt_merman_scout",
+      "examine": "Sent by the deep coalition. Watching.",
+      "bible": [
+        "Mermen live in organised underwater societies off the Far Banks. Scouts are dispatched to shallow waters to report on surface activity. A scout is passive unless attacked and will retreat at 20% health.",
+        "The deep coalition considers surface humans a neighbour, not an enemy. Scouts are diplomatic. They will trade — pearls for iron tools, mostly.",
+        "Killing a scout closes merman trade for all Saltbrine ports for two in-game months. This is a meaningful economic consequence."
+      ],
+      "habitat": "shallow reefs, pier-ends at low tide, the trade-rock rendezvous",
+      "anti_pattern_note": "passive. Kill = 2-month regional trade closure. Slayer tasks should not target mermen."
+    }
+  ],
+  "region_flavor_drops": [
+    "Barnacle shell (Saltbrine reagent)",
+    "Coral fragment (Saltbrine reagent)",
+    "Pirate rum (consumable + reagent)",
+    "Pier gremlin tail (bounty currency)",
+    "Reef-leviathan tooth (1/6 — reagent: Low-Tide cleaver)",
+    "Kraken ink-vial (1/12 — reagent: deep-scribe quill)",
+    "Brine wraith residue (1/18 — reagent: Penance Gorget)",
+    "Deep-Mother ambergris (1/256 collection-log — reagent: Trench-Cleaver endgame)",
+    "Captain's hat (1/160 collection-log — aggro-reduction wearable)"
+  ]
+}
