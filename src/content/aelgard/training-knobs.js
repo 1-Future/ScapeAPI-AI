@@ -759,7 +759,7 @@ rel.defineTrainingMethod('runecrafting_air_runes', {
 rel.defineTrainingMethod('runecrafting_guardians_of_rift', {
   skill: 'runecrafting', name: 'Guardians of the Rift',
   levelRange: [1, 30],
-  xpPerHour: 15000,
+  xpPerHour: 40000,
   prerequisites: { skills: {}, quests: ['rune_mysteries'], items: [], areas: [] },
   resourceOutput: { produces: [{ name: 'Runes (varied)', perHour: 400 }], net: 'profit' },
   inputs: [],
@@ -810,7 +810,7 @@ rel.defineTrainingMethod('runecrafting_blood_runes', {
 rel.defineTrainingMethod('runecrafting_daeyalt_essence', {
   skill: 'runecrafting', name: 'Daeyalt Essence RC',
   levelRange: [1, 99],
-  xpPerHour: 45000,
+  xpPerHour: 65000,
   prerequisites: { skills: { mining: 60 }, quests: ['sins_of_the_father'], items: [], areas: [] },
   resourceOutput: { produces: [{ name: 'Runes', perHour: 600 }], net: 'profit' },
   inputs: [{ name: 'Daeyalt essence', perHour: 2000, source: 'mining' }],
@@ -827,7 +827,7 @@ rel.defineTrainingMethod('runecrafting_daeyalt_essence', {
 rel.defineTrainingMethod('runecrafting_wilds_abyss', {
   skill: 'runecrafting', name: 'Abyss Runecrafting',
   levelRange: [1, 99],
-  xpPerHour: 50000,
+  xpPerHour: 75000,
   prerequisites: { skills: {}, quests: ['enter_the_abyss'], items: [], areas: ['the_wilds'] },
   resourceOutput: { produces: [{ name: 'Runes', perHour: 800 }], net: 'profit' },
   inputs: [{ name: 'Pure essence', perHour: 2000, source: 'mining' }],

@@ -156,7 +156,7 @@ rel.defineTrainingMethod('wilds_runite_bolt_fletching', {
 rel.defineTrainingMethod('wilds_death_rune_altar', {
   skill: 'runecrafting', name: 'Deep-Wild Death Rune Altar',
   levelRange: [65, 99],
-  xpPerHour: 58000,
+  xpPerHour: 85000,
   prerequisites: { skills: { runecrafting: 65 }, quests: [], items: [], areas: ['the_wilds'] },
   resourceOutput: { produces: [{ name: 'Death rune', perHour: 2200 }], net: 'profit' },
   bankingFrequency: 'moderate', costPerHour: 0,

@@ -344,7 +344,7 @@ rel.defineTrainingMethod('wilds_abyss_runecrafting', {
 rel.defineTrainingMethod('wilds_blood_rune_altar', {
   skill: 'runecrafting', name: 'Deep-Wild Blood Rune Altar',
   levelRange: [77, 99],
-  xpPerHour: 62000,
+  xpPerHour: 90000,
   prerequisites: { skills: { runecrafting: 77 }, quests: [], items: [], areas: ['the_wilds'] },
   resourceOutput: { produces: [{ name: 'Blood rune', perHour: 1600 }], net: 'profit' },
   bankingFrequency: 'rare', costPerHour: 0,

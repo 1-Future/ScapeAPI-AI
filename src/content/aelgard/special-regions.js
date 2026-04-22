@@ -176,7 +176,7 @@ rel.defineTrainingMethod('glass_desert_crystal_mining', {
 
 rel.defineTrainingMethod('glass_desert_sun_rc', {
   skill: 'runecrafting', name: 'Sun Rune Crafting',
-  levelRange: [95, 99], xpPerHour: 52000,
+  levelRange: [95, 99], xpPerHour: 110000,
   prerequisites: { skills: { runecrafting: 95 }, quests: ['the_last_light'], items: [], areas: ['glass_desert'] },
   resourceOutput: { produces: [{ name: 'Wrath rune', perHour: 1800 }], net: 'profit' },
   bankingFrequency: 'moderate', costPerHour: 0, danger: 'none', complexity: 'moderate', attention: 'medium',
@@ -295,7 +295,7 @@ rel.defineTrainingMethod('wilds_ent_farming', {
 
 rel.defineTrainingMethod('wilds_rune_essence', {
   skill: 'runecrafting', name: 'Wilderness Pure Essence',
-  levelRange: [1, 99], xpPerHour: 68000,
+  levelRange: [1, 99], xpPerHour: 95000,
   prerequisites: { skills: {}, quests: [], items: [], areas: ['the_wilds'] },
   resourceOutput: { produces: [{ name: 'Pure essence', perHour: 1500 }], net: 'profit' },
   bankingFrequency: 'rare', costPerHour: 0, danger: 'extreme', complexity: 'simple', attention: 'medium',
