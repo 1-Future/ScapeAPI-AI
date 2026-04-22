@@ -783,9 +783,51 @@ function dedupRequires(nodeList) {
   return removed;
 }
 
+// ══════════════════════════════════════════════════════════════════════════════
+// C7 RETRACTS (v0.9 Wave A2) — 6 spurious ref removals
+// ══════════════════════════════════════════════════════════════════════════════
+// Section 6.3 of reports/broken-dag-refs-plan.md.
+//
+// Entry 1 is the only strictly broken-ref removal — `quest:hollow_choir` on
+// the Inkweald Hard diary is a stale duplicate of `quest:the_hollow_choirs_
+// descant` that already appears in the requires array.
+//
+// Entries 2-4 are redundancy removals: once the new sub-area nodes land via
+// C6, the direct `area:` requires entry becomes transitive via the parent
+// chain, so the duplicate-in-spirit entry can come out.
+//
+// Entries 5-6 are captured implicitly by the dedupRequires pass (which
+// already collapses the duplicate skill-level entries flagged in section
+// 6.3's last bullet — e.g. duplicate skill:agility:80 on bell_tower_agility).
+
+const RETRACTS = [
+  { from: 'achievement:inkweald_diary_hard',              ref: 'quest:hollow_choir' },
+  { from: 'training_method:heartlands_bell_tower_agility', ref: 'area:heartlands_bell_tower' },
+  { from: 'training_method:heartlands_capital_agility',    ref: 'area:heartlands_capital_rooftops' },
+  { from: 'training_method:heartlands_royal_armoury',      ref: 'area:heartlands_royal_district' },
+];
+
+function applyRetracts(nodeList) {
+  const retractMap = new Map();
+  for (const r of RETRACTS) {
+    if (!retractMap.has(r.from)) retractMap.set(r.from, new Set());
+    retractMap.get(r.from).add(r.ref);
+  }
+  let applied = 0;
+  for (const n of nodeList) {
+    const banned = retractMap.get(n.id);
+    if (!banned || !Array.isArray(n.requires)) continue;
+    const before = n.requires.length;
+    n.requires = n.requires.filter(r => !banned.has(r));
+    applied += before - n.requires.length;
+  }
+  return applied;
+}
+
 // ── Apply v0.9 Wave A2 fix pass in order ───────────────────────────────────
 
 const _renameCount = applyRenames([...nodes.values()]);
+const _retractCount = applyRetracts([...nodes.values()]);
 const _dupsRemoved = dedupRequires([...nodes.values()]);
 
 // Lint pass after fixups — residual errors are drift the renames cannot
@@ -821,8 +863,10 @@ fs.writeFileSync(path.join(DATA_DIR, 'progression-dag.json'), JSON.stringify(dag
 console.log(`[progression-dag] Wrote ${nodeArray.length} nodes, ${edgeCount} edges`);
 console.log('[progression-dag] By type:', dag.metadata.by_type);
 
-// ── C5 rename + lint summary ───────────────────────────────────────────────
-console.log(`[waveA2] Renames applied (C5): ${_renameCount} / duplicate requires removed: ${_dupsRemoved}`);
+// ── C5/C7 rename + retract + lint summary ──────────────────────────────────
+console.log(`[waveA2] Renames applied (C5): ${_renameCount}`);
+console.log(`[waveA2] Retracts applied (C7): ${_retractCount}`);
+console.log(`[waveA2] Duplicate requires removed: ${_dupsRemoved}`);
 console.log(`[lint] drift=${_lintResult.driftErrors.length} wilds=${_lintResult.wildsErrors.length} other-missing=${_lintResult.missingErrors.length}`);
 for (const e of _lintResult.driftErrors) {
   process.stderr.write(`[lint] DRIFT ${e.from} -> ${e.ref} (did you mean ${e.suggested}?)\n`);
@@ -1140,6 +1184,7 @@ push('');
 push('## v0.9 Wave A2 fix-pass summary');
 push('');
 push(`- **Renames applied (C5):** ${_renameCount}`);
+push(`- **Retracts applied (C7):** ${_retractCount}`);
 push(`- **Duplicate requires removed:** ${_dupsRemoved}`);
 push('');
 push('## DAG-builder lint (C15)');
