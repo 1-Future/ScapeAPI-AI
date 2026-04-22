@@ -161,6 +161,11 @@ items.define({ id: 30304, name: 'Boots of the eye', examine: 'Part of the Raimen
 // ══════════════════════════════════════════════════════════════════════════════
 // 6. BARBARIAN ASSAULT — Saltbrine — team roles, no combat XP
 // Attention: Max Focus | Players: 5 | Unique: Fighter torso (BIS strength body)
+// [v0.9-waveC2 — M6] _osrs_heritage: true — `barbarian_assault` is a verbatim
+// OSRS minigame/quest id; see reports/broken-dag-refs-plan.md §3.3.
+// Content-agent ticket QUEST_HERITAGE_BA: proposed Scape-native swap is
+// `saltbrine_scuttler_pits`, but the id is also DAG-referenced by
+// achievement:saltbrine_diary_elite so co-ordinate removal carefully.
 // ══════════════════════════════════════════════════════════════════════════════
 
 defineMinigame({

@@ -126,6 +126,10 @@ defineMinigame({
   location: 'Deadhold Keep (ruined fortress in Moryskah)',
   type: 'combat', minPlayers: 1, maxPlayers: 5, attention: 'Active',
   levelReqs: { construction: 50, smithing: 40, herblore: 30 },
+  // [v0.9-waveC2 — M6] _osrs_heritage: true — `priest_in_peril` is a verbatim
+  // OSRS quest id; see reports/broken-dag-refs-plan.md §3.3. Content-agent
+  // ticket QUEST_HERITAGE_PIP: replace with Scape-native `the_deadhold_summons`
+  // (Moryskah-native deadhold intro quest); see quests-pending-v0.9.js.
   questReqs: ['shades_of_moryskah', 'priest_in_peril'],
   description: 'Kill undead, repair barricades, forge weapons, brew potions, and unlock new rooms of a besieged fortress. Spend Dread Tokens to expand your capabilities while infinite waves of increasingly powerful undead threaten to break through. Every skill you have trained matters.',
   pointCurrency: 'dread_tokens',

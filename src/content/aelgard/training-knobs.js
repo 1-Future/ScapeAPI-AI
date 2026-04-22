@@ -205,6 +205,10 @@ rel.defineTrainingMethod('strength_wilderness_bosses', {
   breakpointAt: 70,
 });
 
+// [v0.9-waveC2 — M6] _osrs_heritage: true — references OSRS `barbarian_assault`
+// quest id; see reports/broken-dag-refs-plan.md §3.3. Content-agent ticket
+// QUEST_HERITAGE_BA: replace with Scape-native Saltbrine scuttler-pits quest
+// or retract entirely. Also referenced by achievement:saltbrine_diary_elite.
 rel.defineTrainingMethod('strength_barbarian_assault', {
   skill: 'strength', name: 'Barbarian Assault (Attacker)',
   levelRange: [40, 99],
@@ -1180,6 +1184,10 @@ rel.defineTrainingMethod('thieving_fruit_stalls', {
   breakpointAt: 25,
 });
 
+// [v0.9-waveC2 — M6] _osrs_heritage: true — references OSRS `feud_quest` id;
+// see reports/broken-dag-refs-plan.md §3.3. Content-agent ticket
+// QUEST_HERITAGE_FEUD: replace with Scape-native `the_moonless_feud` (Moryskah
+// blackjacking unlock with rival vampyre houses).
 rel.defineTrainingMethod('thieving_blackjacking', {
   skill: 'thieving', name: 'Blackjacking',
   levelRange: [45, 99],
@@ -1748,6 +1756,10 @@ rel.defineTrainingMethod('smithing_platebodies', {
   breakpointAt: 33,
 });
 
+// [v0.9-waveC2 — M6] _osrs_heritage: true — references OSRS `dwarf_cannon_quest`
+// id; see reports/broken-dag-refs-plan.md §3.3. Content-agent ticket
+// QUEST_HERITAGE_CANNON: replace with Scape-native `the_cannon_forge_commission`
+// (Sootworks dwarven-ally quest that unlocks smithing cannonballs).
 rel.defineTrainingMethod('smithing_cannonballs', {
   skill: 'smithing', name: 'Cannonball Smithing',
   levelRange: [35, 99],
@@ -1820,6 +1832,10 @@ rel.defineTrainingMethod('fishing_barbarian_fishing', {
   breakpointAt: 48,
 });
 
+// [v0.9-waveC2 — M6] _osrs_heritage: true — references OSRS `swan_song` id;
+// see reports/broken-dag-refs-plan.md §3.3. Content-agent ticket
+// QUEST_HERITAGE_SWAN: Aelgard lacks monkfish; re-gate on Scape-native
+// `the_trawlers_call` once that quest is authored (see quests-pending-v0.9.js).
 rel.defineTrainingMethod('fishing_monkfish_chill', {
   skill: 'fishing', name: 'Monkfish Fishing',
   levelRange: [62, 99],
@@ -1926,6 +1942,11 @@ rel.defineTrainingMethod('cooking_sharks', {
   breakpointAt: 80,
 });
 
+// [v0.9-waveC2 — M6] _osrs_heritage: true — references OSRS
+// `tai_bwo_wannai_trio` id; see reports/broken-dag-refs-plan.md §3.3.
+// Content-agent ticket QUEST_HERITAGE_TBWT: Aelgard has no Karamja analogue;
+// proposed Scape-native replacement is a Saltbrine cooking unlock gated on
+// `the_saltbrine_regatta` (see quests-pending-v0.9.js).
 rel.defineTrainingMethod('cooking_karambwan_1tick', {
   skill: 'cooking', name: 'Karambwan 1-Tick Cooking',
   levelRange: [30, 99],

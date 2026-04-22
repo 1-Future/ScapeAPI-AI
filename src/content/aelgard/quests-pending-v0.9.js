@@ -31,7 +31,11 @@ const quests = require('../../data/quests');
 
 const STUBS = [
   // ═════════════ OSRS-HERITAGE (§3.3 — need Scape-native replacement) ═════
+  // [v0.9-waveC2 — M6] Each of the 6 stubs below carries _osrs_heritage: true
+  // via its `heritage: 'osrs_heritage'` field. See the per-entry comments
+  // below for individual content-agent tickets.
   {
+    // _osrs_heritage: true — content-agent ticket QUEST_HERITAGE_PIP
     id: 'priest_in_peril',
     name: 'Priest in Peril [STUB]',
     description: 'OSRS-heritage placeholder. Aelgard replacement: the Deadhold summons — a Moryskah-native intro quest that unlocks the deadhold minigame.',
@@ -40,6 +44,7 @@ const STUBS = [
     proposedReplacement: 'the_deadhold_summons',
   },
   {
+    // _osrs_heritage: true — content-agent ticket QUEST_HERITAGE_TBWT
     id: 'tai_bwo_wannai_trio',
     name: 'Tai Bwo Wannai Trio [STUB]',
     description: 'OSRS-heritage placeholder. Aelgard has no Karamja analogue; proposed replacement is a Saltbrine cooking unlock gated on the_saltbrine_regatta.',
@@ -48,6 +53,7 @@ const STUBS = [
     proposedReplacement: 'the_saltbrine_regatta',
   },
   {
+    // _osrs_heritage: true — content-agent ticket QUEST_HERITAGE_SWAN
     id: 'swan_song',
     name: 'Swan Song [STUB]',
     description: 'OSRS-heritage placeholder. Aelgard lacks monkfish; proposed replacement hooks monkfish-tier fishing onto the_trawlers_call chain.',
@@ -56,6 +62,7 @@ const STUBS = [
     proposedReplacement: 'the_trawlers_call',
   },
   {
+    // _osrs_heritage: true — content-agent ticket QUEST_HERITAGE_CANNON
     id: 'dwarf_cannon_quest',
     name: 'Dwarf Cannon [STUB]',
     description: 'OSRS-heritage placeholder. Aelgard replacement: the Cannon Forge Commission — a Sootworks dwarven-ally quest that unlocks smithing cannonballs.',
@@ -64,6 +71,7 @@ const STUBS = [
     proposedReplacement: 'the_cannon_forge_commission',
   },
   {
+    // _osrs_heritage: true — content-agent ticket QUEST_HERITAGE_FEUD
     id: 'feud_quest',
     name: 'The Feud [STUB]',
     description: 'OSRS-heritage placeholder. Aelgard replacement: the Moonless Feud — a Moryskah blackjacking unlock with rival vampyre houses.',
@@ -72,6 +80,7 @@ const STUBS = [
     proposedReplacement: 'the_moonless_feud',
   },
   {
+    // _osrs_heritage: true — content-agent ticket QUEST_HERITAGE_BA
     id: 'barbarian_assault',
     name: 'Barbarian Assault [STUB]',
     description: 'OSRS-heritage placeholder. Aelgard has no direct analogue; proposed swap is the Saltbrine scuttler-pits minigame, but this quest id is still DAG-referenced by saltbrine_diary_elite.',
