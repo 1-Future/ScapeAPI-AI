@@ -15,9 +15,14 @@
         { "id": "i_easy_7", "description": "Collect 3 echo petals.", "check": { "type": "obtain_item", "item": "echo_petal", "count": 3 } },
         { "id": "i_easy_8", "description": "Kill 3 dream wisps.", "check": { "type": "kill_npc", "npc": "dream_wisp", "count": 3 } },
         { "id": "i_easy_9", "description": "Use a prayer at the boundary camp.", "check": { "type": "activate_prayer", "area": "inkweald_boundary_camp" } },
-        { "id": "i_easy_10", "description": "Bank at the Inkweald boundary bank.", "check": { "type": "bank_use", "area": "inkweald_boundary" } }
+        { "id": "i_easy_10", "description": "Bank at the Inkweald boundary bank.", "check": { "type": "bank_use", "area": "inkweald_boundary" } },
+        { "id": "i_easy_11", "description": "Sleep in a dream-bed at the boundary camp.", "check": { "type": "activate_object", "object": "dream_bed", "area": "inkweald_boundary_camp" } },
+        { "id": "i_easy_12", "description": "Find all 4 echo petals in one trip.", "check": { "type": "obtain_item_in_trip", "item": "echo_petal", "count": 4 } },
+        { "id": "i_easy_13", "description": "Craft a dream candle at the boundary crafting bench.", "check": { "type": "craft_item", "item": "dream_candle", "area": "inkweald_boundary_camp" } },
+        { "id": "i_easy_14", "description": "Enter the silent glade (exploration).", "check": { "type": "enter_area", "area": "inkweald_silent_glade" } },
+        { "id": "i_easy_15", "description": "Complete 1 easy clue step in the Inkweald.", "check": { "type": "clue_step_complete", "tier": "easy", "area": "inkweald" } }
       ],
-      "reward": "Inkweald cape (easy) + emote: lucid breath. Diary lamp (easy).",
+      "reward": "Inkweald cape (easy) + emote: lucid breath. Diary lamp (easy) granting 2,500 XP to any skill.",
       "perk_description": "Inkweald teleport (3/day); +10% dream wisp spawn rate; boundary bank teleport."
     },
     "medium": {
@@ -31,10 +36,15 @@
         { "id": "i_med_7", "description": "Participate in Guardians of the Rift.", "check": { "type": "minigame_participate", "minigame": "guardians_rift" } },
         { "id": "i_med_8", "description": "Craft cosmic runes at the cosmic altar (Inkweald).", "check": { "type": "runecraft", "item": "cosmic_rune" } },
         { "id": "i_med_9", "description": "Kill a mirror golem with crush.", "check": { "type": "kill_npc", "npc": "mirror_golem", "with_style": "crush" } },
-        { "id": "i_med_10", "description": "Collect a lucid essence.", "check": { "type": "obtain_item", "item": "lucid_essence" } }
+        { "id": "i_med_10", "description": "Collect a lucid essence.", "check": { "type": "obtain_item", "item": "lucid_essence" } },
+        { "id": "i_med_11", "description": "Turn in a lucid essence at the Muse shrine.", "check": { "type": "deposit_item_at_object", "item": "lucid_essence", "object": "muse_shrine" } },
+        { "id": "i_med_12", "description": "Craft 50 cosmic runes in a single trip.", "check": { "type": "runecraft_in_trip", "item": "cosmic_rune", "count": 50 } },
+        { "id": "i_med_13", "description": "Complete 1 medium clue step in the Inkweald.", "check": { "type": "clue_step_complete", "tier": "medium", "area": "inkweald" } },
+        { "id": "i_med_14", "description": "Farm a snapdragon in the Inkweald dream patch.", "check": { "type": "compound", "all": [{ "type": "farm_plant", "seed": "snapdragon_seed", "area": "inkweald_dream_patch" }, { "type": "farm_harvest", "crop": "snapdragon", "area": "inkweald_dream_patch" }] } },
+        { "id": "i_med_15", "description": "Discover the mirror cairn (exploration).", "check": { "type": "enter_area", "area": "inkweald_mirror_cairn" } }
       ],
-      "reward": "Inkweald cape (medium) + Dreamwalk shortcut. Diary lamp (medium).",
-      "perk_description": "Dreamwalk shortcut between camps; cosmic altar half-essence; +10% inkblot fragment drop."
+      "reward": "Inkweald cape (medium) + Dreamwalk shortcut. Graceful boots (inkweald-dream tier, skilling-outfit piece +4% agility XP on Dreamwalk). Diary lamp (medium) granting 7,500 XP to any skill above level 40.",
+      "perk_description": "Dreamwalk shortcut between camps; cosmic altar half-essence; +10% inkblot fragment drop; graceful boots (agility outfit bonus)."
     },
     "hard": {
       "tasks": [
@@ -47,9 +57,14 @@
         { "id": "i_hard_7", "description": "Craft soul runes at the soul altar (RC 90).", "check": { "type": "runecraft", "item": "soul_rune", "min_level": { "runecrafting": 90 } } },
         { "id": "i_hard_8", "description": "Earn a piece of the Raiments of the Eye.", "check": { "type": "obtain_item_tag", "tag": "raiments_of_the_eye" } },
         { "id": "i_hard_9", "description": "Kill a false self (mirror enemy).", "check": { "type": "kill_npc", "npc": "false_self" } },
-        { "id": "i_hard_10", "description": "Complete a hard clue step in the Inkweald.", "check": { "type": "clue_step_complete", "tier": "hard", "area": "inkweald" } }
+        { "id": "i_hard_10", "description": "Complete a hard clue step in the Inkweald.", "check": { "type": "clue_step_complete", "tier": "hard", "area": "inkweald" } },
+        { "id": "i_hard_11", "description": "Complete 3 laps of Dreamwalk consecutively without failing.", "check": { "type": "agility_course_lap_consecutive", "course": "inkweald_dreamwalk", "count": 3 } },
+        { "id": "i_hard_12", "description": "Runecraft 100 cosmic runes in a single trip.", "check": { "type": "runecraft_in_trip", "item": "cosmic_rune", "count": 100 } },
+        { "id": "i_hard_13", "description": "Participate in Pest Control on the Inkweald island variant.", "check": { "type": "minigame_participate", "minigame": "pest_control_inkweald" } },
+        { "id": "i_hard_14", "description": "Complete 3 hard clue steps in the Inkweald.", "check": { "type": "clue_step_complete", "tier": "hard", "count": 3, "area": "inkweald" } },
+        { "id": "i_hard_15", "description": "Discover the ink-drowned amphitheatre (exploration).", "check": { "type": "enter_area", "area": "inkweald_drowned_amphitheatre" } }
       ],
-      "reward": "Inkweald cape (hard) + Muse arena shortcut. Diary lamp (hard).",
+      "reward": "Inkweald cape (hard) + Muse arena shortcut. Diary lamp (hard) granting 15,000 XP to any skill above level 60.",
       "perk_description": "Muse arena shortcut; +10% lucid essence drops; Raiments of the Eye 65% rune bonus (was 60%)."
     },
     "elite": {
@@ -63,10 +78,15 @@
         { "id": "i_elite_7", "description": "Kill a dream dragon.", "check": { "type": "kill_npc", "npc": "dream_dragon" } },
         { "id": "i_elite_8", "description": "Craft wrath runes at the wrath altar.", "check": { "type": "runecraft", "item": "wrath_rune" } },
         { "id": "i_elite_9", "description": "Kill a memory devourer without losing prayer.", "check": { "type": "kill_npc_no_prayer_loss", "npc": "memory_devourer" } },
-        { "id": "i_elite_10", "description": "Complete the Aelgard Atlas quest.", "check": { "type": "quest_complete", "quest": "aelgard_atlas" } }
+        { "id": "i_elite_10", "description": "Complete the Aelgard Atlas quest.", "check": { "type": "quest_complete", "quest": "aelgard_atlas" } },
+        { "id": "i_elite_11", "description": "Achieve a perfect Dreamwalk lap under 90 seconds.", "check": { "type": "agility_course_lap_under_time", "course": "inkweald_dreamwalk", "seconds": 90, "perfect": true } },
+        { "id": "i_elite_12", "description": "Reach 99 in Runecrafting training primarily via Inkweald altars.", "check": { "type": "skill_level_99_in_region", "skill": "runecrafting", "region": "inkweald" } },
+        { "id": "i_elite_13", "description": "Complete 3 elite clue steps in the Inkweald.", "check": { "type": "clue_step_complete", "tier": "elite", "count": 3, "area": "inkweald" } },
+        { "id": "i_elite_14", "description": "Complete a Soul Wars match in the Inkweald arena.", "check": { "type": "minigame_complete", "minigame": "soul_wars_inkweald" } },
+        { "id": "i_elite_15", "description": "Discover the sunken muse vault (deep exploration).", "check": { "type": "enter_area", "area": "inkweald_sunken_muse_vault" } }
       ],
-      "reward": "Inkweald cape (elite — lucid weave recolour), unlimited Inkweald teleport, dream-state regeneration token. Diary lamp (elite).",
-      "perk_description": "Unlimited Inkweald teleport; dream-state HP regen doubles; +5% rare chance from Choir."
+      "reward": "Inkweald cape (elite — lucid weave recolour), unlimited Inkweald teleport, dream-state regeneration token. Lucid focus (stat-bonus reward): +50% magic XP when casting in the resonance chamber (Ardougne Elite analog). Chance at Dreamling pet (1/5000 per Choir raid after completion). Diary lamp (elite) granting 50,000 XP to any skill above level 75.",
+      "perk_description": "Unlimited Inkweald teleport; dream-state HP regen doubles; +5% rare chance from Choir; +50% magic XP in resonance chamber (stat-bonus); Dreamling pet eligibility."
     }
   }
 }

@@ -22,7 +22,7 @@
         { "id": "sb_easy_14", "description": "Catch 5 trout at the Saltbrine river mouth.", "check": { "type": "catch_fish_in_trip", "item": "trout", "count": 5, "area": "saltbrine_river_mouth" } },
         { "id": "sb_easy_15", "description": "Craft a wooden raft at the harbour carpenter's bench.", "check": { "type": "craft_item", "item": "wooden_raft", "area": "saltbrine_carpenter" } }
       ],
-      "reward": "Saltbrine cape (easy) + emote: salute. Diary lamp (easy).",
+      "reward": "Saltbrine cape (easy) + emote: salute. Diary lamp (easy) granting 2,500 XP to any skill.",
       "perk_description": "Saltbrine teleport (3/day); +5% catch rate at coast spots."
     },
     "medium": {
@@ -36,10 +36,15 @@
         { "id": "sb_med_7", "description": "Catch a swordfish (fishing 50).", "check": { "type": "catch_fish", "item": "swordfish", "min_level": { "fishing": 50 } } },
         { "id": "sb_med_8", "description": "Complete the Trawler's Call quest.", "check": { "type": "quest_complete", "quest": "trawlers_call" } },
         { "id": "sb_med_9", "description": "Participate in a Saltbrine Trawler run.", "check": { "type": "minigame_participate", "minigame": "saltbrine_trawler" } },
-        { "id": "sb_med_10", "description": "Buy a harpoon from the fish shop.", "check": { "type": "buy_item", "item": "harpoon", "shop": "fishmonger_mara" } }
+        { "id": "sb_med_10", "description": "Buy a harpoon from the fish shop.", "check": { "type": "buy_item", "item": "harpoon", "shop": "fishmonger_mara" } },
+        { "id": "sb_med_11", "description": "Catch one of every Saltbrine fish in a single trip.", "check": { "type": "catch_one_of_each_in_trip", "items": ["shrimp", "sardine", "herring", "trout", "lobster", "swordfish"], "area": "saltbrine" } },
+        { "id": "sb_med_12", "description": "Complete 1 medium clue step in the Saltbrine harbour.", "check": { "type": "clue_step_complete", "tier": "medium", "area": "saltbrine_harbour" } },
+        { "id": "sb_med_13", "description": "Cook 40 lobsters on the harbour range.", "check": { "type": "cook_item_count", "item": "lobster", "count": 40, "area": "saltbrine_harbour_range" } },
+        { "id": "sb_med_14", "description": "Navigate the Saltbrine smuggler's tunnels (exploration).", "check": { "type": "enter_area", "area": "saltbrine_smugglers_tunnels" } },
+        { "id": "sb_med_15", "description": "Use the tidal shortcut between harbour and pirate cove (agility 45).", "check": { "type": "use_shortcut", "shortcut": "saltbrine_tidal_bridge", "min_level": { "agility": 45 } } }
       ],
-      "reward": "Saltbrine cape (medium) + harbour bank teleport. Diary lamp (medium).",
-      "perk_description": "Harbour bank teleport; noted fish from coast spots; +10% pearl chance from Trawler."
+      "reward": "Saltbrine cape (medium) + harbour bank teleport. Angler's hat (saltbrine-elite cloth tier, skilling-outfit piece +4% fishing XP at coast). Diary lamp (medium) granting 7,500 XP to any skill above level 40.",
+      "perk_description": "Harbour bank teleport; noted fish from coast spots; +10% pearl chance from Trawler; angler's hat (fishing XP outfit bonus)."
     },
     "hard": {
       "tasks": [
@@ -52,9 +57,14 @@
         { "id": "sb_hard_7", "description": "Catch a monkfish (fishing 62).", "check": { "type": "catch_fish", "item": "monkfish", "min_level": { "fishing": 62 } } },
         { "id": "sb_hard_8", "description": "Craft an anglerfish from the Trawler.", "check": { "type": "obtain_item", "item": "anglerfish" } },
         { "id": "sb_hard_9", "description": "Kill a lobstrosity.", "check": { "type": "kill_npc", "npc": "lobstrosity" } },
-        { "id": "sb_hard_10", "description": "Collect a Saltbrine pearl from a pirate captain.", "check": { "type": "obtain_item_from_npc", "item": "saltbrine_pearl", "npc": "pirate_captain" } }
+        { "id": "sb_hard_10", "description": "Collect a Saltbrine pearl from a pirate captain.", "check": { "type": "obtain_item_from_npc", "item": "saltbrine_pearl", "npc": "pirate_captain" } },
+        { "id": "sb_hard_11", "description": "Complete a Barbarian Assault wave 10 run.", "check": { "type": "minigame_complete_wave", "minigame": "barbarian_assault", "wave_min": 10 } },
+        { "id": "sb_hard_12", "description": "Complete 3 hard clue steps at the Saltbrine cliffs.", "check": { "type": "clue_step_complete", "tier": "hard", "count": 3, "area": "saltbrine_cliffs" } },
+        { "id": "sb_hard_13", "description": "Fish and cook 50 sharks in a single trip.", "check": { "type": "compound", "all": [{ "type": "catch_fish_in_trip", "item": "shark", "count": 50 }, { "type": "cook_item_count", "item": "shark", "count": 50 }] } },
+        { "id": "sb_hard_14", "description": "Craft an angler's outfit piece from Trawler pearls.", "check": { "type": "craft_item_tag", "tag": "anglers_outfit_piece" } },
+        { "id": "sb_hard_15", "description": "Discover the drowned lighthouse (deep exploration).", "check": { "type": "enter_area", "area": "saltbrine_drowned_lighthouse" } }
       ],
-      "reward": "Saltbrine cape (hard) + Kraken arena shortcut. Diary lamp (hard).",
+      "reward": "Saltbrine cape (hard) + Kraken arena shortcut. Diary lamp (hard) granting 15,000 XP to any skill above level 60.",
       "perk_description": "Kraken arena shortcut; +10% pearl chance from Trawler; harpoon special attack regen +50%."
     },
     "elite": {
@@ -68,10 +78,15 @@
         { "id": "sb_elite_7", "description": "Kill a sea troll with magic.", "check": { "type": "kill_npc", "npc": "sea_troll", "with_style": "magic" } },
         { "id": "sb_elite_8", "description": "Complete an elite clue step in the harbour.", "check": { "type": "clue_step_complete", "tier": "elite", "area": "saltbrine_harbour" } },
         { "id": "sb_elite_9", "description": "Reach 99 fishing.", "check": { "type": "skill_level_99", "skill": "fishing" } },
-        { "id": "sb_elite_10", "description": "Kill the Kraken 50 times.", "check": { "type": "boss_kill", "boss": "kraken_of_saltbrine", "count": 50 } }
+        { "id": "sb_elite_10", "description": "Kill the Kraken 50 times.", "check": { "type": "boss_kill", "boss": "kraken_of_saltbrine", "count": 50 } },
+        { "id": "sb_elite_11", "description": "Solo a full Trawler run keeping the boat afloat.", "check": { "type": "minigame_complete", "minigame": "saltbrine_trawler", "solo": true, "boat_afloat": true } },
+        { "id": "sb_elite_12", "description": "Complete 3 elite clue steps in the Saltbrine cliffs.", "check": { "type": "clue_step_complete", "tier": "elite", "count": 3, "area": "saltbrine_cliffs" } },
+        { "id": "sb_elite_13", "description": "Cook 1000 sharks across career (cumulative).", "check": { "type": "cook_item_cumulative", "item": "shark", "count": 1000 } },
+        { "id": "sb_elite_14", "description": "Craft the full Angler's outfit set from Trawler rewards.", "check": { "type": "collection_log_owned_set", "set_items": [30501, 30502, 30503, 30504] } },
+        { "id": "sb_elite_15", "description": "Discover the deepwater Kraken nursery (deep exploration).", "check": { "type": "enter_area", "area": "saltbrine_kraken_nursery" } }
       ],
-      "reward": "Saltbrine cape (elite — pearl-trim recolour), unlimited Saltbrine teleport, captain's tricorn (cosmetic). Diary lamp (elite).",
-      "perk_description": "Unlimited Saltbrine teleport; double fish at coast spots; Kraken kill instant-bank loot."
+      "reward": "Saltbrine cape (elite — pearl-trim recolour), unlimited Saltbrine teleport, captain's tricorn (cosmetic). Mariner's oath (stat-bonus reward): +50% fishing XP when casting at coast spots (Ardougne Elite analog). Chance at Tidewalker pet (1/5000 per Kraken kill after completion). Diary lamp (elite) granting 50,000 XP to any skill above level 75.",
+      "perk_description": "Unlimited Saltbrine teleport; double fish at coast spots; Kraken kill instant-bank loot; +50% fishing XP at coast spots (stat-bonus); Tidewalker pet eligibility."
     }
   }
 }

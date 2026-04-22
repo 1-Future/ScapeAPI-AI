@@ -15,9 +15,14 @@
         { "id": "v_easy_7", "description": "Pick a moonpetal from the deeper forest.", "check": { "type": "obtain_item", "item": "moonpetal" } },
         { "id": "v_easy_8", "description": "Kill a timber wolf.", "check": { "type": "kill_npc", "npc": "timber_wolf" } },
         { "id": "v_easy_9", "description": "Fletch a shortbow from Veilwood logs.", "check": { "type": "fletch_item", "item": "shortbow" } },
-        { "id": "v_easy_10", "description": "Catch a bird in the forest.", "check": { "type": "hunter_catch_any", "trap": "bird_snare", "area": "veilwood" } }
+        { "id": "v_easy_10", "description": "Catch a bird in the forest.", "check": { "type": "hunter_catch_any", "trap": "bird_snare", "area": "veilwood" } },
+        { "id": "v_easy_11", "description": "Speak to every ranger at the sacred grove.", "check": { "type": "visit_npcs_in_trip", "npcs": ["ranger_lyris", "ranger_belan", "ranger_ovric", "ranger_thenra"], "count": 4 } },
+        { "id": "v_easy_12", "description": "Use the Veilwood vine shortcut (agility 15).", "check": { "type": "use_shortcut", "shortcut": "veilwood_vine", "min_level": { "agility": 15 } } },
+        { "id": "v_easy_13", "description": "Fletch and string an oak shortbow using Veilwood logs.", "check": { "type": "compound", "all": [{ "type": "fletch_item", "item": "oak_shortbow_u" }, { "type": "fletch_item", "item": "oak_shortbow" }] } },
+        { "id": "v_easy_14", "description": "Enter the glowcap grotto (exploration).", "check": { "type": "enter_area", "area": "veilwood_glowcap_grotto" } },
+        { "id": "v_easy_15", "description": "Complete 1 easy clue step in Veilwood.", "check": { "type": "clue_step_complete", "tier": "easy", "area": "veilwood" } }
       ],
-      "reward": "Veilwood cape (easy) + emote: whistle birdsong. Diary lamp (easy).",
+      "reward": "Veilwood cape (easy) + emote: whistle birdsong. Diary lamp (easy) granting 2,500 XP to any skill.",
       "perk_description": "Veilwood teleport (3/day); +5% bird-snare catch rate."
     },
     "medium": {
@@ -31,10 +36,15 @@
         { "id": "v_med_7", "description": "Use an elven bow against a shadow panther.", "check": { "type": "kill_npc_with_item", "npc": "shadow_panther", "item": "elven_bow" } },
         { "id": "v_med_8", "description": "Navigate the sacred grove.", "check": { "type": "enter_area", "area": "veilwood_sacred_grove" } },
         { "id": "v_med_9", "description": "Collect 5 spirit seeds.", "check": { "type": "obtain_item", "item": "spirit_seed", "count": 5 } },
-        { "id": "v_med_10", "description": "Kill a unicorn and bury its bones.", "check": { "type": "compound", "all": [{ "type": "kill_npc", "npc": "unicorn" }, { "type": "bury_bones", "item": "unicorn_horn" }] } }
+        { "id": "v_med_10", "description": "Kill a unicorn and harvest its horn.", "check": { "type": "compound", "all": [{ "type": "kill_npc", "npc": "unicorn" }, { "type": "bury_bones", "item": "unicorn_horn" }] } },
+        { "id": "v_med_11", "description": "Use the Lunar Plank Make spell on a Veilwood log.", "check": { "type": "cast_spell_on_item", "spell": "plank_make", "target": "maple_logs" } },
+        { "id": "v_med_12", "description": "Participate in a Guardians of the Rift minigame round.", "check": { "type": "minigame_participate", "minigame": "guardians_rift" } },
+        { "id": "v_med_13", "description": "Farm a ranarr herb in the Veilwood patch.", "check": { "type": "compound", "all": [{ "type": "farm_plant", "seed": "ranarr_seed", "area": "veilwood_herb_patch" }, { "type": "farm_harvest", "crop": "ranarr", "area": "veilwood_herb_patch" }] } },
+        { "id": "v_med_14", "description": "Complete 1 medium clue step in Veilwood.", "check": { "type": "clue_step_complete", "tier": "medium", "area": "veilwood" } },
+        { "id": "v_med_15", "description": "Discover the elven archive library (exploration).", "check": { "type": "enter_area", "area": "veilwood_elven_archive" } }
       ],
-      "reward": "Veilwood cape (medium) + elven village bank access. Diary lamp (medium).",
-      "perk_description": "Elven village bank teleport; +10% woodcutting XP in Veilwood; sacred grove shortcut."
+      "reward": "Veilwood cape (medium) + elven village bank access. Graceful hood (veilwood-elite cloth tier, skilling-outfit piece +4% fletching XP). Diary lamp (medium) granting 7,500 XP to any skill above level 40.",
+      "perk_description": "Elven village bank teleport; +10% woodcutting XP in Veilwood; sacred grove shortcut; graceful hood (fletching XP outfit bonus)."
     },
     "hard": {
       "tasks": [
@@ -45,11 +55,16 @@
         { "id": "v_hard_5", "description": "Fletch a magic shortbow.", "check": { "type": "fletch_item", "item": "magic_shortbow" } },
         { "id": "v_hard_6", "description": "Set up and check a yew birdhouse.", "check": { "type": "hunter_birdhouse", "wood": "yew" } },
         { "id": "v_hard_7", "description": "Kill a tree spirit.", "check": { "type": "kill_npc", "npc": "tree_spirit" } },
-        { "id": "v_hard_8", "description": "Use the Lunar spellbook's Cure Plant on a Veilwood farming patch.", "check": { "type": "cast_spell_on_patch", "spell": "cure_plant", "area": "veilwood_farm" } },
+        { "id": "v_hard_8", "description": "Use the Lunar Cure Plant spell on a Veilwood farming patch.", "check": { "type": "cast_spell_on_patch", "spell": "cure_plant", "area": "veilwood_farm" } },
         { "id": "v_hard_9", "description": "Collect 10 moonpetals in one trip.", "check": { "type": "obtain_item_in_trip", "item": "moonpetal", "count": 10 } },
-        { "id": "v_hard_10", "description": "Kill a dire wolf pack (5 wolves without banking).", "check": { "type": "kill_npc_in_trip", "npc": "dire_wolf", "count": 5 } }
+        { "id": "v_hard_10", "description": "Kill a dire wolf pack (5 wolves without banking).", "check": { "type": "kill_npc_in_trip", "npc": "dire_wolf", "count": 5 } },
+        { "id": "v_hard_11", "description": "Complete a hunter rumour chain (5 consecutive catches).", "check": { "type": "hunter_rumour_chain", "count": 5 } },
+        { "id": "v_hard_12", "description": "Complete 3 hard clue steps in Veilwood.", "check": { "type": "clue_step_complete", "tier": "hard", "count": 3, "area": "veilwood" } },
+        { "id": "v_hard_13", "description": "Participate in a Big Chinchompa minigame round.", "check": { "type": "minigame_participate", "minigame": "big_chinchompa" } },
+        { "id": "v_hard_14", "description": "Fletch 100 yew longbows in a single trip.", "check": { "type": "fletch_count_in_trip", "item": "yew_longbow", "count": 100 } },
+        { "id": "v_hard_15", "description": "Cross the canopy bridge shortcut (agility 68).", "check": { "type": "use_shortcut", "shortcut": "veilwood_canopy_bridge", "min_level": { "agility": 68 } } }
       ],
-      "reward": "Veilwood cape (hard) + storm tree access permit. Diary lamp (hard).",
+      "reward": "Veilwood cape (hard) + storm tree access permit. Diary lamp (hard) granting 15,000 XP to any skill above level 60.",
       "perk_description": "Stormwood logs accessible without storm event; +5% chinchompa catch rate; Lunar Cure-Plant 50% cooldown."
     },
     "elite": {
@@ -63,10 +78,15 @@
         { "id": "v_elite_7", "description": "Complete the Fletcher's Trial quest.", "check": { "type": "quest_complete", "quest": "fletchers_trial" } },
         { "id": "v_elite_8", "description": "Kill all 3 Veilwood boss-tier creatures.", "check": { "type": "boss_kill_all_in_region", "region": "veilwood" } },
         { "id": "v_elite_9", "description": "Harvest 20 herbs from the Veilwood farming patch in one run.", "check": { "type": "farm_harvest_in_trip", "area": "veilwood_farm", "count": 20 } },
-        { "id": "v_elite_10", "description": "Complete a hard clue step in the sacred grove.", "check": { "type": "clue_step_complete", "tier": "hard", "area": "veilwood_sacred_grove" } }
+        { "id": "v_elite_10", "description": "Complete a hard clue step in the sacred grove.", "check": { "type": "clue_step_complete", "tier": "hard", "area": "veilwood_sacred_grove" } },
+        { "id": "v_elite_11", "description": "Craft a stormwood longbow (v) from storm-charged logs.", "check": { "type": "compound", "all": [{ "type": "obtain_item", "item": "stormwood_charged_log" }, { "type": "fletch_item", "item": "stormwood_longbow_v" }] } },
+        { "id": "v_elite_12", "description": "Reach 99 in Fletching via Veilwood resources.", "check": { "type": "skill_level_99_in_region", "skill": "fletching", "region": "veilwood" } },
+        { "id": "v_elite_13", "description": "Complete 3 elite clue steps in Veilwood.", "check": { "type": "clue_step_complete", "tier": "elite", "count": 3, "area": "veilwood" } },
+        { "id": "v_elite_14", "description": "Complete a Temple Trekking round via the Veilwood route.", "check": { "type": "minigame_complete", "minigame": "temple_trekking_veilwood" } },
+        { "id": "v_elite_15", "description": "Discover the Veilmother's resting chamber (deep exploration).", "check": { "type": "enter_area", "area": "veilwood_veilmother_chamber" } }
       ],
-      "reward": "Veilwood cape (elite — woven leaf-trim recolour), magic tree shortcut, druidic acorn pendant. Diary lamp (elite).",
-      "perk_description": "Magic tree shortcut; unlimited Veilwood teleport; +5% rare drop chance from Veilwood bosses."
+      "reward": "Veilwood cape (elite — woven leaf-trim recolour), magic tree shortcut, druidic acorn pendant. Druidic aspect (stat-bonus reward): +50% herblore XP when mixing in the sacred grove (Ardougne Elite analog). Chance at Leafkin pet (1/5000 per Veilwood boss kill after completion). Diary lamp (elite) granting 50,000 XP to any skill above level 75.",
+      "perk_description": "Magic tree shortcut; unlimited Veilwood teleport; +5% rare drop chance from Veilwood bosses; +50% herblore XP when mixing potions in sacred grove (stat-bonus); Leafkin pet eligibility."
     }
   }
 }
