@@ -1,0 +1,1844 @@
+{
+  "reagents": [
+    {
+      "id": "hedgelord_fang",
+      "name": "Hedgelord fang",
+      "source": "The Hedgelord (Heartlands)",
+      "region": "heartlands",
+      "value": 280000,
+      "flavor": "A single needle-sharp bristle from the Hedgelord. Feels warm.",
+      "category": "reagent",
+      "stackable": true,
+      "weight": 0.1,
+      "tradeable": true,
+      "tags": [
+        "reagent",
+        "boss_drop"
+      ],
+      "examine": "A single needle-sharp bristle from the Hedgelord. Feels warm."
+    },
+    {
+      "id": "field_baron_sigil",
+      "name": "Field Baron sigil",
+      "source": "Field Baron (Heartlands)",
+      "region": "heartlands",
+      "value": 380000,
+      "flavor": "The seal of the Heartlands' greatest farmer-king.",
+      "category": "reagent",
+      "stackable": true,
+      "weight": 0.1,
+      "tradeable": true,
+      "tags": [
+        "reagent",
+        "boss_drop"
+      ],
+      "examine": "The seal of the Heartlands' greatest farmer-king."
+    },
+    {
+      "id": "champions_pin",
+      "name": "Champion pin",
+      "source": "Heartlands Grand Diary",
+      "region": "heartlands",
+      "value": 450000,
+      "flavor": "Awarded for completing Heartlands elite diary.",
+      "category": "reagent",
+      "stackable": true,
+      "weight": 0.1,
+      "tradeable": true,
+      "tags": [
+        "reagent",
+        "boss_drop"
+      ],
+      "examine": "Awarded for completing Heartlands elite diary."
+    },
+    {
+      "id": "forge_wraith_essence",
+      "name": "Forge-wraith essence",
+      "source": "Forge-Wraith (Sootworks)",
+      "region": "sootworks",
+      "value": 420000,
+      "flavor": "Captured heat in a sealed vial. Hot to the touch forever.",
+      "category": "reagent",
+      "stackable": true,
+      "weight": 0.1,
+      "tradeable": true,
+      "tags": [
+        "reagent",
+        "boss_drop"
+      ],
+      "examine": "Captured heat in a sealed vial. Hot to the touch forever."
+    },
+    {
+      "id": "rust_golem_core",
+      "name": "Rust-golem core",
+      "source": "Rust Golem (Sootworks)",
+      "region": "sootworks",
+      "value": 520000,
+      "flavor": "Cracked magnetite heart. Pulses weakly.",
+      "category": "reagent",
+      "stackable": true,
+      "weight": 0.1,
+      "tradeable": true,
+      "tags": [
+        "reagent",
+        "boss_drop"
+      ],
+      "examine": "Cracked magnetite heart. Pulses weakly."
+    },
+    {
+      "id": "sootlord_ingot",
+      "name": "Sootlord ingot",
+      "source": "The Sootlord (Sootworks)",
+      "region": "sootworks",
+      "value": 900000,
+      "flavor": "An ingot of blackened steel that refuses to cool.",
+      "category": "reagent",
+      "stackable": true,
+      "weight": 0.1,
+      "tradeable": true,
+      "tags": [
+        "reagent",
+        "boss_drop"
+      ],
+      "examine": "An ingot of blackened steel that refuses to cool."
+    },
+    {
+      "id": "ember_of_the_mire",
+      "name": "Ember of the Mire",
+      "source": "Bog-Witch (Moryskah)",
+      "region": "moryskah",
+      "value": 680000,
+      "flavor": "A single coal that burns cold. Still glowing.",
+      "category": "reagent",
+      "stackable": true,
+      "weight": 0.1,
+      "tradeable": true,
+      "tags": [
+        "reagent",
+        "boss_drop"
+      ],
+      "examine": "A single coal that burns cold. Still glowing."
+    },
+    {
+      "id": "grave_lord_talisman",
+      "name": "Grave lord talisman",
+      "source": "The Grave Lord (Moryskah)",
+      "region": "moryskah",
+      "value": 1100000,
+      "flavor": "Talisman pulled from the throat of the Grave Lord.",
+      "category": "reagent",
+      "stackable": true,
+      "weight": 0.1,
+      "tradeable": true,
+      "tags": [
+        "reagent",
+        "boss_drop"
+      ],
+      "examine": "Talisman pulled from the throat of the Grave Lord."
+    },
+    {
+      "id": "vampire_fang_shard",
+      "name": "Vampire fang shard",
+      "source": "Nocturne Vampire (Moryskah)",
+      "region": "moryskah",
+      "value": 320000,
+      "flavor": "Fragment of a vampire fang. Still bleeds on iron.",
+      "category": "reagent",
+      "stackable": true,
+      "weight": 0.1,
+      "tradeable": true,
+      "tags": [
+        "reagent",
+        "boss_drop"
+      ],
+      "examine": "Fragment of a vampire fang. Still bleeds on iron."
+    },
+    {
+      "id": "crypt_ichor_vial",
+      "name": "Crypt ichor vial",
+      "source": "Crypt Bats (Moryskah)",
+      "region": "moryskah",
+      "value": 180000,
+      "flavor": "Black ooze from the crypt floors. Bubbles on contact with silver.",
+      "category": "reagent",
+      "stackable": true,
+      "weight": 0.1,
+      "tradeable": true,
+      "tags": [
+        "reagent",
+        "boss_drop"
+      ],
+      "examine": "Black ooze from the crypt floors. Bubbles on contact with silver."
+    },
+    {
+      "id": "pharaohs_scarab",
+      "name": "Pharaoh's scarab",
+      "source": "The Buried Pharaoh (Boneyard)",
+      "region": "boneyard",
+      "value": 850000,
+      "flavor": "A scarab fused with the soul of a pharaoh. Still scurries.",
+      "category": "reagent",
+      "stackable": true,
+      "weight": 0.1,
+      "tradeable": true,
+      "tags": [
+        "reagent",
+        "boss_drop"
+      ],
+      "examine": "A scarab fused with the soul of a pharaoh. Still scurries."
+    },
+    {
+      "id": "dust_dweller_fang",
+      "name": "Dust-dweller fang",
+      "source": "Dust Dweller (Boneyard)",
+      "region": "boneyard",
+      "value": 260000,
+      "flavor": "Long flat fang worn smooth by sandstorms.",
+      "category": "reagent",
+      "stackable": true,
+      "weight": 0.1,
+      "tradeable": true,
+      "tags": [
+        "reagent",
+        "boss_drop"
+      ],
+      "examine": "Long flat fang worn smooth by sandstorms."
+    },
+    {
+      "id": "sandwyrm_scale",
+      "name": "Sandwyrm scale",
+      "source": "Sandwyrm (Boneyard)",
+      "region": "boneyard",
+      "value": 440000,
+      "flavor": "A flat amber scale. Holds heat for hours.",
+      "category": "reagent",
+      "stackable": true,
+      "weight": 0.1,
+      "tradeable": true,
+      "tags": [
+        "reagent",
+        "boss_drop"
+      ],
+      "examine": "A flat amber scale. Holds heat for hours."
+    },
+    {
+      "id": "prism_core",
+      "name": "Prism core",
+      "source": "Prism Beast (Glass Desert)",
+      "region": "glass_desert",
+      "value": 680000,
+      "flavor": "A prism that refracts not light, but intent.",
+      "category": "reagent",
+      "stackable": true,
+      "weight": 0.1,
+      "tradeable": true,
+      "tags": [
+        "reagent",
+        "boss_drop"
+      ],
+      "examine": "A prism that refracts not light, but intent."
+    },
+    {
+      "id": "crystal_hunter_heart",
+      "name": "Crystal hunter heart",
+      "source": "Crystal Hunter (Glass Desert)",
+      "region": "glass_desert",
+      "value": 820000,
+      "flavor": "A heart of spun glass. Sharp to the touch.",
+      "category": "reagent",
+      "stackable": true,
+      "weight": 0.1,
+      "tradeable": true,
+      "tags": [
+        "reagent",
+        "boss_drop"
+      ],
+      "examine": "A heart of spun glass. Sharp to the touch."
+    },
+    {
+      "id": "wyrm_scale",
+      "name": "Wyrm scale",
+      "source": "Crystal Wyrm (Glass Desert boss)",
+      "region": "glass_desert",
+      "value": 1500000,
+      "flavor": "Massive scale from the Crystal Wyrm.",
+      "category": "reagent",
+      "stackable": true,
+      "weight": 0.1,
+      "tradeable": true,
+      "tags": [
+        "reagent",
+        "boss_drop"
+      ],
+      "examine": "Massive scale from the Crystal Wyrm."
+    },
+    {
+      "id": "attuned_wyrm_scale",
+      "name": "Attuned wyrm scale",
+      "source": "Crystal Wyrm (Glass Desert boss) — rare",
+      "region": "glass_desert",
+      "value": 4200000,
+      "flavor": "A wyrm scale resonating with crystal energy.",
+      "category": "reagent",
+      "stackable": true,
+      "weight": 0.1,
+      "tradeable": true,
+      "tags": [
+        "reagent",
+        "boss_drop"
+      ],
+      "examine": "A wyrm scale resonating with crystal energy."
+    },
+    {
+      "id": "brine_crystal",
+      "name": "Brine crystal",
+      "source": "Brine Troll (Saltbrine)",
+      "region": "saltbrine",
+      "value": 320000,
+      "flavor": "A crystal that only grows in brine. Bitter taste.",
+      "category": "reagent",
+      "stackable": true,
+      "weight": 0.1,
+      "tradeable": true,
+      "tags": [
+        "reagent",
+        "boss_drop"
+      ],
+      "examine": "A crystal that only grows in brine. Bitter taste."
+    },
+    {
+      "id": "kraken_tentacle_tip",
+      "name": "Kraken tentacle tip",
+      "source": "The Kraken (Saltbrine)",
+      "region": "saltbrine",
+      "value": 1400000,
+      "flavor": "The last inch of a kraken tentacle. Still squirms.",
+      "category": "reagent",
+      "stackable": true,
+      "weight": 0.1,
+      "tradeable": true,
+      "tags": [
+        "reagent",
+        "boss_drop"
+      ],
+      "examine": "The last inch of a kraken tentacle. Still squirms."
+    },
+    {
+      "id": "drowner_lantern_core",
+      "name": "Drowner lantern core",
+      "source": "Drowner (Saltbrine)",
+      "region": "saltbrine",
+      "value": 520000,
+      "flavor": "A lantern core that burns underwater.",
+      "category": "reagent",
+      "stackable": true,
+      "weight": 0.1,
+      "tradeable": true,
+      "tags": [
+        "reagent",
+        "boss_drop"
+      ],
+      "examine": "A lantern core that burns underwater."
+    },
+    {
+      "id": "tidestone",
+      "name": "Tidestone",
+      "source": "Tide shrines (Saltbrine)",
+      "region": "saltbrine",
+      "value": 180000,
+      "flavor": "A stone shaped by a thousand tides.",
+      "category": "reagent",
+      "stackable": true,
+      "weight": 0.1,
+      "tradeable": true,
+      "tags": [
+        "reagent",
+        "boss_drop"
+      ],
+      "examine": "A stone shaped by a thousand tides."
+    },
+    {
+      "id": "moonglass_shard",
+      "name": "Moonglass shard",
+      "source": "Moonbeast (Veilwood)",
+      "region": "veilwood",
+      "value": 420000,
+      "flavor": "Moonlight, solidified. Only sharp at night.",
+      "category": "reagent",
+      "stackable": true,
+      "weight": 0.1,
+      "tradeable": true,
+      "tags": [
+        "reagent",
+        "boss_drop"
+      ],
+      "examine": "Moonlight, solidified. Only sharp at night."
+    },
+    {
+      "id": "fey_ribbon",
+      "name": "Fey ribbon",
+      "source": "Fey Trickster (Veilwood)",
+      "region": "veilwood",
+      "value": 260000,
+      "flavor": "A ribbon from a fey's hair. Never untangles.",
+      "category": "reagent",
+      "stackable": true,
+      "weight": 0.1,
+      "tradeable": true,
+      "tags": [
+        "reagent",
+        "boss_drop"
+      ],
+      "examine": "A ribbon from a fey's hair. Never untangles."
+    },
+    {
+      "id": "grove_heartwood",
+      "name": "Grove heartwood",
+      "source": "The Grove Warden (Veilwood)",
+      "region": "veilwood",
+      "value": 950000,
+      "flavor": "Wood with a slow, steady pulse.",
+      "category": "reagent",
+      "stackable": true,
+      "weight": 0.1,
+      "tradeable": true,
+      "tags": [
+        "reagent",
+        "boss_drop"
+      ],
+      "examine": "Wood with a slow, steady pulse."
+    },
+    {
+      "id": "veil_king_antler",
+      "name": "Veil King antler",
+      "source": "The Veil King (Veilwood)",
+      "region": "veilwood",
+      "value": 1800000,
+      "flavor": "A full antler. Reflects nothing — no sun, no fire.",
+      "category": "reagent",
+      "stackable": true,
+      "weight": 0.1,
+      "tradeable": true,
+      "tags": [
+        "reagent",
+        "boss_drop"
+      ],
+      "examine": "A full antler. Reflects nothing — no sun, no fire."
+    },
+    {
+      "id": "bound_chapter",
+      "name": "Bound chapter",
+      "source": "The Margin-Dweller (Inkweald)",
+      "region": "inkweald",
+      "value": 560000,
+      "flavor": "A single chapter, bound in human skin. Readable only in dreams.",
+      "category": "reagent",
+      "stackable": true,
+      "weight": 0.1,
+      "tradeable": true,
+      "tags": [
+        "reagent",
+        "boss_drop"
+      ],
+      "examine": "A single chapter, bound in human skin. Readable only in dreams."
+    },
+    {
+      "id": "ink_heart",
+      "name": "Ink heart",
+      "source": "Page-Spawn (Inkweald)",
+      "region": "inkweald",
+      "value": 420000,
+      "flavor": "A heart of wet ink. Beats slower when read.",
+      "category": "reagent",
+      "stackable": true,
+      "weight": 0.1,
+      "tradeable": true,
+      "tags": [
+        "reagent",
+        "boss_drop"
+      ],
+      "examine": "A heart of wet ink. Beats slower when read."
+    },
+    {
+      "id": "forgotten_syllable",
+      "name": "Forgotten syllable",
+      "source": "The Forgotten Author (Inkweald)",
+      "region": "inkweald",
+      "value": 2200000,
+      "flavor": "A single syllable carved into bone. Silence around it.",
+      "category": "reagent",
+      "stackable": true,
+      "weight": 0.1,
+      "tradeable": true,
+      "tags": [
+        "reagent",
+        "boss_drop"
+      ],
+      "examine": "A single syllable carved into bone. Silence around it."
+    },
+    {
+      "id": "revenant_ether",
+      "name": "Revenant ether",
+      "source": "Revenants (Wilds)",
+      "region": "wilds",
+      "value": 380000,
+      "flavor": "A bottle of bound Wilderness wind.",
+      "category": "reagent",
+      "stackable": true,
+      "weight": 0.1,
+      "tradeable": true,
+      "tags": [
+        "reagent",
+        "boss_drop"
+      ],
+      "examine": "A bottle of bound Wilderness wind."
+    },
+    {
+      "id": "chaos_touched_core",
+      "name": "Chaos-touched core",
+      "source": "Chaos Fanatic (Wilds)",
+      "region": "wilds",
+      "value": 920000,
+      "flavor": "A core pulsing with raw chaos.",
+      "category": "reagent",
+      "stackable": true,
+      "weight": 0.1,
+      "tradeable": true,
+      "tags": [
+        "reagent",
+        "boss_drop"
+      ],
+      "examine": "A core pulsing with raw chaos."
+    },
+    {
+      "id": "forsaken_relic",
+      "name": "Forsaken relic",
+      "source": "Wilds bosses (Wilds)",
+      "region": "wilds",
+      "value": 2500000,
+      "flavor": "A holy relic, abandoned centuries ago. Still blessed.",
+      "category": "reagent",
+      "stackable": true,
+      "weight": 0.1,
+      "tradeable": true,
+      "tags": [
+        "reagent",
+        "boss_drop"
+      ],
+      "examine": "A holy relic, abandoned centuries ago. Still blessed."
+    },
+    {
+      "id": "aeldra_charge",
+      "name": "Aeldra charge",
+      "source": "Veilwood elves / grove",
+      "region": "veilwood",
+      "value": 200000,
+      "flavor": "A pinch of aeldra crystal. Recharges aeldra gear for 10 hours combat.",
+      "category": "reagent",
+      "stackable": true,
+      "weight": 0.1,
+      "tradeable": true,
+      "tags": [
+        "reagent",
+        "boss_drop"
+      ],
+      "examine": "A pinch of aeldra crystal. Recharges aeldra gear for 10 hours combat."
+    },
+    {
+      "id": "wyrmforge_flame",
+      "name": "Wyrmforge flame",
+      "source": "Glass Desert wyrm forge",
+      "region": "glass_desert",
+      "value": 1800000,
+      "flavor": "A flame that burns only on wyrm breath.",
+      "category": "reagent",
+      "stackable": true,
+      "weight": 0.1,
+      "tradeable": true,
+      "tags": [
+        "reagent",
+        "boss_drop"
+      ],
+      "examine": "A flame that burns only on wyrm breath."
+    },
+    {
+      "id": "godsword_shard_1",
+      "name": "Godsword shard 1",
+      "source": "GWD-style boss drop (Inkweald)",
+      "region": "inkweald",
+      "value": 600000,
+      "flavor": "A shard of a godsword. Combines with 2 others + hilt.",
+      "category": "reagent",
+      "stackable": true,
+      "weight": 0.1,
+      "tradeable": true,
+      "tags": [
+        "reagent",
+        "boss_drop"
+      ],
+      "examine": "A shard of a godsword. Combines with 2 others + hilt."
+    },
+    {
+      "id": "godsword_shard_2",
+      "name": "Godsword shard 2",
+      "source": "GWD-style boss drop (Inkweald)",
+      "region": "inkweald",
+      "value": 600000,
+      "flavor": "A shard of a godsword.",
+      "category": "reagent",
+      "stackable": true,
+      "weight": 0.1,
+      "tradeable": true,
+      "tags": [
+        "reagent",
+        "boss_drop"
+      ],
+      "examine": "A shard of a godsword."
+    },
+    {
+      "id": "godsword_shard_3",
+      "name": "Godsword shard 3",
+      "source": "GWD-style boss drop (Inkweald)",
+      "region": "inkweald",
+      "value": 600000,
+      "flavor": "A shard of a godsword.",
+      "category": "reagent",
+      "stackable": true,
+      "weight": 0.1,
+      "tradeable": true,
+      "tags": [
+        "reagent",
+        "boss_drop"
+      ],
+      "examine": "A shard of a godsword."
+    },
+    {
+      "id": "godsword_hilt_heartlands",
+      "name": "Heartlands godsword hilt",
+      "source": "Heartlands Champion (very rare)",
+      "region": "heartlands",
+      "value": 2400000,
+      "flavor": "The hilt of a forgotten god.",
+      "category": "reagent",
+      "stackable": true,
+      "weight": 0.1,
+      "tradeable": true,
+      "tags": [
+        "reagent",
+        "boss_drop"
+      ],
+      "examine": "The hilt of a forgotten god."
+    },
+    {
+      "id": "godsword_hilt_moryskah",
+      "name": "Moryskah godsword hilt",
+      "source": "The Grave Lord (very rare)",
+      "region": "moryskah",
+      "value": 2400000,
+      "flavor": "The hilt of a dread god.",
+      "category": "reagent",
+      "stackable": true,
+      "weight": 0.1,
+      "tradeable": true,
+      "tags": [
+        "reagent",
+        "boss_drop"
+      ],
+      "examine": "The hilt of a dread god."
+    },
+    {
+      "id": "godsword_hilt_saltbrine",
+      "name": "Saltbrine godsword hilt",
+      "source": "The Kraken (very rare)",
+      "region": "saltbrine",
+      "value": 2400000,
+      "flavor": "The hilt of a sea-god.",
+      "category": "reagent",
+      "stackable": true,
+      "weight": 0.1,
+      "tradeable": true,
+      "tags": [
+        "reagent",
+        "boss_drop"
+      ],
+      "examine": "The hilt of a sea-god."
+    },
+    {
+      "id": "godsword_hilt_veilwood",
+      "name": "Veilwood godsword hilt",
+      "source": "The Veil King (very rare)",
+      "region": "veilwood",
+      "value": 2400000,
+      "flavor": "The hilt of a moon-god.",
+      "category": "reagent",
+      "stackable": true,
+      "weight": 0.1,
+      "tradeable": true,
+      "tags": [
+        "reagent",
+        "boss_drop"
+      ],
+      "examine": "The hilt of a moon-god."
+    },
+    {
+      "id": "binding_rune_cracked",
+      "name": "Cracked binding rune",
+      "source": "minor bosses (any region)",
+      "region": "any",
+      "value": 45000,
+      "flavor": "A cracked rune that still holds. Used in many upgrades.",
+      "category": "reagent",
+      "stackable": true,
+      "weight": 0.1,
+      "tradeable": true,
+      "tags": [
+        "reagent",
+        "boss_drop"
+      ],
+      "examine": "A cracked rune that still holds. Used in many upgrades."
+    },
+    {
+      "id": "binding_rune_perfect",
+      "name": "Perfect binding rune",
+      "source": "boss rare drop (any region)",
+      "region": "any",
+      "value": 380000,
+      "flavor": "A flawless binding rune. The core of most endgame combines.",
+      "category": "reagent",
+      "stackable": true,
+      "weight": 0.1,
+      "tradeable": true,
+      "tags": [
+        "reagent",
+        "boss_drop"
+      ],
+      "examine": "A flawless binding rune. The core of most endgame combines."
+    },
+    {
+      "id": "kwuarm_extract",
+      "name": "Kwuarm extract",
+      "source": "Herblore distillation",
+      "region": "any",
+      "value": 3200,
+      "flavor": "Concentrated kwuarm. Potent weapon poison.",
+      "category": "reagent",
+      "stackable": true,
+      "weight": 0.1,
+      "tradeable": true,
+      "tags": [
+        "reagent",
+        "boss_drop"
+      ],
+      "examine": "Concentrated kwuarm. Potent weapon poison."
+    },
+    {
+      "id": "revenant_crown_shard",
+      "name": "Revenant crown shard",
+      "source": "Revenant Knight (Wilds)",
+      "region": "wilds",
+      "value": 480000,
+      "flavor": "Shard from a revenant king's crown.",
+      "category": "reagent",
+      "stackable": true,
+      "weight": 0.1,
+      "tradeable": true,
+      "tags": [
+        "reagent",
+        "boss_drop"
+      ],
+      "examine": "Shard from a revenant king's crown."
+    },
+    {
+      "id": "coralbone_fragment",
+      "name": "Coralbone fragment",
+      "source": "Coral Skeleton (Saltbrine)",
+      "region": "saltbrine",
+      "value": 220000,
+      "flavor": "Petrified coral woven through bone.",
+      "category": "reagent",
+      "stackable": true,
+      "weight": 0.1,
+      "tradeable": true,
+      "tags": [
+        "reagent",
+        "boss_drop"
+      ],
+      "examine": "Petrified coral woven through bone."
+    },
+    {
+      "id": "ashenheart_seed",
+      "name": "Ashenheart seed",
+      "source": "Ashenheart Tree (Moryskah)",
+      "region": "moryskah",
+      "value": 640000,
+      "flavor": "A seed that sprouts cold grey fire.",
+      "category": "reagent",
+      "stackable": true,
+      "weight": 0.1,
+      "tradeable": true,
+      "tags": [
+        "reagent",
+        "boss_drop"
+      ],
+      "examine": "A seed that sprouts cold grey fire."
+    },
+    {
+      "id": "loom_thread_of_fate",
+      "name": "Loom thread of fate",
+      "source": "The Weaver (Inkweald)",
+      "region": "inkweald",
+      "value": 1200000,
+      "flavor": "A thread cut from the loom of fate itself.",
+      "category": "reagent",
+      "stackable": true,
+      "weight": 0.1,
+      "tradeable": true,
+      "tags": [
+        "reagent",
+        "boss_drop"
+      ],
+      "examine": "A thread cut from the loom of fate itself."
+    },
+    {
+      "id": "sunforged_ingot",
+      "name": "Sunforged ingot",
+      "source": "Sunforge Pharaoh (Glass Desert)",
+      "region": "glass_desert",
+      "value": 1400000,
+      "flavor": "An ingot forged in a beam of captured sun.",
+      "category": "reagent",
+      "stackable": true,
+      "weight": 0.1,
+      "tradeable": true,
+      "tags": [
+        "reagent",
+        "boss_drop"
+      ],
+      "examine": "An ingot forged in a beam of captured sun."
+    },
+    {
+      "id": "briar_crown_petal",
+      "name": "Briar-crown petal",
+      "source": "Briar Queen (Veilwood)",
+      "region": "veilwood",
+      "value": 380000,
+      "flavor": "A single petal from the Briar Queen's crown.",
+      "category": "reagent",
+      "stackable": true,
+      "weight": 0.1,
+      "tradeable": true,
+      "tags": [
+        "reagent",
+        "boss_drop"
+      ],
+      "examine": "A single petal from the Briar Queen's crown."
+    }
+  ],
+  "reagent_pairs": [
+    {
+      "pair_id": "hedgelord_tempered_scimitar",
+      "reagent": "hedgelord_fang",
+      "base_item": "runeforge_scimitar",
+      "produces": "hedgelord_scimitar",
+      "produces_name": "Hedgelord scimitar",
+      "niche": "+10% attack speed vs beasts; old runeforge scimitar is consumed",
+      "skill": "smithing",
+      "level": 72,
+      "xp": 420,
+      "stats": {
+        "attack_slash": 58,
+        "melee_strength": 54
+      },
+      "tags": [
+        "bonus_vs_beast"
+      ],
+      "examine": "Hedgelord scimitar: reagent \"hedgelord_fang\" combined with \"runeforge_scimitar\". +10% attack speed vs beasts; old runeforge scimitar is consumed."
+    },
+    {
+      "pair_id": "champion_crest_upgrade",
+      "reagent": "champions_pin",
+      "base_item": "runeforge_helm",
+      "produces": "heartlands_champion_crest",
+      "produces_name": "Heartlands Champion Crest",
+      "niche": "BiS head for Heartlands-rooted quests; untradeable",
+      "skill": "smithing",
+      "level": 70,
+      "xp": 360,
+      "stats": null,
+      "tags": [
+        "untradeable_reward",
+        "niche_bis"
+      ],
+      "examine": "Heartlands Champion Crest: reagent \"champions_pin\" combined with \"runeforge_helm\". BiS head for Heartlands-rooted quests; untradeable."
+    },
+    {
+      "pair_id": "field_baron_cuirass",
+      "reagent": "field_baron_sigil",
+      "base_item": "runeforge_platebody",
+      "produces": "field_baron_cuirass",
+      "produces_name": "Field Baron cuirass",
+      "niche": "+2 prayer, +6% defence vs farm-native mobs",
+      "skill": "smithing",
+      "level": 74,
+      "xp": 440,
+      "stats": null,
+      "tags": [],
+      "examine": "Field Baron cuirass: reagent \"field_baron_sigil\" combined with \"runeforge_platebody\". +2 prayer, +6% defence vs farm-native mobs."
+    },
+    {
+      "pair_id": "forge_wraith_blade",
+      "reagent": "forge_wraith_essence",
+      "base_item": "dragonsteel_longsword",
+      "produces": "forgewraith_longsword",
+      "produces_name": "Forge-wraith longsword",
+      "niche": "Ignites on hit; +15% vs ice/crystal enemies",
+      "skill": "smithing",
+      "level": 78,
+      "xp": 520,
+      "stats": null,
+      "tags": [
+        "fire_damage"
+      ],
+      "examine": "Forge-wraith longsword: reagent \"forge_wraith_essence\" combined with \"dragonsteel_longsword\". Ignites on hit; +15% vs ice/crystal enemies."
+    },
+    {
+      "pair_id": "rust_golem_armor",
+      "reagent": "rust_golem_core",
+      "base_item": "dragonsteel_platebody",
+      "produces": "rust_lord_platebody",
+      "produces_name": "Rust Lord platebody",
+      "niche": "Returns 5% incoming damage as rust (degrades enemy armour)",
+      "skill": "smithing",
+      "level": 80,
+      "xp": 640,
+      "stats": null,
+      "tags": [],
+      "examine": "Rust Lord platebody: reagent \"rust_golem_core\" combined with \"dragonsteel_platebody\". Returns 5% incoming damage as rust (degrades enemy armour)."
+    },
+    {
+      "pair_id": "sootlord_greathammer",
+      "reagent": "sootlord_ingot",
+      "base_item": "dragonsteel_warhammer",
+      "produces": "sootlord_greathammer",
+      "produces_name": "Sootlord greathammer",
+      "niche": "+25% vs plate-armoured enemies; shatters shields (1 in 3)",
+      "skill": "smithing",
+      "level": 85,
+      "xp": 820,
+      "stats": null,
+      "tags": [
+        "shield_shatter"
+      ],
+      "examine": "Sootlord greathammer: reagent \"sootlord_ingot\" combined with \"dragonsteel_warhammer\". +25% vs plate-armoured enemies; shatters shields (1 in 3)."
+    },
+    {
+      "pair_id": "scorched_rune_scimitar",
+      "reagent": "ember_of_the_mire",
+      "base_item": "runeforge_scimitar",
+      "produces": "scorched_rune_scimitar",
+      "produces_name": "Scorched rune scimitar",
+      "niche": "+15% damage vs undead (BiS vs Moryskah bosses)",
+      "skill": "smithing",
+      "level": 68,
+      "xp": 340,
+      "stats": null,
+      "tags": [
+        "bonus_vs_undead"
+      ],
+      "examine": "Scorched rune scimitar: reagent \"ember_of_the_mire\" combined with \"runeforge_scimitar\". +15% damage vs undead (BiS vs Moryskah bosses)."
+    },
+    {
+      "pair_id": "lichbane_pendant",
+      "reagent": "grave_lord_talisman",
+      "base_item": "amulet_of_glory",
+      "produces": "moryskah_lichbane_pendant",
+      "produces_name": "Lichbane pendant",
+      "niche": "+4 prayer, +20% dmg to undead, -2% vs anything else",
+      "skill": "crafting",
+      "level": 70,
+      "xp": 420,
+      "stats": null,
+      "tags": [],
+      "examine": "Lichbane pendant: reagent \"grave_lord_talisman\" combined with \"amulet_of_glory\". +4 prayer, +20% dmg to undead, -2% vs anything else."
+    },
+    {
+      "pair_id": "silver_laced_bolts",
+      "reagent": "vampire_fang_shard",
+      "base_item": "runeforge_crossbow",
+      "produces": "silverlaced_crossbow",
+      "produces_name": "Silver-laced crossbow",
+      "niche": "Bolts auto-silver-tipped vs vampires; ignores vampire DR",
+      "skill": "fletching",
+      "level": 70,
+      "xp": 400,
+      "stats": null,
+      "tags": [],
+      "examine": "Silver-laced crossbow: reagent \"vampire_fang_shard\" combined with \"runeforge_crossbow\". Bolts auto-silver-tipped vs vampires; ignores vampire DR."
+    },
+    {
+      "pair_id": "ichor_warpaint",
+      "reagent": "crypt_ichor_vial",
+      "base_item": "blacksteel_gauntlets",
+      "produces": "crypt_warpaint_gauntlets",
+      "produces_name": "Crypt-painted gauntlets",
+      "niche": "+8% crit vs undead; scares lesser undead",
+      "skill": "crafting",
+      "level": 55,
+      "xp": 210,
+      "stats": null,
+      "tags": [],
+      "examine": "Crypt-painted gauntlets: reagent \"crypt_ichor_vial\" combined with \"blacksteel_gauntlets\". +8% crit vs undead; scares lesser undead."
+    },
+    {
+      "pair_id": "pharaohs_scarab_shield",
+      "reagent": "pharaohs_scarab",
+      "base_item": "dragonsteel_kiteshield",
+      "produces": "pharaohs_scarab_shield",
+      "produces_name": "Pharaoh's scarab shield",
+      "niche": "Scarab projectiles auto-counter (20% block chance)",
+      "skill": "smithing",
+      "level": 80,
+      "xp": 620,
+      "stats": null,
+      "tags": [],
+      "examine": "Pharaoh's scarab shield: reagent \"pharaohs_scarab\" combined with \"dragonsteel_kiteshield\". Scarab projectiles auto-counter (20% block chance)."
+    },
+    {
+      "pair_id": "sandwyrm_arrows",
+      "reagent": "sandwyrm_scale",
+      "base_item": "runeforge_arrows",
+      "produces": "sandwyrm_arrows",
+      "produces_name": "Sandwyrm arrows (100)",
+      "niche": "Bleeds target for 5 ticks (3 dmg each)",
+      "skill": "fletching",
+      "level": 72,
+      "xp": 280,
+      "stats": null,
+      "tags": [
+        "stackable",
+        "bleed"
+      ],
+      "examine": "Sandwyrm arrows (100): reagent \"sandwyrm_scale\" combined with \"runeforge_arrows\". Bleeds target for 5 ticks (3 dmg each)."
+    },
+    {
+      "pair_id": "dust_dweller_cloak",
+      "reagent": "dust_dweller_fang",
+      "base_item": "runeforge_cape",
+      "produces": "dustdweller_cloak",
+      "produces_name": "Dust-dweller cloak",
+      "niche": "Sandstorm stealth; hides you from Boneyard-native mobs for 10s per minute",
+      "skill": "crafting",
+      "level": 68,
+      "xp": 320,
+      "stats": null,
+      "tags": [
+        "stealth"
+      ],
+      "examine": "Dust-dweller cloak: reagent \"dust_dweller_fang\" combined with \"runeforge_cape\". Sandstorm stealth; hides you from Boneyard-native mobs for 10s per minute."
+    },
+    {
+      "pair_id": "wyrm_scale_platebody",
+      "reagent": "wyrm_scale",
+      "base_item": "dragonsteel_platebody",
+      "produces": "wyrm_scale_platebody",
+      "produces_name": "Wyrm-scale platebody",
+      "niche": "BiS defence vs magic; prayer +2",
+      "skill": "smithing",
+      "level": 80,
+      "xp": 780,
+      "stats": null,
+      "tags": [],
+      "examine": "Wyrm-scale platebody: reagent \"wyrm_scale\" combined with \"dragonsteel_platebody\". BiS defence vs magic; prayer +2."
+    },
+    {
+      "pair_id": "wyrm_scale_fang",
+      "reagent": "attuned_wyrm_scale",
+      "base_item": "dragonsteel_dagger",
+      "produces": "crystal_wyrm_fang",
+      "produces_name": "Crystal wyrm fang",
+      "niche": "T75 stab weapon, fastest in tier; special lowers enemy def 30%",
+      "skill": "smithing",
+      "level": 85,
+      "xp": 1100,
+      "stats": null,
+      "tags": [
+        "special_attack"
+      ],
+      "examine": "Crystal wyrm fang: reagent \"attuned_wyrm_scale\" combined with \"dragonsteel_dagger\". T75 stab weapon, fastest in tier; special lowers enemy def 30%."
+    },
+    {
+      "pair_id": "prism_bow",
+      "reagent": "prism_core",
+      "base_item": "dragonsteel_longbow",
+      "produces": "prism_longbow",
+      "produces_name": "Prism longbow",
+      "niche": "Splits arrows 3-way vs grouped enemies",
+      "skill": "fletching",
+      "level": 80,
+      "xp": 640,
+      "stats": null,
+      "tags": [
+        "multi_target"
+      ],
+      "examine": "Prism longbow: reagent \"prism_core\" combined with \"dragonsteel_longbow\". Splits arrows 3-way vs grouped enemies."
+    },
+    {
+      "pair_id": "crystal_hunter_vambraces",
+      "reagent": "crystal_hunter_heart",
+      "base_item": "dragonsteel_gauntlets",
+      "produces": "crystal_hunter_vambraces",
+      "produces_name": "Crystal-hunter vambraces",
+      "niche": "+10% ranged str but -15% melee str (sidegrade to melee gauntlets)",
+      "skill": "crafting",
+      "level": 76,
+      "xp": 480,
+      "stats": null,
+      "tags": [],
+      "examine": "Crystal-hunter vambraces: reagent \"crystal_hunter_heart\" combined with \"dragonsteel_gauntlets\". +10% ranged str but -15% melee str (sidegrade to melee gauntlets)."
+    },
+    {
+      "pair_id": "brinekissed_cutlass",
+      "reagent": "brine_crystal",
+      "base_item": "runeforge_longsword",
+      "produces": "brinekissed_cutlass",
+      "produces_name": "Brine-kissed cutlass",
+      "niche": "+12% vs sea-creatures; never rusts at sea",
+      "skill": "smithing",
+      "level": 70,
+      "xp": 380,
+      "stats": null,
+      "tags": [
+        "bonus_vs_sea"
+      ],
+      "examine": "Brine-kissed cutlass: reagent \"brine_crystal\" combined with \"runeforge_longsword\". +12% vs sea-creatures; never rusts at sea."
+    },
+    {
+      "pair_id": "kraken_tendril_whip",
+      "reagent": "kraken_tentacle_tip",
+      "base_item": "runeforge_two_hander",
+      "produces": "kraken_whip",
+      "produces_name": "Kraken whip",
+      "niche": "Whip-speed (3 tick), +2 tile range; degrades",
+      "skill": "crafting",
+      "level": 82,
+      "xp": 940,
+      "stats": null,
+      "tags": [
+        "degrades",
+        "reach_2"
+      ],
+      "examine": "Kraken whip: reagent \"kraken_tentacle_tip\" combined with \"runeforge_two_hander\". Whip-speed (3 tick), +2 tile range; degrades."
+    },
+    {
+      "pair_id": "drowner_lantern_shield",
+      "reagent": "drowner_lantern_core",
+      "base_item": "runeforge_kiteshield",
+      "produces": "drowner_lantern_shield",
+      "produces_name": "Drowner lantern shield",
+      "niche": "Provides light + water-breathing when equipped",
+      "skill": "smithing",
+      "level": 75,
+      "xp": 540,
+      "stats": null,
+      "tags": [
+        "light_source",
+        "water_breathing"
+      ],
+      "examine": "Drowner lantern shield: reagent \"drowner_lantern_core\" combined with \"runeforge_kiteshield\". Provides light + water-breathing when equipped."
+    },
+    {
+      "pair_id": "tidestone_amulet",
+      "reagent": "tidestone",
+      "base_item": "amulet_of_glory",
+      "produces": "tidestone_amulet",
+      "produces_name": "Tidestone amulet",
+      "niche": "+3 swim speed, +6% vs sea; -10% vs fire enemies",
+      "skill": "crafting",
+      "level": 60,
+      "xp": 280,
+      "stats": null,
+      "tags": [],
+      "examine": "Tidestone amulet: reagent \"tidestone\" combined with \"amulet_of_glory\". +3 swim speed, +6% vs sea; -10% vs fire enemies."
+    },
+    {
+      "pair_id": "moonsilk_shortbow",
+      "reagent": "moonglass_shard",
+      "base_item": "runeforge_shortbow",
+      "produces": "moonsilk_shortbow",
+      "produces_name": "Moonsilk shortbow",
+      "niche": "+20% ranged damage at night, -5% during day",
+      "skill": "fletching",
+      "level": 75,
+      "xp": 520,
+      "stats": null,
+      "tags": [
+        "night_boost"
+      ],
+      "examine": "Moonsilk shortbow: reagent \"moonglass_shard\" combined with \"runeforge_shortbow\". +20% ranged damage at night, -5% during day."
+    },
+    {
+      "pair_id": "fey_ribbon_cloak",
+      "reagent": "fey_ribbon",
+      "base_item": "dragonsteel_cape",
+      "produces": "fey_ribbon_cloak",
+      "produces_name": "Fey-ribbon cloak",
+      "niche": "Run energy does not drain while worn — tradeoff: -10% defence all",
+      "skill": "crafting",
+      "level": 70,
+      "xp": 440,
+      "stats": null,
+      "tags": [
+        "inf_run"
+      ],
+      "examine": "Fey-ribbon cloak: reagent \"fey_ribbon\" combined with \"dragonsteel_cape\". Run energy does not drain while worn — tradeoff: -10% defence all."
+    },
+    {
+      "pair_id": "grove_heartwood_staff",
+      "reagent": "grove_heartwood",
+      "base_item": "runeforge_staff",
+      "produces": "grove_heartwood_staff",
+      "produces_name": "Grove heartwood staff",
+      "niche": "Heals 1 HP per spell cast; -10% magic damage",
+      "skill": "crafting",
+      "level": 78,
+      "xp": 680,
+      "stats": null,
+      "tags": [
+        "heal_on_cast"
+      ],
+      "examine": "Grove heartwood staff: reagent \"grove_heartwood\" combined with \"runeforge_staff\". Heals 1 HP per spell cast; -10% magic damage."
+    },
+    {
+      "pair_id": "veil_king_crown",
+      "reagent": "veil_king_antler",
+      "base_item": "dragonsteel_helm",
+      "produces": "veil_king_crown",
+      "produces_name": "Veil King crown",
+      "niche": "BiS prayer helm at night; prayer +5 at night, 0 at day",
+      "skill": "smithing",
+      "level": 82,
+      "xp": 920,
+      "stats": null,
+      "tags": [
+        "night_only"
+      ],
+      "examine": "Veil King crown: reagent \"veil_king_antler\" combined with \"dragonsteel_helm\". BiS prayer helm at night; prayer +5 at night, 0 at day."
+    },
+    {
+      "pair_id": "bound_tome_upgrade",
+      "reagent": "bound_chapter",
+      "base_item": "runeforge_kiteshield",
+      "produces": "inkweald_bound_tome",
+      "produces_name": "Bound tome",
+      "niche": "+18 magic attack; book shield (no defence stats)",
+      "skill": "crafting",
+      "level": 75,
+      "xp": 580,
+      "stats": null,
+      "tags": [],
+      "examine": "Bound tome: reagent \"bound_chapter\" combined with \"runeforge_kiteshield\". +18 magic attack; book shield (no defence stats)."
+    },
+    {
+      "pair_id": "ink_heart_staff",
+      "reagent": "ink_heart",
+      "base_item": "runeforge_staff",
+      "produces": "ink_heart_staff",
+      "produces_name": "Ink-heart staff",
+      "niche": "50% chance to not consume rune (when casting combat spells)",
+      "skill": "runecrafting",
+      "level": 78,
+      "xp": 720,
+      "stats": null,
+      "tags": [
+        "rune_saving"
+      ],
+      "examine": "Ink-heart staff: reagent \"ink_heart\" combined with \"runeforge_staff\". 50% chance to not consume rune (when casting combat spells)."
+    },
+    {
+      "pair_id": "forgotten_syllable_pendant",
+      "reagent": "forgotten_syllable",
+      "base_item": "occult_necklace",
+      "produces": "silenced_pendant",
+      "produces_name": "Silenced pendant",
+      "niche": "BiS magic neck; +15% magic dmg; suppresses enemy spellcasting within 1 tile",
+      "skill": "crafting",
+      "level": 85,
+      "xp": 1200,
+      "stats": null,
+      "tags": [
+        "spell_suppress"
+      ],
+      "examine": "Silenced pendant: reagent \"forgotten_syllable\" combined with \"occult_necklace\". BiS magic neck; +15% magic dmg; suppresses enemy spellcasting within 1 tile."
+    },
+    {
+      "pair_id": "revenant_charge_weapon",
+      "reagent": "revenant_ether",
+      "base_item": "runeforge_scimitar",
+      "produces": "revenant_blade",
+      "produces_name": "Revenant blade",
+      "niche": "+20% dmg in Wilds, -10% outside; kept on death in Wilds",
+      "skill": "smithing",
+      "level": 70,
+      "xp": 400,
+      "stats": null,
+      "tags": [
+        "kept_on_death_wilds",
+        "pvp_bonus"
+      ],
+      "examine": "Revenant blade: reagent \"revenant_ether\" combined with \"runeforge_scimitar\". +20% dmg in Wilds, -10% outside; kept on death in Wilds."
+    },
+    {
+      "pair_id": "chaos_touched_helm",
+      "reagent": "chaos_touched_core",
+      "base_item": "dragonsteel_helm",
+      "produces": "chaos_touched_helm",
+      "produces_name": "Chaos-touched helm",
+      "niche": "+prayer bonus in Wilds; -def elsewhere",
+      "skill": "smithing",
+      "level": 78,
+      "xp": 640,
+      "stats": null,
+      "tags": [],
+      "examine": "Chaos-touched helm: reagent \"chaos_touched_core\" combined with \"dragonsteel_helm\". +prayer bonus in Wilds; -def elsewhere."
+    },
+    {
+      "pair_id": "forsaken_relic_pendant",
+      "reagent": "forsaken_relic",
+      "base_item": "amulet_of_glory",
+      "produces": "forsaken_pendant",
+      "produces_name": "Forsaken pendant",
+      "niche": "Auto-revive once per day in Wilds; loses charge on non-Wilds deaths",
+      "skill": "crafting",
+      "level": 80,
+      "xp": 780,
+      "stats": null,
+      "tags": [
+        "daily_revive"
+      ],
+      "examine": "Forsaken pendant: reagent \"forsaken_relic\" combined with \"amulet_of_glory\". Auto-revive once per day in Wilds; loses charge on non-Wilds deaths."
+    },
+    {
+      "pair_id": "heartlands_godsword",
+      "reagent": "godsword_hilt_heartlands",
+      "base_item": "godsword_shard_1 + godsword_shard_2 + godsword_shard_3",
+      "produces": "heartlands_godsword",
+      "produces_name": "Heartlands godsword",
+      "niche": "Special heals 50% of damage dealt as HP",
+      "skill": "smithing",
+      "level": 85,
+      "xp": 1400,
+      "stats": null,
+      "tags": [
+        "godsword"
+      ],
+      "examine": "Heartlands godsword: reagent \"godsword_hilt_heartlands\" combined with \"godsword_shard_1 + godsword_shard_2 + godsword_shard_3\". Special heals 50% of damage dealt as HP."
+    },
+    {
+      "pair_id": "moryskah_godsword",
+      "reagent": "godsword_hilt_moryskah",
+      "base_item": "godsword_shard_1 + godsword_shard_2 + godsword_shard_3",
+      "produces": "moryskah_godsword",
+      "produces_name": "Moryskah godsword",
+      "niche": "Special raises all combat stats by 5",
+      "skill": "smithing",
+      "level": 85,
+      "xp": 1400,
+      "stats": null,
+      "tags": [
+        "godsword"
+      ],
+      "examine": "Moryskah godsword: reagent \"godsword_hilt_moryskah\" combined with \"godsword_shard_1 + godsword_shard_2 + godsword_shard_3\". Special raises all combat stats by 5."
+    },
+    {
+      "pair_id": "saltbrine_godsword",
+      "reagent": "godsword_hilt_saltbrine",
+      "base_item": "godsword_shard_1 + godsword_shard_2 + godsword_shard_3",
+      "produces": "saltbrine_godsword",
+      "produces_name": "Saltbrine godsword",
+      "niche": "Special drains 10% of target prayer",
+      "skill": "smithing",
+      "level": 85,
+      "xp": 1400,
+      "stats": null,
+      "tags": [
+        "godsword"
+      ],
+      "examine": "Saltbrine godsword: reagent \"godsword_hilt_saltbrine\" combined with \"godsword_shard_1 + godsword_shard_2 + godsword_shard_3\". Special drains 10% of target prayer."
+    },
+    {
+      "pair_id": "veilwood_godsword",
+      "reagent": "godsword_hilt_veilwood",
+      "base_item": "godsword_shard_1 + godsword_shard_2 + godsword_shard_3",
+      "produces": "veilwood_godsword",
+      "produces_name": "Veilwood godsword",
+      "niche": "Special reduces target defence by 30%",
+      "skill": "smithing",
+      "level": 85,
+      "xp": 1400,
+      "stats": null,
+      "tags": [
+        "godsword"
+      ],
+      "examine": "Veilwood godsword: reagent \"godsword_hilt_veilwood\" combined with \"godsword_shard_1 + godsword_shard_2 + godsword_shard_3\". Special reduces target defence by 30%."
+    },
+    {
+      "pair_id": "aeldra_recharge",
+      "reagent": "aeldra_charge",
+      "base_item": "aeldra_longsword",
+      "produces": "aeldra_longsword_charged",
+      "produces_name": "Aeldra longsword (recharged)",
+      "niche": "Resets 10-hour combat timer; no stat change",
+      "skill": "crafting",
+      "level": 70,
+      "xp": 120,
+      "stats": null,
+      "tags": [
+        "recharge"
+      ],
+      "examine": "Aeldra longsword (recharged): reagent \"aeldra_charge\" combined with \"aeldra_longsword\". Resets 10-hour combat timer; no stat change."
+    },
+    {
+      "pair_id": "aeldra_heartstone_ring_combine",
+      "reagent": "aeldra_charge",
+      "base_item": "champions_token_heartlands + champions_token_moryskah + champions_token_saltbrine",
+      "produces": "aeldra_heartstone_ring",
+      "produces_name": "Aeldra heartstone ring",
+      "niche": "BiS all-style ring; -1 prayer drain per minute (always)",
+      "skill": "crafting",
+      "level": 90,
+      "xp": 2200,
+      "stats": null,
+      "tags": [
+        "universal_bis_ring",
+        "prayer_cost"
+      ],
+      "examine": "Aeldra heartstone ring: reagent \"aeldra_charge\" combined with \"champions_token_heartlands + champions_token_moryskah + champions_token_saltbrine\". BiS all-style ring; -1 prayer drain per minute (always)."
+    },
+    {
+      "pair_id": "wyrmforged_reforge_melee",
+      "reagent": "wyrmforge_flame",
+      "base_item": "aeldra_two_hander",
+      "produces": "wyrmforged_greatsword",
+      "produces_name": "Wyrmforged greatsword",
+      "niche": "Charges on kills (up to 100); special deals 2x damage per charge",
+      "skill": "smithing",
+      "level": 90,
+      "xp": 2800,
+      "stats": null,
+      "tags": [
+        "charges",
+        "special_attack"
+      ],
+      "examine": "Wyrmforged greatsword: reagent \"wyrmforge_flame\" combined with \"aeldra_two_hander\". Charges on kills (up to 100); special deals 2x damage per charge."
+    },
+    {
+      "pair_id": "wyrmforged_bow",
+      "reagent": "wyrmforge_flame",
+      "base_item": "aeldra_longbow",
+      "produces": "wyrmforged_longbow",
+      "produces_name": "Wyrmforged longbow",
+      "niche": "Fires 3 arrows per shot at full charge",
+      "skill": "fletching",
+      "level": 90,
+      "xp": 2600,
+      "stats": null,
+      "tags": [
+        "charges"
+      ],
+      "examine": "Wyrmforged longbow: reagent \"wyrmforge_flame\" combined with \"aeldra_longbow\". Fires 3 arrows per shot at full charge."
+    },
+    {
+      "pair_id": "wyrmforged_staff",
+      "reagent": "wyrmforge_flame",
+      "base_item": "aeldra_staff",
+      "produces": "wyrmforged_staff",
+      "produces_name": "Wyrmforged staff",
+      "niche": "Reduces rune cost by 50% at full charge",
+      "skill": "magic",
+      "level": 90,
+      "xp": 2400,
+      "stats": null,
+      "tags": [
+        "charges",
+        "rune_saving"
+      ],
+      "examine": "Wyrmforged staff: reagent \"wyrmforge_flame\" combined with \"aeldra_staff\". Reduces rune cost by 50% at full charge."
+    },
+    {
+      "pair_id": "brine_moonsilk_bow",
+      "reagent": "brine_crystal + moonglass_shard",
+      "base_item": "runeforge_longbow",
+      "produces": "brine_moonsilk_longbow",
+      "produces_name": "Brine-moonsilk longbow",
+      "niche": "Saltbrine + Veilwood hybrid. +12% at sea at night (stacks)",
+      "skill": "fletching",
+      "level": 82,
+      "xp": 980,
+      "stats": null,
+      "tags": [
+        "night_boost",
+        "bonus_vs_sea"
+      ],
+      "examine": "Brine-moonsilk longbow: reagent \"brine_crystal + moonglass_shard\" combined with \"runeforge_longbow\". Saltbrine + Veilwood hybrid. +12% at sea at night (stacks)."
+    },
+    {
+      "pair_id": "crypt_sandwyrm_amulet",
+      "reagent": "crypt_ichor_vial + sandwyrm_scale",
+      "base_item": "lichbane_pendant",
+      "produces": "tomb_binder_pendant",
+      "produces_name": "Tomb-binder pendant",
+      "niche": "Moryskah + Boneyard hybrid. +25% vs undead AND desert",
+      "skill": "crafting",
+      "level": 80,
+      "xp": 880,
+      "stats": null,
+      "tags": [],
+      "examine": "Tomb-binder pendant: reagent \"crypt_ichor_vial + sandwyrm_scale\" combined with \"lichbane_pendant\". Moryskah + Boneyard hybrid. +25% vs undead AND desert."
+    },
+    {
+      "pair_id": "ink_wilds_cape",
+      "reagent": "bound_chapter + chaos_touched_core",
+      "base_item": "runeforge_cape",
+      "produces": "binding_chaos_cape",
+      "produces_name": "Binding-chaos cape",
+      "niche": "Inkweald + Wilds. +prayer +magic in Wilds only. -2 def always.",
+      "skill": "crafting",
+      "level": 82,
+      "xp": 1020,
+      "stats": null,
+      "tags": [],
+      "examine": "Binding-chaos cape: reagent \"bound_chapter + chaos_touched_core\" combined with \"runeforge_cape\". Inkweald + Wilds. +prayer +magic in Wilds only. -2 def always.."
+    },
+    {
+      "pair_id": "forge_grove_hammer",
+      "reagent": "forge_wraith_essence + grove_heartwood",
+      "base_item": "dragonsteel_warhammer",
+      "produces": "forgeroot_warhammer",
+      "produces_name": "Forgeroot warhammer",
+      "niche": "Sootworks + Veilwood. Heats on crit (chain fire dmg)",
+      "skill": "smithing",
+      "level": 82,
+      "xp": 940,
+      "stats": null,
+      "tags": [
+        "fire_damage",
+        "chain_damage"
+      ],
+      "examine": "Forgeroot warhammer: reagent \"forge_wraith_essence + grove_heartwood\" combined with \"dragonsteel_warhammer\". Sootworks + Veilwood. Heats on crit (chain fire dmg)."
+    },
+    {
+      "pair_id": "godsword_blade_assembly",
+      "reagent": "godsword_shard_1 + godsword_shard_2 + godsword_shard_3",
+      "base_item": "—",
+      "produces": "godsword_blade",
+      "produces_name": "Godsword blade",
+      "niche": "Intermediate: combines with a hilt to create a godsword",
+      "skill": "smithing",
+      "level": 80,
+      "xp": 600,
+      "stats": null,
+      "tags": [
+        "intermediate"
+      ],
+      "examine": "Godsword blade: reagent \"godsword_shard_1 + godsword_shard_2 + godsword_shard_3\" combined with \"—\". Intermediate: combines with a hilt to create a godsword."
+    },
+    {
+      "pair_id": "poisoned_weapon",
+      "reagent": "kwuarm_extract + unicorn_horn_dust",
+      "base_item": "dragonsteel_dagger",
+      "produces": "poisoned_dragonsteel_dagger",
+      "produces_name": "Poisoned dragonsteel dagger",
+      "niche": "Adds 8-dmg poison to weapon; expires after 50 uses",
+      "skill": "herblore",
+      "level": 58,
+      "xp": 190,
+      "stats": null,
+      "tags": [
+        "poison",
+        "consumes_charges"
+      ],
+      "examine": "Poisoned dragonsteel dagger: reagent \"kwuarm_extract + unicorn_horn_dust\" combined with \"dragonsteel_dagger\". Adds 8-dmg poison to weapon; expires after 50 uses."
+    },
+    {
+      "pair_id": "imbued_archers_ring",
+      "reagent": "binding_rune_perfect",
+      "base_item": "archers_ring",
+      "produces": "imbued_archers_ring",
+      "produces_name": "Imbued archers ring",
+      "niche": "Doubles ranged bonus to +8; untradeable",
+      "skill": "magic",
+      "level": 75,
+      "xp": 650,
+      "stats": null,
+      "tags": [
+        "untradeable_reward"
+      ],
+      "examine": "Imbued archers ring: reagent \"binding_rune_perfect\" combined with \"archers_ring\". Doubles ranged bonus to +8; untradeable."
+    },
+    {
+      "pair_id": "imbued_warriors_ring",
+      "reagent": "binding_rune_perfect",
+      "base_item": "warriors_ring",
+      "produces": "imbued_warriors_ring",
+      "produces_name": "Imbued warriors ring",
+      "niche": "Doubles melee bonus to +8; untradeable",
+      "skill": "magic",
+      "level": 75,
+      "xp": 650,
+      "stats": null,
+      "tags": [
+        "untradeable_reward"
+      ],
+      "examine": "Imbued warriors ring: reagent \"binding_rune_perfect\" combined with \"warriors_ring\". Doubles melee bonus to +8; untradeable."
+    },
+    {
+      "pair_id": "imbued_seers_ring",
+      "reagent": "binding_rune_perfect",
+      "base_item": "seers_ring",
+      "produces": "imbued_seers_ring",
+      "produces_name": "Imbued seers ring",
+      "niche": "Doubles magic bonus to +12; untradeable",
+      "skill": "magic",
+      "level": 75,
+      "xp": 650,
+      "stats": null,
+      "tags": [
+        "untradeable_reward"
+      ],
+      "examine": "Imbued seers ring: reagent \"binding_rune_perfect\" combined with \"seers_ring\". Doubles magic bonus to +12; untradeable."
+    },
+    {
+      "pair_id": "imbued_berserkers_ring",
+      "reagent": "binding_rune_perfect",
+      "base_item": "berserkers_ring",
+      "produces": "imbued_berserkers_ring",
+      "produces_name": "Imbued berserkers ring",
+      "niche": "+4 str bonus; untradeable",
+      "skill": "magic",
+      "level": 75,
+      "xp": 650,
+      "stats": null,
+      "tags": [
+        "untradeable_reward"
+      ],
+      "examine": "Imbued berserkers ring: reagent \"binding_rune_perfect\" combined with \"berserkers_ring\". +4 str bonus; untradeable."
+    },
+    {
+      "pair_id": "imbued_ring_of_suffering",
+      "reagent": "binding_rune_perfect",
+      "base_item": "ring_of_suffering",
+      "produces": "imbued_ring_of_suffering",
+      "produces_name": "Imbued ring of suffering",
+      "niche": "Ring recoils 10% damage back at attacker; untradeable",
+      "skill": "magic",
+      "level": 75,
+      "xp": 650,
+      "stats": null,
+      "tags": [
+        "untradeable_reward",
+        "recoil"
+      ],
+      "examine": "Imbued ring of suffering: reagent \"binding_rune_perfect\" combined with \"ring_of_suffering\". Ring recoils 10% damage back at attacker; untradeable."
+    },
+    {
+      "pair_id": "barrows_dharoks_set",
+      "reagent": "binding_rune_perfect",
+      "base_item": "dharoks_helm + dharoks_platebody + dharoks_platelegs + dharoks_greataxe",
+      "produces": "dharoks_set_bonus",
+      "produces_name": "Dharok's set bonus",
+      "niche": "When all 4 equipped, damage scales inversely with HP (5% per 10% HP lost)",
+      "skill": "crafting",
+      "level": 70,
+      "xp": 180,
+      "stats": null,
+      "tags": [
+        "set_bonus"
+      ],
+      "examine": "Dharok's set bonus: reagent \"binding_rune_perfect\" combined with \"dharoks_helm + dharoks_platebody + dharoks_platelegs + dharoks_greataxe\". When all 4 equipped, damage scales inversely with HP (5% per 10% HP lost)."
+    },
+    {
+      "pair_id": "barrows_ahrims_set",
+      "reagent": "binding_rune_perfect",
+      "base_item": "ahrims_hood + ahrims_robetop + ahrims_robebottom + ahrims_staff",
+      "produces": "ahrims_set_bonus",
+      "produces_name": "Ahrim's set bonus",
+      "niche": "When all 4 equipped, spells have 25% chance to hit for +50%",
+      "skill": "crafting",
+      "level": 70,
+      "xp": 180,
+      "stats": null,
+      "tags": [
+        "set_bonus"
+      ],
+      "examine": "Ahrim's set bonus: reagent \"binding_rune_perfect\" combined with \"ahrims_hood + ahrims_robetop + ahrims_robebottom + ahrims_staff\". When all 4 equipped, spells have 25% chance to hit for +50%."
+    },
+    {
+      "pair_id": "barrows_karils_set",
+      "reagent": "binding_rune_perfect",
+      "base_item": "karils_coif + karils_body + karils_skirt + karils_crossbow",
+      "produces": "karils_set_bonus",
+      "produces_name": "Karil's set bonus",
+      "niche": "When all 4 equipped, arrows have 25% chance to drain target agility -1",
+      "skill": "crafting",
+      "level": 70,
+      "xp": 180,
+      "stats": null,
+      "tags": [
+        "set_bonus"
+      ],
+      "examine": "Karil's set bonus: reagent \"binding_rune_perfect\" combined with \"karils_coif + karils_body + karils_skirt + karils_crossbow\". When all 4 equipped, arrows have 25% chance to drain target agility -1."
+    },
+    {
+      "pair_id": "gear_salvage_basic",
+      "reagent": "—",
+      "base_item": "runeforge_helm",
+      "produces": "binding_rune_cracked x2",
+      "produces_name": "Gear salvage (basic)",
+      "niche": "Recycle old tier-7 pieces into cracked binding runes",
+      "skill": "smithing",
+      "level": 60,
+      "xp": 50,
+      "stats": null,
+      "tags": [
+        "salvage",
+        "consumes_base"
+      ],
+      "examine": "Gear salvage (basic): reagent \"—\" combined with \"runeforge_helm\". Recycle old tier-7 pieces into cracked binding runes."
+    },
+    {
+      "pair_id": "revenant_crown_helm",
+      "reagent": "revenant_crown_shard",
+      "base_item": "dragonsteel_helm",
+      "produces": "revenant_crown_helm",
+      "produces_name": "Revenant crown helm",
+      "niche": "Wilds kept-on-death; +3 prayer in Wilds, +0 elsewhere",
+      "skill": "smithing",
+      "level": 74,
+      "xp": 520,
+      "stats": null,
+      "tags": [
+        "kept_on_death_wilds",
+        "night_only"
+      ],
+      "examine": "Revenant crown helm: reagent \"revenant_crown_shard\" combined with \"dragonsteel_helm\". Wilds kept-on-death; +3 prayer in Wilds, +0 elsewhere."
+    },
+    {
+      "pair_id": "coralbone_trident",
+      "reagent": "coralbone_fragment",
+      "base_item": "aeldra_spear",
+      "produces": "coralbone_trident",
+      "produces_name": "Coralbone trident",
+      "niche": "Auto-target sea mobs (+3 accuracy per tile of water around target)",
+      "skill": "crafting",
+      "level": 78,
+      "xp": 680,
+      "stats": null,
+      "tags": [
+        "bonus_vs_sea"
+      ],
+      "examine": "Coralbone trident: reagent \"coralbone_fragment\" combined with \"aeldra_spear\". Auto-target sea mobs (+3 accuracy per tile of water around target)."
+    },
+    {
+      "pair_id": "ashenheart_staff",
+      "reagent": "ashenheart_seed",
+      "base_item": "runeforge_staff",
+      "produces": "ashenheart_staff",
+      "produces_name": "Ashenheart staff",
+      "niche": "Drains HP but heals prayer 1:1 — reverse of blood magic",
+      "skill": "magic",
+      "level": 76,
+      "xp": 640,
+      "stats": null,
+      "tags": [
+        "hp_to_prayer",
+        "tradeoff"
+      ],
+      "examine": "Ashenheart staff: reagent \"ashenheart_seed\" combined with \"runeforge_staff\". Drains HP but heals prayer 1:1 — reverse of blood magic."
+    },
+    {
+      "pair_id": "fate_thread_cloak",
+      "reagent": "loom_thread_of_fate",
+      "base_item": "aeldra_cape",
+      "produces": "fate_thread_cloak",
+      "produces_name": "Fate-thread cloak",
+      "niche": "Rerolls one failed chance per combat (drop, crit, miss) — one-use per encounter",
+      "skill": "crafting",
+      "level": 90,
+      "xp": 2400,
+      "stats": null,
+      "tags": [
+        "luck_effect",
+        "legendary"
+      ],
+      "examine": "Fate-thread cloak: reagent \"loom_thread_of_fate\" combined with \"aeldra_cape\". Rerolls one failed chance per combat (drop, crit, miss) — one-use per encounter."
+    },
+    {
+      "pair_id": "sunforged_blade",
+      "reagent": "sunforged_ingot",
+      "base_item": "aeldra_longsword",
+      "produces": "sunforged_greatsword",
+      "produces_name": "Sunforged greatsword",
+      "niche": "Only swings during daylight; +40% damage when sun is visible",
+      "skill": "smithing",
+      "level": 88,
+      "xp": 1800,
+      "stats": null,
+      "tags": [
+        "day_only",
+        "conditional_power"
+      ],
+      "examine": "Sunforged greatsword: reagent \"sunforged_ingot\" combined with \"aeldra_longsword\". Only swings during daylight; +40% damage when sun is visible."
+    },
+    {
+      "pair_id": "briar_crown_circlet",
+      "reagent": "briar_crown_petal",
+      "base_item": "aeldra_helm",
+      "produces": "briar_crown_circlet",
+      "produces_name": "Briar Crown circlet",
+      "niche": "Veilwood-only +10% magic dmg; roots grow through helm — cannot equip other helm for 1 hour after removal",
+      "skill": "crafting",
+      "level": 82,
+      "xp": 920,
+      "stats": null,
+      "tags": [
+        "binding",
+        "veilwood_only"
+      ],
+      "examine": "Briar Crown circlet: reagent \"briar_crown_petal\" combined with \"aeldra_helm\". Veilwood-only +10% magic dmg; roots grow through helm — cannot equip other helm for 1 hour after removal."
+    },
+    {
+      "pair_id": "salvage_high",
+      "reagent": "—",
+      "base_item": "dragonsteel_platebody",
+      "produces": "binding_rune_perfect x1",
+      "produces_name": "Gear salvage (high)",
+      "niche": "Salvage endgame gear into a perfect binding rune",
+      "skill": "smithing",
+      "level": 80,
+      "xp": 120,
+      "stats": null,
+      "tags": [
+        "salvage",
+        "consumes_base"
+      ],
+      "examine": "Gear salvage (high): reagent \"—\" combined with \"dragonsteel_platebody\". Salvage endgame gear into a perfect binding rune."
+    },
+    {
+      "pair_id": "salvage_aeldra",
+      "reagent": "—",
+      "base_item": "aeldra_helm",
+      "produces": "binding_rune_perfect x2 + aeldra_charge x1",
+      "produces_name": "Gear salvage (aeldra)",
+      "niche": "Salvage an aeldra piece for reagent materials",
+      "skill": "smithing",
+      "level": 85,
+      "xp": 200,
+      "stats": null,
+      "tags": [
+        "salvage",
+        "consumes_base"
+      ],
+      "examine": "Gear salvage (aeldra): reagent \"—\" combined with \"aeldra_helm\". Salvage an aeldra piece for reagent materials."
+    }
+  ]
+}

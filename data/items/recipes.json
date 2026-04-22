@@ -1,0 +1,8112 @@
+[
+  {
+    "id": "smelt_tinroot_bar",
+    "skill": "smithing",
+    "station": "furnace",
+    "level": 3,
+    "xp": 14,
+    "inputs": [
+      {
+        "item": "tinroot_ore",
+        "qty": 1
+      }
+    ],
+    "outputs": [
+      {
+        "item": "tinroot_bar",
+        "qty": 1
+      }
+    ],
+    "category": "smelting",
+    "examine": "Smelts tinroot bars from ore."
+  },
+  {
+    "id": "smelt_pigiron_bar",
+    "skill": "smithing",
+    "station": "furnace",
+    "level": 3,
+    "xp": 24,
+    "inputs": [
+      {
+        "item": "pigiron_ore",
+        "qty": 1
+      }
+    ],
+    "outputs": [
+      {
+        "item": "pigiron_bar",
+        "qty": 1
+      }
+    ],
+    "category": "smelting",
+    "examine": "Smelts pigiron bars from ore."
+  },
+  {
+    "id": "smelt_coalseam_bar",
+    "skill": "smithing",
+    "station": "furnace",
+    "level": 32,
+    "xp": 60,
+    "inputs": [
+      {
+        "item": "coalseam_ore",
+        "qty": 1
+      }
+    ],
+    "outputs": [
+      {
+        "item": "coalseam_bar",
+        "qty": 1
+      }
+    ],
+    "category": "smelting",
+    "examine": "Smelts coal bars from ore."
+  },
+  {
+    "id": "smelt_brassforge_bar",
+    "skill": "smithing",
+    "station": "furnace",
+    "level": 17,
+    "xp": 42,
+    "inputs": [
+      {
+        "item": "brassforge_ore",
+        "qty": 1
+      }
+    ],
+    "outputs": [
+      {
+        "item": "brassforge_bar",
+        "qty": 1
+      }
+    ],
+    "category": "smelting",
+    "examine": "Smelts brassforge bars from ore."
+  },
+  {
+    "id": "smelt_quicksilver_bar",
+    "skill": "smithing",
+    "station": "furnace",
+    "level": 42,
+    "xp": 78,
+    "inputs": [
+      {
+        "item": "quicksilver_ore",
+        "qty": 1
+      },
+      {
+        "item": "coalseam_ore",
+        "qty": 4
+      }
+    ],
+    "outputs": [
+      {
+        "item": "quicksilver_bar",
+        "qty": 1
+      }
+    ],
+    "category": "smelting",
+    "examine": "Smelts quicksilver bars from ore."
+  },
+  {
+    "id": "smelt_blacksteel_bar",
+    "skill": "smithing",
+    "station": "furnace",
+    "level": 57,
+    "xp": 108,
+    "inputs": [
+      {
+        "item": "blacksteel_ore",
+        "qty": 1
+      },
+      {
+        "item": "coalseam_ore",
+        "qty": 6
+      }
+    ],
+    "outputs": [
+      {
+        "item": "blacksteel_bar",
+        "qty": 1
+      }
+    ],
+    "category": "smelting",
+    "examine": "Smelts blacksteel bars from ore."
+  },
+  {
+    "id": "smelt_darkiron_bar",
+    "skill": "smithing",
+    "station": "furnace",
+    "level": 67,
+    "xp": 132,
+    "inputs": [
+      {
+        "item": "darkiron_ore",
+        "qty": 1
+      },
+      {
+        "item": "coalseam_ore",
+        "qty": 8
+      }
+    ],
+    "outputs": [
+      {
+        "item": "darkiron_bar",
+        "qty": 1
+      }
+    ],
+    "category": "smelting",
+    "examine": "Smelts darkiron bars from ore."
+  },
+  {
+    "id": "smelt_runeforge_bar",
+    "skill": "smithing",
+    "station": "furnace",
+    "level": 77,
+    "xp": 168,
+    "inputs": [
+      {
+        "item": "runeforge_ore",
+        "qty": 1
+      },
+      {
+        "item": "coalseam_ore",
+        "qty": 8
+      }
+    ],
+    "outputs": [
+      {
+        "item": "runeforge_bar",
+        "qty": 1
+      }
+    ],
+    "category": "smelting",
+    "examine": "Smelts runeforge bars from ore."
+  },
+  {
+    "id": "smelt_dragonsteel_bar",
+    "skill": "smithing",
+    "station": "furnace",
+    "level": 87,
+    "xp": 210,
+    "inputs": [
+      {
+        "item": "dragonsteel_ore",
+        "qty": 1
+      },
+      {
+        "item": "coalseam_ore",
+        "qty": 10
+      }
+    ],
+    "outputs": [
+      {
+        "item": "dragonsteel_bar",
+        "qty": 1
+      }
+    ],
+    "category": "smelting",
+    "examine": "Smelts dragonsteel bars from ore."
+  },
+  {
+    "id": "smelt_aeldra_bar",
+    "skill": "smithing",
+    "station": "furnace",
+    "level": 94,
+    "xp": 264,
+    "inputs": [
+      {
+        "item": "aeldra_ore",
+        "qty": 1
+      },
+      {
+        "item": "coalseam_ore",
+        "qty": 12
+      }
+    ],
+    "outputs": [
+      {
+        "item": "aeldra_bar",
+        "qty": 1
+      }
+    ],
+    "category": "smelting",
+    "examine": "Smelts aeldra bars from ore."
+  },
+  {
+    "id": "smith_tinroot_dagger",
+    "skill": "smithing",
+    "station": "anvil",
+    "level": 4,
+    "xp": 20,
+    "inputs": [
+      {
+        "item": "tinroot_bar",
+        "qty": 1
+      },
+      {
+        "item": "hammer",
+        "qty": 0,
+        "note": "tool-required"
+      }
+    ],
+    "outputs": [
+      {
+        "item": "tinroot_dagger",
+        "qty": 1
+      }
+    ],
+    "category": "forging",
+    "examine": "Forges a tinroot dagger from 1 tinroot bar(s)."
+  },
+  {
+    "id": "smith_tinroot_scimitar",
+    "skill": "smithing",
+    "station": "anvil",
+    "level": 4,
+    "xp": 20,
+    "inputs": [
+      {
+        "item": "tinroot_bar",
+        "qty": 1
+      },
+      {
+        "item": "hammer",
+        "qty": 0,
+        "note": "tool-required"
+      }
+    ],
+    "outputs": [
+      {
+        "item": "tinroot_scimitar",
+        "qty": 1
+      }
+    ],
+    "category": "forging",
+    "examine": "Forges a tinroot scimitar from 1 tinroot bar(s)."
+  },
+  {
+    "id": "smith_tinroot_longsword",
+    "skill": "smithing",
+    "station": "anvil",
+    "level": 4,
+    "xp": 40,
+    "inputs": [
+      {
+        "item": "tinroot_bar",
+        "qty": 2
+      },
+      {
+        "item": "hammer",
+        "qty": 0,
+        "note": "tool-required"
+      }
+    ],
+    "outputs": [
+      {
+        "item": "tinroot_longsword",
+        "qty": 1
+      }
+    ],
+    "category": "forging",
+    "examine": "Forges a tinroot longsword from 2 tinroot bar(s)."
+  },
+  {
+    "id": "smith_tinroot_mace",
+    "skill": "smithing",
+    "station": "anvil",
+    "level": 4,
+    "xp": 20,
+    "inputs": [
+      {
+        "item": "tinroot_bar",
+        "qty": 1
+      },
+      {
+        "item": "hammer",
+        "qty": 0,
+        "note": "tool-required"
+      }
+    ],
+    "outputs": [
+      {
+        "item": "tinroot_mace",
+        "qty": 1
+      }
+    ],
+    "category": "forging",
+    "examine": "Forges a tinroot mace from 1 tinroot bar(s)."
+  },
+  {
+    "id": "smith_tinroot_battleaxe",
+    "skill": "smithing",
+    "station": "anvil",
+    "level": 4,
+    "xp": 60,
+    "inputs": [
+      {
+        "item": "tinroot_bar",
+        "qty": 3
+      },
+      {
+        "item": "hammer",
+        "qty": 0,
+        "note": "tool-required"
+      }
+    ],
+    "outputs": [
+      {
+        "item": "tinroot_battleaxe",
+        "qty": 1
+      }
+    ],
+    "category": "forging",
+    "examine": "Forges a tinroot battleaxe from 3 tinroot bar(s)."
+  },
+  {
+    "id": "smith_tinroot_warhammer",
+    "skill": "smithing",
+    "station": "anvil",
+    "level": 4,
+    "xp": 60,
+    "inputs": [
+      {
+        "item": "tinroot_bar",
+        "qty": 3
+      },
+      {
+        "item": "hammer",
+        "qty": 0,
+        "note": "tool-required"
+      }
+    ],
+    "outputs": [
+      {
+        "item": "tinroot_warhammer",
+        "qty": 1
+      }
+    ],
+    "category": "forging",
+    "examine": "Forges a tinroot warhammer from 3 tinroot bar(s)."
+  },
+  {
+    "id": "smith_tinroot_two_hander",
+    "skill": "smithing",
+    "station": "anvil",
+    "level": 4,
+    "xp": 80,
+    "inputs": [
+      {
+        "item": "tinroot_bar",
+        "qty": 4
+      },
+      {
+        "item": "hammer",
+        "qty": 0,
+        "note": "tool-required"
+      }
+    ],
+    "outputs": [
+      {
+        "item": "tinroot_two_hander",
+        "qty": 1
+      }
+    ],
+    "category": "forging",
+    "examine": "Forges a tinroot two_hander from 4 tinroot bar(s)."
+  },
+  {
+    "id": "smith_tinroot_halberd",
+    "skill": "smithing",
+    "station": "anvil",
+    "level": 4,
+    "xp": 60,
+    "inputs": [
+      {
+        "item": "tinroot_bar",
+        "qty": 3
+      },
+      {
+        "item": "hammer",
+        "qty": 0,
+        "note": "tool-required"
+      }
+    ],
+    "outputs": [
+      {
+        "item": "tinroot_halberd",
+        "qty": 1
+      }
+    ],
+    "category": "forging",
+    "examine": "Forges a tinroot halberd from 3 tinroot bar(s)."
+  },
+  {
+    "id": "smith_tinroot_spear",
+    "skill": "smithing",
+    "station": "anvil",
+    "level": 4,
+    "xp": 40,
+    "inputs": [
+      {
+        "item": "tinroot_bar",
+        "qty": 2
+      },
+      {
+        "item": "hammer",
+        "qty": 0,
+        "note": "tool-required"
+      }
+    ],
+    "outputs": [
+      {
+        "item": "tinroot_spear",
+        "qty": 1
+      }
+    ],
+    "category": "forging",
+    "examine": "Forges a tinroot spear from 2 tinroot bar(s)."
+  },
+  {
+    "id": "smith_tinroot_platebody",
+    "skill": "smithing",
+    "station": "anvil",
+    "level": 4,
+    "xp": 100,
+    "inputs": [
+      {
+        "item": "tinroot_bar",
+        "qty": 5
+      },
+      {
+        "item": "hammer",
+        "qty": 0,
+        "note": "tool-required"
+      }
+    ],
+    "outputs": [
+      {
+        "item": "tinroot_platebody",
+        "qty": 1
+      }
+    ],
+    "category": "forging",
+    "examine": "Forges a tinroot platebody from 5 tinroot bar(s)."
+  },
+  {
+    "id": "smith_tinroot_platelegs",
+    "skill": "smithing",
+    "station": "anvil",
+    "level": 4,
+    "xp": 60,
+    "inputs": [
+      {
+        "item": "tinroot_bar",
+        "qty": 3
+      },
+      {
+        "item": "hammer",
+        "qty": 0,
+        "note": "tool-required"
+      }
+    ],
+    "outputs": [
+      {
+        "item": "tinroot_platelegs",
+        "qty": 1
+      }
+    ],
+    "category": "forging",
+    "examine": "Forges a tinroot platelegs from 3 tinroot bar(s)."
+  },
+  {
+    "id": "smith_tinroot_helm",
+    "skill": "smithing",
+    "station": "anvil",
+    "level": 4,
+    "xp": 40,
+    "inputs": [
+      {
+        "item": "tinroot_bar",
+        "qty": 2
+      },
+      {
+        "item": "hammer",
+        "qty": 0,
+        "note": "tool-required"
+      }
+    ],
+    "outputs": [
+      {
+        "item": "tinroot_helm",
+        "qty": 1
+      }
+    ],
+    "category": "forging",
+    "examine": "Forges a tinroot helm from 2 tinroot bar(s)."
+  },
+  {
+    "id": "smith_tinroot_kiteshield",
+    "skill": "smithing",
+    "station": "anvil",
+    "level": 4,
+    "xp": 60,
+    "inputs": [
+      {
+        "item": "tinroot_bar",
+        "qty": 3
+      },
+      {
+        "item": "hammer",
+        "qty": 0,
+        "note": "tool-required"
+      }
+    ],
+    "outputs": [
+      {
+        "item": "tinroot_kiteshield",
+        "qty": 1
+      }
+    ],
+    "category": "forging",
+    "examine": "Forges a tinroot kiteshield from 3 tinroot bar(s)."
+  },
+  {
+    "id": "smith_tinroot_boots",
+    "skill": "smithing",
+    "station": "anvil",
+    "level": 4,
+    "xp": 20,
+    "inputs": [
+      {
+        "item": "tinroot_bar",
+        "qty": 1
+      },
+      {
+        "item": "hammer",
+        "qty": 0,
+        "note": "tool-required"
+      }
+    ],
+    "outputs": [
+      {
+        "item": "tinroot_boots",
+        "qty": 1
+      }
+    ],
+    "category": "forging",
+    "examine": "Forges a tinroot boots from 1 tinroot bar(s)."
+  },
+  {
+    "id": "smith_tinroot_gauntlets",
+    "skill": "smithing",
+    "station": "anvil",
+    "level": 4,
+    "xp": 20,
+    "inputs": [
+      {
+        "item": "tinroot_bar",
+        "qty": 1
+      },
+      {
+        "item": "hammer",
+        "qty": 0,
+        "note": "tool-required"
+      }
+    ],
+    "outputs": [
+      {
+        "item": "tinroot_gauntlets",
+        "qty": 1
+      }
+    ],
+    "category": "forging",
+    "examine": "Forges a tinroot gauntlets from 1 tinroot bar(s)."
+  },
+  {
+    "id": "smith_pigiron_dagger",
+    "skill": "smithing",
+    "station": "anvil",
+    "level": 4,
+    "xp": 70,
+    "inputs": [
+      {
+        "item": "pigiron_bar",
+        "qty": 1
+      },
+      {
+        "item": "hammer",
+        "qty": 0,
+        "note": "tool-required"
+      }
+    ],
+    "outputs": [
+      {
+        "item": "pigiron_dagger",
+        "qty": 1
+      }
+    ],
+    "category": "forging",
+    "examine": "Forges a pigiron dagger from 1 pigiron bar(s)."
+  },
+  {
+    "id": "smith_pigiron_scimitar",
+    "skill": "smithing",
+    "station": "anvil",
+    "level": 4,
+    "xp": 70,
+    "inputs": [
+      {
+        "item": "pigiron_bar",
+        "qty": 1
+      },
+      {
+        "item": "hammer",
+        "qty": 0,
+        "note": "tool-required"
+      }
+    ],
+    "outputs": [
+      {
+        "item": "pigiron_scimitar",
+        "qty": 1
+      }
+    ],
+    "category": "forging",
+    "examine": "Forges a pigiron scimitar from 1 pigiron bar(s)."
+  },
+  {
+    "id": "smith_pigiron_longsword",
+    "skill": "smithing",
+    "station": "anvil",
+    "level": 4,
+    "xp": 90,
+    "inputs": [
+      {
+        "item": "pigiron_bar",
+        "qty": 2
+      },
+      {
+        "item": "hammer",
+        "qty": 0,
+        "note": "tool-required"
+      }
+    ],
+    "outputs": [
+      {
+        "item": "pigiron_longsword",
+        "qty": 1
+      }
+    ],
+    "category": "forging",
+    "examine": "Forges a pigiron longsword from 2 pigiron bar(s)."
+  },
+  {
+    "id": "smith_pigiron_mace",
+    "skill": "smithing",
+    "station": "anvil",
+    "level": 4,
+    "xp": 70,
+    "inputs": [
+      {
+        "item": "pigiron_bar",
+        "qty": 1
+      },
+      {
+        "item": "hammer",
+        "qty": 0,
+        "note": "tool-required"
+      }
+    ],
+    "outputs": [
+      {
+        "item": "pigiron_mace",
+        "qty": 1
+      }
+    ],
+    "category": "forging",
+    "examine": "Forges a pigiron mace from 1 pigiron bar(s)."
+  },
+  {
+    "id": "smith_pigiron_battleaxe",
+    "skill": "smithing",
+    "station": "anvil",
+    "level": 4,
+    "xp": 110,
+    "inputs": [
+      {
+        "item": "pigiron_bar",
+        "qty": 3
+      },
+      {
+        "item": "hammer",
+        "qty": 0,
+        "note": "tool-required"
+      }
+    ],
+    "outputs": [
+      {
+        "item": "pigiron_battleaxe",
+        "qty": 1
+      }
+    ],
+    "category": "forging",
+    "examine": "Forges a pigiron battleaxe from 3 pigiron bar(s)."
+  },
+  {
+    "id": "smith_pigiron_warhammer",
+    "skill": "smithing",
+    "station": "anvil",
+    "level": 4,
+    "xp": 110,
+    "inputs": [
+      {
+        "item": "pigiron_bar",
+        "qty": 3
+      },
+      {
+        "item": "hammer",
+        "qty": 0,
+        "note": "tool-required"
+      }
+    ],
+    "outputs": [
+      {
+        "item": "pigiron_warhammer",
+        "qty": 1
+      }
+    ],
+    "category": "forging",
+    "examine": "Forges a pigiron warhammer from 3 pigiron bar(s)."
+  },
+  {
+    "id": "smith_pigiron_two_hander",
+    "skill": "smithing",
+    "station": "anvil",
+    "level": 4,
+    "xp": 130,
+    "inputs": [
+      {
+        "item": "pigiron_bar",
+        "qty": 4
+      },
+      {
+        "item": "hammer",
+        "qty": 0,
+        "note": "tool-required"
+      }
+    ],
+    "outputs": [
+      {
+        "item": "pigiron_two_hander",
+        "qty": 1
+      }
+    ],
+    "category": "forging",
+    "examine": "Forges a pigiron two_hander from 4 pigiron bar(s)."
+  },
+  {
+    "id": "smith_pigiron_halberd",
+    "skill": "smithing",
+    "station": "anvil",
+    "level": 4,
+    "xp": 110,
+    "inputs": [
+      {
+        "item": "pigiron_bar",
+        "qty": 3
+      },
+      {
+        "item": "hammer",
+        "qty": 0,
+        "note": "tool-required"
+      }
+    ],
+    "outputs": [
+      {
+        "item": "pigiron_halberd",
+        "qty": 1
+      }
+    ],
+    "category": "forging",
+    "examine": "Forges a pigiron halberd from 3 pigiron bar(s)."
+  },
+  {
+    "id": "smith_pigiron_spear",
+    "skill": "smithing",
+    "station": "anvil",
+    "level": 4,
+    "xp": 90,
+    "inputs": [
+      {
+        "item": "pigiron_bar",
+        "qty": 2
+      },
+      {
+        "item": "hammer",
+        "qty": 0,
+        "note": "tool-required"
+      }
+    ],
+    "outputs": [
+      {
+        "item": "pigiron_spear",
+        "qty": 1
+      }
+    ],
+    "category": "forging",
+    "examine": "Forges a pigiron spear from 2 pigiron bar(s)."
+  },
+  {
+    "id": "smith_pigiron_platebody",
+    "skill": "smithing",
+    "station": "anvil",
+    "level": 4,
+    "xp": 150,
+    "inputs": [
+      {
+        "item": "pigiron_bar",
+        "qty": 5
+      },
+      {
+        "item": "hammer",
+        "qty": 0,
+        "note": "tool-required"
+      }
+    ],
+    "outputs": [
+      {
+        "item": "pigiron_platebody",
+        "qty": 1
+      }
+    ],
+    "category": "forging",
+    "examine": "Forges a pigiron platebody from 5 pigiron bar(s)."
+  },
+  {
+    "id": "smith_pigiron_platelegs",
+    "skill": "smithing",
+    "station": "anvil",
+    "level": 4,
+    "xp": 110,
+    "inputs": [
+      {
+        "item": "pigiron_bar",
+        "qty": 3
+      },
+      {
+        "item": "hammer",
+        "qty": 0,
+        "note": "tool-required"
+      }
+    ],
+    "outputs": [
+      {
+        "item": "pigiron_platelegs",
+        "qty": 1
+      }
+    ],
+    "category": "forging",
+    "examine": "Forges a pigiron platelegs from 3 pigiron bar(s)."
+  },
+  {
+    "id": "smith_pigiron_helm",
+    "skill": "smithing",
+    "station": "anvil",
+    "level": 4,
+    "xp": 90,
+    "inputs": [
+      {
+        "item": "pigiron_bar",
+        "qty": 2
+      },
+      {
+        "item": "hammer",
+        "qty": 0,
+        "note": "tool-required"
+      }
+    ],
+    "outputs": [
+      {
+        "item": "pigiron_helm",
+        "qty": 1
+      }
+    ],
+    "category": "forging",
+    "examine": "Forges a pigiron helm from 2 pigiron bar(s)."
+  },
+  {
+    "id": "smith_pigiron_kiteshield",
+    "skill": "smithing",
+    "station": "anvil",
+    "level": 4,
+    "xp": 110,
+    "inputs": [
+      {
+        "item": "pigiron_bar",
+        "qty": 3
+      },
+      {
+        "item": "hammer",
+        "qty": 0,
+        "note": "tool-required"
+      }
+    ],
+    "outputs": [
+      {
+        "item": "pigiron_kiteshield",
+        "qty": 1
+      }
+    ],
+    "category": "forging",
+    "examine": "Forges a pigiron kiteshield from 3 pigiron bar(s)."
+  },
+  {
+    "id": "smith_pigiron_boots",
+    "skill": "smithing",
+    "station": "anvil",
+    "level": 4,
+    "xp": 70,
+    "inputs": [
+      {
+        "item": "pigiron_bar",
+        "qty": 1
+      },
+      {
+        "item": "hammer",
+        "qty": 0,
+        "note": "tool-required"
+      }
+    ],
+    "outputs": [
+      {
+        "item": "pigiron_boots",
+        "qty": 1
+      }
+    ],
+    "category": "forging",
+    "examine": "Forges a pigiron boots from 1 pigiron bar(s)."
+  },
+  {
+    "id": "smith_pigiron_gauntlets",
+    "skill": "smithing",
+    "station": "anvil",
+    "level": 4,
+    "xp": 70,
+    "inputs": [
+      {
+        "item": "pigiron_bar",
+        "qty": 1
+      },
+      {
+        "item": "hammer",
+        "qty": 0,
+        "note": "tool-required"
+      }
+    ],
+    "outputs": [
+      {
+        "item": "pigiron_gauntlets",
+        "qty": 1
+      }
+    ],
+    "category": "forging",
+    "examine": "Forges a pigiron gauntlets from 1 pigiron bar(s)."
+  },
+  {
+    "id": "smith_coalsteel_dagger",
+    "skill": "smithing",
+    "station": "anvil",
+    "level": 8,
+    "xp": 120,
+    "inputs": [
+      {
+        "item": "coalsteel_bar",
+        "qty": 1
+      },
+      {
+        "item": "hammer",
+        "qty": 0,
+        "note": "tool-required"
+      }
+    ],
+    "outputs": [
+      {
+        "item": "coalsteel_dagger",
+        "qty": 1
+      }
+    ],
+    "category": "forging",
+    "examine": "Forges a coalsteel dagger from 1 coalsteel bar(s)."
+  },
+  {
+    "id": "smith_coalsteel_scimitar",
+    "skill": "smithing",
+    "station": "anvil",
+    "level": 8,
+    "xp": 120,
+    "inputs": [
+      {
+        "item": "coalsteel_bar",
+        "qty": 1
+      },
+      {
+        "item": "hammer",
+        "qty": 0,
+        "note": "tool-required"
+      }
+    ],
+    "outputs": [
+      {
+        "item": "coalsteel_scimitar",
+        "qty": 1
+      }
+    ],
+    "category": "forging",
+    "examine": "Forges a coalsteel scimitar from 1 coalsteel bar(s)."
+  },
+  {
+    "id": "smith_coalsteel_longsword",
+    "skill": "smithing",
+    "station": "anvil",
+    "level": 8,
+    "xp": 140,
+    "inputs": [
+      {
+        "item": "coalsteel_bar",
+        "qty": 2
+      },
+      {
+        "item": "hammer",
+        "qty": 0,
+        "note": "tool-required"
+      }
+    ],
+    "outputs": [
+      {
+        "item": "coalsteel_longsword",
+        "qty": 1
+      }
+    ],
+    "category": "forging",
+    "examine": "Forges a coalsteel longsword from 2 coalsteel bar(s)."
+  },
+  {
+    "id": "smith_coalsteel_mace",
+    "skill": "smithing",
+    "station": "anvil",
+    "level": 8,
+    "xp": 120,
+    "inputs": [
+      {
+        "item": "coalsteel_bar",
+        "qty": 1
+      },
+      {
+        "item": "hammer",
+        "qty": 0,
+        "note": "tool-required"
+      }
+    ],
+    "outputs": [
+      {
+        "item": "coalsteel_mace",
+        "qty": 1
+      }
+    ],
+    "category": "forging",
+    "examine": "Forges a coalsteel mace from 1 coalsteel bar(s)."
+  },
+  {
+    "id": "smith_coalsteel_battleaxe",
+    "skill": "smithing",
+    "station": "anvil",
+    "level": 8,
+    "xp": 160,
+    "inputs": [
+      {
+        "item": "coalsteel_bar",
+        "qty": 3
+      },
+      {
+        "item": "hammer",
+        "qty": 0,
+        "note": "tool-required"
+      }
+    ],
+    "outputs": [
+      {
+        "item": "coalsteel_battleaxe",
+        "qty": 1
+      }
+    ],
+    "category": "forging",
+    "examine": "Forges a coalsteel battleaxe from 3 coalsteel bar(s)."
+  },
+  {
+    "id": "smith_coalsteel_warhammer",
+    "skill": "smithing",
+    "station": "anvil",
+    "level": 8,
+    "xp": 160,
+    "inputs": [
+      {
+        "item": "coalsteel_bar",
+        "qty": 3
+      },
+      {
+        "item": "hammer",
+        "qty": 0,
+        "note": "tool-required"
+      }
+    ],
+    "outputs": [
+      {
+        "item": "coalsteel_warhammer",
+        "qty": 1
+      }
+    ],
+    "category": "forging",
+    "examine": "Forges a coalsteel warhammer from 3 coalsteel bar(s)."
+  },
+  {
+    "id": "smith_coalsteel_two_hander",
+    "skill": "smithing",
+    "station": "anvil",
+    "level": 8,
+    "xp": 180,
+    "inputs": [
+      {
+        "item": "coalsteel_bar",
+        "qty": 4
+      },
+      {
+        "item": "hammer",
+        "qty": 0,
+        "note": "tool-required"
+      }
+    ],
+    "outputs": [
+      {
+        "item": "coalsteel_two_hander",
+        "qty": 1
+      }
+    ],
+    "category": "forging",
+    "examine": "Forges a coalsteel two_hander from 4 coalsteel bar(s)."
+  },
+  {
+    "id": "smith_coalsteel_halberd",
+    "skill": "smithing",
+    "station": "anvil",
+    "level": 8,
+    "xp": 160,
+    "inputs": [
+      {
+        "item": "coalsteel_bar",
+        "qty": 3
+      },
+      {
+        "item": "hammer",
+        "qty": 0,
+        "note": "tool-required"
+      }
+    ],
+    "outputs": [
+      {
+        "item": "coalsteel_halberd",
+        "qty": 1
+      }
+    ],
+    "category": "forging",
+    "examine": "Forges a coalsteel halberd from 3 coalsteel bar(s)."
+  },
+  {
+    "id": "smith_coalsteel_spear",
+    "skill": "smithing",
+    "station": "anvil",
+    "level": 8,
+    "xp": 140,
+    "inputs": [
+      {
+        "item": "coalsteel_bar",
+        "qty": 2
+      },
+      {
+        "item": "hammer",
+        "qty": 0,
+        "note": "tool-required"
+      }
+    ],
+    "outputs": [
+      {
+        "item": "coalsteel_spear",
+        "qty": 1
+      }
+    ],
+    "category": "forging",
+    "examine": "Forges a coalsteel spear from 2 coalsteel bar(s)."
+  },
+  {
+    "id": "smith_coalsteel_platebody",
+    "skill": "smithing",
+    "station": "anvil",
+    "level": 8,
+    "xp": 200,
+    "inputs": [
+      {
+        "item": "coalsteel_bar",
+        "qty": 5
+      },
+      {
+        "item": "hammer",
+        "qty": 0,
+        "note": "tool-required"
+      }
+    ],
+    "outputs": [
+      {
+        "item": "coalsteel_platebody",
+        "qty": 1
+      }
+    ],
+    "category": "forging",
+    "examine": "Forges a coalsteel platebody from 5 coalsteel bar(s)."
+  },
+  {
+    "id": "smith_coalsteel_platelegs",
+    "skill": "smithing",
+    "station": "anvil",
+    "level": 8,
+    "xp": 160,
+    "inputs": [
+      {
+        "item": "coalsteel_bar",
+        "qty": 3
+      },
+      {
+        "item": "hammer",
+        "qty": 0,
+        "note": "tool-required"
+      }
+    ],
+    "outputs": [
+      {
+        "item": "coalsteel_platelegs",
+        "qty": 1
+      }
+    ],
+    "category": "forging",
+    "examine": "Forges a coalsteel platelegs from 3 coalsteel bar(s)."
+  },
+  {
+    "id": "smith_coalsteel_helm",
+    "skill": "smithing",
+    "station": "anvil",
+    "level": 8,
+    "xp": 140,
+    "inputs": [
+      {
+        "item": "coalsteel_bar",
+        "qty": 2
+      },
+      {
+        "item": "hammer",
+        "qty": 0,
+        "note": "tool-required"
+      }
+    ],
+    "outputs": [
+      {
+        "item": "coalsteel_helm",
+        "qty": 1
+      }
+    ],
+    "category": "forging",
+    "examine": "Forges a coalsteel helm from 2 coalsteel bar(s)."
+  },
+  {
+    "id": "smith_coalsteel_kiteshield",
+    "skill": "smithing",
+    "station": "anvil",
+    "level": 8,
+    "xp": 160,
+    "inputs": [
+      {
+        "item": "coalsteel_bar",
+        "qty": 3
+      },
+      {
+        "item": "hammer",
+        "qty": 0,
+        "note": "tool-required"
+      }
+    ],
+    "outputs": [
+      {
+        "item": "coalsteel_kiteshield",
+        "qty": 1
+      }
+    ],
+    "category": "forging",
+    "examine": "Forges a coalsteel kiteshield from 3 coalsteel bar(s)."
+  },
+  {
+    "id": "smith_coalsteel_boots",
+    "skill": "smithing",
+    "station": "anvil",
+    "level": 8,
+    "xp": 120,
+    "inputs": [
+      {
+        "item": "coalsteel_bar",
+        "qty": 1
+      },
+      {
+        "item": "hammer",
+        "qty": 0,
+        "note": "tool-required"
+      }
+    ],
+    "outputs": [
+      {
+        "item": "coalsteel_boots",
+        "qty": 1
+      }
+    ],
+    "category": "forging",
+    "examine": "Forges a coalsteel boots from 1 coalsteel bar(s)."
+  },
+  {
+    "id": "smith_coalsteel_gauntlets",
+    "skill": "smithing",
+    "station": "anvil",
+    "level": 8,
+    "xp": 120,
+    "inputs": [
+      {
+        "item": "coalsteel_bar",
+        "qty": 1
+      },
+      {
+        "item": "hammer",
+        "qty": 0,
+        "note": "tool-required"
+      }
+    ],
+    "outputs": [
+      {
+        "item": "coalsteel_gauntlets",
+        "qty": 1
+      }
+    ],
+    "category": "forging",
+    "examine": "Forges a coalsteel gauntlets from 1 coalsteel bar(s)."
+  },
+  {
+    "id": "smith_quicksilver_dagger",
+    "skill": "smithing",
+    "station": "anvil",
+    "level": 23,
+    "xp": 220,
+    "inputs": [
+      {
+        "item": "quicksilver_bar",
+        "qty": 1
+      },
+      {
+        "item": "hammer",
+        "qty": 0,
+        "note": "tool-required"
+      }
+    ],
+    "outputs": [
+      {
+        "item": "quicksilver_dagger",
+        "qty": 1
+      }
+    ],
+    "category": "forging",
+    "examine": "Forges a quicksilver dagger from 1 quicksilver bar(s)."
+  },
+  {
+    "id": "smith_quicksilver_scimitar",
+    "skill": "smithing",
+    "station": "anvil",
+    "level": 23,
+    "xp": 220,
+    "inputs": [
+      {
+        "item": "quicksilver_bar",
+        "qty": 1
+      },
+      {
+        "item": "hammer",
+        "qty": 0,
+        "note": "tool-required"
+      }
+    ],
+    "outputs": [
+      {
+        "item": "quicksilver_scimitar",
+        "qty": 1
+      }
+    ],
+    "category": "forging",
+    "examine": "Forges a quicksilver scimitar from 1 quicksilver bar(s)."
+  },
+  {
+    "id": "smith_quicksilver_longsword",
+    "skill": "smithing",
+    "station": "anvil",
+    "level": 23,
+    "xp": 240,
+    "inputs": [
+      {
+        "item": "quicksilver_bar",
+        "qty": 2
+      },
+      {
+        "item": "hammer",
+        "qty": 0,
+        "note": "tool-required"
+      }
+    ],
+    "outputs": [
+      {
+        "item": "quicksilver_longsword",
+        "qty": 1
+      }
+    ],
+    "category": "forging",
+    "examine": "Forges a quicksilver longsword from 2 quicksilver bar(s)."
+  },
+  {
+    "id": "smith_quicksilver_mace",
+    "skill": "smithing",
+    "station": "anvil",
+    "level": 23,
+    "xp": 220,
+    "inputs": [
+      {
+        "item": "quicksilver_bar",
+        "qty": 1
+      },
+      {
+        "item": "hammer",
+        "qty": 0,
+        "note": "tool-required"
+      }
+    ],
+    "outputs": [
+      {
+        "item": "quicksilver_mace",
+        "qty": 1
+      }
+    ],
+    "category": "forging",
+    "examine": "Forges a quicksilver mace from 1 quicksilver bar(s)."
+  },
+  {
+    "id": "smith_quicksilver_battleaxe",
+    "skill": "smithing",
+    "station": "anvil",
+    "level": 23,
+    "xp": 260,
+    "inputs": [
+      {
+        "item": "quicksilver_bar",
+        "qty": 3
+      },
+      {
+        "item": "hammer",
+        "qty": 0,
+        "note": "tool-required"
+      }
+    ],
+    "outputs": [
+      {
+        "item": "quicksilver_battleaxe",
+        "qty": 1
+      }
+    ],
+    "category": "forging",
+    "examine": "Forges a quicksilver battleaxe from 3 quicksilver bar(s)."
+  },
+  {
+    "id": "smith_quicksilver_warhammer",
+    "skill": "smithing",
+    "station": "anvil",
+    "level": 23,
+    "xp": 260,
+    "inputs": [
+      {
+        "item": "quicksilver_bar",
+        "qty": 3
+      },
+      {
+        "item": "hammer",
+        "qty": 0,
+        "note": "tool-required"
+      }
+    ],
+    "outputs": [
+      {
+        "item": "quicksilver_warhammer",
+        "qty": 1
+      }
+    ],
+    "category": "forging",
+    "examine": "Forges a quicksilver warhammer from 3 quicksilver bar(s)."
+  },
+  {
+    "id": "smith_quicksilver_two_hander",
+    "skill": "smithing",
+    "station": "anvil",
+    "level": 23,
+    "xp": 280,
+    "inputs": [
+      {
+        "item": "quicksilver_bar",
+        "qty": 4
+      },
+      {
+        "item": "hammer",
+        "qty": 0,
+        "note": "tool-required"
+      }
+    ],
+    "outputs": [
+      {
+        "item": "quicksilver_two_hander",
+        "qty": 1
+      }
+    ],
+    "category": "forging",
+    "examine": "Forges a quicksilver two_hander from 4 quicksilver bar(s)."
+  },
+  {
+    "id": "smith_quicksilver_halberd",
+    "skill": "smithing",
+    "station": "anvil",
+    "level": 23,
+    "xp": 260,
+    "inputs": [
+      {
+        "item": "quicksilver_bar",
+        "qty": 3
+      },
+      {
+        "item": "hammer",
+        "qty": 0,
+        "note": "tool-required"
+      }
+    ],
+    "outputs": [
+      {
+        "item": "quicksilver_halberd",
+        "qty": 1
+      }
+    ],
+    "category": "forging",
+    "examine": "Forges a quicksilver halberd from 3 quicksilver bar(s)."
+  },
+  {
+    "id": "smith_quicksilver_spear",
+    "skill": "smithing",
+    "station": "anvil",
+    "level": 23,
+    "xp": 240,
+    "inputs": [
+      {
+        "item": "quicksilver_bar",
+        "qty": 2
+      },
+      {
+        "item": "hammer",
+        "qty": 0,
+        "note": "tool-required"
+      }
+    ],
+    "outputs": [
+      {
+        "item": "quicksilver_spear",
+        "qty": 1
+      }
+    ],
+    "category": "forging",
+    "examine": "Forges a quicksilver spear from 2 quicksilver bar(s)."
+  },
+  {
+    "id": "smith_quicksilver_platebody",
+    "skill": "smithing",
+    "station": "anvil",
+    "level": 23,
+    "xp": 300,
+    "inputs": [
+      {
+        "item": "quicksilver_bar",
+        "qty": 5
+      },
+      {
+        "item": "hammer",
+        "qty": 0,
+        "note": "tool-required"
+      }
+    ],
+    "outputs": [
+      {
+        "item": "quicksilver_platebody",
+        "qty": 1
+      }
+    ],
+    "category": "forging",
+    "examine": "Forges a quicksilver platebody from 5 quicksilver bar(s)."
+  },
+  {
+    "id": "smith_quicksilver_platelegs",
+    "skill": "smithing",
+    "station": "anvil",
+    "level": 23,
+    "xp": 260,
+    "inputs": [
+      {
+        "item": "quicksilver_bar",
+        "qty": 3
+      },
+      {
+        "item": "hammer",
+        "qty": 0,
+        "note": "tool-required"
+      }
+    ],
+    "outputs": [
+      {
+        "item": "quicksilver_platelegs",
+        "qty": 1
+      }
+    ],
+    "category": "forging",
+    "examine": "Forges a quicksilver platelegs from 3 quicksilver bar(s)."
+  },
+  {
+    "id": "smith_quicksilver_helm",
+    "skill": "smithing",
+    "station": "anvil",
+    "level": 23,
+    "xp": 240,
+    "inputs": [
+      {
+        "item": "quicksilver_bar",
+        "qty": 2
+      },
+      {
+        "item": "hammer",
+        "qty": 0,
+        "note": "tool-required"
+      }
+    ],
+    "outputs": [
+      {
+        "item": "quicksilver_helm",
+        "qty": 1
+      }
+    ],
+    "category": "forging",
+    "examine": "Forges a quicksilver helm from 2 quicksilver bar(s)."
+  },
+  {
+    "id": "smith_quicksilver_kiteshield",
+    "skill": "smithing",
+    "station": "anvil",
+    "level": 23,
+    "xp": 260,
+    "inputs": [
+      {
+        "item": "quicksilver_bar",
+        "qty": 3
+      },
+      {
+        "item": "hammer",
+        "qty": 0,
+        "note": "tool-required"
+      }
+    ],
+    "outputs": [
+      {
+        "item": "quicksilver_kiteshield",
+        "qty": 1
+      }
+    ],
+    "category": "forging",
+    "examine": "Forges a quicksilver kiteshield from 3 quicksilver bar(s)."
+  },
+  {
+    "id": "smith_quicksilver_boots",
+    "skill": "smithing",
+    "station": "anvil",
+    "level": 23,
+    "xp": 220,
+    "inputs": [
+      {
+        "item": "quicksilver_bar",
+        "qty": 1
+      },
+      {
+        "item": "hammer",
+        "qty": 0,
+        "note": "tool-required"
+      }
+    ],
+    "outputs": [
+      {
+        "item": "quicksilver_boots",
+        "qty": 1
+      }
+    ],
+    "category": "forging",
+    "examine": "Forges a quicksilver boots from 1 quicksilver bar(s)."
+  },
+  {
+    "id": "smith_quicksilver_gauntlets",
+    "skill": "smithing",
+    "station": "anvil",
+    "level": 23,
+    "xp": 220,
+    "inputs": [
+      {
+        "item": "quicksilver_bar",
+        "qty": 1
+      },
+      {
+        "item": "hammer",
+        "qty": 0,
+        "note": "tool-required"
+      }
+    ],
+    "outputs": [
+      {
+        "item": "quicksilver_gauntlets",
+        "qty": 1
+      }
+    ],
+    "category": "forging",
+    "examine": "Forges a quicksilver gauntlets from 1 quicksilver bar(s)."
+  },
+  {
+    "id": "smith_blacksteel_dagger",
+    "skill": "smithing",
+    "station": "anvil",
+    "level": 33,
+    "xp": 270,
+    "inputs": [
+      {
+        "item": "blacksteel_bar",
+        "qty": 1
+      },
+      {
+        "item": "hammer",
+        "qty": 0,
+        "note": "tool-required"
+      }
+    ],
+    "outputs": [
+      {
+        "item": "blacksteel_dagger",
+        "qty": 1
+      }
+    ],
+    "category": "forging",
+    "examine": "Forges a blacksteel dagger from 1 blacksteel bar(s)."
+  },
+  {
+    "id": "smith_blacksteel_scimitar",
+    "skill": "smithing",
+    "station": "anvil",
+    "level": 33,
+    "xp": 270,
+    "inputs": [
+      {
+        "item": "blacksteel_bar",
+        "qty": 1
+      },
+      {
+        "item": "hammer",
+        "qty": 0,
+        "note": "tool-required"
+      }
+    ],
+    "outputs": [
+      {
+        "item": "blacksteel_scimitar",
+        "qty": 1
+      }
+    ],
+    "category": "forging",
+    "examine": "Forges a blacksteel scimitar from 1 blacksteel bar(s)."
+  },
+  {
+    "id": "smith_blacksteel_longsword",
+    "skill": "smithing",
+    "station": "anvil",
+    "level": 33,
+    "xp": 290,
+    "inputs": [
+      {
+        "item": "blacksteel_bar",
+        "qty": 2
+      },
+      {
+        "item": "hammer",
+        "qty": 0,
+        "note": "tool-required"
+      }
+    ],
+    "outputs": [
+      {
+        "item": "blacksteel_longsword",
+        "qty": 1
+      }
+    ],
+    "category": "forging",
+    "examine": "Forges a blacksteel longsword from 2 blacksteel bar(s)."
+  },
+  {
+    "id": "smith_blacksteel_mace",
+    "skill": "smithing",
+    "station": "anvil",
+    "level": 33,
+    "xp": 270,
+    "inputs": [
+      {
+        "item": "blacksteel_bar",
+        "qty": 1
+      },
+      {
+        "item": "hammer",
+        "qty": 0,
+        "note": "tool-required"
+      }
+    ],
+    "outputs": [
+      {
+        "item": "blacksteel_mace",
+        "qty": 1
+      }
+    ],
+    "category": "forging",
+    "examine": "Forges a blacksteel mace from 1 blacksteel bar(s)."
+  },
+  {
+    "id": "smith_blacksteel_battleaxe",
+    "skill": "smithing",
+    "station": "anvil",
+    "level": 33,
+    "xp": 310,
+    "inputs": [
+      {
+        "item": "blacksteel_bar",
+        "qty": 3
+      },
+      {
+        "item": "hammer",
+        "qty": 0,
+        "note": "tool-required"
+      }
+    ],
+    "outputs": [
+      {
+        "item": "blacksteel_battleaxe",
+        "qty": 1
+      }
+    ],
+    "category": "forging",
+    "examine": "Forges a blacksteel battleaxe from 3 blacksteel bar(s)."
+  },
+  {
+    "id": "smith_blacksteel_warhammer",
+    "skill": "smithing",
+    "station": "anvil",
+    "level": 33,
+    "xp": 310,
+    "inputs": [
+      {
+        "item": "blacksteel_bar",
+        "qty": 3
+      },
+      {
+        "item": "hammer",
+        "qty": 0,
+        "note": "tool-required"
+      }
+    ],
+    "outputs": [
+      {
+        "item": "blacksteel_warhammer",
+        "qty": 1
+      }
+    ],
+    "category": "forging",
+    "examine": "Forges a blacksteel warhammer from 3 blacksteel bar(s)."
+  },
+  {
+    "id": "smith_blacksteel_two_hander",
+    "skill": "smithing",
+    "station": "anvil",
+    "level": 33,
+    "xp": 330,
+    "inputs": [
+      {
+        "item": "blacksteel_bar",
+        "qty": 4
+      },
+      {
+        "item": "hammer",
+        "qty": 0,
+        "note": "tool-required"
+      }
+    ],
+    "outputs": [
+      {
+        "item": "blacksteel_two_hander",
+        "qty": 1
+      }
+    ],
+    "category": "forging",
+    "examine": "Forges a blacksteel two_hander from 4 blacksteel bar(s)."
+  },
+  {
+    "id": "smith_blacksteel_halberd",
+    "skill": "smithing",
+    "station": "anvil",
+    "level": 33,
+    "xp": 310,
+    "inputs": [
+      {
+        "item": "blacksteel_bar",
+        "qty": 3
+      },
+      {
+        "item": "hammer",
+        "qty": 0,
+        "note": "tool-required"
+      }
+    ],
+    "outputs": [
+      {
+        "item": "blacksteel_halberd",
+        "qty": 1
+      }
+    ],
+    "category": "forging",
+    "examine": "Forges a blacksteel halberd from 3 blacksteel bar(s)."
+  },
+  {
+    "id": "smith_blacksteel_spear",
+    "skill": "smithing",
+    "station": "anvil",
+    "level": 33,
+    "xp": 290,
+    "inputs": [
+      {
+        "item": "blacksteel_bar",
+        "qty": 2
+      },
+      {
+        "item": "hammer",
+        "qty": 0,
+        "note": "tool-required"
+      }
+    ],
+    "outputs": [
+      {
+        "item": "blacksteel_spear",
+        "qty": 1
+      }
+    ],
+    "category": "forging",
+    "examine": "Forges a blacksteel spear from 2 blacksteel bar(s)."
+  },
+  {
+    "id": "smith_blacksteel_platebody",
+    "skill": "smithing",
+    "station": "anvil",
+    "level": 33,
+    "xp": 350,
+    "inputs": [
+      {
+        "item": "blacksteel_bar",
+        "qty": 5
+      },
+      {
+        "item": "hammer",
+        "qty": 0,
+        "note": "tool-required"
+      }
+    ],
+    "outputs": [
+      {
+        "item": "blacksteel_platebody",
+        "qty": 1
+      }
+    ],
+    "category": "forging",
+    "examine": "Forges a blacksteel platebody from 5 blacksteel bar(s)."
+  },
+  {
+    "id": "smith_blacksteel_platelegs",
+    "skill": "smithing",
+    "station": "anvil",
+    "level": 33,
+    "xp": 310,
+    "inputs": [
+      {
+        "item": "blacksteel_bar",
+        "qty": 3
+      },
+      {
+        "item": "hammer",
+        "qty": 0,
+        "note": "tool-required"
+      }
+    ],
+    "outputs": [
+      {
+        "item": "blacksteel_platelegs",
+        "qty": 1
+      }
+    ],
+    "category": "forging",
+    "examine": "Forges a blacksteel platelegs from 3 blacksteel bar(s)."
+  },
+  {
+    "id": "smith_blacksteel_helm",
+    "skill": "smithing",
+    "station": "anvil",
+    "level": 33,
+    "xp": 290,
+    "inputs": [
+      {
+        "item": "blacksteel_bar",
+        "qty": 2
+      },
+      {
+        "item": "hammer",
+        "qty": 0,
+        "note": "tool-required"
+      }
+    ],
+    "outputs": [
+      {
+        "item": "blacksteel_helm",
+        "qty": 1
+      }
+    ],
+    "category": "forging",
+    "examine": "Forges a blacksteel helm from 2 blacksteel bar(s)."
+  },
+  {
+    "id": "smith_blacksteel_kiteshield",
+    "skill": "smithing",
+    "station": "anvil",
+    "level": 33,
+    "xp": 310,
+    "inputs": [
+      {
+        "item": "blacksteel_bar",
+        "qty": 3
+      },
+      {
+        "item": "hammer",
+        "qty": 0,
+        "note": "tool-required"
+      }
+    ],
+    "outputs": [
+      {
+        "item": "blacksteel_kiteshield",
+        "qty": 1
+      }
+    ],
+    "category": "forging",
+    "examine": "Forges a blacksteel kiteshield from 3 blacksteel bar(s)."
+  },
+  {
+    "id": "smith_blacksteel_boots",
+    "skill": "smithing",
+    "station": "anvil",
+    "level": 33,
+    "xp": 270,
+    "inputs": [
+      {
+        "item": "blacksteel_bar",
+        "qty": 1
+      },
+      {
+        "item": "hammer",
+        "qty": 0,
+        "note": "tool-required"
+      }
+    ],
+    "outputs": [
+      {
+        "item": "blacksteel_boots",
+        "qty": 1
+      }
+    ],
+    "category": "forging",
+    "examine": "Forges a blacksteel boots from 1 blacksteel bar(s)."
+  },
+  {
+    "id": "smith_blacksteel_gauntlets",
+    "skill": "smithing",
+    "station": "anvil",
+    "level": 33,
+    "xp": 270,
+    "inputs": [
+      {
+        "item": "blacksteel_bar",
+        "qty": 1
+      },
+      {
+        "item": "hammer",
+        "qty": 0,
+        "note": "tool-required"
+      }
+    ],
+    "outputs": [
+      {
+        "item": "blacksteel_gauntlets",
+        "qty": 1
+      }
+    ],
+    "category": "forging",
+    "examine": "Forges a blacksteel gauntlets from 1 blacksteel bar(s)."
+  },
+  {
+    "id": "smith_darkiron_dagger",
+    "skill": "smithing",
+    "station": "anvil",
+    "level": 43,
+    "xp": 320,
+    "inputs": [
+      {
+        "item": "darkiron_bar",
+        "qty": 1
+      },
+      {
+        "item": "hammer",
+        "qty": 0,
+        "note": "tool-required"
+      }
+    ],
+    "outputs": [
+      {
+        "item": "darkiron_dagger",
+        "qty": 1
+      }
+    ],
+    "category": "forging",
+    "examine": "Forges a darkiron dagger from 1 darkiron bar(s)."
+  },
+  {
+    "id": "smith_darkiron_scimitar",
+    "skill": "smithing",
+    "station": "anvil",
+    "level": 43,
+    "xp": 320,
+    "inputs": [
+      {
+        "item": "darkiron_bar",
+        "qty": 1
+      },
+      {
+        "item": "hammer",
+        "qty": 0,
+        "note": "tool-required"
+      }
+    ],
+    "outputs": [
+      {
+        "item": "darkiron_scimitar",
+        "qty": 1
+      }
+    ],
+    "category": "forging",
+    "examine": "Forges a darkiron scimitar from 1 darkiron bar(s)."
+  },
+  {
+    "id": "smith_darkiron_longsword",
+    "skill": "smithing",
+    "station": "anvil",
+    "level": 43,
+    "xp": 340,
+    "inputs": [
+      {
+        "item": "darkiron_bar",
+        "qty": 2
+      },
+      {
+        "item": "hammer",
+        "qty": 0,
+        "note": "tool-required"
+      }
+    ],
+    "outputs": [
+      {
+        "item": "darkiron_longsword",
+        "qty": 1
+      }
+    ],
+    "category": "forging",
+    "examine": "Forges a darkiron longsword from 2 darkiron bar(s)."
+  },
+  {
+    "id": "smith_darkiron_mace",
+    "skill": "smithing",
+    "station": "anvil",
+    "level": 43,
+    "xp": 320,
+    "inputs": [
+      {
+        "item": "darkiron_bar",
+        "qty": 1
+      },
+      {
+        "item": "hammer",
+        "qty": 0,
+        "note": "tool-required"
+      }
+    ],
+    "outputs": [
+      {
+        "item": "darkiron_mace",
+        "qty": 1
+      }
+    ],
+    "category": "forging",
+    "examine": "Forges a darkiron mace from 1 darkiron bar(s)."
+  },
+  {
+    "id": "smith_darkiron_battleaxe",
+    "skill": "smithing",
+    "station": "anvil",
+    "level": 43,
+    "xp": 360,
+    "inputs": [
+      {
+        "item": "darkiron_bar",
+        "qty": 3
+      },
+      {
+        "item": "hammer",
+        "qty": 0,
+        "note": "tool-required"
+      }
+    ],
+    "outputs": [
+      {
+        "item": "darkiron_battleaxe",
+        "qty": 1
+      }
+    ],
+    "category": "forging",
+    "examine": "Forges a darkiron battleaxe from 3 darkiron bar(s)."
+  },
+  {
+    "id": "smith_darkiron_warhammer",
+    "skill": "smithing",
+    "station": "anvil",
+    "level": 43,
+    "xp": 360,
+    "inputs": [
+      {
+        "item": "darkiron_bar",
+        "qty": 3
+      },
+      {
+        "item": "hammer",
+        "qty": 0,
+        "note": "tool-required"
+      }
+    ],
+    "outputs": [
+      {
+        "item": "darkiron_warhammer",
+        "qty": 1
+      }
+    ],
+    "category": "forging",
+    "examine": "Forges a darkiron warhammer from 3 darkiron bar(s)."
+  },
+  {
+    "id": "smith_darkiron_two_hander",
+    "skill": "smithing",
+    "station": "anvil",
+    "level": 43,
+    "xp": 380,
+    "inputs": [
+      {
+        "item": "darkiron_bar",
+        "qty": 4
+      },
+      {
+        "item": "hammer",
+        "qty": 0,
+        "note": "tool-required"
+      }
+    ],
+    "outputs": [
+      {
+        "item": "darkiron_two_hander",
+        "qty": 1
+      }
+    ],
+    "category": "forging",
+    "examine": "Forges a darkiron two_hander from 4 darkiron bar(s)."
+  },
+  {
+    "id": "smith_darkiron_halberd",
+    "skill": "smithing",
+    "station": "anvil",
+    "level": 43,
+    "xp": 360,
+    "inputs": [
+      {
+        "item": "darkiron_bar",
+        "qty": 3
+      },
+      {
+        "item": "hammer",
+        "qty": 0,
+        "note": "tool-required"
+      }
+    ],
+    "outputs": [
+      {
+        "item": "darkiron_halberd",
+        "qty": 1
+      }
+    ],
+    "category": "forging",
+    "examine": "Forges a darkiron halberd from 3 darkiron bar(s)."
+  },
+  {
+    "id": "smith_darkiron_spear",
+    "skill": "smithing",
+    "station": "anvil",
+    "level": 43,
+    "xp": 340,
+    "inputs": [
+      {
+        "item": "darkiron_bar",
+        "qty": 2
+      },
+      {
+        "item": "hammer",
+        "qty": 0,
+        "note": "tool-required"
+      }
+    ],
+    "outputs": [
+      {
+        "item": "darkiron_spear",
+        "qty": 1
+      }
+    ],
+    "category": "forging",
+    "examine": "Forges a darkiron spear from 2 darkiron bar(s)."
+  },
+  {
+    "id": "smith_darkiron_platebody",
+    "skill": "smithing",
+    "station": "anvil",
+    "level": 43,
+    "xp": 400,
+    "inputs": [
+      {
+        "item": "darkiron_bar",
+        "qty": 5
+      },
+      {
+        "item": "hammer",
+        "qty": 0,
+        "note": "tool-required"
+      }
+    ],
+    "outputs": [
+      {
+        "item": "darkiron_platebody",
+        "qty": 1
+      }
+    ],
+    "category": "forging",
+    "examine": "Forges a darkiron platebody from 5 darkiron bar(s)."
+  },
+  {
+    "id": "smith_darkiron_platelegs",
+    "skill": "smithing",
+    "station": "anvil",
+    "level": 43,
+    "xp": 360,
+    "inputs": [
+      {
+        "item": "darkiron_bar",
+        "qty": 3
+      },
+      {
+        "item": "hammer",
+        "qty": 0,
+        "note": "tool-required"
+      }
+    ],
+    "outputs": [
+      {
+        "item": "darkiron_platelegs",
+        "qty": 1
+      }
+    ],
+    "category": "forging",
+    "examine": "Forges a darkiron platelegs from 3 darkiron bar(s)."
+  },
+  {
+    "id": "smith_darkiron_helm",
+    "skill": "smithing",
+    "station": "anvil",
+    "level": 43,
+    "xp": 340,
+    "inputs": [
+      {
+        "item": "darkiron_bar",
+        "qty": 2
+      },
+      {
+        "item": "hammer",
+        "qty": 0,
+        "note": "tool-required"
+      }
+    ],
+    "outputs": [
+      {
+        "item": "darkiron_helm",
+        "qty": 1
+      }
+    ],
+    "category": "forging",
+    "examine": "Forges a darkiron helm from 2 darkiron bar(s)."
+  },
+  {
+    "id": "smith_darkiron_kiteshield",
+    "skill": "smithing",
+    "station": "anvil",
+    "level": 43,
+    "xp": 360,
+    "inputs": [
+      {
+        "item": "darkiron_bar",
+        "qty": 3
+      },
+      {
+        "item": "hammer",
+        "qty": 0,
+        "note": "tool-required"
+      }
+    ],
+    "outputs": [
+      {
+        "item": "darkiron_kiteshield",
+        "qty": 1
+      }
+    ],
+    "category": "forging",
+    "examine": "Forges a darkiron kiteshield from 3 darkiron bar(s)."
+  },
+  {
+    "id": "smith_darkiron_boots",
+    "skill": "smithing",
+    "station": "anvil",
+    "level": 43,
+    "xp": 320,
+    "inputs": [
+      {
+        "item": "darkiron_bar",
+        "qty": 1
+      },
+      {
+        "item": "hammer",
+        "qty": 0,
+        "note": "tool-required"
+      }
+    ],
+    "outputs": [
+      {
+        "item": "darkiron_boots",
+        "qty": 1
+      }
+    ],
+    "category": "forging",
+    "examine": "Forges a darkiron boots from 1 darkiron bar(s)."
+  },
+  {
+    "id": "smith_darkiron_gauntlets",
+    "skill": "smithing",
+    "station": "anvil",
+    "level": 43,
+    "xp": 320,
+    "inputs": [
+      {
+        "item": "darkiron_bar",
+        "qty": 1
+      },
+      {
+        "item": "hammer",
+        "qty": 0,
+        "note": "tool-required"
+      }
+    ],
+    "outputs": [
+      {
+        "item": "darkiron_gauntlets",
+        "qty": 1
+      }
+    ],
+    "category": "forging",
+    "examine": "Forges a darkiron gauntlets from 1 darkiron bar(s)."
+  },
+  {
+    "id": "smith_runeforge_dagger",
+    "skill": "smithing",
+    "station": "anvil",
+    "level": 53,
+    "xp": 370,
+    "inputs": [
+      {
+        "item": "runeforge_bar",
+        "qty": 1
+      },
+      {
+        "item": "hammer",
+        "qty": 0,
+        "note": "tool-required"
+      }
+    ],
+    "outputs": [
+      {
+        "item": "runeforge_dagger",
+        "qty": 1
+      }
+    ],
+    "category": "forging",
+    "examine": "Forges a runeforge dagger from 1 runeforge bar(s)."
+  },
+  {
+    "id": "smith_runeforge_scimitar",
+    "skill": "smithing",
+    "station": "anvil",
+    "level": 53,
+    "xp": 370,
+    "inputs": [
+      {
+        "item": "runeforge_bar",
+        "qty": 1
+      },
+      {
+        "item": "hammer",
+        "qty": 0,
+        "note": "tool-required"
+      }
+    ],
+    "outputs": [
+      {
+        "item": "runeforge_scimitar",
+        "qty": 1
+      }
+    ],
+    "category": "forging",
+    "examine": "Forges a runeforge scimitar from 1 runeforge bar(s)."
+  },
+  {
+    "id": "smith_runeforge_longsword",
+    "skill": "smithing",
+    "station": "anvil",
+    "level": 53,
+    "xp": 390,
+    "inputs": [
+      {
+        "item": "runeforge_bar",
+        "qty": 2
+      },
+      {
+        "item": "hammer",
+        "qty": 0,
+        "note": "tool-required"
+      }
+    ],
+    "outputs": [
+      {
+        "item": "runeforge_longsword",
+        "qty": 1
+      }
+    ],
+    "category": "forging",
+    "examine": "Forges a runeforge longsword from 2 runeforge bar(s)."
+  },
+  {
+    "id": "smith_runeforge_mace",
+    "skill": "smithing",
+    "station": "anvil",
+    "level": 53,
+    "xp": 370,
+    "inputs": [
+      {
+        "item": "runeforge_bar",
+        "qty": 1
+      },
+      {
+        "item": "hammer",
+        "qty": 0,
+        "note": "tool-required"
+      }
+    ],
+    "outputs": [
+      {
+        "item": "runeforge_mace",
+        "qty": 1
+      }
+    ],
+    "category": "forging",
+    "examine": "Forges a runeforge mace from 1 runeforge bar(s)."
+  },
+  {
+    "id": "smith_runeforge_battleaxe",
+    "skill": "smithing",
+    "station": "anvil",
+    "level": 53,
+    "xp": 410,
+    "inputs": [
+      {
+        "item": "runeforge_bar",
+        "qty": 3
+      },
+      {
+        "item": "hammer",
+        "qty": 0,
+        "note": "tool-required"
+      }
+    ],
+    "outputs": [
+      {
+        "item": "runeforge_battleaxe",
+        "qty": 1
+      }
+    ],
+    "category": "forging",
+    "examine": "Forges a runeforge battleaxe from 3 runeforge bar(s)."
+  },
+  {
+    "id": "smith_runeforge_warhammer",
+    "skill": "smithing",
+    "station": "anvil",
+    "level": 53,
+    "xp": 410,
+    "inputs": [
+      {
+        "item": "runeforge_bar",
+        "qty": 3
+      },
+      {
+        "item": "hammer",
+        "qty": 0,
+        "note": "tool-required"
+      }
+    ],
+    "outputs": [
+      {
+        "item": "runeforge_warhammer",
+        "qty": 1
+      }
+    ],
+    "category": "forging",
+    "examine": "Forges a runeforge warhammer from 3 runeforge bar(s)."
+  },
+  {
+    "id": "smith_runeforge_two_hander",
+    "skill": "smithing",
+    "station": "anvil",
+    "level": 53,
+    "xp": 430,
+    "inputs": [
+      {
+        "item": "runeforge_bar",
+        "qty": 4
+      },
+      {
+        "item": "hammer",
+        "qty": 0,
+        "note": "tool-required"
+      }
+    ],
+    "outputs": [
+      {
+        "item": "runeforge_two_hander",
+        "qty": 1
+      }
+    ],
+    "category": "forging",
+    "examine": "Forges a runeforge two_hander from 4 runeforge bar(s)."
+  },
+  {
+    "id": "smith_runeforge_halberd",
+    "skill": "smithing",
+    "station": "anvil",
+    "level": 53,
+    "xp": 410,
+    "inputs": [
+      {
+        "item": "runeforge_bar",
+        "qty": 3
+      },
+      {
+        "item": "hammer",
+        "qty": 0,
+        "note": "tool-required"
+      }
+    ],
+    "outputs": [
+      {
+        "item": "runeforge_halberd",
+        "qty": 1
+      }
+    ],
+    "category": "forging",
+    "examine": "Forges a runeforge halberd from 3 runeforge bar(s)."
+  },
+  {
+    "id": "smith_runeforge_spear",
+    "skill": "smithing",
+    "station": "anvil",
+    "level": 53,
+    "xp": 390,
+    "inputs": [
+      {
+        "item": "runeforge_bar",
+        "qty": 2
+      },
+      {
+        "item": "hammer",
+        "qty": 0,
+        "note": "tool-required"
+      }
+    ],
+    "outputs": [
+      {
+        "item": "runeforge_spear",
+        "qty": 1
+      }
+    ],
+    "category": "forging",
+    "examine": "Forges a runeforge spear from 2 runeforge bar(s)."
+  },
+  {
+    "id": "smith_runeforge_platebody",
+    "skill": "smithing",
+    "station": "anvil",
+    "level": 53,
+    "xp": 450,
+    "inputs": [
+      {
+        "item": "runeforge_bar",
+        "qty": 5
+      },
+      {
+        "item": "hammer",
+        "qty": 0,
+        "note": "tool-required"
+      }
+    ],
+    "outputs": [
+      {
+        "item": "runeforge_platebody",
+        "qty": 1
+      }
+    ],
+    "category": "forging",
+    "examine": "Forges a runeforge platebody from 5 runeforge bar(s)."
+  },
+  {
+    "id": "smith_runeforge_platelegs",
+    "skill": "smithing",
+    "station": "anvil",
+    "level": 53,
+    "xp": 410,
+    "inputs": [
+      {
+        "item": "runeforge_bar",
+        "qty": 3
+      },
+      {
+        "item": "hammer",
+        "qty": 0,
+        "note": "tool-required"
+      }
+    ],
+    "outputs": [
+      {
+        "item": "runeforge_platelegs",
+        "qty": 1
+      }
+    ],
+    "category": "forging",
+    "examine": "Forges a runeforge platelegs from 3 runeforge bar(s)."
+  },
+  {
+    "id": "smith_runeforge_helm",
+    "skill": "smithing",
+    "station": "anvil",
+    "level": 53,
+    "xp": 390,
+    "inputs": [
+      {
+        "item": "runeforge_bar",
+        "qty": 2
+      },
+      {
+        "item": "hammer",
+        "qty": 0,
+        "note": "tool-required"
+      }
+    ],
+    "outputs": [
+      {
+        "item": "runeforge_helm",
+        "qty": 1
+      }
+    ],
+    "category": "forging",
+    "examine": "Forges a runeforge helm from 2 runeforge bar(s)."
+  },
+  {
+    "id": "smith_runeforge_kiteshield",
+    "skill": "smithing",
+    "station": "anvil",
+    "level": 53,
+    "xp": 410,
+    "inputs": [
+      {
+        "item": "runeforge_bar",
+        "qty": 3
+      },
+      {
+        "item": "hammer",
+        "qty": 0,
+        "note": "tool-required"
+      }
+    ],
+    "outputs": [
+      {
+        "item": "runeforge_kiteshield",
+        "qty": 1
+      }
+    ],
+    "category": "forging",
+    "examine": "Forges a runeforge kiteshield from 3 runeforge bar(s)."
+  },
+  {
+    "id": "smith_runeforge_boots",
+    "skill": "smithing",
+    "station": "anvil",
+    "level": 53,
+    "xp": 370,
+    "inputs": [
+      {
+        "item": "runeforge_bar",
+        "qty": 1
+      },
+      {
+        "item": "hammer",
+        "qty": 0,
+        "note": "tool-required"
+      }
+    ],
+    "outputs": [
+      {
+        "item": "runeforge_boots",
+        "qty": 1
+      }
+    ],
+    "category": "forging",
+    "examine": "Forges a runeforge boots from 1 runeforge bar(s)."
+  },
+  {
+    "id": "smith_runeforge_gauntlets",
+    "skill": "smithing",
+    "station": "anvil",
+    "level": 53,
+    "xp": 370,
+    "inputs": [
+      {
+        "item": "runeforge_bar",
+        "qty": 1
+      },
+      {
+        "item": "hammer",
+        "qty": 0,
+        "note": "tool-required"
+      }
+    ],
+    "outputs": [
+      {
+        "item": "runeforge_gauntlets",
+        "qty": 1
+      }
+    ],
+    "category": "forging",
+    "examine": "Forges a runeforge gauntlets from 1 runeforge bar(s)."
+  },
+  {
+    "id": "smith_dragonsteel_dagger",
+    "skill": "smithing",
+    "station": "anvil",
+    "level": 63,
+    "xp": 420,
+    "inputs": [
+      {
+        "item": "dragonsteel_bar",
+        "qty": 1
+      },
+      {
+        "item": "hammer",
+        "qty": 0,
+        "note": "tool-required"
+      }
+    ],
+    "outputs": [
+      {
+        "item": "dragonsteel_dagger",
+        "qty": 1
+      }
+    ],
+    "category": "forging",
+    "examine": "Forges a dragonsteel dagger from 1 dragonsteel bar(s)."
+  },
+  {
+    "id": "smith_dragonsteel_scimitar",
+    "skill": "smithing",
+    "station": "anvil",
+    "level": 63,
+    "xp": 420,
+    "inputs": [
+      {
+        "item": "dragonsteel_bar",
+        "qty": 1
+      },
+      {
+        "item": "hammer",
+        "qty": 0,
+        "note": "tool-required"
+      }
+    ],
+    "outputs": [
+      {
+        "item": "dragonsteel_scimitar",
+        "qty": 1
+      }
+    ],
+    "category": "forging",
+    "examine": "Forges a dragonsteel scimitar from 1 dragonsteel bar(s)."
+  },
+  {
+    "id": "smith_dragonsteel_longsword",
+    "skill": "smithing",
+    "station": "anvil",
+    "level": 63,
+    "xp": 440,
+    "inputs": [
+      {
+        "item": "dragonsteel_bar",
+        "qty": 2
+      },
+      {
+        "item": "hammer",
+        "qty": 0,
+        "note": "tool-required"
+      }
+    ],
+    "outputs": [
+      {
+        "item": "dragonsteel_longsword",
+        "qty": 1
+      }
+    ],
+    "category": "forging",
+    "examine": "Forges a dragonsteel longsword from 2 dragonsteel bar(s)."
+  },
+  {
+    "id": "smith_dragonsteel_mace",
+    "skill": "smithing",
+    "station": "anvil",
+    "level": 63,
+    "xp": 420,
+    "inputs": [
+      {
+        "item": "dragonsteel_bar",
+        "qty": 1
+      },
+      {
+        "item": "hammer",
+        "qty": 0,
+        "note": "tool-required"
+      }
+    ],
+    "outputs": [
+      {
+        "item": "dragonsteel_mace",
+        "qty": 1
+      }
+    ],
+    "category": "forging",
+    "examine": "Forges a dragonsteel mace from 1 dragonsteel bar(s)."
+  },
+  {
+    "id": "smith_dragonsteel_battleaxe",
+    "skill": "smithing",
+    "station": "anvil",
+    "level": 63,
+    "xp": 460,
+    "inputs": [
+      {
+        "item": "dragonsteel_bar",
+        "qty": 3
+      },
+      {
+        "item": "hammer",
+        "qty": 0,
+        "note": "tool-required"
+      }
+    ],
+    "outputs": [
+      {
+        "item": "dragonsteel_battleaxe",
+        "qty": 1
+      }
+    ],
+    "category": "forging",
+    "examine": "Forges a dragonsteel battleaxe from 3 dragonsteel bar(s)."
+  },
+  {
+    "id": "smith_dragonsteel_warhammer",
+    "skill": "smithing",
+    "station": "anvil",
+    "level": 63,
+    "xp": 460,
+    "inputs": [
+      {
+        "item": "dragonsteel_bar",
+        "qty": 3
+      },
+      {
+        "item": "hammer",
+        "qty": 0,
+        "note": "tool-required"
+      }
+    ],
+    "outputs": [
+      {
+        "item": "dragonsteel_warhammer",
+        "qty": 1
+      }
+    ],
+    "category": "forging",
+    "examine": "Forges a dragonsteel warhammer from 3 dragonsteel bar(s)."
+  },
+  {
+    "id": "smith_dragonsteel_two_hander",
+    "skill": "smithing",
+    "station": "anvil",
+    "level": 63,
+    "xp": 480,
+    "inputs": [
+      {
+        "item": "dragonsteel_bar",
+        "qty": 4
+      },
+      {
+        "item": "hammer",
+        "qty": 0,
+        "note": "tool-required"
+      }
+    ],
+    "outputs": [
+      {
+        "item": "dragonsteel_two_hander",
+        "qty": 1
+      }
+    ],
+    "category": "forging",
+    "examine": "Forges a dragonsteel two_hander from 4 dragonsteel bar(s)."
+  },
+  {
+    "id": "smith_dragonsteel_halberd",
+    "skill": "smithing",
+    "station": "anvil",
+    "level": 63,
+    "xp": 460,
+    "inputs": [
+      {
+        "item": "dragonsteel_bar",
+        "qty": 3
+      },
+      {
+        "item": "hammer",
+        "qty": 0,
+        "note": "tool-required"
+      }
+    ],
+    "outputs": [
+      {
+        "item": "dragonsteel_halberd",
+        "qty": 1
+      }
+    ],
+    "category": "forging",
+    "examine": "Forges a dragonsteel halberd from 3 dragonsteel bar(s)."
+  },
+  {
+    "id": "smith_dragonsteel_spear",
+    "skill": "smithing",
+    "station": "anvil",
+    "level": 63,
+    "xp": 440,
+    "inputs": [
+      {
+        "item": "dragonsteel_bar",
+        "qty": 2
+      },
+      {
+        "item": "hammer",
+        "qty": 0,
+        "note": "tool-required"
+      }
+    ],
+    "outputs": [
+      {
+        "item": "dragonsteel_spear",
+        "qty": 1
+      }
+    ],
+    "category": "forging",
+    "examine": "Forges a dragonsteel spear from 2 dragonsteel bar(s)."
+  },
+  {
+    "id": "smith_dragonsteel_platebody",
+    "skill": "smithing",
+    "station": "anvil",
+    "level": 63,
+    "xp": 500,
+    "inputs": [
+      {
+        "item": "dragonsteel_bar",
+        "qty": 5
+      },
+      {
+        "item": "hammer",
+        "qty": 0,
+        "note": "tool-required"
+      }
+    ],
+    "outputs": [
+      {
+        "item": "dragonsteel_platebody",
+        "qty": 1
+      }
+    ],
+    "category": "forging",
+    "examine": "Forges a dragonsteel platebody from 5 dragonsteel bar(s)."
+  },
+  {
+    "id": "smith_dragonsteel_platelegs",
+    "skill": "smithing",
+    "station": "anvil",
+    "level": 63,
+    "xp": 460,
+    "inputs": [
+      {
+        "item": "dragonsteel_bar",
+        "qty": 3
+      },
+      {
+        "item": "hammer",
+        "qty": 0,
+        "note": "tool-required"
+      }
+    ],
+    "outputs": [
+      {
+        "item": "dragonsteel_platelegs",
+        "qty": 1
+      }
+    ],
+    "category": "forging",
+    "examine": "Forges a dragonsteel platelegs from 3 dragonsteel bar(s)."
+  },
+  {
+    "id": "smith_dragonsteel_helm",
+    "skill": "smithing",
+    "station": "anvil",
+    "level": 63,
+    "xp": 440,
+    "inputs": [
+      {
+        "item": "dragonsteel_bar",
+        "qty": 2
+      },
+      {
+        "item": "hammer",
+        "qty": 0,
+        "note": "tool-required"
+      }
+    ],
+    "outputs": [
+      {
+        "item": "dragonsteel_helm",
+        "qty": 1
+      }
+    ],
+    "category": "forging",
+    "examine": "Forges a dragonsteel helm from 2 dragonsteel bar(s)."
+  },
+  {
+    "id": "smith_dragonsteel_kiteshield",
+    "skill": "smithing",
+    "station": "anvil",
+    "level": 63,
+    "xp": 460,
+    "inputs": [
+      {
+        "item": "dragonsteel_bar",
+        "qty": 3
+      },
+      {
+        "item": "hammer",
+        "qty": 0,
+        "note": "tool-required"
+      }
+    ],
+    "outputs": [
+      {
+        "item": "dragonsteel_kiteshield",
+        "qty": 1
+      }
+    ],
+    "category": "forging",
+    "examine": "Forges a dragonsteel kiteshield from 3 dragonsteel bar(s)."
+  },
+  {
+    "id": "smith_dragonsteel_boots",
+    "skill": "smithing",
+    "station": "anvil",
+    "level": 63,
+    "xp": 420,
+    "inputs": [
+      {
+        "item": "dragonsteel_bar",
+        "qty": 1
+      },
+      {
+        "item": "hammer",
+        "qty": 0,
+        "note": "tool-required"
+      }
+    ],
+    "outputs": [
+      {
+        "item": "dragonsteel_boots",
+        "qty": 1
+      }
+    ],
+    "category": "forging",
+    "examine": "Forges a dragonsteel boots from 1 dragonsteel bar(s)."
+  },
+  {
+    "id": "smith_dragonsteel_gauntlets",
+    "skill": "smithing",
+    "station": "anvil",
+    "level": 63,
+    "xp": 420,
+    "inputs": [
+      {
+        "item": "dragonsteel_bar",
+        "qty": 1
+      },
+      {
+        "item": "hammer",
+        "qty": 0,
+        "note": "tool-required"
+      }
+    ],
+    "outputs": [
+      {
+        "item": "dragonsteel_gauntlets",
+        "qty": 1
+      }
+    ],
+    "category": "forging",
+    "examine": "Forges a dragonsteel gauntlets from 1 dragonsteel bar(s)."
+  },
+  {
+    "id": "smith_aeldra_dagger",
+    "skill": "smithing",
+    "station": "anvil",
+    "level": 73,
+    "xp": 470,
+    "inputs": [
+      {
+        "item": "aeldra_bar",
+        "qty": 1
+      },
+      {
+        "item": "hammer",
+        "qty": 0,
+        "note": "tool-required"
+      }
+    ],
+    "outputs": [
+      {
+        "item": "aeldra_dagger",
+        "qty": 1
+      }
+    ],
+    "category": "forging",
+    "examine": "Forges a aeldra dagger from 1 aeldra bar(s)."
+  },
+  {
+    "id": "smith_aeldra_scimitar",
+    "skill": "smithing",
+    "station": "anvil",
+    "level": 73,
+    "xp": 470,
+    "inputs": [
+      {
+        "item": "aeldra_bar",
+        "qty": 1
+      },
+      {
+        "item": "hammer",
+        "qty": 0,
+        "note": "tool-required"
+      }
+    ],
+    "outputs": [
+      {
+        "item": "aeldra_scimitar",
+        "qty": 1
+      }
+    ],
+    "category": "forging",
+    "examine": "Forges a aeldra scimitar from 1 aeldra bar(s)."
+  },
+  {
+    "id": "smith_aeldra_longsword",
+    "skill": "smithing",
+    "station": "anvil",
+    "level": 73,
+    "xp": 490,
+    "inputs": [
+      {
+        "item": "aeldra_bar",
+        "qty": 2
+      },
+      {
+        "item": "hammer",
+        "qty": 0,
+        "note": "tool-required"
+      }
+    ],
+    "outputs": [
+      {
+        "item": "aeldra_longsword",
+        "qty": 1
+      }
+    ],
+    "category": "forging",
+    "examine": "Forges a aeldra longsword from 2 aeldra bar(s)."
+  },
+  {
+    "id": "smith_aeldra_mace",
+    "skill": "smithing",
+    "station": "anvil",
+    "level": 73,
+    "xp": 470,
+    "inputs": [
+      {
+        "item": "aeldra_bar",
+        "qty": 1
+      },
+      {
+        "item": "hammer",
+        "qty": 0,
+        "note": "tool-required"
+      }
+    ],
+    "outputs": [
+      {
+        "item": "aeldra_mace",
+        "qty": 1
+      }
+    ],
+    "category": "forging",
+    "examine": "Forges a aeldra mace from 1 aeldra bar(s)."
+  },
+  {
+    "id": "smith_aeldra_battleaxe",
+    "skill": "smithing",
+    "station": "anvil",
+    "level": 73,
+    "xp": 510,
+    "inputs": [
+      {
+        "item": "aeldra_bar",
+        "qty": 3
+      },
+      {
+        "item": "hammer",
+        "qty": 0,
+        "note": "tool-required"
+      }
+    ],
+    "outputs": [
+      {
+        "item": "aeldra_battleaxe",
+        "qty": 1
+      }
+    ],
+    "category": "forging",
+    "examine": "Forges a aeldra battleaxe from 3 aeldra bar(s)."
+  },
+  {
+    "id": "smith_aeldra_warhammer",
+    "skill": "smithing",
+    "station": "anvil",
+    "level": 73,
+    "xp": 510,
+    "inputs": [
+      {
+        "item": "aeldra_bar",
+        "qty": 3
+      },
+      {
+        "item": "hammer",
+        "qty": 0,
+        "note": "tool-required"
+      }
+    ],
+    "outputs": [
+      {
+        "item": "aeldra_warhammer",
+        "qty": 1
+      }
+    ],
+    "category": "forging",
+    "examine": "Forges a aeldra warhammer from 3 aeldra bar(s)."
+  },
+  {
+    "id": "smith_aeldra_two_hander",
+    "skill": "smithing",
+    "station": "anvil",
+    "level": 73,
+    "xp": 530,
+    "inputs": [
+      {
+        "item": "aeldra_bar",
+        "qty": 4
+      },
+      {
+        "item": "hammer",
+        "qty": 0,
+        "note": "tool-required"
+      }
+    ],
+    "outputs": [
+      {
+        "item": "aeldra_two_hander",
+        "qty": 1
+      }
+    ],
+    "category": "forging",
+    "examine": "Forges a aeldra two_hander from 4 aeldra bar(s)."
+  },
+  {
+    "id": "smith_aeldra_halberd",
+    "skill": "smithing",
+    "station": "anvil",
+    "level": 73,
+    "xp": 510,
+    "inputs": [
+      {
+        "item": "aeldra_bar",
+        "qty": 3
+      },
+      {
+        "item": "hammer",
+        "qty": 0,
+        "note": "tool-required"
+      }
+    ],
+    "outputs": [
+      {
+        "item": "aeldra_halberd",
+        "qty": 1
+      }
+    ],
+    "category": "forging",
+    "examine": "Forges a aeldra halberd from 3 aeldra bar(s)."
+  },
+  {
+    "id": "smith_aeldra_spear",
+    "skill": "smithing",
+    "station": "anvil",
+    "level": 73,
+    "xp": 490,
+    "inputs": [
+      {
+        "item": "aeldra_bar",
+        "qty": 2
+      },
+      {
+        "item": "hammer",
+        "qty": 0,
+        "note": "tool-required"
+      }
+    ],
+    "outputs": [
+      {
+        "item": "aeldra_spear",
+        "qty": 1
+      }
+    ],
+    "category": "forging",
+    "examine": "Forges a aeldra spear from 2 aeldra bar(s)."
+  },
+  {
+    "id": "smith_aeldra_platebody",
+    "skill": "smithing",
+    "station": "anvil",
+    "level": 73,
+    "xp": 550,
+    "inputs": [
+      {
+        "item": "aeldra_bar",
+        "qty": 5
+      },
+      {
+        "item": "hammer",
+        "qty": 0,
+        "note": "tool-required"
+      }
+    ],
+    "outputs": [
+      {
+        "item": "aeldra_platebody",
+        "qty": 1
+      }
+    ],
+    "category": "forging",
+    "examine": "Forges a aeldra platebody from 5 aeldra bar(s)."
+  },
+  {
+    "id": "smith_aeldra_platelegs",
+    "skill": "smithing",
+    "station": "anvil",
+    "level": 73,
+    "xp": 510,
+    "inputs": [
+      {
+        "item": "aeldra_bar",
+        "qty": 3
+      },
+      {
+        "item": "hammer",
+        "qty": 0,
+        "note": "tool-required"
+      }
+    ],
+    "outputs": [
+      {
+        "item": "aeldra_platelegs",
+        "qty": 1
+      }
+    ],
+    "category": "forging",
+    "examine": "Forges a aeldra platelegs from 3 aeldra bar(s)."
+  },
+  {
+    "id": "smith_aeldra_helm",
+    "skill": "smithing",
+    "station": "anvil",
+    "level": 73,
+    "xp": 490,
+    "inputs": [
+      {
+        "item": "aeldra_bar",
+        "qty": 2
+      },
+      {
+        "item": "hammer",
+        "qty": 0,
+        "note": "tool-required"
+      }
+    ],
+    "outputs": [
+      {
+        "item": "aeldra_helm",
+        "qty": 1
+      }
+    ],
+    "category": "forging",
+    "examine": "Forges a aeldra helm from 2 aeldra bar(s)."
+  },
+  {
+    "id": "smith_aeldra_kiteshield",
+    "skill": "smithing",
+    "station": "anvil",
+    "level": 73,
+    "xp": 510,
+    "inputs": [
+      {
+        "item": "aeldra_bar",
+        "qty": 3
+      },
+      {
+        "item": "hammer",
+        "qty": 0,
+        "note": "tool-required"
+      }
+    ],
+    "outputs": [
+      {
+        "item": "aeldra_kiteshield",
+        "qty": 1
+      }
+    ],
+    "category": "forging",
+    "examine": "Forges a aeldra kiteshield from 3 aeldra bar(s)."
+  },
+  {
+    "id": "smith_aeldra_boots",
+    "skill": "smithing",
+    "station": "anvil",
+    "level": 73,
+    "xp": 470,
+    "inputs": [
+      {
+        "item": "aeldra_bar",
+        "qty": 1
+      },
+      {
+        "item": "hammer",
+        "qty": 0,
+        "note": "tool-required"
+      }
+    ],
+    "outputs": [
+      {
+        "item": "aeldra_boots",
+        "qty": 1
+      }
+    ],
+    "category": "forging",
+    "examine": "Forges a aeldra boots from 1 aeldra bar(s)."
+  },
+  {
+    "id": "smith_aeldra_gauntlets",
+    "skill": "smithing",
+    "station": "anvil",
+    "level": 73,
+    "xp": 470,
+    "inputs": [
+      {
+        "item": "aeldra_bar",
+        "qty": 1
+      },
+      {
+        "item": "hammer",
+        "qty": 0,
+        "note": "tool-required"
+      }
+    ],
+    "outputs": [
+      {
+        "item": "aeldra_gauntlets",
+        "qty": 1
+      }
+    ],
+    "category": "forging",
+    "examine": "Forges a aeldra gauntlets from 1 aeldra bar(s)."
+  },
+  {
+    "id": "smith_wyrmforged_dagger",
+    "skill": "smithing",
+    "station": "anvil",
+    "level": 78,
+    "xp": 520,
+    "inputs": [
+      {
+        "item": "wyrmforged_bar",
+        "qty": 1
+      },
+      {
+        "item": "hammer",
+        "qty": 0,
+        "note": "tool-required"
+      }
+    ],
+    "outputs": [
+      {
+        "item": "wyrmforged_dagger",
+        "qty": 1
+      }
+    ],
+    "category": "forging",
+    "examine": "Forges a wyrmforged dagger from 1 wyrmforged bar(s)."
+  },
+  {
+    "id": "smith_wyrmforged_scimitar",
+    "skill": "smithing",
+    "station": "anvil",
+    "level": 78,
+    "xp": 520,
+    "inputs": [
+      {
+        "item": "wyrmforged_bar",
+        "qty": 1
+      },
+      {
+        "item": "hammer",
+        "qty": 0,
+        "note": "tool-required"
+      }
+    ],
+    "outputs": [
+      {
+        "item": "wyrmforged_scimitar",
+        "qty": 1
+      }
+    ],
+    "category": "forging",
+    "examine": "Forges a wyrmforged scimitar from 1 wyrmforged bar(s)."
+  },
+  {
+    "id": "smith_wyrmforged_longsword",
+    "skill": "smithing",
+    "station": "anvil",
+    "level": 78,
+    "xp": 540,
+    "inputs": [
+      {
+        "item": "wyrmforged_bar",
+        "qty": 2
+      },
+      {
+        "item": "hammer",
+        "qty": 0,
+        "note": "tool-required"
+      }
+    ],
+    "outputs": [
+      {
+        "item": "wyrmforged_longsword",
+        "qty": 1
+      }
+    ],
+    "category": "forging",
+    "examine": "Forges a wyrmforged longsword from 2 wyrmforged bar(s)."
+  },
+  {
+    "id": "smith_wyrmforged_mace",
+    "skill": "smithing",
+    "station": "anvil",
+    "level": 78,
+    "xp": 520,
+    "inputs": [
+      {
+        "item": "wyrmforged_bar",
+        "qty": 1
+      },
+      {
+        "item": "hammer",
+        "qty": 0,
+        "note": "tool-required"
+      }
+    ],
+    "outputs": [
+      {
+        "item": "wyrmforged_mace",
+        "qty": 1
+      }
+    ],
+    "category": "forging",
+    "examine": "Forges a wyrmforged mace from 1 wyrmforged bar(s)."
+  },
+  {
+    "id": "smith_wyrmforged_battleaxe",
+    "skill": "smithing",
+    "station": "anvil",
+    "level": 78,
+    "xp": 560,
+    "inputs": [
+      {
+        "item": "wyrmforged_bar",
+        "qty": 3
+      },
+      {
+        "item": "hammer",
+        "qty": 0,
+        "note": "tool-required"
+      }
+    ],
+    "outputs": [
+      {
+        "item": "wyrmforged_battleaxe",
+        "qty": 1
+      }
+    ],
+    "category": "forging",
+    "examine": "Forges a wyrmforged battleaxe from 3 wyrmforged bar(s)."
+  },
+  {
+    "id": "smith_wyrmforged_warhammer",
+    "skill": "smithing",
+    "station": "anvil",
+    "level": 78,
+    "xp": 560,
+    "inputs": [
+      {
+        "item": "wyrmforged_bar",
+        "qty": 3
+      },
+      {
+        "item": "hammer",
+        "qty": 0,
+        "note": "tool-required"
+      }
+    ],
+    "outputs": [
+      {
+        "item": "wyrmforged_warhammer",
+        "qty": 1
+      }
+    ],
+    "category": "forging",
+    "examine": "Forges a wyrmforged warhammer from 3 wyrmforged bar(s)."
+  },
+  {
+    "id": "smith_wyrmforged_two_hander",
+    "skill": "smithing",
+    "station": "anvil",
+    "level": 78,
+    "xp": 580,
+    "inputs": [
+      {
+        "item": "wyrmforged_bar",
+        "qty": 4
+      },
+      {
+        "item": "hammer",
+        "qty": 0,
+        "note": "tool-required"
+      }
+    ],
+    "outputs": [
+      {
+        "item": "wyrmforged_two_hander",
+        "qty": 1
+      }
+    ],
+    "category": "forging",
+    "examine": "Forges a wyrmforged two_hander from 4 wyrmforged bar(s)."
+  },
+  {
+    "id": "smith_wyrmforged_halberd",
+    "skill": "smithing",
+    "station": "anvil",
+    "level": 78,
+    "xp": 560,
+    "inputs": [
+      {
+        "item": "wyrmforged_bar",
+        "qty": 3
+      },
+      {
+        "item": "hammer",
+        "qty": 0,
+        "note": "tool-required"
+      }
+    ],
+    "outputs": [
+      {
+        "item": "wyrmforged_halberd",
+        "qty": 1
+      }
+    ],
+    "category": "forging",
+    "examine": "Forges a wyrmforged halberd from 3 wyrmforged bar(s)."
+  },
+  {
+    "id": "smith_wyrmforged_spear",
+    "skill": "smithing",
+    "station": "anvil",
+    "level": 78,
+    "xp": 540,
+    "inputs": [
+      {
+        "item": "wyrmforged_bar",
+        "qty": 2
+      },
+      {
+        "item": "hammer",
+        "qty": 0,
+        "note": "tool-required"
+      }
+    ],
+    "outputs": [
+      {
+        "item": "wyrmforged_spear",
+        "qty": 1
+      }
+    ],
+    "category": "forging",
+    "examine": "Forges a wyrmforged spear from 2 wyrmforged bar(s)."
+  },
+  {
+    "id": "smith_wyrmforged_platebody",
+    "skill": "smithing",
+    "station": "anvil",
+    "level": 78,
+    "xp": 600,
+    "inputs": [
+      {
+        "item": "wyrmforged_bar",
+        "qty": 5
+      },
+      {
+        "item": "hammer",
+        "qty": 0,
+        "note": "tool-required"
+      }
+    ],
+    "outputs": [
+      {
+        "item": "wyrmforged_platebody",
+        "qty": 1
+      }
+    ],
+    "category": "forging",
+    "examine": "Forges a wyrmforged platebody from 5 wyrmforged bar(s)."
+  },
+  {
+    "id": "smith_wyrmforged_platelegs",
+    "skill": "smithing",
+    "station": "anvil",
+    "level": 78,
+    "xp": 560,
+    "inputs": [
+      {
+        "item": "wyrmforged_bar",
+        "qty": 3
+      },
+      {
+        "item": "hammer",
+        "qty": 0,
+        "note": "tool-required"
+      }
+    ],
+    "outputs": [
+      {
+        "item": "wyrmforged_platelegs",
+        "qty": 1
+      }
+    ],
+    "category": "forging",
+    "examine": "Forges a wyrmforged platelegs from 3 wyrmforged bar(s)."
+  },
+  {
+    "id": "smith_wyrmforged_helm",
+    "skill": "smithing",
+    "station": "anvil",
+    "level": 78,
+    "xp": 540,
+    "inputs": [
+      {
+        "item": "wyrmforged_bar",
+        "qty": 2
+      },
+      {
+        "item": "hammer",
+        "qty": 0,
+        "note": "tool-required"
+      }
+    ],
+    "outputs": [
+      {
+        "item": "wyrmforged_helm",
+        "qty": 1
+      }
+    ],
+    "category": "forging",
+    "examine": "Forges a wyrmforged helm from 2 wyrmforged bar(s)."
+  },
+  {
+    "id": "smith_wyrmforged_kiteshield",
+    "skill": "smithing",
+    "station": "anvil",
+    "level": 78,
+    "xp": 560,
+    "inputs": [
+      {
+        "item": "wyrmforged_bar",
+        "qty": 3
+      },
+      {
+        "item": "hammer",
+        "qty": 0,
+        "note": "tool-required"
+      }
+    ],
+    "outputs": [
+      {
+        "item": "wyrmforged_kiteshield",
+        "qty": 1
+      }
+    ],
+    "category": "forging",
+    "examine": "Forges a wyrmforged kiteshield from 3 wyrmforged bar(s)."
+  },
+  {
+    "id": "smith_wyrmforged_boots",
+    "skill": "smithing",
+    "station": "anvil",
+    "level": 78,
+    "xp": 520,
+    "inputs": [
+      {
+        "item": "wyrmforged_bar",
+        "qty": 1
+      },
+      {
+        "item": "hammer",
+        "qty": 0,
+        "note": "tool-required"
+      }
+    ],
+    "outputs": [
+      {
+        "item": "wyrmforged_boots",
+        "qty": 1
+      }
+    ],
+    "category": "forging",
+    "examine": "Forges a wyrmforged boots from 1 wyrmforged bar(s)."
+  },
+  {
+    "id": "smith_wyrmforged_gauntlets",
+    "skill": "smithing",
+    "station": "anvil",
+    "level": 78,
+    "xp": 520,
+    "inputs": [
+      {
+        "item": "wyrmforged_bar",
+        "qty": 1
+      },
+      {
+        "item": "hammer",
+        "qty": 0,
+        "note": "tool-required"
+      }
+    ],
+    "outputs": [
+      {
+        "item": "wyrmforged_gauntlets",
+        "qty": 1
+      }
+    ],
+    "category": "forging",
+    "examine": "Forges a wyrmforged gauntlets from 1 wyrmforged bar(s)."
+  },
+  {
+    "id": "clean_guam",
+    "skill": "herblore",
+    "station": "inventory",
+    "level": 3,
+    "xp": 3,
+    "inputs": [
+      {
+        "item": "grimy_guam",
+        "qty": 1
+      }
+    ],
+    "outputs": [
+      {
+        "item": "clean_guam",
+        "qty": 1
+      }
+    ],
+    "category": "cleaning",
+    "examine": "Clean a grimy guam."
+  },
+  {
+    "id": "clean_marrentill",
+    "skill": "herblore",
+    "station": "inventory",
+    "level": 5,
+    "xp": 3,
+    "inputs": [
+      {
+        "item": "grimy_marrentill",
+        "qty": 1
+      }
+    ],
+    "outputs": [
+      {
+        "item": "clean_marrentill",
+        "qty": 1
+      }
+    ],
+    "category": "cleaning",
+    "examine": "Clean a grimy marrentill."
+  },
+  {
+    "id": "clean_tarromin",
+    "skill": "herblore",
+    "station": "inventory",
+    "level": 11,
+    "xp": 5,
+    "inputs": [
+      {
+        "item": "grimy_tarromin",
+        "qty": 1
+      }
+    ],
+    "outputs": [
+      {
+        "item": "clean_tarromin",
+        "qty": 1
+      }
+    ],
+    "category": "cleaning",
+    "examine": "Clean a grimy tarromin."
+  },
+  {
+    "id": "clean_harralander",
+    "skill": "herblore",
+    "station": "inventory",
+    "level": 20,
+    "xp": 7,
+    "inputs": [
+      {
+        "item": "grimy_harralander",
+        "qty": 1
+      }
+    ],
+    "outputs": [
+      {
+        "item": "clean_harralander",
+        "qty": 1
+      }
+    ],
+    "category": "cleaning",
+    "examine": "Clean a grimy harralander."
+  },
+  {
+    "id": "clean_ranarr",
+    "skill": "herblore",
+    "station": "inventory",
+    "level": 25,
+    "xp": 8,
+    "inputs": [
+      {
+        "item": "grimy_ranarr",
+        "qty": 1
+      }
+    ],
+    "outputs": [
+      {
+        "item": "clean_ranarr",
+        "qty": 1
+      }
+    ],
+    "category": "cleaning",
+    "examine": "Clean a grimy ranarr."
+  },
+  {
+    "id": "clean_toadflax",
+    "skill": "herblore",
+    "station": "inventory",
+    "level": 30,
+    "xp": 10,
+    "inputs": [
+      {
+        "item": "grimy_toadflax",
+        "qty": 1
+      }
+    ],
+    "outputs": [
+      {
+        "item": "clean_toadflax",
+        "qty": 1
+      }
+    ],
+    "category": "cleaning",
+    "examine": "Clean a grimy toadflax."
+  },
+  {
+    "id": "clean_irit",
+    "skill": "herblore",
+    "station": "inventory",
+    "level": 40,
+    "xp": 12,
+    "inputs": [
+      {
+        "item": "grimy_irit",
+        "qty": 1
+      }
+    ],
+    "outputs": [
+      {
+        "item": "clean_irit",
+        "qty": 1
+      }
+    ],
+    "category": "cleaning",
+    "examine": "Clean a grimy irit."
+  },
+  {
+    "id": "clean_avantoe",
+    "skill": "herblore",
+    "station": "inventory",
+    "level": 48,
+    "xp": 14,
+    "inputs": [
+      {
+        "item": "grimy_avantoe",
+        "qty": 1
+      }
+    ],
+    "outputs": [
+      {
+        "item": "clean_avantoe",
+        "qty": 1
+      }
+    ],
+    "category": "cleaning",
+    "examine": "Clean a grimy avantoe."
+  },
+  {
+    "id": "clean_kwuarm",
+    "skill": "herblore",
+    "station": "inventory",
+    "level": 54,
+    "xp": 16,
+    "inputs": [
+      {
+        "item": "grimy_kwuarm",
+        "qty": 1
+      }
+    ],
+    "outputs": [
+      {
+        "item": "clean_kwuarm",
+        "qty": 1
+      }
+    ],
+    "category": "cleaning",
+    "examine": "Clean a grimy kwuarm."
+  },
+  {
+    "id": "clean_snapdragon",
+    "skill": "herblore",
+    "station": "inventory",
+    "level": 59,
+    "xp": 17,
+    "inputs": [
+      {
+        "item": "grimy_snapdragon",
+        "qty": 1
+      }
+    ],
+    "outputs": [
+      {
+        "item": "clean_snapdragon",
+        "qty": 1
+      }
+    ],
+    "category": "cleaning",
+    "examine": "Clean a grimy snapdragon."
+  },
+  {
+    "id": "clean_cadantine",
+    "skill": "herblore",
+    "station": "inventory",
+    "level": 65,
+    "xp": 18,
+    "inputs": [
+      {
+        "item": "grimy_cadantine",
+        "qty": 1
+      }
+    ],
+    "outputs": [
+      {
+        "item": "clean_cadantine",
+        "qty": 1
+      }
+    ],
+    "category": "cleaning",
+    "examine": "Clean a grimy cadantine."
+  },
+  {
+    "id": "clean_lantadyme",
+    "skill": "herblore",
+    "station": "inventory",
+    "level": 67,
+    "xp": 19,
+    "inputs": [
+      {
+        "item": "grimy_lantadyme",
+        "qty": 1
+      }
+    ],
+    "outputs": [
+      {
+        "item": "clean_lantadyme",
+        "qty": 1
+      }
+    ],
+    "category": "cleaning",
+    "examine": "Clean a grimy lantadyme."
+  },
+  {
+    "id": "clean_dwarf_weed",
+    "skill": "herblore",
+    "station": "inventory",
+    "level": 70,
+    "xp": 20,
+    "inputs": [
+      {
+        "item": "grimy_dwarf_weed",
+        "qty": 1
+      }
+    ],
+    "outputs": [
+      {
+        "item": "clean_dwarf_weed",
+        "qty": 1
+      }
+    ],
+    "category": "cleaning",
+    "examine": "Clean a grimy dwarf weed."
+  },
+  {
+    "id": "clean_torstol",
+    "skill": "herblore",
+    "station": "inventory",
+    "level": 75,
+    "xp": 21,
+    "inputs": [
+      {
+        "item": "grimy_torstol",
+        "qty": 1
+      }
+    ],
+    "outputs": [
+      {
+        "item": "clean_torstol",
+        "qty": 1
+      }
+    ],
+    "category": "cleaning",
+    "examine": "Clean a grimy torstol."
+  },
+  {
+    "id": "mix_attack_unfinished",
+    "skill": "herblore",
+    "station": "inventory",
+    "level": 30,
+    "xp": 30,
+    "inputs": [
+      {
+        "item": "vial_of_water",
+        "qty": 1
+      },
+      {
+        "item": "clean_guam",
+        "qty": 1
+      }
+    ],
+    "outputs": [
+      {
+        "item": "attack_unfinished_potion",
+        "qty": 1
+      }
+    ],
+    "category": "potion_unfinished",
+    "examine": "Mix a attack potion (unfinished)."
+  },
+  {
+    "id": "mix_attack_potion_4",
+    "skill": "herblore",
+    "station": "inventory",
+    "level": 35,
+    "xp": 4,
+    "inputs": [
+      {
+        "item": "attack_unfinished_potion",
+        "qty": 1
+      },
+      {
+        "item": "eye_of_newt",
+        "qty": 1
+      }
+    ],
+    "outputs": [
+      {
+        "item": "attack_potion_4",
+        "qty": 1
+      }
+    ],
+    "category": "potion",
+    "examine": "Mix a 4-dose attack potion. +3 attack for 5 min."
+  },
+  {
+    "id": "mix_strength_unfinished",
+    "skill": "herblore",
+    "station": "inventory",
+    "level": 30,
+    "xp": 30,
+    "inputs": [
+      {
+        "item": "vial_of_water",
+        "qty": 1
+      },
+      {
+        "item": "clean_tarromin",
+        "qty": 1
+      }
+    ],
+    "outputs": [
+      {
+        "item": "strength_unfinished_potion",
+        "qty": 1
+      }
+    ],
+    "category": "potion_unfinished",
+    "examine": "Mix a strength potion (unfinished)."
+  },
+  {
+    "id": "mix_strength_potion_4",
+    "skill": "herblore",
+    "station": "inventory",
+    "level": 35,
+    "xp": 6,
+    "inputs": [
+      {
+        "item": "strength_unfinished_potion",
+        "qty": 1
+      },
+      {
+        "item": "limpwurt_root",
+        "qty": 1
+      }
+    ],
+    "outputs": [
+      {
+        "item": "strength_potion_4",
+        "qty": 1
+      }
+    ],
+    "category": "potion",
+    "examine": "Mix a 4-dose strength potion. +3 strength for 5 min."
+  },
+  {
+    "id": "mix_defence_unfinished",
+    "skill": "herblore",
+    "station": "inventory",
+    "level": 30,
+    "xp": 30,
+    "inputs": [
+      {
+        "item": "vial_of_water",
+        "qty": 1
+      },
+      {
+        "item": "clean_ranarr",
+        "qty": 1
+      }
+    ],
+    "outputs": [
+      {
+        "item": "defence_unfinished_potion",
+        "qty": 1
+      }
+    ],
+    "category": "potion_unfinished",
+    "examine": "Mix a defence potion (unfinished)."
+  },
+  {
+    "id": "mix_defence_potion_4",
+    "skill": "herblore",
+    "station": "inventory",
+    "level": 35,
+    "xp": 7,
+    "inputs": [
+      {
+        "item": "defence_unfinished_potion",
+        "qty": 1
+      },
+      {
+        "item": "white_berries",
+        "qty": 1
+      }
+    ],
+    "outputs": [
+      {
+        "item": "defence_potion_4",
+        "qty": 1
+      }
+    ],
+    "category": "potion",
+    "examine": "Mix a 4-dose defence potion. +3 defence for 5 min."
+  },
+  {
+    "id": "mix_super_attack_unfinished",
+    "skill": "herblore",
+    "station": "inventory",
+    "level": 45,
+    "xp": 30,
+    "inputs": [
+      {
+        "item": "vial_of_water",
+        "qty": 1
+      },
+      {
+        "item": "clean_irit",
+        "qty": 1
+      }
+    ],
+    "outputs": [
+      {
+        "item": "super_attack_unfinished_potion",
+        "qty": 1
+      }
+    ],
+    "category": "potion_unfinished",
+    "examine": "Mix a super attack potion (unfinished)."
+  },
+  {
+    "id": "mix_super_attack_potion_4",
+    "skill": "herblore",
+    "station": "inventory",
+    "level": 55,
+    "xp": 18,
+    "inputs": [
+      {
+        "item": "super_attack_unfinished_potion",
+        "qty": 1
+      },
+      {
+        "item": "eye_of_newt",
+        "qty": 1
+      }
+    ],
+    "outputs": [
+      {
+        "item": "super_attack_potion_4",
+        "qty": 1
+      }
+    ],
+    "category": "potion",
+    "examine": "Mix a 4-dose super attack potion. +5+15% attack for 5 min."
+  },
+  {
+    "id": "mix_super_strength_unfinished",
+    "skill": "herblore",
+    "station": "inventory",
+    "level": 45,
+    "xp": 30,
+    "inputs": [
+      {
+        "item": "vial_of_water",
+        "qty": 1
+      },
+      {
+        "item": "clean_kwuarm",
+        "qty": 1
+      }
+    ],
+    "outputs": [
+      {
+        "item": "super_strength_unfinished_potion",
+        "qty": 1
+      }
+    ],
+    "category": "potion_unfinished",
+    "examine": "Mix a super strength potion (unfinished)."
+  },
+  {
+    "id": "mix_super_strength_potion_4",
+    "skill": "herblore",
+    "station": "inventory",
+    "level": 55,
+    "xp": 25,
+    "inputs": [
+      {
+        "item": "super_strength_unfinished_potion",
+        "qty": 1
+      },
+      {
+        "item": "limpwurt_root",
+        "qty": 1
+      }
+    ],
+    "outputs": [
+      {
+        "item": "super_strength_potion_4",
+        "qty": 1
+      }
+    ],
+    "category": "potion",
+    "examine": "Mix a 4-dose super strength potion. +5+15% strength for 5 min."
+  },
+  {
+    "id": "mix_super_defence_unfinished",
+    "skill": "herblore",
+    "station": "inventory",
+    "level": 45,
+    "xp": 30,
+    "inputs": [
+      {
+        "item": "vial_of_water",
+        "qty": 1
+      },
+      {
+        "item": "clean_cadantine",
+        "qty": 1
+      }
+    ],
+    "outputs": [
+      {
+        "item": "super_defence_unfinished_potion",
+        "qty": 1
+      }
+    ],
+    "category": "potion_unfinished",
+    "examine": "Mix a super defence potion (unfinished)."
+  },
+  {
+    "id": "mix_super_defence_potion_4",
+    "skill": "herblore",
+    "station": "inventory",
+    "level": 55,
+    "xp": 27,
+    "inputs": [
+      {
+        "item": "super_defence_unfinished_potion",
+        "qty": 1
+      },
+      {
+        "item": "white_berries",
+        "qty": 1
+      }
+    ],
+    "outputs": [
+      {
+        "item": "super_defence_potion_4",
+        "qty": 1
+      }
+    ],
+    "category": "potion",
+    "examine": "Mix a 4-dose super defence potion. +5+15% defence for 5 min."
+  },
+  {
+    "id": "mix_ranging_unfinished",
+    "skill": "herblore",
+    "station": "inventory",
+    "level": 45,
+    "xp": 30,
+    "inputs": [
+      {
+        "item": "vial_of_water",
+        "qty": 1
+      },
+      {
+        "item": "clean_dwarf_weed",
+        "qty": 1
+      }
+    ],
+    "outputs": [
+      {
+        "item": "ranging_unfinished_potion",
+        "qty": 1
+      }
+    ],
+    "category": "potion_unfinished",
+    "examine": "Mix a ranging potion (unfinished)."
+  },
+  {
+    "id": "mix_ranging_potion_4",
+    "skill": "herblore",
+    "station": "inventory",
+    "level": 55,
+    "xp": 32,
+    "inputs": [
+      {
+        "item": "ranging_unfinished_potion",
+        "qty": 1
+      },
+      {
+        "item": "wine_of_zamorak",
+        "qty": 1
+      }
+    ],
+    "outputs": [
+      {
+        "item": "ranging_potion_4",
+        "qty": 1
+      }
+    ],
+    "category": "potion",
+    "examine": "Mix a 4-dose ranging potion. +4+10% ranged for 5 min."
+  },
+  {
+    "id": "mix_magic_unfinished",
+    "skill": "herblore",
+    "station": "inventory",
+    "level": 45,
+    "xp": 30,
+    "inputs": [
+      {
+        "item": "vial_of_water",
+        "qty": 1
+      },
+      {
+        "item": "clean_lantadyme",
+        "qty": 1
+      }
+    ],
+    "outputs": [
+      {
+        "item": "magic_unfinished_potion",
+        "qty": 1
+      }
+    ],
+    "category": "potion_unfinished",
+    "examine": "Mix a magic potion (unfinished)."
+  },
+  {
+    "id": "mix_magic_potion_4",
+    "skill": "herblore",
+    "station": "inventory",
+    "level": 55,
+    "xp": 30,
+    "inputs": [
+      {
+        "item": "magic_unfinished_potion",
+        "qty": 1
+      },
+      {
+        "item": "potato_cactus",
+        "qty": 1
+      }
+    ],
+    "outputs": [
+      {
+        "item": "magic_potion_4",
+        "qty": 1
+      }
+    ],
+    "category": "potion",
+    "examine": "Mix a 4-dose magic potion. +4 magic for 5 min."
+  },
+  {
+    "id": "mix_prayer_unfinished",
+    "skill": "herblore",
+    "station": "inventory",
+    "level": 45,
+    "xp": 30,
+    "inputs": [
+      {
+        "item": "vial_of_water",
+        "qty": 1
+      },
+      {
+        "item": "clean_ranarr",
+        "qty": 1
+      }
+    ],
+    "outputs": [
+      {
+        "item": "prayer_unfinished_potion",
+        "qty": 1
+      }
+    ],
+    "category": "potion_unfinished",
+    "examine": "Mix a prayer potion (unfinished)."
+  },
+  {
+    "id": "mix_prayer_potion_4",
+    "skill": "herblore",
+    "station": "inventory",
+    "level": 55,
+    "xp": 27,
+    "inputs": [
+      {
+        "item": "prayer_unfinished_potion",
+        "qty": 1
+      },
+      {
+        "item": "snape_grass",
+        "qty": 1
+      }
+    ],
+    "outputs": [
+      {
+        "item": "prayer_potion_4",
+        "qty": 1
+      }
+    ],
+    "category": "potion",
+    "examine": "Mix a 4-dose prayer potion. restore 7+level/4 prayer."
+  },
+  {
+    "id": "mix_super_restore_unfinished",
+    "skill": "herblore",
+    "station": "inventory",
+    "level": 45,
+    "xp": 30,
+    "inputs": [
+      {
+        "item": "vial_of_water",
+        "qty": 1
+      },
+      {
+        "item": "clean_snapdragon",
+        "qty": 1
+      }
+    ],
+    "outputs": [
+      {
+        "item": "super_restore_unfinished_potion",
+        "qty": 1
+      }
+    ],
+    "category": "potion_unfinished",
+    "examine": "Mix a super restore (unfinished)."
+  },
+  {
+    "id": "mix_super_restore_potion_4",
+    "skill": "herblore",
+    "station": "inventory",
+    "level": 55,
+    "xp": 79,
+    "inputs": [
+      {
+        "item": "super_restore_unfinished_potion",
+        "qty": 1
+      },
+      {
+        "item": "red_spider_eggs",
+        "qty": 1
+      }
+    ],
+    "outputs": [
+      {
+        "item": "super_restore_potion_4",
+        "qty": 1
+      }
+    ],
+    "category": "potion",
+    "examine": "Mix a 4-dose super restore. restore 8+level/4 all stats + prayer."
+  },
+  {
+    "id": "mix_saradomin_brew_unfinished",
+    "skill": "herblore",
+    "station": "inventory",
+    "level": 70,
+    "xp": 30,
+    "inputs": [
+      {
+        "item": "vial_of_water",
+        "qty": 1
+      },
+      {
+        "item": "clean_toadflax",
+        "qty": 1
+      }
+    ],
+    "outputs": [
+      {
+        "item": "saradomin_brew_unfinished_potion",
+        "qty": 1
+      }
+    ],
+    "category": "potion_unfinished",
+    "examine": "Mix a saradomin brew (unfinished)."
+  },
+  {
+    "id": "mix_saradomin_brew_potion_4",
+    "skill": "herblore",
+    "station": "inventory",
+    "level": 75,
+    "xp": 117,
+    "inputs": [
+      {
+        "item": "saradomin_brew_unfinished_potion",
+        "qty": 1
+      },
+      {
+        "item": "crushed_nest",
+        "qty": 1
+      }
+    ],
+    "outputs": [
+      {
+        "item": "saradomin_brew_potion_4",
+        "qty": 1
+      }
+    ],
+    "category": "potion",
+    "examine": "Mix a 4-dose saradomin brew. heal +15 HP, +20% def, -10% offensive stats."
+  },
+  {
+    "id": "mix_antipoison_unfinished",
+    "skill": "herblore",
+    "station": "inventory",
+    "level": 30,
+    "xp": 30,
+    "inputs": [
+      {
+        "item": "vial_of_water",
+        "qty": 1
+      },
+      {
+        "item": "clean_marrentill",
+        "qty": 1
+      }
+    ],
+    "outputs": [
+      {
+        "item": "antipoison_unfinished_potion",
+        "qty": 1
+      }
+    ],
+    "category": "potion_unfinished",
+    "examine": "Mix a antipoison (unfinished)."
+  },
+  {
+    "id": "mix_antipoison_potion_4",
+    "skill": "herblore",
+    "station": "inventory",
+    "level": 35,
+    "xp": 5,
+    "inputs": [
+      {
+        "item": "antipoison_unfinished_potion",
+        "qty": 1
+      },
+      {
+        "item": "unicorn_horn_dust",
+        "qty": 1
+      }
+    ],
+    "outputs": [
+      {
+        "item": "antipoison_potion_4",
+        "qty": 1
+      }
+    ],
+    "category": "potion",
+    "examine": "Mix a 4-dose antipoison. cure + immunity 90s."
+  },
+  {
+    "id": "mix_super_antipoison_unfinished",
+    "skill": "herblore",
+    "station": "inventory",
+    "level": 30,
+    "xp": 30,
+    "inputs": [
+      {
+        "item": "vial_of_water",
+        "qty": 1
+      },
+      {
+        "item": "clean_irit",
+        "qty": 1
+      }
+    ],
+    "outputs": [
+      {
+        "item": "super_antipoison_unfinished_potion",
+        "qty": 1
+      }
+    ],
+    "category": "potion_unfinished",
+    "examine": "Mix a super antipoison (unfinished)."
+  },
+  {
+    "id": "mix_super_antipoison_potion_4",
+    "skill": "herblore",
+    "station": "inventory",
+    "level": 35,
+    "xp": 13,
+    "inputs": [
+      {
+        "item": "super_antipoison_unfinished_potion",
+        "qty": 1
+      },
+      {
+        "item": "unicorn_horn_dust",
+        "qty": 1
+      }
+    ],
+    "outputs": [
+      {
+        "item": "super_antipoison_potion_4",
+        "qty": 1
+      }
+    ],
+    "category": "potion",
+    "examine": "Mix a 4-dose super antipoison. cure + immunity 6 min."
+  },
+  {
+    "id": "mix_antivenom_unfinished",
+    "skill": "herblore",
+    "station": "inventory",
+    "level": 70,
+    "xp": 30,
+    "inputs": [
+      {
+        "item": "vial_of_water",
+        "qty": 1
+      },
+      {
+        "item": "clean_cadantine",
+        "qty": 1
+      }
+    ],
+    "outputs": [
+      {
+        "item": "antivenom_unfinished_potion",
+        "qty": 1
+      }
+    ],
+    "category": "potion_unfinished",
+    "examine": "Mix a antivenom (unfinished)."
+  },
+  {
+    "id": "mix_antivenom_potion_4",
+    "skill": "herblore",
+    "station": "inventory",
+    "level": 75,
+    "xp": 200,
+    "inputs": [
+      {
+        "item": "antivenom_unfinished_potion",
+        "qty": 1
+      },
+      {
+        "item": "zulrah_scales",
+        "qty": 1
+      }
+    ],
+    "outputs": [
+      {
+        "item": "antivenom_potion_4",
+        "qty": 1
+      }
+    ],
+    "category": "potion",
+    "examine": "Mix a 4-dose antivenom. cure venom + immunity 3 min."
+  },
+  {
+    "id": "mix_antifire_unfinished",
+    "skill": "herblore",
+    "station": "inventory",
+    "level": 70,
+    "xp": 30,
+    "inputs": [
+      {
+        "item": "vial_of_water",
+        "qty": 1
+      },
+      {
+        "item": "clean_lantadyme",
+        "qty": 1
+      }
+    ],
+    "outputs": [
+      {
+        "item": "antifire_unfinished_potion",
+        "qty": 1
+      }
+    ],
+    "category": "potion_unfinished",
+    "examine": "Mix a antifire potion (unfinished)."
+  },
+  {
+    "id": "mix_antifire_potion_4",
+    "skill": "herblore",
+    "station": "inventory",
+    "level": 75,
+    "xp": 100,
+    "inputs": [
+      {
+        "item": "antifire_unfinished_potion",
+        "qty": 1
+      },
+      {
+        "item": "dragon_scale_dust",
+        "qty": 1
+      }
+    ],
+    "outputs": [
+      {
+        "item": "antifire_potion_4",
+        "qty": 1
+      }
+    ],
+    "category": "potion",
+    "examine": "Mix a 4-dose antifire potion. halve dragonfire 6 min."
+  },
+  {
+    "id": "mix_super_antifire_unfinished",
+    "skill": "herblore",
+    "station": "inventory",
+    "level": 70,
+    "xp": 30,
+    "inputs": [
+      {
+        "item": "vial_of_water",
+        "qty": 1
+      },
+      {
+        "item": "clean_lantadyme",
+        "qty": 1
+      }
+    ],
+    "outputs": [
+      {
+        "item": "super_antifire_unfinished_potion",
+        "qty": 1
+      }
+    ],
+    "category": "potion_unfinished",
+    "examine": "Mix a super antifire potion (unfinished)."
+  },
+  {
+    "id": "mix_super_antifire_potion_4",
+    "skill": "herblore",
+    "station": "inventory",
+    "level": 75,
+    "xp": 200,
+    "inputs": [
+      {
+        "item": "super_antifire_unfinished_potion",
+        "qty": 1
+      },
+      {
+        "item": "phoenix_feather",
+        "qty": 1
+      }
+    ],
+    "outputs": [
+      {
+        "item": "super_antifire_potion_4",
+        "qty": 1
+      }
+    ],
+    "category": "potion",
+    "examine": "Mix a 4-dose super antifire potion. immune to dragonfire 3 min."
+  },
+  {
+    "id": "mix_stamina_unfinished",
+    "skill": "herblore",
+    "station": "inventory",
+    "level": 70,
+    "xp": 30,
+    "inputs": [
+      {
+        "item": "vial_of_water",
+        "qty": 1
+      },
+      {
+        "item": "clean_super_energy",
+        "qty": 1
+      }
+    ],
+    "outputs": [
+      {
+        "item": "stamina_unfinished_potion",
+        "qty": 1
+      }
+    ],
+    "category": "potion_unfinished",
+    "examine": "Mix a stamina potion (unfinished)."
+  },
+  {
+    "id": "mix_stamina_potion_4",
+    "skill": "herblore",
+    "station": "inventory",
+    "level": 75,
+    "xp": 150,
+    "inputs": [
+      {
+        "item": "stamina_unfinished_potion",
+        "qty": 1
+      },
+      {
+        "item": "amylase_crystal",
+        "qty": 1
+      }
+    ],
+    "outputs": [
+      {
+        "item": "stamina_potion_4",
+        "qty": 1
+      }
+    ],
+    "category": "potion",
+    "examine": "Mix a 4-dose stamina potion. 20% run energy, slower drain 2 min."
+  },
+  {
+    "id": "mix_energy_unfinished",
+    "skill": "herblore",
+    "station": "inventory",
+    "level": 30,
+    "xp": 30,
+    "inputs": [
+      {
+        "item": "vial_of_water",
+        "qty": 1
+      },
+      {
+        "item": "clean_harralander",
+        "qty": 1
+      }
+    ],
+    "outputs": [
+      {
+        "item": "energy_unfinished_potion",
+        "qty": 1
+      }
+    ],
+    "category": "potion_unfinished",
+    "examine": "Mix a energy potion (unfinished)."
+  },
+  {
+    "id": "mix_energy_potion_4",
+    "skill": "herblore",
+    "station": "inventory",
+    "level": 35,
+    "xp": 15,
+    "inputs": [
+      {
+        "item": "energy_unfinished_potion",
+        "qty": 1
+      },
+      {
+        "item": "chocolate_dust",
+        "qty": 1
+      }
+    ],
+    "outputs": [
+      {
+        "item": "energy_potion_4",
+        "qty": 1
+      }
+    ],
+    "category": "potion",
+    "examine": "Mix a 4-dose energy potion. 10% run energy."
+  },
+  {
+    "id": "mix_super_energy_unfinished",
+    "skill": "herblore",
+    "station": "inventory",
+    "level": 45,
+    "xp": 30,
+    "inputs": [
+      {
+        "item": "vial_of_water",
+        "qty": 1
+      },
+      {
+        "item": "clean_avantoe",
+        "qty": 1
+      }
+    ],
+    "outputs": [
+      {
+        "item": "super_energy_unfinished_potion",
+        "qty": 1
+      }
+    ],
+    "category": "potion_unfinished",
+    "examine": "Mix a super energy potion (unfinished)."
+  },
+  {
+    "id": "mix_super_energy_potion_4",
+    "skill": "herblore",
+    "station": "inventory",
+    "level": 55,
+    "xp": 35,
+    "inputs": [
+      {
+        "item": "super_energy_unfinished_potion",
+        "qty": 1
+      },
+      {
+        "item": "mort_myre_fungus",
+        "qty": 1
+      }
+    ],
+    "outputs": [
+      {
+        "item": "super_energy_potion_4",
+        "qty": 1
+      }
+    ],
+    "category": "potion",
+    "examine": "Mix a 4-dose super energy potion. 20% run energy."
+  },
+  {
+    "id": "mix_overload_unfinished",
+    "skill": "herblore",
+    "station": "inventory",
+    "level": 70,
+    "xp": 30,
+    "inputs": [
+      {
+        "item": "vial_of_water",
+        "qty": 1
+      },
+      {
+        "item": "clean_torstol",
+        "qty": 1
+      }
+    ],
+    "outputs": [
+      {
+        "item": "overload_unfinished_potion",
+        "qty": 1
+      }
+    ],
+    "category": "potion_unfinished",
+    "examine": "Mix a overload (unfinished)."
+  },
+  {
+    "id": "mix_overload_potion_4",
+    "skill": "herblore",
+    "station": "inventory",
+    "level": 75,
+    "xp": 200,
+    "inputs": [
+      {
+        "item": "overload_unfinished_potion",
+        "qty": 1
+      },
+      {
+        "item": "cadantine_ext",
+        "qty": 1
+      }
+    ],
+    "outputs": [
+      {
+        "item": "overload_potion_4",
+        "qty": 1
+      }
+    ],
+    "category": "potion",
+    "examine": "Mix a 4-dose overload. +5+15% all combat for 5 min, drain HP."
+  },
+  {
+    "id": "mix_stat_freeze_unfinished",
+    "skill": "herblore",
+    "station": "inventory",
+    "level": 70,
+    "xp": 30,
+    "inputs": [
+      {
+        "item": "vial_of_water",
+        "qty": 1
+      },
+      {
+        "item": "clean_torstol",
+        "qty": 1
+      }
+    ],
+    "outputs": [
+      {
+        "item": "stat_freeze_unfinished_potion",
+        "qty": 1
+      }
+    ],
+    "category": "potion_unfinished",
+    "examine": "Mix a stat-freeze potion (unfinished)."
+  },
+  {
+    "id": "mix_stat_freeze_potion_4",
+    "skill": "herblore",
+    "station": "inventory",
+    "level": 75,
+    "xp": 200,
+    "inputs": [
+      {
+        "item": "stat_freeze_unfinished_potion",
+        "qty": 1
+      },
+      {
+        "item": "preserved_essence",
+        "qty": 1
+      }
+    ],
+    "outputs": [
+      {
+        "item": "stat_freeze_potion_4",
+        "qty": 1
+      }
+    ],
+    "category": "potion",
+    "examine": "Mix a 4-dose stat-freeze potion. freeze stats at current level 2 min."
+  },
+  {
+    "id": "mix_zamorak_brew_unfinished",
+    "skill": "herblore",
+    "station": "inventory",
+    "level": 70,
+    "xp": 30,
+    "inputs": [
+      {
+        "item": "vial_of_water",
+        "qty": 1
+      },
+      {
+        "item": "clean_torstol",
+        "qty": 1
+      }
+    ],
+    "outputs": [
+      {
+        "item": "zamorak_brew_unfinished_potion",
+        "qty": 1
+      }
+    ],
+    "category": "potion_unfinished",
+    "examine": "Mix a zamorak brew (unfinished)."
+  },
+  {
+    "id": "mix_zamorak_brew_potion_4",
+    "skill": "herblore",
+    "station": "inventory",
+    "level": 75,
+    "xp": 200,
+    "inputs": [
+      {
+        "item": "zamorak_brew_unfinished_potion",
+        "qty": 1
+      },
+      {
+        "item": "jangerberries",
+        "qty": 1
+      }
+    ],
+    "outputs": [
+      {
+        "item": "zamorak_brew_potion_4",
+        "qty": 1
+      }
+    ],
+    "category": "potion",
+    "examine": "Mix a 4-dose zamorak brew. +20% atk/str, -10% def/HP."
+  },
+  {
+    "id": "mix_divine_super_combat_unfinished",
+    "skill": "herblore",
+    "station": "inventory",
+    "level": 70,
+    "xp": 30,
+    "inputs": [
+      {
+        "item": "vial_of_water",
+        "qty": 1
+      },
+      {
+        "item": "clean_torstol",
+        "qty": 1
+      }
+    ],
+    "outputs": [
+      {
+        "item": "divine_super_combat_unfinished_potion",
+        "qty": 1
+      }
+    ],
+    "category": "potion_unfinished",
+    "examine": "Mix a divine super combat potion (unfinished)."
+  },
+  {
+    "id": "mix_divine_super_combat_potion_4",
+    "skill": "herblore",
+    "station": "inventory",
+    "level": 75,
+    "xp": 200,
+    "inputs": [
+      {
+        "item": "divine_super_combat_unfinished_potion",
+        "qty": 1
+      },
+      {
+        "item": "super_combat_potion_4",
+        "qty": 1
+      }
+    ],
+    "outputs": [
+      {
+        "item": "divine_super_combat_potion_4",
+        "qty": 1
+      }
+    ],
+    "category": "potion",
+    "examine": "Mix a 4-dose divine super combat potion. super atk/str/def, doesn't tick down."
+  },
+  {
+    "id": "mix_sanfew_serum_unfinished",
+    "skill": "herblore",
+    "station": "inventory",
+    "level": 70,
+    "xp": 30,
+    "inputs": [
+      {
+        "item": "vial_of_water",
+        "qty": 1
+      },
+      {
+        "item": "clean_snapdragon",
+        "qty": 1
+      }
+    ],
+    "outputs": [
+      {
+        "item": "sanfew_serum_unfinished_potion",
+        "qty": 1
+      }
+    ],
+    "category": "potion_unfinished",
+    "examine": "Mix a sanfew serum (unfinished)."
+  },
+  {
+    "id": "mix_sanfew_serum_potion_4",
+    "skill": "herblore",
+    "station": "inventory",
+    "level": 75,
+    "xp": 175,
+    "inputs": [
+      {
+        "item": "sanfew_serum_unfinished_potion",
+        "qty": 1
+      },
+      {
+        "item": "unicorn_horn_dust",
+        "qty": 1
+      }
+    ],
+    "outputs": [
+      {
+        "item": "sanfew_serum_potion_4",
+        "qty": 1
+      }
+    ],
+    "category": "potion",
+    "examine": "Mix a 4-dose sanfew serum. super restore + disease cure + anti-poison."
+  },
+  {
+    "id": "mix_bastion_unfinished",
+    "skill": "herblore",
+    "station": "inventory",
+    "level": 70,
+    "xp": 30,
+    "inputs": [
+      {
+        "item": "vial_of_water",
+        "qty": 1
+      },
+      {
+        "item": "clean_lantadyme",
+        "qty": 1
+      }
+    ],
+    "outputs": [
+      {
+        "item": "bastion_unfinished_potion",
+        "qty": 1
+      }
+    ],
+    "category": "potion_unfinished",
+    "examine": "Mix a bastion potion (unfinished)."
+  },
+  {
+    "id": "mix_bastion_potion_4",
+    "skill": "herblore",
+    "station": "inventory",
+    "level": 75,
+    "xp": 200,
+    "inputs": [
+      {
+        "item": "bastion_unfinished_potion",
+        "qty": 1
+      },
+      {
+        "item": "potato_cactus",
+        "qty": 1
+      }
+    ],
+    "outputs": [
+      {
+        "item": "bastion_potion_4",
+        "qty": 1
+      }
+    ],
+    "category": "potion",
+    "examine": "Mix a 4-dose bastion potion. +4+10% ranged, +5+15% def."
+  },
+  {
+    "id": "mix_battlemage_unfinished",
+    "skill": "herblore",
+    "station": "inventory",
+    "level": 70,
+    "xp": 30,
+    "inputs": [
+      {
+        "item": "vial_of_water",
+        "qty": 1
+      },
+      {
+        "item": "clean_kwuarm",
+        "qty": 1
+      }
+    ],
+    "outputs": [
+      {
+        "item": "battlemage_unfinished_potion",
+        "qty": 1
+      }
+    ],
+    "category": "potion_unfinished",
+    "examine": "Mix a battlemage potion (unfinished)."
+  },
+  {
+    "id": "mix_battlemage_potion_4",
+    "skill": "herblore",
+    "station": "inventory",
+    "level": 75,
+    "xp": 200,
+    "inputs": [
+      {
+        "item": "battlemage_unfinished_potion",
+        "qty": 1
+      },
+      {
+        "item": "newt_eye",
+        "qty": 1
+      }
+    ],
+    "outputs": [
+      {
+        "item": "battlemage_potion_4",
+        "qty": 1
+      }
+    ],
+    "category": "potion",
+    "examine": "Mix a 4-dose battlemage potion. +4 magic, +5+15% def."
+  },
+  {
+    "id": "cook_sprat",
+    "skill": "cooking",
+    "station": "range",
+    "level": 1,
+    "xp": 25,
+    "inputs": [
+      {
+        "item": "raw_sprat",
+        "qty": 1
+      }
+    ],
+    "outputs": [
+      {
+        "item": "cooked_sprat",
+        "qty": 1
+      }
+    ],
+    "burn_chance_at_level": 1,
+    "category": "cooking",
+    "examine": "Cook a raw sprat."
+  },
+  {
+    "id": "cook_shrimp",
+    "skill": "cooking",
+    "station": "range",
+    "level": 1,
+    "xp": 30,
+    "inputs": [
+      {
+        "item": "raw_shrimp",
+        "qty": 1
+      }
+    ],
+    "outputs": [
+      {
+        "item": "cooked_shrimp",
+        "qty": 1
+      }
+    ],
+    "burn_chance_at_level": 1,
+    "category": "cooking",
+    "examine": "Cook a raw shrimp."
+  },
+  {
+    "id": "cook_sardine",
+    "skill": "cooking",
+    "station": "range",
+    "level": 5,
+    "xp": 40,
+    "inputs": [
+      {
+        "item": "raw_sardine",
+        "qty": 1
+      }
+    ],
+    "outputs": [
+      {
+        "item": "cooked_sardine",
+        "qty": 1
+      }
+    ],
+    "burn_chance_at_level": 5,
+    "category": "cooking",
+    "examine": "Cook a raw sardine."
+  },
+  {
+    "id": "cook_trout",
+    "skill": "cooking",
+    "station": "range",
+    "level": 20,
+    "xp": 70,
+    "inputs": [
+      {
+        "item": "raw_trout",
+        "qty": 1
+      }
+    ],
+    "outputs": [
+      {
+        "item": "cooked_trout",
+        "qty": 1
+      }
+    ],
+    "burn_chance_at_level": 20,
+    "category": "cooking",
+    "examine": "Cook a raw trout."
+  },
+  {
+    "id": "cook_pike",
+    "skill": "cooking",
+    "station": "range",
+    "level": 25,
+    "xp": 80,
+    "inputs": [
+      {
+        "item": "raw_pike",
+        "qty": 1
+      }
+    ],
+    "outputs": [
+      {
+        "item": "cooked_pike",
+        "qty": 1
+      }
+    ],
+    "burn_chance_at_level": 25,
+    "category": "cooking",
+    "examine": "Cook a raw pike."
+  },
+  {
+    "id": "cook_salmon",
+    "skill": "cooking",
+    "station": "range",
+    "level": 30,
+    "xp": 90,
+    "inputs": [
+      {
+        "item": "raw_salmon",
+        "qty": 1
+      }
+    ],
+    "outputs": [
+      {
+        "item": "cooked_salmon",
+        "qty": 1
+      }
+    ],
+    "burn_chance_at_level": 30,
+    "category": "cooking",
+    "examine": "Cook a raw salmon."
+  },
+  {
+    "id": "cook_tuna",
+    "skill": "cooking",
+    "station": "range",
+    "level": 35,
+    "xp": 100,
+    "inputs": [
+      {
+        "item": "raw_tuna",
+        "qty": 1
+      }
+    ],
+    "outputs": [
+      {
+        "item": "cooked_tuna",
+        "qty": 1
+      }
+    ],
+    "burn_chance_at_level": 35,
+    "category": "cooking",
+    "examine": "Cook a raw tuna."
+  },
+  {
+    "id": "cook_lobster",
+    "skill": "cooking",
+    "station": "range",
+    "level": 40,
+    "xp": 120,
+    "inputs": [
+      {
+        "item": "raw_lobster",
+        "qty": 1
+      }
+    ],
+    "outputs": [
+      {
+        "item": "cooked_lobster",
+        "qty": 1
+      }
+    ],
+    "burn_chance_at_level": 40,
+    "category": "cooking",
+    "examine": "Cook a raw lobster."
+  },
+  {
+    "id": "cook_swordfish",
+    "skill": "cooking",
+    "station": "range",
+    "level": 50,
+    "xp": 140,
+    "inputs": [
+      {
+        "item": "raw_swordfish",
+        "qty": 1
+      }
+    ],
+    "outputs": [
+      {
+        "item": "cooked_swordfish",
+        "qty": 1
+      }
+    ],
+    "burn_chance_at_level": 50,
+    "category": "cooking",
+    "examine": "Cook a raw swordfish."
+  },
+  {
+    "id": "cook_monkfish",
+    "skill": "cooking",
+    "station": "range",
+    "level": 62,
+    "xp": 150,
+    "inputs": [
+      {
+        "item": "raw_monkfish",
+        "qty": 1
+      }
+    ],
+    "outputs": [
+      {
+        "item": "cooked_monkfish",
+        "qty": 1
+      }
+    ],
+    "burn_chance_at_level": 62,
+    "category": "cooking",
+    "examine": "Cook a raw monkfish."
+  },
+  {
+    "id": "cook_shark",
+    "skill": "cooking",
+    "station": "range",
+    "level": 76,
+    "xp": 210,
+    "inputs": [
+      {
+        "item": "raw_shark",
+        "qty": 1
+      }
+    ],
+    "outputs": [
+      {
+        "item": "cooked_shark",
+        "qty": 1
+      }
+    ],
+    "burn_chance_at_level": 76,
+    "category": "cooking",
+    "examine": "Cook a raw shark."
+  },
+  {
+    "id": "cook_anglerfish",
+    "skill": "cooking",
+    "station": "range",
+    "level": 82,
+    "xp": 230,
+    "inputs": [
+      {
+        "item": "raw_anglerfish",
+        "qty": 1
+      }
+    ],
+    "outputs": [
+      {
+        "item": "cooked_anglerfish",
+        "qty": 1
+      }
+    ],
+    "burn_chance_at_level": 82,
+    "category": "cooking",
+    "examine": "Cook a raw anglerfish."
+  },
+  {
+    "id": "cook_dark_crab",
+    "skill": "cooking",
+    "station": "range",
+    "level": 85,
+    "xp": 250,
+    "inputs": [
+      {
+        "item": "raw_dark_crab",
+        "qty": 1
+      }
+    ],
+    "outputs": [
+      {
+        "item": "cooked_dark_crab",
+        "qty": 1
+      }
+    ],
+    "burn_chance_at_level": 85,
+    "category": "cooking",
+    "examine": "Cook a raw dark crab."
+  },
+  {
+    "id": "cook_sea_wyrm",
+    "skill": "cooking",
+    "station": "range",
+    "level": 90,
+    "xp": 290,
+    "inputs": [
+      {
+        "item": "raw_sea_wyrm",
+        "qty": 1
+      }
+    ],
+    "outputs": [
+      {
+        "item": "cooked_sea_wyrm",
+        "qty": 1
+      }
+    ],
+    "burn_chance_at_level": 90,
+    "category": "cooking",
+    "examine": "Cook a raw sea wyrm."
+  },
+  {
+    "id": "cook_moonfin_eel",
+    "skill": "cooking",
+    "station": "range",
+    "level": 94,
+    "xp": 330,
+    "inputs": [
+      {
+        "item": "raw_moonfin_eel",
+        "qty": 1
+      }
+    ],
+    "outputs": [
+      {
+        "item": "cooked_moonfin_eel",
+        "qty": 1
+      }
+    ],
+    "burn_chance_at_level": 94,
+    "category": "cooking",
+    "examine": "Cook a raw moonfin eel."
+  },
+  {
+    "id": "cook_heartlands_field_loaf",
+    "skill": "cooking",
+    "station": "range",
+    "level": 5,
+    "xp": 25,
+    "inputs": [
+      {
+        "item": "flour",
+        "qty": 2
+      },
+      {
+        "item": "water",
+        "qty": 1
+      }
+    ],
+    "outputs": [
+      {
+        "item": "heartlands_field_loaf",
+        "qty": 1
+      }
+    ],
+    "category": "cooking_regional",
+    "examine": "Cook a regional dish: heartlands field loaf."
+  },
+  {
+    "id": "cook_heartlands_farmers_stew",
+    "skill": "cooking",
+    "station": "range",
+    "level": 20,
+    "xp": 80,
+    "inputs": [
+      {
+        "item": "raw_beef",
+        "qty": 1
+      },
+      {
+        "item": "potato",
+        "qty": 1
+      },
+      {
+        "item": "onion",
+        "qty": 1
+      }
+    ],
+    "outputs": [
+      {
+        "item": "heartlands_farmers_stew",
+        "qty": 1
+      }
+    ],
+    "category": "cooking_regional",
+    "examine": "Cook a regional dish: heartlands farmers stew."
+  },
+  {
+    "id": "cook_sootworks_coal_bread",
+    "skill": "cooking",
+    "station": "range",
+    "level": 12,
+    "xp": 35,
+    "inputs": [
+      {
+        "item": "flour",
+        "qty": 3
+      },
+      {
+        "item": "coal_dust",
+        "qty": 1
+      }
+    ],
+    "outputs": [
+      {
+        "item": "sootworks_coal_bread",
+        "qty": 1
+      }
+    ],
+    "category": "cooking_regional",
+    "examine": "Cook a regional dish: sootworks coal bread."
+  },
+  {
+    "id": "cook_sootworks_smoked_sausage",
+    "skill": "cooking",
+    "station": "range",
+    "level": 25,
+    "xp": 70,
+    "inputs": [
+      {
+        "item": "raw_pork",
+        "qty": 1
+      },
+      {
+        "item": "salt",
+        "qty": 1
+      }
+    ],
+    "outputs": [
+      {
+        "item": "sootworks_smoked_sausage",
+        "qty": 1
+      }
+    ],
+    "category": "cooking_regional",
+    "examine": "Cook a regional dish: sootworks smoked sausage."
+  },
+  {
+    "id": "cook_moryskah_black_pudding",
+    "skill": "cooking",
+    "station": "range",
+    "level": 45,
+    "xp": 120,
+    "inputs": [
+      {
+        "item": "blood",
+        "qty": 1
+      },
+      {
+        "item": "oats",
+        "qty": 2
+      }
+    ],
+    "outputs": [
+      {
+        "item": "moryskah_black_pudding",
+        "qty": 1
+      }
+    ],
+    "category": "cooking_regional",
+    "examine": "Cook a regional dish: moryskah black pudding."
+  },
+  {
+    "id": "cook_boneyard_cactus_water",
+    "skill": "cooking",
+    "station": "range",
+    "level": 10,
+    "xp": 30,
+    "inputs": [
+      {
+        "item": "cactus_spine",
+        "qty": 1
+      },
+      {
+        "item": "vial",
+        "qty": 1
+      }
+    ],
+    "outputs": [
+      {
+        "item": "boneyard_cactus_water",
+        "qty": 1
+      }
+    ],
+    "category": "cooking_regional",
+    "examine": "Cook a regional dish: boneyard cactus water."
+  },
+  {
+    "id": "cook_saltbrine_kraken_chowder",
+    "skill": "cooking",
+    "station": "range",
+    "level": 80,
+    "xp": 320,
+    "inputs": [
+      {
+        "item": "kraken_tentacle_tip",
+        "qty": 1
+      },
+      {
+        "item": "raw_cod",
+        "qty": 2
+      },
+      {
+        "item": "cream",
+        "qty": 1
+      }
+    ],
+    "outputs": [
+      {
+        "item": "saltbrine_kraken_chowder",
+        "qty": 1
+      }
+    ],
+    "category": "cooking_regional",
+    "examine": "Cook a regional dish: saltbrine kraken chowder."
+  },
+  {
+    "id": "cook_veilwood_fey_tea",
+    "skill": "cooking",
+    "station": "range",
+    "level": 30,
+    "xp": 60,
+    "inputs": [
+      {
+        "item": "moonberry",
+        "qty": 2
+      },
+      {
+        "item": "water",
+        "qty": 1
+      }
+    ],
+    "outputs": [
+      {
+        "item": "veilwood_fey_tea",
+        "qty": 1
+      }
+    ],
+    "category": "cooking_regional",
+    "examine": "Cook a regional dish: veilwood fey tea."
+  },
+  {
+    "id": "cook_inkweald_inksoaked_biscuits",
+    "skill": "cooking",
+    "station": "range",
+    "level": 55,
+    "xp": 160,
+    "inputs": [
+      {
+        "item": "flour",
+        "qty": 1
+      },
+      {
+        "item": "ink_heart",
+        "qty": 1
+      }
+    ],
+    "outputs": [
+      {
+        "item": "inkweald_inksoaked_biscuits",
+        "qty": 1
+      }
+    ],
+    "category": "cooking_regional",
+    "examine": "Cook a regional dish: inkweald inksoaked biscuits."
+  },
+  {
+    "id": "cook_wilds_bone_broth",
+    "skill": "cooking",
+    "station": "range",
+    "level": 40,
+    "xp": 100,
+    "inputs": [
+      {
+        "item": "bones",
+        "qty": 3
+      },
+      {
+        "item": "water",
+        "qty": 1
+      }
+    ],
+    "outputs": [
+      {
+        "item": "wilds_bone_broth",
+        "qty": 1
+      }
+    ],
+    "category": "cooking_regional",
+    "examine": "Cook a regional dish: wilds bone broth."
+  },
+  {
+    "id": "fletch_oak_shortbow_u",
+    "skill": "fletching",
+    "station": "inventory",
+    "level": 5,
+    "xp": 10,
+    "inputs": [
+      {
+        "item": "oak_logs",
+        "qty": 1
+      },
+      {
+        "item": "knife",
+        "qty": 0,
+        "note": "tool-required"
+      }
+    ],
+    "outputs": [
+      {
+        "item": "oak_shortbow_unstrung",
+        "qty": 1
+      }
+    ],
+    "category": "fletching",
+    "examine": "Fletch an unstrung oak shortbow."
+  },
+  {
+    "id": "string_oak_shortbow",
+    "skill": "fletching",
+    "station": "inventory",
+    "level": 5,
+    "xp": 15,
+    "inputs": [
+      {
+        "item": "oak_shortbow_unstrung",
+        "qty": 1
+      },
+      {
+        "item": "bowstring",
+        "qty": 1
+      }
+    ],
+    "outputs": [
+      {
+        "item": "oak_shortbow",
+        "qty": 1
+      }
+    ],
+    "category": "fletching",
+    "examine": "String a oak shortbow."
+  },
+  {
+    "id": "fletch_willow_shortbow_u",
+    "skill": "fletching",
+    "station": "inventory",
+    "level": 10,
+    "xp": 18,
+    "inputs": [
+      {
+        "item": "willow_logs",
+        "qty": 1
+      },
+      {
+        "item": "knife",
+        "qty": 0,
+        "note": "tool-required"
+      }
+    ],
+    "outputs": [
+      {
+        "item": "willow_shortbow_unstrung",
+        "qty": 1
+      }
+    ],
+    "category": "fletching",
+    "examine": "Fletch an unstrung willow shortbow."
+  },
+  {
+    "id": "string_willow_shortbow",
+    "skill": "fletching",
+    "station": "inventory",
+    "level": 10,
+    "xp": 25,
+    "inputs": [
+      {
+        "item": "willow_shortbow_unstrung",
+        "qty": 1
+      },
+      {
+        "item": "bowstring",
+        "qty": 1
+      }
+    ],
+    "outputs": [
+      {
+        "item": "willow_shortbow",
+        "qty": 1
+      }
+    ],
+    "category": "fletching",
+    "examine": "String a willow shortbow."
+  },
+  {
+    "id": "fletch_maple_shortbow_u",
+    "skill": "fletching",
+    "station": "inventory",
+    "level": 15,
+    "xp": 26,
+    "inputs": [
+      {
+        "item": "maple_logs",
+        "qty": 1
+      },
+      {
+        "item": "knife",
+        "qty": 0,
+        "note": "tool-required"
+      }
+    ],
+    "outputs": [
+      {
+        "item": "maple_shortbow_unstrung",
+        "qty": 1
+      }
+    ],
+    "category": "fletching",
+    "examine": "Fletch an unstrung maple shortbow."
+  },
+  {
+    "id": "string_maple_shortbow",
+    "skill": "fletching",
+    "station": "inventory",
+    "level": 15,
+    "xp": 35,
+    "inputs": [
+      {
+        "item": "maple_shortbow_unstrung",
+        "qty": 1
+      },
+      {
+        "item": "bowstring",
+        "qty": 1
+      }
+    ],
+    "outputs": [
+      {
+        "item": "maple_shortbow",
+        "qty": 1
+      }
+    ],
+    "category": "fletching",
+    "examine": "String a maple shortbow."
+  },
+  {
+    "id": "fletch_yew_shortbow_u",
+    "skill": "fletching",
+    "station": "inventory",
+    "level": 20,
+    "xp": 34,
+    "inputs": [
+      {
+        "item": "yew_logs",
+        "qty": 1
+      },
+      {
+        "item": "knife",
+        "qty": 0,
+        "note": "tool-required"
+      }
+    ],
+    "outputs": [
+      {
+        "item": "yew_shortbow_unstrung",
+        "qty": 1
+      }
+    ],
+    "category": "fletching",
+    "examine": "Fletch an unstrung yew shortbow."
+  },
+  {
+    "id": "string_yew_shortbow",
+    "skill": "fletching",
+    "station": "inventory",
+    "level": 20,
+    "xp": 45,
+    "inputs": [
+      {
+        "item": "yew_shortbow_unstrung",
+        "qty": 1
+      },
+      {
+        "item": "bowstring",
+        "qty": 1
+      }
+    ],
+    "outputs": [
+      {
+        "item": "yew_shortbow",
+        "qty": 1
+      }
+    ],
+    "category": "fletching",
+    "examine": "String a yew shortbow."
+  },
+  {
+    "id": "fletch_magic_yew_shortbow_u",
+    "skill": "fletching",
+    "station": "inventory",
+    "level": 25,
+    "xp": 42,
+    "inputs": [
+      {
+        "item": "magic_yew_logs",
+        "qty": 1
+      },
+      {
+        "item": "knife",
+        "qty": 0,
+        "note": "tool-required"
+      }
+    ],
+    "outputs": [
+      {
+        "item": "magic_yew_shortbow_unstrung",
+        "qty": 1
+      }
+    ],
+    "category": "fletching",
+    "examine": "Fletch an unstrung magic_yew shortbow."
+  },
+  {
+    "id": "string_magic_yew_shortbow",
+    "skill": "fletching",
+    "station": "inventory",
+    "level": 25,
+    "xp": 55,
+    "inputs": [
+      {
+        "item": "magic_yew_shortbow_unstrung",
+        "qty": 1
+      },
+      {
+        "item": "bowstring",
+        "qty": 1
+      }
+    ],
+    "outputs": [
+      {
+        "item": "magic_yew_shortbow",
+        "qty": 1
+      }
+    ],
+    "category": "fletching",
+    "examine": "String a magic_yew shortbow."
+  },
+  {
+    "id": "fletch_moonwood_shortbow_u",
+    "skill": "fletching",
+    "station": "inventory",
+    "level": 30,
+    "xp": 50,
+    "inputs": [
+      {
+        "item": "moonwood_logs",
+        "qty": 1
+      },
+      {
+        "item": "knife",
+        "qty": 0,
+        "note": "tool-required"
+      }
+    ],
+    "outputs": [
+      {
+        "item": "moonwood_shortbow_unstrung",
+        "qty": 1
+      }
+    ],
+    "category": "fletching",
+    "examine": "Fletch an unstrung moonwood shortbow."
+  },
+  {
+    "id": "string_moonwood_shortbow",
+    "skill": "fletching",
+    "station": "inventory",
+    "level": 30,
+    "xp": 65,
+    "inputs": [
+      {
+        "item": "moonwood_shortbow_unstrung",
+        "qty": 1
+      },
+      {
+        "item": "bowstring",
+        "qty": 1
+      }
+    ],
+    "outputs": [
+      {
+        "item": "moonwood_shortbow",
+        "qty": 1
+      }
+    ],
+    "category": "fletching",
+    "examine": "String a moonwood shortbow."
+  },
+  {
+    "id": "fletch_inkbark_shortbow_u",
+    "skill": "fletching",
+    "station": "inventory",
+    "level": 35,
+    "xp": 58,
+    "inputs": [
+      {
+        "item": "inkbark_logs",
+        "qty": 1
+      },
+      {
+        "item": "knife",
+        "qty": 0,
+        "note": "tool-required"
+      }
+    ],
+    "outputs": [
+      {
+        "item": "inkbark_shortbow_unstrung",
+        "qty": 1
+      }
+    ],
+    "category": "fletching",
+    "examine": "Fletch an unstrung inkbark shortbow."
+  },
+  {
+    "id": "string_inkbark_shortbow",
+    "skill": "fletching",
+    "station": "inventory",
+    "level": 35,
+    "xp": 75,
+    "inputs": [
+      {
+        "item": "inkbark_shortbow_unstrung",
+        "qty": 1
+      },
+      {
+        "item": "bowstring",
+        "qty": 1
+      }
+    ],
+    "outputs": [
+      {
+        "item": "inkbark_shortbow",
+        "qty": 1
+      }
+    ],
+    "category": "fletching",
+    "examine": "String a inkbark shortbow."
+  },
+  {
+    "id": "fletch_tinroot_arrows",
+    "skill": "fletching",
+    "station": "inventory",
+    "level": 1,
+    "xp": 2,
+    "inputs": [
+      {
+        "item": "arrow_shaft",
+        "qty": 15
+      },
+      {
+        "item": "feather",
+        "qty": 15
+      },
+      {
+        "item": "tinroot_arrowtip",
+        "qty": 15
+      }
+    ],
+    "outputs": [
+      {
+        "item": "tinroot_arrows",
+        "qty": 15
+      }
+    ],
+    "category": "fletching",
+    "examine": "Fletch 15 tinroot arrows."
+  },
+  {
+    "id": "fletch_pigiron_arrows",
+    "skill": "fletching",
+    "station": "inventory",
+    "level": 11,
+    "xp": 5,
+    "inputs": [
+      {
+        "item": "arrow_shaft",
+        "qty": 15
+      },
+      {
+        "item": "feather",
+        "qty": 15
+      },
+      {
+        "item": "pigiron_arrowtip",
+        "qty": 15
+      }
+    ],
+    "outputs": [
+      {
+        "item": "pigiron_arrows",
+        "qty": 15
+      }
+    ],
+    "category": "fletching",
+    "examine": "Fletch 15 pigiron arrows."
+  },
+  {
+    "id": "fletch_coalsteel_arrows",
+    "skill": "fletching",
+    "station": "inventory",
+    "level": 21,
+    "xp": 8,
+    "inputs": [
+      {
+        "item": "arrow_shaft",
+        "qty": 15
+      },
+      {
+        "item": "feather",
+        "qty": 15
+      },
+      {
+        "item": "coalsteel_arrowtip",
+        "qty": 15
+      }
+    ],
+    "outputs": [
+      {
+        "item": "coalsteel_arrows",
+        "qty": 15
+      }
+    ],
+    "category": "fletching",
+    "examine": "Fletch 15 coalsteel arrows."
+  },
+  {
+    "id": "fletch_quicksilver_arrows",
+    "skill": "fletching",
+    "station": "inventory",
+    "level": 31,
+    "xp": 11,
+    "inputs": [
+      {
+        "item": "arrow_shaft",
+        "qty": 15
+      },
+      {
+        "item": "feather",
+        "qty": 15
+      },
+      {
+        "item": "quicksilver_arrowtip",
+        "qty": 15
+      }
+    ],
+    "outputs": [
+      {
+        "item": "quicksilver_arrows",
+        "qty": 15
+      }
+    ],
+    "category": "fletching",
+    "examine": "Fletch 15 quicksilver arrows."
+  },
+  {
+    "id": "fletch_blacksteel_arrows",
+    "skill": "fletching",
+    "station": "inventory",
+    "level": 41,
+    "xp": 14,
+    "inputs": [
+      {
+        "item": "arrow_shaft",
+        "qty": 15
+      },
+      {
+        "item": "feather",
+        "qty": 15
+      },
+      {
+        "item": "blacksteel_arrowtip",
+        "qty": 15
+      }
+    ],
+    "outputs": [
+      {
+        "item": "blacksteel_arrows",
+        "qty": 15
+      }
+    ],
+    "category": "fletching",
+    "examine": "Fletch 15 blacksteel arrows."
+  },
+  {
+    "id": "fletch_runeforge_arrows",
+    "skill": "fletching",
+    "station": "inventory",
+    "level": 51,
+    "xp": 17,
+    "inputs": [
+      {
+        "item": "arrow_shaft",
+        "qty": 15
+      },
+      {
+        "item": "feather",
+        "qty": 15
+      },
+      {
+        "item": "runeforge_arrowtip",
+        "qty": 15
+      }
+    ],
+    "outputs": [
+      {
+        "item": "runeforge_arrows",
+        "qty": 15
+      }
+    ],
+    "category": "fletching",
+    "examine": "Fletch 15 runeforge arrows."
+  },
+  {
+    "id": "fletch_dragonsteel_arrows",
+    "skill": "fletching",
+    "station": "inventory",
+    "level": 61,
+    "xp": 20,
+    "inputs": [
+      {
+        "item": "arrow_shaft",
+        "qty": 15
+      },
+      {
+        "item": "feather",
+        "qty": 15
+      },
+      {
+        "item": "dragonsteel_arrowtip",
+        "qty": 15
+      }
+    ],
+    "outputs": [
+      {
+        "item": "dragonsteel_arrows",
+        "qty": 15
+      }
+    ],
+    "category": "fletching",
+    "examine": "Fletch 15 dragonsteel arrows."
+  },
+  {
+    "id": "fletch_aeldra_arrows",
+    "skill": "fletching",
+    "station": "inventory",
+    "level": 71,
+    "xp": 23,
+    "inputs": [
+      {
+        "item": "arrow_shaft",
+        "qty": 15
+      },
+      {
+        "item": "feather",
+        "qty": 15
+      },
+      {
+        "item": "aeldra_arrowtip",
+        "qty": 15
+      }
+    ],
+    "outputs": [
+      {
+        "item": "aeldra_arrows",
+        "qty": 15
+      }
+    ],
+    "category": "fletching",
+    "examine": "Fletch 15 aeldra arrows."
+  },
+  {
+    "id": "tan_cowhide",
+    "skill": "crafting",
+    "station": "tannery",
+    "level": 1,
+    "xp": 2,
+    "inputs": [
+      {
+        "item": "cowhide",
+        "qty": 1
+      },
+      {
+        "item": "coins",
+        "qty": 1
+      }
+    ],
+    "outputs": [
+      {
+        "item": "cowhide_tanned",
+        "qty": 1
+      }
+    ],
+    "category": "tanning",
+    "examine": "Tan a cowhide."
+  },
+  {
+    "id": "tan_deer_hide",
+    "skill": "crafting",
+    "station": "tannery",
+    "level": 15,
+    "xp": 30,
+    "inputs": [
+      {
+        "item": "deer_hide",
+        "qty": 1
+      },
+      {
+        "item": "coins",
+        "qty": 15
+      }
+    ],
+    "outputs": [
+      {
+        "item": "deer_hide_tanned",
+        "qty": 1
+      }
+    ],
+    "category": "tanning",
+    "examine": "Tan a deer hide."
+  },
+  {
+    "id": "tan_boar_hide",
+    "skill": "crafting",
+    "station": "tannery",
+    "level": 25,
+    "xp": 50,
+    "inputs": [
+      {
+        "item": "boar_hide",
+        "qty": 1
+      },
+      {
+        "item": "coins",
+        "qty": 25
+      }
+    ],
+    "outputs": [
+      {
+        "item": "boar_hide_tanned",
+        "qty": 1
+      }
+    ],
+    "category": "tanning",
+    "examine": "Tan a boar hide."
+  },
+  {
+    "id": "tan_wyvern_hide",
+    "skill": "crafting",
+    "station": "tannery",
+    "level": 40,
+    "xp": 80,
+    "inputs": [
+      {
+        "item": "wyvern_hide",
+        "qty": 1
+      },
+      {
+        "item": "coins",
+        "qty": 40
+      }
+    ],
+    "outputs": [
+      {
+        "item": "wyvern_hide_tanned",
+        "qty": 1
+      }
+    ],
+    "category": "tanning",
+    "examine": "Tan a wyvern hide."
+  },
+  {
+    "id": "tan_firedrake_hide",
+    "skill": "crafting",
+    "station": "tannery",
+    "level": 50,
+    "xp": 100,
+    "inputs": [
+      {
+        "item": "firedrake_hide",
+        "qty": 1
+      },
+      {
+        "item": "coins",
+        "qty": 50
+      }
+    ],
+    "outputs": [
+      {
+        "item": "firedrake_hide_tanned",
+        "qty": 1
+      }
+    ],
+    "category": "tanning",
+    "examine": "Tan a firedrake hide."
+  },
+  {
+    "id": "tan_brinescale_hide",
+    "skill": "crafting",
+    "station": "tannery",
+    "level": 60,
+    "xp": 120,
+    "inputs": [
+      {
+        "item": "brinescale_hide",
+        "qty": 1
+      },
+      {
+        "item": "coins",
+        "qty": 60
+      }
+    ],
+    "outputs": [
+      {
+        "item": "brinescale_hide_tanned",
+        "qty": 1
+      }
+    ],
+    "category": "tanning",
+    "examine": "Tan a brinescale hide."
+  },
+  {
+    "id": "tan_shadowhide",
+    "skill": "crafting",
+    "station": "tannery",
+    "level": 70,
+    "xp": 140,
+    "inputs": [
+      {
+        "item": "shadowhide",
+        "qty": 1
+      },
+      {
+        "item": "coins",
+        "qty": 70
+      }
+    ],
+    "outputs": [
+      {
+        "item": "shadowhide_tanned",
+        "qty": 1
+      }
+    ],
+    "category": "tanning",
+    "examine": "Tan a shadowhide."
+  },
+  {
+    "id": "tan_wyrmscale",
+    "skill": "crafting",
+    "station": "tannery",
+    "level": 75,
+    "xp": 150,
+    "inputs": [
+      {
+        "item": "wyrmscale",
+        "qty": 1
+      },
+      {
+        "item": "coins",
+        "qty": 75
+      }
+    ],
+    "outputs": [
+      {
+        "item": "wyrmscale_tanned",
+        "qty": 1
+      }
+    ],
+    "category": "tanning",
+    "examine": "Tan a wyrmscale."
+  },
+  {
+    "id": "cut_opal",
+    "skill": "crafting",
+    "station": "inventory",
+    "level": 2,
+    "xp": 2,
+    "inputs": [
+      {
+        "item": "uncut_opal",
+        "qty": 1
+      },
+      {
+        "item": "chisel",
+        "qty": 0,
+        "note": "tool-required"
+      }
+    ],
+    "outputs": [
+      {
+        "item": "cut_opal",
+        "qty": 1
+      }
+    ],
+    "category": "gem_cutting",
+    "examine": "Cut an uncut opal."
+  },
+  {
+    "id": "cut_jade",
+    "skill": "crafting",
+    "station": "inventory",
+    "level": 14,
+    "xp": 5.5,
+    "inputs": [
+      {
+        "item": "uncut_jade",
+        "qty": 1
+      },
+      {
+        "item": "chisel",
+        "qty": 0,
+        "note": "tool-required"
+      }
+    ],
+    "outputs": [
+      {
+        "item": "cut_jade",
+        "qty": 1
+      }
+    ],
+    "category": "gem_cutting",
+    "examine": "Cut an uncut jade."
+  },
+  {
+    "id": "cut_topaz",
+    "skill": "crafting",
+    "station": "inventory",
+    "level": 17,
+    "xp": 10,
+    "inputs": [
+      {
+        "item": "uncut_topaz",
+        "qty": 1
+      },
+      {
+        "item": "chisel",
+        "qty": 0,
+        "note": "tool-required"
+      }
+    ],
+    "outputs": [
+      {
+        "item": "cut_topaz",
+        "qty": 1
+      }
+    ],
+    "category": "gem_cutting",
+    "examine": "Cut an uncut topaz."
+  },
+  {
+    "id": "cut_sapphire",
+    "skill": "crafting",
+    "station": "inventory",
+    "level": 21,
+    "xp": 15,
+    "inputs": [
+      {
+        "item": "uncut_sapphire",
+        "qty": 1
+      },
+      {
+        "item": "chisel",
+        "qty": 0,
+        "note": "tool-required"
+      }
+    ],
+    "outputs": [
+      {
+        "item": "cut_sapphire",
+        "qty": 1
+      }
+    ],
+    "category": "gem_cutting",
+    "examine": "Cut an uncut sapphire."
+  },
+  {
+    "id": "cut_emerald",
+    "skill": "crafting",
+    "station": "inventory",
+    "level": 28,
+    "xp": 30,
+    "inputs": [
+      {
+        "item": "uncut_emerald",
+        "qty": 1
+      },
+      {
+        "item": "chisel",
+        "qty": 0,
+        "note": "tool-required"
+      }
+    ],
+    "outputs": [
+      {
+        "item": "cut_emerald",
+        "qty": 1
+      }
+    ],
+    "category": "gem_cutting",
+    "examine": "Cut an uncut emerald."
+  },
+  {
+    "id": "cut_ruby",
+    "skill": "crafting",
+    "station": "inventory",
+    "level": 35,
+    "xp": 60,
+    "inputs": [
+      {
+        "item": "uncut_ruby",
+        "qty": 1
+      },
+      {
+        "item": "chisel",
+        "qty": 0,
+        "note": "tool-required"
+      }
+    ],
+    "outputs": [
+      {
+        "item": "cut_ruby",
+        "qty": 1
+      }
+    ],
+    "category": "gem_cutting",
+    "examine": "Cut an uncut ruby."
+  },
+  {
+    "id": "cut_diamond",
+    "skill": "crafting",
+    "station": "inventory",
+    "level": 44,
+    "xp": 120,
+    "inputs": [
+      {
+        "item": "uncut_diamond",
+        "qty": 1
+      },
+      {
+        "item": "chisel",
+        "qty": 0,
+        "note": "tool-required"
+      }
+    ],
+    "outputs": [
+      {
+        "item": "cut_diamond",
+        "qty": 1
+      }
+    ],
+    "category": "gem_cutting",
+    "examine": "Cut an uncut diamond."
+  },
+  {
+    "id": "cut_dragonstone",
+    "skill": "crafting",
+    "station": "inventory",
+    "level": 56,
+    "xp": 360,
+    "inputs": [
+      {
+        "item": "uncut_dragonstone",
+        "qty": 1
+      },
+      {
+        "item": "chisel",
+        "qty": 0,
+        "note": "tool-required"
+      }
+    ],
+    "outputs": [
+      {
+        "item": "cut_dragonstone",
+        "qty": 1
+      }
+    ],
+    "category": "gem_cutting",
+    "examine": "Cut an uncut dragonstone."
+  },
+  {
+    "id": "cut_onyx",
+    "skill": "crafting",
+    "station": "inventory",
+    "level": 68,
+    "xp": 9000,
+    "inputs": [
+      {
+        "item": "uncut_onyx",
+        "qty": 1
+      },
+      {
+        "item": "chisel",
+        "qty": 0,
+        "note": "tool-required"
+      }
+    ],
+    "outputs": [
+      {
+        "item": "cut_onyx",
+        "qty": 1
+      }
+    ],
+    "category": "gem_cutting",
+    "examine": "Cut an uncut onyx."
+  },
+  {
+    "id": "cut_zenyte",
+    "skill": "crafting",
+    "station": "inventory",
+    "level": 79,
+    "xp": 27500,
+    "inputs": [
+      {
+        "item": "uncut_zenyte",
+        "qty": 1
+      },
+      {
+        "item": "chisel",
+        "qty": 0,
+        "note": "tool-required"
+      }
+    ],
+    "outputs": [
+      {
+        "item": "cut_zenyte",
+        "qty": 1
+      }
+    ],
+    "category": "gem_cutting",
+    "examine": "Cut an uncut zenyte."
+  },
+  {
+    "id": "cut_moonstone",
+    "skill": "crafting",
+    "station": "inventory",
+    "level": 82,
+    "xp": 14000,
+    "inputs": [
+      {
+        "item": "uncut_moonstone",
+        "qty": 1
+      },
+      {
+        "item": "chisel",
+        "qty": 0,
+        "note": "tool-required"
+      }
+    ],
+    "outputs": [
+      {
+        "item": "cut_moonstone",
+        "qty": 1
+      }
+    ],
+    "category": "gem_cutting",
+    "examine": "Cut an uncut moonstone."
+  },
+  {
+    "id": "cut_inkstone",
+    "skill": "crafting",
+    "station": "inventory",
+    "level": 86,
+    "xp": 21000,
+    "inputs": [
+      {
+        "item": "uncut_inkstone",
+        "qty": 1
+      },
+      {
+        "item": "chisel",
+        "qty": 0,
+        "note": "tool-required"
+      }
+    ],
+    "outputs": [
+      {
+        "item": "cut_inkstone",
+        "qty": 1
+      }
+    ],
+    "category": "gem_cutting",
+    "examine": "Cut an uncut inkstone."
+  },
+  {
+    "id": "rc_air",
+    "skill": "runecrafting",
+    "station": "air_altar",
+    "level": 1,
+    "xp": 5,
+    "inputs": [
+      {
+        "item": "rune_essence",
+        "qty": 1
+      }
+    ],
+    "outputs": [
+      {
+        "item": "air_rune",
+        "qty": 1
+      }
+    ],
+    "category": "runecrafting",
+    "examine": "Craft a air rune at the air altar."
+  },
+  {
+    "id": "rc_mind",
+    "skill": "runecrafting",
+    "station": "mind_altar",
+    "level": 2,
+    "xp": 5.5,
+    "inputs": [
+      {
+        "item": "rune_essence",
+        "qty": 1
+      }
+    ],
+    "outputs": [
+      {
+        "item": "mind_rune",
+        "qty": 1
+      }
+    ],
+    "category": "runecrafting",
+    "examine": "Craft a mind rune at the mind altar."
+  },
+  {
+    "id": "rc_water",
+    "skill": "runecrafting",
+    "station": "water_altar",
+    "level": 5,
+    "xp": 6,
+    "inputs": [
+      {
+        "item": "rune_essence",
+        "qty": 1
+      }
+    ],
+    "outputs": [
+      {
+        "item": "water_rune",
+        "qty": 1
+      }
+    ],
+    "category": "runecrafting",
+    "examine": "Craft a water rune at the water altar."
+  },
+  {
+    "id": "rc_earth",
+    "skill": "runecrafting",
+    "station": "earth_altar",
+    "level": 9,
+    "xp": 6.5,
+    "inputs": [
+      {
+        "item": "rune_essence",
+        "qty": 1
+      }
+    ],
+    "outputs": [
+      {
+        "item": "earth_rune",
+        "qty": 1
+      }
+    ],
+    "category": "runecrafting",
+    "examine": "Craft a earth rune at the earth altar."
+  },
+  {
+    "id": "rc_fire",
+    "skill": "runecrafting",
+    "station": "fire_altar",
+    "level": 14,
+    "xp": 7,
+    "inputs": [
+      {
+        "item": "rune_essence",
+        "qty": 1
+      }
+    ],
+    "outputs": [
+      {
+        "item": "fire_rune",
+        "qty": 1
+      }
+    ],
+    "category": "runecrafting",
+    "examine": "Craft a fire rune at the fire altar."
+  },
+  {
+    "id": "rc_body",
+    "skill": "runecrafting",
+    "station": "body_altar",
+    "level": 20,
+    "xp": 7.5,
+    "inputs": [
+      {
+        "item": "rune_essence",
+        "qty": 1
+      }
+    ],
+    "outputs": [
+      {
+        "item": "body_rune",
+        "qty": 1
+      }
+    ],
+    "category": "runecrafting",
+    "examine": "Craft a body rune at the body altar."
+  },
+  {
+    "id": "rc_cosmic",
+    "skill": "runecrafting",
+    "station": "cosmic_altar",
+    "level": 27,
+    "xp": 8,
+    "inputs": [
+      {
+        "item": "pure_essence",
+        "qty": 1
+      }
+    ],
+    "outputs": [
+      {
+        "item": "cosmic_rune",
+        "qty": 1
+      }
+    ],
+    "category": "runecrafting",
+    "examine": "Craft a cosmic rune at the cosmic altar."
+  },
+  {
+    "id": "rc_chaos",
+    "skill": "runecrafting",
+    "station": "chaos_altar",
+    "level": 35,
+    "xp": 8.5,
+    "inputs": [
+      {
+        "item": "pure_essence",
+        "qty": 1
+      }
+    ],
+    "outputs": [
+      {
+        "item": "chaos_rune",
+        "qty": 1
+      }
+    ],
+    "category": "runecrafting",
+    "examine": "Craft a chaos rune at the chaos altar."
+  },
+  {
+    "id": "rc_astral",
+    "skill": "runecrafting",
+    "station": "astral_altar",
+    "level": 40,
+    "xp": 8.7,
+    "inputs": [
+      {
+        "item": "pure_essence",
+        "qty": 1
+      }
+    ],
+    "outputs": [
+      {
+        "item": "astral_rune",
+        "qty": 1
+      }
+    ],
+    "category": "runecrafting",
+    "examine": "Craft a astral rune at the astral altar."
+  },
+  {
+    "id": "rc_nature",
+    "skill": "runecrafting",
+    "station": "nature_altar",
+    "level": 44,
+    "xp": 9,
+    "inputs": [
+      {
+        "item": "pure_essence",
+        "qty": 1
+      }
+    ],
+    "outputs": [
+      {
+        "item": "nature_rune",
+        "qty": 1
+      }
+    ],
+    "category": "runecrafting",
+    "examine": "Craft a nature rune at the nature altar."
+  },
+  {
+    "id": "rc_law",
+    "skill": "runecrafting",
+    "station": "law_altar",
+    "level": 54,
+    "xp": 9.5,
+    "inputs": [
+      {
+        "item": "pure_essence",
+        "qty": 1
+      }
+    ],
+    "outputs": [
+      {
+        "item": "law_rune",
+        "qty": 1
+      }
+    ],
+    "category": "runecrafting",
+    "examine": "Craft a law rune at the law altar."
+  },
+  {
+    "id": "rc_death",
+    "skill": "runecrafting",
+    "station": "death_altar",
+    "level": 65,
+    "xp": 10,
+    "inputs": [
+      {
+        "item": "pure_essence",
+        "qty": 1
+      }
+    ],
+    "outputs": [
+      {
+        "item": "death_rune",
+        "qty": 1
+      }
+    ],
+    "category": "runecrafting",
+    "examine": "Craft a death rune at the death altar."
+  },
+  {
+    "id": "rc_blood",
+    "skill": "runecrafting",
+    "station": "blood_altar",
+    "level": 77,
+    "xp": 10.5,
+    "inputs": [
+      {
+        "item": "dark_essence_fragment",
+        "qty": 1
+      }
+    ],
+    "outputs": [
+      {
+        "item": "blood_rune",
+        "qty": 1
+      }
+    ],
+    "category": "runecrafting",
+    "examine": "Craft a blood rune at the blood altar."
+  },
+  {
+    "id": "rc_soul",
+    "skill": "runecrafting",
+    "station": "soul_altar",
+    "level": 90,
+    "xp": 11.2,
+    "inputs": [
+      {
+        "item": "dark_essence_fragment",
+        "qty": 1
+      }
+    ],
+    "outputs": [
+      {
+        "item": "soul_rune",
+        "qty": 1
+      }
+    ],
+    "category": "runecrafting",
+    "examine": "Craft a soul rune at the soul altar."
+  },
+  {
+    "id": "rc_wrath",
+    "skill": "runecrafting",
+    "station": "wrath_altar",
+    "level": 95,
+    "xp": 13,
+    "inputs": [
+      {
+        "item": "dark_essence_fragment",
+        "qty": 1
+      }
+    ],
+    "outputs": [
+      {
+        "item": "wrath_rune",
+        "qty": 1
+      }
+    ],
+    "category": "runecrafting",
+    "examine": "Craft a wrath rune at the wrath altar."
+  },
+  {
+    "id": "farm_plant_guam",
+    "skill": "farming",
+    "station": "herb_patch",
+    "level": 2,
+    "xp": 9,
+    "inputs": [
+      {
+        "item": "guam_seed",
+        "qty": 1
+      },
+      {
+        "item": "rake",
+        "qty": 0,
+        "note": "tool-required"
+      }
+    ],
+    "outputs": [
+      {
+        "item": "grimy_guam",
+        "qty": 4
+      }
+    ],
+    "category": "farming_herb",
+    "growth_ticks": 240,
+    "examine": "Plant a guam seed. Grows into 4-6 grimy guam."
+  },
+  {
+    "id": "farm_plant_marrentill",
+    "skill": "farming",
+    "station": "herb_patch",
+    "level": 4,
+    "xp": 15,
+    "inputs": [
+      {
+        "item": "marrentill_seed",
+        "qty": 1
+      },
+      {
+        "item": "rake",
+        "qty": 0,
+        "note": "tool-required"
+      }
+    ],
+    "outputs": [
+      {
+        "item": "grimy_marrentill",
+        "qty": 4
+      }
+    ],
+    "category": "farming_herb",
+    "growth_ticks": 400,
+    "examine": "Plant a marrentill seed. Grows into 4-6 grimy marrentill."
+  },
+  {
+    "id": "farm_plant_tarromin",
+    "skill": "farming",
+    "station": "herb_patch",
+    "level": 10,
+    "xp": 33,
+    "inputs": [
+      {
+        "item": "tarromin_seed",
+        "qty": 1
+      },
+      {
+        "item": "rake",
+        "qty": 0,
+        "note": "tool-required"
+      }
+    ],
+    "outputs": [
+      {
+        "item": "grimy_tarromin",
+        "qty": 4
+      }
+    ],
+    "category": "farming_herb",
+    "growth_ticks": 880,
+    "examine": "Plant a tarromin seed. Grows into 4-6 grimy tarromin."
+  },
+  {
+    "id": "farm_plant_harralander",
+    "skill": "farming",
+    "station": "herb_patch",
+    "level": 19,
+    "xp": 60,
+    "inputs": [
+      {
+        "item": "harralander_seed",
+        "qty": 1
+      },
+      {
+        "item": "rake",
+        "qty": 0,
+        "note": "tool-required"
+      }
+    ],
+    "outputs": [
+      {
+        "item": "grimy_harralander",
+        "qty": 4
+      }
+    ],
+    "category": "farming_herb",
+    "growth_ticks": 1600,
+    "examine": "Plant a harralander seed. Grows into 4-6 grimy harralander."
+  },
+  {
+    "id": "farm_plant_ranarr",
+    "skill": "farming",
+    "station": "herb_patch",
+    "level": 24,
+    "xp": 75,
+    "inputs": [
+      {
+        "item": "ranarr_seed",
+        "qty": 1
+      },
+      {
+        "item": "rake",
+        "qty": 0,
+        "note": "tool-required"
+      }
+    ],
+    "outputs": [
+      {
+        "item": "grimy_ranarr",
+        "qty": 4
+      }
+    ],
+    "category": "farming_herb",
+    "growth_ticks": 2000,
+    "examine": "Plant a ranarr seed. Grows into 4-6 grimy ranarr."
+  },
+  {
+    "id": "farm_plant_toadflax",
+    "skill": "farming",
+    "station": "herb_patch",
+    "level": 29,
+    "xp": 90,
+    "inputs": [
+      {
+        "item": "toadflax_seed",
+        "qty": 1
+      },
+      {
+        "item": "rake",
+        "qty": 0,
+        "note": "tool-required"
+      }
+    ],
+    "outputs": [
+      {
+        "item": "grimy_toadflax",
+        "qty": 4
+      }
+    ],
+    "category": "farming_herb",
+    "growth_ticks": 2400,
+    "examine": "Plant a toadflax seed. Grows into 4-6 grimy toadflax."
+  },
+  {
+    "id": "farm_plant_irit",
+    "skill": "farming",
+    "station": "herb_patch",
+    "level": 39,
+    "xp": 120,
+    "inputs": [
+      {
+        "item": "irit_seed",
+        "qty": 1
+      },
+      {
+        "item": "rake",
+        "qty": 0,
+        "note": "tool-required"
+      }
+    ],
+    "outputs": [
+      {
+        "item": "grimy_irit",
+        "qty": 4
+      }
+    ],
+    "category": "farming_herb",
+    "growth_ticks": 3200,
+    "examine": "Plant a irit seed. Grows into 4-6 grimy irit."
+  },
+  {
+    "id": "farm_plant_avantoe",
+    "skill": "farming",
+    "station": "herb_patch",
+    "level": 47,
+    "xp": 144,
+    "inputs": [
+      {
+        "item": "avantoe_seed",
+        "qty": 1
+      },
+      {
+        "item": "rake",
+        "qty": 0,
+        "note": "tool-required"
+      }
+    ],
+    "outputs": [
+      {
+        "item": "grimy_avantoe",
+        "qty": 4
+      }
+    ],
+    "category": "farming_herb",
+    "growth_ticks": 3840,
+    "examine": "Plant a avantoe seed. Grows into 4-6 grimy avantoe."
+  },
+  {
+    "id": "farm_plant_kwuarm",
+    "skill": "farming",
+    "station": "herb_patch",
+    "level": 53,
+    "xp": 162,
+    "inputs": [
+      {
+        "item": "kwuarm_seed",
+        "qty": 1
+      },
+      {
+        "item": "rake",
+        "qty": 0,
+        "note": "tool-required"
+      }
+    ],
+    "outputs": [
+      {
+        "item": "grimy_kwuarm",
+        "qty": 4
+      }
+    ],
+    "category": "farming_herb",
+    "growth_ticks": 4320,
+    "examine": "Plant a kwuarm seed. Grows into 4-6 grimy kwuarm."
+  },
+  {
+    "id": "farm_plant_snapdragon",
+    "skill": "farming",
+    "station": "herb_patch",
+    "level": 58,
+    "xp": 177,
+    "inputs": [
+      {
+        "item": "snapdragon_seed",
+        "qty": 1
+      },
+      {
+        "item": "rake",
+        "qty": 0,
+        "note": "tool-required"
+      }
+    ],
+    "outputs": [
+      {
+        "item": "grimy_snapdragon",
+        "qty": 4
+      }
+    ],
+    "category": "farming_herb",
+    "growth_ticks": 4720,
+    "examine": "Plant a snapdragon seed. Grows into 4-6 grimy snapdragon."
+  },
+  {
+    "id": "farm_plant_cadantine",
+    "skill": "farming",
+    "station": "herb_patch",
+    "level": 64,
+    "xp": 195,
+    "inputs": [
+      {
+        "item": "cadantine_seed",
+        "qty": 1
+      },
+      {
+        "item": "rake",
+        "qty": 0,
+        "note": "tool-required"
+      }
+    ],
+    "outputs": [
+      {
+        "item": "grimy_cadantine",
+        "qty": 4
+      }
+    ],
+    "category": "farming_herb",
+    "growth_ticks": 5200,
+    "examine": "Plant a cadantine seed. Grows into 4-6 grimy cadantine."
+  },
+  {
+    "id": "farm_plant_lantadyme",
+    "skill": "farming",
+    "station": "herb_patch",
+    "level": 66,
+    "xp": 201,
+    "inputs": [
+      {
+        "item": "lantadyme_seed",
+        "qty": 1
+      },
+      {
+        "item": "rake",
+        "qty": 0,
+        "note": "tool-required"
+      }
+    ],
+    "outputs": [
+      {
+        "item": "grimy_lantadyme",
+        "qty": 4
+      }
+    ],
+    "category": "farming_herb",
+    "growth_ticks": 5360,
+    "examine": "Plant a lantadyme seed. Grows into 4-6 grimy lantadyme."
+  },
+  {
+    "id": "farm_plant_dwarf_weed",
+    "skill": "farming",
+    "station": "herb_patch",
+    "level": 69,
+    "xp": 210,
+    "inputs": [
+      {
+        "item": "dwarf_weed_seed",
+        "qty": 1
+      },
+      {
+        "item": "rake",
+        "qty": 0,
+        "note": "tool-required"
+      }
+    ],
+    "outputs": [
+      {
+        "item": "grimy_dwarf_weed",
+        "qty": 4
+      }
+    ],
+    "category": "farming_herb",
+    "growth_ticks": 5600,
+    "examine": "Plant a dwarf_weed seed. Grows into 4-6 grimy dwarf_weed."
+  },
+  {
+    "id": "farm_plant_torstol",
+    "skill": "farming",
+    "station": "herb_patch",
+    "level": 74,
+    "xp": 225,
+    "inputs": [
+      {
+        "item": "torstol_seed",
+        "qty": 1
+      },
+      {
+        "item": "rake",
+        "qty": 0,
+        "note": "tool-required"
+      }
+    ],
+    "outputs": [
+      {
+        "item": "grimy_torstol",
+        "qty": 4
+      }
+    ],
+    "category": "farming_herb",
+    "growth_ticks": 6000,
+    "examine": "Plant a torstol seed. Grows into 4-6 grimy torstol."
+  }
+]

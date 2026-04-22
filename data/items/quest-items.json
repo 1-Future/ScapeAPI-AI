@@ -1,0 +1,731 @@
+[
+  {
+    "tradeable": false,
+    "stackable": false,
+    "weight": 0.1,
+    "id": "heartlands_barn_key",
+    "name": "Heartlands barn key",
+    "category": "quest_key",
+    "value": 1,
+    "tags": [
+      "key",
+      "quest_item",
+      "untradeable"
+    ],
+    "examine": "Unlocks the back door of the old Heartlands barn."
+  },
+  {
+    "tradeable": false,
+    "stackable": false,
+    "weight": 0.1,
+    "id": "sootworks_foundry_key",
+    "name": "Sootworks foundry key",
+    "category": "quest_key",
+    "value": 1,
+    "tags": [
+      "key",
+      "quest_item",
+      "untradeable"
+    ],
+    "examine": "Opens the Sootworks masters' foundry gate."
+  },
+  {
+    "tradeable": false,
+    "stackable": false,
+    "weight": 0.1,
+    "id": "moryskah_crypt_key",
+    "name": "Moryskah crypt key",
+    "category": "quest_key",
+    "value": 1,
+    "tags": [
+      "key",
+      "quest_item",
+      "untradeable"
+    ],
+    "examine": "A cold iron key crusted with grave-dust."
+  },
+  {
+    "tradeable": false,
+    "stackable": false,
+    "weight": 0.1,
+    "id": "boneyard_tomb_key",
+    "name": "Boneyard tomb key",
+    "category": "quest_key",
+    "value": 1,
+    "tags": [
+      "key",
+      "quest_item",
+      "untradeable"
+    ],
+    "examine": "A scarab-cut brass key."
+  },
+  {
+    "tradeable": false,
+    "stackable": false,
+    "weight": 0.1,
+    "id": "glass_spire_key",
+    "name": "Glass spire key",
+    "category": "quest_key",
+    "value": 1,
+    "tags": [
+      "key",
+      "quest_item",
+      "untradeable"
+    ],
+    "examine": "A prism-cut crystal, carved like a key."
+  },
+  {
+    "tradeable": false,
+    "stackable": false,
+    "weight": 0.1,
+    "id": "saltbrine_harbor_key",
+    "name": "Saltbrine harbor key",
+    "category": "quest_key",
+    "value": 1,
+    "tags": [
+      "key",
+      "quest_item",
+      "untradeable"
+    ],
+    "examine": "A rust-pitted key from a drowned harbormaster."
+  },
+  {
+    "tradeable": false,
+    "stackable": false,
+    "weight": 0.1,
+    "id": "veilwood_grove_key",
+    "name": "Veilwood grove key",
+    "category": "quest_key",
+    "value": 1,
+    "tags": [
+      "key",
+      "quest_item",
+      "untradeable"
+    ],
+    "examine": "A branch-shaped key. Grows if you plant it."
+  },
+  {
+    "tradeable": false,
+    "stackable": false,
+    "weight": 0.1,
+    "id": "inkweald_library_key",
+    "name": "Inkweald library key",
+    "category": "quest_key",
+    "value": 1,
+    "tags": [
+      "key",
+      "quest_item",
+      "untradeable"
+    ],
+    "examine": "A folded paper key that unfolds to fit the lock."
+  },
+  {
+    "tradeable": false,
+    "stackable": false,
+    "weight": 0.1,
+    "id": "wilds_warlord_skull_key",
+    "name": "Wilds warlord skull key",
+    "category": "quest_key",
+    "value": 1,
+    "tags": [
+      "key",
+      "quest_item",
+      "untradeable"
+    ],
+    "examine": "A skull with teeth that fit as key-bits."
+  },
+  {
+    "tradeable": false,
+    "stackable": false,
+    "weight": 0.1,
+    "id": "chapel_vestry_key",
+    "name": "Chapel vestry key",
+    "category": "quest_key",
+    "value": 1,
+    "tags": [
+      "key",
+      "quest_item",
+      "untradeable"
+    ],
+    "examine": "Rusted, but it still turns."
+  },
+  {
+    "tradeable": false,
+    "stackable": false,
+    "weight": 0.1,
+    "id": "lighthouse_lens_key",
+    "name": "Lighthouse lens key",
+    "category": "quest_key",
+    "value": 1,
+    "tags": [
+      "key",
+      "quest_item",
+      "untradeable"
+    ],
+    "examine": "Unlocks the Saltbrine lighthouse lens housing."
+  },
+  {
+    "tradeable": false,
+    "stackable": false,
+    "weight": 0.1,
+    "id": "deep_mine_foreman_key",
+    "name": "Deep Mine foreman's key",
+    "category": "quest_key",
+    "value": 1,
+    "tags": [
+      "key",
+      "quest_item",
+      "untradeable"
+    ],
+    "examine": "The Sootworks deep-mine foreman's master key."
+  },
+  {
+    "tradeable": false,
+    "stackable": false,
+    "weight": 0.1,
+    "id": "pharaoh_sarcophagus_key",
+    "name": "Pharaoh sarcophagus key",
+    "category": "quest_key",
+    "value": 1,
+    "tags": [
+      "key",
+      "quest_item",
+      "untradeable"
+    ],
+    "examine": "A scarab-shaped bronze key, hot to the touch."
+  },
+  {
+    "tradeable": false,
+    "stackable": false,
+    "weight": 0.1,
+    "id": "crystal_gate_shard",
+    "name": "Crystal gate shard",
+    "category": "quest_key",
+    "value": 1,
+    "tags": [
+      "key",
+      "quest_item",
+      "untradeable"
+    ],
+    "examine": "One of three shards needed to open the Glass Desert gate."
+  },
+  {
+    "tradeable": false,
+    "stackable": false,
+    "weight": 0.1,
+    "id": "moon_sanctum_key",
+    "name": "Moon sanctum key",
+    "category": "quest_key",
+    "value": 1,
+    "tags": [
+      "key",
+      "quest_item",
+      "untradeable"
+    ],
+    "examine": "Glows at night, dead at day."
+  },
+  {
+    "tradeable": false,
+    "stackable": false,
+    "weight": 0.1,
+    "id": "faded_letter_to_moryskah",
+    "name": "Faded letter to Moryskah",
+    "category": "quest_document",
+    "value": 0,
+    "tags": [
+      "document",
+      "quest_item"
+    ],
+    "examine": "A stained letter asking after a brother long gone to the crypts."
+  },
+  {
+    "tradeable": false,
+    "stackable": false,
+    "weight": 0.1,
+    "id": "forge_masters_ledger",
+    "name": "Forge master's ledger",
+    "category": "quest_document",
+    "value": 0,
+    "tags": [
+      "document",
+      "quest_item"
+    ],
+    "examine": "A ledger of Sootworks clients. One client is not a person."
+  },
+  {
+    "tradeable": false,
+    "stackable": false,
+    "weight": 0.1,
+    "id": "pharoahs_riddle_scroll",
+    "name": "Pharaoh's riddle scroll",
+    "category": "quest_document",
+    "value": 0,
+    "tags": [
+      "document",
+      "quest_item"
+    ],
+    "examine": "A riddle scroll from a long-sealed tomb."
+  },
+  {
+    "tradeable": false,
+    "stackable": false,
+    "weight": 0.1,
+    "id": "drowner_captains_log",
+    "name": "Drowner captain's log",
+    "category": "quest_document",
+    "value": 0,
+    "tags": [
+      "document",
+      "quest_item"
+    ],
+    "examine": "The last log of a captain who never surfaced."
+  },
+  {
+    "tradeable": false,
+    "stackable": false,
+    "weight": 0.1,
+    "id": "inkweald_chapter_fragment",
+    "name": "Inkweald chapter fragment",
+    "category": "quest_document",
+    "value": 0,
+    "tags": [
+      "document",
+      "quest_item"
+    ],
+    "examine": "A torn fragment — a chapter from a book with no library."
+  },
+  {
+    "tradeable": false,
+    "stackable": false,
+    "weight": 0.1,
+    "id": "veilwood_grove_song_sheet",
+    "name": "Grove song sheet",
+    "category": "quest_document",
+    "value": 0,
+    "tags": [
+      "document",
+      "quest_item"
+    ],
+    "examine": "A song only the fey can read; eyes water reading it."
+  },
+  {
+    "tradeable": false,
+    "stackable": false,
+    "weight": 0.1,
+    "id": "crystal_sages_testament",
+    "name": "Crystal sage's testament",
+    "category": "quest_document",
+    "value": 0,
+    "tags": [
+      "document",
+      "quest_item"
+    ],
+    "examine": "Written in light, visible only in direct sun."
+  },
+  {
+    "tradeable": false,
+    "stackable": false,
+    "weight": 0.1,
+    "id": "revenant_list_of_names",
+    "name": "Revenant list of names",
+    "category": "quest_document",
+    "value": 0,
+    "tags": [
+      "document",
+      "quest_item"
+    ],
+    "examine": "Names of PKers who owe blood-debts to the Wilds."
+  },
+  {
+    "tradeable": false,
+    "stackable": false,
+    "weight": 0.1,
+    "id": "heartlands_deed",
+    "name": "Heartlands deed",
+    "category": "quest_document",
+    "value": 0,
+    "tags": [
+      "document",
+      "quest_item"
+    ],
+    "examine": "Deed to a plot of Heartlands farmland. Required to start A Farmer's Burden."
+  },
+  {
+    "tradeable": false,
+    "stackable": false,
+    "weight": 0.1,
+    "id": "sootworks_indenture_papers",
+    "name": "Sootworks indenture papers",
+    "category": "quest_document",
+    "value": 0,
+    "tags": [
+      "document",
+      "quest_item"
+    ],
+    "examine": "Papers binding a Sootworks apprentice. Burn them?"
+  },
+  {
+    "tradeable": false,
+    "stackable": false,
+    "weight": 0.1,
+    "id": "champions_sigil_heartlands",
+    "name": "Heartlands champion sigil",
+    "category": "plot_token",
+    "value": 0,
+    "tags": [
+      "plot",
+      "quest_item"
+    ],
+    "examine": "Awarded for completing Heartlands Grand Diary. Proof of Heartlands champion."
+  },
+  {
+    "tradeable": false,
+    "stackable": false,
+    "weight": 0.1,
+    "id": "reapers_harp_string",
+    "name": "Reaper's harp string",
+    "category": "plot_token",
+    "value": 0,
+    "tags": [
+      "plot",
+      "quest_item"
+    ],
+    "examine": "A single harp string, black and resonant. Quest: The Reaper's Hymn."
+  },
+  {
+    "tradeable": false,
+    "stackable": false,
+    "weight": 0.1,
+    "id": "ashen_crown_half",
+    "name": "Ashen crown (half)",
+    "category": "plot_token",
+    "value": 0,
+    "tags": [
+      "plot",
+      "quest_item"
+    ],
+    "examine": "Half of the Ashen Crown. Match with the other half to unlock Moryskah's throne."
+  },
+  {
+    "tradeable": false,
+    "stackable": false,
+    "weight": 0.1,
+    "id": "ashen_crown_other_half",
+    "name": "Ashen crown (other half)",
+    "category": "plot_token",
+    "value": 0,
+    "tags": [
+      "plot",
+      "quest_item"
+    ],
+    "examine": "The other half of the crown."
+  },
+  {
+    "tradeable": false,
+    "stackable": false,
+    "weight": 0.1,
+    "id": "salt_kings_trident",
+    "name": "Salt King's trident",
+    "category": "plot_token",
+    "value": 0,
+    "tags": [
+      "plot",
+      "quest_item"
+    ],
+    "examine": "A broken trident. Recovered; needs the Sunken Forge to be reforged."
+  },
+  {
+    "tradeable": false,
+    "stackable": false,
+    "weight": 0.1,
+    "id": "veilwood_heartwood_sprig",
+    "name": "Heartwood sprig",
+    "category": "plot_token",
+    "value": 0,
+    "tags": [
+      "plot",
+      "quest_item"
+    ],
+    "examine": "Planted at the grove altar, grows into a portal tree."
+  },
+  {
+    "tradeable": false,
+    "stackable": false,
+    "weight": 0.1,
+    "id": "inkweald_bound_name",
+    "name": "Bound name",
+    "category": "plot_token",
+    "value": 0,
+    "tags": [
+      "plot",
+      "quest_item"
+    ],
+    "examine": "Your name, written in the forbidden book — cursed until unbound."
+  },
+  {
+    "tradeable": false,
+    "stackable": false,
+    "weight": 0.1,
+    "id": "pharaoh_canopic_jar",
+    "name": "Pharaoh canopic jar",
+    "category": "plot_token",
+    "value": 0,
+    "tags": [
+      "plot",
+      "quest_item"
+    ],
+    "examine": "One of four canopic jars. Collect all four to free the pharaoh's soul."
+  },
+  {
+    "tradeable": false,
+    "stackable": false,
+    "weight": 0.1,
+    "id": "glass_prism_core",
+    "name": "Glass prism core",
+    "category": "plot_token",
+    "value": 0,
+    "tags": [
+      "plot",
+      "quest_item"
+    ],
+    "examine": "Refracts the setting sun into a doorway."
+  },
+  {
+    "tradeable": false,
+    "stackable": false,
+    "weight": 0.1,
+    "id": "wyrm_heart_relic",
+    "name": "Wyrm heart relic",
+    "category": "plot_token",
+    "value": 0,
+    "tags": [
+      "plot",
+      "quest_item"
+    ],
+    "examine": "The heart of the Crystal Wyrm, still beating. Power source for Wyrmforged gear."
+  },
+  {
+    "tradeable": false,
+    "stackable": false,
+    "weight": 0.1,
+    "id": "chalice_of_first_light",
+    "name": "Chalice of first light",
+    "category": "plot_token",
+    "value": 0,
+    "tags": [
+      "plot",
+      "quest_item"
+    ],
+    "examine": "Drinks dawn; refills on every sunrise."
+  },
+  {
+    "tradeable": false,
+    "stackable": false,
+    "weight": 0.1,
+    "id": "cursed_signet_of_moryskah",
+    "name": "Cursed signet of Moryskah",
+    "category": "plot_token",
+    "value": 0,
+    "tags": [
+      "plot",
+      "quest_item"
+    ],
+    "examine": "Marks its bearer. Attracts undead. Drops prayer by 20% while held."
+  },
+  {
+    "tradeable": false,
+    "stackable": false,
+    "weight": 0.1,
+    "id": "champions_token_sootworks",
+    "name": "Sootworks champion token",
+    "category": "plot_token",
+    "value": 0,
+    "tags": [
+      "plot",
+      "quest_item"
+    ],
+    "examine": "Proof of mastery over the Sootworks forges."
+  },
+  {
+    "tradeable": false,
+    "stackable": false,
+    "weight": 0.1,
+    "id": "champions_token_moryskah",
+    "name": "Moryskah champion token",
+    "category": "plot_token",
+    "value": 0,
+    "tags": [
+      "plot",
+      "quest_item"
+    ],
+    "examine": "Proof of conquering the crypts."
+  },
+  {
+    "tradeable": false,
+    "stackable": false,
+    "weight": 0.1,
+    "id": "champions_token_boneyard",
+    "name": "Boneyard champion token",
+    "category": "plot_token",
+    "value": 0,
+    "tags": [
+      "plot",
+      "quest_item"
+    ],
+    "examine": "Proof of solving the Boneyard tombs."
+  },
+  {
+    "tradeable": false,
+    "stackable": false,
+    "weight": 0.1,
+    "id": "champions_token_glass",
+    "name": "Glass Desert champion token",
+    "category": "plot_token",
+    "value": 0,
+    "tags": [
+      "plot",
+      "quest_item"
+    ],
+    "examine": "Proof of clearing the Glass Desert."
+  },
+  {
+    "tradeable": false,
+    "stackable": false,
+    "weight": 0.1,
+    "id": "champions_token_saltbrine",
+    "name": "Saltbrine champion token",
+    "category": "plot_token",
+    "value": 0,
+    "tags": [
+      "plot",
+      "quest_item"
+    ],
+    "examine": "Proof of surviving the Saltbrine depths."
+  },
+  {
+    "tradeable": false,
+    "stackable": false,
+    "weight": 0.1,
+    "id": "champions_token_veilwood",
+    "name": "Veilwood champion token",
+    "category": "plot_token",
+    "value": 0,
+    "tags": [
+      "plot",
+      "quest_item"
+    ],
+    "examine": "Proof of walking Veilwood's moon paths."
+  },
+  {
+    "tradeable": false,
+    "stackable": false,
+    "weight": 0.1,
+    "id": "champions_token_inkweald",
+    "name": "Inkweald champion token",
+    "category": "plot_token",
+    "value": 0,
+    "tags": [
+      "plot",
+      "quest_item"
+    ],
+    "examine": "Proof of reading the forbidden chapter."
+  },
+  {
+    "tradeable": false,
+    "stackable": false,
+    "weight": 0.1,
+    "id": "champions_token_wilds",
+    "name": "Wilds champion token",
+    "category": "plot_token",
+    "value": 0,
+    "tags": [
+      "plot",
+      "quest_item"
+    ],
+    "examine": "Proof of surviving the Wilds. Cannot be lost on death."
+  },
+  {
+    "tradeable": false,
+    "stackable": true,
+    "weight": 0.1,
+    "id": "saltbrine_ferry_ticket",
+    "name": "Saltbrine ferry ticket",
+    "category": "passage",
+    "value": 0,
+    "tags": [
+      "passage",
+      "quest_item"
+    ],
+    "examine": "One-way crossing to Saltbrine outer islands."
+  },
+  {
+    "tradeable": false,
+    "stackable": true,
+    "weight": 0.1,
+    "id": "wilds_gate_token",
+    "name": "Wilds gate token",
+    "category": "passage",
+    "value": 0,
+    "tags": [
+      "passage",
+      "quest_item"
+    ],
+    "examine": "Single-use token to bypass the Wilds entrance skull-check."
+  },
+  {
+    "tradeable": false,
+    "stackable": false,
+    "weight": 0.1,
+    "id": "veilwood_grove_passport",
+    "name": "Veilwood grove passport",
+    "category": "passage",
+    "value": 0,
+    "tags": [
+      "passage",
+      "quest_item"
+    ],
+    "examine": "Accepted by the fey at grove gates."
+  },
+  {
+    "tradeable": false,
+    "stackable": false,
+    "weight": 0.1,
+    "id": "boneyard_caravan_pass",
+    "name": "Boneyard caravan pass",
+    "category": "passage",
+    "value": 0,
+    "tags": [
+      "passage",
+      "quest_item"
+    ],
+    "examine": "Season pass for all boneyard caravans."
+  },
+  {
+    "tradeable": false,
+    "stackable": false,
+    "weight": 0.1,
+    "id": "inkweald_reader_pass",
+    "name": "Inkweald reader pass",
+    "category": "passage",
+    "value": 0,
+    "tags": [
+      "passage",
+      "quest_item"
+    ],
+    "examine": "Permits you to check out books from the forbidden section."
+  },
+  {
+    "tradeable": false,
+    "stackable": false,
+    "weight": 0.1,
+    "id": "moryskah_mourners_pin",
+    "name": "Moryskah mourner's pin",
+    "category": "passage",
+    "value": 0,
+    "tags": [
+      "passage",
+      "quest_item"
+    ],
+    "examine": "Marks you as a mourner; Moryskah undead will not attack for 24 in-game hours."
+  }
+]
