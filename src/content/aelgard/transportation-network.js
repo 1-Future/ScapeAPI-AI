@@ -64,6 +64,46 @@ defineTeleport({ id: 'tp_moonclan', name: 'Moonclan Teleport', type: 'spell', de
 defineTeleport({ id: 'tp_fishing_guild', name: 'Fishing Guild Teleport', type: 'spell', destination: 'Saltbrine fishing guild', region: 'Saltbrine', spellbook: 'lunar', requirements: { skills: { magic: 85 }, quests: ['lunar_diplomacy'] } });
 
 // ══════════════════════════════════════════════════════════════════════════════
+// [v0.9-waveC2 — M2] SPELL TELEPORTS — per-region expansion (standard/ancient/lunar)
+// Closes the ~100-teleport parity gap. Each is Scape-flavored (uses Aelgard
+// region lore + quest gates), never verbatim OSRS.
+// ══════════════════════════════════════════════════════════════════════════════
+
+// Standard-spellbook region expansions
+defineTeleport({ id: 'tp_veilwood', name: 'Veilwood Teleport', type: 'spell', destination: 'Veilwood elven village', region: 'Veilwood', spellbook: 'standard', requirements: { skills: { magic: 58 }, quests: ['the_elven_accord'] }, description: 'Lands beneath the Crystalline Arch; costs an extra law rune if fog is thick.' });
+defineTeleport({ id: 'tp_boneyard', name: 'Boneyard Teleport', type: 'spell', destination: 'Boneyard oasis camp', region: 'Boneyard', spellbook: 'standard', requirements: { skills: { magic: 48 } }, description: 'Desert winds ensure you arrive with sand in every pocket.' });
+defineTeleport({ id: 'tp_glass_desert', name: 'Glass Desert Teleport', type: 'spell', destination: 'Glass Desert outpost', region: 'Glass Desert', spellbook: 'standard', requirements: { skills: { magic: 64 }, quests: ['the_shardwalker'] }, description: 'Glass dust shimmers in the air on arrival.' });
+defineTeleport({ id: 'tp_inkweald', name: 'Inkweald Teleport', type: 'spell', destination: 'Inkweald boundary camp', region: 'Inkweald', spellbook: 'standard', requirements: { skills: { magic: 71 }, quests: ['the_dreaming_wound'] }, description: 'Caster must hold the ink-dipped focus; teleport fizzles on dream-incoherent players.' });
+defineTeleport({ id: 'tp_drifting_market', name: 'Drifting Market Teleport', type: 'spell', destination: "Drifting Market's current mooring", region: 'Saltbrine', spellbook: 'standard', requirements: { skills: { magic: 55 }, quests: ['the_merchants_whisper'] }, description: 'Destination shifts daily; the spell chases the market wherever it moored at dawn.' });
+defineTeleport({ id: 'tp_castle_malachar', name: 'Castle Malachar Teleport', type: 'spell', destination: 'Castle Malachar audience hall', region: 'Moryskah', spellbook: 'standard', requirements: { skills: { magic: 75 }, quests: ['the_bog_witchs_bargain', 'blood_in_the_halls'] }, description: 'Requires signet of safe-passage; casting without it drops you in the oubliette.' });
+
+// Ancient-spellbook expansions — Scape's ancient magicks touch desert + wilds + deep dungeons
+defineTeleport({ id: 'tp_annakarl', name: 'Annakarl Teleport', type: 'spell', destination: 'Deep Wilds demonic ruin', region: 'Wilds', spellbook: 'ancient', requirements: { skills: { magic: 78 }, quests: ['desert_treasure'] }, description: 'Lava-glazed flagstones; one of the four ancient city glyphs.' });
+defineTeleport({ id: 'tp_carrallanger', name: 'Carrallanger Teleport', type: 'spell', destination: 'Graveyard of Shadows', region: 'Wilds', spellbook: 'ancient', requirements: { skills: { magic: 84 }, quests: ['desert_treasure'] }, description: 'The fourth ancient city. Clan wars thrive here.' });
+defineTeleport({ id: 'tp_ghorrock', name: 'Ghorrock Teleport', type: 'spell', destination: 'Frozen Ghorrock prison', region: 'Wilds', spellbook: 'ancient', requirements: { skills: { magic: 96 }, quests: ['desert_treasure', 'the_iceforged_pact'] }, description: 'The coldest ancient spell. Freeze-walk active on arrival.' });
+
+// Lunar-spellbook expansions — Scape's lunar magicks are utility + party support
+defineTeleport({ id: 'tp_catherby', name: 'Saltbrine Shore Teleport', type: 'spell', destination: 'Saltbrine Shore — sandmoot beach', region: 'Saltbrine', spellbook: 'lunar', requirements: { skills: { magic: 72 }, quests: ['lunar_diplomacy'] }, description: 'Drops caster on tidepool-safe dunes west of the fishing guild.' });
+defineTeleport({ id: 'tp_waterbirth', name: 'Tidemother Teleport', type: 'spell', destination: 'Tidemother sanctuary (underwater cavern)', region: 'Saltbrine', spellbook: 'lunar', requirements: { skills: { magic: 76 }, quests: ['lunar_diplomacy', 'the_trawlers_call'] }, description: 'Lunar-group teleport; can carry one linked party member per cast.' });
+defineTeleport({ id: 'tp_khazard', name: 'Khazard Battlefield Teleport', type: 'spell', destination: 'Old battlefield memorial (Heartlands border)', region: 'Heartlands', spellbook: 'lunar', requirements: { skills: { magic: 78 }, quests: ['lunar_diplomacy'] }, description: 'Lands at the poppy-field cenotaph; quiet arrival, no sound.' });
+
+// ══════════════════════════════════════════════════════════════════════════════
+// [v0.9-waveC2 — M2] JEWELLERY TELEPORTS — 10 new charged trinkets
+// Scape-flavored names; mixes crafter-gated + quest-gated tiers.
+// ══════════════════════════════════════════════════════════════════════════════
+
+defineTeleport({ id: 'tp_digsite_pendant', name: 'Digsite Pendant', type: 'jewellery', destination: 'Boneyard digsite / Sandcrown Ruin / Fossil vault', charges: 5, requirements: { quests: ['the_digsite'], skills: { crafting: 45 } }, description: 'Five charges, three destinations. Bonecrafter favourite.' });
+defineTeleport({ id: 'tp_burning_amulet', name: 'Burning Amulet', type: 'jewellery', destination: 'Wilds lava pit / Ferox enclave / Ember caverns', charges: 5, requirements: { skills: { crafting: 70 } }, description: 'Drops you in level 25-35 Wilds zones. High-risk shortcut.' });
+defineTeleport({ id: 'tp_necklace_of_binding', name: 'Necklace of Binding', type: 'jewellery', destination: 'Runecrafting altars (3 choices)', charges: 4, requirements: { skills: { crafting: 58, runecrafting: 60 } }, description: 'Scape-native alternative to binding tiara — quick-teleport to fire/water/earth altars.' });
+defineTeleport({ id: 'tp_ring_of_shadows', name: 'Ring of Shadows', type: 'jewellery', destination: 'Moryskah catacombs / Inkweald boundary / Soulfen gallows', charges: 5, requirements: { quests: ['the_bog_witchs_bargain'], skills: { crafting: 74 } }, description: 'Black-iron ring enchanted with stygian haze. Slightly reduces aggro for 2 ticks on arrival.' });
+defineTeleport({ id: 'tp_amulet_of_chemistry', name: 'Amulet of Chemistry', type: 'jewellery', destination: 'Heartlands herb shop / Veilwood apothecary / Boneyard alchemist', charges: 5, requirements: { skills: { crafting: 38 } }, description: 'Herblorist jewellery. Last charge also grants 5% potion-yield bonus on use.' });
+defineTeleport({ id: 'tp_ferocious_ring', name: 'Ferocious Ring', type: 'jewellery', destination: 'Glass Desert beast-hide camp / Wilds mammoth grounds / Veldrak approach', charges: 3, requirements: { skills: { crafting: 89 }, quests: ['the_bonewright_order'] }, description: 'Hunter-tier ring. Grants +3% hunter trap success for 30 minutes after each use.' });
+defineTeleport({ id: 'tp_amulet_of_forge', name: 'Amulet of the Forge', type: 'jewellery', destination: 'Sootworks forge hall / Smithing guild / Heartlands anvil row', charges: 6, requirements: { skills: { crafting: 62, smithing: 60 }, quests: ['sootworks_rising'] }, description: 'Sootworks-minted gold amulet. Every seventh charge restocks itself from ambient forge-heat.' });
+defineTeleport({ id: 'tp_ring_of_the_tide', name: 'Ring of the Tide', type: 'jewellery', destination: 'Saltbrine harbour / Tidemother shrine / Fishing guild', charges: 4, requirements: { skills: { crafting: 54, fishing: 65 } }, description: 'Drips faint seawater for one tick after teleport. Free charter-ship discount while worn.' });
+defineTeleport({ id: 'tp_necklace_of_archery', name: "Necklace of the Archer's Path", type: 'jewellery', destination: 'Heartlands ranging guild / Veilwood nock-range / Inkweald loose-shot hollow', charges: 4, requirements: { skills: { crafting: 48, ranged: 60 } }, description: 'Scape-native ranging trinket. Last-charge bonus: +5% arrow save for 10 minutes.' });
+defineTeleport({ id: 'tp_ancient_wayfinder', name: 'Ancient Wayfinder Amulet', type: 'jewellery', destination: 'Any previously-visited Aelgard spirit tree (up to 3)', charges: 2, requirements: { quests: ['the_first_wayfinder'], skills: { crafting: 80, magic: 75 } }, description: 'Grandmaster endgame trinket; charges are scarce but destinations flexible.' });
+
+// ══════════════════════════════════════════════════════════════════════════════
 // JEWELLERY TELEPORTS — consumable charges
 // ══════════════════════════════════════════════════════════════════════════════
 
@@ -127,6 +167,18 @@ const fairyRings = [
   { code: 'CLS', destination: 'Hunter — chinchompa area (Veilwood)', region: 'Veilwood' },
   { code: 'DIS', destination: 'Agility — Saltbrine course start', region: 'Saltbrine' },
   { code: 'AKR', destination: 'Agility — Sootworks course start', region: 'Sootworks' },
+  // ──────────────────────────────────────────────────────────────────────────
+  // [v0.9-waveC2 — M2] 8 new fairy-ring codes (filling the AIR/DKR/DIR/DLR
+  // grid gaps). Each lands on a Scape-native destination.
+  // ──────────────────────────────────────────────────────────────────────────
+  { code: 'AIR', destination: 'Heartlands — north farming patch', region: 'Heartlands' },
+  { code: 'DKR', destination: 'Wilds — Revenant caves antechamber', region: 'Wilds' },
+  { code: 'DIR', destination: 'Inkweald — deep dream (dangerous)', region: 'Inkweald' },
+  { code: 'DLR', destination: 'Moryskah — Soulfen gallows', region: 'Moryskah' },
+  { code: 'BLP', destination: 'Boneyard — fossil vault approach', region: 'Boneyard' },
+  { code: 'DLQ', destination: 'Veilwood — crystalline arch', region: 'Veilwood' },
+  { code: 'ALR', destination: 'Saltbrine — Tidemother shrine (underwater)', region: 'Saltbrine' },
+  { code: 'CLR', destination: 'Glass Desert — Tombs of Aelgard inner ring', region: 'Glass Desert' },
 ];
 
 // ══════════════════════════════════════════════════════════════════════════════
