@@ -326,6 +326,90 @@ function combatPerHourFromStats(m) {
   return { xp_per_hour, gp_per_hour };
 }
 
+// Scan every aelgard *.js file for rel.defineTrainingMethod calls.
+// Each call already carries skill / xpPerHour / levelRange / attention /
+// danger / complexity — so mapping into the catalog is direct.
+function collectRegionTrainingMethods(catalog) {
+  let count = 0;
+  const files = fs.readdirSync(AELGARD).filter(f => /\.js$/.test(f));
+  for (const fname of files) {
+    const full = path.join(AELGARD, fname);
+    const src = fs.readFileSync(full, 'utf8');
+    // Pattern: rel.defineTrainingMethod('id', { body })
+    const re = /rel\.defineTrainingMethod\(\s*'([a-z0-9_]+)'\s*,\s*\{/g;
+    let m;
+    while ((m = re.exec(src))) {
+      const id = m[1];
+      const start = src.indexOf('{', m.index + m[0].length - 1);
+      if (start === -1) continue;
+      let depth = 0; let end = start;
+      for (let i = start; i < src.length; i++) {
+        if (src[i] === '{') depth++;
+        else if (src[i] === '}') { depth--; if (depth === 0) { end = i; break; } }
+      }
+      const body = src.slice(start + 1, end);
+      const skill = valStr(body, 'skill') || 'unknown';
+      const name = valStr(body, 'name') || id;
+      const xpPerHour = Number((body.match(/\bxpPerHour:\s*(\d+)/) || [])[1]) || 0;
+      // levelRange: [min, max]
+      const lr = body.match(/\blevelRange:\s*\[\s*(\d+)\s*,\s*(\d+)\s*\]/);
+      const lvlMin = lr ? Number(lr[1]) : 1;
+      const attention = (valStr(body, 'attention') || 'medium').toLowerCase();
+      const danger = (valStr(body, 'danger') || 'none').toLowerCase();
+      const complexity = (valStr(body, 'complexity') || 'simple').toLowerCase();
+      // Map attention+complexity+danger to 1..10
+      let intensity = 3;
+      if (attention === 'afk') intensity = 1;
+      else if (attention === 'low') intensity = 2;
+      else if (attention === 'medium') intensity = 4;
+      else if (attention === 'high') intensity = 6;
+      else if (attention === 'intense' || attention === 'max focus') intensity = 7;
+      if (complexity === 'complex' || complexity === 'intricate') intensity += 1;
+      if (danger === 'medium') intensity += 1;
+      if (danger === 'high') intensity += 2;
+      if (danger === 'extreme' || danger === 'wilderness') intensity += 3;
+      intensity = Math.min(10, Math.max(1, intensity));
+
+      // GP/hr from resourceOutput (best-effort)
+      let gp_per_hour = 0;
+      const costM = body.match(/\bcostPerHour:\s*(\d+)/);
+      const profitM = body.match(/\bnet:\s*['"](profit|loss)['"]/);
+      if (profitM) {
+        // Try: first produces.perHour number — rough estimate
+        const coins = body.match(/perHour:\s*(\d+)/);
+        if (profitM[1] === 'profit' && coins) gp_per_hour = Number(coins[1]);
+        else if (profitM[1] === 'loss' && costM) gp_per_hour = -Number(costM[1]);
+      }
+      const region = (valStr(body, 'location') || 'unknown').toLowerCase().split(',')[0].trim().replace(/\s+/g, '_');
+      // Pre-reqs
+      const qMatch = body.match(/quests:\s*\[([^\]]*)\]/);
+      const quests = qMatch ? qMatch[1].split(',').map(s => s.replace(/["'\s]/g, '')).filter(Boolean) : [];
+      const aMatch = body.match(/areas:\s*\[([^\]]*)\]/);
+      const areas = aMatch ? aMatch[1].split(',').map(s => s.replace(/["'\s]/g, '')).filter(Boolean) : [];
+      // Easter-egg / quirky-interactions methods are intentionally tiny XP
+      // rewards for flavour. Mark as composite so misery detection skips them.
+      const isQuirky = /quirky|easter|wishing|signboard|beggar|polish|rubbing|dust|help|watch|carry|sign|dance|whistle/.test(id)
+        || /easter-eggs|quirky-interactions|tertiary/.test(fname);
+      catalog.push({
+        activity_id: `trainmethod_${id}`,
+        activity_type: 'skill_method',
+        skill,
+        intensity,
+        base_xp_per_hour: xpPerHour,
+        base_gp_per_hour: gp_per_hour,
+        region,
+        level_required: lvlMin,
+        gating: { quests, items: [], areas },
+        notes: `${name} — attention ${attention}, danger ${danger}, complexity ${complexity}`,
+        source_file: `src/content/aelgard/${fname}`,
+        is_composite: isQuirky || undefined,
+      });
+      count++;
+    }
+  }
+  return count;
+}
+
 // Scan src/content/aelgard/training-methods.js for skill-specific defineNode /
 // defineCourse / etc calls. These are additional skill methods beyond the 23
 // manifest entries.
@@ -1081,6 +1165,31 @@ function computeMiseryAndGaps(catalog) {
       bands_missing: [1,2,3,4,5,6,7,8,9,10].filter(b => !bySkill[s].has(b)),
     };
   }
+  // Region coverage matrix. Canonicalise aliases to one of the 9 Aelgard
+  // region slugs so "the_wilds" + "wilds", "boneyard" + "boneyard_wastes"
+  // merge into a single row.
+  const REGION_CANON = {
+    the_wilds: 'wilds', wilderness: 'wilds',
+    boneyard_wastes: 'boneyard',
+    saltbrine_reach: 'saltbrine',
+    glass_desert_: 'glass_desert',
+  };
+  const byRegion = {};
+  for (const e of catalog) {
+    let k = (e.region || 'unknown');
+    k = REGION_CANON[k] || k;
+    if (!byRegion[k]) byRegion[k] = { bands: new Set(), count: 0 };
+    byRegion[k].bands.add(Math.min(10, Math.max(1, Math.round(e.intensity))));
+    byRegion[k].count++;
+  }
+  report.regionCoverage = {};
+  for (const r of Object.keys(byRegion)) {
+    report.regionCoverage[r] = {
+      total_activities: byRegion[r].count,
+      bands_covered: [...byRegion[r].bands].sort((a, b) => a - b),
+      bands_missing: [1,2,3,4,5,6,7,8,9,10].filter(b => !byRegion[r].bands.has(b)),
+    };
+  }
   // Sort misery by deficit desc
   report.miseryZones.sort((a, b) => b.deficit_pct - a.deficit_pct);
   report.gaps.sort((a, b) => a.band - b.band);
@@ -1108,6 +1217,10 @@ function main() {
   console.log('[intensity] gathering training-methods.js nodes...');
   const tm = collectTrainingMethods(catalog);
   console.log(`  ${tm} training-method nodes`);
+
+  console.log('[intensity] gathering region rel.defineTrainingMethod calls...');
+  const rtm = collectRegionTrainingMethods(catalog);
+  console.log(`  ${rtm} region training-method entries`);
 
   console.log('[intensity] gathering Inferno...');
   const inferno = collectInferno(catalog);
@@ -1205,6 +1318,26 @@ function renderReport(out, report) {
   for (const s of Object.keys(report.skillCoverage).sort()) {
     const c = report.skillCoverage[s];
     lines.push(`| ${s} | ${c.bands_covered.join(', ')} | ${c.bands_missing.join(', ') || 'none'} |`);
+  }
+  lines.push('');
+  lines.push('## Per-region coverage matrix');
+  lines.push('');
+  lines.push('| Region | # Activities | Bands covered | Bands missing |');
+  lines.push('|---|---|---|---|');
+  // Sort by aelgard canonical order + then alpha
+  const regOrder = ['heartlands','sootworks','moryskah','boneyard','glass_desert','saltbrine','veilwood','inkweald','wilds'];
+  const regSorted = Object.keys(report.regionCoverage).sort((a, b) => {
+    const ai = regOrder.indexOf(a); const bi = regOrder.indexOf(b);
+    if (ai >= 0 && bi >= 0) return ai - bi;
+    if (ai >= 0) return -1;
+    if (bi >= 0) return 1;
+    return a.localeCompare(b);
+  });
+  for (const r of regSorted) {
+    const c = report.regionCoverage[r];
+    // Skip very-small/noise region buckets.
+    if (c.total_activities < 5 && !regOrder.includes(r)) continue;
+    lines.push(`| ${r} | ${c.total_activities} | ${c.bands_covered.join(', ')} | ${c.bands_missing.join(', ') || 'none'} |`);
   }
   lines.push('');
   return lines.join('\n');
