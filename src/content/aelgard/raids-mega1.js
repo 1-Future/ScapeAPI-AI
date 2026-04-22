@@ -36,13 +36,15 @@ const npcs = require('../../world/npcs');
 const droptables = require('../../data/droptables');
 
 // -- Helper: define boss NPC + drop table + pet in one call --
+// v0.9-waveB4 H14: default boss-pet rate cut 2x (3000 → 1500). Explicit petChance
+// still respected. See reports/coll-log-audit.md §5.
 function boss(defId, def, drops, petId, petName, petExamine, petChance) {
   npcs.defineNpc(defId, def);
   if (drops) droptables.define(defId, drops);
   if (petId) {
     items.define({ id: petId, name: petName, examine: petExamine, value: 0, category: 'pet', tradeable: false, weight: 0 });
     if (drops && !drops.tertiary) drops.tertiary = [];
-    if (drops) drops.tertiary.push({ id: petId, name: petName, chance: petChance || 3000, min: 1, max: 1 });
+    if (drops) drops.tertiary.push({ id: petId, name: petName, chance: petChance || 1500, min: 1, max: 1 });
   }
 }
 

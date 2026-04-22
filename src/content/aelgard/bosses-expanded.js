@@ -13,14 +13,16 @@ const npcs = require('../../world/npcs');
 const droptables = require('../../data/droptables');
 const registry = require('../../engine/content-registry');
 
-function boss(defId, def, drops, petId, petName, petExamine) {
+// v0.9-waveB4 H14: boss-pet rates cut 2x (3000 → 1500) to bring avg-luck
+// collection completion from 142,500hr → 6,000hr. See reports/coll-log-audit.md §5.
+function boss(defId, def, drops, petId, petName, petExamine, petRate = 1500) {
   npcs.defineNpc(defId, def);
   if (drops) droptables.define(defId, drops);
   if (petId) {
     items.define({ id: petId, name: petName, examine: petExamine, value: 0, category: 'pet', tradeable: false, weight: 0 });
     // Add pet to drop table tertiary
     if (drops && !drops.tertiary) drops.tertiary = [];
-    if (drops) drops.tertiary.push({ id: petId, name: petName, chance: 3000, min: 1, max: 1 });
+    if (drops) drops.tertiary.push({ id: petId, name: petName, chance: petRate, min: 1, max: 1 });
   }
 }
 

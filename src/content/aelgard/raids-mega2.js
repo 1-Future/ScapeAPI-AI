@@ -22,13 +22,14 @@ const droptables = require('../../data/droptables');
 
 
 // Helper -- same pattern as raids-bosses-mega.js
-function boss(defId, def, drops, petId, petName, petExamine) {
+// v0.9-waveB4 H14: boss-pet rate cut 2x (3000 → 1500). See reports/coll-log-audit.md §5.
+function boss(defId, def, drops, petId, petName, petExamine, petRate = 1500) {
   npcs.defineNpc(defId, def);
   if (drops) droptables.define(defId, drops);
   if (petId) {
     items.define({ id: petId, name: petName, examine: petExamine, value: 0, category: 'pet', tradeable: false, weight: 0 });
     if (drops && !drops.tertiary) drops.tertiary = [];
-    if (drops) drops.tertiary.push({ id: petId, name: petName, chance: 3000, min: 1, max: 1 });
+    if (drops) drops.tertiary.push({ id: petId, name: petName, chance: petRate, min: 1, max: 1 });
   }
 }
 
@@ -305,7 +306,7 @@ droptables.define('prism_refractor', {
   tertiary: [
     { id: 96000, name: 'Prism ward', chance: 60, min: 1, max: 1 },
     { id: 96001, name: "Refractor's eye", chance: 80, min: 1, max: 1 },
-    { id: 84000, name: "Lil' Prism", chance: 3000, min: 1, max: 1 },
+    { id: 84000, name: "Lil' Prism", chance: 1500, min: 1, max: 1 }, // v0.9-waveB4 H14: rate /2
   ],
 });
 
@@ -622,7 +623,7 @@ droptables.define('forge_dragon_veldrak', {
     { id: 96003, name: 'Dragonfire lance', chance: 100, min: 1, max: 1 },
     { id: 96004, name: 'Dragon forge hammer', chance: 150, min: 1, max: 1 },
     { id: 96005, name: 'Dragon visage', chance: 80, min: 1, max: 1 },
-    { id: 84001, name: 'Forge Whelp', chance: 3000, min: 1, max: 1 },
+    { id: 84001, name: 'Forge Whelp', chance: 1500, min: 1, max: 1 }, // v0.9-waveB4 H14: rate /2
   ],
 });
 
@@ -2044,7 +2045,7 @@ droptables.define('hunt_legendary_beast', {
   tertiary: [
     { id: 96020, name: "Hunter's mark", chance: 100, min: 1, max: 1 },
     { id: 96021, name: 'Tracking boots', chance: 80, min: 1, max: 1 },
-    { id: 84006, name: 'Tiny Hunter', chance: 3000, min: 1, max: 1 },
+    { id: 84006, name: 'Tiny Hunter', chance: 1500, min: 1, max: 1 }, // v0.9-waveB4 H14: rate /2
   ],
 });
 
@@ -2783,7 +2784,7 @@ droptables.define('grotto_sporewing', {
   tertiary: [
     { id: 96026, name: 'Fungal staff', chance: 120, min: 1, max: 1 },
     { id: 96027, name: 'Mycelium shield', chance: 100, min: 1, max: 1 },
-    { id: 84009, name: 'Sprout', chance: 3000, min: 1, max: 1 },
+    { id: 84009, name: 'Sprout', chance: 1500, min: 1, max: 1 }, // v0.9-waveB4 H14: rate /2
   ],
 });
 
