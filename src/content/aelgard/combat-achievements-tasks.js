@@ -979,6 +979,127 @@ r('tos_hm_verzik',    T({ id: 'ca_tos_verzik_p1_shield_perfect', name: 'Shield-S
 r('tos_hm_verzik',    T({ id: 'ca_tos_verzik_no_bomb',         name: 'Bomb Disposal',           description: 'Clear Verzik HM P2 without any player being hit by a 5×5 bomb.',                                                    tier: 'master',      category: 'perfection',  injects: [4, 10, 13] }));
 r('tos_hm_verzik',    T({ id: 'ca_tos_verzik_stab_only',       name: 'Dagger Queen',            description: 'Defeat Verzik HM using only stab weapons (her listed weakness).',                                                  tier: 'elite',       category: 'gear',        injects: [4, 7, 16] }));
 
+// ── H4.2 Gauntlet + raid-sub bosses (6 × 3 = 18 CAs) ──────────────────────────
+// Gauntlet: Hunllef alternates 6-attack ranged/magic phases, stomps every 8t
+// Tempoross: skilling-boss, boat HP drain + vortex dodge + cannon resupply
+// Leviathan: submerge sweeps half-arena, P1 melee/P2 ranged/P3 3/4 sweep
+// Hespori: solo bloom-puff AoE, rooted herb-patch boss
+// Worldtree Heart: root-eruption tells, Saltbrine tree-invocation gate
+// Sanctum Pharaoh: sandstorm P1, scarab-swarm heal P2, 90s sand-timer P3
+
+// -- Gauntlet Hunllef (6-attack ranged/magic rotation, crystal prep) -----------
+r('gauntlet_hunllef', T({ id: 'ca_cg_no_stomp',                name: 'Stompless',               description: 'Defeat Corrupted Hunllef without being hit by any stomp-tile (8-tick stomp, 25dmg).',                            tier: 'master',      category: 'mechanic',    injects: [4, 10, 13] }));
+r('gauntlet_hunllef', T({ id: 'ca_cg_t70_only',                name: 'Pure Crystal',            description: 'Defeat Corrupted Hunllef wearing only crafted tier-70 crystal gear (no boots/gloves/amulet buffs).',             tier: 'elite',       category: 'gear',        injects: [4, 7, 16] }));
+r('gauntlet_hunllef', T({ id: 'ca_cg_no_food',                 name: 'Fasting Crystal',         description: 'Defeat Corrupted Hunllef without eating any food or drinking potion made from Gauntlet resources.',             tier: 'master',      category: 'restriction', injects: [5, 10, 13] }));
+
+// -- Tempoross (skilling boss; boat + vortex + cannons) ------------------------
+r('tempoross_saltbrine', T({ id: 'ca_temp_no_vortex',          name: 'Vortex Weaver',           description: 'Defeat Tempoross without being pulled into a single vortex spawn.',                                                tier: 'hard',        category: 'mechanic',    injects: [4, 12, 13] }));
+r('tempoross_saltbrine', T({ id: 'ca_temp_cannon_only',        name: 'Cannoneer Supreme',       description: 'Defeat Tempoross contributing only cannon shots (no fishing or water-bucket repairs).',                             tier: 'elite',       category: 'restriction', injects: [4, 5, 16] }));
+r('tempoross_saltbrine', T({ id: 'ca_temp_solo',               name: 'Solo Storm',              description: 'Defeat Tempoross alone (1-player team scaling).',                                                                  tier: 'master',      category: 'solo',        injects: [9, 13] }));
+
+// -- The Leviathan (P1 melee 25max, P2 ranged 28, P3 submerge 33+prayer drain) -
+r('the_leviathan_saltbrine', T({ id: 'ca_lev_no_prayer_drain', name: 'Unsapped Tide',           description: 'Defeat The Leviathan without any sweep prayer-drain (-25) tick landing.',                                             tier: 'elite',       category: 'mechanic',    injects: [4, 12, 13] }));
+r('the_leviathan_saltbrine', T({ id: 'ca_lev_range_only',      name: 'Sniper Tide',             description: 'Defeat The Leviathan using only ranged attacks (its listed weakness).',                                              tier: 'elite',       category: 'gear',        injects: [4, 7, 16] }));
+r('the_leviathan_saltbrine', T({ id: 'ca_lev_p3_corridor',     name: 'Narrow Corridor',         description: 'Survive the P3 submerge (3/4 arena sweep) without being hit for 3 consecutive sweeps.',                              tier: 'master',      category: 'mechanic',    injects: [4, 10, 13] }));
+
+// -- Hespori Veilwood (bloom-puff AoE, herb-patch rooted) ----------------------
+r('hespori_veilwood', T({ id: 'ca_hes_speed_60',               name: 'Garden Rush',             description: 'Defeat Hespori in under 60 seconds.',                                                                              tier: 'hard',        category: 'speed',       injects: [12] }));
+r('hespori_veilwood', T({ id: 'ca_hes_no_food',                name: 'Herb-Starved',            description: 'Defeat Hespori without eating any food.',                                                                          tier: 'elite',       category: 'restriction', injects: [5, 10] }));
+r('hespori_veilwood', T({ id: 'ca_hes_magic_only',             name: 'Overgrown Spellwork',     description: 'Defeat Hespori using only magic attacks.',                                                                         tier: 'elite',       category: 'gear',        injects: [4, 7, 16] }));
+
+// -- Worldtree Heart (root-eruption tells, heart-stop P3) ----------------------
+r('worldtree_heart',  T({ id: 'ca_wtree_no_damage',            name: 'Rootless',                description: 'Defeat the Worldtree Heart without taking damage.',                                                                tier: 'master',      category: 'perfection',  injects: [10, 13] }));
+r('worldtree_heart',  T({ id: 'ca_wtree_no_spec',              name: 'Unarmed Ascent',          description: 'Defeat the Worldtree Heart without using any special attack.',                                                     tier: 'hard',        category: 'restriction', injects: [5, 10] }));
+r('worldtree_heart',  T({ id: 'ca_wtree_solo',                 name: 'Solo Heartstopper',       description: 'Defeat the Worldtree Heart solo.',                                                                                 tier: 'master',      category: 'solo',        injects: [9, 13] }));
+
+// -- Sanctum Pharaoh (3 phases: sandstorm, scarab heal, 90s sand-timer) --------
+r('sanctum_pharaoh',  T({ id: 'ca_sanc_no_suffocate',          name: 'Deep-Lung',               description: 'Defeat the Sanctum Pharaoh without suffering a single suffocation-damage tick in Phase 3.',                        tier: 'elite',       category: 'mechanic',    injects: [4, 12, 13] }));
+r('sanctum_pharaoh',  T({ id: 'ca_sanc_scarab_clean',          name: 'Scarab Sweeper',          description: 'Defeat the Sanctum Pharaoh without any scarab swarm reaching him and healing 40 HP.',                               tier: 'elite',       category: 'mechanic',    injects: [4, 12, 13] }));
+r('sanctum_pharaoh',  T({ id: 'ca_sanc_speed_240',             name: 'Pharaoh Rush',            description: 'Defeat the Sanctum Pharaoh in under 4 minutes (before P3 sand-timer forces a rush).',                           tier: 'master',      category: 'speed',       injects: [12, 13] }));
+
+// ── H4.3 Catacomb wave-boss set (15 × 3 = 45 CAs) ─────────────────────────────
+// Each of the 15 Catacomb mini-bosses already has 3 baseline CAs. This wave
+// adds 3 more per boss leveraging their defined weaknesses (weakness: crush
+// for Bonelord + Knight, ranged for Matron + Abom + Witch, magic for Golem +
+// Warden + Plaguebearer, melee for Soul + Lich, slash for Ghast, magic for
+// Wight, crush for Rev, stab for Hound, ranged for Necro) and their encounter
+// flavor (blood-pools, heals, swarm-summons, prayer-drain).
+
+// -- Bonelord (weakness crush; reanimates bones) -------------------------------
+r('catacomb_bonelord', T({ id: 'ca_cata_bonelord_crush_only',  name: 'Breaker Bones',           description: 'Defeat the Bonelord using only crush weapons (his listed weakness).',                                            tier: 'hard',        category: 'gear',        injects: [4, 7, 16] }));
+r('catacomb_bonelord', T({ id: 'ca_cata_bonelord_speed_90',    name: 'Bonelord Swift',          description: 'Defeat the Bonelord in under 90 seconds.',                                                                         tier: 'elite',       category: 'speed',       injects: [12] }));
+r('catacomb_bonelord', T({ id: 'ca_cata_bonelord_no_food',     name: 'Marrow Fasting',          description: 'Defeat the Bonelord without eating any food.',                                                                    tier: 'elite',       category: 'restriction', injects: [5, 10] }));
+
+// -- Wraith Matron (weakness ranged; prayer-drain spectral attacks) ------------
+r('catacomb_wraith_matron', T({ id: 'ca_cata_wraith_range_only', name: 'Piercing Spectre',     description: 'Defeat the Wraith Matron using only ranged attacks (her listed weakness).',                                       tier: 'hard',        category: 'gear',        injects: [4, 7, 16] }));
+r('catacomb_wraith_matron', T({ id: 'ca_cata_wraith_no_pray',  name: 'Matronless Prayer',     description: 'Defeat the Wraith Matron without using prayer.',                                                                  tier: 'elite',       category: 'restriction', injects: [4, 5] }));
+r('catacomb_wraith_matron', T({ id: 'ca_cata_wraith_speed_100', name: 'Banished Swift',       description: 'Defeat the Wraith Matron in under 100 seconds.',                                                                  tier: 'elite',       category: 'speed',       injects: [12] }));
+
+// -- Flesh Golem (weakness magic; regenerates in blood pools) ------------------
+r('catacomb_flesh_golem', T({ id: 'ca_cata_flesh_magic_only',   name: 'Spellblade Stitch',     description: 'Defeat the Flesh Golem using only magic attacks (his listed weakness).',                                          tier: 'hard',        category: 'gear',        injects: [4, 7, 16] }));
+r('catacomb_flesh_golem', T({ id: 'ca_cata_flesh_no_pool',      name: 'Bloodless Regen',       description: 'Defeat the Flesh Golem without allowing him to regenerate HP from a single blood pool.',                           tier: 'elite',       category: 'mechanic',    injects: [4, 12, 13] }));
+r('catacomb_flesh_golem', T({ id: 'ca_cata_flesh_solo_speed',   name: 'Solo Stitch',           description: 'Solo the Flesh Golem in under 2 minutes.',                                                                         tier: 'master',      category: 'speed',       injects: [9, 12, 13] }));
+
+// -- Shade Warden (weakness magic; shadow-dash + prayer-drain bolts) -----------
+r('catacomb_shade_warden', T({ id: 'ca_cata_shade_no_pray_drain', name: 'Unshaded Prayer',     description: 'Defeat the Shade Warden without any prayer-drain shadow bolt landing.',                                             tier: 'hard',        category: 'mechanic',    injects: [4, 12, 13] }));
+r('catacomb_shade_warden', T({ id: 'ca_cata_shade_no_damage',    name: 'Untouched Warden',    description: 'Defeat the Shade Warden without taking damage.',                                                                   tier: 'master',      category: 'perfection',  injects: [10, 13] }));
+r('catacomb_shade_warden', T({ id: 'ca_cata_shade_solo',         name: 'Solo Shade',           description: 'Defeat the Shade Warden solo.',                                                                                    tier: 'elite',       category: 'solo',        injects: [9] }));
+
+// -- Abomination (weakness ranged; shockwave slams) ----------------------------
+r('catacomb_abomination', T({ id: 'ca_cata_abom_no_shockwave', name: 'Unshaken Horror',        description: 'Defeat the Abomination without being hit by any shockwave slam.',                                                 tier: 'hard',        category: 'mechanic',    injects: [4, 12, 13] }));
+r('catacomb_abomination', T({ id: 'ca_cata_abom_range_only',   name: 'Piercing Horror',        description: 'Defeat the Abomination using only ranged attacks (its listed weakness).',                                         tier: 'elite',       category: 'gear',        injects: [4, 7, 16] }));
+r('catacomb_abomination', T({ id: 'ca_cata_abom_speed_90',     name: 'Horror Swift',            description: 'Defeat the Abomination in under 90 seconds.',                                                                      tier: 'elite',       category: 'speed',       injects: [12] }));
+
+// -- Blood Witch (weakness ranged; heals every hit, blood drain) ---------------
+r('catacomb_blood_witch', T({ id: 'ca_cata_blood_range_only',  name: 'Piercing Purge',          description: 'Defeat the Blood Witch using only ranged attacks (her listed weakness).',                                        tier: 'hard',        category: 'gear',        injects: [4, 7, 16] }));
+r('catacomb_blood_witch', T({ id: 'ca_cata_blood_speed_60',    name: 'Coven Cut',               description: 'Defeat the Blood Witch in under 60 seconds (before her heal-stacks matter).',                                    tier: 'master',      category: 'speed',       injects: [12, 13] }));
+r('catacomb_blood_witch', T({ id: 'ca_cata_blood_no_damage',   name: 'Witch Untouched',         description: 'Defeat the Blood Witch without taking damage.',                                                                    tier: 'master',      category: 'perfection',  injects: [10, 13] }));
+
+// -- Crypt Knight (weakness crush; parries, armoured, high def) ----------------
+r('catacomb_crypt_knight', T({ id: 'ca_cata_knight_crush_only', name: 'Hammer Unseating',      description: 'Defeat the Crypt Knight using only crush weapons (his listed weakness).',                                          tier: 'hard',        category: 'gear',        injects: [4, 7, 16] }));
+r('catacomb_crypt_knight', T({ id: 'ca_cata_knight_no_pray',   name: 'Faithless Joust',        description: 'Defeat the Crypt Knight without using prayer.',                                                                    tier: 'elite',       category: 'restriction', injects: [4, 5] }));
+r('catacomb_crypt_knight', T({ id: 'ca_cata_knight_no_damage', name: 'Unhorsed Clean',         description: 'Defeat the Crypt Knight without taking damage.',                                                                   tier: 'master',      category: 'perfection',  injects: [10, 13] }));
+
+// -- Plaguebearer (weakness magic; ranged toxic gas, poison tick 8) ------------
+r('catacomb_plaguebearer', T({ id: 'ca_cata_plague_magic_only', name: 'Spellblight',           description: 'Defeat the Plaguebearer using only magic attacks (his listed weakness).',                                          tier: 'hard',        category: 'gear',        injects: [4, 7, 16] }));
+r('catacomb_plaguebearer', T({ id: 'ca_cata_plague_no_damage', name: 'Untainted',               description: 'Defeat the Plaguebearer without taking damage (no poison, no gas).',                                             tier: 'master',      category: 'perfection',  injects: [10, 13] }));
+r('catacomb_plaguebearer', T({ id: 'ca_cata_plague_solo',      name: 'Solo Cure',               description: 'Defeat the Plaguebearer solo.',                                                                                    tier: 'elite',       category: 'solo',        injects: [9] }));
+
+// -- Soul Collector (weakness melee; drains prayer + spec energy) --------------
+r('catacomb_soul_collector', T({ id: 'ca_cata_soul_melee_only', name: 'Steel Reaver',          description: 'Defeat the Soul Collector using only melee attacks (her listed weakness).',                                      tier: 'hard',        category: 'gear',        injects: [4, 7, 16] }));
+r('catacomb_soul_collector', T({ id: 'ca_cata_soul_no_spec_drain', name: 'Specless Claim',     description: 'Defeat the Soul Collector without any special-attack-energy drain tick landing.',                                  tier: 'elite',       category: 'mechanic',    injects: [4, 12, 13] }));
+r('catacomb_soul_collector', T({ id: 'ca_cata_soul_solo',      name: 'Solo Collector',          description: 'Defeat the Soul Collector solo.',                                                                                  tier: 'master',      category: 'solo',        injects: [9] }));
+
+// -- Ghast Sovereign (weakness slash; rots food on attack) ---------------------
+r('catacomb_ghast_sovereign', T({ id: 'ca_cata_ghast_slash_only', name: 'Slashed Sovereign',   description: 'Defeat the Ghast Sovereign using only slash weapons (his listed weakness).',                                      tier: 'hard',        category: 'gear',        injects: [4, 7, 16] }));
+r('catacomb_ghast_sovereign', T({ id: 'ca_cata_ghast_food_safe', name: 'Fresh Rations',        description: 'Defeat the Ghast Sovereign without any of your food being rotted by its attack.',                                 tier: 'elite',       category: 'mechanic',    injects: [4, 12, 13] }));
+r('catacomb_ghast_sovereign', T({ id: 'ca_cata_ghast_no_damage', name: 'Untouched Sovereign', description: 'Defeat the Ghast Sovereign without taking damage.',                                                                tier: 'master',      category: 'perfection',  injects: [10, 13] }));
+
+// -- Barrow Wight (weakness magic; drains combat stats on hit) -----------------
+r('catacomb_barrow_wight', T({ id: 'ca_cata_bwight_magic_only', name: 'Spellbreak Wight',     description: 'Defeat the Barrow Wight using only magic attacks (his listed weakness).',                                          tier: 'hard',        category: 'gear',        injects: [4, 7, 16] }));
+r('catacomb_barrow_wight', T({ id: 'ca_cata_bwight_no_stat_drain', name: 'Unreduced',         description: 'Defeat the Barrow Wight without any stat-drain hit landing.',                                                    tier: 'elite',       category: 'mechanic',    injects: [4, 12, 13] }));
+r('catacomb_barrow_wight', T({ id: 'ca_cata_bwight_speed_90',  name: 'Wight Swift',             description: 'Defeat the Barrow Wight in under 90 seconds.',                                                                     tier: 'elite',       category: 'speed',       injects: [12] }));
+
+// -- Revenant Lord (weakness crush; switches styles every 4 attacks) -----------
+r('catacomb_revenant_lord', T({ id: 'ca_cata_rev_crush_only', name: 'Maul of Retirement',     description: 'Defeat the Revenant Lord using only crush weapons (his listed weakness).',                                        tier: 'hard',        category: 'gear',        injects: [4, 7, 16] }));
+r('catacomb_revenant_lord', T({ id: 'ca_cata_rev_style_perfect', name: 'Style-Perfect Rev',    description: 'Defeat the Revenant Lord with correct prayer on every 4-attack style switch (no missed switch).',                tier: 'master',      category: 'mechanic',    injects: [4, 10, 13] }));
+r('catacomb_revenant_lord', T({ id: 'ca_cata_rev_solo',       name: 'Solo Revenant',           description: 'Defeat the Revenant Lord solo.',                                                                                   tier: 'elite',       category: 'solo',        injects: [9] }));
+
+// -- Grave Hound (weakness stab; attacks twice per turn at speed 3) ------------
+r('catacomb_grave_hound', T({ id: 'ca_cata_hound_stab_only', name: 'Fanged Counter',          description: 'Defeat the Grave Hound using only stab weapons (his listed weakness).',                                           tier: 'hard',        category: 'gear',        injects: [4, 7, 16] }));
+r('catacomb_grave_hound', T({ id: 'ca_cata_hound_no_double', name: 'One-Bite Hound',          description: 'Defeat the Grave Hound without being hit by both halves of a single double-attack turn.',                          tier: 'elite',       category: 'mechanic',    injects: [4, 12, 13] }));
+r('catacomb_grave_hound', T({ id: 'ca_cata_hound_no_food',   name: 'Lean Kennel',             description: 'Defeat the Grave Hound without eating any food.',                                                                  tier: 'elite',       category: 'restriction', injects: [5, 10] }));
+
+// -- Lich (weakness melee; phylactery revival, high magic attack) --------------
+r('catacomb_lich', T({ id: 'ca_cata_lich_melee_only',        name: 'Steel Against Sorcery',   description: 'Defeat the Lich using only melee attacks (his listed weakness).',                                                tier: 'elite',       category: 'gear',        injects: [4, 7, 16] }));
+r('catacomb_lich', T({ id: 'ca_cata_lich_speed_120',         name: 'Phylactery Race',         description: 'Defeat the Lich in under 2 minutes (before phylactery revival window opens).',                                    tier: 'master',      category: 'speed',       injects: [12, 13] }));
+r('catacomb_lich', T({ id: 'ca_cata_lich_no_pray',           name: 'Heretic Bane',            description: 'Defeat the Lich without using prayer.',                                                                            tier: 'master',      category: 'restriction', injects: [4, 5] }));
+
+// -- Necromancer (weakness ranged; raises skeleton summons) --------------------
+r('catacomb_necromancer', T({ id: 'ca_cata_necro_range_only', name: 'Piercing Heretic',       description: 'Defeat the Necromancer using only ranged attacks (his listed weakness).',                                        tier: 'elite',       category: 'gear',        injects: [4, 7, 16] }));
+r('catacomb_necromancer', T({ id: 'ca_cata_necro_speed_120', name: 'Summons Silenced',         description: 'Defeat the Necromancer in under 2 minutes.',                                                                       tier: 'master',      category: 'speed',       injects: [12, 13] }));
+r('catacomb_necromancer', T({ id: 'ca_cata_necro_no_damage', name: 'Untouched Necromancer',  description: 'Defeat the Necromancer without taking damage from the necromancer or any raised skeleton.',                      tier: 'master',      category: 'perfection',  injects: [4, 10, 13] }));
+
 // ══════════════════════════════════════════════════════════════════════════════
 // Boot summary
 // ══════════════════════════════════════════════════════════════════════════════
