@@ -35,7 +35,7 @@
         { "id": "g_med_6", "description": "Use a crystal arrow against a glass creature.", "check": { "type": "kill_npc_with_item", "npc_tag": "glass", "item": "crystal_arrow" } },
         { "id": "g_med_7", "description": "Kill a refracted elemental.", "check": { "type": "kill_npc", "npc": "refracted_elemental" } },
         { "id": "g_med_8", "description": "Navigate to the Crystal Wyrm lair entrance.", "check": { "type": "enter_area", "area": "crystal_wyrm_lair_entrance" } },
-        { "id": "g_med_9", "description": "Collect a refracted essence.", "check": { "type": "obtain_item", "item": "refracted_essence" } },
+        { "id": "g_med_9", "description": "Craft a refracted essence at the prism altar.", "check": { "type": "runecraft", "item": "refracted_essence" } },
         { "id": "g_med_10", "description": "Kill 10 prism wizards.", "check": { "type": "kill_npc", "npc": "prism_wizard", "count": 10 } },
         { "id": "g_med_11", "description": "Use a crystal fishing rod at the outpost spring.", "check": { "type": "catch_fish_with_item", "item": "crystal_fishing_rod", "area": "glass_desert_outpost_spring" } },
         { "id": "g_med_12", "description": "Complete the Glass Desert agility toll shortcut (agility 55).", "check": { "type": "use_shortcut", "shortcut": "glass_desert_agility_toll", "min_level": { "agility": 55 } } },

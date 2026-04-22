@@ -12,7 +12,7 @@
         { "id": "sb_easy_4", "description": "Enter the pirate cove.", "check": { "type": "enter_area", "area": "saltbrine_pirate_cove" } },
         { "id": "sb_easy_5", "description": "Kill a rock crab.", "check": { "type": "kill_npc", "npc": "rock_crab", "area": "saltbrine" } },
         { "id": "sb_easy_6", "description": "Cook a sardine at the harbour range.", "check": { "type": "cook_item_in_area", "item": "sardine", "area": "saltbrine_harbour_range" } },
-        { "id": "sb_easy_7", "description": "Collect a barnacle shell.", "check": { "type": "obtain_item", "item": "barnacle_shell" } },
+        { "id": "sb_easy_7", "description": "Mine a barnacle shell from the tidal rocks.", "check": { "type": "mine_items", "items": ["barnacle_shell"], "area": "saltbrine_tidal_rocks" } },
         { "id": "sb_easy_8", "description": "Talk to Harbourmaster Cole.", "check": { "type": "talk_to_npc", "npc": "harbourmaster_cole" } },
         { "id": "sb_easy_9", "description": "Catch 5 fish at any Saltbrine spot.", "check": { "type": "catch_fish_count", "count": 5, "area": "saltbrine" } },
         { "id": "sb_easy_10", "description": "Kill a seagull.", "check": { "type": "kill_npc", "npc": "seagull" } },

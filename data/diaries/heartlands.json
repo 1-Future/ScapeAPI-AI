@@ -11,7 +11,7 @@
         { "id": "h_easy_3", "description": "Smith a bronze dagger on the town anvil.", "check": { "type": "smith_item", "item": "bronze_dagger", "area": "heartlands_anvil" } },
         { "id": "h_easy_4", "description": "Catch a shrimp at the Heartlands fishing spot.", "check": { "type": "catch_fish", "item": "shrimp", "area": "heartlands_dock" } },
         { "id": "h_easy_5", "description": "Cook a shrimp without burning it on the town range.", "check": { "type": "cook_item_in_area", "item": "shrimp", "area": "heartlands_range", "burn": false } },
-        { "id": "h_easy_6", "description": "Kill a chicken and bury its bones.", "check": { "type": "compound", "all": [{ "type": "kill_npc", "npc": "chicken" }, { "type": "bury_bones", "item": "bones" }] } },
+        { "id": "h_easy_6", "description": "Kill a chicken, cook it, and bury its bones.", "check": { "type": "compound", "all": [{ "type": "kill_npc", "npc": "chicken" }, { "type": "cook_item_in_area", "item": "raw_chicken", "area": "heartlands" }, { "type": "bury_bones", "item": "bones" }] } },
         { "id": "h_easy_7", "description": "Chop a normal tree and light the logs in Heartlands.", "check": { "type": "compound", "all": [{ "type": "chop_tree", "tree": "tree", "area": "heartlands" }, { "type": "light_fire", "log": "logs", "area": "heartlands" }] } },
         { "id": "h_easy_8", "description": "Complete the Heartlands Patrol quest.", "check": { "type": "quest_complete", "quest": "heartlands_patrol" } },
         { "id": "h_easy_9", "description": "Buy a bronze sword from Kael's Smithy.", "check": { "type": "buy_item", "item": "bronze_sword", "shop": "kaels_smithy" } },

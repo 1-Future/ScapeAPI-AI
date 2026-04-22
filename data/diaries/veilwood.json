@@ -35,7 +35,7 @@
         { "id": "v_med_6", "description": "Brew a divination potion using Veilwood ingredients.", "check": { "type": "mix_potion", "item": "divination_potion" } },
         { "id": "v_med_7", "description": "Use an elven bow against a shadow panther.", "check": { "type": "kill_npc_with_item", "npc": "shadow_panther", "item": "elven_bow" } },
         { "id": "v_med_8", "description": "Navigate the sacred grove.", "check": { "type": "enter_area", "area": "veilwood_sacred_grove" } },
-        { "id": "v_med_9", "description": "Collect 5 spirit seeds.", "check": { "type": "obtain_item", "item": "spirit_seed", "count": 5 } },
+        { "id": "v_med_9", "description": "Farm and harvest 5 spirit seeds from the sacred grove patch.", "check": { "type": "farm_harvest", "crop": "spirit_seed", "count": 5, "area": "veilwood_sacred_grove_patch" } },
         { "id": "v_med_10", "description": "Kill a unicorn and harvest its horn.", "check": { "type": "compound", "all": [{ "type": "kill_npc", "npc": "unicorn" }, { "type": "bury_bones", "item": "unicorn_horn" }] } },
         { "id": "v_med_11", "description": "Use the Lunar Plank Make spell on a Veilwood log.", "check": { "type": "cast_spell_on_item", "spell": "plank_make", "target": "maple_logs" } },
         { "id": "v_med_12", "description": "Participate in a Guardians of the Rift minigame round.", "check": { "type": "minigame_participate", "minigame": "guardians_rift" } },

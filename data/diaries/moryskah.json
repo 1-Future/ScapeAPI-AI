@@ -35,7 +35,7 @@
         { "id": "m_med_6", "description": "Use a silver sickle against a vampyre (bonus damage).", "check": { "type": "kill_npc_with_item", "npc": "vampyre", "item": "silver_sickle" } },
         { "id": "m_med_7", "description": "Kill a werewolf with melee.", "check": { "type": "kill_npc", "npc": "werewolf", "with_style": "melee" } },
         { "id": "m_med_8", "description": "Navigate to the Bog Witch without dying to ghasts.", "check": { "type": "reach_npc_without_death", "npc": "bog_witch_grael" } },
-        { "id": "m_med_9", "description": "Collect 5 wolfbane herbs.", "check": { "type": "obtain_item", "item": "wolfbane_herb", "count": 5 } },
+        { "id": "m_med_9", "description": "Harvest 5 wolfbane herbs from the Moryskah patch.", "check": { "type": "farm_harvest", "crop": "wolfbane_herb", "count": 5, "area": "moryskah_herb_patch" } },
         { "id": "m_med_10", "description": "Enter the Moryskah slayer tower upper floor.", "check": { "type": "enter_area", "area": "moryskah_slayer_tower_upper" } },
         { "id": "m_med_11", "description": "Complete 5 Guardians of the Rift minigame rounds.", "check": { "type": "minigame_complete_count", "minigame": "guardians_rift", "count": 5 } },
         { "id": "m_med_12", "description": "Pickpocket a vampyre juvenile 3 consecutive times without failing.", "check": { "type": "pickpocket_streak", "npc": "vampyre_juvenile", "streak": 3 } },
