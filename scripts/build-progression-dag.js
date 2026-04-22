@@ -671,6 +671,52 @@ for (const [skill, levelSet] of referencedSkillLevels) {
   }
 }
 
+// ══════════════════════════════════════════════════════════════════════════════
+// C15 LINT RULE (v0.9 Wave A2) — detect drift-style naming errors at build time
+// ══════════════════════════════════════════════════════════════════════════════
+// Catches three classes of broken refs before they rot in the DAG:
+//   (1) `quest:<bare>` when `quest:the_<bare>` exists (the_ prefix drift)
+//   (2) `area:the_wilds_*` when `area:wilds_*` exists (Wilds naming drift)
+//   (3) Any other broken ref (general missing-target) — surfaced so humans
+//       can distinguish drift breaks from content-pending breaks.
+//
+// Lint errors are collected and surfaced via both the report and stderr.
+// The script still completes so diagnostics can inspect the full state;
+// callers should treat (driftErrors + wildsErrors).length > 0 as a build
+// failure now that C5 has landed; general missing-target count is expected
+// to drop toward zero as content-pending quests ship.
+
+function lintRefs(nodeList) {
+  const idSet = new Set(nodeList.map(n => n.id));
+  const driftErrors = [];
+  const wildsErrors = [];
+  const missingErrors = [];
+  for (const n of nodeList) {
+    for (const r of n.requires || []) {
+      if (idSet.has(r)) continue;
+      if (r.startsWith('quest:') && !r.startsWith('quest:the_')) {
+        const suggested = 'quest:the_' + r.slice('quest:'.length);
+        if (idSet.has(suggested)) {
+          driftErrors.push({ from: n.id, ref: r, suggested });
+          continue;
+        }
+      }
+      if (r.startsWith('area:the_wilds_')) {
+        const suggested = 'area:wilds_' + r.slice('area:the_wilds_'.length);
+        if (idSet.has(suggested)) {
+          wildsErrors.push({ from: n.id, ref: r, suggested });
+          continue;
+        }
+      }
+      missingErrors.push({ from: n.id, ref: r });
+    }
+  }
+  return { driftErrors, wildsErrors, missingErrors };
+}
+
+// ── Run the lint pass now (no fixups applied yet — those land in C5/C6/C7) ──
+const _lintResult = lintRefs([...nodes.values()]);
+
 // ── Write out ──────────────────────────────────────────────────────────────
 
 const nodeArray = [...nodes.values()];
@@ -698,6 +744,15 @@ fs.writeFileSync(path.join(DATA_DIR, 'progression-dag.json'), JSON.stringify(dag
 
 console.log(`[progression-dag] Wrote ${nodeArray.length} nodes, ${edgeCount} edges`);
 console.log('[progression-dag] By type:', dag.metadata.by_type);
+
+// ── C15 lint summary ────────────────────────────────────────────────────────
+console.log(`[lint] drift=${_lintResult.driftErrors.length} wilds=${_lintResult.wildsErrors.length} other-missing=${_lintResult.missingErrors.length}`);
+for (const e of _lintResult.driftErrors) {
+  process.stderr.write(`[lint] DRIFT ${e.from} -> ${e.ref} (did you mean ${e.suggested}?)\n`);
+}
+for (const e of _lintResult.wildsErrors) {
+  process.stderr.write(`[lint] WILDS ${e.from} -> ${e.ref} (did you mean ${e.suggested}?)\n`);
+}
 
 // ── Analysis ───────────────────────────────────────────────────────────────
 
@@ -1003,6 +1058,26 @@ for (const [t, c] of Object.entries(brokenByReferringType).sort((a, b) => b[1] -
   push(`| ${t} | ${c} |`);
 }
 push('');
+
+// ── C15 lint section in report ─────────────────────────────────────────────
+push('## DAG-builder lint (C15)');
+push('');
+push('Catches drift-style naming errors at build time. `drift` and `wilds` buckets should be zero after C5 renames land; `other-missing` drops as content-pending quests ship.');
+push('');
+push(`- **Drift (\`quest:<bare>\` → \`quest:the_<bare>\`):** ${_lintResult.driftErrors.length}`);
+push(`- **Wilds (\`area:the_wilds_*\` → \`area:wilds_*\`):** ${_lintResult.wildsErrors.length}`);
+push(`- **Other missing targets:** ${_lintResult.missingErrors.length}`);
+push('');
+if (_lintResult.driftErrors.length || _lintResult.wildsErrors.length) {
+  push('### Drift / Wilds residuals');
+  push('');
+  push('| From | Ref | Suggested |');
+  push('|------|-----|-----------|');
+  for (const e of [..._lintResult.driftErrors, ..._lintResult.wildsErrors]) {
+    push(`| \`${e.from}\` | \`${e.ref}\` | \`${e.suggested}\` |`);
+  }
+  push('');
+}
 
 fs.writeFileSync(path.join(DATA_DIR, 'progression-dag-report.md'), report.join('\n'));
 
