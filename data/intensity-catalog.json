@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-04-22T15:28:23.400Z",
-  "total_activities": 2050,
+  "generated_at": "2026-04-22T15:30:41.134Z",
+  "total_activities": 2094,
   "intensity_taxonomy": {
     "1": "pure AFK (click every 30s+)",
     "2": "light interaction (click every 10-20s)",
@@ -7140,6 +7140,500 @@
       "source_file": "data/methods/hitpoints.json"
     },
     {
+      "activity_id": "heartlands_wind_strike_dummy",
+      "activity_type": "skill_method",
+      "skill": "magic",
+      "intensity": 1,
+      "base_xp_per_hour": 8000,
+      "base_gp_per_hour": 0,
+      "region": "heartlands",
+      "level_required": 1,
+      "gating": {
+        "quests": [],
+        "items": [
+          "air_rune",
+          "mind_rune",
+          "staff_of_air"
+        ],
+        "areas": []
+      },
+      "notes": "Wind strike on a training dummy.",
+      "source_file": "data/methods/magic.json"
+    },
+    {
+      "activity_id": "heartlands_wind_strike_rats",
+      "activity_type": "skill_method",
+      "skill": "magic",
+      "intensity": 3,
+      "base_xp_per_hour": 19300,
+      "base_gp_per_hour": 1600,
+      "region": "heartlands",
+      "level_required": 1,
+      "gating": {
+        "quests": [],
+        "items": [
+          "air_rune",
+          "mind_rune",
+          "staff_of_air"
+        ],
+        "areas": []
+      },
+      "notes": "Active wind strike on rats.",
+      "source_file": "data/methods/magic.json"
+    },
+    {
+      "activity_id": "heartlands_water_strike_cows",
+      "activity_type": "skill_method",
+      "skill": "magic",
+      "intensity": 1,
+      "base_xp_per_hour": 10900,
+      "base_gp_per_hour": 6500,
+      "region": "heartlands",
+      "level_required": 5,
+      "gating": {
+        "quests": [],
+        "items": [
+          "water_rune",
+          "mind_rune",
+          "staff_of_water"
+        ],
+        "areas": []
+      },
+      "notes": "Water strike cows. AFK-slow.",
+      "source_file": "data/methods/magic.json"
+    },
+    {
+      "activity_id": "heartlands_earth_strike_goblin",
+      "activity_type": "skill_method",
+      "skill": "magic",
+      "intensity": 3,
+      "base_xp_per_hour": 22500,
+      "base_gp_per_hour": 4200,
+      "region": "heartlands",
+      "level_required": 13,
+      "gating": {
+        "quests": [],
+        "items": [
+          "earth_rune",
+          "chaos_rune",
+          "staff_of_earth"
+        ],
+        "areas": []
+      },
+      "notes": "Earth strike goblins at safespot.",
+      "source_file": "data/methods/magic.json"
+    },
+    {
+      "activity_id": "heartlands_wind_bolt_cow",
+      "activity_type": "skill_method",
+      "skill": "magic",
+      "intensity": 1,
+      "base_xp_per_hour": 14100,
+      "base_gp_per_hour": 4200,
+      "region": "heartlands",
+      "level_required": 17,
+      "gating": {
+        "quests": [],
+        "items": [
+          "chaos_rune",
+          "air_rune"
+        ],
+        "areas": []
+      },
+      "notes": "Wind bolt cows. Pure AFK.",
+      "source_file": "data/methods/magic.json"
+    },
+    {
+      "activity_id": "heartlands_teleport_varrock_afk",
+      "activity_type": "skill_method",
+      "skill": "magic",
+      "intensity": 1,
+      "base_xp_per_hour": 17400,
+      "base_gp_per_hour": 0,
+      "region": "heartlands",
+      "level_required": 25,
+      "gating": {
+        "quests": [],
+        "items": [
+          "law_rune",
+          "fire_rune",
+          "air_rune"
+        ],
+        "areas": []
+      },
+      "notes": "Varrock tele spam. Resource-drain AFK.",
+      "source_file": "data/methods/magic.json"
+    },
+    {
+      "activity_id": "saltbrine_tele_alch_combo",
+      "activity_type": "skill_method",
+      "skill": "magic",
+      "intensity": 4,
+      "base_xp_per_hour": 40300,
+      "base_gp_per_hour": -85000,
+      "region": "saltbrine",
+      "level_required": 25,
+      "gating": {
+        "quests": [],
+        "items": [
+          "low_alch_items",
+          "law_rune"
+        ],
+        "areas": []
+      },
+      "notes": "Low-alch spam + Varrock tele for tick resets. Pure XP, GP negative.",
+      "source_file": "data/methods/magic.json"
+    },
+    {
+      "activity_id": "sootworks_superheat_bar_chain",
+      "activity_type": "skill_method",
+      "skill": "magic",
+      "intensity": 5,
+      "base_xp_per_hour": 72500,
+      "base_gp_per_hour": 95000,
+      "region": "sootworks",
+      "level_required": 35,
+      "gating": {
+        "quests": [],
+        "items": [
+          "iron_ore",
+          "coal",
+          "nature_rune",
+          "fire_rune"
+        ],
+        "areas": []
+      },
+      "notes": "Superheat iron ore in a blast furnace. Smithing + Magic XP.",
+      "source_file": "data/methods/magic.json"
+    },
+    {
+      "activity_id": "sootworks_superheat_afk",
+      "activity_type": "skill_method",
+      "skill": "magic",
+      "intensity": 1,
+      "base_xp_per_hour": 23300,
+      "base_gp_per_hour": 45000,
+      "region": "sootworks",
+      "level_required": 35,
+      "gating": {
+        "quests": [],
+        "items": [
+          "iron_ore",
+          "coal",
+          "nature_rune",
+          "fire_rune"
+        ],
+        "areas": []
+      },
+      "notes": "Superheat AFK.",
+      "source_file": "data/methods/magic.json"
+    },
+    {
+      "activity_id": "heartlands_fire_bolt_safespot",
+      "activity_type": "skill_method",
+      "skill": "magic",
+      "intensity": 2,
+      "base_xp_per_hour": 30400,
+      "base_gp_per_hour": 22000,
+      "region": "heartlands",
+      "level_required": 35,
+      "gating": {
+        "quests": [],
+        "items": [
+          "chaos_rune",
+          "fire_rune",
+          "air_rune"
+        ],
+        "areas": []
+      },
+      "notes": "Fire bolt ogresses at safespot.",
+      "source_file": "data/methods/magic.json"
+    },
+    {
+      "activity_id": "heartlands_mid_alch_afk",
+      "activity_type": "skill_method",
+      "skill": "magic",
+      "intensity": 1,
+      "base_xp_per_hour": 28000,
+      "base_gp_per_hour": 35000,
+      "region": "heartlands",
+      "level_required": 43,
+      "gating": {
+        "quests": [],
+        "items": [
+          "nature_rune",
+          "fire_rune",
+          "low_alch_items"
+        ],
+        "areas": []
+      },
+      "notes": "Sustained alchemy cycle. Full AFK.",
+      "source_file": "data/methods/magic.json"
+    },
+    {
+      "activity_id": "heartlands_high_alch_spam_afk",
+      "activity_type": "skill_method",
+      "skill": "magic",
+      "intensity": 1,
+      "base_xp_per_hour": 46200,
+      "base_gp_per_hour": 120000,
+      "region": "heartlands",
+      "level_required": 55,
+      "gating": {
+        "quests": [],
+        "items": [
+          "high_alch_items",
+          "nature_rune",
+          "fire_rune"
+        ],
+        "areas": []
+      },
+      "notes": "High-alch nat + fire spam. Background.",
+      "source_file": "data/methods/magic.json"
+    },
+    {
+      "activity_id": "heartlands_high_alch_active",
+      "activity_type": "skill_method",
+      "skill": "magic",
+      "intensity": 5,
+      "base_xp_per_hour": 78100,
+      "base_gp_per_hour": 220000,
+      "region": "heartlands",
+      "level_required": 55,
+      "gating": {
+        "quests": [],
+        "items": [
+          "high_alch_items",
+          "nature_rune",
+          "fire_rune"
+        ],
+        "areas": []
+      },
+      "notes": "Click tick-perfect alching between other tasks for max XP rate.",
+      "source_file": "data/methods/magic.json"
+    },
+    {
+      "activity_id": "glass_desert_fire_wave_desert",
+      "activity_type": "skill_method",
+      "skill": "magic",
+      "intensity": 3,
+      "base_xp_per_hour": 46900,
+      "base_gp_per_hour": 72000,
+      "region": "glass_desert",
+      "level_required": 47,
+      "gating": {
+        "quests": [],
+        "items": [
+          "chaos_rune",
+          "fire_rune",
+          "death_rune"
+        ],
+        "areas": []
+      },
+      "notes": "Fire wave. Glass desert fire resistance -2.",
+      "source_file": "data/methods/magic.json"
+    },
+    {
+      "activity_id": "veilwood_tele_block_afk",
+      "activity_type": "skill_method",
+      "skill": "magic",
+      "intensity": 2,
+      "base_xp_per_hour": 58700,
+      "base_gp_per_hour": 185000,
+      "region": "veilwood",
+      "level_required": 63,
+      "gating": {
+        "quests": [],
+        "items": [
+          "nature_rune",
+          "fire_rune",
+          "air_rune",
+          "law_rune"
+        ],
+        "areas": []
+      },
+      "notes": "Passive alch + tele chain, no mob required. Background AFK.",
+      "source_file": "data/methods/magic.json"
+    },
+    {
+      "activity_id": "inkweald_ice_burst_afk",
+      "activity_type": "skill_method",
+      "skill": "magic",
+      "intensity": 2,
+      "base_xp_per_hour": 60000,
+      "base_gp_per_hour": 95000,
+      "region": "inkweald",
+      "level_required": 70,
+      "gating": {
+        "quests": [
+          "the_icebound_covenant"
+        ],
+        "items": [
+          "water_rune",
+          "death_rune",
+          "chaos_rune"
+        ],
+        "areas": []
+      },
+      "notes": "Ice burst multi-cave AFK.",
+      "source_file": "data/methods/magic.json"
+    },
+    {
+      "activity_id": "inkweald_ice_barrage_spam",
+      "activity_type": "skill_method",
+      "skill": "magic",
+      "intensity": 6,
+      "base_xp_per_hour": 104800,
+      "base_gp_per_hour": 240000,
+      "region": "inkweald",
+      "level_required": 75,
+      "gating": {
+        "quests": [
+          "unwake_the_dreamer"
+        ],
+        "items": [
+          "water_rune",
+          "blood_rune",
+          "death_rune"
+        ],
+        "areas": []
+      },
+      "notes": "Ice barrage AoE at peak density.",
+      "source_file": "data/methods/magic.json"
+    },
+    {
+      "activity_id": "moryskah_blood_blitz_rotation",
+      "activity_type": "skill_method",
+      "skill": "magic",
+      "intensity": 5,
+      "base_xp_per_hour": 123000,
+      "base_gp_per_hour": 285000,
+      "region": "moryskah",
+      "level_required": 80,
+      "gating": {
+        "quests": [
+          "the_blooded_pick"
+        ],
+        "items": [
+          "blood_rune",
+          "death_rune",
+          "chaos_rune"
+        ],
+        "areas": []
+      },
+      "notes": "Blood blitz rotation. Heal-on-damage attention flow.",
+      "source_file": "data/methods/magic.json"
+    },
+    {
+      "activity_id": "veilwood_blood_blitz_afk",
+      "activity_type": "skill_method",
+      "skill": "magic",
+      "intensity": 2,
+      "base_xp_per_hour": 84200,
+      "base_gp_per_hour": 170000,
+      "region": "veilwood",
+      "level_required": 80,
+      "gating": {
+        "quests": [
+          "swan_song_of_veilwood"
+        ],
+        "items": [
+          "blood_rune",
+          "death_rune",
+          "chaos_rune"
+        ],
+        "areas": []
+      },
+      "notes": "Blood blitz safespot AFK.",
+      "source_file": "data/methods/magic.json"
+    },
+    {
+      "activity_id": "wilds_nmz_barrage",
+      "activity_type": "skill_method",
+      "skill": "magic",
+      "intensity": 7,
+      "base_xp_per_hour": 163500,
+      "base_gp_per_hour": 285000,
+      "region": "inkweald",
+      "level_required": 91,
+      "gating": {
+        "quests": [
+          "the_dream_contract"
+        ],
+        "items": [
+          "barrage_runes",
+          "overload"
+        ],
+        "areas": []
+      },
+      "notes": "Multi-target barrage meta with overload. Peak XP in the game.",
+      "source_file": "data/methods/magic.json"
+    },
+    {
+      "activity_id": "wilds_ancient_raid_cast",
+      "activity_type": "skill_method",
+      "skill": "magic",
+      "intensity": 9,
+      "base_xp_per_hour": 212000,
+      "base_gp_per_hour": 620000,
+      "region": "wilds",
+      "level_required": 94,
+      "gating": {
+        "quests": [
+          "the_seven_seals"
+        ],
+        "items": [
+          "ancient_staff",
+          "wrath_rune"
+        ],
+        "areas": []
+      },
+      "notes": "Raid-scaled ancient casting.",
+      "source_file": "data/methods/magic.json"
+    },
+    {
+      "activity_id": "veilwood_alch_stall_afk",
+      "activity_type": "skill_method",
+      "skill": "magic",
+      "intensity": 1,
+      "base_xp_per_hour": 98500,
+      "base_gp_per_hour": 425000,
+      "region": "veilwood",
+      "level_required": 95,
+      "gating": {
+        "quests": [],
+        "items": [
+          "nature_rune",
+          "fire_rune",
+          "alchemy_stall_items"
+        ],
+        "areas": []
+      },
+      "notes": "Stall-alchemy AFK. Bulk items preloaded by NPC.",
+      "source_file": "data/methods/magic.json"
+    },
+    {
+      "activity_id": "heartlands_teleport_crafter",
+      "activity_type": "skill_method",
+      "skill": "magic",
+      "intensity": 4,
+      "base_xp_per_hour": 68000,
+      "base_gp_per_hour": 220000,
+      "region": "heartlands",
+      "level_required": 60,
+      "gating": {
+        "quests": [],
+        "items": [
+          "law_rune",
+          "soft_clay",
+          "staff"
+        ],
+        "areas": []
+      },
+      "notes": "Craft teleport tabs. Multi-skill Make-X chain.",
+      "source_file": "data/methods/magic.json"
+    },
+    {
       "activity_id": "heartlands_copperpit_surface_tap",
       "activity_type": "skill_method",
       "skill": "mining",
@@ -7649,6 +8143,429 @@
       },
       "notes": "A fallen star lands in the glade on a rotating timer. Ten minutes of intense multi-player gathering, shared XP, once-per-instance.",
       "source_file": "data/methods/mining.json"
+    },
+    {
+      "activity_id": "heartlands_bury_bones_afk",
+      "activity_type": "skill_method",
+      "skill": "prayer",
+      "intensity": 1,
+      "base_xp_per_hour": 8000,
+      "base_gp_per_hour": 0,
+      "region": "heartlands",
+      "level_required": 1,
+      "gating": {
+        "quests": [],
+        "items": [
+          "bones"
+        ],
+        "areas": []
+      },
+      "notes": "Bury bones one at a time. Starter.",
+      "source_file": "data/methods/prayer.json"
+    },
+    {
+      "activity_id": "heartlands_bury_big_bones",
+      "activity_type": "skill_method",
+      "skill": "prayer",
+      "intensity": 3,
+      "base_xp_per_hour": 19300,
+      "base_gp_per_hour": 0,
+      "region": "heartlands",
+      "level_required": 1,
+      "gating": {
+        "quests": [],
+        "items": [
+          "big_bones"
+        ],
+        "areas": []
+      },
+      "notes": "Bury big bones — 3.3x XP.",
+      "source_file": "data/methods/prayer.json"
+    },
+    {
+      "activity_id": "heartlands_bones_altar_lumbar",
+      "activity_type": "skill_method",
+      "skill": "prayer",
+      "intensity": 1,
+      "base_xp_per_hour": 16400,
+      "base_gp_per_hour": 0,
+      "region": "heartlands",
+      "level_required": 10,
+      "gating": {
+        "quests": [],
+        "items": [
+          "bones"
+        ],
+        "areas": []
+      },
+      "notes": "Offer bones on the common altar. 2x XP per bone.",
+      "source_file": "data/methods/prayer.json"
+    },
+    {
+      "activity_id": "heartlands_ectophial_farm",
+      "activity_type": "skill_method",
+      "skill": "prayer",
+      "intensity": 5,
+      "base_xp_per_hour": 45200,
+      "base_gp_per_hour": 0,
+      "region": "moryskah",
+      "level_required": 15,
+      "gating": {
+        "quests": [
+          "ghost_of_tombseam"
+        ],
+        "items": [
+          "bones",
+          "bonemeal_pot"
+        ],
+        "areas": []
+      },
+      "notes": "Grind bones + mix bucket + worship. 4x XP per bone. Multi-step.",
+      "source_file": "data/methods/prayer.json"
+    },
+    {
+      "activity_id": "boneyard_bury_big_bones_afk",
+      "activity_type": "skill_method",
+      "skill": "prayer",
+      "intensity": 1,
+      "base_xp_per_hour": 17400,
+      "base_gp_per_hour": 12000,
+      "region": "boneyard",
+      "level_required": 20,
+      "gating": {
+        "quests": [],
+        "items": [
+          "big_bones"
+        ],
+        "areas": []
+      },
+      "notes": "Bury big bones from kills.",
+      "source_file": "data/methods/prayer.json"
+    },
+    {
+      "activity_id": "heartlands_bones_gilded_altar",
+      "activity_type": "skill_method",
+      "skill": "prayer",
+      "intensity": 4,
+      "base_xp_per_hour": 45300,
+      "base_gp_per_hour": 0,
+      "region": "heartlands",
+      "level_required": 25,
+      "gating": {
+        "quests": [
+          "hearthing_right"
+        ],
+        "items": [
+          "big_bones"
+        ],
+        "areas": []
+      },
+      "notes": "Gilded altar big bones 3.5x.",
+      "source_file": "data/methods/prayer.json"
+    },
+    {
+      "activity_id": "heartlands_dragon_bones_afk",
+      "activity_type": "skill_method",
+      "skill": "prayer",
+      "intensity": 1,
+      "base_xp_per_hour": 26800,
+      "base_gp_per_hour": -85000,
+      "region": "heartlands",
+      "level_required": 30,
+      "gating": {
+        "quests": [],
+        "items": [
+          "dragon_bones"
+        ],
+        "areas": []
+      },
+      "notes": "Dragon bones on common altar.",
+      "source_file": "data/methods/prayer.json"
+    },
+    {
+      "activity_id": "heartlands_dragon_bones_gilded",
+      "activity_type": "skill_method",
+      "skill": "prayer",
+      "intensity": 5,
+      "base_xp_per_hour": 78700,
+      "base_gp_per_hour": -155000,
+      "region": "heartlands",
+      "level_required": 30,
+      "gating": {
+        "quests": [
+          "hearthing_right"
+        ],
+        "items": [
+          "dragon_bones"
+        ],
+        "areas": []
+      },
+      "notes": "Dragon bones 3.5x gilded altar. Ultra-expensive, fastest XP.",
+      "source_file": "data/methods/prayer.json"
+    },
+    {
+      "activity_id": "heartlands_dagannoth_bones",
+      "activity_type": "skill_method",
+      "skill": "prayer",
+      "intensity": 1,
+      "base_xp_per_hour": 32000,
+      "base_gp_per_hour": -95000,
+      "region": "heartlands",
+      "level_required": 40,
+      "gating": {
+        "quests": [],
+        "items": [
+          "dagannoth_bones"
+        ],
+        "areas": []
+      },
+      "notes": "Dagannoth bones. AFK.",
+      "source_file": "data/methods/prayer.json"
+    },
+    {
+      "activity_id": "heartlands_wyvern_bones_altar",
+      "activity_type": "skill_method",
+      "skill": "prayer",
+      "intensity": 4,
+      "base_xp_per_hour": 58500,
+      "base_gp_per_hour": -125000,
+      "region": "heartlands",
+      "level_required": 45,
+      "gating": {
+        "quests": [
+          "hearthing_right"
+        ],
+        "items": [
+          "wyvern_bones"
+        ],
+        "areas": []
+      },
+      "notes": "Wyvern bones on gilded altar.",
+      "source_file": "data/methods/prayer.json"
+    },
+    {
+      "activity_id": "heartlands_superior_dragon_afk",
+      "activity_type": "skill_method",
+      "skill": "prayer",
+      "intensity": 1,
+      "base_xp_per_hour": 41200,
+      "base_gp_per_hour": -180000,
+      "region": "heartlands",
+      "level_required": 50,
+      "gating": {
+        "quests": [],
+        "items": [
+          "superior_dragon_bones"
+        ],
+        "areas": []
+      },
+      "notes": "Superior dragon bones common altar.",
+      "source_file": "data/methods/prayer.json"
+    },
+    {
+      "activity_id": "wilds_chaos_altar_sacrifice",
+      "activity_type": "skill_method",
+      "skill": "prayer",
+      "intensity": 7,
+      "base_xp_per_hour": 115400,
+      "base_gp_per_hour": -185000,
+      "region": "wilds",
+      "level_required": 55,
+      "gating": {
+        "quests": [],
+        "items": [
+          "dragon_bones"
+        ],
+        "areas": []
+      },
+      "notes": "Chaos altar. 50% bone save. PK-risky. Max XP/bone.",
+      "source_file": "data/methods/prayer.json"
+    },
+    {
+      "activity_id": "heartlands_superior_gilded",
+      "activity_type": "skill_method",
+      "skill": "prayer",
+      "intensity": 5,
+      "base_xp_per_hour": 136500,
+      "base_gp_per_hour": -285000,
+      "region": "heartlands",
+      "level_required": 55,
+      "gating": {
+        "quests": [
+          "hearthing_right"
+        ],
+        "items": [
+          "superior_dragon_bones"
+        ],
+        "areas": []
+      },
+      "notes": "Superior dragon gilded. Peak 55+.",
+      "source_file": "data/methods/prayer.json"
+    },
+    {
+      "activity_id": "moryskah_ensouled_heads_afk",
+      "activity_type": "skill_method",
+      "skill": "prayer",
+      "intensity": 1,
+      "base_xp_per_hour": 40000,
+      "base_gp_per_hour": 45000,
+      "region": "moryskah",
+      "level_required": 60,
+      "gating": {
+        "quests": [
+          "necromantic_pact"
+        ],
+        "items": [
+          "ensouled_head",
+          "nature_rune"
+        ],
+        "areas": []
+      },
+      "notes": "Reanimate ensouled heads for prayer XP.",
+      "source_file": "data/methods/prayer.json"
+    },
+    {
+      "activity_id": "wilds_superior_chaos",
+      "activity_type": "skill_method",
+      "skill": "prayer",
+      "intensity": 8,
+      "base_xp_per_hour": 149300,
+      "base_gp_per_hour": -285000,
+      "region": "wilds",
+      "level_required": 65,
+      "gating": {
+        "quests": [],
+        "items": [
+          "superior_dragon_bones"
+        ],
+        "areas": []
+      },
+      "notes": "Superior dragon Chaos altar. Endgame prayer.",
+      "source_file": "data/methods/prayer.json"
+    },
+    {
+      "activity_id": "veilwood_abyssal_altar",
+      "activity_type": "skill_method",
+      "skill": "prayer",
+      "intensity": 2,
+      "base_xp_per_hour": 60000,
+      "base_gp_per_hour": 25000,
+      "region": "veilwood",
+      "level_required": 70,
+      "gating": {
+        "quests": [
+          "swan_song_of_veilwood"
+        ],
+        "items": [
+          "abyssal_bones"
+        ],
+        "areas": []
+      },
+      "notes": "Abyssal altar worship. AFK.",
+      "source_file": "data/methods/prayer.json"
+    },
+    {
+      "activity_id": "veilwood_ensouled_adamant",
+      "activity_type": "skill_method",
+      "skill": "prayer",
+      "intensity": 4,
+      "base_xp_per_hour": 82300,
+      "base_gp_per_hour": 125000,
+      "region": "moryskah",
+      "level_required": 75,
+      "gating": {
+        "quests": [
+          "necromantic_pact"
+        ],
+        "items": [
+          "ensouled_dragon_head",
+          "nature_rune"
+        ],
+        "areas": []
+      },
+      "notes": "Ensouled dragon heads. Unique prayer XP path.",
+      "source_file": "data/methods/prayer.json"
+    },
+    {
+      "activity_id": "heartlands_monstrous_bones_afk",
+      "activity_type": "skill_method",
+      "skill": "prayer",
+      "intensity": 1,
+      "base_xp_per_hour": 66800,
+      "base_gp_per_hour": -220000,
+      "region": "heartlands",
+      "level_required": 80,
+      "gating": {
+        "quests": [],
+        "items": [
+          "monstrous_bones"
+        ],
+        "areas": []
+      },
+      "notes": "Monstrous bones AFK.",
+      "source_file": "data/methods/prayer.json"
+    },
+    {
+      "activity_id": "heartlands_zogre_bones_gilded",
+      "activity_type": "skill_method",
+      "skill": "prayer",
+      "intensity": 5,
+      "base_xp_per_hour": 172000,
+      "base_gp_per_hour": -320000,
+      "region": "heartlands",
+      "level_required": 85,
+      "gating": {
+        "quests": [
+          "hearthing_right",
+          "tombhearer"
+        ],
+        "items": [
+          "zogre_bones"
+        ],
+        "areas": []
+      },
+      "notes": "Zogre bones gilded altar.",
+      "source_file": "data/methods/prayer.json"
+    },
+    {
+      "activity_id": "wilds_wyrm_chaos",
+      "activity_type": "skill_method",
+      "skill": "prayer",
+      "intensity": 9,
+      "base_xp_per_hour": 222300,
+      "base_gp_per_hour": -420000,
+      "region": "wilds",
+      "level_required": 92,
+      "gating": {
+        "quests": [],
+        "items": [
+          "crystal_wyrm_bones"
+        ],
+        "areas": []
+      },
+      "notes": "Crystal wyrm bones chaos altar.",
+      "source_file": "data/methods/prayer.json"
+    },
+    {
+      "activity_id": "veilwood_sanctum_prayer_afk",
+      "activity_type": "skill_method",
+      "skill": "prayer",
+      "intensity": 2,
+      "base_xp_per_hour": 94000,
+      "base_gp_per_hour": 85000,
+      "region": "veilwood",
+      "level_required": 90,
+      "gating": {
+        "quests": [
+          "whisperwood_remembers"
+        ],
+        "items": [
+          "holy_offering"
+        ],
+        "areas": []
+      },
+      "notes": "Sanctum offering tablet. AFK.",
+      "source_file": "data/methods/prayer.json"
     },
     {
       "activity_id": "heartlands_dummy_range",
@@ -10140,7 +11057,7 @@
       "intensity": 9,
       "base_xp_per_hour": 319200,
       "base_gp_per_hour": 16280000,
-      "region": "unknown",
+      "region": "inkweald",
       "level_required": 90,
       "gating": {
         "quests": [],
@@ -10242,7 +11159,7 @@
       "intensity": 7,
       "base_xp_per_hour": 170240,
       "base_gp_per_hour": 24320000,
-      "region": "unknown",
+      "region": "heartlands",
       "level_required": 80,
       "gating": {
         "quests": [],
@@ -10259,7 +11176,7 @@
       "intensity": 7,
       "base_xp_per_hour": 127680,
       "base_gp_per_hour": 16640000,
-      "region": "unknown",
+      "region": "heartlands",
       "level_required": 80,
       "gating": {
         "quests": [],
@@ -10276,7 +11193,7 @@
       "intensity": 7,
       "base_xp_per_hour": 153216,
       "base_gp_per_hour": 19840000,
-      "region": "unknown",
+      "region": "moryskah",
       "level_required": 80,
       "gating": {
         "quests": [],
@@ -10293,7 +11210,7 @@
       "intensity": 7,
       "base_xp_per_hour": 144704,
       "base_gp_per_hour": 18560000,
-      "region": "unknown",
+      "region": "saltbrine",
       "level_required": 80,
       "gating": {
         "quests": [],
@@ -10310,7 +11227,7 @@
       "intensity": 7,
       "base_xp_per_hour": 161728,
       "base_gp_per_hour": 23040000,
-      "region": "unknown",
+      "region": "sootworks",
       "level_required": 80,
       "gating": {
         "quests": [],
@@ -10395,7 +11312,7 @@
       "intensity": 4,
       "base_xp_per_hour": 84269,
       "base_gp_per_hour": 179520,
-      "region": "unknown",
+      "region": "heartlands",
       "level_required": 22,
       "gating": {
         "quests": [],
@@ -10412,7 +11329,7 @@
       "intensity": 5,
       "base_xp_per_hour": 102995,
       "base_gp_per_hour": 219120,
-      "region": "unknown",
+      "region": "heartlands",
       "level_required": 27,
       "gating": {
         "quests": [],
@@ -10514,7 +11431,7 @@
       "intensity": 6,
       "base_xp_per_hour": 115710,
       "base_gp_per_hour": 279000,
-      "region": "unknown",
+      "region": "moryskah",
       "level_required": 51,
       "gating": {
         "quests": [],
@@ -10582,7 +11499,7 @@
       "intensity": 5,
       "base_xp_per_hour": 140448,
       "base_gp_per_hour": 250800,
-      "region": "unknown",
+      "region": "boneyard",
       "level_required": 31,
       "gating": {
         "quests": [],
@@ -11434,7 +12351,7 @@
       "intensity": 2,
       "base_xp_per_hour": 39900,
       "base_gp_per_hour": 78000,
-      "region": "unknown",
+      "region": "heartlands",
       "level_required": 4,
       "gating": {
         "quests": [],
@@ -11451,7 +12368,7 @@
       "intensity": 3,
       "base_xp_per_hour": 74480,
       "base_gp_per_hour": 147000,
-      "region": "unknown",
+      "region": "heartlands",
       "level_required": 11,
       "gating": {
         "quests": [],
@@ -11468,7 +12385,7 @@
       "intensity": 2,
       "base_xp_per_hour": 53200,
       "base_gp_per_hour": 78000,
-      "region": "unknown",
+      "region": "wilds",
       "level_required": 4,
       "gating": {
         "quests": [],
@@ -11570,7 +12487,7 @@
       "intensity": 4,
       "base_xp_per_hour": 65542,
       "base_gp_per_hour": 150480,
-      "region": "boneyard",
+      "region": "heartlands",
       "level_required": 19,
       "gating": {
         "quests": [],
@@ -11638,7 +12555,7 @@
       "intensity": 4,
       "base_xp_per_hour": 56179,
       "base_gp_per_hour": 145200,
-      "region": "unknown",
+      "region": "boneyard",
       "level_required": 18,
       "gating": {
         "quests": [],
@@ -11723,7 +12640,7 @@
       "intensity": 4,
       "base_xp_per_hour": 29260,
       "base_gp_per_hour": 158400,
-      "region": "unknown",
+      "region": "moryskah",
       "level_required": 20,
       "gating": {
         "quests": [],
@@ -11740,7 +12657,7 @@
       "intensity": 5,
       "base_xp_per_hour": 105336,
       "base_gp_per_hour": 256080,
-      "region": "unknown",
+      "region": "moryskah",
       "level_required": 32,
       "gating": {
         "quests": [],
@@ -11825,7 +12742,7 @@
       "intensity": 1,
       "base_xp_per_hour": 15960,
       "base_gp_per_hour": 30000,
-      "region": "unknown",
+      "region": "veilwood",
       "level_required": 1,
       "gating": {
         "quests": [],
@@ -11842,7 +12759,7 @@
       "intensity": 3,
       "base_xp_per_hour": 65170,
       "base_gp_per_hour": 134400,
-      "region": "unknown",
+      "region": "veilwood",
       "level_required": 10,
       "gating": {
         "quests": [],
@@ -11876,7 +12793,7 @@
       "intensity": 4,
       "base_xp_per_hour": 96824,
       "base_gp_per_hour": 201600,
-      "region": "sootworks",
+      "region": "wilds",
       "level_required": 16,
       "gating": {
         "quests": [],
@@ -11910,7 +12827,7 @@
       "intensity": 5,
       "base_xp_per_hour": 140448,
       "base_gp_per_hour": 224400,
-      "region": "unknown",
+      "region": "sootworks",
       "level_required": 28,
       "gating": {
         "quests": [],
@@ -11995,7 +12912,7 @@
       "intensity": 3,
       "base_xp_per_hour": 55860,
       "base_gp_per_hour": 147000,
-      "region": "unknown",
+      "region": "saltbrine",
       "level_required": 11,
       "gating": {
         "quests": [],
@@ -12063,7 +12980,7 @@
       "intensity": 4,
       "base_xp_per_hour": 64372,
       "base_gp_per_hour": 158400,
-      "region": "unknown",
+      "region": "glass_desert",
       "level_required": 20,
       "gating": {
         "quests": [],
@@ -12131,7 +13048,7 @@
       "intensity": 5,
       "base_xp_per_hour": 79800,
       "base_gp_per_hour": 198000,
-      "region": "unknown",
+      "region": "inkweald",
       "level_required": 36,
       "gating": {
         "quests": [],
@@ -12148,7 +13065,7 @@
       "intensity": 4,
       "base_xp_per_hour": 64372,
       "base_gp_per_hour": 132000,
-      "region": "unknown",
+      "region": "wilds",
       "level_required": 16,
       "gating": {
         "quests": [],
@@ -12165,7 +13082,7 @@
       "intensity": 3,
       "base_xp_per_hour": 52136,
       "base_gp_per_hour": 126000,
-      "region": "unknown",
+      "region": "wilds",
       "level_required": 10,
       "gating": {
         "quests": [],
@@ -12182,7 +13099,7 @@
       "intensity": 3,
       "base_xp_per_hour": 33516,
       "base_gp_per_hour": 84000,
-      "region": "unknown",
+      "region": "wilds",
       "level_required": 6,
       "gating": {
         "quests": [],
@@ -12199,7 +13116,7 @@
       "intensity": 5,
       "base_xp_per_hour": 75810,
       "base_gp_per_hour": 187200,
-      "region": "unknown",
+      "region": "wilds",
       "level_required": 34,
       "gating": {
         "quests": [],
@@ -12216,7 +13133,7 @@
       "intensity": 5,
       "base_xp_per_hour": 84269,
       "base_gp_per_hour": 184800,
-      "region": "unknown",
+      "region": "wilds",
       "level_required": 23,
       "gating": {
         "quests": [],
@@ -12233,7 +13150,7 @@
       "intensity": 5,
       "base_xp_per_hour": 95760,
       "base_gp_per_hour": 181800,
-      "region": "unknown",
+      "region": "wilds",
       "level_required": 33,
       "gating": {
         "quests": [],
@@ -12250,7 +13167,7 @@
       "intensity": 7,
       "base_xp_per_hour": 95760,
       "base_gp_per_hour": 12928000,
-      "region": "unknown",
+      "region": "wilds",
       "level_required": 70,
       "gating": {
         "quests": [],
@@ -12352,7 +13269,7 @@
       "intensity": 4,
       "base_xp_per_hour": 76076,
       "base_gp_per_hour": 166320,
-      "region": "unknown",
+      "region": "heartlands",
       "level_required": 21,
       "gating": {
         "quests": [],
@@ -12369,7 +13286,7 @@
       "intensity": 1,
       "base_xp_per_hour": 13300,
       "base_gp_per_hour": 6000,
-      "region": "unknown",
+      "region": "heartlands",
       "level_required": 1,
       "gating": {
         "quests": [],
@@ -12692,7 +13609,7 @@
       "intensity": 5,
       "base_xp_per_hour": 87780,
       "base_gp_per_hour": 189000,
-      "region": "unknown",
+      "region": "boneyard",
       "level_required": 35,
       "gating": {
         "quests": [],
@@ -12777,7 +13694,7 @@
       "intensity": 5,
       "base_xp_per_hour": 81928,
       "base_gp_per_hour": 211200,
-      "region": "unknown",
+      "region": "moryskah",
       "level_required": 26,
       "gating": {
         "quests": [],
@@ -12794,7 +13711,7 @@
       "intensity": 2,
       "base_xp_per_hour": 31920,
       "base_gp_per_hour": 90000,
-      "region": "unknown",
+      "region": "moryskah",
       "level_required": 5,
       "gating": {
         "quests": [],
@@ -12913,7 +13830,7 @@
       "intensity": 4,
       "base_xp_per_hour": 74480,
       "base_gp_per_hour": 176400,
-      "region": "unknown",
+      "region": "veilwood",
       "level_required": 14,
       "gating": {
         "quests": [],
@@ -12930,7 +13847,7 @@
       "intensity": 3,
       "base_xp_per_hour": 46550,
       "base_gp_per_hour": 117600,
-      "region": "unknown",
+      "region": "veilwood",
       "level_required": 9,
       "gating": {
         "quests": [],
@@ -12947,7 +13864,7 @@
       "intensity": 4,
       "base_xp_per_hour": 93100,
       "base_gp_per_hour": 176400,
-      "region": "unknown",
+      "region": "veilwood",
       "level_required": 14,
       "gating": {
         "quests": [],
@@ -13015,7 +13932,7 @@
       "intensity": 6,
       "base_xp_per_hour": 143640,
       "base_gp_per_hour": 306000,
-      "region": "unknown",
+      "region": "sootworks",
       "level_required": 56,
       "gating": {
         "quests": [],
@@ -13032,7 +13949,7 @@
       "intensity": 4,
       "base_xp_per_hour": 70224,
       "base_gp_per_hour": 137280,
-      "region": "unknown",
+      "region": "sootworks",
       "level_required": 17,
       "gating": {
         "quests": [],
@@ -13134,7 +14051,7 @@
       "intensity": 4,
       "base_xp_per_hour": 70756,
       "base_gp_per_hour": 168000,
-      "region": "unknown",
+      "region": "saltbrine",
       "level_required": 13,
       "gating": {
         "quests": [],
@@ -13151,7 +14068,7 @@
       "intensity": 3,
       "base_xp_per_hour": 31920,
       "base_gp_per_hour": 60000,
-      "region": "unknown",
+      "region": "saltbrine",
       "level_required": 3,
       "gating": {
         "quests": [],
@@ -13236,7 +14153,7 @@
       "intensity": 6,
       "base_xp_per_hour": 159600,
       "base_gp_per_hour": 345600,
-      "region": "unknown",
+      "region": "glass_desert",
       "level_required": 64,
       "gating": {
         "quests": [],
@@ -13321,7 +14238,7 @@
       "intensity": 6,
       "base_xp_per_hour": 143640,
       "base_gp_per_hour": 270000,
-      "region": "unknown",
+      "region": "inkweald",
       "level_required": 50,
       "gating": {
         "quests": [],
@@ -13338,7 +14255,7 @@
       "intensity": 4,
       "base_xp_per_hour": 65542,
       "base_gp_per_hour": 168960,
-      "region": "unknown",
+      "region": "wilds",
       "level_required": 21,
       "gating": {
         "quests": [],
@@ -13355,7 +14272,7 @@
       "intensity": 4,
       "base_xp_per_hour": 74480,
       "base_gp_per_hour": 176400,
-      "region": "unknown",
+      "region": "wilds",
       "level_required": 14,
       "gating": {
         "quests": [],
@@ -13372,7 +14289,7 @@
       "intensity": 3,
       "base_xp_per_hour": 55860,
       "base_gp_per_hour": 142800,
-      "region": "unknown",
+      "region": "wilds",
       "level_required": 11,
       "gating": {
         "quests": [],
@@ -13389,7 +14306,7 @@
       "intensity": 5,
       "base_xp_per_hour": 117040,
       "base_gp_per_hour": 211200,
-      "region": "unknown",
+      "region": "wilds",
       "level_required": 26,
       "gating": {
         "quests": [],
@@ -13406,7 +14323,7 @@
       "intensity": 5,
       "base_xp_per_hour": 105336,
       "base_gp_per_hour": 250800,
-      "region": "unknown",
+      "region": "wilds",
       "level_required": 31,
       "gating": {
         "quests": [],
@@ -13423,7 +14340,7 @@
       "intensity": 7,
       "base_xp_per_hour": 54264,
       "base_gp_per_hour": 14528000,
-      "region": "unknown",
+      "region": "wilds",
       "level_required": 80,
       "gating": {
         "quests": [],
@@ -13559,7 +14476,7 @@
       "intensity": 3,
       "base_xp_per_hour": 53998,
       "base_gp_per_hour": 117600,
-      "region": "unknown",
+      "region": "heartlands",
       "level_required": 9,
       "gating": {
         "quests": [],
@@ -13576,7 +14493,7 @@
       "intensity": 5,
       "base_xp_per_hour": 92462,
       "base_gp_per_hour": 216480,
-      "region": "unknown",
+      "region": "heartlands",
       "level_required": 27,
       "gating": {
         "quests": [],
@@ -13729,7 +14646,7 @@
       "intensity": 4,
       "base_xp_per_hour": 93632,
       "base_gp_per_hour": 171600,
-      "region": "unknown",
+      "region": "boneyard",
       "level_required": 21,
       "gating": {
         "quests": [],
@@ -13746,7 +14663,7 @@
       "intensity": 3,
       "base_xp_per_hour": 55860,
       "base_gp_per_hour": 147000,
-      "region": "unknown",
+      "region": "boneyard",
       "level_required": 11,
       "gating": {
         "quests": [],
@@ -13797,7 +14714,7 @@
       "intensity": 5,
       "base_xp_per_hour": 105336,
       "base_gp_per_hour": 184800,
-      "region": "unknown",
+      "region": "glass_desert",
       "level_required": 23,
       "gating": {
         "quests": [],
@@ -13865,7 +14782,7 @@
       "intensity": 7,
       "base_xp_per_hour": 175560,
       "base_gp_per_hour": 327600,
-      "region": "unknown",
+      "region": "moryskah",
       "level_required": 60,
       "gating": {
         "quests": [],
@@ -13950,7 +14867,7 @@
       "intensity": 4,
       "base_xp_per_hour": 70224,
       "base_gp_per_hour": 145200,
-      "region": "unknown",
+      "region": "veilwood",
       "level_required": 18,
       "gating": {
         "quests": [],
@@ -13967,7 +14884,7 @@
       "intensity": 3,
       "base_xp_per_hour": 52136,
       "base_gp_per_hour": 92400,
-      "region": "unknown",
+      "region": "veilwood",
       "level_required": 7,
       "gating": {
         "quests": [],
@@ -13984,7 +14901,7 @@
       "intensity": 2,
       "base_xp_per_hour": 26600,
       "base_gp_per_hour": 90000,
-      "region": "unknown",
+      "region": "veilwood",
       "level_required": 5,
       "gating": {
         "quests": [],
@@ -14052,7 +14969,7 @@
       "intensity": 4,
       "base_xp_per_hour": 93100,
       "base_gp_per_hour": 193200,
-      "region": "unknown",
+      "region": "sootworks",
       "level_required": 15,
       "gating": {
         "quests": [],
@@ -14137,7 +15054,7 @@
       "intensity": 3,
       "base_xp_per_hour": 52136,
       "base_gp_per_hour": 126000,
-      "region": "unknown",
+      "region": "saltbrine",
       "level_required": 10,
       "gating": {
         "quests": [],
@@ -14154,7 +15071,7 @@
       "intensity": 4,
       "base_xp_per_hour": 89376,
       "base_gp_per_hour": 189000,
-      "region": "unknown",
+      "region": "saltbrine",
       "level_required": 15,
       "gating": {
         "quests": [],
@@ -14290,7 +15207,7 @@
       "intensity": 6,
       "base_xp_per_hour": 58520,
       "base_gp_per_hour": 137280,
-      "region": "unknown",
+      "region": "wilds",
       "level_required": 17,
       "gating": {
         "quests": [],
@@ -14307,7 +15224,7 @@
       "intensity": 6,
       "base_xp_per_hour": 111720,
       "base_gp_per_hour": 226800,
-      "region": "unknown",
+      "region": "wilds",
       "level_required": 42,
       "gating": {
         "quests": [],
@@ -14341,7 +15258,7 @@
       "intensity": 7,
       "base_xp_per_hour": 106400,
       "base_gp_per_hour": 19520000,
-      "region": "unknown",
+      "region": "wilds",
       "level_required": 80,
       "gating": {
         "quests": [],
@@ -16398,7 +17315,7 @@
       "intensity": 6,
       "base_xp_per_hour": 65170,
       "base_gp_per_hour": 168000,
-      "region": "moryskah",
+      "region": "wilds",
       "level_required": 13,
       "gating": {
         "quests": [],
@@ -16432,7 +17349,7 @@
       "intensity": 9,
       "base_xp_per_hour": 91770,
       "base_gp_per_hour": 15360000,
-      "region": "unknown",
+      "region": "heartlands",
       "level_required": 70,
       "gating": {
         "quests": [],
@@ -16449,7 +17366,7 @@
       "intensity": 9,
       "base_xp_per_hour": 95760,
       "base_gp_per_hour": 12720000,
-      "region": "unknown",
+      "region": "heartlands",
       "level_required": 70,
       "gating": {
         "quests": [],
@@ -16466,7 +17383,7 @@
       "intensity": 9,
       "base_xp_per_hour": 117040,
       "base_gp_per_hour": 14784000,
-      "region": "unknown",
+      "region": "veilwood",
       "level_required": 70,
       "gating": {
         "quests": [],
@@ -16500,7 +17417,7 @@
       "intensity": 9,
       "base_xp_per_hour": 191520,
       "base_gp_per_hour": 20544000,
-      "region": "unknown",
+      "region": "moryskah",
       "level_required": 80,
       "gating": {
         "quests": [],
@@ -16517,7 +17434,7 @@
       "intensity": 9,
       "base_xp_per_hour": 170240,
       "base_gp_per_hour": 20352000,
-      "region": "unknown",
+      "region": "moryskah",
       "level_required": 80,
       "gating": {
         "quests": [],
@@ -16534,7 +17451,7 @@
       "intensity": 9,
       "base_xp_per_hour": 3192000,
       "base_gp_per_hour": 400000,
-      "region": "unknown",
+      "region": "saltbrine",
       "level_required": 70,
       "gating": {
         "quests": [],
@@ -16568,7 +17485,7 @@
       "intensity": 9,
       "base_xp_per_hour": 221312,
       "base_gp_per_hour": 24064000,
-      "region": "unknown",
+      "region": "sootworks",
       "level_required": 80,
       "gating": {
         "quests": [],
@@ -16585,7 +17502,7 @@
       "intensity": 9,
       "base_xp_per_hour": 255360,
       "base_gp_per_hour": 25216000,
-      "region": "unknown",
+      "region": "saltbrine",
       "level_required": 80,
       "gating": {
         "quests": [],
@@ -16619,7 +17536,7 @@
       "intensity": 9,
       "base_xp_per_hour": 127680,
       "base_gp_per_hour": 13440000,
-      "region": "unknown",
+      "region": "heartlands",
       "level_required": 80,
       "gating": {
         "quests": [],
@@ -16636,7 +17553,7 @@
       "intensity": 9,
       "base_xp_per_hour": 148960,
       "base_gp_per_hour": 14080000,
-      "region": "unknown",
+      "region": "inkweald",
       "level_required": 80,
       "gating": {
         "quests": [],
@@ -16653,7 +17570,7 @@
       "intensity": 9,
       "base_xp_per_hour": 136192,
       "base_gp_per_hour": 14720000,
-      "region": "unknown",
+      "region": "sootworks",
       "level_required": 80,
       "gating": {
         "quests": [],
@@ -16670,7 +17587,7 @@
       "intensity": 9,
       "base_xp_per_hour": 191520,
       "base_gp_per_hour": 18560000,
-      "region": "unknown",
+      "region": "glass_desert",
       "level_required": 85,
       "gating": {
         "quests": [],
@@ -16687,7 +17604,7 @@
       "intensity": 7,
       "base_xp_per_hour": 123424,
       "base_gp_per_hour": 14720000,
-      "region": "unknown",
+      "region": "glass_desert",
       "level_required": 80,
       "gating": {
         "quests": [],
@@ -16704,7 +17621,7 @@
       "intensity": 7,
       "base_xp_per_hour": 117040,
       "base_gp_per_hour": 14080000,
-      "region": "unknown",
+      "region": "glass_desert",
       "level_required": 80,
       "gating": {
         "quests": [],
@@ -16721,7 +17638,7 @@
       "intensity": 7,
       "base_xp_per_hour": 29260,
       "base_gp_per_hour": 132000,
-      "region": "unknown",
+      "region": "glass_desert",
       "level_required": 70,
       "gating": {
         "quests": [],
@@ -16739,7 +17656,7 @@
       "intensity": 7,
       "base_xp_per_hour": 136192,
       "base_gp_per_hour": 15360000,
-      "region": "unknown",
+      "region": "glass_desert",
       "level_required": 80,
       "gating": {
         "quests": [],
@@ -16756,7 +17673,7 @@
       "intensity": 7,
       "base_xp_per_hour": 110656,
       "base_gp_per_hour": 14400000,
-      "region": "unknown",
+      "region": "glass_desert",
       "level_required": 80,
       "gating": {
         "quests": [],
@@ -16774,7 +17691,7 @@
       "intensity": 7,
       "base_xp_per_hour": 35112,
       "base_gp_per_hour": 171600,
-      "region": "unknown",
+      "region": "glass_desert",
       "level_required": 70,
       "gating": {
         "quests": [],
@@ -16792,7 +17709,7 @@
       "intensity": 7,
       "base_xp_per_hour": 148960,
       "base_gp_per_hour": 16000000,
-      "region": "unknown",
+      "region": "glass_desert",
       "level_required": 85,
       "gating": {
         "quests": [],
@@ -16809,7 +17726,7 @@
       "intensity": 7,
       "base_xp_per_hour": 148960,
       "base_gp_per_hour": 16000000,
-      "region": "unknown",
+      "region": "glass_desert",
       "level_required": 85,
       "gating": {
         "quests": [],
@@ -16826,7 +17743,7 @@
       "intensity": 8,
       "base_xp_per_hour": 133000,
       "base_gp_per_hour": 12000000,
-      "region": "unknown",
+      "region": "glass_desert",
       "level_required": 85,
       "gating": {
         "quests": [],
@@ -16843,7 +17760,7 @@
       "intensity": 9,
       "base_xp_per_hour": 191520,
       "base_gp_per_hour": 24320000,
-      "region": "unknown",
+      "region": "moryskah",
       "level_required": 80,
       "gating": {
         "quests": [],
@@ -16860,7 +17777,7 @@
       "intensity": 9,
       "base_xp_per_hour": 170240,
       "base_gp_per_hour": 14400000,
-      "region": "unknown",
+      "region": "heartlands",
       "level_required": 80,
       "gating": {
         "quests": [],
@@ -16877,7 +17794,7 @@
       "intensity": 9,
       "base_xp_per_hour": 148960,
       "base_gp_per_hour": 16640000,
-      "region": "unknown",
+      "region": "glass_desert",
       "level_required": 85,
       "gating": {
         "quests": [],
@@ -16894,7 +17811,7 @@
       "intensity": 9,
       "base_xp_per_hour": 159600,
       "base_gp_per_hour": 15360000,
-      "region": "unknown",
+      "region": "moryskah",
       "level_required": 80,
       "gating": {
         "quests": [],
@@ -16928,7 +17845,7 @@
       "intensity": 9,
       "base_xp_per_hour": 119168,
       "base_gp_per_hour": 16640000,
-      "region": "unknown",
+      "region": "moryskah",
       "level_required": 80,
       "gating": {
         "quests": [],
@@ -16945,7 +17862,7 @@
       "intensity": 9,
       "base_xp_per_hour": 110656,
       "base_gp_per_hour": 17920000,
-      "region": "unknown",
+      "region": "moryskah",
       "level_required": 80,
       "gating": {
         "quests": [],
@@ -16962,7 +17879,7 @@
       "intensity": 9,
       "base_xp_per_hour": 148960,
       "base_gp_per_hour": 19200000,
-      "region": "unknown",
+      "region": "moryskah",
       "level_required": 80,
       "gating": {
         "quests": [],
@@ -16979,7 +17896,7 @@
       "intensity": 9,
       "base_xp_per_hour": 102144,
       "base_gp_per_hour": 17280000,
-      "region": "unknown",
+      "region": "inkweald",
       "level_required": 80,
       "gating": {
         "quests": [],
@@ -16996,7 +17913,7 @@
       "intensity": 9,
       "base_xp_per_hour": 170240,
       "base_gp_per_hour": 19840000,
-      "region": "unknown",
+      "region": "moryskah",
       "level_required": 80,
       "gating": {
         "quests": [],
@@ -17013,7 +17930,7 @@
       "intensity": 9,
       "base_xp_per_hour": 97888,
       "base_gp_per_hour": 18560000,
-      "region": "unknown",
+      "region": "moryskah",
       "level_required": 80,
       "gating": {
         "quests": [],
@@ -17030,7 +17947,7 @@
       "intensity": 9,
       "base_xp_per_hour": 136192,
       "base_gp_per_hour": 18240000,
-      "region": "unknown",
+      "region": "moryskah",
       "level_required": 80,
       "gating": {
         "quests": [],
@@ -17047,7 +17964,7 @@
       "intensity": 9,
       "base_xp_per_hour": 106400,
       "base_gp_per_hour": 17600000,
-      "region": "unknown",
+      "region": "moryskah",
       "level_required": 80,
       "gating": {
         "quests": [],
@@ -17064,7 +17981,7 @@
       "intensity": 9,
       "base_xp_per_hour": 114912,
       "base_gp_per_hour": 19200000,
-      "region": "unknown",
+      "region": "moryskah",
       "level_required": 80,
       "gating": {
         "quests": [],
@@ -17081,7 +17998,7 @@
       "intensity": 9,
       "base_xp_per_hour": 131936,
       "base_gp_per_hour": 18880000,
-      "region": "unknown",
+      "region": "moryskah",
       "level_required": 80,
       "gating": {
         "quests": [],
@@ -17098,7 +18015,7 @@
       "intensity": 9,
       "base_xp_per_hour": 123424,
       "base_gp_per_hour": 17920000,
-      "region": "unknown",
+      "region": "moryskah",
       "level_required": 80,
       "gating": {
         "quests": [],
@@ -17115,7 +18032,7 @@
       "intensity": 9,
       "base_xp_per_hour": 148960,
       "base_gp_per_hour": 20480000,
-      "region": "unknown",
+      "region": "moryskah",
       "level_required": 80,
       "gating": {
         "quests": [],
@@ -17132,7 +18049,7 @@
       "intensity": 9,
       "base_xp_per_hour": 127680,
       "base_gp_per_hour": 16960000,
-      "region": "unknown",
+      "region": "moryskah",
       "level_required": 80,
       "gating": {
         "quests": [],
@@ -17149,7 +18066,7 @@
       "intensity": 9,
       "base_xp_per_hour": 119168,
       "base_gp_per_hour": 21120000,
-      "region": "unknown",
+      "region": "moryskah",
       "level_required": 80,
       "gating": {
         "quests": [],
@@ -17166,7 +18083,7 @@
       "intensity": 9,
       "base_xp_per_hour": 127680,
       "base_gp_per_hour": 21760000,
-      "region": "unknown",
+      "region": "moryskah",
       "level_required": 80,
       "gating": {
         "quests": [],
@@ -17200,7 +18117,7 @@
       "intensity": 9,
       "base_xp_per_hour": 95760,
       "base_gp_per_hour": 16640000,
-      "region": "inkweald",
+      "region": "moryskah",
       "level_required": 85,
       "gating": {
         "quests": [],
@@ -17217,7 +18134,7 @@
       "intensity": 9,
       "base_xp_per_hour": 102144,
       "base_gp_per_hour": 17920000,
-      "region": "inkweald",
+      "region": "moryskah",
       "level_required": 85,
       "gating": {
         "quests": [],
@@ -17234,7 +18151,7 @@
       "intensity": 9,
       "base_xp_per_hour": 79800,
       "base_gp_per_hour": 12000000,
-      "region": "inkweald",
+      "region": "moryskah",
       "level_required": 85,
       "gating": {
         "quests": [],
@@ -17268,7 +18185,7 @@
       "intensity": 9,
       "base_xp_per_hour": 127680,
       "base_gp_per_hour": 17920000,
-      "region": "unknown",
+      "region": "veilwood",
       "level_required": 85,
       "gating": {
         "quests": [],
@@ -17285,7 +18202,7 @@
       "intensity": 9,
       "base_xp_per_hour": 119700,
       "base_gp_per_hour": 12000000,
-      "region": "unknown",
+      "region": "moryskah",
       "level_required": 85,
       "gating": {
         "quests": [],
@@ -17302,7 +18219,7 @@
       "intensity": 9,
       "base_xp_per_hour": 148960,
       "base_gp_per_hour": 16640000,
-      "region": "unknown",
+      "region": "sootworks",
       "level_required": 85,
       "gating": {
         "quests": [],
@@ -17319,7 +18236,7 @@
       "intensity": 9,
       "base_xp_per_hour": 180880,
       "base_gp_per_hour": 18560000,
-      "region": "unknown",
+      "region": "sootworks",
       "level_required": 85,
       "gating": {
         "quests": [],
@@ -17336,7 +18253,7 @@
       "intensity": 9,
       "base_xp_per_hour": 159600,
       "base_gp_per_hour": 17280000,
-      "region": "unknown",
+      "region": "saltbrine",
       "level_required": 85,
       "gating": {
         "quests": [],
@@ -17353,7 +18270,7 @@
       "intensity": 9,
       "base_xp_per_hour": 159600,
       "base_gp_per_hour": 12400000,
-      "region": "unknown",
+      "region": "saltbrine",
       "level_required": 85,
       "gating": {
         "quests": [],
@@ -17370,7 +18287,7 @@
       "intensity": 9,
       "base_xp_per_hour": 119168,
       "base_gp_per_hour": 19200000,
-      "region": "unknown",
+      "region": "inkweald",
       "level_required": 80,
       "gating": {
         "quests": [],
@@ -17387,7 +18304,7 @@
       "intensity": 10,
       "base_xp_per_hour": 136192,
       "base_gp_per_hour": 21760000,
-      "region": "unknown",
+      "region": "inkweald",
       "level_required": 80,
       "gating": {
         "quests": [],
@@ -17404,7 +18321,7 @@
       "intensity": 9,
       "base_xp_per_hour": 106400,
       "base_gp_per_hour": 17920000,
-      "region": "unknown",
+      "region": "inkweald",
       "level_required": 80,
       "gating": {
         "quests": [],
@@ -17421,7 +18338,7 @@
       "intensity": 9,
       "base_xp_per_hour": 148960,
       "base_gp_per_hour": 20480000,
-      "region": "unknown",
+      "region": "inkweald",
       "level_required": 80,
       "gating": {
         "quests": [],
@@ -17438,7 +18355,7 @@
       "intensity": 9,
       "base_xp_per_hour": 170240,
       "base_gp_per_hour": 22400000,
-      "region": "unknown",
+      "region": "inkweald",
       "level_required": 80,
       "gating": {
         "quests": [],
@@ -17455,7 +18372,7 @@
       "intensity": 9,
       "base_xp_per_hour": 161728,
       "base_gp_per_hour": 23040000,
-      "region": "unknown",
+      "region": "inkweald",
       "level_required": 80,
       "gating": {
         "quests": [],
@@ -17472,7 +18389,7 @@
       "intensity": 9,
       "base_xp_per_hour": 148960,
       "base_gp_per_hour": 18560000,
-      "region": "unknown",
+      "region": "inkweald",
       "level_required": 85,
       "gating": {
         "quests": [],
@@ -17489,7 +18406,7 @@
       "intensity": 9,
       "base_xp_per_hour": 133000,
       "base_gp_per_hour": 13000000,
-      "region": "unknown",
+      "region": "inkweald",
       "level_required": 85,
       "gating": {
         "quests": [],
@@ -17506,7 +18423,7 @@
       "intensity": 7,
       "base_xp_per_hour": 95760,
       "base_gp_per_hour": 261000,
-      "region": "unknown",
+      "region": "moryskah",
       "level_required": 70,
       "gating": {
         "quests": [],
@@ -17523,7 +18440,7 @@
       "intensity": 7,
       "base_xp_per_hour": 119700,
       "base_gp_per_hour": 324000,
-      "region": "unknown",
+      "region": "moryskah",
       "level_required": 70,
       "gating": {
         "quests": [],
@@ -17540,7 +18457,7 @@
       "intensity": 7,
       "base_xp_per_hour": 93632,
       "base_gp_per_hour": 250800,
-      "region": "unknown",
+      "region": "heartlands",
       "level_required": 70,
       "gating": {
         "quests": [],
@@ -17557,7 +18474,7 @@
       "intensity": 7,
       "base_xp_per_hour": 55860,
       "base_gp_per_hour": 198000,
-      "region": "unknown",
+      "region": "heartlands",
       "level_required": 70,
       "gating": {
         "quests": [],
@@ -17574,7 +18491,7 @@
       "intensity": 7,
       "base_xp_per_hour": 79800,
       "base_gp_per_hour": 288000,
-      "region": "unknown",
+      "region": "heartlands",
       "level_required": 70,
       "gating": {
         "quests": [],
@@ -17591,7 +18508,7 @@
       "intensity": 7,
       "base_xp_per_hour": 127680,
       "base_gp_per_hour": 192000,
-      "region": "unknown",
+      "region": "heartlands",
       "level_required": 70,
       "gating": {
         "quests": [],
@@ -17608,7 +18525,7 @@
       "intensity": 7,
       "base_xp_per_hour": 111720,
       "base_gp_per_hour": 288000,
-      "region": "unknown",
+      "region": "glass_desert",
       "level_required": 70,
       "gating": {
         "quests": [],
@@ -17625,7 +18542,7 @@
       "intensity": 7,
       "base_xp_per_hour": 46816,
       "base_gp_per_hour": 211200,
-      "region": "unknown",
+      "region": "glass_desert",
       "level_required": 70,
       "gating": {
         "quests": [],
@@ -17642,7 +18559,7 @@
       "intensity": 7,
       "base_xp_per_hour": 127680,
       "base_gp_per_hour": 17920000,
-      "region": "unknown",
+      "region": "glass_desert",
       "level_required": 80,
       "gating": {
         "quests": [],
@@ -17659,7 +18576,7 @@
       "intensity": 7,
       "base_xp_per_hour": 106400,
       "base_gp_per_hour": 16640000,
-      "region": "unknown",
+      "region": "glass_desert",
       "level_required": 80,
       "gating": {
         "quests": [],
@@ -17676,7 +18593,7 @@
       "intensity": 7,
       "base_xp_per_hour": 71820,
       "base_gp_per_hour": 216000,
-      "region": "unknown",
+      "region": "moryskah",
       "level_required": 70,
       "gating": {
         "quests": [],
@@ -17693,7 +18610,7 @@
       "intensity": 7,
       "base_xp_per_hour": 103740,
       "base_gp_per_hour": 306000,
-      "region": "unknown",
+      "region": "moryskah",
       "level_required": 70,
       "gating": {
         "quests": [],
@@ -17710,7 +18627,7 @@
       "intensity": 7,
       "base_xp_per_hour": 127680,
       "base_gp_per_hour": 342000,
-      "region": "unknown",
+      "region": "moryskah",
       "level_required": 70,
       "gating": {
         "quests": [],
@@ -17727,7 +18644,7 @@
       "intensity": 7,
       "base_xp_per_hour": 170240,
       "base_gp_per_hour": 20480000,
-      "region": "unknown",
+      "region": "moryskah",
       "level_required": 80,
       "gating": {
         "quests": [],
@@ -17795,7 +18712,7 @@
       "intensity": 7,
       "base_xp_per_hour": 63840,
       "base_gp_per_hour": 216000,
-      "region": "unknown",
+      "region": "veilwood",
       "level_required": 70,
       "gating": {
         "quests": [],
@@ -17812,7 +18729,7 @@
       "intensity": 7,
       "base_xp_per_hour": 111720,
       "base_gp_per_hour": 324000,
-      "region": "unknown",
+      "region": "veilwood",
       "level_required": 70,
       "gating": {
         "quests": [],
@@ -17829,7 +18746,7 @@
       "intensity": 7,
       "base_xp_per_hour": 95760,
       "base_gp_per_hour": 288000,
-      "region": "unknown",
+      "region": "veilwood",
       "level_required": 70,
       "gating": {
         "quests": [],
@@ -17846,7 +18763,7 @@
       "intensity": 7,
       "base_xp_per_hour": 71820,
       "base_gp_per_hour": 234000,
-      "region": "unknown",
+      "region": "moryskah",
       "level_required": 70,
       "gating": {
         "quests": [],
@@ -17863,7 +18780,7 @@
       "intensity": 7,
       "base_xp_per_hour": 148960,
       "base_gp_per_hour": 17920000,
-      "region": "unknown",
+      "region": "moryskah",
       "level_required": 80,
       "gating": {
         "quests": [],
@@ -17880,7 +18797,7 @@
       "intensity": 7,
       "base_xp_per_hour": 76608,
       "base_gp_per_hour": 192000,
-      "region": "unknown",
+      "region": "moryskah",
       "level_required": 70,
       "gating": {
         "quests": [],
@@ -17897,7 +18814,7 @@
       "intensity": 7,
       "base_xp_per_hour": 191520,
       "base_gp_per_hour": 23040000,
-      "region": "unknown",
+      "region": "moryskah",
       "level_required": 80,
       "gating": {
         "quests": [],
@@ -17914,7 +18831,7 @@
       "intensity": 7,
       "base_xp_per_hour": 119700,
       "base_gp_per_hour": 288000,
-      "region": "unknown",
+      "region": "sootworks",
       "level_required": 70,
       "gating": {
         "quests": [],
@@ -17931,7 +18848,7 @@
       "intensity": 7,
       "base_xp_per_hour": 76608,
       "base_gp_per_hour": 192000,
-      "region": "unknown",
+      "region": "sootworks",
       "level_required": 70,
       "gating": {
         "quests": [],
@@ -17948,7 +18865,7 @@
       "intensity": 7,
       "base_xp_per_hour": 148960,
       "base_gp_per_hour": 17920000,
-      "region": "unknown",
+      "region": "sootworks",
       "level_required": 80,
       "gating": {
         "quests": [],
@@ -17965,7 +18882,7 @@
       "intensity": 7,
       "base_xp_per_hour": 79800,
       "base_gp_per_hour": 270000,
-      "region": "unknown",
+      "region": "sootworks",
       "level_required": 70,
       "gating": {
         "quests": [],
@@ -17982,7 +18899,7 @@
       "intensity": 7,
       "base_xp_per_hour": 127680,
       "base_gp_per_hour": 342000,
-      "region": "unknown",
+      "region": "sootworks",
       "level_required": 70,
       "gating": {
         "quests": [],
@@ -17999,7 +18916,7 @@
       "intensity": 7,
       "base_xp_per_hour": 95760,
       "base_gp_per_hour": 288000,
-      "region": "unknown",
+      "region": "sootworks",
       "level_required": 70,
       "gating": {
         "quests": [],
@@ -18016,7 +18933,7 @@
       "intensity": 7,
       "base_xp_per_hour": 170240,
       "base_gp_per_hour": 19200000,
-      "region": "unknown",
+      "region": "sootworks",
       "level_required": 80,
       "gating": {
         "quests": [],
@@ -18033,7 +18950,7 @@
       "intensity": 7,
       "base_xp_per_hour": 63840,
       "base_gp_per_hour": 192000,
-      "region": "unknown",
+      "region": "sootworks",
       "level_required": 70,
       "gating": {
         "quests": [],
@@ -18050,7 +18967,7 @@
       "intensity": 7,
       "base_xp_per_hour": 212800,
       "base_gp_per_hour": 24320000,
-      "region": "unknown",
+      "region": "sootworks",
       "level_required": 80,
       "gating": {
         "quests": [],
@@ -18067,7 +18984,7 @@
       "intensity": 7,
       "base_xp_per_hour": 79800,
       "base_gp_per_hour": 234000,
-      "region": "unknown",
+      "region": "saltbrine",
       "level_required": 70,
       "gating": {
         "quests": [],
@@ -18084,7 +19001,7 @@
       "intensity": 7,
       "base_xp_per_hour": 148960,
       "base_gp_per_hour": 19200000,
-      "region": "unknown",
+      "region": "saltbrine",
       "level_required": 80,
       "gating": {
         "quests": [],
@@ -18101,7 +19018,7 @@
       "intensity": 7,
       "base_xp_per_hour": 159600,
       "base_gp_per_hour": 324000,
-      "region": "unknown",
+      "region": "saltbrine",
       "level_required": 70,
       "gating": {
         "quests": [],
@@ -18118,7 +19035,7 @@
       "intensity": 7,
       "base_xp_per_hour": 76608,
       "base_gp_per_hour": 192000,
-      "region": "unknown",
+      "region": "saltbrine",
       "level_required": 70,
       "gating": {
         "quests": [],
@@ -18135,7 +19052,7 @@
       "intensity": 7,
       "base_xp_per_hour": 95760,
       "base_gp_per_hour": 252000,
-      "region": "unknown",
+      "region": "saltbrine",
       "level_required": 70,
       "gating": {
         "quests": [],
@@ -18152,7 +19069,7 @@
       "intensity": 7,
       "base_xp_per_hour": 103740,
       "base_gp_per_hour": 288000,
-      "region": "unknown",
+      "region": "saltbrine",
       "level_required": 70,
       "gating": {
         "quests": [],
@@ -18169,7 +19086,7 @@
       "intensity": 7,
       "base_xp_per_hour": 127680,
       "base_gp_per_hour": 12800000,
-      "region": "unknown",
+      "region": "saltbrine",
       "level_required": 80,
       "gating": {
         "quests": [],
@@ -18186,7 +19103,7 @@
       "intensity": 7,
       "base_xp_per_hour": 93632,
       "base_gp_per_hour": 240000,
-      "region": "unknown",
+      "region": "inkweald",
       "level_required": 80,
       "gating": {
         "quests": [],
@@ -18203,7 +19120,7 @@
       "intensity": 7,
       "base_xp_per_hour": 79800,
       "base_gp_per_hour": 252000,
-      "region": "unknown",
+      "region": "inkweald",
       "level_required": 70,
       "gating": {
         "quests": [],
@@ -18220,7 +19137,7 @@
       "intensity": 7,
       "base_xp_per_hour": 106400,
       "base_gp_per_hour": 259200,
-      "region": "unknown",
+      "region": "inkweald",
       "level_required": 80,
       "gating": {
         "quests": [],
@@ -18237,7 +19154,7 @@
       "intensity": 7,
       "base_xp_per_hour": 71820,
       "base_gp_per_hour": 270000,
-      "region": "unknown",
+      "region": "inkweald",
       "level_required": 70,
       "gating": {
         "quests": [],
@@ -18254,7 +19171,7 @@
       "intensity": 7,
       "base_xp_per_hour": 97888,
       "base_gp_per_hour": 268800,
-      "region": "unknown",
+      "region": "inkweald",
       "level_required": 80,
       "gating": {
         "quests": [],
@@ -18271,7 +19188,7 @@
       "intensity": 7,
       "base_xp_per_hour": 87780,
       "base_gp_per_hour": 288000,
-      "region": "unknown",
+      "region": "inkweald",
       "level_required": 70,
       "gating": {
         "quests": [],
@@ -18288,7 +19205,7 @@
       "intensity": 7,
       "base_xp_per_hour": 119168,
       "base_gp_per_hour": 278400,
-      "region": "unknown",
+      "region": "inkweald",
       "level_required": 80,
       "gating": {
         "quests": [],
@@ -18305,7 +19222,7 @@
       "intensity": 7,
       "base_xp_per_hour": 63840,
       "base_gp_per_hour": 252000,
-      "region": "unknown",
+      "region": "inkweald",
       "level_required": 70,
       "gating": {
         "quests": [],
@@ -18322,7 +19239,7 @@
       "intensity": 7,
       "base_xp_per_hour": 127680,
       "base_gp_per_hour": 297600,
-      "region": "unknown",
+      "region": "inkweald",
       "level_required": 80,
       "gating": {
         "quests": [],
@@ -18339,7 +19256,7 @@
       "intensity": 7,
       "base_xp_per_hour": 95760,
       "base_gp_per_hour": 306000,
-      "region": "unknown",
+      "region": "inkweald",
       "level_required": 70,
       "gating": {
         "quests": [],
@@ -18356,7 +19273,7 @@
       "intensity": 7,
       "base_xp_per_hour": 106400,
       "base_gp_per_hour": 211200,
-      "region": "unknown",
+      "region": "veilwood",
       "level_required": 70,
       "gating": {
         "quests": [],
@@ -18373,7 +19290,7 @@
       "intensity": 7,
       "base_xp_per_hour": 119168,
       "base_gp_per_hour": 230400,
-      "region": "unknown",
+      "region": "veilwood",
       "level_required": 70,
       "gating": {
         "quests": [],
@@ -18390,7 +19307,7 @@
       "intensity": 7,
       "base_xp_per_hour": 127680,
       "base_gp_per_hour": 249600,
-      "region": "unknown",
+      "region": "veilwood",
       "level_required": 80,
       "gating": {
         "quests": [],
@@ -18407,7 +19324,7 @@
       "intensity": 7,
       "base_xp_per_hour": 144704,
       "base_gp_per_hour": 14400000,
-      "region": "unknown",
+      "region": "veilwood",
       "level_required": 80,
       "gating": {
         "quests": [],
@@ -18424,7 +19341,7 @@
       "intensity": 7,
       "base_xp_per_hour": 213,
       "base_gp_per_hour": 216000,
-      "region": "unknown",
+      "region": "veilwood",
       "level_required": 80,
       "gating": {
         "quests": [],
@@ -18442,7 +19359,7 @@
       "intensity": 7,
       "base_xp_per_hour": 93632,
       "base_gp_per_hour": 192000,
-      "region": "unknown",
+      "region": "sootworks",
       "level_required": 70,
       "gating": {
         "quests": [],
@@ -18476,7 +19393,7 @@
       "intensity": 7,
       "base_xp_per_hour": 161728,
       "base_gp_per_hour": 288000,
-      "region": "unknown",
+      "region": "sootworks",
       "level_required": 80,
       "gating": {
         "quests": [],
@@ -18493,7 +19410,7 @@
       "intensity": 7,
       "base_xp_per_hour": 180880,
       "base_gp_per_hour": 16640000,
-      "region": "unknown",
+      "region": "sootworks",
       "level_required": 85,
       "gating": {
         "quests": [],
@@ -18748,7 +19665,7 @@
       "intensity": 7,
       "base_xp_per_hour": 148960,
       "base_gp_per_hour": 288000,
-      "region": "unknown",
+      "region": "wilds",
       "level_required": 80,
       "gating": {
         "quests": [],
@@ -18952,7 +19869,7 @@
       "intensity": 7,
       "base_xp_per_hour": 127680,
       "base_gp_per_hour": 249600,
-      "region": "unknown",
+      "region": "veilwood",
       "level_required": 80,
       "gating": {
         "quests": [],
@@ -18969,7 +19886,7 @@
       "intensity": 7,
       "base_xp_per_hour": 144704,
       "base_gp_per_hour": 288000,
-      "region": "unknown",
+      "region": "veilwood",
       "level_required": 80,
       "gating": {
         "quests": [],
@@ -18986,7 +19903,7 @@
       "intensity": 7,
       "base_xp_per_hour": 159600,
       "base_gp_per_hour": 15680000,
-      "region": "unknown",
+      "region": "veilwood",
       "level_required": 80,
       "gating": {
         "quests": [],
@@ -19003,7 +19920,7 @@
       "intensity": 7,
       "base_xp_per_hour": 95760,
       "base_gp_per_hour": 288000,
-      "region": "unknown",
+      "region": "veilwood",
       "level_required": 70,
       "gating": {
         "quests": [],
@@ -19020,7 +19937,7 @@
       "intensity": 7,
       "base_xp_per_hour": 119168,
       "base_gp_per_hour": 230400,
-      "region": "unknown",
+      "region": "veilwood",
       "level_required": 70,
       "gating": {
         "quests": [],
@@ -19071,7 +19988,7 @@
       "intensity": 7,
       "base_xp_per_hour": 85120,
       "base_gp_per_hour": 192000,
-      "region": "unknown",
+      "region": "wilds",
       "level_required": 70,
       "gating": {
         "quests": [],
@@ -19088,7 +20005,7 @@
       "intensity": 7,
       "base_xp_per_hour": 161728,
       "base_gp_per_hour": 307200,
-      "region": "unknown",
+      "region": "wilds",
       "level_required": 80,
       "gating": {
         "quests": [],
@@ -19139,7 +20056,7 @@
       "intensity": 7,
       "base_xp_per_hour": 148960,
       "base_gp_per_hour": 268800,
-      "region": "unknown",
+      "region": "sootworks",
       "level_required": 80,
       "gating": {
         "quests": [],
@@ -19156,7 +20073,7 @@
       "intensity": 7,
       "base_xp_per_hour": 136192,
       "base_gp_per_hour": 288000,
-      "region": "unknown",
+      "region": "sootworks",
       "level_required": 80,
       "gating": {
         "quests": [],
@@ -19190,7 +20107,7 @@
       "intensity": 7,
       "base_xp_per_hour": 110656,
       "base_gp_per_hour": 211200,
-      "region": "unknown",
+      "region": "saltbrine",
       "level_required": 70,
       "gating": {
         "quests": [],
@@ -19224,7 +20141,7 @@
       "intensity": 7,
       "base_xp_per_hour": 119168,
       "base_gp_per_hour": 288000,
-      "region": "unknown",
+      "region": "saltbrine",
       "level_required": 80,
       "gating": {
         "quests": [],
@@ -19258,7 +20175,7 @@
       "intensity": 7,
       "base_xp_per_hour": 63840,
       "base_gp_per_hour": 192000,
-      "region": "unknown",
+      "region": "inkweald",
       "level_required": 70,
       "gating": {
         "quests": [],
@@ -19275,7 +20192,7 @@
       "intensity": 9,
       "base_xp_per_hour": 170240,
       "base_gp_per_hour": 336000,
-      "region": "unknown",
+      "region": "inkweald",
       "level_required": 80,
       "gating": {
         "quests": [],
@@ -19292,7 +20209,7 @@
       "intensity": 7,
       "base_xp_per_hour": 170240,
       "base_gp_per_hour": 16640000,
-      "region": "unknown",
+      "region": "inkweald",
       "level_required": 85,
       "gating": {
         "quests": [],
@@ -19326,7 +20243,7 @@
       "intensity": 7,
       "base_xp_per_hour": 178752,
       "base_gp_per_hour": 355200,
-      "region": "unknown",
+      "region": "glass_desert",
       "level_required": 80,
       "gating": {
         "quests": [],
@@ -19411,7 +20328,7 @@
       "intensity": 7,
       "base_xp_per_hour": 161728,
       "base_gp_per_hour": 374400,
-      "region": "unknown",
+      "region": "inkweald",
       "level_required": 80,
       "gating": {
         "quests": [],
@@ -19428,7 +20345,7 @@
       "intensity": 7,
       "base_xp_per_hour": 106400,
       "base_gp_per_hour": 201600,
-      "region": "unknown",
+      "region": "veilwood",
       "level_required": 80,
       "gating": {
         "quests": [],
@@ -19462,7 +20379,7 @@
       "intensity": 9,
       "base_xp_per_hour": 170240,
       "base_gp_per_hour": 297600,
-      "region": "unknown",
+      "region": "glass_desert",
       "level_required": 80,
       "gating": {
         "quests": [],
@@ -19480,7 +20397,7 @@
       "intensity": 9,
       "base_xp_per_hour": 170240,
       "base_gp_per_hour": 297600,
-      "region": "unknown",
+      "region": "glass_desert",
       "level_required": 80,
       "gating": {
         "quests": [],
@@ -19498,7 +20415,7 @@
       "intensity": 9,
       "base_xp_per_hour": 170240,
       "base_gp_per_hour": 297600,
-      "region": "unknown",
+      "region": "glass_desert",
       "level_required": 80,
       "gating": {
         "quests": [],
@@ -19516,7 +20433,7 @@
       "intensity": 9,
       "base_xp_per_hour": 127680,
       "base_gp_per_hour": 192000,
-      "region": "unknown",
+      "region": "glass_desert",
       "level_required": 80,
       "gating": {
         "quests": [],
@@ -19533,7 +20450,7 @@
       "intensity": 9,
       "base_xp_per_hour": 212800,
       "base_gp_per_hour": 336000,
-      "region": "unknown",
+      "region": "glass_desert",
       "level_required": 80,
       "gating": {
         "quests": [],
@@ -19550,7 +20467,7 @@
       "intensity": 9,
       "base_xp_per_hour": 58520,
       "base_gp_per_hour": 224400,
-      "region": "unknown",
+      "region": "glass_desert",
       "level_required": 70,
       "gating": {
         "quests": [],
@@ -19568,7 +20485,7 @@
       "intensity": 9,
       "base_xp_per_hour": 148960,
       "base_gp_per_hour": 240000,
-      "region": "unknown",
+      "region": "glass_desert",
       "level_required": 80,
       "gating": {
         "quests": [],
@@ -19586,7 +20503,7 @@
       "intensity": 9,
       "base_xp_per_hour": 212800,
       "base_gp_per_hour": 326400,
-      "region": "unknown",
+      "region": "glass_desert",
       "level_required": 80,
       "gating": {
         "quests": [],
@@ -19603,7 +20520,7 @@
       "intensity": 9,
       "base_xp_per_hour": 191520,
       "base_gp_per_hour": 16000000,
-      "region": "unknown",
+      "region": "veilwood",
       "level_required": 85,
       "gating": {
         "quests": [],
@@ -19637,7 +20554,7 @@
       "intensity": 9,
       "base_xp_per_hour": 46816,
       "base_gp_per_hour": 158400,
-      "region": "unknown",
+      "region": "moryskah",
       "level_required": 70,
       "gating": {
         "quests": [],
@@ -19655,7 +20572,7 @@
       "intensity": 9,
       "base_xp_per_hour": 55860,
       "base_gp_per_hour": 168000,
-      "region": "unknown",
+      "region": "moryskah",
       "level_required": 70,
       "gating": {
         "quests": [],
@@ -19673,7 +20590,7 @@
       "intensity": 9,
       "base_xp_per_hour": 170240,
       "base_gp_per_hour": 201600,
-      "region": "unknown",
+      "region": "moryskah",
       "level_required": 80,
       "gating": {
         "quests": [],
@@ -19690,7 +20607,7 @@
       "intensity": 9,
       "base_xp_per_hour": 35112,
       "base_gp_per_hour": 184800,
-      "region": "unknown",
+      "region": "moryskah",
       "level_required": 70,
       "gating": {
         "quests": [],
@@ -19708,7 +20625,7 @@
       "intensity": 9,
       "base_xp_per_hour": 35112,
       "base_gp_per_hour": 184800,
-      "region": "unknown",
+      "region": "moryskah",
       "level_required": 70,
       "gating": {
         "quests": [],
@@ -19726,7 +20643,7 @@
       "intensity": 9,
       "base_xp_per_hour": 35112,
       "base_gp_per_hour": 184800,
-      "region": "unknown",
+      "region": "moryskah",
       "level_required": 70,
       "gating": {
         "quests": [],
@@ -19744,7 +20661,7 @@
       "intensity": 9,
       "base_xp_per_hour": 191520,
       "base_gp_per_hour": 22400000,
-      "region": "unknown",
+      "region": "moryskah",
       "level_required": 80,
       "gating": {
         "quests": [],
@@ -19761,7 +20678,7 @@
       "intensity": 9,
       "base_xp_per_hour": 148960,
       "base_gp_per_hour": 192000,
-      "region": "unknown",
+      "region": "moryskah",
       "level_required": 80,
       "gating": {
         "quests": [],
@@ -19966,7 +20883,7 @@
       "intensity": 3,
       "base_xp_per_hour": 55860,
       "base_gp_per_hour": 134400,
-      "region": "unknown",
+      "region": "saltbrine",
       "level_required": 10,
       "gating": {
         "quests": [],
@@ -19983,7 +20900,7 @@
       "intensity": 5,
       "base_xp_per_hour": 88950,
       "base_gp_per_hour": 219120,
-      "region": "unknown",
+      "region": "saltbrine",
       "level_required": 27,
       "gating": {
         "quests": [],
@@ -20000,7 +20917,7 @@
       "intensity": 5,
       "base_xp_per_hour": 77406,
       "base_gp_per_hour": 190800,
-      "region": "unknown",
+      "region": "saltbrine",
       "level_required": 35,
       "gating": {
         "quests": [],
@@ -20085,7 +21002,7 @@
       "intensity": 6,
       "base_xp_per_hour": 99750,
       "base_gp_per_hour": 228600,
-      "region": "unknown",
+      "region": "saltbrine",
       "level_required": 42,
       "gating": {
         "quests": [],
@@ -20102,7 +21019,7 @@
       "intensity": 7,
       "base_xp_per_hour": 255360,
       "base_gp_per_hour": 20352000,
-      "region": "unknown",
+      "region": "moryskah",
       "level_required": 80,
       "gating": {
         "quests": [],
@@ -20119,7 +21036,7 @@
       "intensity": 5,
       "base_xp_per_hour": 87780,
       "base_gp_per_hour": 208560,
-      "region": "unknown",
+      "region": "moryskah",
       "level_required": 26,
       "gating": {
         "quests": [],
@@ -20136,7 +21053,7 @@
       "intensity": 5,
       "base_xp_per_hour": 83790,
       "base_gp_per_hour": 199800,
-      "region": "unknown",
+      "region": "moryskah",
       "level_required": 37,
       "gating": {
         "quests": [],

@@ -780,6 +780,7 @@ function collectMonstersAndBosses(catalog) {
       // Only accept NPCs with combat>0 (skippers, shopkeepers have combat:0)
       if (!m.combat) continue;
       processedIds.add(id);
+      m._rawId = id;
       const tags = m.tags || [];
       const tagsLower = tags.join(',').toLowerCase();
       const idLower = id.toLowerCase();
@@ -834,12 +835,39 @@ function estimateBossLevelReq(m) {
 function regionFromTags(tags) {
   const t = new Set((tags || []).map(x => String(x).toLowerCase()));
   if (t.has('godwars')) return 'wilds';           // GWD dungeon lives under Wilds
-  if (t.has('vampyre')) return 'moryskah';
+  if (t.has('vampyre') || t.has('blood')) return 'moryskah';
+  if (t.has('undead') && (t.has('ghost') || t.has('crypt') || t.has('wraith') || t.has('lich') || t.has('ghast')))
+    return 'moryskah';
   if (t.has('dragon') && (t.has('undead') || t.has('icy'))) return 'boneyard';
   if (t.has('inferno') || t.has('tzhaar')) return 'sootworks';
-  if (t.has('tob') || t.has('tos_hm')) return 'inkweald';
-  if (t.has('cox') || t.has('raid_cox')) return 'veilwood';
-  if (t.has('toa') || t.has('ancient')) return 'glass_desert';
+  if (t.has('tob') || t.has('tos_hm')) return 'moryskah';
+  if (t.has('cox') || t.has('raid_cox') || t.has('gauntlet') || t.has('crystal')) return 'veilwood';
+  if (t.has('toa') || t.has('ancient') || t.has('pharaoh') || t.has('mummy') || t.has('desert') || t.has('sanctum'))
+    return 'glass_desert';
+  if (t.has('forge') || t.has('engine') || t.has('mechanical')) return 'sootworks';
+  if (t.has('nightmare') || t.has('dream') || t.has('shade') || t.has('mirror')) return 'inkweald';
+  if (t.has('sea') || t.has('tide') || t.has('storm') || t.has('pirate') || t.has('tempest'))
+    return 'saltbrine';
+  if (t.has('siege') || t.has('king') || (t.has('human') && t.has('commander'))) return 'heartlands';
+  return null;
+}
+
+// Map raid location IDs + npc id prefixes to regions.
+function regionFromIdPrefix(id) {
+  const i = String(id || '').toLowerCase();
+  if (/^tos_|tob_/.test(i)) return 'moryskah';        // Theatre of Shadows
+  if (/^coa_|cox_/.test(i)) return 'glass_desert';    // CoA / Chambers
+  if (/^toa_/.test(i)) return 'glass_desert';         // Tombs of Amascut
+  if (/^gauntlet_|hunllef/.test(i)) return 'veilwood';
+  if (/^crypt_|catacomb_/.test(i)) return 'moryskah';
+  if (/^sanctum_|pharaoh|pyramid/.test(i)) return 'glass_desert';
+  if (/^tempest_|storm_|sunken|kraken/.test(i)) return 'saltbrine';
+  if (/^nightmare_|dream_|mirror|lucid/.test(i)) return 'inkweald';
+  if (/^engine_|forge_|crucible|architect/.test(i)) return 'sootworks';
+  if (/^worldtree_|spine_|blood_archon/.test(i)) return 'moryskah';
+  if (/^rift_/.test(i)) return 'inkweald';
+  if (/^siege_|last_king|royal|bandit/.test(i)) return 'heartlands';
+  if (/^revenant_|chaos_|wilds_|pvp_/.test(i)) return 'wilds';
   return null;
 }
 
@@ -848,7 +876,12 @@ function regionFromTags(tags) {
 function regionFromHint(fallback, m, src, idx) {
   const byTag = regionFromTags(m.tags);
   if (byTag) return byTag;
-  const slice = src.slice(Math.max(0, idx - 1500), idx);
+  // Also try id prefix if m._rawId is set (passed through for mob/boss calls).
+  if (m._rawId) {
+    const byPref = regionFromIdPrefix(m._rawId);
+    if (byPref) return byPref;
+  }
+  const slice = src.slice(Math.max(0, idx - 2500), idx);
   const hits = [];
   for (const [k, v] of [
     [/wilds/i, 'wilds'],
@@ -861,8 +894,9 @@ function regionFromHint(fallback, m, src, idx) {
     [/veilwood/i, 'veilwood'],
     [/inkweald/i, 'inkweald'],
   ]) {
-    // Prefer the last / nearest comment header.
-    const reH = new RegExp('//\\s*[═-]*\\s*(' + k.source + ')', 'gmi');
+    // Prefer the last / nearest comment header. Match any `//` comment that
+    // mentions the region name — not just `═` boxed ones.
+    const reH = new RegExp('//[^\\n]*?\\b(' + k.source + ')\\b', 'gmi');
     let lm; let last = null;
     while ((lm = reH.exec(slice))) last = lm;
     if (last) hits.push({ start: last.index, region: v });
