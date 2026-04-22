@@ -784,6 +784,117 @@ function dedupRequires(nodeList) {
 }
 
 // ══════════════════════════════════════════════════════════════════════════════
+// C6 CREATE_NODE pass (v0.9 Wave A2) — 65 missing `area:*` nodes
+// ══════════════════════════════════════════════════════════════════════════════
+// Section 6.1 of reports/broken-dag-refs-plan.md. Each entry registers a new
+// area node with the proposed prereq chain (parent area + optional quest +
+// optional skill level). Any named prereq that does not exist in the DAG is
+// kept verbatim — the lint pass surfaces it so content agents can fill it
+// later without losing the intended dependency chain.
+//
+// Distribution: Moryskah 14, Sootworks 13, Heartlands 11, Boneyard 10,
+// Veilwood 9, Inkweald 6, Wilds 2 = 65 total.
+
+const NEW_AREAS = [
+  // ── Moryskah (14) ─────────────────────────────────────────────────────────
+  { id: 'area:moryskah_silent_chapel',          name: 'Silent Chapel',            region: 'Moryskah',   requires: ['area:moryskah', 'quest:blood_rites'] },
+  { id: 'area:moryskah_wolfbane_distillery',    name: 'Wolfbane Distillery',      region: 'Moryskah',   requires: ['area:moryskah', 'quest:the_bog_witchs_bargain'] },
+  { id: 'area:moryskah_mausoleum_district',     name: 'Mausoleum District',       region: 'Moryskah',   requires: ['area:moryskah', 'quest:blood_rites'] },
+  { id: 'area:moryskah_cabaret',                name: 'Moryskah Cabaret',         region: 'Moryskah',   requires: ['area:moryskah', 'quest:blood_rites'] },
+  { id: 'area:moryskah_moonless_inn',           name: 'Moonless Inn',             region: 'Moryskah',   requires: ['area:moryskah'] },
+  { id: 'area:moryskah_ferry',                  name: 'Moryskah Ferry',           region: 'Moryskah',   requires: ['area:moryskah', 'quest:shades_of_moryskah'] },
+  { id: 'area:moryskah_bog_witch_cottage',      name: "Bog Witch's Cottage",      region: 'Moryskah',   requires: ['area:moryskah', 'quest:the_bog_witchs_bargain'] },
+  { id: 'area:moryskah_forgotten_hamlet',       name: 'Forgotten Hamlet',         region: 'Moryskah',   requires: ['area:moryskah'] },
+  { id: 'area:moryskah_forgotten_island',       name: 'Forgotten Island',         region: 'Moryskah',   requires: ['area:moryskah_ferry', 'quest:shades_of_moryskah'] },
+  { id: 'area:moryskah_cabaret_back_alley',     name: 'Cabaret Back Alley',       region: 'Moryskah',   requires: ['area:moryskah_cabaret'] },
+  { id: 'area:moryskah_deep_bog',               name: 'Deep Bog',                 region: 'Moryskah',   requires: ['area:moryskah', 'quest:the_bog_witchs_bargain'] },
+  { id: 'area:moryskah_mausoleum_rooftops',     name: 'Mausoleum Rooftops',       region: 'Moryskah',   requires: ['area:moryskah_mausoleum_district', 'skill:agility:60'] },
+  { id: 'area:moryskah_silent_chapel_sanctum',  name: 'Silent Chapel Sanctum',    region: 'Moryskah',   requires: ['area:moryskah_silent_chapel', 'quest:the_hollow_choirs_song'] },
+  { id: 'area:moryskah_howling_moors',          name: 'Howling Moors',            region: 'Moryskah',   requires: ['area:moryskah'] },
+
+  // ── Sootworks (13) ────────────────────────────────────────────────────────
+  { id: 'area:sootworks_forge_cathedral',       name: 'Forge Cathedral',          region: 'Sootworks',  requires: ['area:sootworks', 'quest:the_forgemaster_contract'] },
+  { id: 'area:sootworks_tinker_yards',          name: 'Tinker Yards',             region: 'Sootworks',  requires: ['area:sootworks'] },
+  { id: 'area:sootworks_brass_choir',           name: 'Brass Choir',              region: 'Sootworks',  requires: ['area:sootworks', 'skill:prayer:60'] },
+  { id: 'area:sootworks_beggars_gallery',       name: "Beggar's Gallery",         region: 'Sootworks',  requires: ['area:sootworks', 'quest:the_beggars_petition'] },
+  { id: 'area:sootworks_deep_furnace',          name: 'Deep Furnace',             region: 'Sootworks',  requires: ['area:sootworks_deep_mines'] },
+  { id: 'area:sootworks_deepwell',              name: 'Deepwell',                 region: 'Sootworks',  requires: ['area:sootworks'] },
+  { id: 'area:sootworks_imbue_hall',            name: 'Imbue Hall',               region: 'Sootworks',  requires: ['area:sootworks_forge_cathedral'] },
+  { id: 'area:sootworks_feast_kitchen',         name: 'Feast Kitchen',            region: 'Sootworks',  requires: ['area:sootworks'] },
+  { id: 'area:sootworks_pump_station',          name: 'Pump Station',             region: 'Sootworks',  requires: ['area:sootworks'] },
+  { id: 'area:sootworks_steamfield',            name: 'Steamfield',               region: 'Sootworks',  requires: ['area:sootworks'] },
+  { id: 'area:sootworks_clockbeetle_warrens',   name: 'Clockbeetle Warrens',      region: 'Sootworks',  requires: ['area:sootworks_cinderhall_warrens'] },
+  { id: 'area:sootworks_lantern_mines',         name: 'Lantern Mines',            region: 'Sootworks',  requires: ['area:sootworks_deep_mines'] },
+  { id: 'area:sootworks_rust_pits',             name: 'Rust Pits',                region: 'Sootworks',  requires: ['area:sootworks'] },
+
+  // ── Heartlands (11) ───────────────────────────────────────────────────────
+  { id: 'area:heartlands_royal_district',       name: 'Royal District',           region: 'Heartlands', requires: ['area:heartlands', 'quest:the_royal_warrant'] },
+  { id: 'area:heartlands_bell_tower',           name: 'Bell Tower',               region: 'Heartlands', requires: ['area:heartlands_capital_rooftops', 'skill:agility:80'] },
+  { id: 'area:heartlands_grand_cathedral',      name: 'Grand Cathedral',          region: 'Heartlands', requires: ['area:heartlands', 'quest:the_last_light_vigil'] },
+  { id: 'area:heartlands_old_hedge',            name: 'Old Hedge',                region: 'Heartlands', requires: ['area:heartlands', 'quest:the_hedge_wise_gift'] },
+  { id: 'area:heartlands_capital_rooftops',     name: 'Capital Rooftops',         region: 'Heartlands', requires: ['area:heartlands_capital', 'skill:agility:75'] },
+  { id: 'area:heartlands_capital',              name: 'Heartlands Capital',       region: 'Heartlands', requires: ['area:heartlands'] },
+  { id: 'area:heartlands_chapel',               name: 'Heartlands Chapel',        region: 'Heartlands', requires: ['area:heartlands', 'quest:the_last_light_vigil'] },
+  { id: 'area:heartlands_fishing_guild',        name: 'Fishing Guild',            region: 'Heartlands', requires: ['area:heartlands', 'skill:fishing:68'] },
+  { id: 'area:heartlands_hedge_wise_cottage',   name: "Hedge Wise's Cottage",     region: 'Heartlands', requires: ['area:heartlands', 'quest:the_hedge_wise_gift'] },
+  { id: 'area:heartlands_royal_forest',         name: 'Royal Forest',             region: 'Heartlands', requires: ['area:heartlands', 'quest:the_royal_falconer'] },
+  { id: 'area:heartlands_market_square',        name: 'Market Square',            region: 'Heartlands', requires: ['area:heartlands'] },
+
+  // ── Boneyard (10) ─────────────────────────────────────────────────────────
+  { id: 'area:boneyard_the_splinter',           name: 'The Splinter',             region: 'Boneyard',   requires: ['area:boneyard_wastes'] },
+  { id: 'area:boneyard_salt_cisterns',          name: 'Salt Cisterns',            region: 'Boneyard',   requires: ['area:boneyard_wastes'] },
+  { id: 'area:boneyard_boil_pits',              name: 'Boil Pits',                region: 'Boneyard',   requires: ['area:boneyard_wastes'] },
+  { id: 'area:boneyard_smelters_bones',         name: "Smelter's Bones",          region: 'Boneyard',   requires: ['area:boneyard_wastes'] },
+  { id: 'area:boneyard_salted_cookery',         name: 'Salted Cookery',           region: 'Boneyard',   requires: ['area:boneyard_wastes'] },
+  { id: 'area:boneyard_burnt_library',          name: 'Burnt Library',            region: 'Boneyard',   requires: ['area:boneyard_wastes'] },
+  { id: 'area:boneyard_singing_dunes',          name: 'Singing Dunes',            region: 'Boneyard',   requires: ['area:boneyard_deep_dunes'] },
+  { id: 'area:boneyard_hyena_markets',          name: 'Hyena Markets',            region: 'Boneyard',   requires: ['area:boneyard_wastes'] },
+  { id: 'area:boneyard_quarrymaster_camp',      name: 'Quarrymaster Camp',        region: 'Boneyard',   requires: ['area:boneyard_wastes'] },
+  { id: 'area:boneyard_sun_bleach_pits',        name: 'Sun-Bleach Pits',          region: 'Boneyard',   requires: ['area:boneyard_wastes'] },
+
+  // ── Veilwood (9) ──────────────────────────────────────────────────────────
+  { id: 'area:veilwood_threshold_wardens',      name: 'Threshold of the Wardens', region: 'Veilwood',   requires: ['area:veilwood', 'quest:the_door_that_was_never_closed'] },
+  { id: 'area:veilwood_glass_leaf_glades',      name: 'Glass-Leaf Glades',        region: 'Veilwood',   requires: ['area:veilwood', 'quest:of_glass_and_antler'] },
+  { id: 'area:veilwood_glass_stag_thicket',     name: 'Glass Stag Thicket',       region: 'Veilwood',   requires: ['area:veilwood_glass_leaf_glades'] },
+  { id: 'area:veilwood_mirror_shallow',         name: 'Mirror Shallow',           region: 'Veilwood',   requires: ['area:veilwood', 'quest:the_stag_shape_rite'] },
+  { id: 'area:veilwood_glass_spider_hollow',    name: 'Glass Spider Hollow',      region: 'Veilwood',   requires: ['area:veilwood_glass_leaf_glades'] },
+  { id: 'area:veilwood_hunters_grove',          name: "Hunters' Grove",           region: 'Veilwood',   requires: ['area:veilwood'] },
+  { id: 'area:veilwood_moonhawk_perch',         name: 'Moonhawk Perch',           region: 'Veilwood',   requires: ['area:veilwood', 'skill:ranged:75'] },
+  { id: 'area:veilwood_range',                  name: 'Veilwood Range',           region: 'Veilwood',   requires: ['area:veilwood'] },
+  { id: 'area:veilwood_stag_stone',             name: 'Stag Stone',               region: 'Veilwood',   requires: ['area:veilwood', 'quest:the_stag_shape_rite'] },
+
+  // ── Inkweald (6) ──────────────────────────────────────────────────────────
+  { id: 'area:inkweald_dream_forge',            name: 'Dream Forge',              region: 'Inkweald',   requires: ['area:inkweald', 'quest:the_inkweald_door'] },
+  { id: 'area:inkweald_mirror_glades',          name: 'Mirror Glades',            region: 'Inkweald',   requires: ['area:inkweald', 'quest:the_inkweald_mirror'] },
+  { id: 'area:inkweald_cradlewood',             name: 'Cradlewood',               region: 'Inkweald',   requires: ['area:inkweald'] },
+  { id: 'area:inkweald_half_light_range',       name: 'Half-Light Range',         region: 'Inkweald',   requires: ['area:inkweald'] },
+  { id: 'area:inkweald_threshold_of_names',     name: 'Threshold of Names',       region: 'Inkweald',   requires: ['area:inkweald', 'quest:the_inkweald_grandmaster_dream'] },
+  { id: 'area:inkweald_backseam_camps',         name: 'Backseam Camps',           region: 'Inkweald',   requires: ['area:inkweald'] },
+
+  // ── Wilds (2 new — 3 others are RENAMEs handled above) ────────────────────
+  { id: 'area:the_wilds_kbd_lair',              name: 'KBD Lair',                 region: 'Wilds',      requires: ['area:the_wilds', 'skill:prayer:43'] },
+  { id: 'area:the_wilds_mithril_pocket',        name: 'Mithril Pocket',           region: 'Wilds',      requires: ['area:the_wilds', 'skill:mining:55'] },
+];
+
+function applyNewAreas(nodeMap) {
+  let added = 0;
+  let skipped = 0;
+  for (const a of NEW_AREAS) {
+    if (nodeMap.has(a.id)) { skipped++; continue; }
+    nodeMap.set(a.id, {
+      id: a.id,
+      type: 'area',
+      name: a.name,
+      region: a.region,
+      requires: [...a.requires],
+      created_by: 'v0.9-waveA2-C6',
+    });
+    added++;
+  }
+  return { added, skipped };
+}
+
+// ══════════════════════════════════════════════════════════════════════════════
 // C7 RETRACTS (v0.9 Wave A2) — 6 spurious ref removals
 // ══════════════════════════════════════════════════════════════════════════════
 // Section 6.3 of reports/broken-dag-refs-plan.md.
@@ -825,7 +936,12 @@ function applyRetracts(nodeList) {
 }
 
 // ── Apply v0.9 Wave A2 fix pass in order ───────────────────────────────────
+// Order matters: C6 creates the new area nodes FIRST so that C5's rename
+// targets and C7's retract-context have somewhere to point; then C5 renames
+// existing refs; then C7 retracts spurious refs; then dedup collapses any
+// duplicates left behind by rename collisions.
 
+const _newAreaStats = applyNewAreas(nodes);
 const _renameCount = applyRenames([...nodes.values()]);
 const _retractCount = applyRetracts([...nodes.values()]);
 const _dupsRemoved = dedupRequires([...nodes.values()]);
@@ -863,7 +979,8 @@ fs.writeFileSync(path.join(DATA_DIR, 'progression-dag.json'), JSON.stringify(dag
 console.log(`[progression-dag] Wrote ${nodeArray.length} nodes, ${edgeCount} edges`);
 console.log('[progression-dag] By type:', dag.metadata.by_type);
 
-// ── C5/C7 rename + retract + lint summary ──────────────────────────────────
+// ── C5/C6/C7 waveA2 summary ────────────────────────────────────────────────
+console.log(`[waveA2] New area nodes added (C6): ${_newAreaStats.added} (skipped already-present: ${_newAreaStats.skipped})`);
 console.log(`[waveA2] Renames applied (C5): ${_renameCount}`);
 console.log(`[waveA2] Retracts applied (C7): ${_retractCount}`);
 console.log(`[waveA2] Duplicate requires removed: ${_dupsRemoved}`);
@@ -1183,6 +1300,7 @@ push('');
 // ── C5/C15 lint section in report ─────────────────────────────────────────
 push('## v0.9 Wave A2 fix-pass summary');
 push('');
+push(`- **New area nodes added (C6):** ${_newAreaStats.added} (skipped: ${_newAreaStats.skipped})`);
 push(`- **Renames applied (C5):** ${_renameCount}`);
 push(`- **Retracts applied (C7):** ${_retractCount}`);
 push(`- **Duplicate requires removed:** ${_dupsRemoved}`);
