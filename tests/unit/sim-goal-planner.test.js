@@ -392,3 +392,108 @@ describe('GoalPlanner rotation prefers under-used actions', () => {
     expect(freshWins).toBeGreaterThan(30);
   });
 });
+
+// ══════════════════════════════════════════════════════════════════════════════
+// Wave D — real-commitment calibration (burn-out threshold)
+// ══════════════════════════════════════════════════════════════════════════════
+
+describe('burn-out threshold', () => {
+  const BURN_DATA = {
+    bosses: {
+      vorkath: { p99_kc: 1000 },  // made small for test speed
+      hespori: { p99_kc: 100 },
+    },
+  };
+
+  it('filterByState drops a boss-kill action once the bot hits the ceiling', () => {
+    const s = new BotState('low', { burnoutData: BURN_DATA });
+    // low archetype = 5% of p99 → 50 KC for vorkath (1000 × 0.05)
+    expect(s.burnoutThreshold.vorkath).toBe(50);
+
+    const killVork = { id: 'kill_vorkath', intensity: 4, base_output: { xp: { attack: 50 } } };
+    const [filtered1] = filterByState([killVork], s);
+    expect(filtered1).toBe(killVork); // passes before we're burnt out
+
+    // Grind 50 kills → at the ceiling
+    for (let i = 0; i < 50; i++) s.creditBossKill('vorkath');
+    expect(s.isBurntOut('vorkath')).toBe(true);
+    expect(filterByState([killVork], s).length).toBe(0);
+  });
+
+  it('archetype fractions scale proportionally to p99_kc', () => {
+    const low  = new BotState('low',       { burnoutData: BURN_DATA });
+    const med  = new BotState('medium',    { burnoutData: BURN_DATA });
+    const high = new BotState('high',      { burnoutData: BURN_DATA });
+    const unl  = new BotState('unlimited', { burnoutData: BURN_DATA });
+
+    // p99 vorkath = 1000. Fractions: 0.05, 0.20, 0.60, 2.00.
+    expect(low.burnoutThreshold.vorkath).toBe(50);
+    expect(med.burnoutThreshold.vorkath).toBe(200);
+    expect(high.burnoutThreshold.vorkath).toBe(600);
+    expect(unl.burnoutThreshold.vorkath).toBe(2000);
+
+    // Stickiness: low tier hits ceiling fastest
+    for (let i = 0; i < 200; i++) {
+      low.creditBossKill('vorkath');
+      med.creditBossKill('vorkath');
+    }
+    expect(low.isBurntOut('vorkath')).toBe(true);
+    expect(med.isBurntOut('vorkath')).toBe(true);  // exactly at 200 KC
+    expect(high.isBurntOut('vorkath')).toBe(false);
+    expect(unl.isBurntOut('vorkath')).toBe(false);
+  });
+
+  it('apply() auto-credits KC when the action id is a boss kill', () => {
+    const s = new BotState('high', { burnoutData: BURN_DATA });
+    expect(s.kcFor('vorkath')).toBe(0);
+
+    // kill_vorkath → should credit vorkath
+    s.apply({ id: 'kill_vorkath', base_output: { xp: { attack: 10 } } });
+    expect(s.kcFor('vorkath')).toBe(1);
+
+    // Arbitrary non-boss id → no credit
+    s.apply({ id: 'mine_iron', base_output: { xp: { mining: 10 } } });
+    expect(s.kcFor('vorkath')).toBe(1);
+
+    // Explicit boss_key override beats pattern match
+    s.apply({ id: 'generic-fight', boss_key: 'hespori', base_output: {} });
+    expect(s.kcFor('hespori')).toBe(1);
+  });
+
+  it('planner refuses a burnt-out boss action even when goal scores it high', () => {
+    const s = new BotState('low', { burnoutData: BURN_DATA });
+    const bar = new AttentionBar('low');
+
+    const killHesp = { id: 'kill_hespori', intensity: 3, time_ms: 3600000, base_output: { xp: { attack: 100 } } };
+    const catalog = [
+      killHesp,
+      // Alt option so planner has something else to pick
+      { id: 'mine_iron', intensity: 1, time_ms: 3000, base_output: { xp: { mining: 50 } } },
+    ];
+    const p = new GoalPlanner({ catalog, dag: STUB_DAG, seed: 3 });
+    p.setGoals([{ kind: 'skill', target: 'attack' }]);
+
+    // Burn out hespori for low (5% of 100 = 5 KC)
+    for (let i = 0; i < 5; i++) s.creditBossKill('hespori');
+    expect(s.isBurntOut('hespori')).toBe(true);
+
+    // Pick many times — none should be kill_hespori
+    let hespPicks = 0;
+    for (let i = 0; i < 20; i++) {
+      const r = p.pick(s, bar);
+      if (r && r.activity && r.activity.id === 'kill_hespori') hespPicks++;
+    }
+    expect(hespPicks).toBe(0);
+  });
+
+  it('unknown bosses in action ids fall through without crediting', () => {
+    const s = new BotState('low', { burnoutData: BURN_DATA });
+    // kill_unknown_monster is not in BURN_DATA — should not credit anything
+    s.apply({ id: 'kill_unknown_monster', base_output: {} });
+    expect(s.kcFor('unknown_monster')).toBe(0);
+    // And the planner should not filter it out
+    const catalog = [{ id: 'kill_unknown_monster', intensity: 1, base_output: { xp: { attack: 10 } } }];
+    const bar = new AttentionBar('low');
+    expect(filterByState(catalog, s).length).toBe(1);
+  });
+});

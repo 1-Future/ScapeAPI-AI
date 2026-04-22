@@ -34,6 +34,8 @@
 
 'use strict';
 
+const { detectBossKey } = require('./state');
+
 // ─── RNG (mulberry32 so seeds are portable) ────────────────────────────────
 function mulberry32(seed) {
   let s = seed >>> 0;
@@ -51,10 +53,23 @@ function mulberry32(seed) {
 // A quest_synth action disappears once the bot has the quest flag — we don't
 // want bots to "re-complete" the same quest. Everything else passes through
 // the normal `satisfies` gate.
+//
+// Wave D: a boss-kill action is also filtered when the bot is at or above
+// its archetype-specific burn-out ceiling for that boss. This models the
+// real OSRS signal that players quit bosses well before mathematical
+// average-luck completion.
 function filterByState(catalog, state) {
   return catalog.filter(a => {
     if (a && a.kind === 'quest_synth' && a.quest_id && state.quests.has(a.quest_id)) return false;
-    return state.satisfies(a.requires);
+    if (!state.satisfies(a.requires)) return false;
+    // Burn-out gate — skip boss-kill actions when the bot's KC has hit the
+    // per-archetype commitment ceiling for that boss. No-op when the action
+    // is not a boss kill, or when the state is a plain object (tests).
+    if (typeof state.isBurntOut === 'function') {
+      const bossKey = detectBossKey(a);
+      if (bossKey && state.isBurntOut(bossKey)) return false;
+    }
+    return true;
   });
 }
 
