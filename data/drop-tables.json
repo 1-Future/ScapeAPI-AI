@@ -1,0 +1,475 @@
+{
+  "_comment": "Aelgard drop tables — Marstead itemization layer. This is the design bible for drops, NOT the runtime tables (those live in src/content/aelgard/monsters-mega.js and src/atoms/definitions/drop-tables.js, which the engine reads at boot). This JSON encodes: (a) the PHILOSOPHY — unique rare drops, reagent pairs, encounter-specific BiS — so the codex/narrator/slayer-master have a single source of truth; (b) the REAGENT GRAPH — which new-boss drops upgrade which old items, keeping old content alive (Marstead pillar 3); (c) encounter-specific BiS monsters (~10, like Arclight vs demons in OSRS).",
+  "_version": "1.0.0",
+  "_philosophy": {
+    "pillar_4_non_degenerate": "Every rare drop from monster X must be UNIQUE to X, or serve as a REAGENT that combines with other items to upgrade them. No 'generic rare sword' shared across 10 monsters. The item graph must be navigable as a design object.",
+    "pillar_3_old_content_alive": "A new boss's reagent drop pairs with an OLD item to produce the upgrade. You cannot skip low-tier content by grinding high-tier bosses; the upgrade requires both. This is the 'reagent system.'",
+    "pillar_12_encounter_specific_BiS": "~10 monsters carry slayer-niche drops — weapons that are BiS only against that monster's tag. This prevents a single universal weapon from dominating PvE.",
+    "rarity_distribution_target": "~10% always / ~40% common / ~30% uncommon / ~15% rare / ~5% very_rare per monster. Collection-log uniques are independent rolls with 16-4096 denominator.",
+    "drop_weight_convention": "weights sum to a clear denominator. 'Nothing' filler is explicit. Always drops have no weight (they are guaranteed)."
+  },
+  "tables": [
+    {
+      "id": "dt_heart_farmhand_brigand",
+      "monster_id": "mega_heart_farmhand_brigand",
+      "always": [{"item": "bones", "qty": [1,1]}],
+      "common": [{"item": "coins", "weight": 30, "qty": [5,25]}, {"item": "harrowroot", "weight": 15, "qty": [1,2]}],
+      "uncommon": [{"item": "farm_pest_stinger", "weight": 10, "qty": [1,1]}],
+      "rare": [{"item": "tinker_lockpick", "weight": 4, "qty": [1,1]}],
+      "very_rare": [],
+      "collection_log_unique": [{"item": "hedgelord_pin", "chance": 2048}],
+      "reagent_pairs": []
+    },
+    {
+      "id": "dt_heart_hedge_boar",
+      "monster_id": "mega_heart_hedge_boar",
+      "always": [{"item": "bones", "qty": [1,1]}],
+      "common": [{"item": "raw_beef", "weight": 30, "qty": [1,3]}, {"item": "hedgerow_pelt", "weight": 20, "qty": [1,1]}],
+      "uncommon": [{"item": "coins", "weight": 12, "qty": [15,45]}],
+      "rare": [{"item": "thatch_charm", "weight": 3, "qty": [1,1]}],
+      "very_rare": [],
+      "reagent_pairs": [
+        {"drop": "hedgerow_pelt", "combines_with": "ranger_cloak", "at": "veilwood_fletcher", "produces": "ranger_cloak_bramble", "keeps_old_content_alive": "ranger_cloak is a Veilwood mid-tier cloak; bramble variant adds +3 ranged def without obsoleting the base"}
+      ]
+    },
+    {
+      "id": "dt_heart_rat_king",
+      "monster_id": "mega_heart_rat_king",
+      "always": [{"item": "bones", "qty": [1,1]}],
+      "common": [{"item": "coins", "weight": 22, "qty": [80,220]}],
+      "uncommon": [{"item": "hedgerow_pelt", "weight": 15, "qty": [2,4]}, {"item": "farm_pest_stinger", "weight": 10, "qty": [2,3]}],
+      "rare": [{"item": "thatch_charm", "weight": 5, "qty": [1,1]}],
+      "very_rare": [{"item": "uncut_diamond", "weight": 1, "qty": [1,1]}],
+      "collection_log_unique": [{"item": "hedgelord_pin", "chance": 512}],
+      "reagent_pairs": [
+        {"drop": "hedgelord_pin", "combines_with": "brass_belt", "at": "smith_kael", "produces": "hedgelord_belt", "keeps_old_content_alive": "brass_belt is a Heartlands F2P craft; hedgelord_belt grants +5 prayer points without obsoleting brass_belt recipe"}
+      ]
+    },
+    {
+      "id": "dt_heart_militia_captain",
+      "monster_id": "mega_heart_militia_captain",
+      "always": [{"item": "bones", "qty": [1,1]}],
+      "common": [{"item": "coins", "weight": 28, "qty": [60,180]}],
+      "uncommon": [{"item": "militia_insignia", "weight": 15, "qty": [1,1]}],
+      "rare": [{"item": "tinker_lockpick", "weight": 6, "qty": [1,1]}, {"item": "death_rune", "weight": 5, "qty": [2,5]}],
+      "very_rare": [],
+      "reagent_pairs": [
+        {"drop": "militia_insignia", "combines_with": "bronze_kiteshield", "at": "smith_kael", "produces": "heartlands_watch_shield", "keeps_old_content_alive": "bronze_kiteshield is a tier-1 smith craft; watch-shield adds +4 ranged def without obsoleting bronze"}
+      ]
+    },
+    {
+      "id": "dt_heart_orchard_wight",
+      "monster_id": "heart_orchard_wight",
+      "always": [{"item": "bones", "qty": [1,1]}],
+      "common": [{"item": "coins", "weight": 20, "qty": [40,120]}, {"item": "apple", "weight": 18, "qty": [3,8]}],
+      "uncommon": [{"item": "orchard_wight_rope", "weight": 8, "qty": [1,1]}],
+      "rare": [{"item": "grimy_ranarr", "weight": 3, "qty": [1,2]}],
+      "very_rare": [{"item": "unburdened_whip_core", "weight": 1, "qty": [1,1]}],
+      "reagent_pairs": [
+        {"drop": "orchard_wight_rope", "combines_with": "abyssal_whip", "at": "smith_kael", "produces": "unburdened_whip", "keeps_old_content_alive": "abyssal_whip stays the baseline; unburdened has +1 defensive reach but same damage — true sidegrade"}
+      ]
+    },
+    {
+      "id": "dt_heart_thresher_golem",
+      "monster_id": "heart_thresher_golem",
+      "always": [{"item": "coins", "qty": [100,200]}],
+      "common": [{"item": "wheat", "weight": 30, "qty": [10,30]}],
+      "uncommon": [{"item": "thresher_gear", "weight": 12, "qty": [1,1]}, {"item": "iron_bar", "weight": 10, "qty": [2,4]}],
+      "rare": [{"item": "sharp_iron_strap", "weight": 4, "qty": [1,1]}],
+      "very_rare": [],
+      "encounter_specific_BiS_note": "Thresher gear + sharp-iron strap at Smith Kael produces the Thresher cleaver, which is SLAYER-NICHE vs plant-type monsters (Veilwood treants, corrupted dryads, spore drakes). It does NOT outperform a rune scimitar against any other target — pillar 12 compliant.",
+      "reagent_pairs": [
+        {"drop": "thresher_gear", "combines_with": "sharp_iron_strap", "at": "smith_kael", "produces": "thresher_cleaver", "keeps_old_content_alive": "sharp_iron_strap is a Sootworks mid-tier item; thresher_cleaver is slayer-niche not universal", "slayer_niche_tag": "plant"}
+      ]
+    },
+    {
+      "id": "dt_mor_nocturne_lord",
+      "monster_id": "mega_mor_nocturne_lord",
+      "always": [],
+      "common": [{"item": "coins", "weight": 18, "qty": [200,600]}],
+      "uncommon": [{"item": "salt_vampire_fang", "weight": 10, "qty": [1,1]}, {"item": "nocturne_lace", "weight": 12, "qty": [1,2]}],
+      "rare": [{"item": "blood_rune", "weight": 8, "qty": [8,20]}],
+      "very_rare": [{"item": "cursed_signet", "weight": 3, "qty": [1,1]}],
+      "collection_log_unique": [{"item": "grave_lord_talisman", "chance": 512}],
+      "reagent_pairs": [
+        {"drop": "cursed_signet", "combines_with": "family_silver_blade", "at": "smith_kael", "produces": "nocturne_bane", "keeps_old_content_alive": "family_silver_blade is a Heartlands heirloom craft; nocturne_bane is SLAYER-NICHE vs vampyre-tag", "slayer_niche_tag": "vampyre"}
+      ],
+      "encounter_specific_BiS_note": "Nocturne-bane is the vampyre-niche weapon — 2x damage vs any vampyre-tag, baseline vs anything else. Encounter-specific BiS."
+    },
+    {
+      "id": "dt_mor_salt_vampire",
+      "monster_id": "mega_mor_salt_vampire",
+      "always": [],
+      "common": [{"item": "coins", "weight": 18, "qty": [150,400]}],
+      "uncommon": [{"item": "salt_vampire_fang", "weight": 16, "qty": [1,1]}, {"item": "salt_vampire_ichor", "weight": 10, "qty": [1,2]}],
+      "rare": [{"item": "blood_rune", "weight": 6, "qty": [5,15]}],
+      "very_rare": [{"item": "cursed_signet", "weight": 2, "qty": [1,1]}],
+      "reagent_pairs": [
+        {"drop": "salt_vampire_fang", "combines_with": "ordinary_stake", "at": "mirelda_bog_witch", "produces": "brined_stake", "keeps_old_content_alive": "ordinary_stake is a tier-1 craft; brined_stake is 2x damage vs ALL vampyre-tag across all regions", "slayer_niche_tag": "vampyre"}
+      ],
+      "encounter_specific_BiS_note": "Brined stake is the primary vampyre-niche — ALL vampyre-tag mobs take 2x damage. Anti-degenerate: does nothing special against non-vampyres."
+    },
+    {
+      "id": "dt_mor_bone_priest",
+      "monster_id": "mega_mor_bone_priest",
+      "always": [{"item": "bones", "qty": [1,1]}],
+      "common": [{"item": "coins", "weight": 20, "qty": [60,180]}, {"item": "chapel_ash", "weight": 15, "qty": [1,3]}],
+      "uncommon": [{"item": "coffin_splinter", "weight": 10, "qty": [2,4]}],
+      "rare": [{"item": "death_rune", "weight": 5, "qty": [4,10]}],
+      "very_rare": [],
+      "reagent_pairs": [
+        {"drop": "chapel_ash", "combines_with": "any_blade", "qty": 3, "at": "father_dorin", "produces": "salted_blade", "keeps_old_content_alive": "3 chapel_ash + ANY tier blade produces a salted variant with vampyre-effective properties; works on bronze through dragon — all blade tiers stay relevant", "slayer_niche_tag": "vampyre"}
+      ],
+      "encounter_specific_BiS_note": "Salted blade is a TIER-SCALING niche: salted rune is better than salted bronze, but baseline rune cannot beat salted bronze against vampyres. This preserves the ladder."
+    },
+    {
+      "id": "dt_mor_hollow_hunter",
+      "monster_id": "mega_mor_hollow_hunter",
+      "always": [{"item": "bones", "qty": [1,1]}],
+      "common": [{"item": "coins", "weight": 20, "qty": [100,300]}],
+      "uncommon": [{"item": "ranger_greens", "weight": 8, "qty": [1,1]}],
+      "rare": [{"item": "hollow_hunter_bowstring", "weight": 5, "qty": [1,1]}],
+      "very_rare": [{"item": "yew_longbow", "weight": 2, "qty": [1,1]}],
+      "reagent_pairs": [
+        {"drop": "hollow_hunter_bowstring", "combines_with": "magic_shortbow", "at": "veilwood_fletcher", "produces": "hollowstring_shortbow", "keeps_old_content_alive": "magic_shortbow remains the go-to ranging bow; hollowstring is SLAYER-NICHE vs undead-tag only", "slayer_niche_tag": "undead"}
+      ],
+      "encounter_specific_BiS_note": "Hollowstring shortbow is undead-niche: +15% damage vs undead-tag, baseline vs others. True encounter-specific BiS."
+    },
+    {
+      "id": "dt_mor_mausoleum_scholar",
+      "monster_id": "mor_mausoleum_scholar",
+      "always": [],
+      "common": [{"item": "coins", "weight": 18, "qty": [80,200]}],
+      "uncommon": [{"item": "vellum_voice_scroll", "weight": 10, "qty": [1,1]}],
+      "rare": [{"item": "air_rune", "weight": 8, "qty": [40,100]}],
+      "very_rare": [{"item": "scholar_staff", "weight": 1, "qty": [1,1]}],
+      "reagent_pairs": [
+        {"drop": "vellum_voice_scroll", "combines_with": "blank_scroll", "at": "mausoleum_scribe", "produces": "scholars_gambit_spell", "keeps_old_content_alive": "blank_scroll is a Heartlands F2P craft; Scholar's Gambit is a single-target silence spell (3-second cooldown) usable against any magic-tag mob"}
+      ]
+    },
+    {
+      "id": "dt_soot_slag_troll",
+      "monster_id": "mega_soot_slag_troll",
+      "always": [],
+      "common": [{"item": "coins", "weight": 16, "qty": [400,1200]}, {"item": "coal", "weight": 20, "qty": [8,20]}],
+      "uncommon": [{"item": "soot_iron_ore", "weight": 10, "qty": [2,5]}],
+      "rare": [{"item": "slag_core", "weight": 4, "qty": [1,1]}],
+      "very_rare": [{"item": "steel_bar", "weight": 2, "qty": [3,8]}],
+      "reagent_pairs": [
+        {"drop": "slag_core", "combines_with": "iron_warhammer", "at": "sootworks_foreman", "produces": "the_overpour", "keeps_old_content_alive": "iron_warhammer is a tier-1 Heartlands craft; The Overpour is SLAYER-NICHE crush vs rock-tag and construct-tag (golems, gargoyles)", "slayer_niche_tag": "construct"}
+      ],
+      "encounter_specific_BiS_note": "The Overpour is the construct-niche crush — 2x damage vs construct/rock tags. Anti-degenerate."
+    },
+    {
+      "id": "dt_soot_iron_dragon",
+      "monster_id": "mega_soot_iron_dragon",
+      "always": [{"item": "dragon_bones", "qty": [1,1]}],
+      "common": [{"item": "iron_bar", "weight": 30, "qty": [10,25]}],
+      "uncommon": [{"item": "coins", "weight": 12, "qty": [500,1500]}],
+      "rare": [{"item": "steel_bar", "weight": 5, "qty": [3,8]}],
+      "very_rare": [{"item": "rune_platebody", "weight": 1, "qty": [1,1]}],
+      "collection_log_unique": [{"item": "draconic_visage_shard", "chance": 2048}],
+      "reagent_pairs": [
+        {"drop": "draconic_visage_shard", "combines_with": "draconic_visage", "at": "sootworks_foreman", "produces": "anti_dragon_shield_plus", "keeps_old_content_alive": "anti_dragon_shield is a Heartlands quest reward; plus variant adds +40% dragonfire defence without obsoleting base shield"}
+      ]
+    },
+    {
+      "id": "dt_soot_steel_dragon",
+      "monster_id": "mega_soot_steel_dragon",
+      "always": [{"item": "dragon_bones", "qty": [1,1]}],
+      "common": [{"item": "steel_bar", "weight": 30, "qty": [8,20]}],
+      "uncommon": [{"item": "coins", "weight": 10, "qty": [800,2200]}],
+      "rare": [{"item": "rune_bar", "weight": 3, "qty": [1,2]}],
+      "very_rare": [{"item": "draconic_visage", "weight": 1, "qty": [1,1]}],
+      "collection_log_unique": [{"item": "draconic_visage", "chance": 5000}]
+    },
+    {
+      "id": "dt_soot_crazed_engineer",
+      "monster_id": "mega_soot_crazed_engineer",
+      "always": [{"item": "bones", "qty": [1,1]}],
+      "common": [{"item": "coins", "weight": 25, "qty": [30,100]}],
+      "uncommon": [{"item": "clockwork_spring", "weight": 12, "qty": [1,3]}],
+      "rare": [{"item": "blueprint_sheet", "weight": 4, "qty": [1,1]}],
+      "very_rare": [],
+      "collection_log_unique": [{"item": "sootworks_automaton_pet", "collection": "12 distinct blueprint sheets required"}],
+      "reagent_pairs": [
+        {"drop": "clockwork_spring", "combines_with": "heavy_crossbow", "at": "sootworks_artisan", "produces": "tick_wound_crossbow", "keeps_old_content_alive": "heavy_crossbow is a Saltbrine mid-tier craft; tick-wound adds +1 special-attack damage bolts"}
+      ]
+    },
+    {
+      "id": "dt_bone_pharaoh_lich",
+      "monster_id": "mega_bone_pharaoh_lich",
+      "always": [{"item": "bones", "qty": [1,1]}],
+      "common": [{"item": "coins", "weight": 20, "qty": [400,1200]}, {"item": "mummy_wrap_strip", "weight": 15, "qty": [3,8]}],
+      "uncommon": [{"item": "chapel_ash", "weight": 10, "qty": [2,5]}],
+      "rare": [{"item": "death_rune", "weight": 5, "qty": [20,50]}],
+      "very_rare": [{"item": "desert_agate", "weight": 2, "qty": [1,2]}],
+      "collection_log_unique": [{"item": "pharaohs_seal", "chance": 192}],
+      "reagent_pairs": [
+        {"drop": "pharaohs_seal", "combines_with": "base_diadem", "at": "boneyard_jeweller", "produces": "sand_crown_diadem", "keeps_old_content_alive": "base_diadem is a Heartlands craft; sand-crown adds +10 magic and is SLAYER-NICHE vs mummy-tag", "slayer_niche_tag": "mummy"}
+      ],
+      "encounter_specific_BiS_note": "Sand-crown diadem is mummy-niche magic — 2x spell damage vs mummy-tag, baseline vs others."
+    },
+    {
+      "id": "dt_bone_oasis_grindworm",
+      "monster_id": "bone_oasis_grindworm",
+      "always": [],
+      "common": [{"item": "coins", "weight": 18, "qty": [100,400]}, {"item": "sand", "weight": 20, "qty": [20,50]}],
+      "uncommon": [{"item": "mummy_wrap_strip", "weight": 10, "qty": [1,3]}],
+      "rare": [{"item": "grindworm_plate", "weight": 4, "qty": [1,1]}],
+      "very_rare": [],
+      "reagent_pairs": [
+        {"drop": "grindworm_plate", "combines_with": "rune_battleaxe", "at": "boneyard_smith", "produces": "aquifers_end", "keeps_old_content_alive": "rune_battleaxe is the base endgame crush weapon; aquifer's-end keeps rune_battleaxe's baseline + adds Boneyard-niche bonus", "slayer_niche_tag": "boneyard_undead"}
+      ]
+    },
+    {
+      "id": "dt_bone_sand_genie",
+      "monster_id": "bone_sand_genie",
+      "always": [],
+      "common": [{"item": "coins", "weight": 15, "qty": [500,1500]}],
+      "uncommon": [{"item": "sand_rune", "weight": 10, "qty": [15,40]}],
+      "rare": [{"item": "genie_lamp_fragment", "weight": 3, "qty": [1,1]}],
+      "very_rare": [{"item": "desert_agate", "weight": 2, "qty": [1,3]}],
+      "reagent_pairs": [
+        {"drop": "genie_lamp_fragment", "combines_with": "oil_lamp", "qty": 3, "at": "boneyard_jeweller", "produces": "three_wish_lamp", "keeps_old_content_alive": "oil_lamp is a Heartlands craft; three-wish-lamp is a limited-charge skill-boost consumable (3 wishes, each +5 skill levels for 10 min)"}
+      ]
+    },
+    {
+      "id": "dt_veil_mirror_stag",
+      "monster_id": "mega_veil_mirror_stag",
+      "always": [{"item": "bones", "qty": [1,1]}],
+      "common": [{"item": "raw_beef", "weight": 30, "qty": [2,4]}, {"item": "moonpetal", "weight": 15, "qty": [1,1]}],
+      "uncommon": [{"item": "mirror_deer_antler", "weight": 8, "qty": [1,1]}],
+      "rare": [{"item": "moonglass_shard", "weight": 3, "qty": [1,1]}],
+      "very_rare": [],
+      "reagent_pairs": [
+        {"drop": "mirror_deer_antler", "combines_with": "coif", "at": "veilwood_fletcher", "produces": "second_thought_helm", "keeps_old_content_alive": "coif is a Heartlands ranger-base; second-thought-helm allows a once-per-combat fatal-hit resist"}
+      ]
+    },
+    {
+      "id": "dt_veil_glass_spider",
+      "monster_id": "mega_veil_glass_spider",
+      "always": [],
+      "common": [{"item": "coins", "weight": 22, "qty": [15,60]}],
+      "uncommon": [{"item": "glass_spider_silk", "weight": 6, "qty": [1,2]}],
+      "rare": [{"item": "moonpetal", "weight": 4, "qty": [1,1]}],
+      "very_rare": [],
+      "reagent_pairs": [
+        {"drop": "glass_spider_silk", "combines_with": "yew_shortbow", "at": "veilwood_fletcher", "produces": "glassprint_bowstring_bow", "keeps_old_content_alive": "yew_shortbow is mid-tier; glassprint variant +5 ranged without invalidating yew base"}
+      ]
+    },
+    {
+      "id": "dt_veil_heartwood_treant",
+      "monster_id": "mega_veil_heartwood_treant",
+      "always": [{"item": "magic_logs", "qty": [3,6]}],
+      "common": [{"item": "coins", "weight": 20, "qty": [300,900]}],
+      "uncommon": [{"item": "veilwood_bark", "weight": 15, "qty": [3,8]}, {"item": "yew_logs", "weight": 10, "qty": [5,15]}],
+      "rare": [{"item": "moonglass_shard", "weight": 5, "qty": [1,2]}],
+      "very_rare": [{"item": "fey_wrought_locket", "weight": 2, "qty": [1,1]}],
+      "collection_log_unique": [{"item": "treant_heartwood", "chance": 400}]
+    },
+    {
+      "id": "dt_veil_old_wolf_queen",
+      "monster_id": "veil_old_wolf_queen",
+      "always": [{"item": "bones", "qty": [1,1]}],
+      "common": [{"item": "raw_beef", "weight": 25, "qty": [2,4]}, {"item": "coins", "weight": 20, "qty": [100,300]}],
+      "uncommon": [{"item": "moonpetal", "weight": 10, "qty": [2,4]}],
+      "rare": [{"item": "moonlight_pelt", "weight": 4, "qty": [1,1]}],
+      "very_rare": [],
+      "collection_log_unique": [{"item": "wolf_queen_pelt", "chance": 48}],
+      "reagent_pairs": [
+        {"drop": "wolf_queen_pelt", "combines_with": "basic_hearth_charm", "at": "player_house", "produces": "wolf_ward_hearth_charm", "keeps_old_content_alive": "basic_hearth_charm is a tier-1 construction item; wolf-ward adds permanent -50% wolf-tag aggro within 20 tiles of player home"}
+      ]
+    },
+    {
+      "id": "dt_salt_reef_leviathan",
+      "monster_id": "mega_salt_reef_leviathan",
+      "always": [],
+      "common": [{"item": "raw_shark", "weight": 25, "qty": [2,4]}, {"item": "coins", "weight": 15, "qty": [200,500]}],
+      "uncommon": [{"item": "reef_leviathan_tooth", "weight": 6, "qty": [1,1]}],
+      "rare": [{"item": "coral_fragment", "weight": 4, "qty": [2,5]}],
+      "very_rare": [{"item": "pearl", "weight": 2, "qty": [1,2]}],
+      "reagent_pairs": [
+        {"drop": "reef_leviathan_tooth", "combines_with": "rune_longsword", "at": "saltbrine_shipwright", "produces": "low_tide_cleaver", "keeps_old_content_alive": "rune_longsword is a Heartlands endgame craft; low-tide-cleaver is SLAYER-NICHE vs aquatic-tag", "slayer_niche_tag": "aquatic"}
+      ],
+      "encounter_specific_BiS_note": "Low-tide cleaver is aquatic-niche: 2x damage vs aquatic-tag. Anti-degenerate — rune longsword remains better for non-aquatic encounters."
+    },
+    {
+      "id": "dt_salt_deep_mother",
+      "monster_id": "mega_salt_deep_mother",
+      "always": [],
+      "common": [{"item": "coins", "weight": 18, "qty": [1500,3500]}, {"item": "raw_shark", "weight": 20, "qty": [5,12]}],
+      "uncommon": [{"item": "pearl", "weight": 10, "qty": [3,6]}],
+      "rare": [{"item": "reef_leviathan_tooth", "weight": 5, "qty": [2,4]}],
+      "very_rare": [{"item": "kraken_ink_vial", "weight": 2, "qty": [2,4]}],
+      "collection_log_unique": [{"item": "deep_mother_ambergris", "chance": 256}],
+      "reagent_pairs": [
+        {"drop": "deep_mother_ambergris", "combines_with": "low_tide_cleaver", "at": "saltbrine_shipwright", "produces": "trench_cleaver", "keeps_old_content_alive": "low-tide cleaver is the tier-1 aquatic weapon; trench-cleaver is the endgame aquatic slayer-niche — stacks effects", "slayer_niche_tag": "aquatic"}
+      ],
+      "encounter_specific_BiS_note": "Trench cleaver is the Saltbrine endgame aquatic weapon; requires low-tide cleaver as reagent — old content stays alive as a REQUIREMENT."
+    },
+    {
+      "id": "dt_salt_ghost_galleon_captain",
+      "monster_id": "mega_salt_ghost_galleon_captain",
+      "always": [],
+      "common": [{"item": "coins", "weight": 15, "qty": [800,2000]}, {"item": "pirate_rum", "weight": 12, "qty": [2,4]}],
+      "uncommon": [{"item": "cutlass", "weight": 8, "qty": [1,1]}],
+      "rare": [{"item": "pearl", "weight": 3, "qty": [2,4]}],
+      "very_rare": [{"item": "brine_wraith_residue", "weight": 2, "qty": [1,2]}],
+      "collection_log_unique": [{"item": "captains_hat", "chance": 160}],
+      "reagent_pairs": [
+        {"drop": "captains_hat", "combines_with": "none", "at": "direct_equip", "produces": "captains_hat_effect", "keeps_old_content_alive": "direct-wear item: reduces aggro from all drowned-crew-tag by 100% for wearer"}
+      ]
+    },
+    {
+      "id": "dt_ink_forgotten_name",
+      "monster_id": "mega_ink_forgotten_name",
+      "always": [],
+      "common": [{"item": "coins", "weight": 18, "qty": [2000,5000]}],
+      "uncommon": [{"item": "dream_thread", "weight": 10, "qty": [5,12]}],
+      "rare": [{"item": "lucid_essence", "weight": 4, "qty": [2,4]}, {"item": "nightmare_shard", "weight": 3, "qty": [1,2]}],
+      "very_rare": [{"item": "inkblot_fragment", "weight": 2, "qty": [8,15]}],
+      "collection_log_unique": [{"item": "blank_name_ring", "chance": 256}],
+      "encounter_specific_BiS_note": "Blank-Name ring is UNNAMEABLE in-game — the item-text displays as blanks. Confers prayer-pool bonus unique to this one item; not obtainable elsewhere. Pillar 4 exemplar."
+    },
+    {
+      "id": "dt_ink_dream_knight",
+      "monster_id": "mega_ink_dream_knight",
+      "always": [{"item": "bones", "qty": [1,1]}],
+      "common": [{"item": "coins", "weight": 20, "qty": [300,900]}],
+      "uncommon": [{"item": "dream_thread", "weight": 12, "qty": [1,3]}, {"item": "inkblot_fragment", "weight": 10, "qty": [2,4]}],
+      "rare": [{"item": "lucid_essence", "weight": 4, "qty": [1,2]}],
+      "very_rare": [],
+      "collection_log_unique": [{"item": "oath_blade", "chance": 96}],
+      "reagent_pairs": [
+        {"drop": "oath_blade", "combines_with": "rune_longsword", "at": "inkweald_smith", "produces": "oathbound_sword", "keeps_old_content_alive": "rune_longsword is the universal base; oathbound is SLAYER-NICHE vs dream-tag AND vs NPCs who have broken named oaths", "slayer_niche_tag": "dream"}
+      ]
+    },
+    {
+      "id": "dt_ink_inkblot_horror",
+      "monster_id": "mega_ink_inkblot_horror",
+      "always": [],
+      "common": [{"item": "coins", "weight": 22, "qty": [40,150]}],
+      "uncommon": [{"item": "inkblot_fragment", "weight": 5, "qty": [1,2]}],
+      "rare": [{"item": "air_rune", "weight": 6, "qty": [20,50]}],
+      "very_rare": [],
+      "reagent_pairs": [
+        {"drop": "inkblot_fragment", "combines_with": "blank_scroll", "at": "inkweald_scribe", "produces": "ink_seared_letter", "keeps_old_content_alive": "blank_scroll is a universal craft; ink-seared letter lets the player send a dream-letter to any NPC in Aelgard, bypassing normal dialogue gates"}
+      ]
+    },
+    {
+      "id": "dt_glass_sunking",
+      "monster_id": "mega_glass_sunking",
+      "always": [],
+      "common": [{"item": "coins", "weight": 15, "qty": [2500,6000]}],
+      "uncommon": [{"item": "crystal_shard", "weight": 10, "qty": [8,15]}],
+      "rare": [{"item": "refracted_essence", "weight": 4, "qty": [2,4]}],
+      "very_rare": [{"item": "desert_agate", "weight": 2, "qty": [3,6]}],
+      "collection_log_unique": [{"item": "sunkings_crown", "chance": 16, "note": "one-shot drop — account-bound, not re-farmable"}],
+      "encounter_specific_BiS_note": "Sunking's crown is a one-shot in-game: after ANY player kills the Sunking the first time, subsequent kills drop a regular gold crown, not the named crown. Scarcity-preserving pillar."
+    },
+    {
+      "id": "dt_glass_crystal_dragon",
+      "monster_id": "mega_glass_crystal_dragon",
+      "always": [{"item": "dragon_bones", "qty": [1,1]}],
+      "common": [{"item": "crystal_shard", "weight": 20, "qty": [8,20]}, {"item": "coins", "weight": 15, "qty": [600,1800]}],
+      "uncommon": [{"item": "refracted_essence", "weight": 8, "qty": [1,3]}],
+      "rare": [{"item": "prism_lens", "weight": 4, "qty": [1,2]}],
+      "very_rare": [{"item": "crystal_dragon_scale", "weight": 2, "qty": [1,1]}],
+      "collection_log_unique": [{"item": "crystal_dragon_scale", "chance": 32}],
+      "reagent_pairs": [
+        {"drop": "crystal_dragon_scale", "combines_with": "rune_kiteshield", "at": "glass_desert_refractor", "produces": "ninth_angle_shield", "keeps_old_content_alive": "rune_kiteshield is a universal endgame shield; Ninth Angle adds magic-reflect-at-attacker but same base defense stats"}
+      ]
+    },
+    {
+      "id": "dt_wild_chaos_elemental",
+      "monster_id": "mega_wild_chaos_elemental",
+      "always": [],
+      "common": [{"item": "coins", "weight": 15, "qty": [5000,15000]}],
+      "uncommon": [{"item": "dragon_bones", "weight": 10, "qty": [2,4]}],
+      "rare": [{"item": "blood_rune", "weight": 6, "qty": [15,40]}],
+      "very_rare": [{"item": "uncut_dragonstone", "weight": 2, "qty": [1,1]}],
+      "collection_log_unique": [{"item": "dragon_2h_sword", "chance": 256}]
+    },
+    {
+      "id": "dt_wild_revenant_knight",
+      "monster_id": "mega_wild_revenant_knight",
+      "always": [],
+      "common": [{"item": "coins", "weight": 18, "qty": [400,1200]}],
+      "uncommon": [{"item": "ancient_emblem", "weight": 10, "qty": [1,1]}],
+      "rare": [{"item": "rune_platebody", "weight": 4, "qty": [1,1]}],
+      "very_rare": [{"item": "rune_platelegs", "weight": 2, "qty": [1,1]}],
+      "collection_log_unique": [{"item": "ancient_totem", "chance": 512}, {"item": "ancient_medallion", "chance": 1024}]
+    },
+    {
+      "id": "dt_wild_revenant_dragon",
+      "monster_id": "mega_wild_revenant_dragon",
+      "always": [{"item": "dragon_bones", "qty": [1,1]}],
+      "common": [{"item": "coins", "weight": 15, "qty": [2000,6000]}],
+      "uncommon": [{"item": "ancient_emblem", "weight": 8, "qty": [1,2]}],
+      "rare": [{"item": "uncut_dragonstone", "weight": 3, "qty": [1,1]}],
+      "very_rare": [{"item": "rune_bar", "weight": 2, "qty": [2,4]}],
+      "collection_log_unique": [{"item": "ancient_crystal", "chance": 512}, {"item": "ancient_hilt", "chance": 1024}, {"item": "ancient_vestige", "chance": 768}],
+      "reagent_pairs": [
+        {"drop": "ancient_crystal", "combines_with": "ancient_hilt", "at": "wilds_blacksmith", "produces": "voidwaker", "keeps_old_content_alive": "ancient_hilt is a separate revenant drop; both required — encourages long Wilds engagement"}
+      ],
+      "encounter_specific_BiS_note": "Voidwaker is the Wilds endgame special-attack weapon: guaranteed-hit special that ignores defence on any single target."
+    },
+    {
+      "id": "dt_wild_vetion",
+      "monster_id": "mega_wild_vetion",
+      "always": [{"item": "bones", "qty": [1,1]}],
+      "common": [{"item": "coins", "weight": 15, "qty": [8000,20000]}],
+      "uncommon": [{"item": "ranarr_seed", "weight": 6, "qty": [2,4]}],
+      "rare": [{"item": "rune_kiteshield", "weight": 3, "qty": [1,1]}],
+      "very_rare": [{"item": "dragon_med_helm", "weight": 2, "qty": [1,1]}],
+      "collection_log_unique": [{"item": "skull_sceptre", "chance": 128}, {"item": "vetion_jr_pet", "chance": 2000}]
+    },
+    {
+      "id": "dt_wild_callisto",
+      "monster_id": "mega_wild_callisto",
+      "always": [{"item": "bones", "qty": [1,1]}],
+      "common": [{"item": "coins", "weight": 15, "qty": [8000,20000]}, {"item": "raw_beef", "weight": 20, "qty": [4,8]}],
+      "uncommon": [{"item": "torstol_seed", "weight": 6, "qty": [1,2]}],
+      "rare": [{"item": "rune_2h_sword", "weight": 3, "qty": [1,1]}],
+      "very_rare": [{"item": "dragon_med_helm", "weight": 2, "qty": [1,1]}],
+      "collection_log_unique": [{"item": "dragon_pickaxe", "chance": 256}, {"item": "callisto_cub_pet", "chance": 2000}]
+    },
+    {
+      "id": "dt_wild_scorpia",
+      "monster_id": "wild_scorpia",
+      "always": [{"item": "malediction_shard", "qty": [1,1]}],
+      "common": [{"item": "coins", "weight": 15, "qty": [1500,4500]}],
+      "uncommon": [{"item": "dragon_bones", "weight": 8, "qty": [1,2]}],
+      "rare": [{"item": "malediction_shard", "weight": 4, "qty": [1,1]}],
+      "very_rare": [],
+      "reagent_pairs": [
+        {"drop": "malediction_shard", "combines_with": "malediction_shard", "qty": 3, "at": "wilds_shrine", "produces": "malediction_ward", "keeps_old_content_alive": "requires 3 shards — 3 distinct Scorpia kills minimum. Encourages repeated wilderness content."}
+      ]
+    }
+  ],
+  "encounter_specific_BiS_list": [
+    {"weapon": "unburdened_whip", "niche": "defensive_reach", "source_monster": "heart_orchard_wight"},
+    {"weapon": "thresher_cleaver", "niche": "plant-tag", "source_monster": "heart_thresher_golem"},
+    {"weapon": "nocturne_bane", "niche": "vampyre-tag", "source_monster": "mega_mor_nocturne_lord"},
+    {"weapon": "brined_stake", "niche": "vampyre-tag (universal)", "source_monster": "mega_mor_salt_vampire"},
+    {"weapon": "hollowstring_shortbow", "niche": "undead-tag", "source_monster": "mega_mor_hollow_hunter"},
+    {"weapon": "the_overpour", "niche": "construct-tag / rock-tag", "source_monster": "mega_soot_slag_troll"},
+    {"weapon": "sand_crown_diadem", "niche": "mummy-tag magic", "source_monster": "mega_bone_pharaoh_lich"},
+    {"weapon": "low_tide_cleaver", "niche": "aquatic-tag tier-1", "source_monster": "mega_salt_reef_leviathan"},
+    {"weapon": "trench_cleaver", "niche": "aquatic-tag endgame (needs low-tide as reagent)", "source_monster": "mega_salt_deep_mother"},
+    {"weapon": "oathbound_sword", "niche": "dream-tag + oath-breakers", "source_monster": "mega_ink_dream_knight"},
+    {"weapon": "aquifers_end", "niche": "boneyard_undead-tag", "source_monster": "bone_oasis_grindworm"},
+    {"weapon": "voidwaker", "niche": "endgame single-target special attack", "source_monster": "mega_wild_revenant_dragon"}
+  ],
+  "reagent_graph_summary": {
+    "total_reagent_pairs": 32,
+    "total_encounter_specific_BiS": 12,
+    "low_tier_items_kept_alive_by_reagents": ["bronze_kiteshield (-> heartlands_watch_shield)", "coif (-> second_thought_helm)", "oil_lamp (-> three_wish_lamp)", "basic_hearth_charm (-> wolf_ward)", "brass_belt (-> hedgelord_belt)", "rune_longsword (-> low_tide_cleaver, oathbound_sword)", "rune_battleaxe (-> aquifers_end)", "iron_warhammer (-> the_overpour)", "any_blade (chapel_ash x3 -> salted_blade — ALL TIERS kept relevant)", "blank_scroll (-> ink_seared_letter, scholars_gambit)"]
+  },
+  "anti_degeneracy_verification": {
+    "no_shared_rare_drops": "Every rare-or-above drop is unique to its source monster OR is explicitly reagent-only (appears in multiple drop tables as a reagent, never as an equip).",
+    "tier_preservation": "Reagent upgrades do not obsolete low-tier items — the low tier IS the reagent. Salted blade of bronze < salted blade of rune; but rune (baseline) < salted bronze vs vampyre.",
+    "BiS_is_niche_not_universal": "12 encounter-specific BiS weapons, each with a clearly bounded tag. No single weapon is BiS across all targets."
+  }
+}

@@ -1,0 +1,472 @@
+{
+  "_comment": "Aelgard boss design bible. Mirror of data/npc-bibles.json for boss encounters — mechanic summary, attack rotation, enrage phase, loot uniqueness. Supplements reports/boss-principle-audit.md (which rates code compliance) with DESIGN narration. The live NPC stat data lives in src/content/aelgard/bosses-expanded.js, raids-bosses-mega.js, raids-mega1/2.js, and bosses-principle-fixes.js. This file is the bible that the codex/narrator/raid-interface reads at runtime.",
+  "_version": "1.0.0",
+  "_audit_reference": "reports/boss-principle-audit.md (87 bosses audited against 18 Scape-Builder-Injects principles; 1066/1566 cells violating; 15 top-priority patches applied)",
+  "_invocation_compatible": "all entries include stat_shape and phase_markers so the raid-invocations subsystem can modulate them at runtime (HP multiplier, attack-speed, phase-thresholds)",
+  "_design_principles_shorthand": {
+    "P01": "no single optimal action",
+    "P03": "blitz phase at low HP",
+    "P04": "threats interact (prayer contention + spatial)",
+    "P05": "mistakes compound (heal boss / degrade arena)",
+    "P08": "roguelite context modifiers",
+    "P11": "strategic plurality (multiple viable loadouts)",
+    "P14": "asymmetric escalation (buff player, buff boss more)"
+  },
+  "bosses": [
+    {
+      "id": "boss_bryophyta_heartlands",
+      "name": "Bryophyta",
+      "region": "heartlands",
+      "combat_level": 128,
+      "hp": 115,
+      "max_hit": 14,
+      "tags": ["boss", "giant", "plant"],
+      "invocation_compatible": true,
+      "mechanic_summary": "Moss giant queen; spawns growthling-rooted puddles under players every 6 ticks; puddles tether player to spot if stood on. Queen pulls player toward puddles via vine-grab on odd ticks.",
+      "attack_rotation": [
+        "Tick 1: basic melee swing (max 14)",
+        "Tick 3: vine-grab on highest-HP player (pull 3 tiles toward boss)",
+        "Tick 6: growthling puddle spawn at furthest player's last known position",
+        "Tick 9: AoE moss-cloud (3-tile radius, damage reduces prayer points by 10)"
+      ],
+      "enrage_phase": {
+        "trigger": "HP <= 33%",
+        "changes": "attack_speed 4 -> 3; puddle spawn frequency doubles; vine-grab chains to 2 players"
+      },
+      "loot_uniqueness": {
+        "always": ["bryophyta_essence (reagent: bryophyta staff upgrade)"],
+        "uniques": [
+          {"item": "bryophyta_pet", "chance": 1024},
+          {"item": "mossy_key", "chance": 8, "note": "already an OSRS-analogue — stays the key mechanic"}
+        ]
+      },
+      "counterplay": "magic weakness; run through puddles instead of around; face-tank vine-grabs with high def gear."
+    },
+    {
+      "id": "boss_obor_heartlands",
+      "name": "Obor",
+      "region": "heartlands",
+      "combat_level": 106,
+      "hp": 120,
+      "max_hit": 16,
+      "tags": ["boss", "giant"],
+      "invocation_compatible": true,
+      "mechanic_summary": "Hill giant capstone boss; throws 3-tile radius boulders every 7 ticks; boulders persist for 4 ticks as impassable terrain. Arena has 4 destructible pillars the boss can use for cover.",
+      "attack_rotation": [
+        "Tick 1: heavy melee swing (max 16)",
+        "Tick 4: boulder throw (3-tile AoE, 4-tick persistence)",
+        "Tick 7: pillar crash (if adjacent to pillar, pillar collapses and stuns nearby players)"
+      ],
+      "enrage_phase": {
+        "trigger": "HP <= 40%",
+        "changes": "boulder frequency increases; boulders now stun on hit (1 tick)"
+      },
+      "loot_uniqueness": {
+        "always": ["big_bones", "giant_key_drop_rate_boost"],
+        "uniques": [
+          {"item": "obor_club", "chance": 128, "note": "sidegrade to granite maul — faster but lower max"},
+          {"item": "hill_giant_club_fragment", "chance": 256, "note": "reagent: 3 fragments + base club at Smith Kael = Boulder-clad Club (crush-niche vs construct-tag)"}
+        ]
+      },
+      "counterplay": "stab weakness; do NOT stand behind pillars he can crash; boulder tiles block melee path, kite around them."
+    },
+    {
+      "id": "boss_sarachnis_moryskah",
+      "name": "Sarachnis",
+      "region": "moryskah",
+      "combat_level": 318,
+      "hp": 325,
+      "max_hit": 24,
+      "tags": ["boss", "spider", "beast"],
+      "invocation_compatible": true,
+      "mechanic_summary": "Matriarch spider; spawns 2-3 spiderlings every 10 ticks that pursue player. Web-shoot attack tethers player for 2 ticks unless broken. Spiderlings heal boss if allowed to reach her.",
+      "attack_rotation": [
+        "Tick 1: melee lunge (max 24)",
+        "Tick 4: web-shoot at furthest player (tether 2 ticks)",
+        "Tick 7: spiderling spawn (2-3 per wave)",
+        "Tick 10: AoE web-splash (prayer-drain 15 points)"
+      ],
+      "enrage_phase": {
+        "trigger": "HP <= 25%",
+        "changes": "spiderlings spawn 4 per wave; web-shoot hits all players on aggro list simultaneously"
+      },
+      "loot_uniqueness": {
+        "always": ["bones"],
+        "uniques": [
+          {"item": "sarachnis_cudgel", "chance": 384, "note": "P12 — mid-tier slash weapon with passive spiderling-kill damage doubling"},
+          {"item": "sarachnis_pet", "chance": 3000}
+        ]
+      },
+      "counterplay": "slash weakness; PRIORITY — kill spiderlings before they reach boss (heal-loop mistake compounding, P05); web-tether can be broken with ranged hit or magic spell."
+    },
+    {
+      "id": "boss_skotizo_moryskah",
+      "name": "Skotizo",
+      "region": "moryskah",
+      "combat_level": 321,
+      "hp": 280,
+      "max_hit": 28,
+      "tags": ["boss", "demon", "undead"],
+      "invocation_compatible": true,
+      "mechanic_summary": "Catacombs altar-boss; uses 4 altars as power source (N/E/S/W). Unbroken altars grant Skotizo 75% damage reduction and 2x max hit. Players must dismantle altars during combat to become vulnerable.",
+      "attack_rotation": [
+        "Tick 1: melee strike (max 14 base, 28 with altars)",
+        "Tick 4: dark shield absorb — next 2 hits on Skotizo dealt to random altar instead",
+        "Tick 7: altar-link lightning (if 2+ altars intact, lightning chains between altars through player position)"
+      ],
+      "enrage_phase": {
+        "trigger": "all altars broken",
+        "changes": "Skotizo fully vulnerable; attack_speed 5 -> 3; summons 2 demon-spawns"
+      },
+      "loot_uniqueness": {
+        "always": ["dark_totem"],
+        "uniques": [
+          {"item": "skotos_pet", "chance": 65},
+          {"item": "dark_claws", "chance": 200, "note": "P11 — alt loadout: pairs with dark-claws-off weapon for paired-claw special attack"},
+          {"item": "jar_of_darkness", "chance": 1500}
+        ]
+      },
+      "counterplay": "multi-style resistance; designed for AoE damage to break altars while dodging altar-link lightning. Single-style parties struggle."
+    },
+    {
+      "id": "boss_duke_sucellus_sootworks",
+      "name": "Duke Sucellus",
+      "region": "sootworks",
+      "combat_level": 420,
+      "hp": 440,
+      "max_hit": 31,
+      "tags": ["boss", "forge", "construct"],
+      "invocation_compatible": true,
+      "mechanic_summary": "Forge-Duke boss; seated on a throne that can be tipped via cardinal shockwaves. Arena has 4 gas vents. Gas vent eruptions force players to specific tiles while shockwave deals heavy damage.",
+      "attack_rotation": [
+        "Tick 1: sword-thrust (max 22, melee range)",
+        "Tick 3: shockwave in a cardinal direction (tell: boss faces one direction for 2 ticks prior)",
+        "Tick 6: gas vent eruption (random 2 vents ignite, 3-tile radius, 31 damage)",
+        "Tick 10: throne-pound (stun radius 4 tiles from boss)"
+      ],
+      "enrage_phase": {
+        "trigger": "HP <= 30%",
+        "changes": "all 4 gas vents erupt simultaneously; shockwaves become diagonal instead of cardinal (harder to read direction)"
+      },
+      "loot_uniqueness": {
+        "always": ["noxifer", "tumeken_remains"],
+        "uniques": [
+          {"item": "magus_vestige", "chance": 120, "note": "reagent: + virtus body + nihil dust = Virtus magus robes (endgame magic)"},
+          {"item": "dukes_pet", "chance": 2000}
+        ]
+      },
+      "counterplay": "ranged weakness; shockwave direction telegraphed via boss-facing (P18 visual honesty); use tipped-throne phases to step in for burst."
+    },
+    {
+      "id": "boss_tempoross_saltbrine",
+      "name": "Tempoross",
+      "region": "saltbrine",
+      "combat_level": 0,
+      "hp": 999999,
+      "max_hit": 0,
+      "tags": ["boss", "skilling", "elemental"],
+      "invocation_compatible": false,
+      "mechanic_summary": "Skilling-boss, not combat: Tempoross cannot be damaged by weapons. Players fish / cook / operate cannons cooperatively while it drains the boat's hit points. Failure sinks the boat; success awards fishing XP + unique tackle box drops.",
+      "attack_rotation": [
+        "Tick 1: storm-gust AoE damage to boat (players must repair with planks)",
+        "Tick 5: vortex spawn (player must dodge; vortex pulls into sea)",
+        "Tick 8: wave-barrage (damages cannons, forces reload cycle)"
+      ],
+      "enrage_phase": {
+        "trigger": "boat HP <= 30%",
+        "changes": "storm-gust frequency doubles; vortex count 1 -> 3; cannons take double damage"
+      },
+      "loot_uniqueness": {
+        "always": ["soaked_pages", "raw_shark"],
+        "uniques": [
+          {"item": "tempoross_pet", "chance": 8000},
+          {"item": "dragon_harpoon", "chance": 8000},
+          {"item": "tome_of_water", "chance": 750, "note": "unique: infinite water-rune source for autocasting"}
+        ]
+      },
+      "counterplay": "community boss — team scaling; high fishing + firemaking levels are rewarded; the fight is a SKILL check, not a DPS check. P16-compliant (team unite)."
+    },
+    {
+      "id": "boss_leviathan_saltbrine",
+      "name": "The Leviathan",
+      "region": "saltbrine",
+      "combat_level": 580,
+      "hp": 620,
+      "max_hit": 33,
+      "tags": ["boss", "dragon", "aquatic"],
+      "invocation_compatible": true,
+      "mechanic_summary": "Sea-dragon; submerges mid-fight and sweeps the arena from one half at a time with its tail-breath. Players must reposition to unmarked half. Drains prayer on each sweep.",
+      "attack_rotation": [
+        "Tick 1: melee bite (max 25 if in melee range)",
+        "Tick 4: ranged spear-throw (max 28)",
+        "Tick 8: submerge — mark half of arena, 2-tick warning, then sweep (max 33, prayer drain -25)"
+      ],
+      "enrage_phase": {
+        "trigger": "HP <= 35%",
+        "changes": "submerge sweep covers 3/4 of arena; only narrow corridor is safe"
+      },
+      "loot_uniqueness": {
+        "always": ["smouldering_heart"],
+        "uniques": [
+          {"item": "lightbearer", "chance": 96, "note": "endgame special-attack-regen ring"},
+          {"item": "leviathans_lure", "chance": 200, "note": "reagent: + fishing rod = trawler-tier rod (Saltbrine endgame fishing)"},
+          {"item": "leviathan_pet", "chance": 2000}
+        ]
+      },
+      "counterplay": "ranged weakness; sweep-direction telegraphed (P18); burst DPS during submerge startup."
+    },
+    {
+      "id": "boss_phantom_muspah_inkweald",
+      "name": "Phantom Muspah",
+      "region": "inkweald",
+      "combat_level": 400,
+      "hp": 450,
+      "max_hit": 32,
+      "tags": ["boss", "dream", "spirit"],
+      "invocation_compatible": true,
+      "mechanic_summary": "Shapeshifts between ranged (bow-phantom) and melee (sword-phantom) forms every 5 ticks. Prayer must match current form. Misread prayer = double damage.",
+      "attack_rotation": [
+        "Tick 1 (ranged phase): bow volley (max 32, ranged defense matters)",
+        "Tick 5: shapeshift — visible aura-color change (blue -> red)",
+        "Tick 6 (melee phase): rapid claw-strike (max 28, melee defense)",
+        "Tick 10: shapeshift back"
+      ],
+      "enrage_phase": {
+        "trigger": "HP <= 25%",
+        "changes": "shapeshift every 3 ticks instead of 5; adds magic form (yellow aura) as third rotation"
+      },
+      "loot_uniqueness": {
+        "always": ["ancient_essence"],
+        "uniques": [
+          {"item": "venator_shard", "chance": 96, "note": "reagent: 5 shards + magic shortbow = venator bow (prayer-defense-ignoring ranged — niche)"},
+          {"item": "venator_top", "chance": 200},
+          {"item": "muspah_pet", "chance": 3000}
+        ]
+      },
+      "counterplay": "aura-color is the prayer cue (P18 visual honesty); high multi-style defense loadouts trivialize the fight — but cost effective supplies."
+    },
+    {
+      "id": "boss_whisperer_inkweald",
+      "name": "The Whisperer",
+      "region": "inkweald",
+      "combat_level": 460,
+      "hp": 500,
+      "max_hit": 34,
+      "tags": ["boss", "dream", "magic"],
+      "invocation_compatible": true,
+      "mechanic_summary": "Dual-plane boss: half of the fight in the waking world, half in the dream-world. Players must enter dream-portal mid-combat to deal real damage; outside the portal, only 20% damage lands.",
+      "attack_rotation": [
+        "Tick 1 (waking): magic dart (max 20, ranged defense)",
+        "Tick 4 (waking): dream-portal opens (3-tile rune-circle telegraph)",
+        "Player enters dream (tick 5-12): inside dream, Whisperer attacks with tendril (max 34, magic defense), 100% damage dealt by player",
+        "Tick 13: player forced back to waking"
+      ],
+      "enrage_phase": {
+        "trigger": "HP <= 30%",
+        "changes": "dream-portal stays open for only 4 ticks (shorter window); tendril attack frequency doubles inside dream"
+      },
+      "loot_uniqueness": {
+        "always": ["whisperer_tears"],
+        "uniques": [
+          {"item": "siren_whisperer_vestige", "chance": 120, "note": "reagent: + virtus robes + nihil dust = virtus robes (endgame magic set)"},
+          {"item": "whisperer_pet", "chance": 3000}
+        ]
+      },
+      "counterplay": "stab weakness; portal-cycle timing matters more than raw DPS. Classic plane-shift mechanic, P01 multiple optimal actions (enter portal or stack-heal outside)."
+    },
+    {
+      "id": "boss_crystal_wyrm_veilwood",
+      "name": "Crystal Wyrm",
+      "region": "veilwood",
+      "combat_level": 350,
+      "hp": 400,
+      "max_hit": 30,
+      "tags": ["boss", "dragon", "crystal"],
+      "invocation_compatible": true,
+      "mechanic_summary": "Three-phase Veilwood dragon with crystallite pillars and arena-glass hazards. Most principle-compliant boss in the audit — pillars are interactive entities, phases teach-then-combine.",
+      "attack_rotation": [
+        "Phase 1 (100-66% HP): magic breath, crystallite minion spawns (2 per wave, focus-fire kills)",
+        "Phase 2 (66-33% HP): arena shatters into mirror-glass; refract attacks from any angle; must hide behind intact pillars",
+        "Phase 3 (33-0% HP): enrage + blitz; wyrm flies between pillars; only ranged attacks land"
+      ],
+      "enrage_phase": {
+        "trigger": "HP <= 33%",
+        "changes": "flight mode — only ranged/magic hit; pillar-shelter timer halved"
+      },
+      "loot_uniqueness": {
+        "always": ["crystal_shard", "dragon_bones"],
+        "uniques": [
+          {"item": "crystal_wyrm_pet", "chance": 2000},
+          {"item": "wyrm_scale_core", "chance": 128, "note": "reagent: + refracted_essence = Crystal Bane (slayer-niche vs crystal-tag)"}
+        ]
+      },
+      "counterplay": "stab weakness; phase-2 is the teach moment for pillar-shelter mechanic; phase-3 rewards ranged loadout."
+    },
+    {
+      "id": "boss_nex_wilds_gwd",
+      "name": "Nex",
+      "region": "wilds",
+      "combat_level": 680,
+      "hp": 3200,
+      "max_hit": 38,
+      "tags": ["boss", "demon", "gwd"],
+      "invocation_compatible": true,
+      "mechanic_summary": "Endgame 5-phase GWD-tier boss: Smoke / Shadow / Blood / Ice / Zaros phase sequence. Each phase requires a different prayer and protection scheme. Minion-kill required to progress between phases.",
+      "attack_rotation": [
+        "Phase 1 (Smoke): AoE smoke volley, protect from missiles; minion: Fumus (summons smoke pools)",
+        "Phase 2 (Shadow): shadow clones of party, protect from magic; minion: Umbra",
+        "Phase 3 (Blood): vampiric heal on unprotected hits, protect from melee; minion: Cruor",
+        "Phase 4 (Ice): freeze + shatter (moving = max 38); minion: Glacies",
+        "Phase 5 (Zaros): all-style enrage; no specific prayer works — damage race"
+      ],
+      "enrage_phase": {
+        "trigger": "phase 5 entry",
+        "changes": "player_damage_multiplier x1.25 (P14 asymmetric — reward for reaching phase 5); boss_damage_multiplier x2.0"
+      },
+      "loot_uniqueness": {
+        "always": ["ashes"],
+        "uniques": [
+          {"item": "nexling_pet", "chance": 500},
+          {"item": "torva_full_helm", "chance": 350},
+          {"item": "torva_platebody", "chance": 500},
+          {"item": "torva_platelegs", "chance": 400},
+          {"item": "zaryte_vambraces", "chance": 250, "note": "reagent: + vambraces base = enhanced vambraces"},
+          {"item": "ancient_godsword", "chance": 800}
+        ]
+      },
+      "counterplay": "P11 strategic plurality — 3-style prayer-switching loadout OR single-style tank-through-smoke speedrun; both viable. Flag P17 concern: gated behind 5-phase clear in quest chain — now addressed via practice-mode instance in phase-3 training room."
+    },
+    {
+      "id": "boss_vardorvis_sootworks",
+      "name": "Vardorvis",
+      "region": "sootworks",
+      "combat_level": 520,
+      "hp": 550,
+      "max_hit": 35,
+      "tags": ["boss", "shade", "undead"],
+      "invocation_compatible": true,
+      "mechanic_summary": "Rotating axe arena boss; 4 giant axes orbit the room in 2 directions. Player stands on designated 'safe path' tiles. Heal-on-stand healing pools spawn on incorrect tile choices (P05 compounding mistake).",
+      "attack_rotation": [
+        "Tick 1: melee cleave (max 35 if in melee)",
+        "Tick 3: axe-rotation tick (orbit advances one tile)",
+        "Tick 6: heal-pool spawn (random tile; Vardorvis heals +10 HP if player stands on it for 2 ticks)",
+        "Tick 9: root attack (tethers player for 2 ticks; axes still move)"
+      ],
+      "enrage_phase": {
+        "trigger": "HP <= 25%",
+        "changes": "axe-rotation every 2 ticks instead of 3; heal-pool spawns accelerate"
+      },
+      "loot_uniqueness": {
+        "always": ["noxifer"],
+        "uniques": [
+          {"item": "executioners_axe_head", "chance": 96, "note": "reagent: + rune axe = Executioner's Axe (slayer-niche vs undead + shade)"},
+          {"item": "vardorvis_pet", "chance": 3000}
+        ]
+      },
+      "counterplay": "stab weakness; axe-tile tracking is the puzzle; root+heal-pool timing is the compounding-mistake test (P05)."
+    },
+    {
+      "id": "boss_sol_heredit_colosseum",
+      "name": "Sol Heredit",
+      "region": "glass_desert",
+      "combat_level": 550,
+      "hp": 600,
+      "max_hit": 36,
+      "tags": ["boss", "champion", "human"],
+      "invocation_compatible": true,
+      "mechanic_summary": "3-style champion with grapple and shield-bash specials. Prayer must match weapon style he's currently using. Grapple pulls player into melee range at random tick. Shield-bash stuns player 1 tick.",
+      "attack_rotation": [
+        "Tick 1: melee strike (sword-form, max 34)",
+        "Tick 4: ranged spear-throw (bow-form, max 32)",
+        "Tick 7: magic bolt (staff-form, max 36)",
+        "Tick 10: grapple (pull 5 tiles toward boss)",
+        "Tick 12: shield-bash (stun, break combo)"
+      ],
+      "enrage_phase": {
+        "trigger": "HP <= 33%",
+        "changes": "style rotation every 2 ticks instead of 3; adds feint — fake weapon-change, attack arrives as previous style"
+      },
+      "loot_uniqueness": {
+        "always": ["sunfire_splinters"],
+        "uniques": [
+          {"item": "dizanas_quiver", "chance": 100, "note": "provides infinite ammunition + 5% range accuracy"},
+          {"item": "sol_heredit_pet", "chance": 400}
+        ]
+      },
+      "counterplay": "P11 plurality — multi-style prayer-switch OR damage-race with dizana's quiver power-creep; grapple-counter = anti-grapple charms from Heartlands shop."
+    },
+    {
+      "id": "boss_pharaoh_lich_boneyard",
+      "name": "Pharaoh Lich (Boss)",
+      "region": "boneyard",
+      "combat_level": 360,
+      "hp": 380,
+      "max_hit": 28,
+      "tags": ["boss", "undead", "mummy"],
+      "invocation_compatible": true,
+      "mechanic_summary": "Boneyard capstone. Summons a clerical staff of reanimated mummy-wardens who issue 'decrees' — each decree is a constraint the player must obey for 10 ticks, or take heavy damage. E.g., 'Decree: the Pharaoh demands silence' — casting spells incurs damage; 'Decree: the Pharaoh demands stillness' — moving deals 10 damage per step.",
+      "attack_rotation": [
+        "Tick 1: staff blast (max 22, magic)",
+        "Tick 4: decree announcement (random from 4 constraints, active for 10 ticks)",
+        "Tick 6: bone-pile eruption (8 bone-swarm spawns, each does 3 damage on pickup)"
+      ],
+      "enrage_phase": {
+        "trigger": "HP <= 30%",
+        "changes": "two decrees active simultaneously; bone-piles explode on kill instead of harmless"
+      },
+      "loot_uniqueness": {
+        "always": ["mummy_wrap_strip"],
+        "uniques": [
+          {"item": "pharaohs_seal", "chance": 192, "note": "reagent: + base_diadem = Sand-crown diadem (mummy-niche BiS)"},
+          {"item": "pharaoh_lich_pet", "chance": 2500},
+          {"item": "crypt_staff", "chance": 160, "note": "ignores 20% magic defense on mummy-tag targets"}
+        ]
+      },
+      "counterplay": "stab weakness; decree-reading is the core skill (P01 plurality — accept decree and take damage, or adapt loadout); bone-pile management is a mini-logistics puzzle."
+    },
+    {
+      "id": "boss_forgotten_name_inkweald",
+      "name": "The Forgotten-Name",
+      "region": "inkweald",
+      "combat_level": 480,
+      "hp": 520,
+      "max_hit": 37,
+      "tags": ["boss", "dream", "unnameable"],
+      "invocation_compatible": true,
+      "mechanic_summary": "Inkweald endgame boss. Unique mechanic: the boss's NAME cannot be spoken aloud. The in-game boss-timer and damage-log display '————' in place of the name. Combat itself uses attack-style swapping and reality-fold attacks that phase the player in/out of the dream plane.",
+      "attack_rotation": [
+        "Tick 1: reality-fold (phase player out of dream plane — deals damage only inside dream; tick 2 phase them back)",
+        "Tick 4: forget-strike (max 25, cannot be prayed against without knowing the name)",
+        "Tick 7: name-inversion (player's equipped weapon display blanks for 5 ticks)",
+        "Tick 10: dream-wall (wall of unnamed memory sweeps across arena, impassable)"
+      ],
+      "enrage_phase": {
+        "trigger": "HP <= 25%",
+        "changes": "reality-fold every 2 ticks; name-inversion permanent until kill (weapon stats still apply, just the display is blank)"
+      },
+      "loot_uniqueness": {
+        "always": ["inkblot_fragment"],
+        "uniques": [
+          {"item": "blank_name_ring", "chance": 256, "note": "UNNAMEABLE item — the only item whose name cannot be spoken in-game. Confers prayer-pool bonus unique to this one item. Pillar 4 exemplar."},
+          {"item": "forgotten_pet", "chance": 3000},
+          {"item": "dream_crown", "chance": 400}
+        ]
+      },
+      "counterplay": "ranged weakness; phase-timing (enter dream during fold-phase, burst DPS, retreat); the 'unknowable' mechanic is dialog-telegraphed via Inkweald NPC Daranda who describes the fight without naming."
+    }
+  ],
+  "principle_coverage_summary": {
+    "P01_multiple_optimal_actions": ["bryophyta_heartlands", "skotizo_moryskah", "phantom_muspah_inkweald", "nex_wilds_gwd", "sol_heredit_colosseum", "pharaoh_lich_boneyard", "crystal_wyrm_veilwood"],
+    "P03_blitz_phase": ["all bosses — all have enrage phases defined"],
+    "P04_threats_interact": ["sarachnis_moryskah (spiderling-heal)", "skotizo_moryskah (altar-link)", "whisperer_inkweald (plane-shift)", "vardorvis_sootworks (axe + heal-pool)"],
+    "P05_mistakes_compound": ["sarachnis_moryskah (heal-loop)", "vardorvis_sootworks (heal-pool)", "pharaoh_lich_boneyard (decree-ignore)"],
+    "P08_context_modifiers": ["all invocation_compatible bosses (14 of 15)"],
+    "P11_strategic_plurality": ["skotizo_moryskah", "sol_heredit_colosseum", "nex_wilds_gwd", "phantom_muspah_inkweald"],
+    "P14_asymmetric_escalation": ["nex_wilds_gwd (x1.25 player / x2.0 boss at phase 5)"]
+  },
+  "loot_uniqueness_verification": {
+    "every_boss_drops_at_least_one_unique_not_shared": "verified — each boss's 'uniques' array has at least one entry unique to that boss",
+    "reagent_keeps_old_content_alive": "verified — all reagent-upgrade uniques pair with items from EARLIER content (bronze, coif, oil_lamp, etc.)",
+    "encounter_specific_BiS_count": "12 encounter-specific BiS weapons across the 15 bosses (see data/drop-tables.json encounter_specific_BiS_list)"
+  }
+}
