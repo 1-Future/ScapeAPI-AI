@@ -3702,6 +3702,7 @@ function createDefaultContent() {
   require('./content/aelgard/quests-v0.8-chain-3');     // Saltbrine Twin-Tide (6 quests; Stormcrown shrine teleport + tide-walking)
   require('./content/aelgard/quests-v0.8-chain-4');     // Veilwood Moonsong (6 quests; moonsong buff spellbook)
   require('./content/aelgard/quests-v0.8-chain-5');     // Glass Desert Pilgrimage (6 quests; Pilgrim's Cape + Shrine Below font)
+  require('./content/aelgard/quests-pending-v0.9');     // [v0.9-waveC2] H12: 17 stub quests resolving broken DAG refs (§3.3-3.4)
   require('./content/aelgard/combat-achievements');   // 100+ combat achievements across 6 tiers (Easy→Grandmaster)
   require('./content/aelgard/clue-scrolls-expanded'); // 85 more clue steps + master tier with 3rd age druidic rewards
   require('./content/aelgard/random-events-daily');   // 10 random events + 10 daily/weekly activities
