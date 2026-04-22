@@ -1,0 +1,4720 @@
+[
+  {
+    "id": "tinroot_ore",
+    "name": "Tinroot ore",
+    "category": "ore",
+    "stackable": false,
+    "weight": 2,
+    "value": 5,
+    "tradeable": true,
+    "requirements": {
+      "mining": 1
+    },
+    "xp": 12,
+    "examine": "A chunk of tinroot ore."
+  },
+  {
+    "id": "pigiron_ore",
+    "name": "Pigiron ore",
+    "category": "ore",
+    "stackable": false,
+    "weight": 2,
+    "value": 17,
+    "tradeable": true,
+    "requirements": {
+      "mining": 1
+    },
+    "xp": 20,
+    "examine": "A chunk of pigiron ore."
+  },
+  {
+    "id": "coalseam_ore",
+    "name": "Coal ore",
+    "category": "ore",
+    "stackable": false,
+    "weight": 2,
+    "value": 45,
+    "tradeable": true,
+    "requirements": {
+      "mining": 30
+    },
+    "xp": 50,
+    "examine": "A chunk of coal ore."
+  },
+  {
+    "id": "brassforge_ore",
+    "name": "Brassforge ore",
+    "category": "ore",
+    "stackable": false,
+    "weight": 2,
+    "value": 70,
+    "tradeable": true,
+    "requirements": {
+      "mining": 15
+    },
+    "xp": 35,
+    "examine": "A chunk of brassforge ore."
+  },
+  {
+    "id": "quicksilver_ore",
+    "name": "Quicksilver ore",
+    "category": "ore",
+    "stackable": false,
+    "weight": 2,
+    "value": 140,
+    "tradeable": true,
+    "requirements": {
+      "mining": 40
+    },
+    "xp": 65,
+    "examine": "A chunk of quicksilver ore."
+  },
+  {
+    "id": "blacksteel_ore",
+    "name": "Blacksteel ore",
+    "category": "ore",
+    "stackable": false,
+    "weight": 2,
+    "value": 310,
+    "tradeable": true,
+    "requirements": {
+      "mining": 55
+    },
+    "xp": 90,
+    "examine": "A chunk of blacksteel ore."
+  },
+  {
+    "id": "darkiron_ore",
+    "name": "Darkiron ore",
+    "category": "ore",
+    "stackable": false,
+    "weight": 2,
+    "value": 620,
+    "tradeable": true,
+    "requirements": {
+      "mining": 65
+    },
+    "xp": 110,
+    "examine": "A chunk of darkiron ore."
+  },
+  {
+    "id": "runeforge_ore",
+    "name": "Runeforge ore",
+    "category": "ore",
+    "stackable": false,
+    "weight": 2,
+    "value": 2200,
+    "tradeable": true,
+    "requirements": {
+      "mining": 75
+    },
+    "xp": 140,
+    "examine": "A chunk of runeforge ore."
+  },
+  {
+    "id": "dragonsteel_ore",
+    "name": "Dragonsteel ore",
+    "category": "ore",
+    "stackable": false,
+    "weight": 2,
+    "value": 4800,
+    "tradeable": true,
+    "requirements": {
+      "mining": 85
+    },
+    "xp": 175,
+    "examine": "A chunk of dragonsteel ore."
+  },
+  {
+    "id": "aeldra_ore",
+    "name": "Aeldra ore",
+    "category": "ore",
+    "stackable": false,
+    "weight": 2,
+    "value": 12000,
+    "tradeable": true,
+    "requirements": {
+      "mining": 92
+    },
+    "xp": 220,
+    "examine": "A chunk of aeldra ore."
+  },
+  {
+    "id": "tinroot_bar",
+    "name": "Tinroot bar",
+    "category": "bar",
+    "stackable": false,
+    "weight": 1.8,
+    "value": 13,
+    "tradeable": true,
+    "requirements": {
+      "smithing": 3
+    },
+    "xp": 18,
+    "examine": "A smelted tinroot bar."
+  },
+  {
+    "id": "pigiron_bar",
+    "name": "Pigiron bar",
+    "category": "bar",
+    "stackable": false,
+    "weight": 1.8,
+    "value": 44,
+    "tradeable": true,
+    "requirements": {
+      "smithing": 3
+    },
+    "xp": 30,
+    "examine": "A smelted pigiron bar."
+  },
+  {
+    "id": "coalseam_bar",
+    "name": "Coal bar",
+    "category": "bar",
+    "stackable": false,
+    "weight": 1.8,
+    "value": 117,
+    "tradeable": true,
+    "requirements": {
+      "smithing": 32
+    },
+    "xp": 75,
+    "examine": "A smelted coal bar."
+  },
+  {
+    "id": "brassforge_bar",
+    "name": "Brassforge bar",
+    "category": "bar",
+    "stackable": false,
+    "weight": 1.8,
+    "value": 182,
+    "tradeable": true,
+    "requirements": {
+      "smithing": 17
+    },
+    "xp": 53,
+    "examine": "A smelted brassforge bar."
+  },
+  {
+    "id": "quicksilver_bar",
+    "name": "Quicksilver bar",
+    "category": "bar",
+    "stackable": false,
+    "weight": 1.8,
+    "value": 364,
+    "tradeable": true,
+    "requirements": {
+      "smithing": 42
+    },
+    "xp": 98,
+    "examine": "A smelted quicksilver bar."
+  },
+  {
+    "id": "blacksteel_bar",
+    "name": "Blacksteel bar",
+    "category": "bar",
+    "stackable": false,
+    "weight": 1.8,
+    "value": 806,
+    "tradeable": true,
+    "requirements": {
+      "smithing": 57
+    },
+    "xp": 135,
+    "examine": "A smelted blacksteel bar."
+  },
+  {
+    "id": "darkiron_bar",
+    "name": "Darkiron bar",
+    "category": "bar",
+    "stackable": false,
+    "weight": 1.8,
+    "value": 1612,
+    "tradeable": true,
+    "requirements": {
+      "smithing": 67
+    },
+    "xp": 165,
+    "examine": "A smelted darkiron bar."
+  },
+  {
+    "id": "runeforge_bar",
+    "name": "Runeforge bar",
+    "category": "bar",
+    "stackable": false,
+    "weight": 1.8,
+    "value": 5720,
+    "tradeable": true,
+    "requirements": {
+      "smithing": 77
+    },
+    "xp": 210,
+    "examine": "A smelted runeforge bar."
+  },
+  {
+    "id": "dragonsteel_bar",
+    "name": "Dragonsteel bar",
+    "category": "bar",
+    "stackable": false,
+    "weight": 1.8,
+    "value": 12480,
+    "tradeable": true,
+    "requirements": {
+      "smithing": 87
+    },
+    "xp": 263,
+    "examine": "A smelted dragonsteel bar."
+  },
+  {
+    "id": "aeldra_bar",
+    "name": "Aeldra bar",
+    "category": "bar",
+    "stackable": false,
+    "weight": 1.8,
+    "value": 31200,
+    "tradeable": true,
+    "requirements": {
+      "smithing": 94
+    },
+    "xp": 330,
+    "examine": "A smelted aeldra bar."
+  },
+  {
+    "id": "uncut_opal",
+    "name": "Uncut opal",
+    "category": "gem_uncut",
+    "stackable": false,
+    "weight": 0.01,
+    "value": 16,
+    "tradeable": true,
+    "requirements": {
+      "mining": 1
+    },
+    "examine": "An uncut opal."
+  },
+  {
+    "id": "cut_opal",
+    "name": "Opal",
+    "category": "gem_cut",
+    "stackable": false,
+    "weight": 0.01,
+    "value": 40,
+    "tradeable": true,
+    "requirements": {
+      "crafting": 2
+    },
+    "examine": "A cut opal."
+  },
+  {
+    "id": "uncut_jade",
+    "name": "Uncut jade",
+    "category": "gem_uncut",
+    "stackable": false,
+    "weight": 0.01,
+    "value": 44,
+    "tradeable": true,
+    "requirements": {
+      "mining": 13
+    },
+    "examine": "An uncut jade."
+  },
+  {
+    "id": "cut_jade",
+    "name": "Jade",
+    "category": "gem_cut",
+    "stackable": false,
+    "weight": 0.01,
+    "value": 110,
+    "tradeable": true,
+    "requirements": {
+      "crafting": 14
+    },
+    "examine": "A cut jade."
+  },
+  {
+    "id": "uncut_topaz",
+    "name": "Uncut topaz",
+    "category": "gem_uncut",
+    "stackable": false,
+    "weight": 0.01,
+    "value": 80,
+    "tradeable": true,
+    "requirements": {
+      "mining": 16
+    },
+    "examine": "An uncut topaz."
+  },
+  {
+    "id": "cut_topaz",
+    "name": "Topaz",
+    "category": "gem_cut",
+    "stackable": false,
+    "weight": 0.01,
+    "value": 200,
+    "tradeable": true,
+    "requirements": {
+      "crafting": 17
+    },
+    "examine": "A cut topaz."
+  },
+  {
+    "id": "uncut_sapphire",
+    "name": "Uncut sapphire",
+    "category": "gem_uncut",
+    "stackable": false,
+    "weight": 0.01,
+    "value": 120,
+    "tradeable": true,
+    "requirements": {
+      "mining": 20
+    },
+    "examine": "An uncut sapphire."
+  },
+  {
+    "id": "cut_sapphire",
+    "name": "Sapphire",
+    "category": "gem_cut",
+    "stackable": false,
+    "weight": 0.01,
+    "value": 300,
+    "tradeable": true,
+    "requirements": {
+      "crafting": 21
+    },
+    "examine": "A cut sapphire."
+  },
+  {
+    "id": "uncut_emerald",
+    "name": "Uncut emerald",
+    "category": "gem_uncut",
+    "stackable": false,
+    "weight": 0.01,
+    "value": 240,
+    "tradeable": true,
+    "requirements": {
+      "mining": 27
+    },
+    "examine": "An uncut emerald."
+  },
+  {
+    "id": "cut_emerald",
+    "name": "Emerald",
+    "category": "gem_cut",
+    "stackable": false,
+    "weight": 0.01,
+    "value": 600,
+    "tradeable": true,
+    "requirements": {
+      "crafting": 28
+    },
+    "examine": "A cut emerald."
+  },
+  {
+    "id": "uncut_ruby",
+    "name": "Uncut ruby",
+    "category": "gem_uncut",
+    "stackable": false,
+    "weight": 0.01,
+    "value": 480,
+    "tradeable": true,
+    "requirements": {
+      "mining": 34
+    },
+    "examine": "An uncut ruby."
+  },
+  {
+    "id": "cut_ruby",
+    "name": "Ruby",
+    "category": "gem_cut",
+    "stackable": false,
+    "weight": 0.01,
+    "value": 1200,
+    "tradeable": true,
+    "requirements": {
+      "crafting": 35
+    },
+    "examine": "A cut ruby."
+  },
+  {
+    "id": "uncut_diamond",
+    "name": "Uncut diamond",
+    "category": "gem_uncut",
+    "stackable": false,
+    "weight": 0.01,
+    "value": 960,
+    "tradeable": true,
+    "requirements": {
+      "mining": 43
+    },
+    "examine": "An uncut diamond."
+  },
+  {
+    "id": "cut_diamond",
+    "name": "Diamond",
+    "category": "gem_cut",
+    "stackable": false,
+    "weight": 0.01,
+    "value": 2400,
+    "tradeable": true,
+    "requirements": {
+      "crafting": 44
+    },
+    "examine": "A cut diamond."
+  },
+  {
+    "id": "uncut_dragonstone",
+    "name": "Uncut dragonstone",
+    "category": "gem_uncut",
+    "stackable": false,
+    "weight": 0.01,
+    "value": 2880,
+    "tradeable": true,
+    "requirements": {
+      "mining": 55
+    },
+    "examine": "An uncut dragonstone."
+  },
+  {
+    "id": "cut_dragonstone",
+    "name": "Dragonstone",
+    "category": "gem_cut",
+    "stackable": false,
+    "weight": 0.01,
+    "value": 7200,
+    "tradeable": true,
+    "requirements": {
+      "crafting": 56
+    },
+    "examine": "A cut dragonstone."
+  },
+  {
+    "id": "uncut_onyx",
+    "name": "Uncut onyx",
+    "category": "gem_uncut",
+    "stackable": false,
+    "weight": 0.01,
+    "value": 72000,
+    "tradeable": true,
+    "requirements": {
+      "mining": 67
+    },
+    "examine": "An uncut onyx."
+  },
+  {
+    "id": "cut_onyx",
+    "name": "Onyx",
+    "category": "gem_cut",
+    "stackable": false,
+    "weight": 0.01,
+    "value": 180000,
+    "tradeable": true,
+    "requirements": {
+      "crafting": 68
+    },
+    "examine": "A cut onyx."
+  },
+  {
+    "id": "uncut_zenyte",
+    "name": "Uncut zenyte",
+    "category": "gem_uncut",
+    "stackable": false,
+    "weight": 0.01,
+    "value": 220000,
+    "tradeable": true,
+    "requirements": {
+      "mining": 78
+    },
+    "examine": "An uncut zenyte."
+  },
+  {
+    "id": "cut_zenyte",
+    "name": "Zenyte",
+    "category": "gem_cut",
+    "stackable": false,
+    "weight": 0.01,
+    "value": 550000,
+    "tradeable": true,
+    "requirements": {
+      "crafting": 79
+    },
+    "examine": "A cut zenyte."
+  },
+  {
+    "id": "uncut_moonstone",
+    "name": "Uncut moonstone",
+    "category": "gem_uncut",
+    "stackable": false,
+    "weight": 0.01,
+    "value": 112000,
+    "tradeable": true,
+    "requirements": {
+      "mining": 81
+    },
+    "examine": "An uncut moonstone."
+  },
+  {
+    "id": "cut_moonstone",
+    "name": "Moonstone",
+    "category": "gem_cut",
+    "stackable": false,
+    "weight": 0.01,
+    "value": 280000,
+    "tradeable": true,
+    "requirements": {
+      "crafting": 82
+    },
+    "examine": "A cut moonstone."
+  },
+  {
+    "id": "uncut_inkstone",
+    "name": "Uncut inkstone",
+    "category": "gem_uncut",
+    "stackable": false,
+    "weight": 0.01,
+    "value": 168000,
+    "tradeable": true,
+    "requirements": {
+      "mining": 85
+    },
+    "examine": "An uncut inkstone."
+  },
+  {
+    "id": "cut_inkstone",
+    "name": "Inkstone",
+    "category": "gem_cut",
+    "stackable": false,
+    "weight": 0.01,
+    "value": 420000,
+    "tradeable": true,
+    "requirements": {
+      "crafting": 86
+    },
+    "examine": "A cut inkstone."
+  },
+  {
+    "id": "tinderwood_logs",
+    "name": "Tinderwood logs",
+    "category": "log",
+    "stackable": false,
+    "weight": 2,
+    "value": 4,
+    "tradeable": true,
+    "requirements": {
+      "woodcutting": 1
+    },
+    "xp": 25,
+    "examine": "Tinderwood logs."
+  },
+  {
+    "id": "oak_logs",
+    "name": "Oak logs",
+    "category": "log",
+    "stackable": false,
+    "weight": 2,
+    "value": 14,
+    "tradeable": true,
+    "requirements": {
+      "woodcutting": 15
+    },
+    "xp": 38,
+    "examine": "Oak logs."
+  },
+  {
+    "id": "willow_logs",
+    "name": "Willow logs",
+    "category": "log",
+    "stackable": false,
+    "weight": 2,
+    "value": 22,
+    "tradeable": true,
+    "requirements": {
+      "woodcutting": 30
+    },
+    "xp": 68,
+    "examine": "Willow logs."
+  },
+  {
+    "id": "teak_logs",
+    "name": "Teak logs",
+    "category": "log",
+    "stackable": false,
+    "weight": 2,
+    "value": 50,
+    "tradeable": true,
+    "requirements": {
+      "woodcutting": 35
+    },
+    "xp": 85,
+    "examine": "Teak logs."
+  },
+  {
+    "id": "maple_logs",
+    "name": "Maple logs",
+    "category": "log",
+    "stackable": false,
+    "weight": 2,
+    "value": 48,
+    "tradeable": true,
+    "requirements": {
+      "woodcutting": 45
+    },
+    "xp": 100,
+    "examine": "Maple logs."
+  },
+  {
+    "id": "mahogany_logs",
+    "name": "Mahogany logs",
+    "category": "log",
+    "stackable": false,
+    "weight": 2,
+    "value": 120,
+    "tradeable": true,
+    "requirements": {
+      "woodcutting": 50
+    },
+    "xp": 125,
+    "examine": "Mahogany logs."
+  },
+  {
+    "id": "yew_logs",
+    "name": "Yew logs",
+    "category": "log",
+    "stackable": false,
+    "weight": 2,
+    "value": 280,
+    "tradeable": true,
+    "requirements": {
+      "woodcutting": 60
+    },
+    "xp": 175,
+    "examine": "Yew logs."
+  },
+  {
+    "id": "magic_yew_logs",
+    "name": "Magic Yew logs",
+    "category": "log",
+    "stackable": false,
+    "weight": 2,
+    "value": 900,
+    "tradeable": true,
+    "requirements": {
+      "woodcutting": 75
+    },
+    "xp": 250,
+    "examine": "Magic Yew logs."
+  },
+  {
+    "id": "redwood_logs",
+    "name": "Redwood logs",
+    "category": "log",
+    "stackable": false,
+    "weight": 2,
+    "value": 1800,
+    "tradeable": true,
+    "requirements": {
+      "woodcutting": 80
+    },
+    "xp": 380,
+    "examine": "Redwood logs."
+  },
+  {
+    "id": "moonwood_logs",
+    "name": "Moonwood logs",
+    "category": "log",
+    "stackable": false,
+    "weight": 2,
+    "value": 4500,
+    "tradeable": true,
+    "requirements": {
+      "woodcutting": 85
+    },
+    "xp": 460,
+    "examine": "Moonwood logs."
+  },
+  {
+    "id": "inkbark_logs",
+    "name": "Inkbark logs",
+    "category": "log",
+    "stackable": false,
+    "weight": 2,
+    "value": 9000,
+    "tradeable": true,
+    "requirements": {
+      "woodcutting": 90
+    },
+    "xp": 580,
+    "examine": "Inkbark logs."
+  },
+  {
+    "id": "raw_sprat",
+    "name": "Raw sprat",
+    "category": "raw_fish",
+    "stackable": false,
+    "weight": 0.5,
+    "value": 3,
+    "tradeable": true,
+    "requirements": {
+      "fishing": 1
+    },
+    "xp": 10,
+    "examine": "A raw sprat."
+  },
+  {
+    "id": "cooked_sprat",
+    "name": "Sprat",
+    "category": "cooked_fish",
+    "stackable": false,
+    "weight": 0.5,
+    "value": 5,
+    "tradeable": true,
+    "requirements": {
+      "cooking": 1
+    },
+    "xp": 25,
+    "examine": "A cooked sprat."
+  },
+  {
+    "id": "raw_shrimp",
+    "name": "Raw shrimp",
+    "category": "raw_fish",
+    "stackable": false,
+    "weight": 0.5,
+    "value": 3,
+    "tradeable": true,
+    "requirements": {
+      "fishing": 1
+    },
+    "xp": 10,
+    "examine": "A raw shrimp."
+  },
+  {
+    "id": "cooked_shrimp",
+    "name": "Shrimp",
+    "category": "cooked_fish",
+    "stackable": false,
+    "weight": 0.5,
+    "value": 6,
+    "tradeable": true,
+    "requirements": {
+      "cooking": 1
+    },
+    "xp": 30,
+    "examine": "A cooked shrimp."
+  },
+  {
+    "id": "raw_sardine",
+    "name": "Raw sardine",
+    "category": "raw_fish",
+    "stackable": false,
+    "weight": 0.5,
+    "value": 5,
+    "tradeable": true,
+    "requirements": {
+      "fishing": 5
+    },
+    "xp": 20,
+    "examine": "A raw sardine."
+  },
+  {
+    "id": "cooked_sardine",
+    "name": "Sardine",
+    "category": "cooked_fish",
+    "stackable": false,
+    "weight": 0.5,
+    "value": 10,
+    "tradeable": true,
+    "requirements": {
+      "cooking": 5
+    },
+    "xp": 40,
+    "examine": "A cooked sardine."
+  },
+  {
+    "id": "raw_trout",
+    "name": "Raw trout",
+    "category": "raw_fish",
+    "stackable": false,
+    "weight": 0.5,
+    "value": 10,
+    "tradeable": true,
+    "requirements": {
+      "fishing": 20
+    },
+    "xp": 50,
+    "examine": "A raw trout."
+  },
+  {
+    "id": "cooked_trout",
+    "name": "Trout",
+    "category": "cooked_fish",
+    "stackable": false,
+    "weight": 0.5,
+    "value": 20,
+    "tradeable": true,
+    "requirements": {
+      "cooking": 20
+    },
+    "xp": 70,
+    "examine": "A cooked trout."
+  },
+  {
+    "id": "raw_pike",
+    "name": "Raw pike",
+    "category": "raw_fish",
+    "stackable": false,
+    "weight": 0.5,
+    "value": 15,
+    "tradeable": true,
+    "requirements": {
+      "fishing": 25
+    },
+    "xp": 60,
+    "examine": "A raw pike."
+  },
+  {
+    "id": "cooked_pike",
+    "name": "Pike",
+    "category": "cooked_fish",
+    "stackable": false,
+    "weight": 0.5,
+    "value": 30,
+    "tradeable": true,
+    "requirements": {
+      "cooking": 25
+    },
+    "xp": 80,
+    "examine": "A cooked pike."
+  },
+  {
+    "id": "raw_salmon",
+    "name": "Raw salmon",
+    "category": "raw_fish",
+    "stackable": false,
+    "weight": 0.5,
+    "value": 20,
+    "tradeable": true,
+    "requirements": {
+      "fishing": 30
+    },
+    "xp": 70,
+    "examine": "A raw salmon."
+  },
+  {
+    "id": "cooked_salmon",
+    "name": "Salmon",
+    "category": "cooked_fish",
+    "stackable": false,
+    "weight": 0.5,
+    "value": 40,
+    "tradeable": true,
+    "requirements": {
+      "cooking": 30
+    },
+    "xp": 90,
+    "examine": "A cooked salmon."
+  },
+  {
+    "id": "raw_tuna",
+    "name": "Raw tuna",
+    "category": "raw_fish",
+    "stackable": false,
+    "weight": 0.5,
+    "value": 28,
+    "tradeable": true,
+    "requirements": {
+      "fishing": 35
+    },
+    "xp": 80,
+    "examine": "A raw tuna."
+  },
+  {
+    "id": "cooked_tuna",
+    "name": "Tuna",
+    "category": "cooked_fish",
+    "stackable": false,
+    "weight": 0.5,
+    "value": 55,
+    "tradeable": true,
+    "requirements": {
+      "cooking": 35
+    },
+    "xp": 100,
+    "examine": "A cooked tuna."
+  },
+  {
+    "id": "raw_lobster",
+    "name": "Raw lobster",
+    "category": "raw_fish",
+    "stackable": false,
+    "weight": 0.5,
+    "value": 60,
+    "tradeable": true,
+    "requirements": {
+      "fishing": 40
+    },
+    "xp": 90,
+    "examine": "A raw lobster."
+  },
+  {
+    "id": "cooked_lobster",
+    "name": "Lobster",
+    "category": "cooked_fish",
+    "stackable": false,
+    "weight": 0.5,
+    "value": 120,
+    "tradeable": true,
+    "requirements": {
+      "cooking": 40
+    },
+    "xp": 120,
+    "examine": "A cooked lobster."
+  },
+  {
+    "id": "raw_swordfish",
+    "name": "Raw swordfish",
+    "category": "raw_fish",
+    "stackable": false,
+    "weight": 0.5,
+    "value": 120,
+    "tradeable": true,
+    "requirements": {
+      "fishing": 50
+    },
+    "xp": 100,
+    "examine": "A raw swordfish."
+  },
+  {
+    "id": "cooked_swordfish",
+    "name": "Swordfish",
+    "category": "cooked_fish",
+    "stackable": false,
+    "weight": 0.5,
+    "value": 240,
+    "tradeable": true,
+    "requirements": {
+      "cooking": 50
+    },
+    "xp": 140,
+    "examine": "A cooked swordfish."
+  },
+  {
+    "id": "raw_monkfish",
+    "name": "Raw monkfish",
+    "category": "raw_fish",
+    "stackable": false,
+    "weight": 0.5,
+    "value": 250,
+    "tradeable": true,
+    "requirements": {
+      "fishing": 62
+    },
+    "xp": 120,
+    "examine": "A raw monkfish."
+  },
+  {
+    "id": "cooked_monkfish",
+    "name": "Monkfish",
+    "category": "cooked_fish",
+    "stackable": false,
+    "weight": 0.5,
+    "value": 500,
+    "tradeable": true,
+    "requirements": {
+      "cooking": 62
+    },
+    "xp": 150,
+    "examine": "A cooked monkfish."
+  },
+  {
+    "id": "raw_shark",
+    "name": "Raw shark",
+    "category": "raw_fish",
+    "stackable": false,
+    "weight": 0.5,
+    "value": 450,
+    "tradeable": true,
+    "requirements": {
+      "fishing": 76
+    },
+    "xp": 140,
+    "examine": "A raw shark."
+  },
+  {
+    "id": "cooked_shark",
+    "name": "Shark",
+    "category": "cooked_fish",
+    "stackable": false,
+    "weight": 0.5,
+    "value": 900,
+    "tradeable": true,
+    "requirements": {
+      "cooking": 76
+    },
+    "xp": 210,
+    "examine": "A cooked shark."
+  },
+  {
+    "id": "raw_anglerfish",
+    "name": "Raw anglerfish",
+    "category": "raw_fish",
+    "stackable": false,
+    "weight": 0.5,
+    "value": 800,
+    "tradeable": true,
+    "requirements": {
+      "fishing": 82
+    },
+    "xp": 170,
+    "examine": "A raw anglerfish."
+  },
+  {
+    "id": "cooked_anglerfish",
+    "name": "Anglerfish",
+    "category": "cooked_fish",
+    "stackable": false,
+    "weight": 0.5,
+    "value": 1600,
+    "tradeable": true,
+    "requirements": {
+      "cooking": 82
+    },
+    "xp": 230,
+    "examine": "A cooked anglerfish."
+  },
+  {
+    "id": "raw_dark_crab",
+    "name": "Raw dark crab",
+    "category": "raw_fish",
+    "stackable": false,
+    "weight": 0.5,
+    "value": 1100,
+    "tradeable": true,
+    "requirements": {
+      "fishing": 85
+    },
+    "xp": 180,
+    "examine": "A raw dark crab."
+  },
+  {
+    "id": "cooked_dark_crab",
+    "name": "Dark Crab",
+    "category": "cooked_fish",
+    "stackable": false,
+    "weight": 0.5,
+    "value": 2200,
+    "tradeable": true,
+    "requirements": {
+      "cooking": 85
+    },
+    "xp": 250,
+    "examine": "A cooked dark crab."
+  },
+  {
+    "id": "raw_sea_wyrm",
+    "name": "Raw sea wyrm",
+    "category": "raw_fish",
+    "stackable": false,
+    "weight": 0.5,
+    "value": 2250,
+    "tradeable": true,
+    "requirements": {
+      "fishing": 90
+    },
+    "xp": 210,
+    "examine": "A raw sea wyrm."
+  },
+  {
+    "id": "cooked_sea_wyrm",
+    "name": "Sea Wyrm",
+    "category": "cooked_fish",
+    "stackable": false,
+    "weight": 0.5,
+    "value": 4500,
+    "tradeable": true,
+    "requirements": {
+      "cooking": 90
+    },
+    "xp": 290,
+    "examine": "A cooked sea wyrm."
+  },
+  {
+    "id": "raw_moonfin_eel",
+    "name": "Raw moonfin eel",
+    "category": "raw_fish",
+    "stackable": false,
+    "weight": 0.5,
+    "value": 4500,
+    "tradeable": true,
+    "requirements": {
+      "fishing": 94
+    },
+    "xp": 240,
+    "examine": "A raw moonfin eel."
+  },
+  {
+    "id": "cooked_moonfin_eel",
+    "name": "Moonfin Eel",
+    "category": "cooked_fish",
+    "stackable": false,
+    "weight": 0.5,
+    "value": 9000,
+    "tradeable": true,
+    "requirements": {
+      "cooking": 94
+    },
+    "xp": 330,
+    "examine": "A cooked moonfin eel."
+  },
+  {
+    "id": "grimy_guam",
+    "name": "Grimy guam",
+    "category": "herb_grimy",
+    "stackable": false,
+    "weight": 0.01,
+    "value": 11,
+    "tradeable": true,
+    "requirements": {
+      "herblore": 3
+    },
+    "examine": "A grimy guam still caked with dirt."
+  },
+  {
+    "id": "clean_guam",
+    "name": "Guam leaf",
+    "category": "herb_clean",
+    "stackable": false,
+    "weight": 0.01,
+    "value": 15,
+    "tradeable": true,
+    "requirements": {
+      "herblore": 3
+    },
+    "examine": "A cleaned guam leaf."
+  },
+  {
+    "id": "guam_seed",
+    "name": "Guam seed",
+    "category": "seed",
+    "stackable": true,
+    "weight": 0,
+    "value": 6,
+    "tradeable": true,
+    "requirements": {
+      "farming": 2
+    },
+    "examine": "A guam seed for the herb patch."
+  },
+  {
+    "id": "grimy_marrentill",
+    "name": "Grimy marrentill",
+    "category": "herb_grimy",
+    "stackable": false,
+    "weight": 0.01,
+    "value": 17,
+    "tradeable": true,
+    "requirements": {
+      "herblore": 5
+    },
+    "examine": "A grimy marrentill still caked with dirt."
+  },
+  {
+    "id": "clean_marrentill",
+    "name": "Marrentill leaf",
+    "category": "herb_clean",
+    "stackable": false,
+    "weight": 0.01,
+    "value": 24,
+    "tradeable": true,
+    "requirements": {
+      "herblore": 5
+    },
+    "examine": "A cleaned marrentill leaf."
+  },
+  {
+    "id": "marrentill_seed",
+    "name": "Marrentill seed",
+    "category": "seed",
+    "stackable": true,
+    "weight": 0,
+    "value": 10,
+    "tradeable": true,
+    "requirements": {
+      "farming": 4
+    },
+    "examine": "A marrentill seed for the herb patch."
+  },
+  {
+    "id": "grimy_tarromin",
+    "name": "Grimy tarromin",
+    "category": "herb_grimy",
+    "stackable": false,
+    "weight": 0.01,
+    "value": 25,
+    "tradeable": true,
+    "requirements": {
+      "herblore": 11
+    },
+    "examine": "A grimy tarromin still caked with dirt."
+  },
+  {
+    "id": "clean_tarromin",
+    "name": "Tarromin leaf",
+    "category": "herb_clean",
+    "stackable": false,
+    "weight": 0.01,
+    "value": 35,
+    "tradeable": true,
+    "requirements": {
+      "herblore": 11
+    },
+    "examine": "A cleaned tarromin leaf."
+  },
+  {
+    "id": "tarromin_seed",
+    "name": "Tarromin seed",
+    "category": "seed",
+    "stackable": true,
+    "weight": 0,
+    "value": 14,
+    "tradeable": true,
+    "requirements": {
+      "farming": 10
+    },
+    "examine": "A tarromin seed for the herb patch."
+  },
+  {
+    "id": "grimy_harralander",
+    "name": "Grimy harralander",
+    "category": "herb_grimy",
+    "stackable": false,
+    "weight": 0.01,
+    "value": 35,
+    "tradeable": true,
+    "requirements": {
+      "herblore": 20
+    },
+    "examine": "A grimy harralander still caked with dirt."
+  },
+  {
+    "id": "clean_harralander",
+    "name": "Harralander leaf",
+    "category": "herb_clean",
+    "stackable": false,
+    "weight": 0.01,
+    "value": 50,
+    "tradeable": true,
+    "requirements": {
+      "herblore": 20
+    },
+    "examine": "A cleaned harralander leaf."
+  },
+  {
+    "id": "harralander_seed",
+    "name": "Harralander seed",
+    "category": "seed",
+    "stackable": true,
+    "weight": 0,
+    "value": 20,
+    "tradeable": true,
+    "requirements": {
+      "farming": 19
+    },
+    "examine": "A harralander seed for the herb patch."
+  },
+  {
+    "id": "grimy_ranarr",
+    "name": "Grimy ranarr",
+    "category": "herb_grimy",
+    "stackable": false,
+    "weight": 0.01,
+    "value": 252,
+    "tradeable": true,
+    "requirements": {
+      "herblore": 25
+    },
+    "examine": "A grimy ranarr still caked with dirt."
+  },
+  {
+    "id": "clean_ranarr",
+    "name": "Ranarr leaf",
+    "category": "herb_clean",
+    "stackable": false,
+    "weight": 0.01,
+    "value": 360,
+    "tradeable": true,
+    "requirements": {
+      "herblore": 25
+    },
+    "examine": "A cleaned ranarr leaf."
+  },
+  {
+    "id": "ranarr_seed",
+    "name": "Ranarr seed",
+    "category": "seed",
+    "stackable": true,
+    "weight": 0,
+    "value": 144,
+    "tradeable": true,
+    "requirements": {
+      "farming": 24
+    },
+    "examine": "A ranarr seed for the herb patch."
+  },
+  {
+    "id": "grimy_toadflax",
+    "name": "Grimy toadflax",
+    "category": "herb_grimy",
+    "stackable": false,
+    "weight": 0.01,
+    "value": 140,
+    "tradeable": true,
+    "requirements": {
+      "herblore": 30
+    },
+    "examine": "A grimy toadflax still caked with dirt."
+  },
+  {
+    "id": "clean_toadflax",
+    "name": "Toadflax leaf",
+    "category": "herb_clean",
+    "stackable": false,
+    "weight": 0.01,
+    "value": 200,
+    "tradeable": true,
+    "requirements": {
+      "herblore": 30
+    },
+    "examine": "A cleaned toadflax leaf."
+  },
+  {
+    "id": "toadflax_seed",
+    "name": "Toadflax seed",
+    "category": "seed",
+    "stackable": true,
+    "weight": 0,
+    "value": 80,
+    "tradeable": true,
+    "requirements": {
+      "farming": 29
+    },
+    "examine": "A toadflax seed for the herb patch."
+  },
+  {
+    "id": "grimy_irit",
+    "name": "Grimy irit",
+    "category": "herb_grimy",
+    "stackable": false,
+    "weight": 0.01,
+    "value": 105,
+    "tradeable": true,
+    "requirements": {
+      "herblore": 40
+    },
+    "examine": "A grimy irit still caked with dirt."
+  },
+  {
+    "id": "clean_irit",
+    "name": "Irit leaf",
+    "category": "herb_clean",
+    "stackable": false,
+    "weight": 0.01,
+    "value": 150,
+    "tradeable": true,
+    "requirements": {
+      "herblore": 40
+    },
+    "examine": "A cleaned irit leaf."
+  },
+  {
+    "id": "irit_seed",
+    "name": "Irit seed",
+    "category": "seed",
+    "stackable": true,
+    "weight": 0,
+    "value": 60,
+    "tradeable": true,
+    "requirements": {
+      "farming": 39
+    },
+    "examine": "A irit seed for the herb patch."
+  },
+  {
+    "id": "grimy_avantoe",
+    "name": "Grimy avantoe",
+    "category": "herb_grimy",
+    "stackable": false,
+    "weight": 0.01,
+    "value": 154,
+    "tradeable": true,
+    "requirements": {
+      "herblore": 48
+    },
+    "examine": "A grimy avantoe still caked with dirt."
+  },
+  {
+    "id": "clean_avantoe",
+    "name": "Avantoe leaf",
+    "category": "herb_clean",
+    "stackable": false,
+    "weight": 0.01,
+    "value": 220,
+    "tradeable": true,
+    "requirements": {
+      "herblore": 48
+    },
+    "examine": "A cleaned avantoe leaf."
+  },
+  {
+    "id": "avantoe_seed",
+    "name": "Avantoe seed",
+    "category": "seed",
+    "stackable": true,
+    "weight": 0,
+    "value": 88,
+    "tradeable": true,
+    "requirements": {
+      "farming": 47
+    },
+    "examine": "A avantoe seed for the herb patch."
+  },
+  {
+    "id": "grimy_kwuarm",
+    "name": "Grimy kwuarm",
+    "category": "herb_grimy",
+    "stackable": false,
+    "weight": 0.01,
+    "value": 210,
+    "tradeable": true,
+    "requirements": {
+      "herblore": 54
+    },
+    "examine": "A grimy kwuarm still caked with dirt."
+  },
+  {
+    "id": "clean_kwuarm",
+    "name": "Kwuarm leaf",
+    "category": "herb_clean",
+    "stackable": false,
+    "weight": 0.01,
+    "value": 300,
+    "tradeable": true,
+    "requirements": {
+      "herblore": 54
+    },
+    "examine": "A cleaned kwuarm leaf."
+  },
+  {
+    "id": "kwuarm_seed",
+    "name": "Kwuarm seed",
+    "category": "seed",
+    "stackable": true,
+    "weight": 0,
+    "value": 120,
+    "tradeable": true,
+    "requirements": {
+      "farming": 53
+    },
+    "examine": "A kwuarm seed for the herb patch."
+  },
+  {
+    "id": "grimy_snapdragon",
+    "name": "Grimy snapdragon",
+    "category": "herb_grimy",
+    "stackable": false,
+    "weight": 0.01,
+    "value": 364,
+    "tradeable": true,
+    "requirements": {
+      "herblore": 59
+    },
+    "examine": "A grimy snapdragon still caked with dirt."
+  },
+  {
+    "id": "clean_snapdragon",
+    "name": "Snapdragon leaf",
+    "category": "herb_clean",
+    "stackable": false,
+    "weight": 0.01,
+    "value": 520,
+    "tradeable": true,
+    "requirements": {
+      "herblore": 59
+    },
+    "examine": "A cleaned snapdragon leaf."
+  },
+  {
+    "id": "snapdragon_seed",
+    "name": "Snapdragon seed",
+    "category": "seed",
+    "stackable": true,
+    "weight": 0,
+    "value": 208,
+    "tradeable": true,
+    "requirements": {
+      "farming": 58
+    },
+    "examine": "A snapdragon seed for the herb patch."
+  },
+  {
+    "id": "grimy_cadantine",
+    "name": "Grimy cadantine",
+    "category": "herb_grimy",
+    "stackable": false,
+    "weight": 0.01,
+    "value": 308,
+    "tradeable": true,
+    "requirements": {
+      "herblore": 65
+    },
+    "examine": "A grimy cadantine still caked with dirt."
+  },
+  {
+    "id": "clean_cadantine",
+    "name": "Cadantine leaf",
+    "category": "herb_clean",
+    "stackable": false,
+    "weight": 0.01,
+    "value": 440,
+    "tradeable": true,
+    "requirements": {
+      "herblore": 65
+    },
+    "examine": "A cleaned cadantine leaf."
+  },
+  {
+    "id": "cadantine_seed",
+    "name": "Cadantine seed",
+    "category": "seed",
+    "stackable": true,
+    "weight": 0,
+    "value": 176,
+    "tradeable": true,
+    "requirements": {
+      "farming": 64
+    },
+    "examine": "A cadantine seed for the herb patch."
+  },
+  {
+    "id": "grimy_lantadyme",
+    "name": "Grimy lantadyme",
+    "category": "herb_grimy",
+    "stackable": false,
+    "weight": 0.01,
+    "value": 392,
+    "tradeable": true,
+    "requirements": {
+      "herblore": 67
+    },
+    "examine": "A grimy lantadyme still caked with dirt."
+  },
+  {
+    "id": "clean_lantadyme",
+    "name": "Lantadyme leaf",
+    "category": "herb_clean",
+    "stackable": false,
+    "weight": 0.01,
+    "value": 560,
+    "tradeable": true,
+    "requirements": {
+      "herblore": 67
+    },
+    "examine": "A cleaned lantadyme leaf."
+  },
+  {
+    "id": "lantadyme_seed",
+    "name": "Lantadyme seed",
+    "category": "seed",
+    "stackable": true,
+    "weight": 0,
+    "value": 224,
+    "tradeable": true,
+    "requirements": {
+      "farming": 66
+    },
+    "examine": "A lantadyme seed for the herb patch."
+  },
+  {
+    "id": "grimy_dwarf_weed",
+    "name": "Grimy dwarf weed",
+    "category": "herb_grimy",
+    "stackable": false,
+    "weight": 0.01,
+    "value": 336,
+    "tradeable": true,
+    "requirements": {
+      "herblore": 70
+    },
+    "examine": "A grimy dwarf weed still caked with dirt."
+  },
+  {
+    "id": "clean_dwarf_weed",
+    "name": "Dwarf Weed leaf",
+    "category": "herb_clean",
+    "stackable": false,
+    "weight": 0.01,
+    "value": 480,
+    "tradeable": true,
+    "requirements": {
+      "herblore": 70
+    },
+    "examine": "A cleaned dwarf weed leaf."
+  },
+  {
+    "id": "dwarf_weed_seed",
+    "name": "Dwarf Weed seed",
+    "category": "seed",
+    "stackable": true,
+    "weight": 0,
+    "value": 192,
+    "tradeable": true,
+    "requirements": {
+      "farming": 69
+    },
+    "examine": "A dwarf weed seed for the herb patch."
+  },
+  {
+    "id": "grimy_torstol",
+    "name": "Grimy torstol",
+    "category": "herb_grimy",
+    "stackable": false,
+    "weight": 0.01,
+    "value": 644,
+    "tradeable": true,
+    "requirements": {
+      "herblore": 75
+    },
+    "examine": "A grimy torstol still caked with dirt."
+  },
+  {
+    "id": "clean_torstol",
+    "name": "Torstol leaf",
+    "category": "herb_clean",
+    "stackable": false,
+    "weight": 0.01,
+    "value": 920,
+    "tradeable": true,
+    "requirements": {
+      "herblore": 75
+    },
+    "examine": "A cleaned torstol leaf."
+  },
+  {
+    "id": "torstol_seed",
+    "name": "Torstol seed",
+    "category": "seed",
+    "stackable": true,
+    "weight": 0,
+    "value": 368,
+    "tradeable": true,
+    "requirements": {
+      "farming": 74
+    },
+    "examine": "A torstol seed for the herb patch."
+  },
+  {
+    "id": "eye_of_newt",
+    "name": "Eye of newt",
+    "category": "secondary",
+    "stackable": true,
+    "weight": 0.01,
+    "value": 3,
+    "tradeable": true,
+    "examine": "Eye of newt. Used in herblore."
+  },
+  {
+    "id": "limpwurt_root",
+    "name": "Limpwurt root",
+    "category": "secondary",
+    "stackable": true,
+    "weight": 0.01,
+    "value": 30,
+    "tradeable": true,
+    "examine": "Limpwurt root. Used in herblore."
+  },
+  {
+    "id": "white_berries",
+    "name": "White berries",
+    "category": "secondary",
+    "stackable": true,
+    "weight": 0.01,
+    "value": 35,
+    "tradeable": true,
+    "examine": "White berries. Used in herblore."
+  },
+  {
+    "id": "unicorn_horn_dust",
+    "name": "Unicorn horn dust",
+    "category": "secondary",
+    "stackable": true,
+    "weight": 0.01,
+    "value": 25,
+    "tradeable": true,
+    "examine": "Unicorn horn dust. Used in herblore."
+  },
+  {
+    "id": "snape_grass",
+    "name": "Snape grass",
+    "category": "secondary",
+    "stackable": true,
+    "weight": 0.01,
+    "value": 100,
+    "tradeable": true,
+    "examine": "Snape grass. Used in herblore."
+  },
+  {
+    "id": "red_spider_eggs",
+    "name": "Red spiders' eggs",
+    "category": "secondary",
+    "stackable": true,
+    "weight": 0.01,
+    "value": 18,
+    "tradeable": true,
+    "examine": "Red spiders' eggs. Used in herblore."
+  },
+  {
+    "id": "chocolate_dust",
+    "name": "Chocolate dust",
+    "category": "secondary",
+    "stackable": true,
+    "weight": 0.01,
+    "value": 10,
+    "tradeable": true,
+    "examine": "Chocolate dust. Used in herblore."
+  },
+  {
+    "id": "amylase_crystal",
+    "name": "Amylase crystal",
+    "category": "secondary",
+    "stackable": true,
+    "weight": 0.01,
+    "value": 1600,
+    "tradeable": true,
+    "examine": "Amylase crystal. Used in herblore."
+  },
+  {
+    "id": "crushed_nest",
+    "name": "Crushed bird nest",
+    "category": "secondary",
+    "stackable": true,
+    "weight": 0.01,
+    "value": 220,
+    "tradeable": true,
+    "examine": "Crushed bird nest. Used in herblore."
+  },
+  {
+    "id": "dragon_scale_dust",
+    "name": "Dragon scale dust",
+    "category": "secondary",
+    "stackable": true,
+    "weight": 0.01,
+    "value": 800,
+    "tradeable": true,
+    "examine": "Dragon scale dust. Used in herblore."
+  },
+  {
+    "id": "potato_cactus",
+    "name": "Potato cactus",
+    "category": "secondary",
+    "stackable": true,
+    "weight": 0.01,
+    "value": 400,
+    "tradeable": true,
+    "examine": "Potato cactus. Used in herblore."
+  },
+  {
+    "id": "wine_of_zamorak",
+    "name": "Wine of Zamorak",
+    "category": "secondary",
+    "stackable": true,
+    "weight": 0.01,
+    "value": 200,
+    "tradeable": true,
+    "examine": "Wine of Zamorak. Used in herblore."
+  },
+  {
+    "id": "jangerberries",
+    "name": "Jangerberries",
+    "category": "secondary",
+    "stackable": true,
+    "weight": 0.01,
+    "value": 45,
+    "tradeable": true,
+    "examine": "Jangerberries. Used in herblore."
+  },
+  {
+    "id": "zulrah_scales",
+    "name": "Zulrah scales",
+    "category": "secondary",
+    "stackable": true,
+    "weight": 0.01,
+    "value": 280,
+    "tradeable": true,
+    "examine": "Zulrah scales. Used in herblore."
+  },
+  {
+    "id": "mort_myre_fungus",
+    "name": "Mort myre fungus",
+    "category": "secondary",
+    "stackable": true,
+    "weight": 0.01,
+    "value": 90,
+    "tradeable": true,
+    "examine": "Mort myre fungus. Used in herblore."
+  },
+  {
+    "id": "nail_beast_nails",
+    "name": "Nail beast nails",
+    "category": "secondary",
+    "stackable": true,
+    "weight": 0.01,
+    "value": 1200,
+    "tradeable": true,
+    "examine": "Nail beast nails. Used in herblore."
+  },
+  {
+    "id": "snake_weed",
+    "name": "Snake weed",
+    "category": "secondary",
+    "stackable": true,
+    "weight": 0.01,
+    "value": 80,
+    "tradeable": true,
+    "examine": "Snake weed. Used in herblore."
+  },
+  {
+    "id": "eternium_crystal",
+    "name": "Eternium crystal",
+    "category": "secondary",
+    "stackable": true,
+    "weight": 0.01,
+    "value": 18000,
+    "tradeable": true,
+    "examine": "Eternium crystal. Used in herblore."
+  },
+  {
+    "id": "preserved_essence",
+    "name": "Preserved essence",
+    "category": "secondary",
+    "stackable": true,
+    "weight": 0.01,
+    "value": 9500,
+    "tradeable": true,
+    "examine": "Preserved essence. Used in herblore."
+  },
+  {
+    "id": "air_rune",
+    "name": "Air rune",
+    "category": "rune",
+    "stackable": true,
+    "weight": 0,
+    "value": 4,
+    "tradeable": true,
+    "tags": [
+      "rune",
+      "stackable"
+    ],
+    "examine": "A air rune."
+  },
+  {
+    "id": "water_rune",
+    "name": "Water rune",
+    "category": "rune",
+    "stackable": true,
+    "weight": 0,
+    "value": 4,
+    "tradeable": true,
+    "tags": [
+      "rune",
+      "stackable"
+    ],
+    "examine": "A water rune."
+  },
+  {
+    "id": "earth_rune",
+    "name": "Earth rune",
+    "category": "rune",
+    "stackable": true,
+    "weight": 0,
+    "value": 4,
+    "tradeable": true,
+    "tags": [
+      "rune",
+      "stackable"
+    ],
+    "examine": "A earth rune."
+  },
+  {
+    "id": "fire_rune",
+    "name": "Fire rune",
+    "category": "rune",
+    "stackable": true,
+    "weight": 0,
+    "value": 4,
+    "tradeable": true,
+    "tags": [
+      "rune",
+      "stackable"
+    ],
+    "examine": "A fire rune."
+  },
+  {
+    "id": "mind_rune",
+    "name": "Mind rune",
+    "category": "rune",
+    "stackable": true,
+    "weight": 0,
+    "value": 3,
+    "tradeable": true,
+    "tags": [
+      "rune",
+      "stackable"
+    ],
+    "examine": "A mind rune."
+  },
+  {
+    "id": "body_rune",
+    "name": "Body rune",
+    "category": "rune",
+    "stackable": true,
+    "weight": 0,
+    "value": 3,
+    "tradeable": true,
+    "tags": [
+      "rune",
+      "stackable"
+    ],
+    "examine": "A body rune."
+  },
+  {
+    "id": "chaos_rune",
+    "name": "Chaos rune",
+    "category": "rune",
+    "stackable": true,
+    "weight": 0,
+    "value": 70,
+    "tradeable": true,
+    "tags": [
+      "rune",
+      "stackable"
+    ],
+    "examine": "A chaos rune."
+  },
+  {
+    "id": "death_rune",
+    "name": "Death rune",
+    "category": "rune",
+    "stackable": true,
+    "weight": 0,
+    "value": 180,
+    "tradeable": true,
+    "tags": [
+      "rune",
+      "stackable"
+    ],
+    "examine": "A death rune."
+  },
+  {
+    "id": "blood_rune",
+    "name": "Blood rune",
+    "category": "rune",
+    "stackable": true,
+    "weight": 0,
+    "value": 260,
+    "tradeable": true,
+    "tags": [
+      "rune",
+      "stackable"
+    ],
+    "examine": "A blood rune."
+  },
+  {
+    "id": "soul_rune",
+    "name": "Soul rune",
+    "category": "rune",
+    "stackable": true,
+    "weight": 0,
+    "value": 310,
+    "tradeable": true,
+    "tags": [
+      "rune",
+      "stackable"
+    ],
+    "examine": "A soul rune."
+  },
+  {
+    "id": "nature_rune",
+    "name": "Nature rune",
+    "category": "rune",
+    "stackable": true,
+    "weight": 0,
+    "value": 150,
+    "tradeable": true,
+    "tags": [
+      "rune",
+      "stackable"
+    ],
+    "examine": "A nature rune."
+  },
+  {
+    "id": "law_rune",
+    "name": "Law rune",
+    "category": "rune",
+    "stackable": true,
+    "weight": 0,
+    "value": 200,
+    "tradeable": true,
+    "tags": [
+      "rune",
+      "stackable"
+    ],
+    "examine": "A law rune."
+  },
+  {
+    "id": "astral_rune",
+    "name": "Astral rune",
+    "category": "rune",
+    "stackable": true,
+    "weight": 0,
+    "value": 210,
+    "tradeable": true,
+    "tags": [
+      "rune",
+      "stackable"
+    ],
+    "examine": "A astral rune."
+  },
+  {
+    "id": "cosmic_rune",
+    "name": "Cosmic rune",
+    "category": "rune",
+    "stackable": true,
+    "weight": 0,
+    "value": 120,
+    "tradeable": true,
+    "tags": [
+      "rune",
+      "stackable"
+    ],
+    "examine": "A cosmic rune."
+  },
+  {
+    "id": "wrath_rune",
+    "name": "Wrath rune",
+    "category": "rune",
+    "stackable": true,
+    "weight": 0,
+    "value": 420,
+    "tradeable": true,
+    "tags": [
+      "rune",
+      "stackable"
+    ],
+    "examine": "A wrath rune."
+  },
+  {
+    "id": "dust_rune",
+    "name": "Dust rune",
+    "category": "rune",
+    "stackable": true,
+    "weight": 0,
+    "value": 12,
+    "tradeable": true,
+    "tags": [
+      "rune",
+      "stackable"
+    ],
+    "combo": "air + earth",
+    "examine": "A dust rune. Combination: air + earth."
+  },
+  {
+    "id": "smoke_rune",
+    "name": "Smoke rune",
+    "category": "rune",
+    "stackable": true,
+    "weight": 0,
+    "value": 14,
+    "tradeable": true,
+    "tags": [
+      "rune",
+      "stackable"
+    ],
+    "combo": "air + fire",
+    "examine": "A smoke rune. Combination: air + fire."
+  },
+  {
+    "id": "mist_rune",
+    "name": "Mist rune",
+    "category": "rune",
+    "stackable": true,
+    "weight": 0,
+    "value": 12,
+    "tradeable": true,
+    "tags": [
+      "rune",
+      "stackable"
+    ],
+    "combo": "air + water",
+    "examine": "A mist rune. Combination: air + water."
+  },
+  {
+    "id": "lava_rune",
+    "name": "Lava rune",
+    "category": "rune",
+    "stackable": true,
+    "weight": 0,
+    "value": 16,
+    "tradeable": true,
+    "tags": [
+      "rune",
+      "stackable"
+    ],
+    "combo": "earth + fire",
+    "examine": "A lava rune. Combination: earth + fire."
+  },
+  {
+    "id": "mud_rune",
+    "name": "Mud rune",
+    "category": "rune",
+    "stackable": true,
+    "weight": 0,
+    "value": 18,
+    "tradeable": true,
+    "tags": [
+      "rune",
+      "stackable"
+    ],
+    "combo": "earth + water",
+    "examine": "A mud rune. Combination: earth + water."
+  },
+  {
+    "id": "steam_rune",
+    "name": "Steam rune",
+    "category": "rune",
+    "stackable": true,
+    "weight": 0,
+    "value": 18,
+    "tradeable": true,
+    "tags": [
+      "rune",
+      "stackable"
+    ],
+    "combo": "water + fire",
+    "examine": "A steam rune. Combination: water + fire."
+  },
+  {
+    "id": "ink_rune",
+    "name": "Ink rune",
+    "category": "rune",
+    "stackable": true,
+    "weight": 0,
+    "value": 280,
+    "tradeable": true,
+    "tags": [
+      "rune",
+      "stackable"
+    ],
+    "combo": "blood + soul (Inkweald exclusive)",
+    "examine": "A ink rune. Combination: blood + soul (Inkweald exclusive)."
+  },
+  {
+    "id": "moon_rune",
+    "name": "Moon rune",
+    "category": "rune",
+    "stackable": true,
+    "weight": 0,
+    "value": 260,
+    "tradeable": true,
+    "tags": [
+      "rune",
+      "stackable"
+    ],
+    "combo": "astral + cosmic (Veilwood exclusive)",
+    "examine": "A moon rune. Combination: astral + cosmic (Veilwood exclusive)."
+  },
+  {
+    "id": "salt_rune",
+    "name": "Salt rune",
+    "category": "rune",
+    "stackable": true,
+    "weight": 0,
+    "value": 220,
+    "tradeable": true,
+    "tags": [
+      "rune",
+      "stackable"
+    ],
+    "combo": "water + earth + soul (Saltbrine exclusive)",
+    "examine": "A salt rune. Combination: water + earth + soul (Saltbrine exclusive)."
+  },
+  {
+    "id": "sun_rune",
+    "name": "Sun rune",
+    "category": "rune",
+    "stackable": true,
+    "weight": 0,
+    "value": 320,
+    "tradeable": true,
+    "tags": [
+      "rune",
+      "stackable"
+    ],
+    "combo": "fire + soul (Glass Desert exclusive)",
+    "examine": "A sun rune. Combination: fire + soul (Glass Desert exclusive)."
+  },
+  {
+    "id": "rune_essence",
+    "name": "Rune essence",
+    "category": "essence",
+    "stackable": false,
+    "weight": 0.01,
+    "value": 12,
+    "tradeable": true,
+    "requirements": {
+      "mining": 1
+    },
+    "examine": "Raw essence for low runes."
+  },
+  {
+    "id": "pure_essence",
+    "name": "Pure essence",
+    "category": "essence",
+    "stackable": false,
+    "weight": 0.01,
+    "value": 30,
+    "tradeable": true,
+    "requirements": {
+      "mining": 30
+    },
+    "examine": "Pure essence for high-tier runes."
+  },
+  {
+    "id": "dark_essence_fragment",
+    "name": "Dark essence fragment",
+    "category": "essence",
+    "stackable": false,
+    "weight": 0.01,
+    "value": 850,
+    "tradeable": false,
+    "requirements": {
+      "runecrafting": 62
+    },
+    "examine": "Used to craft blood runes."
+  },
+  {
+    "id": "cowhide",
+    "name": "Cowhide",
+    "category": "hide",
+    "stackable": false,
+    "weight": 1.5,
+    "value": 6,
+    "tradeable": true,
+    "requirements": {
+      "crafting": 1
+    },
+    "examine": "Untanned cowhide."
+  },
+  {
+    "id": "cowhide_tanned",
+    "name": "Tanned cowhide",
+    "category": "leather",
+    "stackable": false,
+    "weight": 1.4,
+    "value": 10,
+    "tradeable": true,
+    "requirements": {
+      "crafting": 2
+    },
+    "examine": "Tanned cowhide."
+  },
+  {
+    "id": "deer_hide",
+    "name": "Deer hide",
+    "category": "hide",
+    "stackable": false,
+    "weight": 1.5,
+    "value": 27,
+    "tradeable": true,
+    "requirements": {
+      "crafting": 15
+    },
+    "examine": "Untanned deer hide."
+  },
+  {
+    "id": "deer_hide_tanned",
+    "name": "Tanned deer hide",
+    "category": "leather",
+    "stackable": false,
+    "weight": 1.4,
+    "value": 45,
+    "tradeable": true,
+    "requirements": {
+      "crafting": 16
+    },
+    "examine": "Tanned deer hide."
+  },
+  {
+    "id": "boar_hide",
+    "name": "Boar hide",
+    "category": "hide",
+    "stackable": false,
+    "weight": 1.5,
+    "value": 48,
+    "tradeable": true,
+    "requirements": {
+      "crafting": 25
+    },
+    "examine": "Untanned boar hide."
+  },
+  {
+    "id": "boar_hide_tanned",
+    "name": "Tanned boar hide",
+    "category": "leather",
+    "stackable": false,
+    "weight": 1.4,
+    "value": 80,
+    "tradeable": true,
+    "requirements": {
+      "crafting": 26
+    },
+    "examine": "Tanned boar hide."
+  },
+  {
+    "id": "wyvern_hide",
+    "name": "Wyvern hide",
+    "category": "hide",
+    "stackable": false,
+    "weight": 1.5,
+    "value": 156,
+    "tradeable": true,
+    "requirements": {
+      "crafting": 40
+    },
+    "examine": "Untanned wyvern hide."
+  },
+  {
+    "id": "wyvern_hide_tanned",
+    "name": "Tanned wyvern hide",
+    "category": "leather",
+    "stackable": false,
+    "weight": 1.4,
+    "value": 260,
+    "tradeable": true,
+    "requirements": {
+      "crafting": 41
+    },
+    "examine": "Tanned wyvern hide."
+  },
+  {
+    "id": "firedrake_hide",
+    "name": "Firedrake hide",
+    "category": "hide",
+    "stackable": false,
+    "weight": 1.5,
+    "value": 312,
+    "tradeable": true,
+    "requirements": {
+      "crafting": 50
+    },
+    "examine": "Untanned firedrake hide."
+  },
+  {
+    "id": "firedrake_hide_tanned",
+    "name": "Tanned firedrake hide",
+    "category": "leather",
+    "stackable": false,
+    "weight": 1.4,
+    "value": 520,
+    "tradeable": true,
+    "requirements": {
+      "crafting": 51
+    },
+    "examine": "Tanned firedrake hide."
+  },
+  {
+    "id": "brinescale_hide",
+    "name": "Brinescale hide",
+    "category": "hide",
+    "stackable": false,
+    "weight": 1.5,
+    "value": 510,
+    "tradeable": true,
+    "requirements": {
+      "crafting": 60
+    },
+    "examine": "Untanned brinescale hide."
+  },
+  {
+    "id": "brinescale_hide_tanned",
+    "name": "Tanned brinescale hide",
+    "category": "leather",
+    "stackable": false,
+    "weight": 1.4,
+    "value": 850,
+    "tradeable": true,
+    "requirements": {
+      "crafting": 61
+    },
+    "examine": "Tanned brinescale hide."
+  },
+  {
+    "id": "shadowhide",
+    "name": "Shadowhide",
+    "category": "hide",
+    "stackable": false,
+    "weight": 1.5,
+    "value": 840,
+    "tradeable": true,
+    "requirements": {
+      "crafting": 70
+    },
+    "examine": "Untanned shadowhide."
+  },
+  {
+    "id": "shadowhide_tanned",
+    "name": "Tanned shadowhide",
+    "category": "leather",
+    "stackable": false,
+    "weight": 1.4,
+    "value": 1400,
+    "tradeable": true,
+    "requirements": {
+      "crafting": 71
+    },
+    "examine": "Tanned shadowhide."
+  },
+  {
+    "id": "wyrmscale",
+    "name": "Wyrmscale",
+    "category": "hide",
+    "stackable": false,
+    "weight": 1.5,
+    "value": 1680,
+    "tradeable": true,
+    "requirements": {
+      "crafting": 75
+    },
+    "examine": "Untanned wyrmscale."
+  },
+  {
+    "id": "wyrmscale_tanned",
+    "name": "Tanned wyrmscale",
+    "category": "leather",
+    "stackable": false,
+    "weight": 1.4,
+    "value": 2800,
+    "tradeable": true,
+    "requirements": {
+      "crafting": 76
+    },
+    "examine": "Tanned wyrmscale."
+  },
+  {
+    "id": "raw_chicken",
+    "name": "Raw chicken",
+    "category": "raw_meat",
+    "stackable": false,
+    "weight": 0.5,
+    "value": 5,
+    "tradeable": true,
+    "requirements": {
+      "hunter": 1
+    },
+    "examine": "Raw chicken."
+  },
+  {
+    "id": "raw_beef",
+    "name": "Raw beef",
+    "category": "raw_meat",
+    "stackable": false,
+    "weight": 0.5,
+    "value": 5,
+    "tradeable": true,
+    "requirements": {
+      "hunter": 1
+    },
+    "examine": "Raw beef."
+  },
+  {
+    "id": "raw_pork",
+    "name": "Raw pork",
+    "category": "raw_meat",
+    "stackable": false,
+    "weight": 0.5,
+    "value": 8,
+    "tradeable": true,
+    "requirements": {
+      "hunter": 1
+    },
+    "examine": "Raw pork."
+  },
+  {
+    "id": "raw_pheasant",
+    "name": "Raw pheasant",
+    "category": "raw_meat",
+    "stackable": false,
+    "weight": 0.5,
+    "value": 40,
+    "tradeable": true,
+    "requirements": {
+      "hunter": 1
+    },
+    "examine": "Raw pheasant."
+  },
+  {
+    "id": "raw_venison",
+    "name": "Raw venison",
+    "category": "raw_meat",
+    "stackable": false,
+    "weight": 0.5,
+    "value": 90,
+    "tradeable": true,
+    "requirements": {
+      "hunter": 40
+    },
+    "examine": "Raw venison."
+  },
+  {
+    "id": "raw_bear",
+    "name": "Raw bear",
+    "category": "raw_meat",
+    "stackable": false,
+    "weight": 0.5,
+    "value": 120,
+    "tradeable": true,
+    "requirements": {
+      "hunter": 48
+    },
+    "examine": "Raw bear."
+  },
+  {
+    "id": "raw_boar",
+    "name": "Raw boar",
+    "category": "raw_meat",
+    "stackable": false,
+    "weight": 0.5,
+    "value": 55,
+    "tradeable": true,
+    "requirements": {
+      "hunter": 1
+    },
+    "examine": "Raw boar."
+  },
+  {
+    "id": "raw_rabbit",
+    "name": "Raw rabbit",
+    "category": "raw_meat",
+    "stackable": false,
+    "weight": 0.5,
+    "value": 4,
+    "tradeable": true,
+    "requirements": {
+      "hunter": 1
+    },
+    "examine": "Raw rabbit."
+  },
+  {
+    "id": "raw_rat_meat",
+    "name": "Raw rat meat",
+    "category": "raw_meat",
+    "stackable": false,
+    "weight": 0.5,
+    "value": 1,
+    "tradeable": true,
+    "requirements": {
+      "hunter": 1
+    },
+    "examine": "Raw rat meat."
+  },
+  {
+    "id": "raw_cod",
+    "name": "Raw cod",
+    "category": "raw_meat",
+    "stackable": false,
+    "weight": 0.5,
+    "value": 15,
+    "tradeable": true,
+    "requirements": {
+      "hunter": 1
+    },
+    "examine": "Raw cod."
+  },
+  {
+    "id": "raw_eel",
+    "name": "Raw eel",
+    "category": "raw_meat",
+    "stackable": false,
+    "weight": 0.5,
+    "value": 30,
+    "tradeable": true,
+    "requirements": {
+      "hunter": 1
+    },
+    "examine": "Raw eel."
+  },
+  {
+    "id": "raw_shark_tail",
+    "name": "Raw shark tail",
+    "category": "raw_meat",
+    "stackable": false,
+    "weight": 0.5,
+    "value": 450,
+    "tradeable": true,
+    "requirements": {
+      "hunter": 76
+    },
+    "examine": "Raw shark tail."
+  },
+  {
+    "id": "flour",
+    "name": "Pot of flour",
+    "category": "ingredient",
+    "sub_category": "pot",
+    "stackable": false,
+    "weight": 0.2,
+    "value": 10,
+    "tradeable": true,
+    "requirements": {},
+    "examine": "Pot of flour. A common cooking ingredient."
+  },
+  {
+    "id": "grain",
+    "name": "Grain",
+    "category": "ingredient",
+    "sub_category": "raw",
+    "stackable": false,
+    "weight": 0.2,
+    "value": 5,
+    "tradeable": true,
+    "requirements": {},
+    "examine": "Grain. A common cooking ingredient."
+  },
+  {
+    "id": "pot_empty",
+    "name": "Empty pot",
+    "category": "ingredient",
+    "sub_category": "container",
+    "stackable": false,
+    "weight": 0.5,
+    "value": 1,
+    "tradeable": true,
+    "requirements": {},
+    "examine": "Empty pot. A common cooking ingredient."
+  },
+  {
+    "id": "pot_of_water",
+    "name": "Pot of water",
+    "category": "ingredient",
+    "sub_category": "liquid",
+    "stackable": false,
+    "weight": 1,
+    "value": 2,
+    "tradeable": true,
+    "requirements": {},
+    "examine": "Pot of water. A common cooking ingredient."
+  },
+  {
+    "id": "vial",
+    "name": "Vial",
+    "category": "ingredient",
+    "sub_category": "container",
+    "stackable": false,
+    "weight": 0.5,
+    "value": 1,
+    "tradeable": true,
+    "requirements": {},
+    "examine": "Vial. A common cooking ingredient."
+  },
+  {
+    "id": "vial_of_water",
+    "name": "Vial of water",
+    "category": "ingredient",
+    "sub_category": "liquid",
+    "stackable": false,
+    "weight": 1,
+    "value": 2,
+    "tradeable": true,
+    "requirements": {},
+    "examine": "Vial of water. A common cooking ingredient."
+  },
+  {
+    "id": "bucket",
+    "name": "Bucket",
+    "category": "ingredient",
+    "sub_category": "container",
+    "stackable": false,
+    "weight": 0.5,
+    "value": 2,
+    "tradeable": true,
+    "requirements": {},
+    "examine": "Bucket. A common cooking ingredient."
+  },
+  {
+    "id": "bucket_of_water",
+    "name": "Bucket of water",
+    "category": "ingredient",
+    "sub_category": "liquid",
+    "stackable": false,
+    "weight": 1,
+    "value": 3,
+    "tradeable": true,
+    "requirements": {},
+    "examine": "Bucket of water. A common cooking ingredient."
+  },
+  {
+    "id": "bucket_of_milk",
+    "name": "Bucket of milk",
+    "category": "ingredient",
+    "sub_category": "liquid",
+    "stackable": false,
+    "weight": 1,
+    "value": 10,
+    "tradeable": true,
+    "requirements": {},
+    "examine": "Bucket of milk. A common cooking ingredient."
+  },
+  {
+    "id": "egg",
+    "name": "Egg",
+    "category": "ingredient",
+    "sub_category": "raw",
+    "stackable": false,
+    "weight": 0.2,
+    "value": 5,
+    "tradeable": true,
+    "requirements": {},
+    "examine": "Egg. A common cooking ingredient."
+  },
+  {
+    "id": "butter",
+    "name": "Pat of butter",
+    "category": "ingredient",
+    "sub_category": "dairy",
+    "stackable": false,
+    "weight": 0.2,
+    "value": 15,
+    "tradeable": true,
+    "requirements": {},
+    "examine": "Pat of butter. A common cooking ingredient."
+  },
+  {
+    "id": "cheese",
+    "name": "Cheese",
+    "category": "ingredient",
+    "sub_category": "dairy",
+    "stackable": false,
+    "weight": 0.2,
+    "value": 12,
+    "tradeable": true,
+    "requirements": {},
+    "examine": "Cheese. A common cooking ingredient."
+  },
+  {
+    "id": "cream",
+    "name": "Cream",
+    "category": "ingredient",
+    "sub_category": "dairy",
+    "stackable": false,
+    "weight": 0.2,
+    "value": 20,
+    "tradeable": true,
+    "requirements": {},
+    "examine": "Cream. A common cooking ingredient."
+  },
+  {
+    "id": "salt",
+    "name": "Salt",
+    "category": "ingredient",
+    "sub_category": "seasoning",
+    "stackable": true,
+    "weight": 0.2,
+    "value": 4,
+    "tradeable": true,
+    "requirements": {},
+    "examine": "Salt. A common cooking ingredient."
+  },
+  {
+    "id": "pepper",
+    "name": "Pepper",
+    "category": "ingredient",
+    "sub_category": "seasoning",
+    "stackable": true,
+    "weight": 0.2,
+    "value": 8,
+    "tradeable": true,
+    "requirements": {},
+    "examine": "Pepper. A common cooking ingredient."
+  },
+  {
+    "id": "chilli",
+    "name": "Red chilli",
+    "category": "ingredient",
+    "sub_category": "spice",
+    "stackable": true,
+    "weight": 0.2,
+    "value": 12,
+    "tradeable": true,
+    "requirements": {},
+    "examine": "Red chilli. A common cooking ingredient."
+  },
+  {
+    "id": "garlic",
+    "name": "Garlic",
+    "category": "ingredient",
+    "sub_category": "herb",
+    "stackable": false,
+    "weight": 0.2,
+    "value": 6,
+    "tradeable": true,
+    "requirements": {},
+    "examine": "Garlic. A common cooking ingredient."
+  },
+  {
+    "id": "onion",
+    "name": "Onion",
+    "category": "ingredient",
+    "sub_category": "vegetable",
+    "stackable": false,
+    "weight": 0.2,
+    "value": 4,
+    "tradeable": true,
+    "requirements": {},
+    "examine": "Onion. A common cooking ingredient."
+  },
+  {
+    "id": "potato",
+    "name": "Potato",
+    "category": "ingredient",
+    "sub_category": "vegetable",
+    "stackable": false,
+    "weight": 0.2,
+    "value": 3,
+    "tradeable": true,
+    "requirements": {},
+    "examine": "Potato. A common cooking ingredient."
+  },
+  {
+    "id": "cabbage",
+    "name": "Cabbage",
+    "category": "ingredient",
+    "sub_category": "vegetable",
+    "stackable": false,
+    "weight": 0.2,
+    "value": 5,
+    "tradeable": true,
+    "requirements": {},
+    "examine": "Cabbage. A common cooking ingredient."
+  },
+  {
+    "id": "tomato",
+    "name": "Tomato",
+    "category": "ingredient",
+    "sub_category": "vegetable",
+    "stackable": false,
+    "weight": 0.2,
+    "value": 6,
+    "tradeable": true,
+    "requirements": {},
+    "examine": "Tomato. A common cooking ingredient."
+  },
+  {
+    "id": "sweetcorn",
+    "name": "Sweetcorn",
+    "category": "ingredient",
+    "sub_category": "vegetable",
+    "stackable": false,
+    "weight": 0.2,
+    "value": 12,
+    "tradeable": true,
+    "requirements": {},
+    "examine": "Sweetcorn. A common cooking ingredient."
+  },
+  {
+    "id": "mushroom",
+    "name": "Mushroom",
+    "category": "ingredient",
+    "sub_category": "vegetable",
+    "stackable": false,
+    "weight": 0.2,
+    "value": 8,
+    "tradeable": true,
+    "requirements": {},
+    "examine": "Mushroom. A common cooking ingredient."
+  },
+  {
+    "id": "cactus_spine",
+    "name": "Cactus spine",
+    "category": "ingredient",
+    "sub_category": "desert",
+    "stackable": false,
+    "weight": 0.2,
+    "value": 10,
+    "tradeable": true,
+    "requirements": {},
+    "examine": "Cactus spine. A common cooking ingredient."
+  },
+  {
+    "id": "date_fruit",
+    "name": "Date fruit",
+    "category": "ingredient",
+    "sub_category": "fruit",
+    "stackable": false,
+    "weight": 0.2,
+    "value": 15,
+    "tradeable": true,
+    "requirements": {},
+    "examine": "Date fruit. A common cooking ingredient."
+  },
+  {
+    "id": "coconut",
+    "name": "Coconut",
+    "category": "ingredient",
+    "sub_category": "fruit",
+    "stackable": false,
+    "weight": 0.2,
+    "value": 40,
+    "tradeable": true,
+    "requirements": {},
+    "examine": "Coconut. A common cooking ingredient."
+  },
+  {
+    "id": "pineapple",
+    "name": "Pineapple",
+    "category": "ingredient",
+    "sub_category": "fruit",
+    "stackable": false,
+    "weight": 0.2,
+    "value": 45,
+    "tradeable": true,
+    "requirements": {},
+    "examine": "Pineapple. A common cooking ingredient."
+  },
+  {
+    "id": "apple",
+    "name": "Apple",
+    "category": "ingredient",
+    "sub_category": "fruit",
+    "stackable": false,
+    "weight": 0.2,
+    "value": 3,
+    "tradeable": true,
+    "requirements": {},
+    "examine": "Apple. A common cooking ingredient."
+  },
+  {
+    "id": "orange",
+    "name": "Orange",
+    "category": "ingredient",
+    "sub_category": "fruit",
+    "stackable": false,
+    "weight": 0.2,
+    "value": 5,
+    "tradeable": true,
+    "requirements": {},
+    "examine": "Orange. A common cooking ingredient."
+  },
+  {
+    "id": "banana",
+    "name": "Banana",
+    "category": "ingredient",
+    "sub_category": "fruit",
+    "stackable": false,
+    "weight": 0.2,
+    "value": 5,
+    "tradeable": true,
+    "requirements": {},
+    "examine": "Banana. A common cooking ingredient."
+  },
+  {
+    "id": "moonberry",
+    "name": "Moonberry",
+    "category": "ingredient",
+    "sub_category": "fruit",
+    "stackable": false,
+    "weight": 0.2,
+    "value": 40,
+    "tradeable": true,
+    "requirements": {},
+    "examine": "Moonberry. A common cooking ingredient."
+  },
+  {
+    "id": "inkberry",
+    "name": "Inkberry",
+    "category": "ingredient",
+    "sub_category": "fruit",
+    "stackable": false,
+    "weight": 0.2,
+    "value": 55,
+    "tradeable": true,
+    "requirements": {},
+    "examine": "Inkberry. A common cooking ingredient."
+  },
+  {
+    "id": "blood",
+    "name": "Blood",
+    "category": "ingredient",
+    "sub_category": "liquid",
+    "stackable": false,
+    "weight": 1,
+    "value": 10,
+    "tradeable": true,
+    "requirements": {},
+    "examine": "Blood. A common cooking ingredient."
+  },
+  {
+    "id": "oats",
+    "name": "Oats",
+    "category": "ingredient",
+    "sub_category": "grain",
+    "stackable": false,
+    "weight": 0.2,
+    "value": 6,
+    "tradeable": true,
+    "requirements": {},
+    "examine": "Oats. A common cooking ingredient."
+  },
+  {
+    "id": "honey",
+    "name": "Honey",
+    "category": "ingredient",
+    "sub_category": "sweet",
+    "stackable": true,
+    "weight": 0.2,
+    "value": 18,
+    "tradeable": true,
+    "requirements": {},
+    "examine": "Honey. A common cooking ingredient."
+  },
+  {
+    "id": "sugar",
+    "name": "Sugar",
+    "category": "ingredient",
+    "sub_category": "sweet",
+    "stackable": true,
+    "weight": 0.2,
+    "value": 8,
+    "tradeable": true,
+    "requirements": {},
+    "examine": "Sugar. A common cooking ingredient."
+  },
+  {
+    "id": "coal_dust",
+    "name": "Coal dust",
+    "category": "ingredient",
+    "sub_category": "industrial",
+    "stackable": false,
+    "weight": 0.2,
+    "value": 3,
+    "tradeable": true,
+    "requirements": {},
+    "examine": "Coal dust. A common cooking ingredient."
+  },
+  {
+    "id": "water",
+    "name": "Water (from source)",
+    "category": "ingredient",
+    "sub_category": "liquid",
+    "stackable": false,
+    "weight": 1,
+    "value": 0,
+    "tradeable": true,
+    "requirements": {},
+    "examine": "Water (from source). A common cooking ingredient."
+  },
+  {
+    "id": "kelp",
+    "name": "Kelp",
+    "category": "ingredient",
+    "sub_category": "sea",
+    "stackable": false,
+    "weight": 0.2,
+    "value": 15,
+    "tradeable": true,
+    "requirements": {},
+    "examine": "Kelp. A common cooking ingredient."
+  },
+  {
+    "id": "sea_salt",
+    "name": "Sea salt",
+    "category": "ingredient",
+    "sub_category": "sea",
+    "stackable": false,
+    "weight": 0.2,
+    "value": 20,
+    "tradeable": true,
+    "requirements": {},
+    "examine": "Sea salt. A common cooking ingredient."
+  },
+  {
+    "id": "tinroot_arrowtip",
+    "name": "Tinroot arrowtip",
+    "category": "ammo_component",
+    "stackable": true,
+    "weight": 0,
+    "value": 8,
+    "tradeable": true,
+    "requirements": {
+      "smithing": 1
+    },
+    "examine": "Tinroot arrowtip. 15 per bar."
+  },
+  {
+    "id": "tinroot_arrows",
+    "name": "Tinroot arrows",
+    "category": "ammo",
+    "sub_category": "arrow",
+    "stackable": true,
+    "weight": 0,
+    "value": 24,
+    "tradeable": true,
+    "slot": "ammo",
+    "requirements": {
+      "ranged": 1
+    },
+    "stats": {
+      "ranged_strength": 7
+    },
+    "examine": "Tinroot arrows. Requires ranged 1."
+  },
+  {
+    "id": "tinroot_bolts",
+    "name": "Tinroot bolts",
+    "category": "ammo",
+    "sub_category": "bolt",
+    "stackable": true,
+    "weight": 0,
+    "value": 30,
+    "tradeable": true,
+    "slot": "ammo",
+    "requirements": {
+      "ranged": 1
+    },
+    "stats": {
+      "ranged_strength": 10
+    },
+    "examine": "Tinroot crossbow bolts. Requires ranged 1."
+  },
+  {
+    "id": "tinroot_knives",
+    "name": "Tinroot throwing knives",
+    "category": "ammo",
+    "sub_category": "thrown",
+    "stackable": true,
+    "weight": 0,
+    "value": 20,
+    "tradeable": true,
+    "slot": "weapon",
+    "requirements": {
+      "ranged": 1
+    },
+    "stats": {
+      "attack_ranged": 5,
+      "ranged_strength": 6
+    },
+    "examine": "Thrown tinroot knives. Stackable."
+  },
+  {
+    "id": "pigiron_arrowtip",
+    "name": "Pigiron arrowtip",
+    "category": "ammo_component",
+    "stackable": true,
+    "weight": 0,
+    "value": 16,
+    "tradeable": true,
+    "requirements": {
+      "smithing": 11
+    },
+    "examine": "Pigiron arrowtip. 15 per bar."
+  },
+  {
+    "id": "pigiron_arrows",
+    "name": "Pigiron arrows",
+    "category": "ammo",
+    "sub_category": "arrow",
+    "stackable": true,
+    "weight": 0,
+    "value": 48,
+    "tradeable": true,
+    "slot": "ammo",
+    "requirements": {
+      "ranged": 11
+    },
+    "stats": {
+      "ranged_strength": 19
+    },
+    "examine": "Pigiron arrows. Requires ranged 11."
+  },
+  {
+    "id": "pigiron_bolts",
+    "name": "Pigiron bolts",
+    "category": "ammo",
+    "sub_category": "bolt",
+    "stackable": true,
+    "weight": 0,
+    "value": 60,
+    "tradeable": true,
+    "slot": "ammo",
+    "requirements": {
+      "ranged": 11
+    },
+    "stats": {
+      "ranged_strength": 24
+    },
+    "examine": "Pigiron crossbow bolts. Requires ranged 11."
+  },
+  {
+    "id": "pigiron_knives",
+    "name": "Pigiron throwing knives",
+    "category": "ammo",
+    "sub_category": "thrown",
+    "stackable": true,
+    "weight": 0,
+    "value": 40,
+    "tradeable": true,
+    "slot": "weapon",
+    "requirements": {
+      "ranged": 11
+    },
+    "stats": {
+      "attack_ranged": 13,
+      "ranged_strength": 16
+    },
+    "examine": "Thrown pigiron knives. Stackable."
+  },
+  {
+    "id": "coalsteel_arrowtip",
+    "name": "Coalsteel arrowtip",
+    "category": "ammo_component",
+    "stackable": true,
+    "weight": 0,
+    "value": 24,
+    "tradeable": true,
+    "requirements": {
+      "smithing": 21
+    },
+    "examine": "Coalsteel arrowtip. 15 per bar."
+  },
+  {
+    "id": "coalsteel_arrows",
+    "name": "Coalsteel arrows",
+    "category": "ammo",
+    "sub_category": "arrow",
+    "stackable": true,
+    "weight": 0,
+    "value": 72,
+    "tradeable": true,
+    "slot": "ammo",
+    "requirements": {
+      "ranged": 21
+    },
+    "stats": {
+      "ranged_strength": 31
+    },
+    "examine": "Coalsteel arrows. Requires ranged 21."
+  },
+  {
+    "id": "coalsteel_bolts",
+    "name": "Coalsteel bolts",
+    "category": "ammo",
+    "sub_category": "bolt",
+    "stackable": true,
+    "weight": 0,
+    "value": 90,
+    "tradeable": true,
+    "slot": "ammo",
+    "requirements": {
+      "ranged": 21
+    },
+    "stats": {
+      "ranged_strength": 38
+    },
+    "examine": "Coalsteel crossbow bolts. Requires ranged 21."
+  },
+  {
+    "id": "coalsteel_knives",
+    "name": "Coalsteel throwing knives",
+    "category": "ammo",
+    "sub_category": "thrown",
+    "stackable": true,
+    "weight": 0,
+    "value": 60,
+    "tradeable": true,
+    "slot": "weapon",
+    "requirements": {
+      "ranged": 21
+    },
+    "stats": {
+      "attack_ranged": 21,
+      "ranged_strength": 26
+    },
+    "examine": "Thrown coalsteel knives. Stackable."
+  },
+  {
+    "id": "quicksilver_arrowtip",
+    "name": "Quicksilver arrowtip",
+    "category": "ammo_component",
+    "stackable": true,
+    "weight": 0,
+    "value": 32,
+    "tradeable": true,
+    "requirements": {
+      "smithing": 31
+    },
+    "examine": "Quicksilver arrowtip. 15 per bar."
+  },
+  {
+    "id": "quicksilver_arrows",
+    "name": "Quicksilver arrows",
+    "category": "ammo",
+    "sub_category": "arrow",
+    "stackable": true,
+    "weight": 0,
+    "value": 96,
+    "tradeable": true,
+    "slot": "ammo",
+    "requirements": {
+      "ranged": 31
+    },
+    "stats": {
+      "ranged_strength": 43
+    },
+    "examine": "Quicksilver arrows. Requires ranged 31."
+  },
+  {
+    "id": "quicksilver_bolts",
+    "name": "Quicksilver bolts",
+    "category": "ammo",
+    "sub_category": "bolt",
+    "stackable": true,
+    "weight": 0,
+    "value": 120,
+    "tradeable": true,
+    "slot": "ammo",
+    "requirements": {
+      "ranged": 31
+    },
+    "stats": {
+      "ranged_strength": 52
+    },
+    "examine": "Quicksilver crossbow bolts. Requires ranged 31."
+  },
+  {
+    "id": "quicksilver_knives",
+    "name": "Quicksilver throwing knives",
+    "category": "ammo",
+    "sub_category": "thrown",
+    "stackable": true,
+    "weight": 0,
+    "value": 80,
+    "tradeable": true,
+    "slot": "weapon",
+    "requirements": {
+      "ranged": 31
+    },
+    "stats": {
+      "attack_ranged": 29,
+      "ranged_strength": 36
+    },
+    "examine": "Thrown quicksilver knives. Stackable."
+  },
+  {
+    "id": "blacksteel_arrowtip",
+    "name": "Blacksteel arrowtip",
+    "category": "ammo_component",
+    "stackable": true,
+    "weight": 0,
+    "value": 40,
+    "tradeable": true,
+    "requirements": {
+      "smithing": 41
+    },
+    "examine": "Blacksteel arrowtip. 15 per bar."
+  },
+  {
+    "id": "blacksteel_arrows",
+    "name": "Blacksteel arrows",
+    "category": "ammo",
+    "sub_category": "arrow",
+    "stackable": true,
+    "weight": 0,
+    "value": 120,
+    "tradeable": true,
+    "slot": "ammo",
+    "requirements": {
+      "ranged": 41
+    },
+    "stats": {
+      "ranged_strength": 55
+    },
+    "examine": "Blacksteel arrows. Requires ranged 41."
+  },
+  {
+    "id": "blacksteel_bolts",
+    "name": "Blacksteel bolts",
+    "category": "ammo",
+    "sub_category": "bolt",
+    "stackable": true,
+    "weight": 0,
+    "value": 150,
+    "tradeable": true,
+    "slot": "ammo",
+    "requirements": {
+      "ranged": 41
+    },
+    "stats": {
+      "ranged_strength": 66
+    },
+    "examine": "Blacksteel crossbow bolts. Requires ranged 41."
+  },
+  {
+    "id": "blacksteel_knives",
+    "name": "Blacksteel throwing knives",
+    "category": "ammo",
+    "sub_category": "thrown",
+    "stackable": true,
+    "weight": 0,
+    "value": 100,
+    "tradeable": true,
+    "slot": "weapon",
+    "requirements": {
+      "ranged": 41
+    },
+    "stats": {
+      "attack_ranged": 37,
+      "ranged_strength": 46
+    },
+    "examine": "Thrown blacksteel knives. Stackable."
+  },
+  {
+    "id": "runeforge_arrowtip",
+    "name": "Runeforge arrowtip",
+    "category": "ammo_component",
+    "stackable": true,
+    "weight": 0,
+    "value": 48,
+    "tradeable": true,
+    "requirements": {
+      "smithing": 51
+    },
+    "examine": "Runeforge arrowtip. 15 per bar."
+  },
+  {
+    "id": "runeforge_arrows",
+    "name": "Runeforge arrows",
+    "category": "ammo",
+    "sub_category": "arrow",
+    "stackable": true,
+    "weight": 0,
+    "value": 144,
+    "tradeable": true,
+    "slot": "ammo",
+    "requirements": {
+      "ranged": 51
+    },
+    "stats": {
+      "ranged_strength": 67
+    },
+    "examine": "Runeforge arrows. Requires ranged 51."
+  },
+  {
+    "id": "runeforge_bolts",
+    "name": "Runeforge bolts",
+    "category": "ammo",
+    "sub_category": "bolt",
+    "stackable": true,
+    "weight": 0,
+    "value": 180,
+    "tradeable": true,
+    "slot": "ammo",
+    "requirements": {
+      "ranged": 51
+    },
+    "stats": {
+      "ranged_strength": 80
+    },
+    "examine": "Runeforge crossbow bolts. Requires ranged 51."
+  },
+  {
+    "id": "runeforge_knives",
+    "name": "Runeforge throwing knives",
+    "category": "ammo",
+    "sub_category": "thrown",
+    "stackable": true,
+    "weight": 0,
+    "value": 120,
+    "tradeable": true,
+    "slot": "weapon",
+    "requirements": {
+      "ranged": 51
+    },
+    "stats": {
+      "attack_ranged": 45,
+      "ranged_strength": 56
+    },
+    "examine": "Thrown runeforge knives. Stackable."
+  },
+  {
+    "id": "dragonsteel_arrowtip",
+    "name": "Dragonsteel arrowtip",
+    "category": "ammo_component",
+    "stackable": true,
+    "weight": 0,
+    "value": 56,
+    "tradeable": true,
+    "requirements": {
+      "smithing": 61
+    },
+    "examine": "Dragonsteel arrowtip. 15 per bar."
+  },
+  {
+    "id": "dragonsteel_arrows",
+    "name": "Dragonsteel arrows",
+    "category": "ammo",
+    "sub_category": "arrow",
+    "stackable": true,
+    "weight": 0,
+    "value": 168,
+    "tradeable": true,
+    "slot": "ammo",
+    "requirements": {
+      "ranged": 61
+    },
+    "stats": {
+      "ranged_strength": 79
+    },
+    "examine": "Dragonsteel arrows. Requires ranged 61."
+  },
+  {
+    "id": "dragonsteel_bolts",
+    "name": "Dragonsteel bolts",
+    "category": "ammo",
+    "sub_category": "bolt",
+    "stackable": true,
+    "weight": 0,
+    "value": 210,
+    "tradeable": true,
+    "slot": "ammo",
+    "requirements": {
+      "ranged": 61
+    },
+    "stats": {
+      "ranged_strength": 94
+    },
+    "examine": "Dragonsteel crossbow bolts. Requires ranged 61."
+  },
+  {
+    "id": "dragonsteel_knives",
+    "name": "Dragonsteel throwing knives",
+    "category": "ammo",
+    "sub_category": "thrown",
+    "stackable": true,
+    "weight": 0,
+    "value": 140,
+    "tradeable": true,
+    "slot": "weapon",
+    "requirements": {
+      "ranged": 61
+    },
+    "stats": {
+      "attack_ranged": 53,
+      "ranged_strength": 66
+    },
+    "examine": "Thrown dragonsteel knives. Stackable."
+  },
+  {
+    "id": "aeldra_arrowtip",
+    "name": "Aeldra arrowtip",
+    "category": "ammo_component",
+    "stackable": true,
+    "weight": 0,
+    "value": 64,
+    "tradeable": true,
+    "requirements": {
+      "smithing": 71
+    },
+    "examine": "Aeldra arrowtip. 15 per bar."
+  },
+  {
+    "id": "aeldra_arrows",
+    "name": "Aeldra arrows",
+    "category": "ammo",
+    "sub_category": "arrow",
+    "stackable": true,
+    "weight": 0,
+    "value": 192,
+    "tradeable": true,
+    "slot": "ammo",
+    "requirements": {
+      "ranged": 71
+    },
+    "stats": {
+      "ranged_strength": 91
+    },
+    "examine": "Aeldra arrows. Requires ranged 71."
+  },
+  {
+    "id": "aeldra_bolts",
+    "name": "Aeldra bolts",
+    "category": "ammo",
+    "sub_category": "bolt",
+    "stackable": true,
+    "weight": 0,
+    "value": 240,
+    "tradeable": true,
+    "slot": "ammo",
+    "requirements": {
+      "ranged": 71
+    },
+    "stats": {
+      "ranged_strength": 108
+    },
+    "examine": "Aeldra crossbow bolts. Requires ranged 71."
+  },
+  {
+    "id": "aeldra_knives",
+    "name": "Aeldra throwing knives",
+    "category": "ammo",
+    "sub_category": "thrown",
+    "stackable": true,
+    "weight": 0,
+    "value": 160,
+    "tradeable": true,
+    "slot": "weapon",
+    "requirements": {
+      "ranged": 71
+    },
+    "stats": {
+      "attack_ranged": 61,
+      "ranged_strength": 76
+    },
+    "examine": "Thrown aeldra knives. Stackable."
+  },
+  {
+    "id": "wyrmforged_arrowtip",
+    "name": "Wyrmforged arrowtip",
+    "category": "ammo_component",
+    "stackable": true,
+    "weight": 0,
+    "value": 72,
+    "tradeable": true,
+    "requirements": {
+      "smithing": 81
+    },
+    "examine": "Wyrmforged arrowtip. 15 per bar."
+  },
+  {
+    "id": "wyrmforged_arrows",
+    "name": "Wyrmforged arrows",
+    "category": "ammo",
+    "sub_category": "arrow",
+    "stackable": true,
+    "weight": 0,
+    "value": 216,
+    "tradeable": true,
+    "slot": "ammo",
+    "requirements": {
+      "ranged": 81
+    },
+    "stats": {
+      "ranged_strength": 103
+    },
+    "examine": "Wyrmforged arrows. Requires ranged 81."
+  },
+  {
+    "id": "wyrmforged_bolts",
+    "name": "Wyrmforged bolts",
+    "category": "ammo",
+    "sub_category": "bolt",
+    "stackable": true,
+    "weight": 0,
+    "value": 270,
+    "tradeable": true,
+    "slot": "ammo",
+    "requirements": {
+      "ranged": 81
+    },
+    "stats": {
+      "ranged_strength": 122
+    },
+    "examine": "Wyrmforged crossbow bolts. Requires ranged 81."
+  },
+  {
+    "id": "wyrmforged_knives",
+    "name": "Wyrmforged throwing knives",
+    "category": "ammo",
+    "sub_category": "thrown",
+    "stackable": true,
+    "weight": 0,
+    "value": 180,
+    "tradeable": true,
+    "slot": "weapon",
+    "requirements": {
+      "ranged": 81
+    },
+    "stats": {
+      "attack_ranged": 69,
+      "ranged_strength": 86
+    },
+    "examine": "Thrown wyrmforged knives. Stackable."
+  },
+  {
+    "id": "arrow_shaft",
+    "name": "Arrow shaft",
+    "category": "ammo_component",
+    "stackable": true,
+    "weight": 0,
+    "value": 1,
+    "tradeable": true,
+    "examine": "Fletching arrow shafts."
+  },
+  {
+    "id": "feather",
+    "name": "Feather",
+    "category": "ammo_component",
+    "stackable": true,
+    "weight": 0,
+    "value": 2,
+    "tradeable": true,
+    "examine": "Used to fletch arrows."
+  },
+  {
+    "id": "headless_arrow",
+    "name": "Headless arrow",
+    "category": "ammo_component",
+    "stackable": true,
+    "weight": 0,
+    "value": 3,
+    "tradeable": true,
+    "examine": "Arrow shaft + feather."
+  },
+  {
+    "id": "bowstring",
+    "name": "Bowstring",
+    "category": "ammo_component",
+    "stackable": true,
+    "weight": 0,
+    "value": 120,
+    "tradeable": true,
+    "examine": "Spun from flax. Strings bows."
+  },
+  {
+    "id": "flax",
+    "name": "Flax",
+    "category": "ammo_component",
+    "stackable": false,
+    "weight": 0.1,
+    "value": 16,
+    "tradeable": true,
+    "examine": "Spin into bowstring."
+  },
+  {
+    "id": "potato_seed",
+    "name": "Potato seed",
+    "category": "seed",
+    "sub_category": "allotment",
+    "stackable": true,
+    "weight": 0,
+    "value": 5,
+    "tradeable": true,
+    "requirements": {
+      "farming": 1
+    },
+    "examine": "Plant in an allotment patch."
+  },
+  {
+    "id": "onion_seed",
+    "name": "Onion seed",
+    "category": "seed",
+    "sub_category": "allotment",
+    "stackable": true,
+    "weight": 0,
+    "value": 8,
+    "tradeable": true,
+    "requirements": {
+      "farming": 5
+    },
+    "examine": "Plant in an allotment patch."
+  },
+  {
+    "id": "cabbage_seed",
+    "name": "Cabbage seed",
+    "category": "seed",
+    "sub_category": "allotment",
+    "stackable": true,
+    "weight": 0,
+    "value": 10,
+    "tradeable": true,
+    "requirements": {
+      "farming": 7
+    },
+    "examine": "Plant in an allotment patch."
+  },
+  {
+    "id": "tomato_seed",
+    "name": "Tomato seed",
+    "category": "seed",
+    "sub_category": "allotment",
+    "stackable": true,
+    "weight": 0,
+    "value": 15,
+    "tradeable": true,
+    "requirements": {
+      "farming": 12
+    },
+    "examine": "Plant in an allotment patch."
+  },
+  {
+    "id": "sweetcorn_seed",
+    "name": "Sweetcorn seed",
+    "category": "seed",
+    "sub_category": "allotment",
+    "stackable": true,
+    "weight": 0,
+    "value": 22,
+    "tradeable": true,
+    "requirements": {
+      "farming": 20
+    },
+    "examine": "Plant in an allotment patch."
+  },
+  {
+    "id": "strawberry_seed",
+    "name": "Strawberry seed",
+    "category": "seed",
+    "sub_category": "allotment",
+    "stackable": true,
+    "weight": 0,
+    "value": 30,
+    "tradeable": true,
+    "requirements": {
+      "farming": 31
+    },
+    "examine": "Plant in an allotment patch."
+  },
+  {
+    "id": "watermelon_seed",
+    "name": "Watermelon seed",
+    "category": "seed",
+    "sub_category": "allotment",
+    "stackable": true,
+    "weight": 0,
+    "value": 90,
+    "tradeable": true,
+    "requirements": {
+      "farming": 47
+    },
+    "examine": "Plant in an allotment patch."
+  },
+  {
+    "id": "snape_grass_seed",
+    "name": "Snape grass seed",
+    "category": "seed",
+    "sub_category": "allotment",
+    "stackable": true,
+    "weight": 0,
+    "value": 160,
+    "tradeable": true,
+    "requirements": {
+      "farming": 60
+    },
+    "examine": "Plant in an allotment patch."
+  },
+  {
+    "id": "white_berries_seed",
+    "name": "White berries seed",
+    "category": "seed",
+    "sub_category": "allotment",
+    "stackable": true,
+    "weight": 0,
+    "value": 150,
+    "tradeable": true,
+    "requirements": {
+      "farming": 59
+    },
+    "examine": "Plant in an allotment patch."
+  },
+  {
+    "id": "apple_tree_seed",
+    "name": "Apple tree seed",
+    "category": "seed",
+    "sub_category": "fruit_tree",
+    "stackable": true,
+    "weight": 0,
+    "value": 40,
+    "tradeable": true,
+    "requirements": {
+      "farming": 27
+    },
+    "examine": "Plant in a fruit tree patch."
+  },
+  {
+    "id": "banana_tree_seed",
+    "name": "Banana tree seed",
+    "category": "seed",
+    "sub_category": "fruit_tree",
+    "stackable": true,
+    "weight": 0,
+    "value": 75,
+    "tradeable": true,
+    "requirements": {
+      "farming": 33
+    },
+    "examine": "Plant in a fruit tree patch."
+  },
+  {
+    "id": "orange_tree_seed",
+    "name": "Orange tree seed",
+    "category": "seed",
+    "sub_category": "fruit_tree",
+    "stackable": true,
+    "weight": 0,
+    "value": 120,
+    "tradeable": true,
+    "requirements": {
+      "farming": 39
+    },
+    "examine": "Plant in a fruit tree patch."
+  },
+  {
+    "id": "curry_tree_seed",
+    "name": "Curry tree seed",
+    "category": "seed",
+    "sub_category": "fruit_tree",
+    "stackable": true,
+    "weight": 0,
+    "value": 180,
+    "tradeable": true,
+    "requirements": {
+      "farming": 42
+    },
+    "examine": "Plant in a fruit tree patch."
+  },
+  {
+    "id": "pineapple_tree_seed",
+    "name": "Pineapple tree seed",
+    "category": "seed",
+    "sub_category": "fruit_tree",
+    "stackable": true,
+    "weight": 0,
+    "value": 280,
+    "tradeable": true,
+    "requirements": {
+      "farming": 51
+    },
+    "examine": "Plant in a fruit tree patch."
+  },
+  {
+    "id": "papaya_tree_seed",
+    "name": "Papaya tree seed",
+    "category": "seed",
+    "sub_category": "fruit_tree",
+    "stackable": true,
+    "weight": 0,
+    "value": 500,
+    "tradeable": true,
+    "requirements": {
+      "farming": 57
+    },
+    "examine": "Plant in a fruit tree patch."
+  },
+  {
+    "id": "palm_tree_seed",
+    "name": "Palm tree seed",
+    "category": "seed",
+    "sub_category": "fruit_tree",
+    "stackable": true,
+    "weight": 0,
+    "value": 1200,
+    "tradeable": true,
+    "requirements": {
+      "farming": 68
+    },
+    "examine": "Plant in a fruit tree patch."
+  },
+  {
+    "id": "dragonfruit_tree_seed",
+    "name": "Dragonfruit tree seed",
+    "category": "seed",
+    "sub_category": "fruit_tree",
+    "stackable": true,
+    "weight": 0,
+    "value": 9500,
+    "tradeable": true,
+    "requirements": {
+      "farming": 81
+    },
+    "examine": "Plant in a fruit tree patch."
+  },
+  {
+    "id": "moonberry_tree_seed",
+    "name": "Moonberry tree seed",
+    "category": "seed",
+    "sub_category": "fruit_tree",
+    "stackable": true,
+    "weight": 0,
+    "value": 3200,
+    "tradeable": true,
+    "requirements": {
+      "farming": 75
+    },
+    "examine": "Plant in a fruit tree patch."
+  },
+  {
+    "id": "oak_tree_seed",
+    "name": "Oak tree seed",
+    "category": "seed",
+    "sub_category": "tree",
+    "stackable": true,
+    "weight": 0,
+    "value": 14,
+    "tradeable": true,
+    "requirements": {
+      "farming": 15
+    },
+    "examine": "Plant in a plant pot, water to grow sapling."
+  },
+  {
+    "id": "oak_sapling",
+    "name": "Oak sapling",
+    "category": "sapling",
+    "stackable": false,
+    "weight": 0.1,
+    "value": 40,
+    "tradeable": true,
+    "requirements": {
+      "farming": 15
+    },
+    "examine": "A oak sapling, ready to plant."
+  },
+  {
+    "id": "willow_tree_seed",
+    "name": "Willow tree seed",
+    "category": "seed",
+    "sub_category": "tree",
+    "stackable": true,
+    "weight": 0,
+    "value": 22,
+    "tradeable": true,
+    "requirements": {
+      "farming": 30
+    },
+    "examine": "Plant in a plant pot, water to grow sapling."
+  },
+  {
+    "id": "willow_sapling",
+    "name": "Willow sapling",
+    "category": "sapling",
+    "stackable": false,
+    "weight": 0.1,
+    "value": 90,
+    "tradeable": true,
+    "requirements": {
+      "farming": 30
+    },
+    "examine": "A willow sapling, ready to plant."
+  },
+  {
+    "id": "maple_tree_seed",
+    "name": "Maple tree seed",
+    "category": "seed",
+    "sub_category": "tree",
+    "stackable": true,
+    "weight": 0,
+    "value": 48,
+    "tradeable": true,
+    "requirements": {
+      "farming": 45
+    },
+    "examine": "Plant in a plant pot, water to grow sapling."
+  },
+  {
+    "id": "maple_sapling",
+    "name": "Maple sapling",
+    "category": "sapling",
+    "stackable": false,
+    "weight": 0.1,
+    "value": 280,
+    "tradeable": true,
+    "requirements": {
+      "farming": 45
+    },
+    "examine": "A maple sapling, ready to plant."
+  },
+  {
+    "id": "yew_tree_seed",
+    "name": "Yew tree seed",
+    "category": "seed",
+    "sub_category": "tree",
+    "stackable": true,
+    "weight": 0,
+    "value": 280,
+    "tradeable": true,
+    "requirements": {
+      "farming": 60
+    },
+    "examine": "Plant in a plant pot, water to grow sapling."
+  },
+  {
+    "id": "yew_sapling",
+    "name": "Yew sapling",
+    "category": "sapling",
+    "stackable": false,
+    "weight": 0.1,
+    "value": 1200,
+    "tradeable": true,
+    "requirements": {
+      "farming": 60
+    },
+    "examine": "A yew sapling, ready to plant."
+  },
+  {
+    "id": "magic_tree_seed",
+    "name": "Magic tree seed",
+    "category": "seed",
+    "sub_category": "tree",
+    "stackable": true,
+    "weight": 0,
+    "value": 900,
+    "tradeable": true,
+    "requirements": {
+      "farming": 75
+    },
+    "examine": "Plant in a plant pot, water to grow sapling."
+  },
+  {
+    "id": "magic_sapling",
+    "name": "Magic sapling",
+    "category": "sapling",
+    "stackable": false,
+    "weight": 0.1,
+    "value": 5500,
+    "tradeable": true,
+    "requirements": {
+      "farming": 75
+    },
+    "examine": "A magic sapling, ready to plant."
+  },
+  {
+    "id": "redwood_tree_seed",
+    "name": "Redwood tree seed",
+    "category": "seed",
+    "sub_category": "tree",
+    "stackable": true,
+    "weight": 0,
+    "value": 1800,
+    "tradeable": true,
+    "requirements": {
+      "farming": 90
+    },
+    "examine": "Plant in a plant pot, water to grow sapling."
+  },
+  {
+    "id": "redwood_sapling",
+    "name": "Redwood sapling",
+    "category": "sapling",
+    "stackable": false,
+    "weight": 0.1,
+    "value": 18000,
+    "tradeable": true,
+    "requirements": {
+      "farming": 90
+    },
+    "examine": "A redwood sapling, ready to plant."
+  },
+  {
+    "id": "redberry_seed",
+    "name": "Redberry seed",
+    "category": "seed",
+    "sub_category": "bush",
+    "stackable": true,
+    "weight": 0,
+    "value": 10,
+    "tradeable": true,
+    "requirements": {
+      "farming": 10
+    },
+    "examine": "Plant in a bush patch."
+  },
+  {
+    "id": "redberry",
+    "name": "Redberry",
+    "category": "fruit",
+    "stackable": false,
+    "weight": 0.1,
+    "value": 2,
+    "tradeable": true,
+    "examine": "A handful of redberry berries."
+  },
+  {
+    "id": "cadavaberry_seed",
+    "name": "Cadavaberry seed",
+    "category": "seed",
+    "sub_category": "bush",
+    "stackable": true,
+    "weight": 0,
+    "value": 22,
+    "tradeable": true,
+    "requirements": {
+      "farming": 22
+    },
+    "examine": "Plant in a bush patch."
+  },
+  {
+    "id": "cadavaberry",
+    "name": "Cadavaberry",
+    "category": "fruit",
+    "stackable": false,
+    "weight": 0.1,
+    "value": 7,
+    "tradeable": true,
+    "examine": "A handful of cadavaberry berries."
+  },
+  {
+    "id": "dwellberry_seed",
+    "name": "Dwellberry seed",
+    "category": "seed",
+    "sub_category": "bush",
+    "stackable": true,
+    "weight": 0,
+    "value": 55,
+    "tradeable": true,
+    "requirements": {
+      "farming": 36
+    },
+    "examine": "Plant in a bush patch."
+  },
+  {
+    "id": "dwellberry",
+    "name": "Dwellberry",
+    "category": "fruit",
+    "stackable": false,
+    "weight": 0.1,
+    "value": 10,
+    "tradeable": true,
+    "examine": "A handful of dwellberry berries."
+  },
+  {
+    "id": "jangerberry_seed",
+    "name": "Jangerberry seed",
+    "category": "seed",
+    "sub_category": "bush",
+    "stackable": true,
+    "weight": 0,
+    "value": 80,
+    "tradeable": true,
+    "requirements": {
+      "farming": 48
+    },
+    "examine": "Plant in a bush patch."
+  },
+  {
+    "id": "jangerberry",
+    "name": "Jangerberry",
+    "category": "fruit",
+    "stackable": false,
+    "weight": 0.1,
+    "value": 15,
+    "tradeable": true,
+    "examine": "A handful of jangerberry berries."
+  },
+  {
+    "id": "whiteberry_seed",
+    "name": "Whiteberry seed",
+    "category": "seed",
+    "sub_category": "bush",
+    "stackable": true,
+    "weight": 0,
+    "value": 150,
+    "tradeable": true,
+    "requirements": {
+      "farming": 59
+    },
+    "examine": "Plant in a bush patch."
+  },
+  {
+    "id": "whiteberry",
+    "name": "Whiteberry",
+    "category": "fruit",
+    "stackable": false,
+    "weight": 0.1,
+    "value": 35,
+    "tradeable": true,
+    "examine": "A handful of whiteberry berries."
+  },
+  {
+    "id": "poisonivy_seed",
+    "name": "Poisonivy seed",
+    "category": "seed",
+    "sub_category": "bush",
+    "stackable": true,
+    "weight": 0,
+    "value": 300,
+    "tradeable": true,
+    "requirements": {
+      "farming": 70
+    },
+    "examine": "Plant in a bush patch."
+  },
+  {
+    "id": "poisonivy",
+    "name": "Poisonivy",
+    "category": "fruit",
+    "stackable": false,
+    "weight": 0.1,
+    "value": 50,
+    "tradeable": true,
+    "examine": "A handful of poisonivy berries."
+  },
+  {
+    "id": "planks_regular",
+    "name": "Plank",
+    "category": "processed_wood",
+    "stackable": false,
+    "weight": 1.5,
+    "value": 100,
+    "tradeable": true,
+    "requirements": {
+      "construction": 1
+    },
+    "examine": "A sawmill-cut plank."
+  },
+  {
+    "id": "oak_planks",
+    "name": "Oak plank",
+    "category": "processed_wood",
+    "stackable": false,
+    "weight": 1.5,
+    "value": 250,
+    "tradeable": true,
+    "requirements": {
+      "construction": 15
+    },
+    "examine": "A sawmill-cut oak plank."
+  },
+  {
+    "id": "teak_plank",
+    "name": "Teak plank",
+    "category": "processed_wood",
+    "stackable": false,
+    "weight": 1.5,
+    "value": 500,
+    "tradeable": true,
+    "requirements": {
+      "construction": 35
+    },
+    "examine": "A sawmill-cut teak plank."
+  },
+  {
+    "id": "mahogany_plank",
+    "name": "Mahogany plank",
+    "category": "processed_wood",
+    "stackable": false,
+    "weight": 1.5,
+    "value": 1500,
+    "tradeable": true,
+    "requirements": {
+      "construction": 50
+    },
+    "examine": "A sawmill-cut mahogany plank."
+  },
+  {
+    "id": "redwood_plank",
+    "name": "Redwood plank",
+    "category": "processed_wood",
+    "stackable": false,
+    "weight": 1.5,
+    "value": 4800,
+    "tradeable": true,
+    "requirements": {
+      "construction": 85
+    },
+    "examine": "A sawmill-cut redwood plank."
+  },
+  {
+    "id": "rope",
+    "name": "Rope",
+    "category": "utility",
+    "stackable": false,
+    "weight": 0.5,
+    "value": 18,
+    "tradeable": true,
+    "requirements": {},
+    "examine": "A rope."
+  },
+  {
+    "id": "chisel",
+    "name": "Chisel",
+    "category": "tool",
+    "stackable": false,
+    "weight": 0.5,
+    "value": 5,
+    "tradeable": true,
+    "requirements": {},
+    "examine": "A chisel."
+  },
+  {
+    "id": "hammer",
+    "name": "Hammer",
+    "category": "tool",
+    "stackable": false,
+    "weight": 0.5,
+    "value": 5,
+    "tradeable": true,
+    "requirements": {},
+    "examine": "A hammer."
+  },
+  {
+    "id": "knife",
+    "name": "Knife",
+    "category": "tool",
+    "stackable": false,
+    "weight": 0.5,
+    "value": 6,
+    "tradeable": true,
+    "requirements": {},
+    "examine": "A knife."
+  },
+  {
+    "id": "tinderbox",
+    "name": "Tinderbox",
+    "category": "tool",
+    "stackable": false,
+    "weight": 0.5,
+    "value": 1,
+    "tradeable": true,
+    "requirements": {},
+    "examine": "A tinderbox."
+  },
+  {
+    "id": "rake",
+    "name": "Rake",
+    "category": "tool",
+    "stackable": false,
+    "weight": 0.5,
+    "value": 3,
+    "tradeable": true,
+    "requirements": {},
+    "examine": "A rake."
+  },
+  {
+    "id": "dibber",
+    "name": "Seed dibber",
+    "category": "tool",
+    "stackable": false,
+    "weight": 0.5,
+    "value": 4,
+    "tradeable": true,
+    "requirements": {},
+    "examine": "A seed dibber."
+  },
+  {
+    "id": "spade",
+    "name": "Spade",
+    "category": "tool",
+    "stackable": false,
+    "weight": 0.5,
+    "value": 3,
+    "tradeable": true,
+    "requirements": {},
+    "examine": "A spade."
+  },
+  {
+    "id": "needle",
+    "name": "Needle",
+    "category": "tool",
+    "stackable": false,
+    "weight": 0.5,
+    "value": 1,
+    "tradeable": true,
+    "requirements": {},
+    "examine": "A needle."
+  },
+  {
+    "id": "thread",
+    "name": "Thread",
+    "category": "tool",
+    "stackable": false,
+    "weight": 0.5,
+    "value": 1,
+    "tradeable": true,
+    "requirements": {},
+    "examine": "A thread."
+  },
+  {
+    "id": "nails_iron",
+    "name": "Iron nails",
+    "category": "utility",
+    "stackable": true,
+    "weight": 0.5,
+    "value": 5,
+    "tradeable": true,
+    "requirements": {},
+    "examine": "A iron nails."
+  },
+  {
+    "id": "nails_steel",
+    "name": "Steel nails",
+    "category": "utility",
+    "stackable": true,
+    "weight": 0.5,
+    "value": 15,
+    "tradeable": true,
+    "requirements": {},
+    "examine": "A steel nails."
+  },
+  {
+    "id": "nails_mith",
+    "name": "Mithril nails",
+    "category": "utility",
+    "stackable": true,
+    "weight": 0.5,
+    "value": 30,
+    "tradeable": true,
+    "requirements": {
+      "crafting": 20
+    },
+    "examine": "A mithril nails."
+  },
+  {
+    "id": "nails_adam",
+    "name": "Adamant nails",
+    "category": "utility",
+    "stackable": true,
+    "weight": 0.5,
+    "value": 60,
+    "tradeable": true,
+    "requirements": {
+      "crafting": 30
+    },
+    "examine": "A adamant nails."
+  },
+  {
+    "id": "nails_rune",
+    "name": "Rune nails",
+    "category": "utility",
+    "stackable": true,
+    "weight": 0.5,
+    "value": 120,
+    "tradeable": true,
+    "requirements": {
+      "crafting": 40
+    },
+    "examine": "A rune nails."
+  },
+  {
+    "id": "bones",
+    "name": "Bones",
+    "category": "prayer_resource",
+    "stackable": false,
+    "weight": 1,
+    "value": 5,
+    "tradeable": true,
+    "requirements": {
+      "prayer": 1
+    },
+    "examine": "Bones. Bury for prayer XP."
+  },
+  {
+    "id": "big_bones",
+    "name": "Big bones",
+    "category": "prayer_resource",
+    "stackable": false,
+    "weight": 1,
+    "value": 15,
+    "tradeable": true,
+    "requirements": {
+      "prayer": 1
+    },
+    "examine": "Big bones. Bury for prayer XP."
+  },
+  {
+    "id": "cursed_bones",
+    "name": "Cursed bones",
+    "category": "prayer_resource",
+    "stackable": false,
+    "weight": 1,
+    "value": 42,
+    "tradeable": true,
+    "requirements": {
+      "prayer": 150
+    },
+    "examine": "Cursed bones. Bury for prayer XP."
+  },
+  {
+    "id": "dragon_bones",
+    "name": "Dragon bones",
+    "category": "prayer_resource",
+    "stackable": false,
+    "weight": 1.5,
+    "value": 72,
+    "tradeable": true,
+    "requirements": {
+      "prayer": 800
+    },
+    "examine": "Dragon bones. Bury for prayer XP."
+  },
+  {
+    "id": "wyrm_bones",
+    "name": "Wyrm bones",
+    "category": "prayer_resource",
+    "stackable": false,
+    "weight": 1,
+    "value": 80,
+    "tradeable": true,
+    "requirements": {
+      "prayer": 2200
+    },
+    "examine": "Wyrm bones. Bury for prayer XP."
+  },
+  {
+    "id": "moonbeast_bones",
+    "name": "Moonbeast bones",
+    "category": "prayer_resource",
+    "stackable": false,
+    "weight": 1,
+    "value": 90,
+    "tradeable": true,
+    "requirements": {
+      "prayer": 4500
+    },
+    "examine": "Moonbeast bones. Bury for prayer XP."
+  },
+  {
+    "id": "ashes",
+    "name": "Ashes",
+    "category": "prayer_resource",
+    "stackable": false,
+    "weight": 1,
+    "value": 4,
+    "tradeable": true,
+    "requirements": {
+      "prayer": 1
+    },
+    "examine": "Ashes. Bury for prayer XP."
+  },
+  {
+    "id": "white_ashes",
+    "name": "White ashes",
+    "category": "prayer_resource",
+    "stackable": false,
+    "weight": 1,
+    "value": 20,
+    "tradeable": true,
+    "requirements": {
+      "prayer": 1
+    },
+    "examine": "White ashes. Bury for prayer XP."
+  },
+  {
+    "id": "infernal_ashes",
+    "name": "Infernal ashes",
+    "category": "prayer_resource",
+    "stackable": false,
+    "weight": 1,
+    "value": 110,
+    "tradeable": true,
+    "requirements": {
+      "prayer": 6000
+    },
+    "examine": "Infernal ashes. Bury for prayer XP."
+  }
+]
