@@ -1,0 +1,63 @@
+{
+  "schema_version": 1,
+  "description": "Tracks which OSRS wiki pages have been compared to Scape. Future wiki-comparison agents should read this FIRST and skip any page already listed. After an agent compares new pages, it appends them here with the report_file that cites the comparison.",
+  "last_updated": "2026-04-22",
+  "comparison_reports": [
+    {
+      "path": "C:/Users/username/ScapeAI/reports/wiki-mirror-gap-analysis.md",
+      "date": "2026-04-22",
+      "summary": "Per-category gap analysis across 10 major content areas (quests, methods, bestiary, bosses, items, minigames, diaries, CAs, coll log, transportation). Scape ahead on quests (+29%), diaries (+10%), Aelgard-unique minigames. Behind on bestiary (7%), equipment (36%), coll-log items (49%), teleports (49%)."
+    },
+    {
+      "path": "C:/Users/username/ScapeAI/data/osrs-hiscores-snapshot-extended.json",
+      "date": "2026-04-22",
+      "tag": "hiscores-extended",
+      "summary": "Extended OSRS hiscores snapshot: 23 skills + Overall, 46 bosses (agent A covers the other 23), 6 clue tiers, 7 minigames. Six rank samples (p1/p100/p1000/p10000/p100000/p500000) per category. 498 samples total, 89.8% populated (remaining 10.2% null where OSRS ladder does not extend to that depth). Stickiest bosses: The Whisperer, The Leviathan, CoX:CM. Quick-quit bosses: Amoxliatl, Callisto, Sol Heredit."
+    }
+  ],
+  "categories_covered": {
+    "quests": {
+      "count": 109,
+      "cache": "C:/Users/username/ScapeAI/reports/_wiki_cache/quests.json",
+      "status": "parsed-infobox",
+      "note": "Subset of OSRS's ~170 quests — HTTrack crawl incomplete at time of scan"
+    },
+    "monsters": {
+      "count": 224,
+      "cache": "C:/Users/username/ScapeAI/reports/_wiki_cache/monsters.json",
+      "status": "parsed-infobox",
+      "note": "Subset of OSRS's ~1,800 monsters"
+    },
+    "items": {
+      "count": 891,
+      "cache": "C:/Users/username/ScapeAI/reports/_wiki_cache/items.json",
+      "status": "parsed-infobox",
+      "note": "Subset of OSRS's ~1,200+ equipment items"
+    },
+    "minigames": {
+      "count": 66,
+      "cache": "C:/Users/username/ScapeAI/reports/_wiki_cache/minigames.json",
+      "status": "parsed-infobox",
+      "note": "Includes some overflow beyond OSRS's ~49 canonical minigames"
+    },
+    "stats_counts": {
+      "count": 11,
+      "cache": "C:/Users/username/ScapeAI/reports/_wiki_cache/stats.json",
+      "status": "parsed-category-headers",
+      "note": "Top-level category statistics"
+    }
+  },
+  "pages_reviewed": [],
+  "next_pass_todo": [
+    "Deep-dive per-quest walkthroughs (beyond infobox stubs)",
+    "Per-boss mechanic pages (attack rotations, phases, counterplay)",
+    "Per-method training pages (level brackets, actual xp/hr tables)",
+    "Transportation pages (fairy ring grid, spirit tree network, individual spells)",
+    "Collection log sub-pages per boss/raid",
+    "Achievement diary task lists per region",
+    "Clue step walkthroughs per tier",
+    "Rare drop table mechanics",
+    "Prayer/Magic/Combat mechanics reference pages",
+    "Update once HTTrack crawl completes (currently 2,976 of ~50k pages)"
+  ]
+}
