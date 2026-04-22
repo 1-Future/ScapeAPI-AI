@@ -295,6 +295,34 @@
       "description": "Twisted bow on revenants.",
       "produces": [{ "item": "revenant_ether", "rate_per_hour": 3200 }],
       "marstead_note": "Max Focus."
+    },
+    {
+      "id": "heartlands_active_chin_range_task",
+      "skill": "ranged",
+      "level_required": 65,
+      "name": "Active Chinchompa Range Task",
+      "location": { "region": "heartlands", "spot": "Chelser chin-training pit, stacked-mob zones" },
+      "intensity": 5,
+      "xp_per_hour": 128000,
+      "gp_per_hour": 1300000,
+      "requires": { "quests": [], "items": ["black_chinchompa", "ava_s_device"], "skills": {"ranged": 65} },
+      "description": "Stacked-mob chinning for mid-accounts. Active AoE chin rotation on packed mobs. Ava-device recycle for ammo economy.",
+      "produces": [{ "item": "black_chinchompa_used", "rate_per_hour": 3200 }],
+      "marstead_note": "H11 int5 1M+ moneymaker. Active chin for mid-accounts."
+    },
+    {
+      "id": "glass_desert_tombs_expert_solo",
+      "skill": "ranged",
+      "level_required": 97,
+      "name": "Tombs of Amascut Expert Solo (500+)",
+      "location": { "region": "glass_desert", "spot": "Crescent Tombs of Amascut, 500+ invocation" },
+      "intensity": 10,
+      "xp_per_hour": 215000,
+      "gp_per_hour": 9200000,
+      "requires": { "quests": ["the_tomb_oath", "the_dune_covenant"], "items": ["twisted_bow", "zaryte_crossbow", "masori_armour"], "skills": {"ranged": 97, "defence": 93, "magic": 93, "prayer": 92, "hitpoints": 92} },
+      "description": "Max invocation ToA solo. Raid rotation on elevated invocation — purple roll x2 at 500+. Band 10 elite.",
+      "produces": [{ "item": "masori_shard", "rate_per_hour": 1.1 }],
+      "marstead_note": "M13 band 10 ToA expert invocation."
     }
   ],
   "bracket_coverage": {

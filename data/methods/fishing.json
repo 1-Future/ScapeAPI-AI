@@ -323,6 +323,48 @@
       "description": "Tidal spawn event. Nets drift every 15 seconds. Exchange 40 minnow for 1 raw shark at the weighmaster (ironman loop).",
       "produces": [{ "item": "raw_minnow", "rate_per_hour": 3600 }],
       "marstead_note": "Active. The Marstead-approved pure XP shark input for ironmen."
+    },
+    {
+      "id": "saltbrine_tidecaller_reef_dive",
+      "skill": "fishing",
+      "level_required": 68,
+      "name": "Tidecaller Reef Dive",
+      "location": { "region": "saltbrine", "spot": "Tidecaller reef shelf" },
+      "intensity": 6,
+      "xp_per_hour": 128000,
+      "gp_per_hour": 1100000,
+      "requires": { "quests": ["the_crystal_coast", "trawlers_call"], "items": ["swimming_charm", "harpoon", "air_bladder"], "skills": {"fishing": 68} },
+      "description": "3-tick fishing reef pull with swim dodge between harpoon casts. Tidecaller pearls drop at 1 in 450.",
+      "produces": [{ "item": "tidecaller_pearl", "rate_per_hour": 8 }],
+      "marstead_note": "H11 Saltbrine 1-2M moneymaker. 3-tick fishing + swim dodge."
+    },
+    {
+      "id": "inkweald_ink_current_tick_net",
+      "skill": "fishing",
+      "level_required": 92,
+      "name": "Ink-Current Three-Tick Net",
+      "location": { "region": "inkweald", "spot": "Penseurlake inkfall currents" },
+      "intensity": 8,
+      "xp_per_hour": 186000,
+      "gp_per_hour": 2200000,
+      "requires": { "quests": ["unwake_the_dreamer"], "items": ["silver_net", "tick_weight", "stim_tonic"], "skills": {"fishing": 92, "herblore": 80} },
+      "description": "Elite tick-perfect net on ink-current shoals. Bleed rare catch; tonic refresh between shoal lines.",
+      "produces": [{ "item": "inkweald_caviar", "rate_per_hour": 420 }],
+      "marstead_note": "M14 endgame fishing. Band 8 tick-locked elite."
+    },
+    {
+      "id": "saltbrine_monkfish_rotation",
+      "skill": "fishing",
+      "level_required": 62,
+      "name": "Saltbrine Monkfish Rotation",
+      "location": { "region": "saltbrine", "spot": "Saltbrine Crag monk pier, triple-spot rotation" },
+      "intensity": 3,
+      "xp_per_hour": 62000,
+      "gp_per_hour": 550000,
+      "requires": { "quests": ["trawlers_call"], "items": ["small_fishing_net", "monk_badge"], "skills": {"fishing": 62} },
+      "description": "Three-spot monkfish rotation. Attentive but not tick-perfect — walk between depleting spots.",
+      "produces": [{ "item": "raw_monkfish", "rate_per_hour": 280 }],
+      "marstead_note": "H11 int3 500k+ moneymaker. Fills the int3/500k+ gap at saltbrine."
     }
   ],
   "bracket_coverage": {

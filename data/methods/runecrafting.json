@@ -351,6 +351,62 @@
       "description": "Quieter-world wrath AFK walking.",
       "produces": [{ "item": "wrath_rune", "rate_per_hour": 3200 }],
       "marstead_note": "Multitask-Active. Lower-intensity wrath."
+    },
+    {
+      "id": "inkweald_ink_dyed_rune_batch",
+      "skill": "runecrafting",
+      "level_required": 88,
+      "name": "Inkweald Ink-Dyed Rune Batch",
+      "location": { "region": "inkweald", "spot": "Penseurlake ink-shrine" },
+      "intensity": 2,
+      "xp_per_hour": 114000,
+      "gp_per_hour": 2200000,
+      "requires": { "quests": ["unwake_the_dreamer"], "items": ["rune_essence", "ink_reagent", "dye_pair"], "skills": {"runecrafting": 88} },
+      "description": "Dual-dyed ink rune pairs. Reagent-paired craft with large batch yield. Light-interaction rune processing.",
+      "produces": [{ "item": "ink_dyed_rune", "rate_per_hour": 4800 }],
+      "marstead_note": "H11 Inkweald 2-5M moneymaker. Reagent-paired batch."
+    },
+    {
+      "id": "multi_rune_running_courier",
+      "skill": "runecrafting",
+      "level_required": 77,
+      "name": "Rune Running Courier Circuit",
+      "location": { "region": "heartlands", "spot": "Chelser Rune Exchange → Tideshelf → Gravechill couriers" },
+      "intensity": 3,
+      "xp_per_hour": 62000,
+      "gp_per_hour": 6200000,
+      "requires": { "quests": ["the_binding_scroll", "the_ledger_and_the_oar"], "items": ["rune_pouch_all", "courier_bag", "trader_passport"], "skills": {"runecrafting": 77} },
+      "description": "Courier-tier rune distribution across three altar-adjacent exchanges. Buy runes at cheap altar-source, deposit at courier bank for spread + volume bonus. Non-combat 5M+.",
+      "produces": [{ "item": "courier_receipt", "rate_per_hour": 420 }],
+      "marstead_note": "M15 non-combat 5M+. OSRS rune running analogue."
+    },
+    {
+      "id": "veilwood_soul_altar_pouch_rush",
+      "skill": "runecrafting",
+      "level_required": 92,
+      "name": "Soul Altar Pouch Rush",
+      "location": { "region": "veilwood", "spot": "Moonblade soul shrine, tick-perfect run" },
+      "intensity": 8,
+      "xp_per_hour": 208000,
+      "gp_per_hour": 1600000,
+      "requires": { "quests": ["whisperwood_remembers"], "items": ["rune_essence", "all_pouches", "moon_staff"], "skills": {"runecrafting": 92} },
+      "description": "Tick-perfect soul altar with quadruple pouch + staff swap. Band 8 elite.",
+      "produces": [{ "item": "soul_rune", "rate_per_hour": 9200 }],
+      "marstead_note": "M14 endgame RC. Band 8 tick-perfect soul."
+    },
+    {
+      "id": "inkweald_shadow_rune_weave",
+      "skill": "runecrafting",
+      "level_required": 99,
+      "name": "Inkweald Shadow-Rune Weave",
+      "location": { "region": "inkweald", "spot": "Penseurlake hidden shrine, ink-channel" },
+      "intensity": 9,
+      "xp_per_hour": 248000,
+      "gp_per_hour": 4800000,
+      "requires": { "quests": ["unwake_the_dreamer", "weavers_threnody"], "items": ["rune_essence", "shadow_veil_charm", "ink_reagent"], "skills": {"runecrafting": 99, "magic": 95} },
+      "description": "Capstone shadow-rune weave. Requires 99 RC — yields shadow-rune for Ancient Magicks.",
+      "produces": [{ "item": "shadow_rune", "rate_per_hour": 3600 }],
+      "marstead_note": "M14 endgame RC. Band 9 capstone rune."
     }
   ],
   "bracket_coverage": {

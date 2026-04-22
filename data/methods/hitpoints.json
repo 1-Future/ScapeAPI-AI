@@ -309,6 +309,20 @@
       "description": "Heal pilgrims in real-time ring rotation. Direct HP XP.",
       "produces": [{ "item": "monastic_favour", "rate_per_hour": 240 }],
       "marstead_note": "Active-Max Focus. Direct HP XP — rare."
+    },
+    {
+      "id": "glass_desert_tombs_expert_hp",
+      "skill": "hitpoints",
+      "level_required": 95,
+      "name": "Tombs of Amascut Expert Tank",
+      "location": { "region": "glass_desert", "spot": "Crescent Tombs of Amascut, expert invocation" },
+      "intensity": 10,
+      "xp_per_hour": 78000,
+      "gp_per_hour": 8600000,
+      "requires": { "quests": ["the_tomb_oath"], "items": ["scythe_of_vitur", "justiciar_armour", "rainbow_cape"], "skills": {"hitpoints": 95, "defence": 95, "attack": 95, "prayer": 92} },
+      "description": "Tank role in ToA expert — HP XP from taking boss damage while guarding party. Band 10 support-tier elite.",
+      "produces": [{ "item": "masori_shard", "rate_per_hour": 0.9 }],
+      "marstead_note": "M13 band 10 ToA tank role."
     }
   ],
   "bracket_coverage": {

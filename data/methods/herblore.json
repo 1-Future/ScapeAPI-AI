@@ -365,6 +365,34 @@
       "description": "Bone crush for prayer reagent. AFK.",
       "produces": [{ "item": "crushed_bones", "rate_per_hour": 3800 }],
       "marstead_note": "AFK baseline. Cross-skill feed."
+    },
+    {
+      "id": "inkweald_dream_elixir_lab",
+      "skill": "herblore",
+      "level_required": 94,
+      "name": "Inkweald Dream Elixir Laboratory",
+      "location": { "region": "inkweald", "spot": "Penseurlake dream-apothecary inner lab" },
+      "intensity": 6,
+      "xp_per_hour": 198000,
+      "gp_per_hour": 5400000,
+      "requires": { "quests": ["unwake_the_dreamer", "weavers_threnody"], "items": ["nightbloom_petal", "dreamscale", "antivenom_4"], "skills": {"herblore": 94, "farming": 85} },
+      "description": "Mix dream elixirs: extended bonus potions that preserve across worlds. Multi-ingredient rotation with dreamscale catalyst. Non-combat 5M+ method.",
+      "produces": [{ "item": "dream_elixir_4", "rate_per_hour": 420 }],
+      "marstead_note": "M15 non-combat 5M+. Elite herblore processing."
+    },
+    {
+      "id": "glass_desert_potion_refinery",
+      "skill": "herblore",
+      "level_required": 88,
+      "name": "Glass Desert Potion Refinery",
+      "location": { "region": "glass_desert", "spot": "Crescent refinery flasks" },
+      "intensity": 5,
+      "xp_per_hour": 172000,
+      "gp_per_hour": 2800000,
+      "requires": { "quests": ["the_spice_accord"], "items": ["super_combat_3", "overload_reagent", "divine_crystals"], "skills": {"herblore": 88, "crafting": 80} },
+      "description": "Refine supercombats into divine supercombats by adding overload reagent. Multi-phase refinery bench — heat + filter + settle.",
+      "produces": [{ "item": "divine_super_combat_4", "rate_per_hour": 480 }],
+      "marstead_note": "M14 endgame herblore. Divine potion refinement."
     }
   ],
   "bracket_coverage": {

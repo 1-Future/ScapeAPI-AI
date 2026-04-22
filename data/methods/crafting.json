@@ -309,6 +309,62 @@
       "description": "Sing crystals into shape. Multi-tone attunement. Endgame crafting capstone.",
       "produces": [{ "item": "crystal_weapon_seed", "rate_per_hour": 35 }],
       "marstead_note": "Max Focus. Endgame craft ritual."
+    },
+    {
+      "id": "glass_desert_sunken_spire_gem_cutter",
+      "skill": "crafting",
+      "level_required": 55,
+      "name": "Sunken Spire Glass-Gem Cutter",
+      "location": { "region": "glass_desert", "spot": "Sunken Spire cutting pit" },
+      "intensity": 1,
+      "xp_per_hour": 58000,
+      "gp_per_hour": 800000,
+      "requires": { "quests": ["the_buried_star"], "items": ["uncut_spire_gem", "chisel"], "skills": {"crafting": 55} },
+      "description": "AFK cutting of spire gems with small loss risk per cut. High margin from blue/red shard byproducts.",
+      "produces": [{ "item": "spire_gem", "rate_per_hour": 1800 }],
+      "marstead_note": "AFK baseline. Mid-tier profit with tiny loss risk per cut. H11 Glass Desert moneymaker."
+    },
+    {
+      "id": "inkweald_dream_loom_tapestry",
+      "skill": "crafting",
+      "level_required": 95,
+      "name": "Dream-Loom Tapestry Weave",
+      "location": { "region": "inkweald", "spot": "Penseurlake dream-loom" },
+      "intensity": 9,
+      "xp_per_hour": 212000,
+      "gp_per_hour": 3800000,
+      "requires": { "quests": ["unwake_the_dreamer", "weavers_threnody"], "items": ["dream_silk", "ink_thread", "bleed_catalyst"], "skills": {"crafting": 95, "thieving": 85, "magic": 90} },
+      "description": "Weave dream-tapestries worn as capes granting re-dreaming passive. Tick-locked warp/weft rotation with ink-thread refresh between picks. Drops capstone dream-silk when loom overheats.",
+      "produces": [{ "item": "dream_tapestry", "rate_per_hour": 45 }],
+      "marstead_note": "M14 endgame crafting. Non-combat 5M-near high-tier processing. Raids-tier focus."
+    },
+    {
+      "id": "moryskah_bone_inlay_reliquary",
+      "skill": "crafting",
+      "level_required": 92,
+      "name": "Moryskah Reliquary Bone-Inlay",
+      "location": { "region": "moryskah", "spot": "Gravechill reliquary bench" },
+      "intensity": 7,
+      "xp_per_hour": 184000,
+      "gp_per_hour": 2400000,
+      "requires": { "quests": ["requiem_of_hollows"], "items": ["ensouled_shard", "runite_bar", "onyx"], "skills": {"crafting": 92, "prayer": 88, "smithing": 85} },
+      "description": "Inlay reliquary containers with bone-shard marquetry for prayer faithful. Multi-material rotation; prayer drain on failed fits.",
+      "produces": [{ "item": "reliquary_case", "rate_per_hour": 120 }],
+      "marstead_note": "M14 endgame craft. Prayer-faithful product economy. Profit from vendor demand."
+    },
+    {
+      "id": "veilwood_crystal_armour_refit",
+      "skill": "crafting",
+      "level_required": 94,
+      "name": "Veilwood Crystal Armour Refit",
+      "location": { "region": "veilwood", "spot": "Moonblade Glade anvil" },
+      "intensity": 5,
+      "xp_per_hour": 158000,
+      "gp_per_hour": 1900000,
+      "requires": { "quests": ["song_of_the_mossborn"], "items": ["crystal_armour_seed", "harmonic_dust"], "skills": {"crafting": 94, "smithing": 90} },
+      "description": "Refit degraded crystal armour to max charge. Multi-piece rotation across helm/body/legs; seed + dust reagent spend. Brings raid gear back to 100%.",
+      "produces": [{ "item": "crystal_armour_charged", "rate_per_hour": 65 }],
+      "marstead_note": "M14 endgame craft. Service economy — sells to raid teams."
     }
   ],
   "bracket_coverage": {

@@ -309,6 +309,34 @@
       "description": "Revenants aggressive.",
       "produces": [{ "item": "revenant_ether", "rate_per_hour": 3200 }],
       "marstead_note": "Max Focus. Wilderness endgame."
+    },
+    {
+      "id": "moryskah_vyrewatch_expert",
+      "skill": "strength",
+      "level_required": 97,
+      "name": "Vyrewatch Sentinel Expert",
+      "location": { "region": "moryskah", "spot": "Vyrewatch mausoleum, sentinel apex" },
+      "intensity": 10,
+      "xp_per_hour": 204000,
+      "gp_per_hour": 7600000,
+      "requires": { "quests": ["vyre_ascension", "requiem_of_hollows"], "items": ["scythe_of_vitur", "blood_fury", "avernic_defender"], "skills": {"strength": 97, "attack": 95, "defence": 93, "prayer": 92} },
+      "description": "Vyrewatch sentinel expert — 6-phase vampire boss with HP regen on mechanic fail. Aggressive-style scythe rotation. Band 10 elite.",
+      "produces": [{ "item": "vyrewatch_seal", "rate_per_hour": 2.2 }],
+      "marstead_note": "M13 band 10 Vyrewatch expert mode."
+    },
+    {
+      "id": "wilds_zuk_pit_challenge",
+      "skill": "strength",
+      "level_required": 99,
+      "name": "Zuk-Pit Wilds Expert Challenge",
+      "location": { "region": "wilds", "spot": "Shattercrag zuk-pit, lv50 Wilderness" },
+      "intensity": 10,
+      "xp_per_hour": 224000,
+      "gp_per_hour": 6500000,
+      "requires": { "quests": ["the_ember_trial"], "items": ["fire_cape", "torture_amulet", "bandos_godsword"], "skills": {"strength": 99, "attack": 95, "defence": 92, "ranged": 92, "hitpoints": 95} },
+      "description": "Wilderness zuk-pit — Inferno-adjacent boss trial with PK risk overlay. Band 10 non-Inferno elite with PvP premium.",
+      "produces": [{ "item": "zuk_ember", "rate_per_hour": 3.2 }],
+      "marstead_note": "M13 band 10 wilderness Inferno-analogue."
     }
   ],
   "bracket_coverage": {

@@ -323,6 +323,34 @@
       "description": "Craft teleport tabs. Multi-skill Make-X chain.",
       "produces": [{ "item": "varrock_teleport_tab", "rate_per_hour": 2200 }],
       "marstead_note": "Active. Profit + XP."
+    },
+    {
+      "id": "sootworks_pipeworks_rune_golem",
+      "skill": "magic",
+      "level_required": 77,
+      "name": "Pipeworks Rune Golem",
+      "location": { "region": "sootworks", "spot": "Cindervault pipeworks sub-level" },
+      "intensity": 6,
+      "xp_per_hour": 158000,
+      "gp_per_hour": 1400000,
+      "requires": { "quests": ["soot_and_ember", "the_pipeworks_run"], "items": ["staff_of_fire", "cannon_kit"], "skills": {"magic": 77, "ranged": 75} },
+      "description": "Cannon-able rune golem in the pipes. Magic primary + cannon secondary for AoE. Elemental runes drop thick.",
+      "produces": [{ "item": "ancient_essence", "rate_per_hour": 1800 }],
+      "marstead_note": "H11 Sootworks 1-2M moneymaker. Cannon-able elemental."
+    },
+    {
+      "id": "moryskah_shadow_nexus_mage",
+      "skill": "magic",
+      "level_required": 95,
+      "name": "Moryskah Shadow Nexus Mage",
+      "location": { "region": "moryskah", "spot": "Gravechill shadow-nexus apex" },
+      "intensity": 10,
+      "xp_per_hour": 234000,
+      "gp_per_hour": 6800000,
+      "requires": { "quests": ["requiem_of_hollows", "vyre_ascension"], "items": ["shadow_staff", "ancestral_robes", "augury_prayer_book"], "skills": {"magic": 95, "prayer": 90, "defence": 90} },
+      "description": "Solo shadow-nexus elite challenge — max focus multi-mechanic wipe on fail. Drops shadow-staff uniques. Band 10 non-Inferno.",
+      "produces": [{ "item": "shadow_fragment", "rate_per_hour": 0.85 }],
+      "marstead_note": "M13 band 10 elite magic. Shadow-nexus analogue."
     }
   ],
   "bracket_coverage": {

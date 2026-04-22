@@ -309,6 +309,34 @@
       "description": "Revenants defensive.",
       "produces": [{ "item": "revenant_ether", "rate_per_hour": 3200 }],
       "marstead_note": "Max Focus."
+    },
+    {
+      "id": "moryskah_catacomb_gauntlet_expert",
+      "skill": "defence",
+      "level_required": 95,
+      "name": "Catacomb Gauntlet Expert",
+      "location": { "region": "moryskah", "spot": "Gravechill catacomb gauntlet, expert tier" },
+      "intensity": 10,
+      "xp_per_hour": 196000,
+      "gp_per_hour": 6800000,
+      "requires": { "quests": ["requiem_of_hollows"], "items": ["torag_set", "ring_of_suffering", "dinhs_bulwark"], "skills": {"defence": 95, "attack": 93, "prayer": 90} },
+      "description": "Catacomb gauntlet expert — shield-swap rotation defending the corpse-priest. Band 10 defensive elite.",
+      "produces": [{ "item": "catacomb_medallion", "rate_per_hour": 4.8 }],
+      "marstead_note": "M13 band 10 defensive gauntlet."
+    },
+    {
+      "id": "glass_desert_warden_siege",
+      "skill": "defence",
+      "level_required": 97,
+      "name": "Warden Siege (Flare Phase)",
+      "location": { "region": "glass_desert", "spot": "Crescent wardens' obelisk, flare phase" },
+      "intensity": 10,
+      "xp_per_hour": 215000,
+      "gp_per_hour": 8100000,
+      "requires": { "quests": ["the_tomb_oath", "the_dune_covenant"], "items": ["masori_armour", "elidinis_ward", "ecumenical_prayer_book"], "skills": {"defence": 97, "attack": 95, "magic": 95, "prayer": 92} },
+      "description": "Warden siege at flare phase — continuous overhead prayer rotation + defensive set swap. Non-Inferno band 10.",
+      "produces": [{ "item": "warden_shard", "rate_per_hour": 3.8 }],
+      "marstead_note": "M13 band 10 Warden siege."
     }
   ],
   "bracket_coverage": {

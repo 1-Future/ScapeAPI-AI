@@ -323,6 +323,48 @@
       "description": "Diamond fence single-build AFK.",
       "produces": [],
       "marstead_note": "AFK baseline for 90+."
+    },
+    {
+      "id": "heartlands_mahogany_bench_elite_butler",
+      "skill": "construction",
+      "level_required": 91,
+      "name": "Mahogany Bench Elite Butler Spin",
+      "location": { "region": "heartlands", "spot": "Player house garden + Demon butler" },
+      "intensity": 8,
+      "xp_per_hour": 248000,
+      "gp_per_hour": -980000,
+      "requires": { "quests": ["hearthing_right_grandmaster"], "items": ["mahogany_plank", "demon_butler_service"], "skills": {"construction": 91} },
+      "description": "Demon butler fetch loop with tick-perfect mahogany bench build-dismantle. Band 8 elite XP method.",
+      "produces": [],
+      "marstead_note": "M14 endgame construction. Elite butler spin."
+    },
+    {
+      "id": "inkweald_dream_aquarium",
+      "skill": "construction",
+      "level_required": 95,
+      "name": "Dream-Aquarium Build",
+      "location": { "region": "inkweald", "spot": "Player house aquarium room" },
+      "intensity": 4,
+      "xp_per_hour": 158000,
+      "gp_per_hour": -420000,
+      "requires": { "quests": ["unwake_the_dreamer"], "items": ["mahogany_plank", "dream_silk", "aquarium_stone"], "skills": {"construction": 95, "fishing": 90} },
+      "description": "Dream-aquarium in aquarium room yields passive dream-koi every cycle. Build-dismantle XP.",
+      "produces": [{ "item": "dream_koi", "rate_per_hour": 120 }],
+      "marstead_note": "M14 endgame construction. Mid-intensity XP with passive fishing drop."
+    },
+    {
+      "id": "heartlands_teleport_nexus_master",
+      "skill": "construction",
+      "level_required": 93,
+      "name": "Master Teleport Nexus Build",
+      "location": { "region": "heartlands", "spot": "Player house portal chamber" },
+      "intensity": 2,
+      "xp_per_hour": 124000,
+      "gp_per_hour": -285000,
+      "requires": { "quests": ["hearthing_right_grandmaster"], "items": ["mahogany_plank", "magic_stone", "law_rune"], "skills": {"construction": 93, "magic": 80} },
+      "description": "Teleport nexus master-tier — one build lasts several minutes. Light-interaction endgame.",
+      "produces": [],
+      "marstead_note": "M14 endgame construction. Low-intensity high-xp baseline."
     }
   ],
   "bracket_coverage": {

@@ -337,6 +337,34 @@
       "description": "Dragon crossbow ornaments. Multi-step assembly — bench reagents in sequence.",
       "produces": [{ "item": "dragon_crossbow_o", "rate_per_hour": 280 }],
       "marstead_note": "Max Focus. Endgame fletch."
+    },
+    {
+      "id": "veilwood_crystal_bow_attune",
+      "skill": "fletching",
+      "level_required": 92,
+      "name": "Veilwood Crystal Bow Attune",
+      "location": { "region": "veilwood", "spot": "Moonblade Glade bow-attune bench" },
+      "intensity": 5,
+      "xp_per_hour": 178000,
+      "gp_per_hour": 2600000,
+      "requires": { "quests": ["song_of_the_mossborn"], "items": ["crystal_weapon_seed", "harmonic_dust", "spring_cleaner"], "skills": {"fletching": 92, "crafting": 88} },
+      "description": "Attune crystal bow blanks from seeds — service economy for raid teams needing bow recharge. Multi-phase attunement.",
+      "produces": [{ "item": "crystal_bow_charged", "rate_per_hour": 85 }],
+      "marstead_note": "M14 endgame fletch. Service economy."
+    },
+    {
+      "id": "inkweald_dreamwood_longbow_u",
+      "skill": "fletching",
+      "level_required": 97,
+      "name": "Dreamwood Longbow Fletching",
+      "location": { "region": "inkweald", "spot": "Penseurlake dream-bowyer workshop" },
+      "intensity": 6,
+      "xp_per_hour": 212000,
+      "gp_per_hour": 3400000,
+      "requires": { "quests": ["unwake_the_dreamer", "weavers_threnody"], "items": ["dreamwood_logs", "ink_string", "dream_arrowhead"], "skills": {"fletching": 97} },
+      "description": "Capstone dreamwood longbow — bow itself self-arrows in use. Multi-step fletch + string + imbue. Elite profit from raid/CA consumers.",
+      "produces": [{ "item": "dreamwood_longbow", "rate_per_hour": 120 }],
+      "marstead_note": "M14 endgame fletch. Bow capstone."
     }
   ],
   "bracket_coverage": {

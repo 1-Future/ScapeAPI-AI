@@ -295,6 +295,34 @@
       "description": "Short-loop gauntlet AFK.",
       "produces": [{ "item": "mark_of_grace", "rate_per_hour": 32 }],
       "marstead_note": "AFK-Multitask baseline for 90+."
+    },
+    {
+      "id": "heartlands_lumbrick_rooftop_loot_chain",
+      "skill": "agility",
+      "level_required": 35,
+      "name": "Lumbrick Rooftop Loot Chain",
+      "location": { "region": "heartlands", "spot": "Lumbrick rooftop course + timed stashes" },
+      "intensity": 5,
+      "xp_per_hour": 61000,
+      "gp_per_hour": 450000,
+      "requires": { "quests": ["tiled_rooftops"], "items": ["graceful_outfit"], "skills": {"agility": 35} },
+      "description": "Timed rooftop run — hit each stash before the 45s decay. Chain bonus awards loot multiplier. Active XP + gp loop.",
+      "produces": [{ "item": "timed_stash_loot", "rate_per_hour": 320 }],
+      "marstead_note": "H11 Heartlands 500k-1M moneymaker. Timed chain — loot bonus for not breaking rhythm."
+    },
+    {
+      "id": "saltbrine_stormdeck_parkour",
+      "skill": "agility",
+      "level_required": 82,
+      "name": "Stormdeck Reef Parkour",
+      "location": { "region": "saltbrine", "spot": "Saltbrine Stormdeck, wave-timed course" },
+      "intensity": 7,
+      "xp_per_hour": 142000,
+      "gp_per_hour": 1500000,
+      "requires": { "quests": ["saltbrine_agility_course", "the_crystal_coast"], "items": ["graceful_outfit", "stormlink_anchor"], "skills": {"agility": 82} },
+      "description": "Tide-synced rooftop course: timing windows shrink during storm swells. Coral stashes. Elite-tier agility moneymaker.",
+      "produces": [{ "item": "coral_stash", "rate_per_hour": 420 }],
+      "marstead_note": "M14 endgame agility. Storm-synced timing."
     }
   ],
   "bracket_coverage": {

@@ -309,6 +309,20 @@
       "description": "Rotation through 3 petrified trees. Screamers in the trees add attention cost.",
       "produces": [{ "item": "bonewood_logs", "rate_per_hour": 360 }],
       "marstead_note": "Active. Regional unique material."
+    },
+    {
+      "id": "inkweald_dreamwood_logger_elite",
+      "skill": "woodcutting",
+      "level_required": 98,
+      "name": "Inkweald Dreamwood Logger Elite",
+      "location": { "region": "inkweald", "spot": "Penseurlake dream-grove, capstone tree circuit" },
+      "intensity": 5,
+      "xp_per_hour": 158000,
+      "gp_per_hour": 5400000,
+      "requires": { "quests": ["unwake_the_dreamer", "weavers_threnody"], "items": ["crystal_axe", "spirit_tree_ward"], "skills": {"woodcutting": 98, "farming": 85} },
+      "description": "Dreamwood capstone logger. Trees phase in/out — click only when real. Drops dreamwood logs used in elite fletching.",
+      "produces": [{ "item": "dreamwood_logs", "rate_per_hour": 280 }],
+      "marstead_note": "M14 endgame woodcutting. M15 non-combat 5M+ processing."
     }
   ],
   "bracket_coverage": {

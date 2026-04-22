@@ -351,6 +351,48 @@
       "description": "Net dream koi in the air. AFK.",
       "produces": [{ "item": "dream_koi_pup", "rate_per_hour": 280 }],
       "marstead_note": "AFK-Multitask."
+    },
+    {
+      "id": "veilwood_elfwood_trapper",
+      "skill": "hunter",
+      "level_required": 70,
+      "name": "Veilwood Elfwood Trapper",
+      "location": { "region": "veilwood", "spot": "Thornroot rare-pelt traplines" },
+      "intensity": 4,
+      "xp_per_hour": 108000,
+      "gp_per_hour": 700000,
+      "requires": { "quests": ["whisperwood_remembers"], "items": ["box_trap", "rare_pelt_bait"], "skills": {"hunter": 70} },
+      "description": "Rare-pelt trapline. 6 trap rotation with bait re-set. Yields silver/gold/platinum pelts for crafting economy.",
+      "produces": [{ "item": "veilwood_pelt", "rate_per_hour": 480 }],
+      "marstead_note": "H11 Veilwood 500k-1M moneymaker. Rare-pelt rotation."
+    },
+    {
+      "id": "wilds_red_salamander_dreamcatcher",
+      "skill": "hunter",
+      "level_required": 92,
+      "name": "Wilds Red Salamander Dreamcatcher",
+      "location": { "region": "wilds", "spot": "Wilds salamander ledge, lv24 Wilderness" },
+      "intensity": 7,
+      "xp_per_hour": 184000,
+      "gp_per_hour": 2400000,
+      "requires": { "quests": [], "items": ["dreamcatcher_trap", "rope", "stim_tonic"], "skills": {"hunter": 92, "herblore": 80} },
+      "description": "Dreamcatcher net-trap for red salamander — yields salamander clutch (3 salamander per trip). PK risk scales with Wilderness depth. Elite hunter profit.",
+      "produces": [{ "item": "red_salamander", "rate_per_hour": 680 }],
+      "marstead_note": "M14 endgame hunter. Elite Wilderness hunt."
+    },
+    {
+      "id": "inkweald_mirage_bird_capture",
+      "skill": "hunter",
+      "level_required": 96,
+      "name": "Inkweald Mirage Bird Capture",
+      "location": { "region": "inkweald", "spot": "Penseurlake dream-mirage grove" },
+      "intensity": 5,
+      "xp_per_hour": 172000,
+      "gp_per_hour": 1800000,
+      "requires": { "quests": ["unwake_the_dreamer", "weavers_threnody"], "items": ["mirage_net", "ink_reagent"], "skills": {"hunter": 96, "magic": 85} },
+      "description": "Capture mirage birds that phase between planes. Ink-net + chant rotation. High-value feather drops.",
+      "produces": [{ "item": "mirage_feather", "rate_per_hour": 320 }],
+      "marstead_note": "M14 endgame hunter. Phase-shift net rotation."
     }
   ],
   "bracket_coverage": {

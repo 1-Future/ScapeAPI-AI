@@ -365,6 +365,20 @@
       "description": "A fallen star lands in the glade on a rotating timer. Ten minutes of intense multi-player gathering, shared XP, once-per-instance.",
       "produces": [{ "item": "stardust", "rate_per_hour": 380 }],
       "marstead_note": "Active. Social event mining. Timing + awareness."
+    },
+    {
+      "id": "sootworks_engine_crawl_salvage",
+      "skill": "mining",
+      "level_required": 28,
+      "name": "Engine Crawl Salvage",
+      "location": { "region": "sootworks", "spot": "Cindervault engine-lower corridor" },
+      "intensity": 2,
+      "xp_per_hour": 34000,
+      "gp_per_hour": 550000,
+      "requires": { "quests": ["soot_and_ember"], "items": ["dust_mask", "bronze_pickaxe"], "skills": {"mining": 28} },
+      "description": "AFK scrap collection on engine conveyor. Salvaged scrap-iron and gear-cores sell well. Simple AFK with rare gearcore drop.",
+      "produces": [{ "item": "scrap_iron", "rate_per_hour": 640 }],
+      "marstead_note": "H11 Sootworks 500k-1M moneymaker. AFK scrap salvage."
     }
   ],
   "bracket_coverage": {

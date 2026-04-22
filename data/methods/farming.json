@@ -309,6 +309,62 @@
       "description": "Coffin fungus grows only in a moryskah patch.",
       "produces": [{ "item": "coffin_fungus", "rate_per_hour": 42 }],
       "marstead_note": "Multitask. Regional unique crop."
+    },
+    {
+      "id": "heartlands_herb_patch_consortium",
+      "skill": "farming",
+      "level_required": 32,
+      "name": "Heartlands Herb Patch Consortium",
+      "location": { "region": "heartlands", "spot": "Chelser + Lumbrick + Hollowrun triple patches" },
+      "intensity": 3,
+      "xp_per_hour": 78000,
+      "gp_per_hour": 900000,
+      "requires": { "quests": ["the_greenhand_accord"], "items": ["ranarr_seed", "toadflax_seed", "compost"], "skills": {"farming": 32} },
+      "description": "Simultaneous ranarr/toadflax across three Heartlands patches on rotation. Herb pickup while waiting for next grow cycle. Attentive.",
+      "produces": [{ "item": "grimy_ranarr", "rate_per_hour": 120 }],
+      "marstead_note": "H11 Heartlands 500k-1M moneymaker. Multi-patch herb consortium."
+    },
+    {
+      "id": "veilwood_dreamroot_harvest",
+      "skill": "farming",
+      "level_required": 60,
+      "name": "Veilwood Dreamroot Harvest",
+      "location": { "region": "veilwood", "spot": "Moonblade root-grove patches" },
+      "intensity": 2,
+      "xp_per_hour": 62000,
+      "gp_per_hour": 500000,
+      "requires": { "quests": ["whisperwood_remembers"], "items": ["dreamroot_seed", "ultracompost"], "skills": {"farming": 60} },
+      "description": "Dreamroot harvest run — high-margin moonlight herb. AFK aside from plant/pick.",
+      "produces": [{ "item": "dreamroot", "rate_per_hour": 85 }],
+      "marstead_note": "H11 Veilwood 500k-1M moneymaker. Herb-run analogue with regional flavour."
+    },
+    {
+      "id": "glass_desert_spice_plantation",
+      "skill": "farming",
+      "level_required": 78,
+      "name": "Glass Desert Spice Plantation",
+      "location": { "region": "glass_desert", "spot": "Crescent oasis spice beds" },
+      "intensity": 4,
+      "xp_per_hour": 128000,
+      "gp_per_hour": 1800000,
+      "requires": { "quests": ["the_spice_accord"], "items": ["spice_seedling", "ultracompost", "magic_secateurs"], "skills": {"farming": 78, "herblore": 70} },
+      "description": "Multi-plot spice plantation with fragment yield stacking. Active inspection-and-weed rotation.",
+      "produces": [{ "item": "glass_spice_bundle", "rate_per_hour": 180 }],
+      "marstead_note": "M14 endgame farming. Spice economy — feeds cooking bonuses."
+    },
+    {
+      "id": "inkweald_nightbloom_sanctuary",
+      "skill": "farming",
+      "level_required": 93,
+      "name": "Inkweald Nightbloom Sanctuary",
+      "location": { "region": "inkweald", "spot": "Penseurlake dream-garden" },
+      "intensity": 5,
+      "xp_per_hour": 168000,
+      "gp_per_hour": 3100000,
+      "requires": { "quests": ["unwake_the_dreamer", "weavers_threnody"], "items": ["nightbloom_seed", "dream_compost", "secateurs_infused"], "skills": {"farming": 93, "herblore": 85} },
+      "description": "Tend dream-garden plots that bloom only at night. Secateur rotation + pollen harvest. Multiple yield harvests per cycle. Endgame herb-tier profit.",
+      "produces": [{ "item": "nightbloom_petal", "rate_per_hour": 240 }],
+      "marstead_note": "M14 endgame farming. Pollen feeds elite antivenom+ and stam potions."
     }
   ],
   "bracket_coverage": {

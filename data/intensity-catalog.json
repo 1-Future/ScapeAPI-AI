@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-04-22T18:25:33.135Z",
-  "total_activities": 2242,
+  "generated_at": "2026-04-22T18:39:51.046Z",
+  "total_activities": 2309,
   "intensity_taxonomy": {
     "1": "pure AFK (click every 30s+)",
     "2": "light interaction (click every 10-20s)",
@@ -1675,7 +1675,7 @@
       "activity_type": "skill_method",
       "skill": "mining",
       "intensity": 6,
-      "base_xp_per_hour": 123250,
+      "base_xp_per_hour": 139400,
       "base_gp_per_hour": 3200000,
       "region": "wilds",
       "level_required": 85,
@@ -1831,7 +1831,7 @@
       "activity_type": "skill_method",
       "skill": "fishing",
       "intensity": 6,
-      "base_xp_per_hour": 123250,
+      "base_xp_per_hour": 139400,
       "base_gp_per_hour": 1125000,
       "region": "wilds",
       "level_required": 91,
@@ -2125,7 +2125,7 @@
       "activity_type": "skill_method",
       "skill": "farming",
       "intensity": 2,
-      "base_xp_per_hour": 47940,
+      "base_xp_per_hour": 46750,
       "base_gp_per_hour": 4000,
       "region": "heartlands",
       "level_required": 1,
@@ -2143,7 +2143,7 @@
       "activity_type": "skill_method",
       "skill": "farming",
       "intensity": 2,
-      "base_xp_per_hour": 47940,
+      "base_xp_per_hour": 46750,
       "base_gp_per_hour": 2000,
       "region": "heartlands",
       "level_required": 9,
@@ -2161,7 +2161,7 @@
       "activity_type": "skill_method",
       "skill": "farming",
       "intensity": 2,
-      "base_xp_per_hour": 47940,
+      "base_xp_per_hour": 46750,
       "base_gp_per_hour": 2000,
       "region": "heartlands",
       "level_required": 14,
@@ -2179,7 +2179,7 @@
       "activity_type": "skill_method",
       "skill": "farming",
       "intensity": 2,
-      "base_xp_per_hour": 47940,
+      "base_xp_per_hour": 46750,
       "base_gp_per_hour": 2000,
       "region": "heartlands",
       "level_required": 20,
@@ -3211,7 +3211,7 @@
       "activity_type": "skill_method",
       "skill": "agility",
       "intensity": 2,
-      "base_xp_per_hour": 47940,
+      "base_xp_per_hour": 46750,
       "base_gp_per_hour": 6000,
       "region": "heartlands",
       "level_required": 1,
@@ -3247,7 +3247,7 @@
       "activity_type": "skill_method",
       "skill": "agility",
       "intensity": 3,
-      "base_xp_per_hour": 47940,
+      "base_xp_per_hour": 49300,
       "base_gp_per_hour": 12000,
       "region": "heartlands",
       "level_required": 10,
@@ -3283,7 +3283,7 @@
       "activity_type": "skill_method",
       "skill": "agility",
       "intensity": 3,
-      "base_xp_per_hour": 47940,
+      "base_xp_per_hour": 49300,
       "base_gp_per_hour": 22000,
       "region": "saltbrine",
       "level_required": 20,
@@ -3319,7 +3319,7 @@
       "activity_type": "skill_method",
       "skill": "agility",
       "intensity": 5,
-      "base_xp_per_hour": 54000,
+      "base_xp_per_hour": 67490,
       "base_gp_per_hour": 28000,
       "region": "boneyard",
       "level_required": 30,
@@ -3329,7 +3329,8 @@
         "areas": []
       },
       "notes": "Wildernessy obstacle course.",
-      "source_file": "data/methods/agility.json"
+      "source_file": "data/methods/agility.json",
+      "_c16_buffed": true
     },
     {
       "activity_id": "saltbrine_sandbar_course_afk",
@@ -3579,6 +3580,50 @@
         "areas": []
       },
       "notes": "Short-loop gauntlet AFK.",
+      "source_file": "data/methods/agility.json"
+    },
+    {
+      "activity_id": "heartlands_lumbrick_rooftop_loot_chain",
+      "activity_type": "skill_method",
+      "skill": "agility",
+      "intensity": 5,
+      "base_xp_per_hour": 61000,
+      "base_gp_per_hour": 450000,
+      "region": "heartlands",
+      "level_required": 35,
+      "gating": {
+        "quests": [
+          "tiled_rooftops"
+        ],
+        "items": [
+          "graceful_outfit"
+        ],
+        "areas": []
+      },
+      "notes": "Timed rooftop run — hit each stash before the 45s decay. Chain bonus awards loot multiplier. Active XP + gp loop.",
+      "source_file": "data/methods/agility.json"
+    },
+    {
+      "activity_id": "saltbrine_stormdeck_parkour",
+      "activity_type": "skill_method",
+      "skill": "agility",
+      "intensity": 7,
+      "base_xp_per_hour": 142000,
+      "base_gp_per_hour": 1500000,
+      "region": "saltbrine",
+      "level_required": 82,
+      "gating": {
+        "quests": [
+          "saltbrine_agility_course",
+          "the_crystal_coast"
+        ],
+        "items": [
+          "graceful_outfit",
+          "stormlink_anchor"
+        ],
+        "areas": []
+      },
+      "notes": "Tide-synced rooftop course: timing windows shrink during storm swells. Coral stashes. Elite-tier agility moneymaker.",
       "source_file": "data/methods/agility.json"
     },
     {
@@ -4022,6 +4067,97 @@
       "source_file": "data/methods/attack.json"
     },
     {
+      "activity_id": "heartlands_chelser_caravan_escort",
+      "activity_type": "skill_method",
+      "skill": "attack",
+      "intensity": 4,
+      "base_xp_per_hour": 74000,
+      "base_gp_per_hour": 700000,
+      "region": "heartlands",
+      "level_required": 55,
+      "gating": {
+        "quests": [
+          "the_rangers_trust"
+        ],
+        "items": [
+          "dragon_scimitar",
+          "escort_badge"
+        ],
+        "areas": []
+      },
+      "notes": "Guard caravan from attackers on the Chelser-to-Moryskah route. Timed route with multiple ambush waves.",
+      "source_file": "data/methods/attack.json"
+    },
+    {
+      "activity_id": "glass_desert_mirage_caravan",
+      "activity_type": "skill_method",
+      "skill": "attack",
+      "intensity": 4,
+      "base_xp_per_hour": 88000,
+      "base_gp_per_hour": 950000,
+      "region": "glass_desert",
+      "level_required": 64,
+      "gating": {
+        "quests": [
+          "the_dune_covenant"
+        ],
+        "items": [
+          "dragon_scimitar",
+          "mirror_shield"
+        ],
+        "areas": []
+      },
+      "notes": "Caravan escort through mirage-haunted dunes. Mirage ambushes spawn false enemies — timing matters.",
+      "source_file": "data/methods/attack.json"
+    },
+    {
+      "activity_id": "veilwood_leviathan_expert",
+      "activity_type": "skill_method",
+      "skill": "attack",
+      "intensity": 10,
+      "base_xp_per_hour": 208000,
+      "base_gp_per_hour": 8500000,
+      "region": "veilwood",
+      "level_required": 96,
+      "gating": {
+        "quests": [
+          "song_of_the_mossborn",
+          "the_drowned_oath"
+        ],
+        "items": [
+          "scythe_of_vitur",
+          "lightbearer",
+          "torture_amulet"
+        ],
+        "areas": []
+      },
+      "notes": "Leviathan at max invocation — triple phase boss with enrage timer. Single-death reset. Band 10 elite.",
+      "source_file": "data/methods/attack.json"
+    },
+    {
+      "activity_id": "inkweald_nightmare_apex",
+      "activity_type": "skill_method",
+      "skill": "attack",
+      "intensity": 10,
+      "base_xp_per_hour": 218000,
+      "base_gp_per_hour": 7800000,
+      "region": "inkweald",
+      "level_required": 95,
+      "gating": {
+        "quests": [
+          "unwake_the_dreamer",
+          "weavers_threnody"
+        ],
+        "items": [
+          "scythe_of_vitur",
+          "inquisitor_armour"
+        ],
+        "areas": []
+      },
+      "notes": "Phosani's Nightmare 700+ challenge mode. Lengthened mechanic rotation + 3 parasite spawn phases. Band 10 solo elite.",
+      "source_file": "data/methods/attack.json"
+    },
+    {
       "activity_id": "heartlands_crude_chair",
       "activity_type": "skill_method",
       "skill": "construction",
@@ -4049,7 +4185,7 @@
       "activity_type": "skill_method",
       "skill": "construction",
       "intensity": 5,
-      "base_xp_per_hour": 62645,
+      "base_xp_per_hour": 67490,
       "base_gp_per_hour": -45000,
       "region": "heartlands",
       "level_required": 1,
@@ -4201,7 +4337,7 @@
       "activity_type": "skill_method",
       "skill": "construction",
       "intensity": 3,
-      "base_xp_per_hour": 47940,
+      "base_xp_per_hour": 49300,
       "base_gp_per_hour": -68000,
       "region": "heartlands",
       "level_required": 45,
@@ -4507,6 +4643,74 @@
       "source_file": "data/methods/construction.json"
     },
     {
+      "activity_id": "heartlands_mahogany_bench_elite_butler",
+      "activity_type": "skill_method",
+      "skill": "construction",
+      "intensity": 8,
+      "base_xp_per_hour": 248000,
+      "base_gp_per_hour": -980000,
+      "region": "heartlands",
+      "level_required": 91,
+      "gating": {
+        "quests": [
+          "hearthing_right_grandmaster"
+        ],
+        "items": [
+          "mahogany_plank",
+          "demon_butler_service"
+        ],
+        "areas": []
+      },
+      "notes": "Demon butler fetch loop with tick-perfect mahogany bench build-dismantle. Band 8 elite XP method.",
+      "source_file": "data/methods/construction.json"
+    },
+    {
+      "activity_id": "inkweald_dream_aquarium",
+      "activity_type": "skill_method",
+      "skill": "construction",
+      "intensity": 4,
+      "base_xp_per_hour": 158000,
+      "base_gp_per_hour": -420000,
+      "region": "inkweald",
+      "level_required": 95,
+      "gating": {
+        "quests": [
+          "unwake_the_dreamer"
+        ],
+        "items": [
+          "mahogany_plank",
+          "dream_silk",
+          "aquarium_stone"
+        ],
+        "areas": []
+      },
+      "notes": "Dream-aquarium in aquarium room yields passive dream-koi every cycle. Build-dismantle XP.",
+      "source_file": "data/methods/construction.json"
+    },
+    {
+      "activity_id": "heartlands_teleport_nexus_master",
+      "activity_type": "skill_method",
+      "skill": "construction",
+      "intensity": 2,
+      "base_xp_per_hour": 124000,
+      "base_gp_per_hour": -285000,
+      "region": "heartlands",
+      "level_required": 93,
+      "gating": {
+        "quests": [
+          "hearthing_right_grandmaster"
+        ],
+        "items": [
+          "mahogany_plank",
+          "magic_stone",
+          "law_rune"
+        ],
+        "areas": []
+      },
+      "notes": "Teleport nexus master-tier — one build lasts several minutes. Light-interaction endgame.",
+      "source_file": "data/methods/construction.json"
+    },
+    {
       "activity_id": "heartlands_range_meat_basic",
       "activity_type": "skill_method",
       "skill": "cooking",
@@ -4531,7 +4735,7 @@
       "activity_type": "skill_method",
       "skill": "cooking",
       "intensity": 3,
-      "base_xp_per_hour": 47940,
+      "base_xp_per_hour": 49300,
       "base_gp_per_hour": 3200,
       "region": "heartlands",
       "level_required": 3,
@@ -4572,7 +4776,7 @@
       "activity_type": "skill_method",
       "skill": "cooking",
       "intensity": 5,
-      "base_xp_per_hour": 62645,
+      "base_xp_per_hour": 67490,
       "base_gp_per_hour": 12000,
       "region": "heartlands",
       "level_required": 15,
@@ -4612,7 +4816,7 @@
       "activity_type": "skill_method",
       "skill": "cooking",
       "intensity": 6,
-      "base_xp_per_hour": 123250,
+      "base_xp_per_hour": 139400,
       "base_gp_per_hour": 68000,
       "region": "saltbrine",
       "level_required": 25,
@@ -4836,7 +5040,7 @@
       "activity_type": "skill_method",
       "skill": "cooking",
       "intensity": 7,
-      "base_xp_per_hour": 96300,
+      "base_xp_per_hour": 120700,
       "base_gp_per_hour": 180000,
       "region": "saltbrine",
       "level_required": 70,
@@ -4848,7 +5052,8 @@
         "areas": []
       },
       "notes": "6-burner range. 1-tick withdraw-cook-deposit. Top XP for 70s. Insane clicks.",
-      "source_file": "data/methods/cooking.json"
+      "source_file": "data/methods/cooking.json",
+      "_c16_buffed": true
     },
     {
       "activity_id": "veilwood_shark_press_rotation",
@@ -4932,6 +5137,29 @@
       "source_file": "data/methods/cooking.json"
     },
     {
+      "activity_id": "glass_desert_spice_feast_catering",
+      "activity_type": "skill_method",
+      "skill": "cooking",
+      "intensity": 4,
+      "base_xp_per_hour": 168000,
+      "base_gp_per_hour": 5200000,
+      "region": "glass_desert",
+      "level_required": 92,
+      "gating": {
+        "quests": [
+          "the_spice_accord"
+        ],
+        "items": [
+          "raw_shark",
+          "glass_spice_bundle",
+          "catering_license"
+        ],
+        "areas": []
+      },
+      "notes": "Catering multi-course feasts for raid parties — spice-feast contracts pay per-plate with premium for full-course sets. High-tier non-combat processing.",
+      "source_file": "data/methods/cooking.json"
+    },
+    {
       "activity_id": "heartlands_wool_spin",
       "activity_type": "skill_method",
       "skill": "crafting",
@@ -4956,7 +5184,7 @@
       "activity_type": "skill_method",
       "skill": "crafting",
       "intensity": 3,
-      "base_xp_per_hour": 47940,
+      "base_xp_per_hour": 49300,
       "base_gp_per_hour": 3800,
       "region": "heartlands",
       "level_required": 1,
@@ -5040,7 +5268,7 @@
       "activity_type": "skill_method",
       "skill": "crafting",
       "intensity": 3,
-      "base_xp_per_hour": 47940,
+      "base_xp_per_hour": 49300,
       "base_gp_per_hour": 95000,
       "region": "glass_desert",
       "level_required": 20,
@@ -5061,7 +5289,7 @@
       "activity_type": "skill_method",
       "skill": "crafting",
       "intensity": 3,
-      "base_xp_per_hour": 47940,
+      "base_xp_per_hour": 49300,
       "base_gp_per_hour": 108000,
       "region": "glass_desert",
       "level_required": 27,
@@ -5314,7 +5542,7 @@
       "activity_type": "skill_method",
       "skill": "crafting",
       "intensity": 6,
-      "base_xp_per_hour": 123250,
+      "base_xp_per_hour": 139400,
       "base_gp_per_hour": 125000,
       "region": "saltbrine",
       "level_required": 46,
@@ -5396,6 +5624,97 @@
         "areas": []
       },
       "notes": "Sing crystals into shape. Multi-tone attunement. Endgame crafting capstone.",
+      "source_file": "data/methods/crafting.json"
+    },
+    {
+      "activity_id": "glass_desert_sunken_spire_gem_cutter",
+      "activity_type": "skill_method",
+      "skill": "crafting",
+      "intensity": 1,
+      "base_xp_per_hour": 58000,
+      "base_gp_per_hour": 800000,
+      "region": "glass_desert",
+      "level_required": 55,
+      "gating": {
+        "quests": [
+          "the_buried_star"
+        ],
+        "items": [
+          "uncut_spire_gem",
+          "chisel"
+        ],
+        "areas": []
+      },
+      "notes": "AFK cutting of spire gems with small loss risk per cut. High margin from blue/red shard byproducts.",
+      "source_file": "data/methods/crafting.json"
+    },
+    {
+      "activity_id": "inkweald_dream_loom_tapestry",
+      "activity_type": "skill_method",
+      "skill": "crafting",
+      "intensity": 9,
+      "base_xp_per_hour": 212000,
+      "base_gp_per_hour": 3800000,
+      "region": "inkweald",
+      "level_required": 95,
+      "gating": {
+        "quests": [
+          "unwake_the_dreamer",
+          "weavers_threnody"
+        ],
+        "items": [
+          "dream_silk",
+          "ink_thread",
+          "bleed_catalyst"
+        ],
+        "areas": []
+      },
+      "notes": "Weave dream-tapestries worn as capes granting re-dreaming passive. Tick-locked warp/weft rotation with ink-thread refresh between picks. Drops capstone dream-silk when loom overheats.",
+      "source_file": "data/methods/crafting.json"
+    },
+    {
+      "activity_id": "moryskah_bone_inlay_reliquary",
+      "activity_type": "skill_method",
+      "skill": "crafting",
+      "intensity": 7,
+      "base_xp_per_hour": 184000,
+      "base_gp_per_hour": 2400000,
+      "region": "moryskah",
+      "level_required": 92,
+      "gating": {
+        "quests": [
+          "requiem_of_hollows"
+        ],
+        "items": [
+          "ensouled_shard",
+          "runite_bar",
+          "onyx"
+        ],
+        "areas": []
+      },
+      "notes": "Inlay reliquary containers with bone-shard marquetry for prayer faithful. Multi-material rotation; prayer drain on failed fits.",
+      "source_file": "data/methods/crafting.json"
+    },
+    {
+      "activity_id": "veilwood_crystal_armour_refit",
+      "activity_type": "skill_method",
+      "skill": "crafting",
+      "intensity": 5,
+      "base_xp_per_hour": 158000,
+      "base_gp_per_hour": 1900000,
+      "region": "veilwood",
+      "level_required": 94,
+      "gating": {
+        "quests": [
+          "song_of_the_mossborn"
+        ],
+        "items": [
+          "crystal_armour_seed",
+          "harmonic_dust"
+        ],
+        "areas": []
+      },
+      "notes": "Refit degraded crystal armour to max charge. Multi-piece rotation across helm/body/legs; seed + dust reagent spend. Brings raid gear back to 100%.",
       "source_file": "data/methods/crafting.json"
     },
     {
@@ -5839,11 +6158,58 @@
       "source_file": "data/methods/defence.json"
     },
     {
+      "activity_id": "moryskah_catacomb_gauntlet_expert",
+      "activity_type": "skill_method",
+      "skill": "defence",
+      "intensity": 10,
+      "base_xp_per_hour": 196000,
+      "base_gp_per_hour": 6800000,
+      "region": "moryskah",
+      "level_required": 95,
+      "gating": {
+        "quests": [
+          "requiem_of_hollows"
+        ],
+        "items": [
+          "torag_set",
+          "ring_of_suffering",
+          "dinhs_bulwark"
+        ],
+        "areas": []
+      },
+      "notes": "Catacomb gauntlet expert — shield-swap rotation defending the corpse-priest. Band 10 defensive elite.",
+      "source_file": "data/methods/defence.json"
+    },
+    {
+      "activity_id": "glass_desert_warden_siege",
+      "activity_type": "skill_method",
+      "skill": "defence",
+      "intensity": 10,
+      "base_xp_per_hour": 215000,
+      "base_gp_per_hour": 8100000,
+      "region": "glass_desert",
+      "level_required": 97,
+      "gating": {
+        "quests": [
+          "the_tomb_oath",
+          "the_dune_covenant"
+        ],
+        "items": [
+          "masori_armour",
+          "elidinis_ward",
+          "ecumenical_prayer_book"
+        ],
+        "areas": []
+      },
+      "notes": "Warden siege at flare phase — continuous overhead prayer rotation + defensive set swap. Non-Inferno band 10.",
+      "source_file": "data/methods/defence.json"
+    },
+    {
       "activity_id": "heartlands_potato_run",
       "activity_type": "skill_method",
       "skill": "farming",
       "intensity": 2,
-      "base_xp_per_hour": 47940,
+      "base_xp_per_hour": 46750,
       "base_gp_per_hour": 3500,
       "region": "heartlands",
       "level_required": 1,
@@ -5886,7 +6252,7 @@
       "activity_type": "skill_method",
       "skill": "farming",
       "intensity": 2,
-      "base_xp_per_hour": 47940,
+      "base_xp_per_hour": 46750,
       "base_gp_per_hour": 14000,
       "region": "heartlands",
       "level_required": 9,
@@ -5949,7 +6315,7 @@
       "activity_type": "skill_method",
       "skill": "farming",
       "intensity": 2,
-      "base_xp_per_hour": 47940,
+      "base_xp_per_hour": 46750,
       "base_gp_per_hour": 32000,
       "region": "heartlands",
       "level_required": 25,
@@ -6261,7 +6627,7 @@
       "activity_type": "skill_method",
       "skill": "farming",
       "intensity": 3,
-      "base_xp_per_hour": 47940,
+      "base_xp_per_hour": 49300,
       "base_gp_per_hour": 85000,
       "region": "moryskah",
       "level_required": 40,
@@ -6277,6 +6643,98 @@
       "notes": "Coffin fungus grows only in a moryskah patch.",
       "source_file": "data/methods/farming.json",
       "_c16_buffed": true
+    },
+    {
+      "activity_id": "heartlands_herb_patch_consortium",
+      "activity_type": "skill_method",
+      "skill": "farming",
+      "intensity": 3,
+      "base_xp_per_hour": 78000,
+      "base_gp_per_hour": 900000,
+      "region": "heartlands",
+      "level_required": 32,
+      "gating": {
+        "quests": [
+          "the_greenhand_accord"
+        ],
+        "items": [
+          "ranarr_seed",
+          "toadflax_seed",
+          "compost"
+        ],
+        "areas": []
+      },
+      "notes": "Simultaneous ranarr/toadflax across three Heartlands patches on rotation. Herb pickup while waiting for next grow cycle. Attentive.",
+      "source_file": "data/methods/farming.json"
+    },
+    {
+      "activity_id": "veilwood_dreamroot_harvest",
+      "activity_type": "skill_method",
+      "skill": "farming",
+      "intensity": 2,
+      "base_xp_per_hour": 62000,
+      "base_gp_per_hour": 500000,
+      "region": "veilwood",
+      "level_required": 60,
+      "gating": {
+        "quests": [
+          "whisperwood_remembers"
+        ],
+        "items": [
+          "dreamroot_seed",
+          "ultracompost"
+        ],
+        "areas": []
+      },
+      "notes": "Dreamroot harvest run — high-margin moonlight herb. AFK aside from plant/pick.",
+      "source_file": "data/methods/farming.json"
+    },
+    {
+      "activity_id": "glass_desert_spice_plantation",
+      "activity_type": "skill_method",
+      "skill": "farming",
+      "intensity": 4,
+      "base_xp_per_hour": 128000,
+      "base_gp_per_hour": 1800000,
+      "region": "glass_desert",
+      "level_required": 78,
+      "gating": {
+        "quests": [
+          "the_spice_accord"
+        ],
+        "items": [
+          "spice_seedling",
+          "ultracompost",
+          "magic_secateurs"
+        ],
+        "areas": []
+      },
+      "notes": "Multi-plot spice plantation with fragment yield stacking. Active inspection-and-weed rotation.",
+      "source_file": "data/methods/farming.json"
+    },
+    {
+      "activity_id": "inkweald_nightbloom_sanctuary",
+      "activity_type": "skill_method",
+      "skill": "farming",
+      "intensity": 5,
+      "base_xp_per_hour": 168000,
+      "base_gp_per_hour": 3100000,
+      "region": "inkweald",
+      "level_required": 93,
+      "gating": {
+        "quests": [
+          "unwake_the_dreamer",
+          "weavers_threnody"
+        ],
+        "items": [
+          "nightbloom_seed",
+          "dream_compost",
+          "secateurs_infused"
+        ],
+        "areas": []
+      },
+      "notes": "Tend dream-garden plots that bloom only at night. Secateur rotation + pollen harvest. Multiple yield harvests per cycle. Endgame herb-tier profit.",
+      "source_file": "data/methods/farming.json"
     },
     {
       "activity_id": "heartlands_log_burn_trail",
@@ -6304,7 +6762,7 @@
       "activity_type": "skill_method",
       "skill": "firemaking",
       "intensity": 2,
-      "base_xp_per_hour": 47940,
+      "base_xp_per_hour": 46750,
       "base_gp_per_hour": 0,
       "region": "heartlands",
       "level_required": 1,
@@ -6346,7 +6804,7 @@
       "activity_type": "skill_method",
       "skill": "firemaking",
       "intensity": 2,
-      "base_xp_per_hour": 47940,
+      "base_xp_per_hour": 46750,
       "base_gp_per_hour": 0,
       "region": "heartlands",
       "level_required": 15,
@@ -6430,7 +6888,7 @@
       "activity_type": "skill_method",
       "skill": "firemaking",
       "intensity": 2,
-      "base_xp_per_hour": 47940,
+      "base_xp_per_hour": 46750,
       "base_gp_per_hour": 0,
       "region": "saltbrine",
       "level_required": 30,
@@ -6451,7 +6909,7 @@
       "activity_type": "skill_method",
       "skill": "firemaking",
       "intensity": 5,
-      "base_xp_per_hour": 62645,
+      "base_xp_per_hour": 67490,
       "base_gp_per_hour": 22000,
       "region": "heartlands",
       "level_required": 33,
@@ -6575,7 +7033,7 @@
       "activity_type": "skill_method",
       "skill": "firemaking",
       "intensity": 6,
-      "base_xp_per_hour": 112200,
+      "base_xp_per_hour": 139400,
       "base_gp_per_hour": 0,
       "region": "veilwood",
       "level_required": 78,
@@ -6590,7 +7048,8 @@
         "areas": []
       },
       "notes": "Triple pyre pattern — feed all three in rotation for +80% XP. Attention-intense.",
-      "source_file": "data/methods/firemaking.json"
+      "source_file": "data/methods/firemaking.json",
+      "_c16_buffed": true
     },
     {
       "activity_id": "moryskah_tomb_pyre_afk",
@@ -6637,7 +7096,7 @@
       "activity_type": "skill_method",
       "skill": "firemaking",
       "intensity": 6,
-      "base_xp_per_hour": 123250,
+      "base_xp_per_hour": 139400,
       "base_gp_per_hour": 28000,
       "region": "heartlands",
       "level_required": 50,
@@ -6766,7 +7225,7 @@
       "activity_type": "skill_method",
       "skill": "fishing",
       "intensity": 3,
-      "base_xp_per_hour": 47940,
+      "base_xp_per_hour": 49300,
       "base_gp_per_hour": 4000,
       "region": "heartlands",
       "level_required": 5,
@@ -6870,7 +7329,7 @@
       "activity_type": "skill_method",
       "skill": "fishing",
       "intensity": 5,
-      "base_xp_per_hour": 54000,
+      "base_xp_per_hour": 67490,
       "base_gp_per_hour": 0,
       "region": "saltbrine",
       "level_required": 30,
@@ -6883,14 +7342,15 @@
         "areas": []
       },
       "notes": "Tick-manipulated pike harvest with drop-fishing rotation. Best 30+ XP. Competitive worlds.",
-      "source_file": "data/methods/fishing.json"
+      "source_file": "data/methods/fishing.json",
+      "_c16_buffed": true
     },
     {
       "activity_id": "saltbrine_pike_salmon_riff",
       "activity_type": "skill_method",
       "skill": "fishing",
       "intensity": 2,
-      "base_xp_per_hour": 47940,
+      "base_xp_per_hour": 46750,
       "base_gp_per_hour": 12000,
       "region": "saltbrine",
       "level_required": 30,
@@ -7209,6 +7669,75 @@
       "source_file": "data/methods/fishing.json"
     },
     {
+      "activity_id": "saltbrine_tidecaller_reef_dive",
+      "activity_type": "skill_method",
+      "skill": "fishing",
+      "intensity": 6,
+      "base_xp_per_hour": 128000,
+      "base_gp_per_hour": 1100000,
+      "region": "saltbrine",
+      "level_required": 68,
+      "gating": {
+        "quests": [
+          "the_crystal_coast",
+          "trawlers_call"
+        ],
+        "items": [
+          "swimming_charm",
+          "harpoon",
+          "air_bladder"
+        ],
+        "areas": []
+      },
+      "notes": "3-tick fishing reef pull with swim dodge between harpoon casts. Tidecaller pearls drop at 1 in 450.",
+      "source_file": "data/methods/fishing.json"
+    },
+    {
+      "activity_id": "inkweald_ink_current_tick_net",
+      "activity_type": "skill_method",
+      "skill": "fishing",
+      "intensity": 8,
+      "base_xp_per_hour": 186000,
+      "base_gp_per_hour": 2200000,
+      "region": "inkweald",
+      "level_required": 92,
+      "gating": {
+        "quests": [
+          "unwake_the_dreamer"
+        ],
+        "items": [
+          "silver_net",
+          "tick_weight",
+          "stim_tonic"
+        ],
+        "areas": []
+      },
+      "notes": "Elite tick-perfect net on ink-current shoals. Bleed rare catch; tonic refresh between shoal lines.",
+      "source_file": "data/methods/fishing.json"
+    },
+    {
+      "activity_id": "saltbrine_monkfish_rotation",
+      "activity_type": "skill_method",
+      "skill": "fishing",
+      "intensity": 3,
+      "base_xp_per_hour": 62000,
+      "base_gp_per_hour": 550000,
+      "region": "saltbrine",
+      "level_required": 62,
+      "gating": {
+        "quests": [
+          "trawlers_call"
+        ],
+        "items": [
+          "small_fishing_net",
+          "monk_badge"
+        ],
+        "areas": []
+      },
+      "notes": "Three-spot monkfish rotation. Attentive but not tick-perfect — walk between depleting spots.",
+      "source_file": "data/methods/fishing.json"
+    },
+    {
       "activity_id": "heartlands_arrow_shaft_cut",
       "activity_type": "skill_method",
       "skill": "fletching",
@@ -7234,7 +7763,7 @@
       "activity_type": "skill_method",
       "skill": "fletching",
       "intensity": 2,
-      "base_xp_per_hour": 47940,
+      "base_xp_per_hour": 46750,
       "base_gp_per_hour": 4500,
       "region": "heartlands",
       "level_required": 5,
@@ -7255,7 +7784,7 @@
       "activity_type": "skill_method",
       "skill": "fletching",
       "intensity": 5,
-      "base_xp_per_hour": 62645,
+      "base_xp_per_hour": 67490,
       "base_gp_per_hour": 8500,
       "region": "heartlands",
       "level_required": 5,
@@ -7318,7 +7847,7 @@
       "activity_type": "skill_method",
       "skill": "fletching",
       "intensity": 2,
-      "base_xp_per_hour": 47940,
+      "base_xp_per_hour": 46750,
       "base_gp_per_hour": 12000,
       "region": "heartlands",
       "level_required": 20,
@@ -7380,7 +7909,7 @@
       "activity_type": "skill_method",
       "skill": "fletching",
       "intensity": 6,
-      "base_xp_per_hour": 123250,
+      "base_xp_per_hour": 139400,
       "base_gp_per_hour": 0,
       "region": "saltbrine",
       "level_required": 35,
@@ -7647,7 +8176,7 @@
       "activity_type": "skill_method",
       "skill": "fletching",
       "intensity": 2,
-      "base_xp_per_hour": 47940,
+      "base_xp_per_hour": 46750,
       "base_gp_per_hour": 28000,
       "region": "heartlands",
       "level_required": 30,
@@ -7704,6 +8233,53 @@
         "areas": []
       },
       "notes": "Dragon crossbow ornaments. Multi-step assembly — bench reagents in sequence.",
+      "source_file": "data/methods/fletching.json"
+    },
+    {
+      "activity_id": "veilwood_crystal_bow_attune",
+      "activity_type": "skill_method",
+      "skill": "fletching",
+      "intensity": 5,
+      "base_xp_per_hour": 178000,
+      "base_gp_per_hour": 2600000,
+      "region": "veilwood",
+      "level_required": 92,
+      "gating": {
+        "quests": [
+          "song_of_the_mossborn"
+        ],
+        "items": [
+          "crystal_weapon_seed",
+          "harmonic_dust",
+          "spring_cleaner"
+        ],
+        "areas": []
+      },
+      "notes": "Attune crystal bow blanks from seeds — service economy for raid teams needing bow recharge. Multi-phase attunement.",
+      "source_file": "data/methods/fletching.json"
+    },
+    {
+      "activity_id": "inkweald_dreamwood_longbow_u",
+      "activity_type": "skill_method",
+      "skill": "fletching",
+      "intensity": 6,
+      "base_xp_per_hour": 212000,
+      "base_gp_per_hour": 3400000,
+      "region": "inkweald",
+      "level_required": 97,
+      "gating": {
+        "quests": [
+          "unwake_the_dreamer",
+          "weavers_threnody"
+        ],
+        "items": [
+          "dreamwood_logs",
+          "ink_string",
+          "dream_arrowhead"
+        ],
+        "areas": []
+      },
+      "notes": "Capstone dreamwood longbow — bow itself self-arrows in use. Multi-step fletch + string + imbue. Elite profit from raid/CA consumers.",
       "source_file": "data/methods/fletching.json"
     },
     {
@@ -8241,6 +8817,53 @@
       "source_file": "data/methods/herblore.json"
     },
     {
+      "activity_id": "inkweald_dream_elixir_lab",
+      "activity_type": "skill_method",
+      "skill": "herblore",
+      "intensity": 6,
+      "base_xp_per_hour": 198000,
+      "base_gp_per_hour": 5400000,
+      "region": "inkweald",
+      "level_required": 94,
+      "gating": {
+        "quests": [
+          "unwake_the_dreamer",
+          "weavers_threnody"
+        ],
+        "items": [
+          "nightbloom_petal",
+          "dreamscale",
+          "antivenom_4"
+        ],
+        "areas": []
+      },
+      "notes": "Mix dream elixirs: extended bonus potions that preserve across worlds. Multi-ingredient rotation with dreamscale catalyst. Non-combat 5M+ method.",
+      "source_file": "data/methods/herblore.json"
+    },
+    {
+      "activity_id": "glass_desert_potion_refinery",
+      "activity_type": "skill_method",
+      "skill": "herblore",
+      "intensity": 5,
+      "base_xp_per_hour": 172000,
+      "base_gp_per_hour": 2800000,
+      "region": "glass_desert",
+      "level_required": 88,
+      "gating": {
+        "quests": [
+          "the_spice_accord"
+        ],
+        "items": [
+          "super_combat_3",
+          "overload_reagent",
+          "divine_crystals"
+        ],
+        "areas": []
+      },
+      "notes": "Refine supercombats into divine supercombats by adding overload reagent. Multi-phase refinery bench — heat + filter + settle.",
+      "source_file": "data/methods/herblore.json"
+    },
+    {
       "activity_id": "heartlands_dummy_hp",
       "activity_type": "skill_method",
       "skill": "hitpoints",
@@ -8698,11 +9321,35 @@
       "_c16_buffed": true
     },
     {
+      "activity_id": "glass_desert_tombs_expert_hp",
+      "activity_type": "skill_method",
+      "skill": "hitpoints",
+      "intensity": 10,
+      "base_xp_per_hour": 97750,
+      "base_gp_per_hour": 8600000,
+      "region": "glass_desert",
+      "level_required": 95,
+      "gating": {
+        "quests": [
+          "the_tomb_oath"
+        ],
+        "items": [
+          "scythe_of_vitur",
+          "justiciar_armour",
+          "rainbow_cape"
+        ],
+        "areas": []
+      },
+      "notes": "Tank role in ToA expert — HP XP from taking boss damage while guarding party. Band 10 support-tier elite.",
+      "source_file": "data/methods/hitpoints.json",
+      "_c16_buffed": true
+    },
+    {
       "activity_id": "heartlands_crimson_snare",
       "activity_type": "skill_method",
       "skill": "hunter",
       "intensity": 3,
-      "base_xp_per_hour": 47940,
+      "base_xp_per_hour": 49300,
       "base_gp_per_hour": 12000,
       "region": "heartlands",
       "level_required": 1,
@@ -8765,7 +9412,7 @@
       "activity_type": "skill_method",
       "skill": "hunter",
       "intensity": 3,
-      "base_xp_per_hour": 47940,
+      "base_xp_per_hour": 49300,
       "base_gp_per_hour": 18000,
       "region": "saltbrine",
       "level_required": 9,
@@ -9193,6 +9840,72 @@
         "areas": []
       },
       "notes": "Net dream koi in the air. AFK.",
+      "source_file": "data/methods/hunter.json"
+    },
+    {
+      "activity_id": "veilwood_elfwood_trapper",
+      "activity_type": "skill_method",
+      "skill": "hunter",
+      "intensity": 4,
+      "base_xp_per_hour": 108000,
+      "base_gp_per_hour": 700000,
+      "region": "veilwood",
+      "level_required": 70,
+      "gating": {
+        "quests": [
+          "whisperwood_remembers"
+        ],
+        "items": [
+          "box_trap",
+          "rare_pelt_bait"
+        ],
+        "areas": []
+      },
+      "notes": "Rare-pelt trapline. 6 trap rotation with bait re-set. Yields silver/gold/platinum pelts for crafting economy.",
+      "source_file": "data/methods/hunter.json"
+    },
+    {
+      "activity_id": "wilds_red_salamander_dreamcatcher",
+      "activity_type": "skill_method",
+      "skill": "hunter",
+      "intensity": 7,
+      "base_xp_per_hour": 184000,
+      "base_gp_per_hour": 2400000,
+      "region": "wilds",
+      "level_required": 92,
+      "gating": {
+        "quests": [],
+        "items": [
+          "dreamcatcher_trap",
+          "rope",
+          "stim_tonic"
+        ],
+        "areas": []
+      },
+      "notes": "Dreamcatcher net-trap for red salamander — yields salamander clutch (3 salamander per trip). PK risk scales with Wilderness depth. Elite hunter profit.",
+      "source_file": "data/methods/hunter.json"
+    },
+    {
+      "activity_id": "inkweald_mirage_bird_capture",
+      "activity_type": "skill_method",
+      "skill": "hunter",
+      "intensity": 5,
+      "base_xp_per_hour": 172000,
+      "base_gp_per_hour": 1800000,
+      "region": "inkweald",
+      "level_required": 96,
+      "gating": {
+        "quests": [
+          "unwake_the_dreamer",
+          "weavers_threnody"
+        ],
+        "items": [
+          "mirage_net",
+          "ink_reagent"
+        ],
+        "areas": []
+      },
+      "notes": "Capture mirage birds that phase between planes. Ink-net + chant rotation. High-value feather drops.",
       "source_file": "data/methods/hunter.json"
     },
     {
@@ -9694,6 +10407,53 @@
       "source_file": "data/methods/magic.json"
     },
     {
+      "activity_id": "sootworks_pipeworks_rune_golem",
+      "activity_type": "skill_method",
+      "skill": "magic",
+      "intensity": 6,
+      "base_xp_per_hour": 158000,
+      "base_gp_per_hour": 1400000,
+      "region": "sootworks",
+      "level_required": 77,
+      "gating": {
+        "quests": [
+          "soot_and_ember",
+          "the_pipeworks_run"
+        ],
+        "items": [
+          "staff_of_fire",
+          "cannon_kit"
+        ],
+        "areas": []
+      },
+      "notes": "Cannon-able rune golem in the pipes. Magic primary + cannon secondary for AoE. Elemental runes drop thick.",
+      "source_file": "data/methods/magic.json"
+    },
+    {
+      "activity_id": "moryskah_shadow_nexus_mage",
+      "activity_type": "skill_method",
+      "skill": "magic",
+      "intensity": 10,
+      "base_xp_per_hour": 234000,
+      "base_gp_per_hour": 6800000,
+      "region": "moryskah",
+      "level_required": 95,
+      "gating": {
+        "quests": [
+          "requiem_of_hollows",
+          "vyre_ascension"
+        ],
+        "items": [
+          "shadow_staff",
+          "ancestral_robes",
+          "augury_prayer_book"
+        ],
+        "areas": []
+      },
+      "notes": "Solo shadow-nexus elite challenge — max focus multi-mechanic wipe on fail. Drops shadow-staff uniques. Band 10 non-Inferno.",
+      "source_file": "data/methods/magic.json"
+    },
+    {
       "activity_id": "heartlands_copperpit_surface_tap",
       "activity_type": "skill_method",
       "skill": "mining",
@@ -9718,7 +10478,7 @@
       "activity_type": "skill_method",
       "skill": "mining",
       "intensity": 2,
-      "base_xp_per_hour": 47940,
+      "base_xp_per_hour": 46750,
       "base_gp_per_hour": 7500,
       "region": "heartlands",
       "level_required": 1,
@@ -9778,7 +10538,7 @@
       "activity_type": "skill_method",
       "skill": "mining",
       "intensity": 5,
-      "base_xp_per_hour": 62645,
+      "base_xp_per_hour": 67490,
       "base_gp_per_hour": 48000,
       "region": "sootworks",
       "level_required": 15,
@@ -9818,7 +10578,7 @@
       "activity_type": "skill_method",
       "skill": "mining",
       "intensity": 5,
-      "base_xp_per_hour": 62645,
+      "base_xp_per_hour": 67490,
       "base_gp_per_hour": 75000,
       "region": "sootworks",
       "level_required": 28,
@@ -9838,7 +10598,7 @@
       "activity_type": "skill_method",
       "skill": "mining",
       "intensity": 2,
-      "base_xp_per_hour": 47940,
+      "base_xp_per_hour": 46750,
       "base_gp_per_hour": 65000,
       "region": "sootworks",
       "level_required": 30,
@@ -9858,7 +10618,7 @@
       "activity_type": "skill_method",
       "skill": "mining",
       "intensity": 6,
-      "base_xp_per_hour": 123250,
+      "base_xp_per_hour": 139400,
       "base_gp_per_hour": 135000,
       "region": "sootworks",
       "level_required": 30,
@@ -9897,7 +10657,7 @@
       "activity_type": "skill_method",
       "skill": "mining",
       "intensity": 3,
-      "base_xp_per_hour": 47940,
+      "base_xp_per_hour": 49300,
       "base_gp_per_hour": 95000,
       "region": "glass_desert",
       "level_required": 42,
@@ -9918,7 +10678,7 @@
       "activity_type": "skill_method",
       "skill": "mining",
       "intensity": 2,
-      "base_xp_per_hour": 47940,
+      "base_xp_per_hour": 46750,
       "base_gp_per_hour": 44000,
       "region": "moryskah",
       "level_required": 50,
@@ -9938,7 +10698,7 @@
       "activity_type": "skill_method",
       "skill": "mining",
       "intensity": 5,
-      "base_xp_per_hour": 62645,
+      "base_xp_per_hour": 67490,
       "base_gp_per_hour": 92000,
       "region": "moryskah",
       "level_required": 55,
@@ -10100,7 +10860,7 @@
       "activity_type": "skill_method",
       "skill": "mining",
       "intensity": 7,
-      "base_xp_per_hour": 87900,
+      "base_xp_per_hour": 120700,
       "base_gp_per_hour": 460000,
       "region": "wilds",
       "level_required": 85,
@@ -10112,7 +10872,8 @@
         "areas": []
       },
       "notes": "Lv18 Wilderness runite with a 12-minute respawn. You fight, you hide, you mine, you teleport. Extreme risk for extreme profit.",
-      "source_file": "data/methods/mining.json"
+      "source_file": "data/methods/mining.json",
+      "_c16_buffed": true
     },
     {
       "activity_id": "wilds_runite_peaceful_deep",
@@ -10180,7 +10941,7 @@
       "activity_type": "skill_method",
       "skill": "mining",
       "intensity": 8,
-      "base_xp_per_hour": 111600,
+      "base_xp_per_hour": 140250,
       "base_gp_per_hour": 720000,
       "region": "wilds",
       "level_required": 92,
@@ -10194,7 +10955,8 @@
         "areas": []
       },
       "notes": "Four runite rocks in an instanced cave. Tick-perfect rotation + live-PvP exit corridor. The endgame mining chase.",
-      "source_file": "data/methods/mining.json"
+      "source_file": "data/methods/mining.json",
+      "_c16_buffed": true
     },
     {
       "activity_id": "veilwood_starfall_crystal",
@@ -10216,6 +10978,29 @@
       },
       "notes": "A fallen star lands in the glade on a rotating timer. Ten minutes of intense multi-player gathering, shared XP, once-per-instance.",
       "source_file": "data/methods/mining.json"
+    },
+    {
+      "activity_id": "sootworks_engine_crawl_salvage",
+      "activity_type": "skill_method",
+      "skill": "mining",
+      "intensity": 2,
+      "base_xp_per_hour": 46750,
+      "base_gp_per_hour": 550000,
+      "region": "sootworks",
+      "level_required": 28,
+      "gating": {
+        "quests": [
+          "soot_and_ember"
+        ],
+        "items": [
+          "dust_mask",
+          "bronze_pickaxe"
+        ],
+        "areas": []
+      },
+      "notes": "AFK scrap collection on engine conveyor. Salvaged scrap-iron and gear-cores sell well. Simple AFK with rare gearcore drop.",
+      "source_file": "data/methods/mining.json",
+      "_c16_buffed": true
     },
     {
       "activity_id": "heartlands_bury_bones_afk",
@@ -10242,7 +11027,7 @@
       "activity_type": "skill_method",
       "skill": "prayer",
       "intensity": 3,
-      "base_xp_per_hour": 47940,
+      "base_xp_per_hour": 49300,
       "base_gp_per_hour": 0,
       "region": "heartlands",
       "level_required": 1,
@@ -10282,7 +11067,7 @@
       "activity_type": "skill_method",
       "skill": "prayer",
       "intensity": 5,
-      "base_xp_per_hour": 62645,
+      "base_xp_per_hour": 67490,
       "base_gp_per_hour": 0,
       "region": "moryskah",
       "level_required": 15,
@@ -11077,6 +11862,50 @@
       "source_file": "data/methods/ranged.json"
     },
     {
+      "activity_id": "heartlands_active_chin_range_task",
+      "activity_type": "skill_method",
+      "skill": "ranged",
+      "intensity": 5,
+      "base_xp_per_hour": 128000,
+      "base_gp_per_hour": 1300000,
+      "region": "heartlands",
+      "level_required": 65,
+      "gating": {
+        "quests": [],
+        "items": [
+          "black_chinchompa",
+          "ava_s_device"
+        ],
+        "areas": []
+      },
+      "notes": "Stacked-mob chinning for mid-accounts. Active AoE chin rotation on packed mobs. Ava-device recycle for ammo economy.",
+      "source_file": "data/methods/ranged.json"
+    },
+    {
+      "activity_id": "glass_desert_tombs_expert_solo",
+      "activity_type": "skill_method",
+      "skill": "ranged",
+      "intensity": 10,
+      "base_xp_per_hour": 215000,
+      "base_gp_per_hour": 9200000,
+      "region": "glass_desert",
+      "level_required": 97,
+      "gating": {
+        "quests": [
+          "the_tomb_oath",
+          "the_dune_covenant"
+        ],
+        "items": [
+          "twisted_bow",
+          "zaryte_crossbow",
+          "masori_armour"
+        ],
+        "areas": []
+      },
+      "notes": "Max invocation ToA solo. Raid rotation on elevated invocation — purple roll x2 at 500+. Band 10 elite.",
+      "source_file": "data/methods/ranged.json"
+    },
+    {
       "activity_id": "heartlands_air_altar_afk",
       "activity_type": "skill_method",
       "skill": "runecrafting",
@@ -11101,7 +11930,7 @@
       "activity_type": "skill_method",
       "skill": "runecrafting",
       "intensity": 5,
-      "base_xp_per_hour": 62645,
+      "base_xp_per_hour": 67490,
       "base_gp_per_hour": 48000,
       "region": "heartlands",
       "level_required": 5,
@@ -11165,7 +11994,7 @@
       "activity_type": "skill_method",
       "skill": "runecrafting",
       "intensity": 5,
-      "base_xp_per_hour": 62645,
+      "base_xp_per_hour": 67490,
       "base_gp_per_hour": 65000,
       "region": "saltbrine",
       "level_required": 9,
@@ -11250,7 +12079,7 @@
       "activity_type": "skill_method",
       "skill": "runecrafting",
       "intensity": 5,
-      "base_xp_per_hour": 62645,
+      "base_xp_per_hour": 67490,
       "base_gp_per_hour": 128000,
       "region": "sootworks",
       "level_required": 20,
@@ -11376,7 +12205,7 @@
       "activity_type": "skill_method",
       "skill": "runecrafting",
       "intensity": 6,
-      "base_xp_per_hour": 123250,
+      "base_xp_per_hour": 139400,
       "base_gp_per_hour": 425000,
       "region": "veilwood",
       "level_required": 54,
@@ -11417,7 +12246,7 @@
       "activity_type": "skill_method",
       "skill": "runecrafting",
       "intensity": 6,
-      "base_xp_per_hour": 104800,
+      "base_xp_per_hour": 139400,
       "base_gp_per_hour": 520000,
       "region": "inkweald",
       "level_required": 65,
@@ -11432,7 +12261,8 @@
         "areas": []
       },
       "notes": "Law altar with dream-taxi teleport.",
-      "source_file": "data/methods/runecrafting.json"
+      "source_file": "data/methods/runecrafting.json",
+      "_c16_buffed": true
     },
     {
       "activity_id": "inkweald_law_altar_afk",
@@ -11607,6 +12437,100 @@
       "osrs_canon": true
     },
     {
+      "activity_id": "inkweald_ink_dyed_rune_batch",
+      "activity_type": "skill_method",
+      "skill": "runecrafting",
+      "intensity": 2,
+      "base_xp_per_hour": 114000,
+      "base_gp_per_hour": 2200000,
+      "region": "inkweald",
+      "level_required": 88,
+      "gating": {
+        "quests": [
+          "unwake_the_dreamer"
+        ],
+        "items": [
+          "rune_essence",
+          "ink_reagent",
+          "dye_pair"
+        ],
+        "areas": []
+      },
+      "notes": "Dual-dyed ink rune pairs. Reagent-paired craft with large batch yield. Light-interaction rune processing.",
+      "source_file": "data/methods/runecrafting.json"
+    },
+    {
+      "activity_id": "multi_rune_running_courier",
+      "activity_type": "skill_method",
+      "skill": "runecrafting",
+      "intensity": 3,
+      "base_xp_per_hour": 62000,
+      "base_gp_per_hour": 6200000,
+      "region": "heartlands",
+      "level_required": 77,
+      "gating": {
+        "quests": [
+          "the_binding_scroll",
+          "the_ledger_and_the_oar"
+        ],
+        "items": [
+          "rune_pouch_all",
+          "courier_bag",
+          "trader_passport"
+        ],
+        "areas": []
+      },
+      "notes": "Courier-tier rune distribution across three altar-adjacent exchanges. Buy runes at cheap altar-source, deposit at courier bank for spread + volume bonus. Non-combat 5M+.",
+      "source_file": "data/methods/runecrafting.json"
+    },
+    {
+      "activity_id": "veilwood_soul_altar_pouch_rush",
+      "activity_type": "skill_method",
+      "skill": "runecrafting",
+      "intensity": 8,
+      "base_xp_per_hour": 208000,
+      "base_gp_per_hour": 1600000,
+      "region": "veilwood",
+      "level_required": 92,
+      "gating": {
+        "quests": [
+          "whisperwood_remembers"
+        ],
+        "items": [
+          "rune_essence",
+          "all_pouches",
+          "moon_staff"
+        ],
+        "areas": []
+      },
+      "notes": "Tick-perfect soul altar with quadruple pouch + staff swap. Band 8 elite.",
+      "source_file": "data/methods/runecrafting.json"
+    },
+    {
+      "activity_id": "inkweald_shadow_rune_weave",
+      "activity_type": "skill_method",
+      "skill": "runecrafting",
+      "intensity": 9,
+      "base_xp_per_hour": 248000,
+      "base_gp_per_hour": 4800000,
+      "region": "inkweald",
+      "level_required": 99,
+      "gating": {
+        "quests": [
+          "unwake_the_dreamer",
+          "weavers_threnody"
+        ],
+        "items": [
+          "rune_essence",
+          "shadow_veil_charm",
+          "ink_reagent"
+        ],
+        "areas": []
+      },
+      "notes": "Capstone shadow-rune weave. Requires 99 RC — yields shadow-rune for Ancient Magicks.",
+      "source_file": "data/methods/runecrafting.json"
+    },
+    {
       "activity_id": "heartlands_turael_cow",
       "activity_type": "skill_method",
       "skill": "slayer",
@@ -11631,7 +12555,7 @@
       "activity_type": "skill_method",
       "skill": "slayer",
       "intensity": 3,
-      "base_xp_per_hour": 47940,
+      "base_xp_per_hour": 49300,
       "base_gp_per_hour": 8500,
       "region": "heartlands",
       "level_required": 3,
@@ -11712,7 +12636,7 @@
       "activity_type": "skill_method",
       "skill": "slayer",
       "intensity": 5,
-      "base_xp_per_hour": 62645,
+      "base_xp_per_hour": 67490,
       "base_gp_per_hour": 48000,
       "region": "moryskah",
       "level_required": 25,
@@ -11732,7 +12656,7 @@
       "activity_type": "skill_method",
       "skill": "slayer",
       "intensity": 6,
-      "base_xp_per_hour": 123250,
+      "base_xp_per_hour": 139400,
       "base_gp_per_hour": 42000,
       "region": "saltbrine",
       "level_required": 30,
@@ -11851,7 +12775,7 @@
       "activity_type": "skill_method",
       "skill": "slayer",
       "intensity": 6,
-      "base_xp_per_hour": 104800,
+      "base_xp_per_hour": 139400,
       "base_gp_per_hour": 420000,
       "region": "sootworks",
       "level_required": 75,
@@ -11865,7 +12789,8 @@
         "areas": []
       },
       "notes": "Smoke devil task. Multi-combat, best slayer XP/hr 75+.",
-      "source_file": "data/methods/slayer.json"
+      "source_file": "data/methods/slayer.json",
+      "_c16_buffed": true
     },
     {
       "activity_id": "veilwood_nieve_kurask_afk",
@@ -12055,7 +12980,7 @@
       "activity_type": "skill_method",
       "skill": "slayer",
       "intensity": 3,
-      "base_xp_per_hour": 47940,
+      "base_xp_per_hour": 49300,
       "base_gp_per_hour": 95000,
       "region": "moryskah",
       "level_required": 45,
@@ -12089,6 +13014,322 @@
       "notes": "Black bear task. AFK.",
       "source_file": "data/methods/slayer.json",
       "_c16_buffed": true
+    },
+    {
+      "activity_id": "heartlands_brigand_mount_rotation",
+      "activity_type": "skill_method",
+      "skill": "slayer",
+      "intensity": 7,
+      "base_xp_per_hour": 118000,
+      "base_gp_per_hour": 1300000,
+      "region": "heartlands",
+      "level_required": 68,
+      "gating": {
+        "quests": [
+          "the_rangers_trust"
+        ],
+        "items": [
+          "slayer_helm",
+          "rune_scimitar",
+          "brigand_rope"
+        ],
+        "areas": []
+      },
+      "notes": "Mid-tier mounted brigand task. Dismount + cavalry rotation. Drops keys worth flipping.",
+      "source_file": "data/methods/slayer.json"
+    },
+    {
+      "activity_id": "glass_desert_sandwraith_summoner",
+      "activity_type": "skill_method",
+      "skill": "slayer",
+      "intensity": 7,
+      "base_xp_per_hour": 156000,
+      "base_gp_per_hour": 1700000,
+      "region": "glass_desert",
+      "level_required": 78,
+      "gating": {
+        "quests": [
+          "the_dune_covenant"
+        ],
+        "items": [
+          "slayer_helm",
+          "mirror_shield",
+          "dragon_scimitar"
+        ],
+        "areas": []
+      },
+      "notes": "Mid-tier magic boss. Mirror shield flip to reflect petrify; summon rotation clears arena adds.",
+      "source_file": "data/methods/slayer.json"
+    },
+    {
+      "activity_id": "veilwood_silvermoon_chanter",
+      "activity_type": "skill_method",
+      "skill": "slayer",
+      "intensity": 6,
+      "base_xp_per_hour": 168000,
+      "base_gp_per_hour": 1500000,
+      "region": "veilwood",
+      "level_required": 80,
+      "gating": {
+        "quests": [
+          "song_of_the_mossborn"
+        ],
+        "items": [
+          "slayer_helm",
+          "silvermoon_bow"
+        ],
+        "areas": []
+      },
+      "notes": "Mid-tier magic boss. Chant rotation interrupts healing; rune drops scale with chant-streak.",
+      "source_file": "data/methods/slayer.json"
+    },
+    {
+      "activity_id": "inkweald_dreameater_lair",
+      "activity_type": "skill_method",
+      "skill": "slayer",
+      "intensity": 6,
+      "base_xp_per_hour": 182000,
+      "base_gp_per_hour": 3400000,
+      "region": "inkweald",
+      "level_required": 85,
+      "gating": {
+        "quests": [
+          "unwake_the_dreamer"
+        ],
+        "items": [
+          "slayer_helm",
+          "salve_amulet_e",
+          "blowpipe"
+        ],
+        "areas": []
+      },
+      "notes": "Solo midgame boss. Dreameater triggers sleep — wake rotation + prayer flick. Drops dreamscale.",
+      "source_file": "data/methods/slayer.json"
+    },
+    {
+      "activity_id": "moryskah_vampire_lord_duel",
+      "activity_type": "skill_method",
+      "skill": "slayer",
+      "intensity": 6,
+      "base_xp_per_hour": 192000,
+      "base_gp_per_hour": 4200000,
+      "region": "moryskah",
+      "level_required": 92,
+      "gating": {
+        "quests": [
+          "requiem_of_hollows"
+        ],
+        "items": [
+          "slayer_helm",
+          "ivandis_flail",
+          "blisterwood_stake"
+        ],
+        "areas": []
+      },
+      "notes": "Solo mid-tier vampire boss. Stake-and-flail rotation — must burn before phase 3 resurrection. High loot table.",
+      "source_file": "data/methods/slayer.json"
+    },
+    {
+      "activity_id": "boneyard_tomb_marauder_task",
+      "activity_type": "skill_method",
+      "skill": "slayer",
+      "intensity": 6,
+      "base_xp_per_hour": 138000,
+      "base_gp_per_hour": 1800000,
+      "region": "boneyard",
+      "level_required": 75,
+      "gating": {
+        "quests": [
+          "the_crypt_warden"
+        ],
+        "items": [
+          "slayer_helm",
+          "dragon_scimitar"
+        ],
+        "areas": []
+      },
+      "notes": "Mid-level wilderness-lite boss on the tomb circuit. Multi-spawn arena with crypt guardian interrupts.",
+      "source_file": "data/methods/slayer.json"
+    },
+    {
+      "activity_id": "boneyard_bone_pyramid_desecrator",
+      "activity_type": "skill_method",
+      "skill": "slayer",
+      "intensity": 7,
+      "base_xp_per_hour": 178000,
+      "base_gp_per_hour": 2600000,
+      "region": "boneyard",
+      "level_required": 88,
+      "gating": {
+        "quests": [
+          "the_crypt_warden",
+          "the_pyramid_oath"
+        ],
+        "items": [
+          "slayer_helm",
+          "salve_amulet_e",
+          "bonecrush"
+        ],
+        "areas": []
+      },
+      "notes": "Elite desecrator boss. Ensouled drops across phases. Prayer drain on failed desecrate interrupt.",
+      "source_file": "data/methods/slayer.json"
+    },
+    {
+      "activity_id": "saltbrine_coral_reaver",
+      "activity_type": "skill_method",
+      "skill": "slayer",
+      "intensity": 7,
+      "base_xp_per_hour": 162000,
+      "base_gp_per_hour": 1600000,
+      "region": "saltbrine",
+      "level_required": 80,
+      "gating": {
+        "quests": [
+          "the_crystal_coast",
+          "trawlers_call"
+        ],
+        "items": [
+          "slayer_helm",
+          "trident_of_the_swamp",
+          "swimming_charm"
+        ],
+        "areas": []
+      },
+      "notes": "Swimming combat boss — combat in half-submerged arena. Dive rotation exposes mag weakness.",
+      "source_file": "data/methods/slayer.json"
+    },
+    {
+      "activity_id": "saltbrine_kraken_tentacle_loop",
+      "activity_type": "skill_method",
+      "skill": "slayer",
+      "intensity": 6,
+      "base_xp_per_hour": 184000,
+      "base_gp_per_hour": 2400000,
+      "region": "saltbrine",
+      "level_required": 87,
+      "gating": {
+        "quests": [
+          "the_crystal_coast"
+        ],
+        "items": [
+          "slayer_helm",
+          "trident_of_the_swamp"
+        ],
+        "areas": []
+      },
+      "notes": "Kraken-style tentacle loop. Auto-detect spawn + trident rotation. OSRS Kraken analogue.",
+      "source_file": "data/methods/slayer.json"
+    },
+    {
+      "activity_id": "wilds_chaos_shrine_salvage",
+      "activity_type": "skill_method",
+      "skill": "slayer",
+      "intensity": 2,
+      "base_xp_per_hour": 48000,
+      "base_gp_per_hour": 650000,
+      "region": "wilds",
+      "level_required": 55,
+      "gating": {
+        "quests": [],
+        "items": [
+          "bone_dagger",
+          "prayer_potion"
+        ],
+        "areas": []
+      },
+      "notes": "AFK chaos shrine — random attacker interruptions. Prayer salvage drops.",
+      "source_file": "data/methods/slayer.json"
+    },
+    {
+      "activity_id": "wilds_revenant_shard_flip",
+      "activity_type": "skill_method",
+      "skill": "slayer",
+      "intensity": 3,
+      "base_xp_per_hour": 62000,
+      "base_gp_per_hour": 880000,
+      "region": "wilds",
+      "level_required": 60,
+      "gating": {
+        "quests": [],
+        "items": [
+          "bracelet_of_ethereum"
+        ],
+        "areas": []
+      },
+      "notes": "PvM-lite revenant imp chain with GE shard-trade cycle. Profit from shard spread.",
+      "source_file": "data/methods/slayer.json"
+    },
+    {
+      "activity_id": "multi_endgame_corrupted_gauntlet",
+      "activity_type": "skill_method",
+      "skill": "slayer",
+      "intensity": 10,
+      "base_xp_per_hour": 248000,
+      "base_gp_per_hour": 5800000,
+      "region": "veilwood",
+      "level_required": 95,
+      "gating": {
+        "quests": [
+          "song_of_the_mossborn",
+          "the_binding_scroll"
+        ],
+        "items": [
+          "crystal_armour_seed",
+          "blade_of_soot"
+        ],
+        "areas": []
+      },
+      "notes": "Solo corrupted-gauntlet — 10 min prep + boss. Harvest-and-build rotation under time pressure. Band-10 non-Inferno elite.",
+      "source_file": "data/methods/slayer.json"
+    },
+    {
+      "activity_id": "moryskah_cox_hard_mode_solo",
+      "activity_type": "skill_method",
+      "skill": "slayer",
+      "intensity": 10,
+      "base_xp_per_hour": 168000,
+      "base_gp_per_hour": 7200000,
+      "region": "moryskah",
+      "level_required": 95,
+      "gating": {
+        "quests": [
+          "requiem_of_hollows",
+          "the_chalice_of_xeric"
+        ],
+        "items": [
+          "elder_maul",
+          "dragonhunter_lance",
+          "twisted_bow"
+        ],
+        "areas": []
+      },
+      "notes": "CoX hard mode solo — triple-point-rate drops. Max rotation across all combat styles. Band-10 elite.",
+      "source_file": "data/methods/slayer.json"
+    },
+    {
+      "activity_id": "moryskah_tob_expert",
+      "activity_type": "skill_method",
+      "skill": "slayer",
+      "intensity": 10,
+      "base_xp_per_hour": 185000,
+      "base_gp_per_hour": 8400000,
+      "region": "moryskah",
+      "level_required": 95,
+      "gating": {
+        "quests": [
+          "requiem_of_hollows",
+          "vyre_ascension"
+        ],
+        "items": [
+          "scythe_of_vitur",
+          "sang_staff",
+          "blowpipe"
+        ],
+        "areas": []
+      },
+      "notes": "ToB expert mode — no deaths tolerated, boss HP scaled. Drop-rate 2x vs normal.",
+      "source_file": "data/methods/slayer.json"
     },
     {
       "activity_id": "heartlands_bronze_smelt",
@@ -12198,7 +13439,7 @@
       "activity_type": "skill_method",
       "skill": "smithing",
       "intensity": 5,
-      "base_xp_per_hour": 62645,
+      "base_xp_per_hour": 67490,
       "base_gp_per_hour": 185000,
       "region": "sootworks",
       "level_required": 25,
@@ -12221,7 +13462,7 @@
       "activity_type": "skill_method",
       "skill": "smithing",
       "intensity": 5,
-      "base_xp_per_hour": 55300,
+      "base_xp_per_hour": 67490,
       "base_gp_per_hour": 265000,
       "region": "sootworks",
       "level_required": 30,
@@ -12236,7 +13477,8 @@
         "areas": []
       },
       "notes": "Steel bars via blast furnace. 60-sec conveyor cycles. Classic 30+ XP.",
-      "source_file": "data/methods/smithing.json"
+      "source_file": "data/methods/smithing.json",
+      "_c16_buffed": true
     },
     {
       "activity_id": "heartlands_steel_anvil_afk",
@@ -12264,7 +13506,7 @@
       "activity_type": "skill_method",
       "skill": "smithing",
       "intensity": 2,
-      "base_xp_per_hour": 47940,
+      "base_xp_per_hour": 46750,
       "base_gp_per_hour": 135000,
       "region": "glass_desert",
       "level_required": 40,
@@ -12285,7 +13527,7 @@
       "activity_type": "skill_method",
       "skill": "smithing",
       "intensity": 7,
-      "base_xp_per_hour": 87900,
+      "base_xp_per_hour": 120700,
       "base_gp_per_hour": 220000,
       "region": "glass_desert",
       "level_required": 40,
@@ -12298,7 +13540,8 @@
         "areas": []
       },
       "notes": "Gold ring + amulet spam on 4 adjacent anvils. Tick-perfect withdraw-hammer.",
-      "source_file": "data/methods/smithing.json"
+      "source_file": "data/methods/smithing.json",
+      "_c16_buffed": true
     },
     {
       "activity_id": "moryskah_mithril_smelt",
@@ -12325,7 +13568,7 @@
       "activity_type": "skill_method",
       "skill": "smithing",
       "intensity": 6,
-      "base_xp_per_hour": 123250,
+      "base_xp_per_hour": 139400,
       "base_gp_per_hour": 295000,
       "region": "sootworks",
       "level_required": 50,
@@ -12551,6 +13794,100 @@
         "areas": []
       },
       "notes": "Cannonball mould casting. Slowest Smithing XP but profit-leading. AFK.",
+      "source_file": "data/methods/smithing.json"
+    },
+    {
+      "activity_id": "sootworks_furnace_stoker_shift",
+      "activity_type": "skill_method",
+      "skill": "smithing",
+      "intensity": 4,
+      "base_xp_per_hour": 74800,
+      "base_gp_per_hour": 900000,
+      "region": "sootworks",
+      "level_required": 40,
+      "gating": {
+        "quests": [
+          "soot_and_ember"
+        ],
+        "items": [
+          "coal",
+          "soot_iron_ore",
+          "stoker_apron"
+        ],
+        "areas": []
+      },
+      "notes": "Stoke the main Cindervault furnace, output soot-steel bars while cycling coal pile. Active rotation — stoke/cycle/output.",
+      "source_file": "data/methods/smithing.json",
+      "_c16_buffed": true
+    },
+    {
+      "activity_id": "sootworks_gearcore_shard_smith",
+      "activity_type": "skill_method",
+      "skill": "smithing",
+      "intensity": 5,
+      "base_xp_per_hour": 92000,
+      "base_gp_per_hour": 750000,
+      "region": "sootworks",
+      "level_required": 62,
+      "gating": {
+        "quests": [
+          "soot_and_ember",
+          "the_pipeworks_run"
+        ],
+        "items": [
+          "adamantite_bar",
+          "gearcore_template"
+        ],
+        "areas": []
+      },
+      "notes": "Precision-hammer gearcore shards to vendor bars. High-level smithing producing high-value bars via template rotation.",
+      "source_file": "data/methods/smithing.json"
+    },
+    {
+      "activity_id": "sootworks_elder_rune_runetrace",
+      "activity_type": "skill_method",
+      "skill": "smithing",
+      "intensity": 8,
+      "base_xp_per_hour": 212000,
+      "base_gp_per_hour": 3200000,
+      "region": "sootworks",
+      "level_required": 94,
+      "gating": {
+        "quests": [
+          "soot_and_ember",
+          "the_forgeroyal_finale"
+        ],
+        "items": [
+          "runite_bar",
+          "elder_rune_template",
+          "harmonic_dust"
+        ],
+        "areas": []
+      },
+      "notes": "Elder-rune runetraced platebody — multi-rune inscription between hammer swings. Yields enchant-capable runite gear.",
+      "source_file": "data/methods/smithing.json"
+    },
+    {
+      "activity_id": "moryskah_blisterwood_forge_contract",
+      "activity_type": "skill_method",
+      "skill": "smithing",
+      "intensity": 6,
+      "base_xp_per_hour": 178000,
+      "base_gp_per_hour": 2700000,
+      "region": "moryskah",
+      "level_required": 91,
+      "gating": {
+        "quests": [
+          "requiem_of_hollows"
+        ],
+        "items": [
+          "runite_bar",
+          "blisterwood_core",
+          "holy_water"
+        ],
+        "areas": []
+      },
+      "notes": "Vampire-hunter weapon contract. Forge blisterwood stakes on blessed anvil. Prayer drain between pieces. Endgame profit.",
       "source_file": "data/methods/smithing.json"
     },
     {
@@ -12995,11 +14332,58 @@
       "source_file": "data/methods/strength.json"
     },
     {
+      "activity_id": "moryskah_vyrewatch_expert",
+      "activity_type": "skill_method",
+      "skill": "strength",
+      "intensity": 10,
+      "base_xp_per_hour": 204000,
+      "base_gp_per_hour": 7600000,
+      "region": "moryskah",
+      "level_required": 97,
+      "gating": {
+        "quests": [
+          "vyre_ascension",
+          "requiem_of_hollows"
+        ],
+        "items": [
+          "scythe_of_vitur",
+          "blood_fury",
+          "avernic_defender"
+        ],
+        "areas": []
+      },
+      "notes": "Vyrewatch sentinel expert — 6-phase vampire boss with HP regen on mechanic fail. Aggressive-style scythe rotation. Band 10 elite.",
+      "source_file": "data/methods/strength.json"
+    },
+    {
+      "activity_id": "wilds_zuk_pit_challenge",
+      "activity_type": "skill_method",
+      "skill": "strength",
+      "intensity": 10,
+      "base_xp_per_hour": 224000,
+      "base_gp_per_hour": 6500000,
+      "region": "wilds",
+      "level_required": 99,
+      "gating": {
+        "quests": [
+          "the_ember_trial"
+        ],
+        "items": [
+          "fire_cape",
+          "torture_amulet",
+          "bandos_godsword"
+        ],
+        "areas": []
+      },
+      "notes": "Wilderness zuk-pit — Inferno-adjacent boss trial with PK risk overlay. Band 10 non-Inferno elite with PvP premium.",
+      "source_file": "data/methods/strength.json"
+    },
+    {
       "activity_id": "heartlands_man_pickpocket",
       "activity_type": "skill_method",
       "skill": "thieving",
       "intensity": 2,
-      "base_xp_per_hour": 47940,
+      "base_xp_per_hour": 46750,
       "base_gp_per_hour": 22000,
       "region": "heartlands",
       "level_required": 1,
@@ -13053,7 +14437,7 @@
       "activity_type": "skill_method",
       "skill": "thieving",
       "intensity": 3,
-      "base_xp_per_hour": 47940,
+      "base_xp_per_hour": 49300,
       "base_gp_per_hour": 45000,
       "region": "heartlands",
       "level_required": 25,
@@ -13107,7 +14491,7 @@
       "activity_type": "skill_method",
       "skill": "thieving",
       "intensity": 5,
-      "base_xp_per_hour": 62645,
+      "base_xp_per_hour": 67490,
       "base_gp_per_hour": 95000,
       "region": "heartlands",
       "level_required": 32,
@@ -13125,7 +14509,7 @@
       "activity_type": "skill_method",
       "skill": "thieving",
       "intensity": 2,
-      "base_xp_per_hour": 47940,
+      "base_xp_per_hour": 46750,
       "base_gp_per_hour": 72000,
       "region": "heartlands",
       "level_required": 40,
@@ -13252,7 +14636,7 @@
       "activity_type": "skill_method",
       "skill": "thieving",
       "intensity": 6,
-      "base_xp_per_hour": 103500,
+      "base_xp_per_hour": 139400,
       "base_gp_per_hour": 385000,
       "region": "heartlands",
       "level_required": 65,
@@ -13264,7 +14648,8 @@
         "areas": []
       },
       "notes": "Paladin active with rogue armour for double-loot.",
-      "source_file": "data/methods/thieving.json"
+      "source_file": "data/methods/thieving.json",
+      "_c16_buffed": true
     },
     {
       "activity_id": "heartlands_paladin_afk",
@@ -13398,7 +14783,7 @@
       "activity_type": "skill_method",
       "skill": "thieving",
       "intensity": 8,
-      "base_xp_per_hour": 126905,
+      "base_xp_per_hour": 140250,
       "base_gp_per_hour": 685000,
       "region": "inkweald",
       "level_required": 50,
@@ -13433,6 +14818,144 @@
       "notes": "Master farmer for rare seeds.",
       "source_file": "data/methods/thieving.json",
       "_c16_buffed": true
+    },
+    {
+      "activity_id": "moryskah_necropolis_toll_run",
+      "activity_type": "skill_method",
+      "skill": "thieving",
+      "intensity": 4,
+      "base_xp_per_hour": 138000,
+      "base_gp_per_hour": 2700000,
+      "region": "moryskah",
+      "level_required": 72,
+      "gating": {
+        "quests": [
+          "requiem_of_hollows"
+        ],
+        "items": [
+          "rogue_outfit",
+          "stethoscope",
+          "toll_disguise"
+        ],
+        "areas": []
+      },
+      "notes": "Four-gate toll-run pilfering crypt priests. Disguise rotation + route memorisation. Drops sealed toll-purses.",
+      "source_file": "data/methods/thieving.json"
+    },
+    {
+      "activity_id": "multi_mercantile_trade_route",
+      "activity_type": "skill_method",
+      "skill": "thieving",
+      "intensity": 3,
+      "base_xp_per_hour": 52000,
+      "base_gp_per_hour": 750000,
+      "region": "heartlands",
+      "level_required": 45,
+      "gating": {
+        "quests": [
+          "the_ledger_and_the_oar"
+        ],
+        "items": [
+          "trader_passport",
+          "courier_bag"
+        ],
+        "areas": []
+      },
+      "notes": "Three-city trade circuit: buy low on spice/silk/preserved fish at price-split regions and resell at the third city. Attentive but not tick-perfect. Passport rotation.",
+      "source_file": "data/methods/thieving.json"
+    },
+    {
+      "activity_id": "heartlands_ge_arbitrage_desk",
+      "activity_type": "skill_method",
+      "skill": "thieving",
+      "intensity": 2,
+      "base_xp_per_hour": 46750,
+      "base_gp_per_hour": 5800000,
+      "region": "heartlands",
+      "level_required": 88,
+      "gating": {
+        "quests": [
+          "the_ledger_and_the_oar",
+          "the_broker_s_word"
+        ],
+        "items": [
+          "trader_passport",
+          "broker_license"
+        ],
+        "areas": []
+      },
+      "notes": "Flip bulk goods across margin spreads. Place + cancel + re-list cycles. Cap on simultaneous orders; profit scales with GE volume. Non-combat 5M+ method.",
+      "source_file": "data/methods/thieving.json",
+      "_c16_buffed": true
+    },
+    {
+      "activity_id": "inkweald_dream_vault_master_theft",
+      "activity_type": "skill_method",
+      "skill": "thieving",
+      "intensity": 9,
+      "base_xp_per_hour": 232000,
+      "base_gp_per_hour": 4100000,
+      "region": "inkweald",
+      "level_required": 95,
+      "gating": {
+        "quests": [
+          "unwake_the_dreamer",
+          "the_ledger_and_the_oar"
+        ],
+        "items": [
+          "dream_lockpick",
+          "shadow_cloak",
+          "silence_charm"
+        ],
+        "areas": []
+      },
+      "notes": "Master-tier dream vault heist. Route memorisation + silence-charm rotation + shadow clock synchronisation. One failed roll = eject.",
+      "source_file": "data/methods/thieving.json"
+    },
+    {
+      "activity_id": "saltbrine_drifting_market_silk_flip",
+      "activity_type": "skill_method",
+      "skill": "thieving",
+      "intensity": 2,
+      "base_xp_per_hour": 46750,
+      "base_gp_per_hour": 600000,
+      "region": "saltbrine",
+      "level_required": 42,
+      "gating": {
+        "quests": [
+          "the_crystal_coast"
+        ],
+        "items": [
+          "trader_passport",
+          "silk_dye_kit"
+        ],
+        "areas": []
+      },
+      "notes": "Flip silk at the drifting market — buy raw silk at dockside, re-dye at market bench, resell at higher tier. Mercantile AFK.",
+      "source_file": "data/methods/thieving.json",
+      "_c16_buffed": true
+    },
+    {
+      "activity_id": "boneyard_cryptstalker_relic_run",
+      "activity_type": "skill_method",
+      "skill": "thieving",
+      "intensity": 3,
+      "base_xp_per_hour": 68000,
+      "base_gp_per_hour": 680000,
+      "region": "boneyard",
+      "level_required": 52,
+      "gating": {
+        "quests": [
+          "the_crypt_warden"
+        ],
+        "items": [
+          "stethoscope",
+          "relic_kit"
+        ],
+        "areas": []
+      },
+      "notes": "AFK-Multitask obelisk circuit. Loot obelisks across a four-node run; agility shortcuts speed the loop. Safe but attentive.",
+      "source_file": "data/methods/thieving.json"
     },
     {
       "activity_id": "heartlands_logwood_grove",
@@ -13499,7 +15022,7 @@
       "activity_type": "skill_method",
       "skill": "woodcutting",
       "intensity": 6,
-      "base_xp_per_hour": 123250,
+      "base_xp_per_hour": 139400,
       "base_gp_per_hour": 0,
       "region": "heartlands",
       "level_required": 15,
@@ -13519,7 +15042,7 @@
       "activity_type": "skill_method",
       "skill": "woodcutting",
       "intensity": 2,
-      "base_xp_per_hour": 47940,
+      "base_xp_per_hour": 46750,
       "base_gp_per_hour": 14000,
       "region": "sootworks",
       "level_required": 22,
@@ -13539,7 +15062,7 @@
       "activity_type": "skill_method",
       "skill": "woodcutting",
       "intensity": 5,
-      "base_xp_per_hour": 62645,
+      "base_xp_per_hour": 67490,
       "base_gp_per_hour": 32000,
       "region": "sootworks",
       "level_required": 25,
@@ -13579,7 +15102,7 @@
       "activity_type": "skill_method",
       "skill": "woodcutting",
       "intensity": 6,
-      "base_xp_per_hour": 123250,
+      "base_xp_per_hour": 139400,
       "base_gp_per_hour": 0,
       "region": "saltbrine",
       "level_required": 30,
@@ -13658,7 +15181,7 @@
       "activity_type": "skill_method",
       "skill": "woodcutting",
       "intensity": 8,
-      "base_xp_per_hour": 105700,
+      "base_xp_per_hour": 140250,
       "base_gp_per_hour": 280000,
       "region": "heartlands",
       "level_required": 35,
@@ -13671,7 +15194,8 @@
         "areas": []
       },
       "notes": "2-tick teak with dual lit-tinderbox cycle. The endgame XP method for 35-60. Requires firemaking.",
-      "source_file": "data/methods/woodcutting.json"
+      "source_file": "data/methods/woodcutting.json",
+      "_c16_buffed": true
     },
     {
       "activity_id": "veilwood_yew_hermitage",
@@ -13780,7 +15304,7 @@
       "activity_type": "skill_method",
       "skill": "woodcutting",
       "intensity": 6,
-      "base_xp_per_hour": 123250,
+      "base_xp_per_hour": 139400,
       "base_gp_per_hour": 315000,
       "region": "inkweald",
       "level_required": 85,
@@ -13876,6 +15400,29 @@
       "notes": "Rotation through 3 petrified trees. Screamers in the trees add attention cost.",
       "source_file": "data/methods/woodcutting.json",
       "_c16_buffed": true
+    },
+    {
+      "activity_id": "inkweald_dreamwood_logger_elite",
+      "activity_type": "skill_method",
+      "skill": "woodcutting",
+      "intensity": 5,
+      "base_xp_per_hour": 158000,
+      "base_gp_per_hour": 5400000,
+      "region": "inkweald",
+      "level_required": 98,
+      "gating": {
+        "quests": [
+          "unwake_the_dreamer",
+          "weavers_threnody"
+        ],
+        "items": [
+          "crystal_axe",
+          "spirit_tree_ward"
+        ],
+        "areas": []
+      },
+      "notes": "Dreamwood capstone logger. Trees phase in/out — click only when real. Drops dreamwood logs used in elite fletching.",
+      "source_file": "data/methods/woodcutting.json"
     },
     {
       "activity_id": "kill_sand_crab",
@@ -25281,7 +26828,7 @@
       "activity_type": "skill_method",
       "skill": "mining",
       "intensity": 2,
-      "base_xp_per_hour": 47940,
+      "base_xp_per_hour": 46750,
       "base_gp_per_hour": 0,
       "region": "heartlands",
       "level_required": 20,
@@ -25300,7 +26847,7 @@
       "activity_type": "skill_method",
       "skill": "mining",
       "intensity": 2,
-      "base_xp_per_hour": 47940,
+      "base_xp_per_hour": 46750,
       "base_gp_per_hour": 0,
       "region": "heartlands",
       "level_required": 40,
@@ -25319,7 +26866,7 @@
       "activity_type": "skill_method",
       "skill": "mining",
       "intensity": 2,
-      "base_xp_per_hour": 47940,
+      "base_xp_per_hour": 46750,
       "base_gp_per_hour": 0,
       "region": "heartlands",
       "level_required": 40,
@@ -25746,7 +27293,7 @@
       "activity_type": "skill_method",
       "skill": "woodcutting",
       "intensity": 2,
-      "base_xp_per_hour": 47940,
+      "base_xp_per_hour": 46750,
       "base_gp_per_hour": 0,
       "region": "heartlands",
       "level_required": 1,
@@ -25765,7 +27312,7 @@
       "activity_type": "skill_method",
       "skill": "woodcutting",
       "intensity": 2,
-      "base_xp_per_hour": 47940,
+      "base_xp_per_hour": 46750,
       "base_gp_per_hour": 0,
       "region": "heartlands",
       "level_required": 35,
@@ -25784,7 +27331,7 @@
       "activity_type": "skill_method",
       "skill": "woodcutting",
       "intensity": 2,
-      "base_xp_per_hour": 47940,
+      "base_xp_per_hour": 46750,
       "base_gp_per_hour": 0,
       "region": "heartlands",
       "level_required": 50,
@@ -25803,7 +27350,7 @@
       "activity_type": "skill_method",
       "skill": "woodcutting",
       "intensity": 2,
-      "base_xp_per_hour": 47940,
+      "base_xp_per_hour": 46750,
       "base_gp_per_hour": 0,
       "region": "heartlands",
       "level_required": 42,
@@ -25840,7 +27387,7 @@
       "activity_type": "skill_method",
       "skill": "woodcutting",
       "intensity": 2,
-      "base_xp_per_hour": 47940,
+      "base_xp_per_hour": 46750,
       "base_gp_per_hour": 0,
       "region": "heartlands",
       "level_required": 45,
@@ -25859,7 +27406,7 @@
       "activity_type": "skill_method",
       "skill": "woodcutting",
       "intensity": 2,
-      "base_xp_per_hour": 47940,
+      "base_xp_per_hour": 46750,
       "base_gp_per_hour": 0,
       "region": "heartlands",
       "level_required": 65,
@@ -25916,7 +27463,7 @@
       "activity_type": "skill_method",
       "skill": "cooking",
       "intensity": 2,
-      "base_xp_per_hour": 47940,
+      "base_xp_per_hour": 46750,
       "base_gp_per_hour": 0,
       "region": "heartlands",
       "level_required": 20,
@@ -25935,7 +27482,7 @@
       "activity_type": "skill_method",
       "skill": "cooking",
       "intensity": 2,
-      "base_xp_per_hour": 47940,
+      "base_xp_per_hour": 46750,
       "base_gp_per_hour": 0,
       "region": "heartlands",
       "level_required": 30,
@@ -25954,7 +27501,7 @@
       "activity_type": "skill_method",
       "skill": "cooking",
       "intensity": 2,
-      "base_xp_per_hour": 47940,
+      "base_xp_per_hour": 39000,
       "base_gp_per_hour": 0,
       "region": "heartlands",
       "level_required": 43,
@@ -25965,8 +27512,7 @@
       },
       "notes": "Cook bass — training-methods.js",
       "source_file": "src/content/aelgard/training-methods.js",
-      "_m17_retag": true,
-      "_c16_buffed": true
+      "_m17_retag": true
     },
     {
       "activity_id": "process_cook_monkfish",
@@ -26247,7 +27793,7 @@
       "activity_type": "skill_method",
       "skill": "runecrafting",
       "intensity": 5,
-      "base_xp_per_hour": 54000,
+      "base_xp_per_hour": 67490,
       "base_gp_per_hour": 1200,
       "region": "boneyard_wastes",
       "level_required": 77,
@@ -26261,7 +27807,8 @@
         ]
       },
       "notes": "Rune-Salt Double-Binding — attention medium, danger none, complexity complex",
-      "source_file": "src/content/aelgard/boneyard-deep.js"
+      "source_file": "src/content/aelgard/boneyard-deep.js",
+      "_c16_buffed": true
     },
     {
       "activity_id": "trainmethod_boneyard_desert_temple_framing",
@@ -26743,7 +28290,7 @@
       "activity_type": "skill_method",
       "skill": "thieving",
       "intensity": 8,
-      "base_xp_per_hour": 126905,
+      "base_xp_per_hour": 140250,
       "base_gp_per_hour": 120000,
       "region": "boneyard_wastes",
       "level_required": 50,
@@ -26787,7 +28334,7 @@
       "activity_type": "skill_method",
       "skill": "agility",
       "intensity": 8,
-      "base_xp_per_hour": 126905,
+      "base_xp_per_hour": 140250,
       "base_gp_per_hour": 46200,
       "region": "boneyard_wastes",
       "level_required": 60,
@@ -27324,7 +28871,7 @@
       "activity_type": "skill_method",
       "skill": "runecrafting",
       "intensity": 7,
-      "base_xp_per_hour": 88000,
+      "base_xp_per_hour": 120700,
       "base_gp_per_hour": 1200,
       "region": "glass_desert",
       "level_required": 92,
@@ -27338,7 +28885,8 @@
         ]
       },
       "notes": "Light-Rune Binding — attention high, danger none, complexity complex",
-      "source_file": "src/content/aelgard/glass-desert-deep.js"
+      "source_file": "src/content/aelgard/glass-desert-deep.js",
+      "_c16_buffed": true
     },
     {
       "activity_id": "trainmethod_glass_desert_dunewright_construction",
@@ -28148,7 +29696,7 @@
       "activity_type": "skill_method",
       "skill": "construction",
       "intensity": 2,
-      "base_xp_per_hour": 47940,
+      "base_xp_per_hour": 46750,
       "base_gp_per_hour": -5000,
       "region": "heartlands",
       "level_required": 1,
@@ -28168,7 +29716,7 @@
       "activity_type": "skill_method",
       "skill": "thieving",
       "intensity": 2,
-      "base_xp_per_hour": 47940,
+      "base_xp_per_hour": 46750,
       "base_gp_per_hour": 8000,
       "region": "heartlands",
       "level_required": 1,
@@ -29774,7 +31322,7 @@
       "activity_type": "skill_method",
       "skill": "hunter",
       "intensity": 7,
-      "base_xp_per_hour": 96000,
+      "base_xp_per_hour": 120700,
       "base_gp_per_hour": 43750,
       "region": "inkweald",
       "level_required": 70,
@@ -29789,7 +31337,8 @@
       },
       "notes": "Mirror-Stag Route — attention high, danger low, complexity complex",
       "source_file": "src/content/aelgard/inkweald-deep.js",
-      "_gp_rederived": true
+      "_gp_rederived": true,
+      "_c16_buffed": true
     },
     {
       "activity_id": "trainmethod_inkweald_magpie_netting",
@@ -30111,7 +31660,7 @@
       "activity_type": "skill_method",
       "skill": "agility",
       "intensity": 7,
-      "base_xp_per_hour": 100300,
+      "base_xp_per_hour": 120700,
       "base_gp_per_hour": 38500,
       "region": "inkweald",
       "level_required": 40,
@@ -30134,7 +31683,7 @@
       "activity_type": "skill_method",
       "skill": "thieving",
       "intensity": 7,
-      "base_xp_per_hour": 98000,
+      "base_xp_per_hour": 120700,
       "base_gp_per_hour": 85000,
       "region": "inkweald",
       "level_required": 35,
@@ -30146,14 +31695,15 @@
         ]
       },
       "notes": "Chime Markets — Lift the Chime — attention high, danger low, complexity complex",
-      "source_file": "src/content/aelgard/inkweald-deep.js"
+      "source_file": "src/content/aelgard/inkweald-deep.js",
+      "_c16_buffed": true
     },
     {
       "activity_id": "trainmethod_inkweald_library_steal_thieving",
       "activity_type": "skill_method",
       "skill": "thieving",
       "intensity": 8,
-      "base_xp_per_hour": 115000,
+      "base_xp_per_hour": 140250,
       "base_gp_per_hour": 126000,
       "region": "inkweald",
       "level_required": 65,
@@ -30168,7 +31718,8 @@
       },
       "notes": "Steal-From-Shelf Thieving — attention high, danger medium, complexity complex",
       "source_file": "src/content/aelgard/inkweald-deep.js",
-      "_gp_rederived": true
+      "_gp_rederived": true,
+      "_c16_buffed": true
     },
     {
       "activity_id": "trainmethod_inkweald_echo_vaults_rc",
@@ -30194,7 +31745,7 @@
       "activity_type": "skill_method",
       "skill": "runecrafting",
       "intensity": 5,
-      "base_xp_per_hour": 52000,
+      "base_xp_per_hour": 67490,
       "base_gp_per_hour": 1200,
       "region": "inkweald",
       "level_required": 72,
@@ -30208,7 +31759,8 @@
         ]
       },
       "notes": "Echo Vaults — Name-Rune Crafting — attention medium, danger none, complexity complex",
-      "source_file": "src/content/aelgard/inkweald-deep.js"
+      "source_file": "src/content/aelgard/inkweald-deep.js",
+      "_c16_buffed": true
     },
     {
       "activity_id": "trainmethod_inkweald_glass_iron_jewelry",
@@ -30540,7 +32092,7 @@
       "activity_type": "skill_method",
       "skill": "slayer",
       "intensity": 9,
-      "base_xp_per_hour": 68000,
+      "base_xp_per_hour": 71400,
       "base_gp_per_hour": 45000,
       "region": "boneyard_wastes",
       "level_required": 40,
@@ -30606,7 +32158,7 @@
       "activity_type": "skill_method",
       "skill": "agility",
       "intensity": 7,
-      "base_xp_per_hour": 100300,
+      "base_xp_per_hour": 120700,
       "base_gp_per_hour": 38500,
       "region": "veilwood",
       "level_required": 50,
@@ -30856,7 +32408,7 @@
       "activity_type": "skill_method",
       "skill": "mining",
       "intensity": 2,
-      "base_xp_per_hour": 47940,
+      "base_xp_per_hour": 46750,
       "base_gp_per_hour": 18200,
       "region": "sootworks",
       "level_required": 85,
@@ -31287,7 +32839,7 @@
       "activity_type": "skill_method",
       "skill": "thieving",
       "intensity": 5,
-      "base_xp_per_hour": 52000,
+      "base_xp_per_hour": 67490,
       "base_gp_per_hour": 42000,
       "region": "moryskah",
       "level_required": 25,
@@ -31299,7 +32851,8 @@
         ]
       },
       "notes": "Crypt Robbing — attention medium, danger medium, complexity moderate",
-      "source_file": "src/content/aelgard/moryskah-deep.js"
+      "source_file": "src/content/aelgard/moryskah-deep.js",
+      "_c16_buffed": true
     },
     {
       "activity_id": "trainmethod_moryskah_cursed_bow_fletching",
@@ -31328,7 +32881,7 @@
       "activity_type": "skill_method",
       "skill": "slayer",
       "intensity": 9,
-      "base_xp_per_hour": 68000,
+      "base_xp_per_hour": 71400,
       "base_gp_per_hour": 80000,
       "region": "moryskah",
       "level_required": 40,
@@ -33869,7 +35422,7 @@
       "activity_type": "skill_method",
       "skill": "hunter",
       "intensity": 8,
-      "base_xp_per_hour": 126905,
+      "base_xp_per_hour": 140250,
       "base_gp_per_hour": 52500,
       "region": "saltbrine_reach",
       "level_required": 55,
@@ -34298,7 +35851,7 @@
       "activity_type": "skill_method",
       "skill": "agility",
       "intensity": 8,
-      "base_xp_per_hour": 126905,
+      "base_xp_per_hour": 140250,
       "base_gp_per_hour": 46200,
       "region": "saltbrine_reach",
       "level_required": 70,
@@ -34821,7 +36374,7 @@
       "activity_type": "skill_method",
       "skill": "agility",
       "intensity": 5,
-      "base_xp_per_hour": 52000,
+      "base_xp_per_hour": 67490,
       "base_gp_per_hour": 26400,
       "region": "sootworks",
       "level_required": 20,
@@ -34836,7 +36389,8 @@
       },
       "notes": "Pump Station Pipe-Vault Course — attention medium, danger medium, complexity moderate",
       "source_file": "src/content/aelgard/sootworks-deep.js",
-      "_gp_rederived": true
+      "_gp_rederived": true,
+      "_c16_buffed": true
     },
     {
       "activity_id": "trainmethod_sootworks_gearwalk_elite",
@@ -34927,7 +36481,7 @@
       "activity_type": "skill_method",
       "skill": "thieving",
       "intensity": 8,
-      "base_xp_per_hour": 126905,
+      "base_xp_per_hour": 140250,
       "base_gp_per_hour": 140000,
       "region": "sootworks",
       "level_required": 50,
@@ -34988,7 +36542,7 @@
       "activity_type": "skill_method",
       "skill": "slayer",
       "intensity": 9,
-      "base_xp_per_hour": 68000,
+      "base_xp_per_hour": 71400,
       "base_gp_per_hour": 65000,
       "region": "sootworks",
       "level_required": 35,
@@ -35050,7 +36604,7 @@
       "activity_type": "skill_method",
       "skill": "hunter",
       "intensity": 7,
-      "base_xp_per_hour": 95000,
+      "base_xp_per_hour": 120700,
       "base_gp_per_hour": 43750,
       "region": "sootworks",
       "level_required": 70,
@@ -35065,7 +36619,8 @@
       },
       "notes": "Depth-Trout Snare Line — attention high, danger low, complexity complex",
       "source_file": "src/content/aelgard/sootworks-deep.js",
-      "_gp_rederived": true
+      "_gp_rederived": true,
+      "_c16_buffed": true
     },
     {
       "activity_id": "trainmethod_sootworks_ironfin_line",
@@ -36708,7 +38263,7 @@
       "activity_type": "skill_method",
       "skill": "runecrafting",
       "intensity": 7,
-      "base_xp_per_hour": 100300,
+      "base_xp_per_hour": 120700,
       "base_gp_per_hour": 1200,
       "region": "inkweald",
       "level_required": 90,
@@ -36771,7 +38326,7 @@
       "activity_type": "skill_method",
       "skill": "thieving",
       "intensity": 7,
-      "base_xp_per_hour": 95000,
+      "base_xp_per_hour": 120700,
       "base_gp_per_hour": 95000,
       "region": "inkweald",
       "level_required": 60,
@@ -36783,7 +38338,8 @@
         ]
       },
       "notes": "Paradox Pickpocketing — attention high, danger low, complexity complex",
-      "source_file": "src/content/aelgard/special-regions.js"
+      "source_file": "src/content/aelgard/special-regions.js",
+      "_c16_buffed": true
     },
     {
       "activity_id": "trainmethod_glass_desert_wyrm_combat",
@@ -37018,7 +38574,7 @@
       "activity_type": "skill_method",
       "skill": "runecrafting",
       "intensity": 7,
-      "base_xp_per_hour": 95000,
+      "base_xp_per_hour": 120700,
       "base_gp_per_hour": 1500,
       "region": "the_wilds",
       "level_required": 1,
@@ -37030,14 +38586,15 @@
         ]
       },
       "notes": "Wilderness Pure Essence — attention medium, danger extreme, complexity simple",
-      "source_file": "src/content/aelgard/special-regions.js"
+      "source_file": "src/content/aelgard/special-regions.js",
+      "_c16_buffed": true
     },
     {
       "activity_id": "trainmethod_wilds_abyss_runecrafting",
       "activity_type": "skill_method",
       "skill": "runecrafting",
       "intensity": 6,
-      "base_xp_per_hour": 123250,
+      "base_xp_per_hour": 139400,
       "base_gp_per_hour": 18000,
       "region": "the_wilds",
       "level_required": 44,
@@ -37080,7 +38637,7 @@
       "activity_type": "skill_method",
       "skill": "fishing",
       "intensity": 7,
-      "base_xp_per_hour": 100300,
+      "base_xp_per_hour": 120700,
       "base_gp_per_hour": 61250,
       "region": "the_wilds",
       "level_required": 85,
@@ -37268,7 +38825,7 @@
       "activity_type": "skill_method",
       "skill": "strength",
       "intensity": 10,
-      "base_xp_per_hour": 60000,
+      "base_xp_per_hour": 97750,
       "base_gp_per_hour": 54000,
       "region": "the_wilds",
       "level_required": 70,
@@ -37281,7 +38838,8 @@
       },
       "notes": "Wilderness Boss Grinding — attention high, danger extreme, complexity complex",
       "source_file": "src/content/aelgard/training-knobs.js",
-      "_gp_rederived": true
+      "_gp_rederived": true,
+      "_c16_buffed": true
     },
     {
       "activity_id": "trainmethod_strength_barbarian_assault",
@@ -37622,7 +39180,7 @@
       "activity_type": "skill_method",
       "skill": "prayer",
       "intensity": 2,
-      "base_xp_per_hour": 47940,
+      "base_xp_per_hour": 46750,
       "base_gp_per_hour": 0,
       "region": "heartlands",
       "level_required": 1,
@@ -37657,7 +39215,7 @@
       "activity_type": "skill_method",
       "skill": "prayer",
       "intensity": 6,
-      "base_xp_per_hour": 123250,
+      "base_xp_per_hour": 139400,
       "base_gp_per_hour": 0,
       "region": "moryskah",
       "level_required": 1,
@@ -37937,7 +39495,7 @@
       "activity_type": "skill_method",
       "skill": "runecrafting",
       "intensity": 8,
-      "base_xp_per_hour": 126905,
+      "base_xp_per_hour": 140250,
       "base_gp_per_hour": 4410,
       "region": "the_wilds",
       "level_required": 1,
@@ -38083,7 +39641,7 @@
       "activity_type": "skill_method",
       "skill": "agility",
       "intensity": 2,
-      "base_xp_per_hour": 47940,
+      "base_xp_per_hour": 46750,
       "base_gp_per_hour": 14300,
       "region": "moryskah",
       "level_required": 40,
@@ -38181,7 +39739,7 @@
       "activity_type": "skill_method",
       "skill": "herblore",
       "intensity": 2,
-      "base_xp_per_hour": 47940,
+      "base_xp_per_hour": 46750,
       "base_gp_per_hour": -20000,
       "region": "heartlands",
       "level_required": 3,
@@ -38255,7 +39813,7 @@
       "activity_type": "skill_method",
       "skill": "herblore",
       "intensity": 8,
-      "base_xp_per_hour": 126905,
+      "base_xp_per_hour": 140250,
       "base_gp_per_hour": 67200,
       "region": "the_wilds",
       "level_required": 30,
@@ -38276,7 +39834,7 @@
       "activity_type": "skill_method",
       "skill": "thieving",
       "intensity": 2,
-      "base_xp_per_hour": 47940,
+      "base_xp_per_hour": 46750,
       "base_gp_per_hour": 3000,
       "region": "heartlands",
       "level_required": 1,
@@ -38367,7 +39925,7 @@
       "activity_type": "skill_method",
       "skill": "crafting",
       "intensity": 2,
-      "base_xp_per_hour": 47940,
+      "base_xp_per_hour": 46750,
       "base_gp_per_hour": -15000,
       "region": "heartlands",
       "level_required": 1,
@@ -38436,7 +39994,7 @@
       "activity_type": "skill_method",
       "skill": "crafting",
       "intensity": 8,
-      "base_xp_per_hour": 126905,
+      "base_xp_per_hour": 140250,
       "base_gp_per_hour": 1200,
       "region": "the_wilds",
       "level_required": 40,
@@ -38562,7 +40120,7 @@
       "activity_type": "skill_method",
       "skill": "slayer",
       "intensity": 5,
-      "base_xp_per_hour": 62645,
+      "base_xp_per_hour": 67490,
       "base_gp_per_hour": 21600,
       "region": "heartlands",
       "level_required": 20,
@@ -38581,7 +40139,7 @@
       "activity_type": "skill_method",
       "skill": "slayer",
       "intensity": 5,
-      "base_xp_per_hour": 62645,
+      "base_xp_per_hour": 67490,
       "base_gp_per_hour": 21600,
       "region": "veilwood",
       "level_required": 50,
@@ -38600,7 +40158,7 @@
       "activity_type": "skill_method",
       "skill": "slayer",
       "intensity": 9,
-      "base_xp_per_hour": 68000,
+      "base_xp_per_hour": 71400,
       "base_gp_per_hour": 45000,
       "region": "heartlands",
       "level_required": 75,
@@ -38619,7 +40177,7 @@
       "activity_type": "skill_method",
       "skill": "slayer",
       "intensity": 9,
-      "base_xp_per_hour": 68000,
+      "base_xp_per_hour": 71400,
       "base_gp_per_hour": 45000,
       "region": "the_wilds",
       "level_required": 1,
@@ -38694,7 +40252,7 @@
       "activity_type": "skill_method",
       "skill": "hunter",
       "intensity": 2,
-      "base_xp_per_hour": 47940,
+      "base_xp_per_hour": 46750,
       "base_gp_per_hour": 0,
       "region": "heartlands",
       "level_required": 1,
@@ -38751,7 +40309,7 @@
       "activity_type": "skill_method",
       "skill": "mining",
       "intensity": 6,
-      "base_xp_per_hour": 123250,
+      "base_xp_per_hour": 139400,
       "base_gp_per_hour": 0,
       "region": "heartlands",
       "level_required": 15,
@@ -38804,7 +40362,7 @@
       "activity_type": "skill_method",
       "skill": "mining",
       "intensity": 6,
-      "base_xp_per_hour": 123250,
+      "base_xp_per_hour": 139400,
       "base_gp_per_hour": 40600,
       "region": "boneyard_wastes",
       "level_required": 50,
@@ -38825,7 +40383,7 @@
       "activity_type": "skill_method",
       "skill": "mining",
       "intensity": 9,
-      "base_xp_per_hour": 68000,
+      "base_xp_per_hour": 71400,
       "base_gp_per_hour": 70000,
       "region": "the_wilds",
       "level_required": 85,
@@ -38846,7 +40404,7 @@
       "activity_type": "skill_method",
       "skill": "smithing",
       "intensity": 2,
-      "base_xp_per_hour": 47940,
+      "base_xp_per_hour": 46750,
       "base_gp_per_hour": -5000,
       "region": "heartlands",
       "level_required": 1,
@@ -38973,7 +40531,7 @@
       "activity_type": "skill_method",
       "skill": "fishing",
       "intensity": 2,
-      "base_xp_per_hour": 47940,
+      "base_xp_per_hour": 46750,
       "base_gp_per_hour": 22750,
       "region": "saltbrine_reach",
       "level_required": 62,
@@ -38994,7 +40552,7 @@
       "activity_type": "skill_method",
       "skill": "fishing",
       "intensity": 5,
-      "base_xp_per_hour": 62645,
+      "base_xp_per_hour": 67490,
       "base_gp_per_hour": 42000,
       "region": "saltbrine_reach",
       "level_required": 35,
@@ -39013,7 +40571,7 @@
       "activity_type": "skill_method",
       "skill": "fishing",
       "intensity": 9,
-      "base_xp_per_hour": 68000,
+      "base_xp_per_hour": 71400,
       "base_gp_per_hour": 87500,
       "region": "the_wilds",
       "level_required": 85,
@@ -39322,7 +40880,7 @@
       "activity_type": "skill_method",
       "skill": "woodcutting",
       "intensity": 8,
-      "base_xp_per_hour": 126905,
+      "base_xp_per_hour": 140250,
       "base_gp_per_hour": 37800,
       "region": "the_wilds",
       "level_required": 40,
@@ -39397,7 +40955,7 @@
       "activity_type": "skill_method",
       "skill": "farming",
       "intensity": 7,
-      "base_xp_per_hour": 90000,
+      "base_xp_per_hour": 120700,
       "base_gp_per_hour": 0,
       "region": "heartlands",
       "level_required": 34,
@@ -39407,7 +40965,8 @@
         "areas": []
       },
       "notes": "Tithe Farm — attention high, danger none, complexity complex",
-      "source_file": "src/content/aelgard/training-knobs.js"
+      "source_file": "src/content/aelgard/training-knobs.js",
+      "_c16_buffed": true
     },
     {
       "activity_id": "trainmethod_farming_hespori",
@@ -39432,7 +40991,7 @@
       "activity_type": "skill_method",
       "skill": "farming",
       "intensity": 8,
-      "base_xp_per_hour": 126905,
+      "base_xp_per_hour": 140250,
       "base_gp_per_hour": 37800,
       "region": "the_wilds",
       "level_required": 30,
@@ -39726,7 +41285,7 @@
       "activity_type": "skill_method",
       "skill": "construction",
       "intensity": 2,
-      "base_xp_per_hour": 47940,
+      "base_xp_per_hour": 46750,
       "base_gp_per_hour": 0,
       "region": "veilwood",
       "level_required": 1,
@@ -39768,7 +41327,7 @@
       "activity_type": "skill_method",
       "skill": "thieving",
       "intensity": 2,
-      "base_xp_per_hour": 47940,
+      "base_xp_per_hour": 46750,
       "base_gp_per_hour": 39000,
       "region": "veilwood",
       "level_required": 1,
@@ -39811,7 +41370,7 @@
       "activity_type": "skill_method",
       "skill": "crafting",
       "intensity": 2,
-      "base_xp_per_hour": 47940,
+      "base_xp_per_hour": 46750,
       "base_gp_per_hour": 44200,
       "region": "veilwood",
       "level_required": 1,
@@ -39852,7 +41411,7 @@
       "activity_type": "skill_method",
       "skill": "smithing",
       "intensity": 7,
-      "base_xp_per_hour": 100300,
+      "base_xp_per_hour": 120700,
       "base_gp_per_hour": 16800,
       "region": "veilwood",
       "level_required": 70,
@@ -40263,7 +41822,7 @@
       "activity_type": "skill_method",
       "skill": "hunter",
       "intensity": 8,
-      "base_xp_per_hour": 126905,
+      "base_xp_per_hour": 140250,
       "base_gp_per_hour": 52500,
       "region": "veilwood",
       "level_required": 70,
@@ -40427,7 +41986,7 @@
       "activity_type": "skill_method",
       "skill": "hitpoints",
       "intensity": 10,
-      "base_xp_per_hour": 60000,
+      "base_xp_per_hour": 86250,
       "base_gp_per_hour": 114000,
       "region": "the_wilds",
       "level_required": 70,
@@ -40626,7 +42185,7 @@
       "activity_type": "skill_method",
       "skill": "runecrafting",
       "intensity": 6,
-      "base_xp_per_hour": 123250,
+      "base_xp_per_hour": 139400,
       "base_gp_per_hour": 1600,
       "region": "the_wilds",
       "level_required": 77,
@@ -40667,7 +42226,7 @@
       "activity_type": "skill_method",
       "skill": "agility",
       "intensity": 8,
-      "base_xp_per_hour": 126905,
+      "base_xp_per_hour": 140250,
       "base_gp_per_hour": 46200,
       "region": "the_wilds",
       "level_required": 52,
@@ -40954,7 +42513,7 @@
       "activity_type": "skill_method",
       "skill": "mining",
       "intensity": 6,
-      "base_xp_per_hour": 123250,
+      "base_xp_per_hour": 139400,
       "base_gp_per_hour": 40600,
       "region": "the_wilds",
       "level_required": 85,
@@ -41587,7 +43146,7 @@
       "activity_type": "skill_method",
       "skill": "runecrafting",
       "intensity": 6,
-      "base_xp_per_hour": 123250,
+      "base_xp_per_hour": 139400,
       "base_gp_per_hour": 2200,
       "region": "the_wilds",
       "level_required": 65,
@@ -41607,7 +43166,7 @@
       "activity_type": "skill_method",
       "skill": "runecrafting",
       "intensity": 10,
-      "base_xp_per_hour": 72000,
+      "base_xp_per_hour": 157250,
       "base_gp_per_hour": 1400,
       "region": "the_wilds",
       "level_required": 95,
@@ -41621,7 +43180,8 @@
         ]
       },
       "notes": "Wrath Rune Altar — Deepest Wild — attention high, danger extreme, complexity complex",
-      "source_file": "src/content/aelgard/wilds-density.js"
+      "source_file": "src/content/aelgard/wilds-density.js",
+      "_c16_buffed": true
     },
     {
       "activity_id": "trainmethod_wilds_construction_hideout",
@@ -42003,7 +43563,7 @@
       "activity_type": "instance",
       "skill": "combat",
       "intensity": 10,
-      "base_xp_per_hour": 80000,
+      "base_xp_per_hour": 97750,
       "base_gp_per_hour": 25000000,
       "region": "sootworks",
       "level_required": 92,
@@ -42019,7 +43579,8 @@
         ]
       },
       "notes": "Full 69-wave Inferno run. Max-focus PvM — prayer flick, tile dance, Zuk shield kiting.",
-      "source_file": "src/content/inferno/inferno.js"
+      "source_file": "src/content/inferno/inferno.js",
+      "_c16_buffed": true
     },
     {
       "activity_id": "challenge_tzhaar_fight_cave",
@@ -42106,7 +43667,7 @@
       "activity_type": "instance",
       "skill": "combat",
       "intensity": 10,
-      "base_xp_per_hour": 75000,
+      "base_xp_per_hour": 97750,
       "base_gp_per_hour": 4500000,
       "region": "moryskah",
       "level_required": 90,
@@ -42118,7 +43679,8 @@
         ]
       },
       "notes": "ToS Hard Mode — mechanics compounded, HP/damage escalated. Drops HM-only titles.",
-      "source_file": "src/content/aelgard/raids-mega1.js"
+      "source_file": "src/content/aelgard/raids-mega1.js",
+      "_c16_buffed": true
     },
     {
       "activity_id": "raid_tombs_of_amascut",
@@ -42145,7 +43707,7 @@
       "activity_type": "instance",
       "skill": "combat",
       "intensity": 10,
-      "base_xp_per_hour": 65000,
+      "base_xp_per_hour": 97750,
       "base_gp_per_hour": 5500000,
       "region": "glass_desert",
       "level_required": 93,
@@ -42157,7 +43719,8 @@
         ]
       },
       "notes": "ToA expert (500+ invocation). Path-combined elite mechanics. Tumekens shadow drop.",
-      "source_file": "src/content/aelgard/invocations-data.js"
+      "source_file": "src/content/aelgard/invocations-data.js",
+      "_c16_buffed": true
     },
     {
       "activity_id": "challenge_gauntlet",
@@ -42184,7 +43747,7 @@
       "activity_type": "instance",
       "skill": "combat",
       "intensity": 10,
-      "base_xp_per_hour": 70000,
+      "base_xp_per_hour": 97750,
       "base_gp_per_hour": 3800000,
       "region": "veilwood",
       "level_required": 90,
@@ -42196,14 +43759,15 @@
         ]
       },
       "notes": "Corrupted Gauntlet — harder Hunllef + tighter gather loop. Crystal armour seed drops.",
-      "source_file": "src/content/aelgard/raids-mega1.js"
+      "source_file": "src/content/aelgard/raids-mega1.js",
+      "_c16_buffed": true
     },
     {
       "activity_id": "challenge_tzhaar_ket_rak_6",
       "activity_type": "instance",
       "skill": "combat",
       "intensity": 10,
-      "base_xp_per_hour": 68000,
+      "base_xp_per_hour": 97750,
       "base_gp_per_hour": 2200000,
       "region": "sootworks",
       "level_required": 85,

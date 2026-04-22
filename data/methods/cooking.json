@@ -295,6 +295,20 @@
       "description": "Bulk pour wines with 28-slot inventory. Wine ages automatically in inventory (+30% XP/hr vs walk).",
       "produces": [{ "item": "wine_of_zamorak", "rate_per_hour": 2900 }],
       "marstead_note": "Multitask-Active. The sleeper XP wine method."
+    },
+    {
+      "id": "glass_desert_spice_feast_catering",
+      "skill": "cooking",
+      "level_required": 92,
+      "name": "Spice-Feast Catering Contracts",
+      "location": { "region": "glass_desert", "spot": "Crescent grand feast-hall catering bench" },
+      "intensity": 4,
+      "xp_per_hour": 168000,
+      "gp_per_hour": 5200000,
+      "requires": { "quests": ["the_spice_accord"], "items": ["raw_shark", "glass_spice_bundle", "catering_license"], "skills": {"cooking": 92} },
+      "description": "Catering multi-course feasts for raid parties — spice-feast contracts pay per-plate with premium for full-course sets. High-tier non-combat processing.",
+      "produces": [{ "item": "spice_feast_course", "rate_per_hour": 1800 }],
+      "marstead_note": "M15 non-combat 5M+. Elite catering service economy."
     }
   ],
   "bracket_coverage": {

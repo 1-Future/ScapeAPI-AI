@@ -309,6 +309,62 @@
       "description": "Revenants in deep Wilds. Prayer-switch + PK-defense. Extreme.",
       "produces": [{ "item": "revenant_ether", "rate_per_hour": 3200 }],
       "marstead_note": "Max Focus. Wilderness endgame combat."
+    },
+    {
+      "id": "heartlands_chelser_caravan_escort",
+      "skill": "attack",
+      "level_required": 55,
+      "name": "Chelser-Moryskah Caravan Escort",
+      "location": { "region": "heartlands", "spot": "Ironroad waypoint, Chelser → Gravechill" },
+      "intensity": 4,
+      "xp_per_hour": 74000,
+      "gp_per_hour": 700000,
+      "requires": { "quests": ["the_rangers_trust"], "items": ["dragon_scimitar", "escort_badge"], "skills": {"attack": 55} },
+      "description": "Guard caravan from attackers on the Chelser-to-Moryskah route. Timed route with multiple ambush waves.",
+      "produces": [{ "item": "escort_coin", "rate_per_hour": 320 }],
+      "marstead_note": "H11 Heartlands 500k-1M moneymaker. Escort combat."
+    },
+    {
+      "id": "glass_desert_mirage_caravan",
+      "skill": "attack",
+      "level_required": 64,
+      "name": "Mirage Caravan Escort",
+      "location": { "region": "glass_desert", "spot": "Crescent oasis caravan waypoint" },
+      "intensity": 4,
+      "xp_per_hour": 88000,
+      "gp_per_hour": 950000,
+      "requires": { "quests": ["the_dune_covenant"], "items": ["dragon_scimitar", "mirror_shield"], "skills": {"attack": 64} },
+      "description": "Caravan escort through mirage-haunted dunes. Mirage ambushes spawn false enemies — timing matters.",
+      "produces": [{ "item": "mirage_coin", "rate_per_hour": 280 }],
+      "marstead_note": "H11 Glass Desert 500k-1M moneymaker. Mirage escort."
+    },
+    {
+      "id": "veilwood_leviathan_expert",
+      "skill": "attack",
+      "level_required": 96,
+      "name": "Leviathan Expert Invocation",
+      "location": { "region": "veilwood", "spot": "Singing Glade leviathan arena, max invocation" },
+      "intensity": 10,
+      "xp_per_hour": 208000,
+      "gp_per_hour": 8500000,
+      "requires": { "quests": ["song_of_the_mossborn", "the_drowned_oath"], "items": ["scythe_of_vitur", "lightbearer", "torture_amulet"], "skills": {"attack": 96, "defence": 93, "strength": 93, "prayer": 92, "hitpoints": 92} },
+      "description": "Leviathan at max invocation — triple phase boss with enrage timer. Single-death reset. Band 10 elite.",
+      "produces": [{ "item": "leviathan_lure_fragment", "rate_per_hour": 1.2 }],
+      "marstead_note": "M13 band 10 Leviathan expert."
+    },
+    {
+      "id": "inkweald_nightmare_apex",
+      "skill": "attack",
+      "level_required": 95,
+      "name": "Nightmare Apex (Phosani 700+)",
+      "location": { "region": "inkweald", "spot": "Penseurlake nightmare apex chamber" },
+      "intensity": 10,
+      "xp_per_hour": 218000,
+      "gp_per_hour": 7800000,
+      "requires": { "quests": ["unwake_the_dreamer", "weavers_threnody"], "items": ["scythe_of_vitur", "inquisitor_armour"], "skills": {"attack": 95, "defence": 95, "strength": 93, "magic": 90, "prayer": 92} },
+      "description": "Phosani's Nightmare 700+ challenge mode. Lengthened mechanic rotation + 3 parasite spawn phases. Band 10 solo elite.",
+      "produces": [{ "item": "parasitic_egg", "rate_per_hour": 8 }],
+      "marstead_note": "M13 band 10 Nightmare challenge."
     }
   ],
   "bracket_coverage": {

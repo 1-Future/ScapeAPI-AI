@@ -309,6 +309,62 @@
       "description": "Cannonball mould casting. Slowest Smithing XP but profit-leading. AFK.",
       "produces": [{ "item": "cannonball", "rate_per_hour": 3200 }],
       "marstead_note": "AFK baseline. Profit-focused."
+    },
+    {
+      "id": "sootworks_furnace_stoker_shift",
+      "skill": "smithing",
+      "level_required": 40,
+      "name": "Sootworks Furnace Stoker Shift",
+      "location": { "region": "sootworks", "spot": "Cindervault main furnace, stoker pit" },
+      "intensity": 4,
+      "xp_per_hour": 52000,
+      "gp_per_hour": 900000,
+      "requires": { "quests": ["soot_and_ember"], "items": ["coal", "soot_iron_ore", "stoker_apron"], "skills": {"smithing": 40} },
+      "description": "Stoke the main Cindervault furnace, output soot-steel bars while cycling coal pile. Active rotation — stoke/cycle/output.",
+      "produces": [{ "item": "soot_iron_bar", "rate_per_hour": 1200 }],
+      "marstead_note": "H11 Sootworks 500k-1M moneymaker. Active shift-rotation."
+    },
+    {
+      "id": "sootworks_gearcore_shard_smith",
+      "skill": "smithing",
+      "level_required": 62,
+      "name": "Gearcore Shard Smith",
+      "location": { "region": "sootworks", "spot": "Cindervault gearcore district, precision anvil" },
+      "intensity": 5,
+      "xp_per_hour": 92000,
+      "gp_per_hour": 750000,
+      "requires": { "quests": ["soot_and_ember", "the_pipeworks_run"], "items": ["adamantite_bar", "gearcore_template"], "skills": {"smithing": 62} },
+      "description": "Precision-hammer gearcore shards to vendor bars. High-level smithing producing high-value bars via template rotation.",
+      "produces": [{ "item": "gearcore_shard", "rate_per_hour": 480 }],
+      "marstead_note": "H11 Sootworks 500k-1M moneymaker. Template-based high-margin smith."
+    },
+    {
+      "id": "sootworks_elder_rune_runetrace",
+      "skill": "smithing",
+      "level_required": 94,
+      "name": "Elder Rune Runetrace",
+      "location": { "region": "sootworks", "spot": "Cindervault Elder Anvil" },
+      "intensity": 8,
+      "xp_per_hour": 212000,
+      "gp_per_hour": 3200000,
+      "requires": { "quests": ["soot_and_ember", "the_forgeroyal_finale"], "items": ["runite_bar", "elder_rune_template", "harmonic_dust"], "skills": {"smithing": 94, "crafting": 85} },
+      "description": "Elder-rune runetraced platebody — multi-rune inscription between hammer swings. Yields enchant-capable runite gear.",
+      "produces": [{ "item": "runetraced_platebody", "rate_per_hour": 120 }],
+      "marstead_note": "M14 endgame smithing. Band 8 inscription work."
+    },
+    {
+      "id": "moryskah_blisterwood_forge_contract",
+      "skill": "smithing",
+      "level_required": 91,
+      "name": "Moryskah Blisterwood Forge Contract",
+      "location": { "region": "moryskah", "spot": "Gravechill vampiric contract anvil" },
+      "intensity": 6,
+      "xp_per_hour": 178000,
+      "gp_per_hour": 2700000,
+      "requires": { "quests": ["requiem_of_hollows"], "items": ["runite_bar", "blisterwood_core", "holy_water"], "skills": {"smithing": 91, "prayer": 80} },
+      "description": "Vampire-hunter weapon contract. Forge blisterwood stakes on blessed anvil. Prayer drain between pieces. Endgame profit.",
+      "produces": [{ "item": "blisterwood_stake", "rate_per_hour": 180 }],
+      "marstead_note": "M14 endgame smithing. Service economy — sells to Vyrewatch hunters."
     }
   ],
   "bracket_coverage": {
