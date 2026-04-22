@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>Drop Tables — Scape Content Explorer</title>
+<style>
+:root {
+  --cream:  #F7EFD8;
+  --umber:  #3A2E1F;
+  --ink:    #2A1F10;
+  --sienna: #8B5A2B;
+  --rust:   #A0522D;
+  --gold:   #DFD0A8;
+  --shade:  #EAE0C2;
+  --rule:   #C8BC9B;
+  --muted:  #8A7A5C;
+  --ok:     #2F4F2F;
+  --bad:    #8B0000;
+}
+html, body {
+  margin: 0; padding: 0;
+  background: var(--cream);
+  color: var(--umber);
+  font-family: Georgia, 'Palatino Linotype', 'Book Antiqua', Palatino, serif;
+  font-size: 14px; line-height: 1.5;
+}
+main { max-width: 1320px; margin: 0 auto; padding: 28px 24px 56px; }
+header { border-bottom: 2px solid var(--umber); padding-bottom: 10px; margin-bottom: 20px; }
+header h1 { margin: 0 0 4px 0; font-size: 26px; letter-spacing: 0.5px; }
+header .sub { font-style: italic; opacity: 0.78; }
+.nav { margin: 10px 0 0; font-size: 13px; }
+.nav a { color: var(--sienna); text-decoration: none; margin-right: 12px; }
+.nav a:hover { text-decoration: underline; color: var(--rust); }
+.nav a.current { color: var(--ink); font-weight: bold; }
+h2 { border-bottom: 1px solid var(--rule); padding-bottom: 4px; margin-top: 28px; font-size: 20px; }
+.muted { color: var(--muted); font-style: italic; }
+
+.toolbar {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  margin: 12px 0 10px;
+  flex-wrap: wrap;
+}
+.toolbar input[type="text"] {
+  flex: 1;
+  min-width: 260px;
+  padding: 8px 12px;
+  border: 1px solid var(--rule);
+  background: var(--cream);
+  color: var(--umber);
+  font-family: inherit;
+  font-size: 14px;
+}
+.toolbar input[type="text"]:focus {
+  outline: none;
+  border-color: var(--sienna);
+  box-shadow: 0 0 0 2px rgba(139, 90, 43, 0.18);
+}
+.toolbar .status { font-size: 13px; color: var(--muted); white-space: nowrap; }
+.toolbar .pager { font-size: 13px; }
+.toolbar button {
+  padding: 6px 12px;
+  background: var(--shade);
+  border: 1px solid var(--rule);
+  color: var(--ink);
+  font-family: inherit;
+  font-size: 13px;
+  cursor: pointer;
+}
+.toolbar button:hover:not(:disabled) { background: var(--gold); }
+.toolbar button:disabled { opacity: 0.35; cursor: default; }
+.toolbar .pager span { margin: 0 6px; }
+
+table.data {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 6px;
+  font-size: 13px;
+}
+table.data th, table.data td {
+  border: 1px solid var(--rule);
+  padding: 5px 8px;
+  text-align: left;
+  vertical-align: top;
+}
+table.data thead th {
+  background: var(--gold);
+  color: var(--ink);
+  font-weight: bold;
+  cursor: pointer;
+  user-select: none;
+  white-space: nowrap;
+  position: sticky;
+  top: 0;
+}
+table.data thead th .sort-ind { color: var(--sienna); font-size: 11px; margin-left: 4px; }
+table.data tbody tr:nth-child(even) td { background: var(--shade); }
+table.data tbody tr.misery td { background: #F2D8D0 !important; }
+table.data td.num { text-align: right; font-variant-numeric: tabular-nums; }
+table.data td.truncated { max-width: 320px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+
+table.summary {
+  border-collapse: collapse;
+  margin: 10px 0 16px;
+  font-size: 14px;
+}
+table.summary th, table.summary td {
+  border: 1px solid var(--rule);
+  padding: 6px 12px;
+  text-align: left;
+}
+table.summary thead th { background: var(--gold); color: var(--ink); }
+table.summary td.num { text-align: right; font-variant-numeric: tabular-nums; }
+table.summary a { color: var(--sienna); text-decoration: none; }
+table.summary a:hover { text-decoration: underline; }
+
+footer { border-top: 1px solid var(--rule); padding-top: 10px; margin-top: 28px; font-size: 12px; opacity: 0.72; }
+code { font-family: Consolas, 'Courier New', monospace; background: var(--shade); padding: 1px 4px; border-radius: 2px; font-size: 12px; }
+</style>
+</head>
+<body data-page-size="100">
+<main>
+  <header>
+    <h1>Drop Tables</h1>
+    <div class="sub">36 drop tables from data/drop-tables.json (design bible; runtime tables live in src/atoms).</div>
+    <div class="nav"><a href="index.html">Index</a><a href="activities.html">Activities</a><a href="methods.html">Methods</a><a href="items.html">Items</a><a href="monsters.html">Monsters</a><a href="quests.html">Quests</a><a href="dag.html">DAG</a><a href="drop_tables.html" class="current">Drop Tables</a><a href="npcs.html">NPCs</a></div>
+  </header>
+
+  <div class="toolbar">
+    <input id="filter" type="text" placeholder="Filter rows (case-insensitive, matches any column)…" autocomplete="off"/>
+    <div class="status" id="status"></div>
+    <div class="pager" id="pager"></div>
+  </div>
+
+  <table class="data">
+    <thead id="thead"></thead>
+    <tbody id="tbody"></tbody>
+  </table>
+
+  <footer>
+    Data slice from <code>2026-04-22T16:02:55.871Z</code>.
+    Click a column header to sort. Click again to reverse. Hold the filter box for live narrowing.
+  </footer>
+</main>
+<script id="rows" type="application/json">[{"id":"dt_heart_farmhand_brigand","monster_id":"mega_heart_farmhand_brigand","always_count":1,"common_count":2,"uncommon_count":1,"rare_count":1,"very_rare_count":0,"collection_log_count":1,"reagent_pair_count":0},{"id":"dt_heart_hedge_boar","monster_id":"mega_heart_hedge_boar","always_count":1,"common_count":2,"uncommon_count":1,"rare_count":1,"very_rare_count":0,"collection_log_count":0,"reagent_pair_count":1},{"id":"dt_heart_rat_king","monster_id":"mega_heart_rat_king","always_count":1,"common_count":1,"uncommon_count":2,"rare_count":1,"very_rare_count":1,"collection_log_count":1,"reagent_pair_count":1},{"id":"dt_heart_militia_captain","monster_id":"mega_heart_militia_captain","always_count":1,"common_count":1,"uncommon_count":1,"rare_count":2,"very_rare_count":0,"collection_log_count":0,"reagent_pair_count":1},{"id":"dt_heart_orchard_wight","monster_id":"heart_orchard_wight","always_count":1,"common_count":2,"uncommon_count":1,"rare_count":1,"very_rare_count":1,"collection_log_count":0,"reagent_pair_count":1},{"id":"dt_heart_thresher_golem","monster_id":"heart_thresher_golem","always_count":1,"common_count":1,"uncommon_count":2,"rare_count":1,"very_rare_count":0,"collection_log_count":0,"reagent_pair_count":1},{"id":"dt_mor_nocturne_lord","monster_id":"mega_mor_nocturne_lord","always_count":0,"common_count":1,"uncommon_count":2,"rare_count":1,"very_rare_count":1,"collection_log_count":1,"reagent_pair_count":1},{"id":"dt_mor_salt_vampire","monster_id":"mega_mor_salt_vampire","always_count":0,"common_count":1,"uncommon_count":2,"rare_count":1,"very_rare_count":1,"collection_log_count":0,"reagent_pair_count":1},{"id":"dt_mor_bone_priest","monster_id":"mega_mor_bone_priest","always_count":1,"common_count":2,"uncommon_count":1,"rare_count":1,"very_rare_count":0,"collection_log_count":0,"reagent_pair_count":1},{"id":"dt_mor_hollow_hunter","monster_id":"mega_mor_hollow_hunter","always_count":1,"common_count":1,"uncommon_count":1,"rare_count":1,"very_rare_count":1,"collection_log_count":0,"reagent_pair_count":1},{"id":"dt_mor_mausoleum_scholar","monster_id":"mor_mausoleum_scholar","always_count":0,"common_count":1,"uncommon_count":1,"rare_count":1,"very_rare_count":1,"collection_log_count":0,"reagent_pair_count":1},{"id":"dt_soot_slag_troll","monster_id":"mega_soot_slag_troll","always_count":0,"common_count":2,"uncommon_count":1,"rare_count":1,"very_rare_count":1,"collection_log_count":0,"reagent_pair_count":1},{"id":"dt_soot_iron_dragon","monster_id":"mega_soot_iron_dragon","always_count":1,"common_count":1,"uncommon_count":1,"rare_count":1,"very_rare_count":1,"collection_log_count":1,"reagent_pair_count":1},{"id":"dt_soot_steel_dragon","monster_id":"mega_soot_steel_dragon","always_count":1,"common_count":1,"uncommon_count":1,"rare_count":1,"very_rare_count":1,"collection_log_count":1,"reagent_pair_count":0},{"id":"dt_soot_crazed_engineer","monster_id":"mega_soot_crazed_engineer","always_count":1,"common_count":1,"uncommon_count":1,"rare_count":1,"very_rare_count":0,"collection_log_count":1,"reagent_pair_count":1},{"id":"dt_bone_pharaoh_lich","monster_id":"mega_bone_pharaoh_lich","always_count":1,"common_count":2,"uncommon_count":1,"rare_count":1,"very_rare_count":1,"collection_log_count":1,"reagent_pair_count":1},{"id":"dt_bone_oasis_grindworm","monster_id":"bone_oasis_grindworm","always_count":0,"common_count":2,"uncommon_count":1,"rare_count":1,"very_rare_count":0,"collection_log_count":0,"reagent_pair_count":1},{"id":"dt_bone_sand_genie","monster_id":"bone_sand_genie","always_count":0,"common_count":1,"uncommon_count":1,"rare_count":1,"very_rare_count":1,"collection_log_count":0,"reagent_pair_count":1},{"id":"dt_veil_mirror_stag","monster_id":"mega_veil_mirror_stag","always_count":1,"common_count":2,"uncommon_count":1,"rare_count":1,"very_rare_count":0,"collection_log_count":0,"reagent_pair_count":1},{"id":"dt_veil_glass_spider","monster_id":"mega_veil_glass_spider","always_count":0,"common_count":1,"uncommon_count":1,"rare_count":1,"very_rare_count":0,"collection_log_count":0,"reagent_pair_count":1},{"id":"dt_veil_heartwood_treant","monster_id":"mega_veil_heartwood_treant","always_count":1,"common_count":1,"uncommon_count":2,"rare_count":1,"very_rare_count":1,"collection_log_count":1,"reagent_pair_count":0},{"id":"dt_veil_old_wolf_queen","monster_id":"veil_old_wolf_queen","always_count":1,"common_count":2,"uncommon_count":1,"rare_count":1,"very_rare_count":0,"collection_log_count":1,"reagent_pair_count":1},{"id":"dt_salt_reef_leviathan","monster_id":"mega_salt_reef_leviathan","always_count":0,"common_count":2,"uncommon_count":1,"rare_count":1,"very_rare_count":1,"collection_log_count":0,"reagent_pair_count":1},{"id":"dt_salt_deep_mother","monster_id":"mega_salt_deep_mother","always_count":0,"common_count":2,"uncommon_count":1,"rare_count":1,"very_rare_count":1,"collection_log_count":1,"reagent_pair_count":1},{"id":"dt_salt_ghost_galleon_captain","monster_id":"mega_salt_ghost_galleon_captain","always_count":0,"common_count":2,"uncommon_count":1,"rare_count":1,"very_rare_count":1,"collection_log_count":1,"reagent_pair_count":1},{"id":"dt_ink_forgotten_name","monster_id":"mega_ink_forgotten_name","always_count":0,"common_count":1,"uncommon_count":1,"rare_count":2,"very_rare_count":1,"collection_log_count":1,"reagent_pair_count":0},{"id":"dt_ink_dream_knight","monster_id":"mega_ink_dream_knight","always_count":1,"common_count":1,"uncommon_count":2,"rare_count":1,"very_rare_count":0,"collection_log_count":1,"reagent_pair_count":1},{"id":"dt_ink_inkblot_horror","monster_id":"mega_ink_inkblot_horror","always_count":0,"common_count":1,"uncommon_count":1,"rare_count":1,"very_rare_count":0,"collection_log_count":0,"reagent_pair_count":1},{"id":"dt_glass_sunking","monster_id":"mega_glass_sunking","always_count":0,"common_count":1,"uncommon_count":1,"rare_count":1,"very_rare_count":1,"collection_log_count":1,"reagent_pair_count":0},{"id":"dt_glass_crystal_dragon","monster_id":"mega_glass_crystal_dragon","always_count":1,"common_count":2,"uncommon_count":1,"rare_count":1,"very_rare_count":1,"collection_log_count":1,"reagent_pair_count":1},{"id":"dt_wild_chaos_elemental","monster_id":"mega_wild_chaos_elemental","always_count":0,"common_count":1,"uncommon_count":1,"rare_count":1,"very_rare_count":1,"collection_log_count":1,"reagent_pair_count":0},{"id":"dt_wild_revenant_knight","monster_id":"mega_wild_revenant_knight","always_count":0,"common_count":1,"uncommon_count":1,"rare_count":1,"very_rare_count":1,"collection_log_count":2,"reagent_pair_count":0},{"id":"dt_wild_revenant_dragon","monster_id":"mega_wild_revenant_dragon","always_count":1,"common_count":1,"uncommon_count":1,"rare_count":1,"very_rare_count":1,"collection_log_count":3,"reagent_pair_count":1},{"id":"dt_wild_vetion","monster_id":"mega_wild_vetion","always_count":1,"common_count":1,"uncommon_count":1,"rare_count":1,"very_rare_count":1,"collection_log_count":2,"reagent_pair_count":0},{"id":"dt_wild_callisto","monster_id":"mega_wild_callisto","always_count":1,"common_count":2,"uncommon_count":1,"rare_count":1,"very_rare_count":1,"collection_log_count":2,"reagent_pair_count":0},{"id":"dt_wild_scorpia","monster_id":"wild_scorpia","always_count":1,"common_count":1,"uncommon_count":1,"rare_count":1,"very_rare_count":0,"collection_log_count":0,"reagent_pair_count":1}]</script>
+<script id="cols" type="application/json">[{"key":"id","label":"id"},{"key":"monster_id","label":"monster_id"},{"key":"always_count","label":"always","num":true},{"key":"common_count","label":"common","num":true},{"key":"uncommon_count","label":"uncommon","num":true},{"key":"rare_count","label":"rare","num":true},{"key":"very_rare_count","label":"very_rare","num":true},{"key":"collection_log_count","label":"clog","num":true},{"key":"reagent_pair_count","label":"reagent_pairs","num":true}]</script>
+<script>
+(function () {
+  var rowsEl = document.getElementById('rows');
+  var colsEl = document.getElementById('cols');
+  if (!rowsEl || !colsEl) return;
+
+  var DATA = JSON.parse(rowsEl.textContent);
+  var COLS = JSON.parse(colsEl.textContent);
+  var PAGE_SIZE = parseInt(document.body.getAttribute('data-page-size') || '100', 10);
+
+  // attach original index for stable sort
+  var ROWS = DATA.map(function (r, i) { r.__i = i; return r; });
+  var view = ROWS.slice();
+
+  var sortCol = null;
+  var sortDir = 0;           // 1 = asc, -1 = desc
+  var page = 0;
+  var filterText = '';
+
+  var tbody = document.getElementById('tbody');
+  var thead = document.getElementById('thead');
+  var filterInput = document.getElementById('filter');
+  var statusEl = document.getElementById('status');
+  var pagerEl = document.getElementById('pager');
+
+  // Build header
+  var thtr = document.createElement('tr');
+  COLS.forEach(function (c, idx) {
+    var th = document.createElement('th');
+    th.textContent = c.label;
+    if (c.num) th.className = 'num';
+    var ind = document.createElement('span');
+    ind.className = 'sort-ind';
+    ind.textContent = '';
+    th.appendChild(ind);
+    th.addEventListener('click', function () { onSort(idx); });
+    thtr.appendChild(th);
+  });
+  thead.appendChild(thtr);
+
+  function normalize(v) {
+    if (v === null || v === undefined || v === '') return null;
+    return v;
+  }
+
+  function onSort(idx) {
+    if (sortCol === idx) {
+      sortDir = sortDir === 1 ? -1 : 1;
+    } else {
+      sortCol = idx;
+      sortDir = 1;
+    }
+    var c = COLS[idx];
+    var key = c.key;
+    var isNum = !!c.num;
+    view = ROWS.slice();
+    view.sort(function (a, b) {
+      var av = normalize(a[key]);
+      var bv = normalize(b[key]);
+      // nulls/empties sort last
+      if (av === null && bv === null) return a.__i - b.__i;
+      if (av === null) return 1;
+      if (bv === null) return -1;
+      var cmp;
+      if (isNum) {
+        var an = Number(av), bn = Number(bv);
+        if (Number.isNaN(an) && Number.isNaN(bn)) cmp = 0;
+        else if (Number.isNaN(an)) cmp = 1;
+        else if (Number.isNaN(bn)) cmp = -1;
+        else cmp = an - bn;
+      } else {
+        cmp = String(av).toLowerCase().localeCompare(String(bv).toLowerCase());
+      }
+      if (cmp === 0) return a.__i - b.__i;   // stable
+      return cmp * sortDir;
+    });
+    applyFilter(false);
+    updateIndicators();
+    page = 0;
+    render();
+  }
+
+  function updateIndicators() {
+    var ths = thead.querySelectorAll('th .sort-ind');
+    ths.forEach(function (span, i) {
+      if (i === sortCol) span.textContent = sortDir === 1 ? ' ▲' : ' ▼';
+      else span.textContent = '';
+    });
+  }
+
+  var filteredView = view;
+  function applyFilter(resetPage) {
+    var q = (filterText || '').toLowerCase().trim();
+    if (!q) {
+      filteredView = view;
+    } else {
+      filteredView = view.filter(function (r) {
+        for (var i = 0; i < COLS.length; i++) {
+          var v = r[COLS[i].key];
+          if (v === null || v === undefined) continue;
+          if (String(v).toLowerCase().indexOf(q) !== -1) return true;
+        }
+        return false;
+      });
+    }
+    if (resetPage) page = 0;
+  }
+
+  function render() {
+    var total = filteredView.length;
+    var totalPages = Math.max(1, Math.ceil(total / PAGE_SIZE));
+    if (page >= totalPages) page = totalPages - 1;
+    var start = page * PAGE_SIZE;
+    var end = Math.min(start + PAGE_SIZE, total);
+    var slice = filteredView.slice(start, end);
+
+    // Build rows with innerHTML (fast)
+    var html = '';
+    for (var i = 0; i < slice.length; i++) {
+      var r = slice[i];
+      var rowClass = r.__misery ? 'misery' : '';
+      html += '<tr' + (rowClass ? ' class="' + rowClass + '"' : '') + '>';
+      for (var c = 0; c < COLS.length; c++) {
+        var col = COLS[c];
+        var v = r[col.key];
+        if (v === null || v === undefined || v === '') v = '—';
+        var cls = col.num ? ' class="num"' : (col.truncate ? ' class="truncated" title="' + escapeAttr(v) + '"' : '');
+        html += '<td' + cls + '>' + escapeCell(v) + '</td>';
+      }
+      html += '</tr>';
+    }
+    tbody.innerHTML = html;
+
+    statusEl.textContent = total.toLocaleString() + ' rows' + (filterText ? ' (filtered from ' + ROWS.length.toLocaleString() + ')' : '');
+    if (total > PAGE_SIZE) {
+      pagerEl.style.display = '';
+      pagerEl.innerHTML = '';
+      var prev = document.createElement('button');
+      prev.textContent = '« Prev';
+      prev.disabled = page === 0;
+      prev.addEventListener('click', function () { if (page > 0) { page--; render(); } });
+      var info = document.createElement('span');
+      info.textContent = 'Page ' + (page + 1) + ' of ' + totalPages;
+      var next = document.createElement('button');
+      next.textContent = 'Next »';
+      next.disabled = page >= totalPages - 1;
+      next.addEventListener('click', function () { if (page < totalPages - 1) { page++; render(); } });
+      pagerEl.appendChild(prev);
+      pagerEl.appendChild(info);
+      pagerEl.appendChild(next);
+    } else {
+      pagerEl.style.display = 'none';
+      pagerEl.innerHTML = '';
+    }
+  }
+
+  function escapeCell(s) {
+    return String(s)
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;');
+  }
+  function escapeAttr(s) {
+    return escapeCell(s).replace(/"/g, '&quot;');
+  }
+
+  if (filterInput) {
+    var debounce = null;
+    filterInput.addEventListener('input', function () {
+      clearTimeout(debounce);
+      var val = filterInput.value;
+      debounce = setTimeout(function () {
+        filterText = val;
+        applyFilter(true);
+        render();
+      }, 90);
+    });
+  }
+
+  render();
+})();
+</script>
+</body>
+</html>

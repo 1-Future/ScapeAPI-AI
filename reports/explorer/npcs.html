@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>NPCs — Scape Content Explorer</title>
+<style>
+:root {
+  --cream:  #F7EFD8;
+  --umber:  #3A2E1F;
+  --ink:    #2A1F10;
+  --sienna: #8B5A2B;
+  --rust:   #A0522D;
+  --gold:   #DFD0A8;
+  --shade:  #EAE0C2;
+  --rule:   #C8BC9B;
+  --muted:  #8A7A5C;
+  --ok:     #2F4F2F;
+  --bad:    #8B0000;
+}
+html, body {
+  margin: 0; padding: 0;
+  background: var(--cream);
+  color: var(--umber);
+  font-family: Georgia, 'Palatino Linotype', 'Book Antiqua', Palatino, serif;
+  font-size: 14px; line-height: 1.5;
+}
+main { max-width: 1320px; margin: 0 auto; padding: 28px 24px 56px; }
+header { border-bottom: 2px solid var(--umber); padding-bottom: 10px; margin-bottom: 20px; }
+header h1 { margin: 0 0 4px 0; font-size: 26px; letter-spacing: 0.5px; }
+header .sub { font-style: italic; opacity: 0.78; }
+.nav { margin: 10px 0 0; font-size: 13px; }
+.nav a { color: var(--sienna); text-decoration: none; margin-right: 12px; }
+.nav a:hover { text-decoration: underline; color: var(--rust); }
+.nav a.current { color: var(--ink); font-weight: bold; }
+h2 { border-bottom: 1px solid var(--rule); padding-bottom: 4px; margin-top: 28px; font-size: 20px; }
+.muted { color: var(--muted); font-style: italic; }
+
+.toolbar {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  margin: 12px 0 10px;
+  flex-wrap: wrap;
+}
+.toolbar input[type="text"] {
+  flex: 1;
+  min-width: 260px;
+  padding: 8px 12px;
+  border: 1px solid var(--rule);
+  background: var(--cream);
+  color: var(--umber);
+  font-family: inherit;
+  font-size: 14px;
+}
+.toolbar input[type="text"]:focus {
+  outline: none;
+  border-color: var(--sienna);
+  box-shadow: 0 0 0 2px rgba(139, 90, 43, 0.18);
+}
+.toolbar .status { font-size: 13px; color: var(--muted); white-space: nowrap; }
+.toolbar .pager { font-size: 13px; }
+.toolbar button {
+  padding: 6px 12px;
+  background: var(--shade);
+  border: 1px solid var(--rule);
+  color: var(--ink);
+  font-family: inherit;
+  font-size: 13px;
+  cursor: pointer;
+}
+.toolbar button:hover:not(:disabled) { background: var(--gold); }
+.toolbar button:disabled { opacity: 0.35; cursor: default; }
+.toolbar .pager span { margin: 0 6px; }
+
+table.data {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 6px;
+  font-size: 13px;
+}
+table.data th, table.data td {
+  border: 1px solid var(--rule);
+  padding: 5px 8px;
+  text-align: left;
+  vertical-align: top;
+}
+table.data thead th {
+  background: var(--gold);
+  color: var(--ink);
+  font-weight: bold;
+  cursor: pointer;
+  user-select: none;
+  white-space: nowrap;
+  position: sticky;
+  top: 0;
+}
+table.data thead th .sort-ind { color: var(--sienna); font-size: 11px; margin-left: 4px; }
+table.data tbody tr:nth-child(even) td { background: var(--shade); }
+table.data tbody tr.misery td { background: #F2D8D0 !important; }
+table.data td.num { text-align: right; font-variant-numeric: tabular-nums; }
+table.data td.truncated { max-width: 320px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+
+table.summary {
+  border-collapse: collapse;
+  margin: 10px 0 16px;
+  font-size: 14px;
+}
+table.summary th, table.summary td {
+  border: 1px solid var(--rule);
+  padding: 6px 12px;
+  text-align: left;
+}
+table.summary thead th { background: var(--gold); color: var(--ink); }
+table.summary td.num { text-align: right; font-variant-numeric: tabular-nums; }
+table.summary a { color: var(--sienna); text-decoration: none; }
+table.summary a:hover { text-decoration: underline; }
+
+footer { border-top: 1px solid var(--rule); padding-top: 10px; margin-top: 28px; font-size: 12px; opacity: 0.72; }
+code { font-family: Consolas, 'Courier New', monospace; background: var(--shade); padding: 1px 4px; border-radius: 2px; font-size: 12px; }
+</style>
+</head>
+<body data-page-size="100">
+<main>
+  <header>
+    <h1>NPCs</h1>
+    <div class="sub">54 deep-bible NPCs for narrator + codex feeds.</div>
+    <div class="nav"><a href="index.html">Index</a><a href="activities.html">Activities</a><a href="methods.html">Methods</a><a href="items.html">Items</a><a href="monsters.html">Monsters</a><a href="quests.html">Quests</a><a href="dag.html">DAG</a><a href="drop_tables.html">Drop Tables</a><a href="npcs.html" class="current">NPCs</a></div>
+  </header>
+
+  <div class="toolbar">
+    <input id="filter" type="text" placeholder="Filter rows (case-insensitive, matches any column)…" autocomplete="off"/>
+    <div class="status" id="status"></div>
+    <div class="pager" id="pager"></div>
+  </div>
+
+  <table class="data">
+    <thead id="thead"></thead>
+    <tbody id="tbody"></tbody>
+  </table>
+
+  <footer>
+    Data slice from <code>2026-04-22T16:02:55.872Z</code>.
+    Click a column header to sort. Click again to reverse. Hold the filter box for live narrowing.
+  </footer>
+</main>
+<script id="rows" type="application/json">[{"id":"captain_alden","name":"Alden","title":"Captain Alden","region":"heartlands","location":"Heartlands town square, by the south gate","role":"starter quest-giver, militia captain, patrol coordinator","archetype":"tired soldier still doing the job after the war ended","voice_summary":"short sentences. Pauses where a younger man would push through. Occasionally a …"},{"id":"smith_kael","name":"Kael","title":"Smith Kael","region":"heartlands","location":"Kael's Smithy, off the market square, smoke visible from anywhere in town","role":"starter smithing tutor, weapon merchant, town craftsman","archetype":"blacksmith who's also the village historian by accident","voice_summary":"talks while working. Sentences time themselves to hammer strokes. Pauses on the…"},{"id":"merchant_hilde","name":"Hilde","title":"Merchant Hilde","region":"heartlands","location":"Hilde's General Store, opposite the smithy, stays open later than anyone else in town","role":"general goods, fence-adjacent, town busybody, fixer","archetype":"shopkeeper who knows everyone's business and runs a polite black market","voice_summary":"warm and quick. Stacks compliments in front of bad news. Always offers tea befo…"},{"id":"father_dorin","name":"Dorin","title":"Father Dorin","region":"moryskah","location":"the Chapel of the Last Light, on the Heartlands–Moryskah border road","role":"prayer tutor, exorcism contact, hidden crypt key-holder","archetype":"border priest who tends a fading flame and a small private heresy","voice_summary":"measured. Sentences trimmed to fit the breath of the dying. Pauses are doctrina…"},{"id":"mirelda_bog_witch","name":"Mirelda","title":"The Bog Witch","region":"moryskah","location":"a stilt-house deep in Greysedge Marsh, Moryskah, four hours' walk from any road","role":"herblore tutor (swamp tier), quest-giver, swamp guide, Malachar's former tutor","archetype":"cantankerous grandmother who knows where the bodies are","voice_summary":"long, tangential, with trailing observations. Sentences begin one place and end…"},{"id":"bog_witch_grael","name":"Grael","title":"Bog Witch Grael","region":"moryskah","location":"Mortton village edge, Moryskah, in the herbalist hut by the green pond","role":"novice herblore tutor, errand-giver, Mortton sage","archetype":"the village witch who is mostly a midwife and entirely overworked","voice_summary":"brisk. Talks while doing three other things. Trails off mid-sentence when a ket…"},{"id":"slayer_master_varrek","name":"Varrek","title":"Slayer Master Varrek","region":"moryskah","location":"the Slayer Lodge at the foot of the Moryskah Slayer Tower","role":"intermediate+ slayer master, slayer tower gatekeeper, gem distributor","archetype":"ex-soldier who turned the killing of monsters into a craft and a discipline","voice_summary":"clipped. Soldier-quick. Long pauses between assignments while he writes in his …"},{"id":"slayer_apprentice_kael","name":"Kael Thorn","title":"Slayer Apprentice Kael","region":"heartlands","location":"back room of the Heartlands militia barracks, on the rota board","role":"novice slayer task-giver","archetype":"eager second son who's read the manuals and not yet bled","voice_summary":"quick, over-prepared, slightly too loud. Shrinks when corrected."},{"id":"lord_malachar","name":"Aurin Malachar","title":"Lord Malachar","region":"moryskah","location":"Castle Malachar, Moryskah hill country, visible from anywhere in the swamp on a clear day","role":"raid boss, primary antagonist of Sins of Malachar, Theatre of Blood-tier","archetype":"the brilliant pupil who became the wrong kind of teacher","voice_summary":"patient, pedagogical, exactly correct. Speaks the way a senior teacher speaks t…"},{"id":"ahrim_the_blighted","name":"Ahrim","title":"Ahrim the Blighted","region":"moryskah","location":"the Barrows, second mound from the river, Moryskah","role":"Barrows brother — magic specialist","archetype":"the court wizard who outlived his court and forgot why","voice_summary":"thin, wandering, two centuries delayed. Sentences begin lucid and end as questi…"},{"id":"dharok_the_wretched","name":"Dharok","title":"Dharok the Wretched","region":"moryskah","location":"the Barrows, third mound from the river","role":"Barrows brother — melee specialist (low-HP scaling)","archetype":"the family soldier who was buried with his rage and brought it back","voice_summary":"guttural, short, breath-heavy. Pauses are hatred. Speaks as if every sentence c…"},{"id":"harbourmaster_cole","name":"Cole","title":"Harbourmaster Cole","region":"saltbrine","location":"the Saltbrine harbourmaster's office, end of the longest pier, Saltbrine Reach","role":"Pirate King quest-giver, charter ship coordinator, cove access broker","archetype":"the retired pirate who became the law and is bored of both","voice_summary":"sailor-rolling. Sentences ride a swell. Stops on the trough. Picks up on the ri…"},{"id":"fishmonger_mara","name":"Mara","title":"Fishmonger Mara","region":"saltbrine","location":"the open-air fish market on Saltbrine's central quay","role":"fishing tutor (intermediate), tide-pool collector quest-giver, gossip node","archetype":"the ex-pirate's bosun who runs a stall and will not talk about the past out loud","voice_summary":"fast, salt-clipped. Talks while gutting fish. The rhythm of the knife is the rh…"},{"id":"captain_reed","name":"Reed","title":"Captain Reed","region":"saltbrine","location":"the trawler Bittern, moored at Saltbrine's third pier when not at sea","role":"Saltbrine fishing trawler operator, tide pool & bog karambwan transport","archetype":"the indebted captain whose ship is older than he is","voice_summary":"jovial on the surface, weighted under it. Tells a joke into the gap where bad n…"},{"id":"first_mate_brigh","name":"Brigh","title":"First Mate Brigh","region":"saltbrine","location":"Bittern's deck when Reed is sailing; otherwise the Salt-Pickled Crow tavern","role":"Pirate King quest assistant, charter ship guide, the ex-tide-pool kid","archetype":"the Saltbrine local who's about to be promoted by three different people without being asked","voice_summary":"quick, easy, deflects. Treats every promotion as a misunderstanding."},{"id":"forgemaster_brun","name":"Brun","title":"Forgemaster Brun","region":"sootworks","location":"the Blast Furnace overseer's box, Sootworks Foundry District","role":"Sootworks Rising quest-giver, blast furnace coordinator, smithing master","archetype":"the dwarf-foreman whose word in the foundry is the word","voice_summary":"short, soot-mouthed, hammered flat by decades of furnace noise. Speaks as if ev…"},{"id":"engineer_fizz","name":"Fizz","title":"Engineer Fizz","region":"sootworks","location":"the Pressure Valve Annex, behind Furnace Two, Sootworks Foundry District","role":"construction tutor (Sootworks tier), clockwork repair contact, pressure valve inspector","archetype":"the gnome engineer whose paranoia is keeping everyone alive","voice_summary":"very fast, parenthetical, technical. Stops mid-sentence to write a number on he…"},{"id":"vorath_warden","name":"Vorath","title":"Vorath, Warden of the Deep Vein","region":"sootworks","location":"the Deep Vein audience chamber, lowest tunnel of the Sootworks","role":"Sootworks faction leader, regional governor, mid-tier boss","archetype":"the dwarf-king who chose foreman over crown","voice_summary":"ceremonial when public, dry when private. Grants long pauses to subordinates. C…"},{"id":"smith_hald","name":"Hald","title":"Smith Hald","region":"sootworks","location":"Furnace Three's secondary anvil, Sootworks Foundry District","role":"deep-stone alloy tutor, smithing tutor (Sootworks tier)","archetype":"the dwarf deputy who's about to find out he's the successor","voice_summary":"measured, soot-mouthed like Brun, but warmer. Allows himself the occasional jok…"},{"id":"ranger_lyris","name":"Lyris","title":"Ranger Lyris","region":"veilwood","location":"the canopy outpost above the Veilwood gate","role":"ranged tutor, Apprentice Trapper quest-giver, canopy permit holder","archetype":"the elf ranger who is precisely as old as you'd hesitate to ask","voice_summary":"elf-grammar — verbs in the wrong place, weight on nouns. 'The stranger comes. T…"},{"id":"fletcher_tarin","name":"Tarin","title":"Fletcher Tarin","region":"veilwood","location":"the bowyer's workshop, third platform from the Veilwood gate","role":"fletching tutor (Veilwood tier), elven bow merchant","archetype":"the bowyer who treats every bow as an apology to a tree","voice_summary":"slow, weighed, deliberate. Pauses to listen to a bow he is shaping."},{"id":"elder_druid_sael","name":"Sael","title":"Elder Druid Sael","region":"veilwood","location":"the inner sanctum oak, deep Veilwood","role":"Green Thumb quest-giver, Veilwood faction leader, druidic spellcaster","archetype":"the elder elf who has been wrong, once, decades ago, and never quite gotten over being right about everything else","voice_summary":"stately, measured, with the elven inverted-clause habit. Slows down to make a p…"},{"id":"archaeologist_veris","name":"Veris","title":"Archaeologist Veris","region":"boneyard","location":"the dig site at the foot of the Boneyard Pyramid","role":"Boneyard Compass quest-giver, Sand and Secrets quest-giver, dig site coordinator","archetype":"the desert scholar who has out-survived three institutional grants","voice_summary":"parched prophet-speak — short sentences, pauses for water, occasional pronounce…"},{"id":"razak","name":"Razak","title":"Razak","region":"boneyard","location":"the desert caravan post, three days from the Pyramid","role":"Boneyard guide, water-broker, sandstorm survival tutor","archetype":"the desert nomad who knows the right wind to walk in","voice_summary":"low, careful, weathered. Sentences arrive with the patience of water finding sa…"},{"id":"hermit_of_the_old_sun","name":"the Hermit","title":"Hermit of the Old Sun","region":"boneyard","location":"the Old Sun shrine, six days deeper than the Pyramid","role":"Last Light of the Old Sun quest-giver, theological consultant, post-game riddle-keeper","archetype":"the desert ascetic who is one straight question away from sanity and chooses the riddle","voice_summary":"broken-prophet — sentences in the wrong order, half answered. Pauses long enoug…"},{"id":"lucid_keeper_yara","name":"Yara","title":"Lucid Keeper Yara","region":"inkweald","location":"the dream-shore at the edge of the Inkweald, where the tide of the dream is shallowest","role":"Inkweald Door quest-giver, Dream Magic tutor, lucid ward provider","archetype":"the dream-keeper who is awake in seventeen senses and sleepy in three","voice_summary":"dream-blur — sentences trail and reform mid-thought. Verbs migrate. Tenses shif…"},{"id":"the_inkweald_muse","name":"the Muse","title":"The Inkweald Muse","region":"inkweald","location":"the half-lit clearing in the deep Inkweald, where the trees lean inward without ever quite touching","role":"boss — the Muse","archetype":"the dream made of every artist who ever burned an unfinished page","voice_summary":"speaks in fragments — first lines of poems, partial bars of music, half-painted…"},{"id":"crystal_sage_orin","name":"Orin","title":"Crystal Sage Orin","region":"glass_desert","location":"the Crystal Spire, deep Glass Desert","role":"Echoes of the Deep quest-giver, Glass Desert faction leader, crystal mining instructor","archetype":"the scholar who walked away from a dwarven Wardenship to study glass","voice_summary":"minimal, glass-edged. Each sentence is a shape. Cuts the air."},{"id":"merchant_zel","name":"Zel","title":"Merchant Zel","region":"glass_desert","location":"the trading platform at the foot of the Crystal Spire","role":"crystal equipment shop, Glass Desert quartermaster, supply-chain coordinator","archetype":"the desert quartermaster who could be running a kingdom and has chosen not to","voice_summary":"quick, dry, entirely practical. The opposite of Orin's style and they like each…"},{"id":"veldrak_last_dragon","name":"Veldrak","title":"Veldrak, the Last Dragon","region":"glass_desert","location":"the Crystal Caverns, deep Glass Desert","role":"tier 5 endgame boss — the Last Dragon (Last Dragon Part 3)","archetype":"the last of a kind that does not believe it is the last","voice_summary":"slow, ancient, immense. Each word arrives with weight. Pauses long enough that …"},{"id":"the_eclipse_guardian","name":"the Guardian","title":"Eclipse Guardian","region":"glass_desert","location":"the New Sun Zone, accessible only by completing the Last Light of the Old Sun","role":"post-game boss","archetype":"the construct made by the Hermit's rite, who is asked one too many questions","voice_summary":"ritual-formal. Speaks in liturgy. Occasional crystalline pauses."},{"id":"krystilia","name":"Krystilia","title":"Krystilia","region":"wilds","location":"the watch-tower at the Wilds border, where the Heartlands road ends and the rule of law forgets to follow","role":"Wilds slayer master, into-the-Wilds quest-giver, danger broker","archetype":"the slayer master who took the worst posting in Aelgard and likes it","voice_summary":"cold clipped. Wilds-cadence. Sentences short, heat-stripped, like she's saving …"},{"id":"lms_justiciar","name":"the Justiciar","title":"LMS Justiciar","region":"wilds","location":"the Last Man Standing arena, half a day from Krystilia's watch-tower","role":"Last Man Standing minigame coordinator, dueling judge","archetype":"the former pit-fighter who became the impartial referee","voice_summary":"ceremonial-cold. Each ruling is a complete sentence. Pauses for a lawful moment."},{"id":"bounty_hunter","name":"the Hunter","title":"Bounty Hunter","region":"wilds","location":"the bounty board, mid-Wilds, on a wagon that moves once a week","role":"Wilds bounty contracts, PvP target list","archetype":"the Crown's deniable problem-solver, who knows the names","voice_summary":"deliberate, low. Treats every name as a small heavy object placed on the table."},{"id":"azhmari_sand_prince","name":"Azhmari","title":"Azhmari, The Sand Prince","region":"boneyard","location":"the dune-throne, three nights from the Pyramid in the right wind","role":"Boneyard mid-tier boss, faction figurehead of the desert nomads who do still travel","archetype":"the desert prince who is not, technically, a prince — and not, technically, alive","voice_summary":"courtly-archaic. Each sentence is offered like a cup of water. Long pauses for …"},{"id":"the_veilmother","name":"the Veilmother","title":"The Veilmother","region":"veilwood","location":"the deepest grove of the Veilwood, where the canopy closes","role":"Veilwood region boss","archetype":"the eldest tree the elves stopped pruning","voice_summary":"very slow, vegetal-formal. Each sentence is the time of one inhale of the canop…"},{"id":"the_glass_tyrant","name":"the Tyrant","title":"The Glass Tyrant","region":"glass_desert","location":"the Tyrant's plinth, mid Glass Desert","role":"mid Glass Desert boss","archetype":"the construct that mistook itself for a king","voice_summary":"edged, brittle, declarative. Each sentence ends with a slight crystalline ring."},{"id":"the_hollow_choir_conductor","name":"the Conductor","title":"The Hollow Choir — Conductor","region":"inkweald","location":"the deepest amphitheatre of the Inkweald, where the trees stand in concentric rings","role":"Inkweald endgame boss","archetype":"the dream of a finished symphony","voice_summary":"musical-formal. Speaks in measures. Pauses at bar lines."},{"id":"the_destroyer_boss","name":"the Destroyer","title":"The Destroyer","region":"wilds","location":"deep Wilds, in the ruined arena beyond the Wilderness Agility Course","role":"Wilds endgame boss","archetype":"the title left over from a war nobody remembers","voice_summary":"brutal-short. Sentences are blows. Pauses are wind-up."},{"id":"famine_boss","name":"Famine","title":"Famine","region":"boneyard","location":"the dry well at the centre of the Boneyard's third dune ring","role":"mid-tier Boneyard boss, one of the Riders","archetype":"the Rider who took the slow road","voice_summary":"slow, dry, weighted. Each sentence is a draught of empty water."},{"id":"void_knight_captain","name":"the Captain","title":"Void Knight Captain","region":"saltbrine","location":"the Pest Control island, half a day off Saltbrine's coast","role":"Pest Control minigame coordinator, Void armour quartermaster","archetype":"the soldier-monk who runs the only operation that nobody wants to think about","voice_summary":"calm, formal, conserved. Speaks like someone who has explained the same operati…"},{"id":"pyromancer_ignissa","name":"Ignissa","title":"Pyromancer Ignissa","region":"moryskah","location":"the Spirit Pyre keepers' lodge, on the Moryskah ridge that overlooks the Barrows","role":"Spirit Pyre minigame coordinator, firemaking tutor (advanced)","archetype":"the pyromancer-priest who keeps the dead from forgetting they are dead","voice_summary":"solemn, fire-paced. Each sentence is the time of one log catching."},{"id":"great_guardian","name":"the Guardian","title":"Great Guardian","region":"veilwood","location":"the Rift, hidden in the deep Veilwood, accessible only via the Guardians of the Rift minigame","role":"Guardians of the Rift coordinator, runecrafting tutor","archetype":"the guardian who has held the door so long it forgets what is on the other side","voice_summary":"vast, weary, kind. Each sentence is the tone of a held bell."},{"id":"commander_kira","name":"Kira","title":"Commander Kira","region":"saltbrine","location":"the Barbarian Assault arena, on the Saltbrine cliffs","role":"Barbarian Assault minigame coordinator, team-combat tutor","archetype":"the field commander who runs the only training ground that requires friendship","voice_summary":"drill-clipped. Sentences in five-second increments. Counts down."},{"id":"whisper_broker_nessa","name":"Nessa","title":"Nessa, of the Drifting Market","region":"drifting_market","location":"the Drifting Market — wherever it is moored this week","role":"Drifting Market faction leader, information broker, charter-keeper","archetype":"the merchant-queen of a hub that nobody owns","voice_summary":"warm-careful, like Hilde, but cooler. Trades in possibilities. Never a flat no."},{"id":"apothecary_nira","name":"Nira","title":"Apothecary Nira","region":"moryskah","location":"the Mortton apothecary, west wing of Mortton village","role":"Moryskah herblore tutor (intermediate), Mirelda's only living former apprentice","archetype":"the careful student who became the careful teacher","voice_summary":"considered, gentle, marsh-edged. The cadence of someone who learned from Mireld…"},{"id":"overseer_greta","name":"Greta","title":"Overseer Greta","region":"heartlands","location":"the Heartlands mine entrance, north of the town square","role":"mining tutor (novice), Missing Miner quest-giver","archetype":"the former miner who runs the mine from a chair now","voice_summary":"gruff-matter-of-fact. Sentences like hammer taps. Occasional dry humour at the …"},{"id":"royal_falconer","name":"Aldwin","title":"The Royal Falconer","region":"heartlands","location":"the falconry mews, behind the Heartlands noble quarter","role":"hunter tutor (falconry), Royal Falconer quest-giver","archetype":"the retired court falconer whose loyalty is to the bird","voice_summary":"quiet, sparse. Speaks in half-sentences because the birds flinch at volume."},{"id":"wandering_scholar","name":"Bel","title":"The Wandering Scholar","region":"heartlands","location":"wherever the road is quiet — often the inn at the Heartlands–Moryskah border","role":"lore contact, quest context broker, reading tutor","archetype":"Aelgard's Wise Old Man — if the wise old man had, in fact, read the books","voice_summary":"mild, academic, with a country warmth. Digresses. Returns. Never loses the thre…"},{"id":"drunken_dwarf_ossen","name":"Ossen","title":"Ossen (the Drunken Dwarf)","region":"sootworks","location":"the Soot-Mouth tavern, Sootworks lower deck","role":"eccentric, unofficial lore node, dwarven stout importer","archetype":"the dwarf everyone assumes is useless, who is the only one who remembers the deep tunnels correctly","voice_summary":"slurred on the first sentence, perfectly precise on the third. Cycles between t…"},{"id":"innkeeper_vash","name":"Vash","title":"Innkeeper Vash","region":"saltbrine","location":"the Salt-Pickled Crow tavern, Saltbrine Reach","role":"social hub, rumour node, bed-and-board provider","archetype":"the innkeeper who remembers every face and pretends not to","voice_summary":"easy, practiced, warm — like Hilde but less calculated. Speaks while pouring."},{"id":"crystal_wyrm","name":"the Crystal Wyrm","title":"The Crystal Wyrm","region":"glass_desert","location":"the inner Crystal Caverns — deeper than Veldrak, where the light turns","role":"tier 5 endgame boss (apex of the Glass Desert endgame chain)","archetype":"the thing Veldrak is guarding without knowing","voice_summary":"refracted — sentences arrive in pieces and assemble themselves. Each phrase rin…"},{"id":"evil_chef","name":"the Chef","title":"The Evil Chef","region":"heartlands","location":"the Grand Hall, beneath the Heartlands noble quarter","role":"Culinaromancer's Curse boss, Grand Feast prestige encounter","archetype":"the kitchen tyrant who is correct about soup","voice_summary":"precise, French-inflected-Aelgardian, pedantic. Each sentence is a recipe step."},{"id":"tsunara_storm_twin","name":"Tsunara","title":"Tsunara","region":"saltbrine","location":"the Stormcrown Reef, at the limit of Bittern's range","role":"Storm Twins boss (twin-phase), Saltbrine mid-tier encounter","archetype":"one half of a storm, still arguing with the other","voice_summary":"wave-cadence — rises, holds, crashes, recedes. Each sentence arrives with the n…"}]</script>
+<script id="cols" type="application/json">[{"key":"id","label":"id"},{"key":"name","label":"name"},{"key":"title","label":"title"},{"key":"region","label":"region"},{"key":"location","label":"location","truncate":true},{"key":"role","label":"role","truncate":true},{"key":"archetype","label":"archetype","truncate":true},{"key":"voice_summary","label":"voice_summary","truncate":true}]</script>
+<script>
+(function () {
+  var rowsEl = document.getElementById('rows');
+  var colsEl = document.getElementById('cols');
+  if (!rowsEl || !colsEl) return;
+
+  var DATA = JSON.parse(rowsEl.textContent);
+  var COLS = JSON.parse(colsEl.textContent);
+  var PAGE_SIZE = parseInt(document.body.getAttribute('data-page-size') || '100', 10);
+
+  // attach original index for stable sort
+  var ROWS = DATA.map(function (r, i) { r.__i = i; return r; });
+  var view = ROWS.slice();
+
+  var sortCol = null;
+  var sortDir = 0;           // 1 = asc, -1 = desc
+  var page = 0;
+  var filterText = '';
+
+  var tbody = document.getElementById('tbody');
+  var thead = document.getElementById('thead');
+  var filterInput = document.getElementById('filter');
+  var statusEl = document.getElementById('status');
+  var pagerEl = document.getElementById('pager');
+
+  // Build header
+  var thtr = document.createElement('tr');
+  COLS.forEach(function (c, idx) {
+    var th = document.createElement('th');
+    th.textContent = c.label;
+    if (c.num) th.className = 'num';
+    var ind = document.createElement('span');
+    ind.className = 'sort-ind';
+    ind.textContent = '';
+    th.appendChild(ind);
+    th.addEventListener('click', function () { onSort(idx); });
+    thtr.appendChild(th);
+  });
+  thead.appendChild(thtr);
+
+  function normalize(v) {
+    if (v === null || v === undefined || v === '') return null;
+    return v;
+  }
+
+  function onSort(idx) {
+    if (sortCol === idx) {
+      sortDir = sortDir === 1 ? -1 : 1;
+    } else {
+      sortCol = idx;
+      sortDir = 1;
+    }
+    var c = COLS[idx];
+    var key = c.key;
+    var isNum = !!c.num;
+    view = ROWS.slice();
+    view.sort(function (a, b) {
+      var av = normalize(a[key]);
+      var bv = normalize(b[key]);
+      // nulls/empties sort last
+      if (av === null && bv === null) return a.__i - b.__i;
+      if (av === null) return 1;
+      if (bv === null) return -1;
+      var cmp;
+      if (isNum) {
+        var an = Number(av), bn = Number(bv);
+        if (Number.isNaN(an) && Number.isNaN(bn)) cmp = 0;
+        else if (Number.isNaN(an)) cmp = 1;
+        else if (Number.isNaN(bn)) cmp = -1;
+        else cmp = an - bn;
+      } else {
+        cmp = String(av).toLowerCase().localeCompare(String(bv).toLowerCase());
+      }
+      if (cmp === 0) return a.__i - b.__i;   // stable
+      return cmp * sortDir;
+    });
+    applyFilter(false);
+    updateIndicators();
+    page = 0;
+    render();
+  }
+
+  function updateIndicators() {
+    var ths = thead.querySelectorAll('th .sort-ind');
+    ths.forEach(function (span, i) {
+      if (i === sortCol) span.textContent = sortDir === 1 ? ' ▲' : ' ▼';
+      else span.textContent = '';
+    });
+  }
+
+  var filteredView = view;
+  function applyFilter(resetPage) {
+    var q = (filterText || '').toLowerCase().trim();
+    if (!q) {
+      filteredView = view;
+    } else {
+      filteredView = view.filter(function (r) {
+        for (var i = 0; i < COLS.length; i++) {
+          var v = r[COLS[i].key];
+          if (v === null || v === undefined) continue;
+          if (String(v).toLowerCase().indexOf(q) !== -1) return true;
+        }
+        return false;
+      });
+    }
+    if (resetPage) page = 0;
+  }
+
+  function render() {
+    var total = filteredView.length;
+    var totalPages = Math.max(1, Math.ceil(total / PAGE_SIZE));
+    if (page >= totalPages) page = totalPages - 1;
+    var start = page * PAGE_SIZE;
+    var end = Math.min(start + PAGE_SIZE, total);
+    var slice = filteredView.slice(start, end);
+
+    // Build rows with innerHTML (fast)
+    var html = '';
+    for (var i = 0; i < slice.length; i++) {
+      var r = slice[i];
+      var rowClass = r.__misery ? 'misery' : '';
+      html += '<tr' + (rowClass ? ' class="' + rowClass + '"' : '') + '>';
+      for (var c = 0; c < COLS.length; c++) {
+        var col = COLS[c];
+        var v = r[col.key];
+        if (v === null || v === undefined || v === '') v = '—';
+        var cls = col.num ? ' class="num"' : (col.truncate ? ' class="truncated" title="' + escapeAttr(v) + '"' : '');
+        html += '<td' + cls + '>' + escapeCell(v) + '</td>';
+      }
+      html += '</tr>';
+    }
+    tbody.innerHTML = html;
+
+    statusEl.textContent = total.toLocaleString() + ' rows' + (filterText ? ' (filtered from ' + ROWS.length.toLocaleString() + ')' : '');
+    if (total > PAGE_SIZE) {
+      pagerEl.style.display = '';
+      pagerEl.innerHTML = '';
+      var prev = document.createElement('button');
+      prev.textContent = '« Prev';
+      prev.disabled = page === 0;
+      prev.addEventListener('click', function () { if (page > 0) { page--; render(); } });
+      var info = document.createElement('span');
+      info.textContent = 'Page ' + (page + 1) + ' of ' + totalPages;
+      var next = document.createElement('button');
+      next.textContent = 'Next »';
+      next.disabled = page >= totalPages - 1;
+      next.addEventListener('click', function () { if (page < totalPages - 1) { page++; render(); } });
+      pagerEl.appendChild(prev);
+      pagerEl.appendChild(info);
+      pagerEl.appendChild(next);
+    } else {
+      pagerEl.style.display = 'none';
+      pagerEl.innerHTML = '';
+    }
+  }
+
+  function escapeCell(s) {
+    return String(s)
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;');
+  }
+  function escapeAttr(s) {
+    return escapeCell(s).replace(/"/g, '&quot;');
+  }
+
+  if (filterInput) {
+    var debounce = null;
+    filterInput.addEventListener('input', function () {
+      clearTimeout(debounce);
+      var val = filterInput.value;
+      debounce = setTimeout(function () {
+        filterText = val;
+        applyFilter(true);
+        render();
+      }, 90);
+    });
+  }
+
+  render();
+})();
+</script>
+</body>
+</html>
