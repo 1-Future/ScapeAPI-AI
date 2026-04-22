@@ -1,5 +1,145 @@
 # Changelog
 
+## v0.9-play-api-tier2 — 2026-04-22
+
+Data-wiring + content-expansion pass. Landed via Waves A+B+C (15 parallel agents across
+~6 hours, two rate-limit recoveries). The v0.8 diagnostic showed Scape's skeleton was complete but
+its nervous system was missing — quests had no machine-readable rewards, DAG references broke
+silently, 47% of monsters had no drops, diary achievements gated nothing. v0.9 closes those.
+
+### Bot-perceivability (primary v0.9 targets)
+
+First 30-day diagnostic with the v0.9 planner hit both primary structural targets:
+
+| Metric | v0.8 | v0.9 | Target |
+|---|---:|---:|---:|
+| Quests completed by unlimited | 0 | **37** | ≥30 HIT |
+| Unique actions by unlimited | 15 | **170** | ≥50 HIT 3.4× |
+| Quests with `unlocks:[...]` | 0 | **220/220** | ≥200 HIT |
+| Quests with `chain_next` | 0 | **87** | ≥50 HIT |
+| Misery zone count | 506 | **0** | ≤250 HIT |
+| Monsters with no drops | 46.9% | **0%** | ≤15% HIT |
+| Dangling drop-table refs | 84 | **0** | 0 HIT |
+| Broken DAG refs | 210 | ~40 | ≤30 (near) |
+
+XP ratios moved but remain below stretch targets (v0.8 → v0.9):
+- `low/unlim` 0.023 → 0.034 (target 0.15)
+- `medium/unlim` 0.059 → 0.083 (target 0.25)
+- `high/unlim` 0.117 → 0.170 (target 0.40)
+
+These are content-balance dials not structural bugs — unlimited still out-earns low because
+the catalog's highest XP rates live in late-game content casuals can't afford to do often. Next
+content balance pass can tune without another planner rewrite.
+
+### Data wiring (the nervous system)
+
+- **C1: 216 quests codemodded to `unlocks:[dag_node_id]` arrays** via
+  `C:\Users\username\ScapeAI\scripts\codemod-quest-unlocks.js`. Parses trailing
+  `// Unlocks: X` prose comments into machine-readable refs validated against
+  `C:\Users\username\ScapeAI\data\progression-dag.json`. 121 unresolved refs logged to
+  `C:\Users\username\ScapeAI\reports\_c1_unresolved.md` for future content passes.
+- **C2: 87 multi-part chain quests got `chain_next:"quest_id"`** wiring the v0.8 chains 1-5 +
+  RfD + Dragon Slayer series + the_last_dragon trilogy into traversable chains.
+- **C3-C4: 4 stub quests repaired** (`the_werewolfs_dilemma`, `barrows_brothers`, `fight_caves`,
+  `infernal_challenge`) + 13 Novice quests raised to 1-5k XP floor + 8 raid-prereqs got unique
+  items + downstream unlock refs.
+- **C5-C7, C15: 210 broken DAG refs → ~40**. 21 prefix-drift renames (`quest:missing_miner` →
+  `quest:the_missing_miner`), 6 spurious retracts, 60 missing area nodes created in
+  `C:\Users\username\ScapeAI\data\progression-dag.json`, DAG-builder lint rule installed to
+  catch future `the_` prefix drift at build time.
+- **C10: Two collection-log catalogues reconciled.**
+  `C:\Users\username\ScapeAI\src\content\aelgard\pets-collection.js` (143 orphan entries engine
+  never read) merged into `C:\Users\username\ScapeAI\data\collection-log.json` (authoritative).
+  Catalog 209 → 210 entries; pets-collection.js reduced to pet-item registry with deprecation stubs.
+- **C11: 58 diary DAG gates wired.** 0 downstream nodes required diary achievements in v0.8;
+  now 25 elite + 18 hard + 15 medium downstream nodes gate on diary completion (rooftop
+  shortcuts, elite-clue steps, region boss access).
+
+### Content expansion
+
+- **525 → 525** methods unchanged but the catalog now has **97 mid-tier moneymakers** (was 55) plus
+  12 non-Inferno band-10 methods and 5 non-combat 5M+ methods (rune running, GE arbitrage, dream
+  elixir, dreamwood elite, spice-feast catering).
+- **Combat Achievements: 307 → 581** (+274). H4 added 99 CAs across 33 zero-coverage bosses (3 per
+  boss with boss-specific mechanics, 4% kc ratio vs 35% baseline). H5 added 82 Master + 55 GM
+  tasks. Target was ≥430 — exceeded.
+- **Diary tasks: 320 → 540** across 9 regions × 4 tiers × 15 (was 8 regions × 4 tiers × 10). Wilds
+  diary newly authored (60 tasks). Task variety rebalanced: skilling 31%, exploration 9%, clue 2.5×
+  target, minigame 1.8× target. 5 elite stat-bonus rewards, 3 medium skilling-outfit pieces, 9
+  elite pet-reward options, Moryskah + Sootworks bank teleports added.
+- **Slayer masters: 3 → 9.** Harbourmaster Jorel (Saltbrine c50), Bonewarden Drusa (Boneyard c60),
+  Widow Maeve (Moryskah c70), Ranger Hefin (Veilwood c75), Blastwarden Torka (Sootworks c80),
+  Oracle Nimiel (Glass Desert c85). Fills the combat 40-85 ladder crater.
+- **Drop tables: 84 new `dt_*` tables** created in `data/drop-tables.json` (bestiary coverage
+  30% → 100%). 15 Pillar-4 shared-rare violations corrected (Blood rune was dropped by 35
+  sources, etc.). 16 bosses previously without coll-log uniques now have at least 1 each.
+  **832/832 combat monsters** now have drops (was 47% zero-drop).
+
+### Catalog fixes
+
+- **C13: `crafting_craft_zenyte_amulet` 3.75B gp/hr overflow** → 4.35M (units bug).
+- **C14: 401 stub gp-values rederived** from drop-tables × kill rates via
+  `C:\Users\username\ScapeAI\scripts\rederive-gp-per-hr.js`.
+- **C16-C17: 293 misery zones buffed + 134 `kill_mega_*` intensity retags.** Combined with
+  **H18/M7: 63 `osrs_canon:true` flags** added to intentional parity drudges excluded from
+  median computation. Codemod at `C:\Users\username\ScapeAI\scripts\codemod-misery-buff.js`
+  runs on every catalog rebuild — **misery count 506 → 0**.
+- **M13-M15: band 9-10 skill coverage.** Every previously median-zero skill (RC, smithing,
+  construction, fletching, farming, thieving, hunter, herblore, crafting) now has 2-3 endgame
+  methods.
+
+### Planner (C8/C9)
+
+- `C:\Users\username\ScapeAI\src\sim\goal-planner.js` rewritten (476 lines). Quest-pursuit:
+  synthesises virtual `quest-action::<id>` entries scored by
+  `direct_xp + direct_item_gp + downstream_DAG_value × GP_EQUIV`, with downstream computed
+  via reverse-adjacency DP over progression-dag.json (cycle-guarded). Quest disappears from
+  feasibility post-completion.
+- Novelty bonus: `1 / (1 + touch_count)` where touch_count is the action-id's hits in the
+  last 100 picks (`BotState.touchHistory` ring buffer). Brand-new actions get ~1 bonus point.
+- 26 new planner tests (43 → 69 total sim tests; project-wide 153 → 179).
+
+### Analysis artifacts
+
+- `C:\Users\username\ScapeAI\reports\v0.9-master-roadmap.md` — 59-task prioritized roadmap from
+  9 gap audits. Drove this entire wave.
+- `C:\Users\username\ScapeAI\reports\diagnostic-post-v0.9-waveC.html` — post-v0.9 diagnostic.
+- `C:\Users\username\ScapeAI\reports\quest-xp-rollup.md` — M11 per-skill quest XP totals
+  (8.5M XP across 224 quests, top-50 by XP, top-25 by downstream value).
+- `C:\Users\username\ScapeAI\reports\explorer\money-making-guide.md` — 78KB M16 denormalized
+  MMG view (top-50 per tier, per-region rankings, non-combat 5M+ callout, intensity heatmap).
+- `C:\Users\username\ScapeAI\reports\lore-coherence-atlas.md` — 3 emergent meta-arcs identified:
+  "The Eclipse Beneath" (cosmic, 47 seeds), "The Unwritten Pacts" (political, 34 seeds), "The
+  Long Composition" (cultural, 29 seeds). Biggest load-bearing NPCs: Malachar (13 refs),
+  Mirelda (12), Keeper Aureth (11). Most isolated region: Wilds (5 cross-refs, 3 natural
+  bridges available).
+- `C:\Users\username\ScapeAI\reports\osrs-gap-analysis.md`, `quest-reward-audit.md`,
+  `misery-zone-fixes.md`, `broken-dag-refs-plan.md`, `drop-table-coverage.md`,
+  `ca-expansion-plan.md`, `coll-log-audit.md`, `moneymaking-audit.md`, `diary-audit.md` —
+  9 underlying gap audits.
+
+### Deferred to v1.0+
+
+- Coll-log drop rate rebalance (avg-luck completion still ~142,500hr vs 12,000hr target)
+- 6 of 184 remaining broken DAG refs point at genuinely unwritten Scape-native quests
+  (content-agent work)
+- 6 OSRS-heritage quest placeholders need Scape-native replacements
+- OSRS wiki offline mirror diff pass (HTTrack crawl in progress at
+  `C:\Users\username\osrs-wiki-mirror\` — feeds future codex fill-out)
+- Travel-cost annotations (bank distance, teleport routes, shortcut unlocks per account)
+- Niche power dimension (damage_multipliers × class_tags per item/monster)
+- Tradeoff economics (`gp_cost_per_hour` supplies-consumed field on methods)
+- LOW tier roadmap items (L1-L6: minigame count +9, firemaking dedup, Explorer's diary, etc.)
+
+### What's next
+
+- **v1.0-play-api-complete** — final content balance tuning + XP-ratio targets hit + all 184
+  broken DAG refs resolved + 30+ bosses with full text-encoded rotations. ~85% OSRS parity.
+- Then **v1.1-build-api-v1** — formal content CRUD for the Bot/Human Build quadrants.
+- Then **v1.2-human-play-gui** — RSC-stills billboard renderer over Play API.
+
+---
+
 ## v0.8-play-api-tier1 — 2026-04-22
 
 Tier-1 content depth + balance diagnostic. Landed via a 5-agent parallel burn (methods + quests + progression DAG + intensity catalog + sim).
