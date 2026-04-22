@@ -1,0 +1,92 @@
+{
+  "$schema": "scape.diary.v1",
+  "region": "wilds",
+  "name": "Wilds Diary",
+  "summary": "The unbroken wilderness north of the known regions — chaos altars, lava dragons, revenants, and player-killers. Every task is a risk-tier increment: deeper wilderness level, longer exposure, higher potential loss. The only diary where completion is as much survival as skill.",
+  "tiers": {
+    "easy": {
+      "tasks": [
+        { "id": "w_easy_1", "description": "Enter the Wilds at wilderness level 1.", "check": { "type": "enter_area", "area": "wilds_level_1" } },
+        { "id": "w_easy_2", "description": "Cross into wilderness level 5 without teleporting out.", "check": { "type": "reach_wilderness_level", "level": 5 } },
+        { "id": "w_easy_3", "description": "Kill a chaos druid in the southern Wilds.", "check": { "type": "kill_npc", "npc": "chaos_druid", "area": "wilds" } },
+        { "id": "w_easy_4", "description": "Mine a rune essence at the chaos altar.", "check": { "type": "mine_items", "items": ["rune_essence"], "area": "wilds_chaos_altar" } },
+        { "id": "w_easy_5", "description": "Chop a normal tree in the Wilds.", "check": { "type": "chop_tree", "tree": "tree", "area": "wilds" } },
+        { "id": "w_easy_6", "description": "Pickpocket a mage of Zamorak.", "check": { "type": "pickpocket_npc", "npc": "mage_of_zamorak", "area": "wilds" } },
+        { "id": "w_easy_7", "description": "Bury bones at the chaos altar.", "check": { "type": "bury_bones", "area": "wilds_chaos_altar" } },
+        { "id": "w_easy_8", "description": "Survive 30 seconds in wilderness level 10+.", "check": { "type": "survive_in_area", "area": "wilds_level_10", "seconds": 30 } },
+        { "id": "w_easy_9", "description": "Buy an incantation scroll from the Chaos Temple merchant.", "check": { "type": "buy_item", "shop": "chaos_temple_merchant" } },
+        { "id": "w_easy_10", "description": "Loot a low-tier PK key from a killed target.", "check": { "type": "obtain_item", "item": "pk_key_low" } },
+        { "id": "w_easy_11", "description": "Talk to the Mage of Zamorak in the southern chapel.", "check": { "type": "talk_to_npc", "npc": "mage_of_zamorak_elder" } },
+        { "id": "w_easy_12", "description": "Light a fire at the Wilderness volcano.", "check": { "type": "light_fire", "area": "wilds_volcano" } },
+        { "id": "w_easy_13", "description": "Use the Wilderness obelisk to teleport randomly.", "check": { "type": "use_transport", "transport": "wilderness_obelisk" } },
+        { "id": "w_easy_14", "description": "Kill a chaos imp.", "check": { "type": "kill_npc", "npc": "chaos_imp", "area": "wilds" } },
+        { "id": "w_easy_15", "description": "Collect a dark crab spot sighting report (talk to fisherman near edge).", "check": { "type": "compound", "all": [{ "type": "talk_to_npc", "npc": "wilderness_fisherman" }, { "type": "enter_area", "area": "wilds_fishing_spot_edge" }] } }
+      ],
+      "reward": "Wilds cape (easy, ashen weave) + emote: chaos sigil. Diary lamp (easy) granting 2,500 XP to any skill.",
+      "perk_description": "Wilderness ditch teleport (3/day); +5% chaos rune drop chance from chaos druids."
+    },
+    "medium": {
+      "tasks": [
+        { "id": "w_med_1", "description": "Kill a chaos elemental.", "check": { "type": "boss_kill", "boss": "chaos_elemental" } },
+        { "id": "w_med_2", "description": "Complete Lunar Diplomacy Part 1.", "check": { "type": "quest_complete", "quest": "lunar_diplomacy_part1" } },
+        { "id": "w_med_3", "description": "Kill a lava dragon in the volcano.", "check": { "type": "kill_npc", "npc": "lava_dragon", "area": "wilds_volcano" } },
+        { "id": "w_med_4", "description": "Mine runite ore in the Wilderness resource zone.", "check": { "type": "mine_items", "items": ["runite_ore"], "area": "wilds_resource_zone" } },
+        { "id": "w_med_5", "description": "Kill a revenant imp inside revenant caves.", "check": { "type": "kill_npc", "npc": "revenant_imp", "area": "revenant_caves" } },
+        { "id": "w_med_6", "description": "Use a Wilderness teleport lever (Ardrit analog).", "check": { "type": "use_transport", "transport": "wilderness_lever" } },
+        { "id": "w_med_7", "description": "Activate a +1 altar prayer in the Wilds.", "check": { "type": "activate_prayer", "area": "wilds_chaos_altar" } },
+        { "id": "w_med_8", "description": "Loot a medium clue scroll from a Wilderness monster.", "check": { "type": "obtain_item", "item": "clue_scroll_medium", "area": "wilds" } },
+        { "id": "w_med_9", "description": "Craft a chaos rune at the chaos altar.", "check": { "type": "runecraft", "item": "chaos_rune" } },
+        { "id": "w_med_10", "description": "Catch a dark crab at the wilderness shore.", "check": { "type": "catch_fish", "item": "dark_crab", "area": "wilds_shore" } },
+        { "id": "w_med_11", "description": "Kill a greater demon in the Demonic Ruins.", "check": { "type": "kill_npc", "npc": "greater_demon", "area": "wilds_demonic_ruins" } },
+        { "id": "w_med_12", "description": "Complete a lap of the Wilderness agility course (easy lap).", "check": { "type": "agility_course_lap", "course": "wilderness_agility_easy" } },
+        { "id": "w_med_13", "description": "Charge the Wilderness sword I.", "check": { "type": "obtain_item", "item": "wilderness_sword_1" } },
+        { "id": "w_med_14", "description": "Cook a shark over a Wilds campfire.", "check": { "type": "cook_item_in_area", "item": "shark", "area": "wilds" } },
+        { "id": "w_med_15", "description": "Skill using the +1 altar prayer buff active.", "check": { "type": "skill_action_with_buff", "buff": "chaos_altar_prayer", "any_skill": true } }
+      ],
+      "reward": "Wilds cape (medium, ember-trim) + Wilderness sword I teleport set. Diary lamp (medium) granting 7,500 XP to any skill above level 40.",
+      "perk_description": "Wilderness sword I teleports (Edgeville, Gamers' Grotto, Dark Warrior fortress); +10% chaos rune runecrafting yield."
+    },
+    "hard": {
+      "tasks": [
+        { "id": "w_hard_1", "description": "Complete a full Wilderness agility course lap without failing.", "check": { "type": "agility_course_lap", "course": "wilderness_agility", "perfect": true } },
+        { "id": "w_hard_2", "description": "Kill a revenant dragon.", "check": { "type": "kill_npc", "npc": "revenant_dragon", "area": "revenant_caves" } },
+        { "id": "w_hard_3", "description": "Mine 28 runite ore in a single trip.", "check": { "type": "obtain_item_in_trip", "item": "runite_ore", "count": 28 } },
+        { "id": "w_hard_4", "description": "Complete the Deeper Wilds quest.", "check": { "type": "quest_complete", "quest": "deeper_wilds" } },
+        { "id": "w_hard_5", "description": "Loot a hard clue scroll from a PK drop or Wilderness source.", "check": { "type": "obtain_item", "item": "clue_scroll_hard", "area": "wilds" } },
+        { "id": "w_hard_6", "description": "Kill 100 mages of Zamorak.", "check": { "type": "kill_npc", "npc": "mage_of_zamorak", "count": 100 } },
+        { "id": "w_hard_7", "description": "Defeat the Chaos Elemental solo without leaving the pit.", "check": { "type": "boss_kill_solo", "boss": "chaos_elemental" } },
+        { "id": "w_hard_8", "description": "Activate the Wilderness sword II teleport suite.", "check": { "type": "obtain_item", "item": "wilderness_sword_2" } },
+        { "id": "w_hard_9", "description": "Survive 5 minutes at wilderness level 30+ without teleporting.", "check": { "type": "survive_in_area", "area": "wilds_level_30", "seconds": 300 } },
+        { "id": "w_hard_10", "description": "Kill an ancient wyvern in the Wilderness wyvern cave.", "check": { "type": "kill_npc", "npc": "ancient_wyvern", "area": "wilderness_wyvern_cave" } },
+        { "id": "w_hard_11", "description": "Runecraft 50 wrath runes in a single trip.", "check": { "type": "runecraft_in_trip", "item": "wrath_rune", "count": 50 } },
+        { "id": "w_hard_12", "description": "Complete a Fight Pits round with 8+ players.", "check": { "type": "minigame_complete", "minigame": "fight_pits", "min_players": 8 } },
+        { "id": "w_hard_13", "description": "Kill a Wilderness cerberus pup variant.", "check": { "type": "kill_npc", "npc": "cerberus_pup_wilds" } },
+        { "id": "w_hard_14", "description": "Smith a dragon-rune hybrid weapon at the Wilderness resource arena.", "check": { "type": "smith_item_in_area", "item_tag": "dragon_rune_hybrid", "area": "wilds_resource_arena" } },
+        { "id": "w_hard_15", "description": "Collect a chaos reliquary from a Zamorak shrine.", "check": { "type": "obtain_item", "item": "chaos_reliquary" } }
+      ],
+      "reward": "Wilds cape (hard, blood-trim) + Wilderness sword II teleport set, +1 chaos runecrafting multiplier. Diary lamp (hard) granting 15,000 XP to any skill above level 60.",
+      "perk_description": "Wilderness sword II teleports (Edgeville, Karuulm, Wilderness resource area, volcano); +15% chaos/wrath rune runecrafting yield; +10% rare drop chance from revenants."
+    },
+    "elite": {
+      "tasks": [
+        { "id": "w_elite_1", "description": "Defeat the Chaos Avatar raid (8-player).", "check": { "type": "raid_complete", "raid": "chaos_avatar_raid", "min_party": 8 } },
+        { "id": "w_elite_2", "description": "Complete every Wilderness quest.", "check": { "type": "all_region_quests_complete", "region": "wilds" } },
+        { "id": "w_elite_3", "description": "Loot an elite clue scroll from a Wilderness source.", "check": { "type": "obtain_item", "item": "clue_scroll_elite", "area": "wilds" } },
+        { "id": "w_elite_4", "description": "Complete the Wilderness speedrun under 10 minutes (all obelisks in one run).", "check": { "type": "speedrun_complete", "event": "wilderness_obelisk_speedrun", "seconds": 600 } },
+        { "id": "w_elite_5", "description": "Complete the Wilderness collection log.", "check": { "type": "collection_log_complete_region", "region": "wilds" } },
+        { "id": "w_elite_6", "description": "Earn a 3rd-age weapon piece from a PvP drop or Wilderness source.", "check": { "type": "obtain_item_tag", "tag": "third_age_weapon" } },
+        { "id": "w_elite_7", "description": "Catch 200 dark crabs at the wilderness shore.", "check": { "type": "catch_fish_count", "item": "dark_crab", "count": 200 } },
+        { "id": "w_elite_8", "description": "Runecraft 1,000 wrath runes in total.", "check": { "type": "runecraft_count", "item": "wrath_rune", "count": 1000 } },
+        { "id": "w_elite_9", "description": "Achieve 99 in a Wilds-only exclusive skill (runecrafting using the chaos altar).", "check": { "type": "skill_level_99_in_region", "skill": "runecrafting", "region": "wilds" } },
+        { "id": "w_elite_10", "description": "Defeat Corporeal Beast solo in its Wilderness cave.", "check": { "type": "boss_kill_solo", "boss": "corporeal_beast" } },
+        { "id": "w_elite_11", "description": "Earn the Voidwaker pieces (hilt, blade, gem) from Wilderness bosses.", "check": { "type": "obtain_all_of", "items": ["voidwaker_hilt", "voidwaker_blade", "voidwaker_gem"] } },
+        { "id": "w_elite_12", "description": "Complete the Deep Wilds gauntlet (no-teleport wilderness traversal).", "check": { "type": "gauntlet_complete", "gauntlet": "deep_wilds_traversal" } },
+        { "id": "w_elite_13", "description": "Kill an elder demon (wilderness boss-tier demon).", "check": { "type": "kill_npc", "npc": "elder_demon" } },
+        { "id": "w_elite_14", "description": "Achieve 100% completion of the Wilderness clue-scroll tier rewards.", "check": { "type": "clue_tier_collection_complete", "region": "wilds" } },
+        { "id": "w_elite_15", "description": "Defeat every Wilds boss once (Chaos Elemental, Corporeal Beast, Vet'ion, Callisto, Venenatis, Spindel, Calvar'ion analog, Artio).", "check": { "type": "boss_kill_all_in_region", "region": "wilds" } }
+      ],
+      "reward": "Wilds cape (elite — shifting chaos recolour), unlimited Wilderness teleport (Lever), chaos pet unlock (cosmetic). Diary lamp (elite) granting 50,000 XP to any skill above level 75. +50% rune/prayer XP at chaos altar (stat-bonus equivalent to OSRS Ardougne). Chance at Chaos Cub pet (1/5000 per elite Wilds kill after completion).",
+      "perk_description": "Unlimited Wilderness lever teleport; chaos altar grants permanent +50% runecrafting/prayer XP boost (stat-bonus reward); +25% chance of rare drops from all Wilderness bosses; immunity to Wilderness skulling from druid PvP until combat initiated; eligible for Chaos Cub pet drops on elite-tier Wilds kills."
+    }
+  }
+}

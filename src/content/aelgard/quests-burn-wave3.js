@@ -66,6 +66,7 @@ quests.define('the_falconers_quiet_debt', {
     xp: { hunter: 1200, thieving: 600 },
     items: [{ id: 'jess_of_quiet_thanks', name: 'Jess of Quiet Thanks', count: 1 }],
     questPoints: 1,
+    unlocks: ["item_unlock:jess_of_quiet_thanks", "item_unlock:knows_the_quiet_household", "npc:royal_falconer_trusted"],
   },
 });
 defineUnlock('the_falconers_quiet_debt', {
@@ -105,6 +106,7 @@ quests.define('the_ambassadors_soup', {
     xp: { cooking: 7500, thieving: 3500, herblore: 2500 },
     items: [{ id: 'palate_certification', name: "Palate of the Grand Hall", count: 1 }],
     questPoints: 2,
+    unlocks: ["item_unlock:knows_the_ambassador_truth", "item_unlock:palate_of_the_grand_hall", "npc:evil_chef_ended", "recipe:grand_hall_three_course"],
   },
 });
 defineUnlock('the_ambassadors_soup', {
@@ -145,6 +147,7 @@ quests.define('the_scholars_cipher', {
     xp: { thieving: 4500, magic: 3500, agility: 2000 },
     items: [{ id: 'bels_cipher_crib', name: "Bel's Cipher Crib", count: 1 }],
     questPoints: 2,
+    unlocks: ["item_unlock:bels_cipher_crib", "item_unlock:trusted_by_bel_and_veris", "training_method:cipher_magic_training"],
   },
 });
 defineUnlock('the_scholars_cipher', {
@@ -185,6 +188,7 @@ quests.define('the_counter_sung_salve', {
     xp: { herblore: 12000, prayer: 6000, farming: 5000, cooking: 2500 },
     items: [{ id: 'counter_sung_salve_recipe', name: 'Counter-Sung Salve Recipe', count: 1 }],
     questPoints: 3,
+    unlocks: ["item_unlock:recognised_by_both_witches", "npc:nira_teaches_the_song", "recipe:counter_sung_salve"],
   },
 });
 defineUnlock('the_counter_sung_salve', {
@@ -226,6 +230,7 @@ quests.define('the_portrait_at_the_back_of_the_bar', {
     xp: { thieving: 10000, fishing: 5000, crafting: 3500, agility: 4000 },
     items: [{ id: 'knife_scar_sigil', name: 'Knife-Scar Sigil', count: 1 }],
     questPoints: 3,
+    unlocks: ["item_unlock:trusted_by_both_sisters", "npc:vash_trusts_you", "teleport:knife_scar_passage"],
   },
 });
 defineUnlock('the_portrait_at_the_back_of_the_bar', {
@@ -261,6 +266,7 @@ quests.define('the_lamp_behind_the_desk', {
     xp: { mining: 1500, thieving: 800 },
     items: [{ id: 'first_torven_tally', name: "First Torven Tally", count: 1 }],
     questPoints: 1,
+    unlocks: ["item_unlock:first_torven_tally", "item_unlock:knows_the_first_torven", "npc:greta_trusted"],
   },
 });
 defineUnlock('the_lamp_behind_the_desk', {
@@ -303,6 +309,7 @@ quests.define('crew_six_after_the_pour', {
     xp: { smithing: 35000, mining: 15000, thieving: 10000, agility: 6000, firemaking: 5000, crafting: 4000 },
     items: [{ id: 'pre_pour_ledger_copy', name: 'Pre-Pour Ledger (hand copy)', count: 1 }],
     questPoints: 4,
+    unlocks: ["area:crew_six_memorial", "item_unlock:brazers_guilty_apron", "npc:ossen_maps_published", "training_method:furnace_two_midnight_shift"],
   },
 });
 defineUnlock('crew_six_after_the_pour', {

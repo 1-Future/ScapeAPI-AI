@@ -86,6 +86,7 @@ quests.define('the_whittlers_silent_lute', {
     xp: { crafting: 2200, magic: 1500, fletching: 1100 },
     items: [{ id: 'tarras_silent_lute', name: "Tarras Veil's Silent Lute", count: 1 }],
     questPoints: 1,
+    unlocks: ["item_unlock:carries_tarras_lute", "item_unlock:tarras_silent_lute", "npc:whittler_partial_trust"],
   },
 });
 defineUnlock('the_whittlers_silent_lute', {
@@ -126,6 +127,7 @@ quests.define('the_badger_who_remembers', {
     xp: { hunter: 5500, magic: 4200, herblore: 3800, agility: 3200 },
     items: [{ id: 'second_moonsong_melody', name: 'Second Moonsong (melody memorised)', count: 1 }],
     questPoints: 2,
+    unlocks: ["item_unlock:second_moonsong_melody", "npc:stub_trusts_you", "training_method:warren_listening_hunter"],
   },
 });
 defineUnlock('the_badger_who_remembers', {
@@ -167,6 +169,7 @@ quests.define('the_burned_page_in_the_chapel', {
     xp: { prayer: 11000, magic: 10000, thieving: 7000, herblore: 7500, crafting: 4500 },
     items: [{ id: 'first_moonsong_fragment', name: 'First Moonsong (opening bar)', count: 1 }],
     questPoints: 3,
+    unlocks: ["item_unlock:first_moonsong_fragment", "item_unlock:read_saels_burn_line", "npc:dorin_ash_keeper_trust", "training_method:chapel_ash_sifting_herblore"],
   },
 });
 defineUnlock('the_burned_page_in_the_chapel', {
@@ -213,6 +216,7 @@ quests.define('the_dream_of_the_fifth_moonsong', {
     xp: { magic: 13000, prayer: 9000, herblore: 8000, crafting: 6500, agility: 6000 },
     items: [{ id: 'fifth_moonsong_dreamed', name: 'Fifth Moonsong (dreamed or transcribed)', count: 1 }],
     questPoints: 3,
+    unlocks: ["item_unlock:fifth_moonsong_dreamed", "item_unlock:heard_fifth_moonsong", "npc:yara_full_trust", "training_method:lucid_dreaming_magic"],
   },
 });
 defineUnlock('the_dream_of_the_fifth_moonsong', {
@@ -261,6 +265,7 @@ quests.define('aureths_fragment_score', {
     xp: { magic: 30000, thieving: 22000, prayer: 18000, crafting: 14000, herblore: 13000, runecrafting: 12000 },
     items: [{ id: 'six_moonsong_lute', name: 'Six-Moonsong Lute (chain-bound)', count: 1 }],
     questPoints: 4,
+    unlocks: ["item_unlock:knows_seventh_is_with_sael", "item_unlock:six_moonsong_lute", "npc:aureth_musical_confidante", "training_method:archive_cantorial_transcription"],
   },
 });
 defineUnlock('aureths_fragment_score', {
@@ -322,6 +327,7 @@ quests.define('the_seventh_moonsong_sung', {
     xp: { magic: 100000, prayer: 60000, attack: 25000, defence: 25000, ranged: 25000, agility: 30000, crafting: 22000, herblore: 18000, fletching: 18000, runecrafting: 20000, hitpoints: 45000 },
     items: [{ id: 'moonsong_lute_rendered', name: 'Moonsong Lute (Rendered)', count: 1 }],
     questPoints: 5,
+    unlocks: ["area:veilwood_canopy_outpost_sael_visits", "item_unlock:moonsong_lute_rendered", "item_unlock:seventh_moonsong_ending_chosen", "npc:sael_apology_delivered", "spell_unlock:moonsong_buff_system"],
   },
 });
 defineUnlock('the_seventh_moonsong_sung', {

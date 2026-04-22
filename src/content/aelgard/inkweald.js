@@ -180,6 +180,7 @@ quests.define('the_inkweald_door', {
     xp: { magic: 4000, prayer: 2000, hitpoints: 1000 },
     items: [{ id: 101, name: 'Coins', count: 5000 }, { id: 9002, name: 'Lucid essence', count: 5 }],
     questPoints: 2,
+    unlocks: ["spell_unlock:dream_magic"],
   },
 });
 
@@ -202,6 +203,7 @@ quests.define('the_hollow_choirs_song', {
     xp: { attack: 10000, magic: 10000, prayer: 5000, hitpoints: 5000 },
     items: [{ id: 101, name: 'Coins', count: 25000 }],
     questPoints: 5,
+    unlocks: ["item_unlock:the_hollow_choirs_song_completion"],
   },
 });
 

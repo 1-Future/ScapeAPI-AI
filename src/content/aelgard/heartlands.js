@@ -382,6 +382,7 @@ quests.define('heartlands_patrol', {
     xp: { attack: 200, defence: 200 },
     items: [{ id: 101, name: 'Coins', count: 250 }, { id: 3003, name: 'Heartlands map', count: 1 }],
     questPoints: 1,
+    unlocks: ["item_unlock:heartlands_patrol_completion"],
   },
 });
 
@@ -402,6 +403,7 @@ quests.define('the_missing_miner', {
     xp: { mining: 300, hitpoints: 100 },
     items: [{ id: 101, name: 'Coins', count: 500 }, { id: 2103, name: 'Iron ore', count: 10 }],
     questPoints: 1,
+    unlocks: ["item_unlock:the_missing_miner_completion"],
   },
 });
 
@@ -421,6 +423,7 @@ quests.define('forge_of_duran', {
     xp: { attack: 1000, strength: 800, smithing: 500 },
     items: [{ id: 101, name: 'Coins', count: 2000 }],
     questPoints: 2,
+    unlocks: ["item_unlock:forge_of_duran_completion"],
   },
 });
 

@@ -216,6 +216,7 @@ quests.define('the_veilwood_covenant', {
     xp: { woodcutting: 2000, herblore: 1000, magic: 500 },
     items: [{ id: 101, name: 'Coins', count: 3000 }, { id: 6006, name: 'Elven bow', count: 1 }],
     questPoints: 2,
+    unlocks: ["item_unlock:the_veilwood_covenant_completion"],
   },
 });
 

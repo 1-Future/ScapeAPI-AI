@@ -23,7 +23,11 @@ quests.define('rfd_start', {
     { text: 'Talk to the Culinaromancer (a rogue chef trapped between dimensions).' },
     { text: 'Learn that each guest requires a specific dish to be freed.' },
   ],
-  rewards: { xp: { cooking: 500 }, questPoints: 1 },
+  rewards: {
+    xp: { cooking: 500 },
+    questPoints: 1,
+    unlocks: ["item_unlock:rfd_start_completion"],
+  },
 });
 
 quests.define('rfd_heartlands', {
@@ -38,7 +42,11 @@ quests.define('rfd_heartlands', {
     { text: 'Cook the pie without burning it (Cooking 30).' },
     { text: 'Serve the pie to free Captain Alden.' },
   ],
-  rewards: { xp: { cooking: 1500, farming: 500, crafting: 300 }, questPoints: 1 },
+  rewards: {
+    xp: { cooking: 1500, farming: 500, crafting: 300 },
+    questPoints: 1,
+    unlocks: ["item_unlock:rfd_heartlands_completion"],
+  },
 });
 
 quests.define('rfd_moryskah', {
@@ -53,7 +61,11 @@ quests.define('rfd_moryskah', {
     { text: 'Cook the stew on a blessed range (Prayer 25).' },
     { text: 'Serve the stew to free Father Dorin.' },
   ],
-  rewards: { xp: { cooking: 2000, herblore: 1000, prayer: 800, fishing: 500 }, questPoints: 1 },
+  rewards: {
+    xp: { cooking: 2000, herblore: 1000, prayer: 800, fishing: 500 },
+    questPoints: 1,
+    unlocks: ["item_unlock:rfd_moryskah_completion"],
+  },
 });
 
 quests.define('rfd_sootworks', {
@@ -69,7 +81,11 @@ quests.define('rfd_sootworks', {
     { text: 'Cook the cake at exactly the right temperature (Cooking 55).' },
     { text: 'Serve the cake to free Engineer Fizz.' },
   ],
-  rewards: { xp: { cooking: 3000, smithing: 1500, crafting: 1000, construction: 800 }, questPoints: 1 },
+  rewards: {
+    xp: { cooking: 3000, smithing: 1500, crafting: 1000, construction: 800 },
+    questPoints: 1,
+    unlocks: ["item_unlock:rfd_sootworks_completion"],
+  },
 });
 
 quests.define('rfd_finale', {
@@ -89,6 +105,7 @@ quests.define('rfd_finale', {
     items: [{ id: 101, name: 'Coins', count: 20000 }],
     questPoints: 5,
     // Unlocks: Barrows gloves (BIS melee hands) from the Culinaromancer's chest
+    unlocks: ["item_unlock:barrows_gloves", "shop:culinaromancers_chest", "item_unlock:rfd_finale_barrows_gloves_bis_melee_hands_from_the_culinaro"],
   },
 });
 
@@ -114,6 +131,7 @@ quests.define('desert_treasure', {
     xp: { magic: 15000, firemaking: 3000, thieving: 3000, mining: 2000 },
     questPoints: 3,
     // Unlocks: Ancient Magicks spellbook (ice barrage, blood barrage, etc)
+    unlocks: ["spell_unlock:ancient_magicks", "item_unlock:desert_treasure_ancient_magicks_spellbook_ice_barrage_blood_barr"],
   },
 });
 
@@ -136,6 +154,7 @@ quests.define('monkey_business', {
     xp: { attack: 8000, agility: 5000, crafting: 3000, prayer: 2000 },
     questPoints: 3,
     // Unlocks: Monkey talisman (teleport to monkey island), Dragon scimitar shop access
+    unlocks: ["item_unlock:dragon_scimitar_equip", "shop:dragon_scimitar_shop", "teleport:monkey_talisman", "item_unlock:monkey_business_monkey_talisman_teleport_to_monkey_island_dragon"],
   },
 });
 
@@ -157,6 +176,7 @@ quests.define('lunar_diplomacy', {
     xp: { magic: 10000, herblore: 3000, crafting: 5000, mining: 3000 },
     questPoints: 2,
     // Unlocks: Lunar spellbook (cure, vengeance, heal group, NPC contact, etc)
+    unlocks: ["area:inkweald_lunar_plane", "spell_unlock:lunar_spellbook", "item_unlock:lunar_diplomacy_lunar_spellbook_cure_vengeance_heal_group_npc_co"],
   },
 });
 
@@ -181,6 +201,7 @@ quests.define('underground_pass', {
     items: [{ id: 101, name: 'Coins', count: 5000 }],
     questPoints: 3,
     // Unlocks: shortcut between Heartlands and Inkweald
+    unlocks: ["item_unlock:underground_pass_shortcut_between_heartlands_and_inkweald"],
   },
 });
 
@@ -206,6 +227,7 @@ quests.define('the_fremennik_trials', {
     items: [{ id: 101, name: 'Coins', count: 5000 }],
     questPoints: 2,
     // Unlocks: Frost warrior helmet (cosmetic + defence)
+    unlocks: ["item_unlock:the_fremennik_trials_frost_warrior_helmet_cosmetic_defence"],
   },
 });
 
@@ -227,6 +249,7 @@ quests.define('dragon_slayer_aelgard', {
     items: [{ id: 101, name: 'Coins', count: 8000 }],
     questPoints: 2,
     // Unlocks: anti-dragon shield access, dragonfire shield crafting
+    unlocks: ["item_unlock:anti_dragon_shield", "recipe:dragonfire_shield", "item_unlock:dragon_slayer_aelgard_anti_dragon_shield_access_dragonfire_shield_craf"],
   },
 });
 
@@ -249,6 +272,7 @@ quests.define('poison_trail', {
     xp: { herblore: 2000, fishing: 1000, mining: 800, thieving: 800 },
     items: [{ id: 101, name: 'Coins', count: 4000 }],
     questPoints: 2,
+    unlocks: ["item_unlock:poison_trail_completion"],
   },
 });
 
@@ -274,6 +298,7 @@ quests.define('barrows_brothers', {
     items: [],
     questPoints: 0,
     // Drops: Barrows equipment sets (Dharok, Guthan, Verac, Ahrim, Karil, Torag)
+    unlocks: ["training_method:barrows_farming"],
   },
 });
 
@@ -293,6 +318,7 @@ quests.define('wilderness_sword', {
     items: [],
     questPoints: 0,
     // Unlocks: Wilderness blade (BIS in Wilds only)
+    unlocks: ["item_unlock:wilderness_blade", "item_unlock:wilderness_sword_wilderness_blade_bis_in_wilds_only"],
   },
 });
 
@@ -313,6 +339,7 @@ quests.define('herb_run_mastery', {
     items: [],
     questPoints: 0,
     // Unlocks: Master Farmer title, +10% herb yield permanently
+    unlocks: ["achievement:master_farmer_title", "item_unlock:herb_run_mastery_master_farmer_title_10_herb_yield_permanently"],
   },
 });
 
@@ -332,6 +359,7 @@ quests.define('fight_caves', {
     items: [],
     questPoints: 0,
     // Drops: Fire Cape (BIS melee cape)
+    unlocks: ["item_unlock:fire_cape"],
   },
 });
 
@@ -351,6 +379,7 @@ quests.define('infernal_challenge', {
     items: [],
     questPoints: 0,
     // Drops: Infernal Cape (BIS cape in the game)
+    unlocks: ["item_unlock:infernal_cape"],
   },
 });
 

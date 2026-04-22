@@ -400,6 +400,58 @@
       ]
     },
     {
+      "id": "achievement:wilds_diary_easy",
+      "type": "achievement",
+      "name": "Wilds Easy Diary",
+      "region": "Wilds",
+      "tier": "easy",
+      "requires": [
+        "skill:attack:1",
+        "skill:mining:1",
+        "skill:thieving:15"
+      ]
+    },
+    {
+      "id": "achievement:wilds_diary_elite",
+      "type": "achievement",
+      "name": "Wilds Elite Diary",
+      "region": "Wilds",
+      "tier": "elite",
+      "requires": [
+        "skill:attack:85",
+        "skill:magic:75",
+        "skill:prayer:70",
+        "skill:runecrafting:99",
+        "quest:wilderness_collection_log"
+      ]
+    },
+    {
+      "id": "achievement:wilds_diary_hard",
+      "type": "achievement",
+      "name": "Wilds Hard Diary",
+      "region": "Wilds",
+      "tier": "hard",
+      "requires": [
+        "skill:attack:60",
+        "skill:agility:60",
+        "skill:runecrafting:95",
+        "quest:wilderness_agility_course_perfectly",
+        "quest:deeper_wilds"
+      ]
+    },
+    {
+      "id": "achievement:wilds_diary_medium",
+      "type": "achievement",
+      "name": "Wilds Medium Diary",
+      "region": "Wilds",
+      "tier": "medium",
+      "requires": [
+        "skill:attack:40",
+        "skill:mining:85",
+        "skill:runecrafting:35"
+      ]
+    },
+    {
       "id": "area:ascendant_spire",
       "type": "area",
       "name": "The spire atop the Inkweald dream",

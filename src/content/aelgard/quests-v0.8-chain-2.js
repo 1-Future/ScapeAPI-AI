@@ -80,6 +80,7 @@ quests.define('the_report_filed_twice', {
     xp: { construction: 1500, thieving: 900, crafting: 800 },
     items: [{ id: 'fizzs_year_mark', name: "Fizz's Year-Mark (blank)", count: 1 }],
     questPoints: 1,
+    unlocks: ["item_unlock:fizzs_year_mark", "item_unlock:hilde_knows_fizz_report", "npc:fizz_partial_trust"],
   },
 });
 defineUnlock('the_report_filed_twice', {
@@ -120,6 +121,7 @@ quests.define('hildes_black_ledger', {
     xp: { thieving: 6500, agility: 5000, crafting: 3500, fishing: 3200 },
     items: [{ id: 'black_ledger_contributors_list', name: 'Black Ledger Contributors List (sealed)', count: 1 }],
     questPoints: 2,
+    unlocks: ["item_unlock:black_ledger_contributors_list", "item_unlock:nine_days_of_loaves", "npc:vash_back_room_access", "training_method:saltbrine_quay_fishing_pact"],
   },
 });
 defineUnlock('hildes_black_ledger', {
@@ -163,6 +165,7 @@ quests.define('the_bellows_wheels_second_name', {
     xp: { crafting: 11000, thieving: 8500, agility: 7500, smithing: 9000, magic: 5500 },
     items: [{ id: 'wheelwrights_mirror_charm', name: "Wheelwright's Mirror-Charm", count: 1 }],
     questPoints: 3,
+    unlocks: ["item_unlock:named_the_wheelwright", "item_unlock:wheelwrights_mirror_charm", "npc:kael_hald_correspondence_formal", "training_method:kael_hald_joint_smithing"],
   },
 });
 defineUnlock('the_bellows_wheels_second_name', {
@@ -206,6 +209,7 @@ quests.define('halds_letter_to_kael', {
     xp: { thieving: 10000, magic: 9500, crafting: 7000, agility: 6500, runecrafting: 5500 },
     items: [{ id: 'unread_pact_strip', name: 'Unread Pact Strip', count: 1 }],
     questPoints: 3,
+    unlocks: ["item_unlock:strip_silent_triangle", "item_unlock:unread_pact_strip", "npc:vorath_audience_direct", "training_method:annex_open_door_runecrafting"],
   },
 });
 defineUnlock('halds_letter_to_kael', {
@@ -256,6 +260,7 @@ quests.define('nine_days_to_pour_two_cold', {
     xp: { construction: 35000, smithing: 32000, thieving: 20000, mining: 22000, crafting: 15000, agility: 14000, firemaking: 9000, magic: 10000 },
     items: [{ id: 'nine_days_tally_stick', name: 'Nine Days Tally-Stick', count: 1 }],
     questPoints: 4,
+    unlocks: ["item_unlock:nine_days_tally_stick", "item_unlock:pact_nine_day_held", "npc:crown_inspector_blind", "training_method:ring_replacement_construction"],
   },
 });
 defineUnlock('nine_days_to_pour_two_cold', {
@@ -315,6 +320,7 @@ quests.define('the_oath_unwritten', {
     xp: { construction: 90000, smithing: 85000, mining: 45000, crafting: 30000, agility: 30000, firemaking: 25000, magic: 25000, prayer: 22000, thieving: 28000, hitpoints: 40000 },
     items: [{ id: 'oath_ash_tin', name: 'Oath Ash Tin', count: 1 }],
     questPoints: 5,
+    unlocks: ["area:furnace_two_inner_chamber", "item_unlock:oath_ash_tin", "npc:durra_sister_of_vorath", "spell_unlock:pact_spellbook", "training_method:oath_sworn_smithing"],
   },
 });
 defineUnlock('the_oath_unwritten', {

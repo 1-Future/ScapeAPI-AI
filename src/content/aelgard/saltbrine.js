@@ -208,6 +208,7 @@ quests.define('pirate_king', {
     xp: { attack: 2000, strength: 1500, agility: 500 },
     items: [{ id: 101, name: 'Coins', count: 4000 }, { id: 8008, name: 'Cutlass', count: 1 }],
     questPoints: 2,
+    unlocks: ["item_unlock:captains_hook", "teleport:charter_ships"],
   },
 });
 
@@ -234,6 +235,7 @@ quests.define('whispers_from_the_depths', {
     xp: { fishing: 4000, magic: 3000, hitpoints: 2000 },
     items: [{ id: 101, name: 'Coins', count: 8000 }],
     questPoints: 3,
+    unlocks: ["item_unlock:whispers_from_the_depths_completion"],
   },
 });
 

@@ -173,6 +173,20 @@ defineDiary({
   },
 });
 
+defineDiary({
+  id: 'wilds_diary', region: 'Wilds',
+  easy: { tasks: ['Enter the Wilds at level 1', 'Kill a chaos druid', 'Mine rune essence at chaos altar', 'Pickpocket a mage of Zamorak'], skillReqs: { attack: 1, mining: 1, thieving: 15 } },
+  medium: { tasks: ['Kill a chaos elemental', 'Kill a lava dragon', 'Mine runite ore', 'Craft a chaos rune'], skillReqs: { attack: 40, mining: 85, runecrafting: 35 } },
+  hard: { tasks: ['Kill a revenant dragon', 'Complete the Wilderness agility course perfectly', 'Complete the Deeper Wilds quest', 'Runecraft 50 wrath runes'], skillReqs: { attack: 60, agility: 60, runecrafting: 95 } },
+  elite: { tasks: ['Defeat the Chaos Avatar raid', 'Defeat Corporeal Beast solo', 'Earn all 3 Voidwaker pieces', 'Complete the Wilderness collection log'], skillReqs: { attack: 85, magic: 75, prayer: 70, runecrafting: 99 } },
+  rewards: {
+    easy: 'Wilderness ditch teleport (3/day), +5% chaos rune drop from chaos druids',
+    medium: 'Wilderness sword I teleports (Edgeville + Gamers Grotto + Dark Warrior fortress)',
+    hard: 'Wilderness sword II teleports, +15% rune/wrath runecrafting yield',
+    elite: 'Unlimited Wilderness lever teleport, chaos altar permanent +50% runecrafting/prayer XP (stat-bonus), Chaos Cub pet chance, +25% rare drop from Wilds bosses',
+  },
+});
+
 console.log(`[aelgard] ${diaries.size} achievement diaries defined (${diaries.size * 4} tier completions)`);
 
 module.exports = { defineDiary, getDiary, listDiaries, diaries };

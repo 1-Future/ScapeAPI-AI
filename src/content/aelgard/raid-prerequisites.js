@@ -27,7 +27,11 @@ quests.define('coa_key', {
     { text: 'Defeat the Chamber Guardian to prove worthiness.' },
     { text: 'The Chambers are now open.' },
   ],
-  rewards: { xp: { mining: 5000, magic: 3000, agility: 2000, prayer: 2000 }, questPoints: 3 },
+  rewards: {
+    xp: { mining: 5000, magic: 3000, agility: 2000, prayer: 2000 },
+    questPoints: 3,
+    unlocks: ["raid:chambers_of_aelgard"],
+  },
 });
 
 // Theatre of Shadows unlock
@@ -45,7 +49,11 @@ quests.define('tos_key', {
     { text: "Defeat the entrance guardian." },
     { text: "The Theatre of Shadows is now accessible." },
   ],
-  rewards: { xp: { attack: 5000, herblore: 3000, thieving: 2000, agility: 2000, crafting: 1500 }, questPoints: 3 },
+  rewards: {
+    xp: { attack: 5000, herblore: 3000, thieving: 2000, agility: 2000, crafting: 1500 },
+    questPoints: 3,
+    unlocks: ["raid:theatre_of_shadows"],
+  },
 });
 
 // Tombs of Aelgard unlock
@@ -63,7 +71,11 @@ quests.define('toa_key', {
     { text: "Defeat the tomb guardian." },
     { text: "The Tombs of Aelgard are now open." },
   ],
-  rewards: { xp: { attack: 5000, mining: 3000, prayer: 3000, agility: 2000, thieving: 1500 }, questPoints: 3 },
+  rewards: {
+    xp: { attack: 5000, mining: 3000, prayer: 3000, agility: 2000, thieving: 1500 },
+    questPoints: 3,
+    unlocks: ["raid:tombs_of_aelgard"],
+  },
 });
 
 // The Gauntlet unlock
@@ -81,7 +93,11 @@ quests.define('gauntlet_key', {
     { text: "Complete the trial of the crystal seed (all gathering + processing skills tested)." },
     { text: "The Gauntlet is now available." },
   ],
-  rewards: { xp: { agility: 10000, herblore: 5000, mining: 5000, smithing: 5000, crafting: 5000, woodcutting: 3000 }, questPoints: 4 },
+  rewards: {
+    xp: { agility: 10000, herblore: 5000, mining: 5000, smithing: 5000, crafting: 5000, woodcutting: 3000 },
+    questPoints: 4,
+    unlocks: ["raid:the_gauntlet"],
+  },
 });
 
 // King's Crypt unlock
@@ -97,7 +113,11 @@ quests.define('kings_crypt_key', {
     { text: "Pray at the shrine to prepare for the undead (Prayer 30)." },
     { text: "Enter the King's Crypt." },
   ],
-  rewards: { xp: { prayer: 2000, magic: 1000, crafting: 500 }, questPoints: 2 },
+  rewards: {
+    xp: { prayer: 2000, magic: 1000, crafting: 500 },
+    questPoints: 2,
+    unlocks: ["raid:king_s_crypt"],
+  },
 });
 
 // Blood Sanctum unlock
@@ -114,7 +134,11 @@ quests.define('blood_sanctum_key', {
     { text: "Craft a blessed chain to bind the Sanctum door (Crafting 40)." },
     { text: "Descend into the Blood Sanctum." },
   ],
-  rewards: { xp: { attack: 5000, prayer: 3000, herblore: 2000, crafting: 1500 }, questPoints: 3 },
+  rewards: {
+    xp: { attack: 5000, prayer: 3000, herblore: 2000, crafting: 1500 },
+    questPoints: 3,
+    unlocks: ["raid:blood_sanctum"],
+  },
 });
 
 // The Crucible unlock
@@ -131,7 +155,11 @@ quests.define('crucible_key', {
     { text: "Navigate the steam pipe entrance (Agility 40)." },
     { text: "Enter The Crucible." },
   ],
-  rewards: { xp: { smithing: 4000, mining: 2000, firemaking: 1500, agility: 1000 }, questPoints: 2 },
+  rewards: {
+    xp: { smithing: 4000, mining: 2000, firemaking: 1500, agility: 1000 },
+    questPoints: 2,
+    unlocks: ["raid:crucible"],
+  },
 });
 
 // Sunken Temple unlock
@@ -148,7 +176,11 @@ quests.define('sunken_temple_key', {
     { text: "Pray at the submerged altar (Prayer 35)." },
     { text: "The Sunken Temple is now accessible." },
   ],
-  rewards: { xp: { fishing: 3000, magic: 2000, agility: 1500, prayer: 1000 }, questPoints: 2 },
+  rewards: {
+    xp: { fishing: 3000, magic: 2000, agility: 1500, prayer: 1000 },
+    questPoints: 2,
+    unlocks: ["raid:sunken_temple"],
+  },
 });
 
 // Lucid Nightmare unlock
@@ -165,7 +197,11 @@ quests.define('lucid_nightmare_key', {
     { text: "Navigate the 3 trial rooms to reach the Nightmare core." },
     { text: "The Lucid Nightmare is now accessible." },
   ],
-  rewards: { xp: { magic: 8000, prayer: 5000, herblore: 3000, runecrafting: 3000 }, questPoints: 3 },
+  rewards: {
+    xp: { magic: 8000, prayer: 5000, herblore: 3000, runecrafting: 3000 },
+    questPoints: 3,
+    unlocks: ["raid:lucid_nightmare"],
+  },
 });
 
 // Prism Labyrinth unlock
@@ -182,7 +218,11 @@ quests.define('prism_labyrinth_key', {
     { text: "Aim the light at the correct crystal to reveal the labyrinth entrance (Magic 55)." },
     { text: "The Prism Labyrinth appears." },
   ],
-  rewards: { xp: { magic: 3000, mining: 2000, crafting: 1500, firemaking: 1000 }, questPoints: 2 },
+  rewards: {
+    xp: { magic: 3000, mining: 2000, crafting: 1500, firemaking: 1000 },
+    questPoints: 2,
+    unlocks: ["raid:prism_labyrinth"],
+  },
 });
 
 // The Exodus unlock (final raid)
@@ -207,6 +247,7 @@ quests.define('exodus_key', {
   rewards: {
     xp: { attack: 15000, magic: 15000, ranged: 10000, prayer: 10000, mining: 5000, smithing: 5000, herblore: 5000, agility: 5000, construction: 5000 },
     questPoints: 5,
+    unlocks: ["raid:the_exodus"],
   },
 });
 

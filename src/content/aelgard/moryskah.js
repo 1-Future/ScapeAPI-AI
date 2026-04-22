@@ -292,6 +292,7 @@ quests.define('the_bog_witchs_bargain', {
     xp: { herblore: 1500, prayer: 800 },
     items: [{ id: 101, name: 'Coins', count: 2000 }, { id: 5010, name: 'Silver sickle', count: 1 }],
     questPoints: 2,
+    unlocks: ["npc:bog_witch", "recipe:wolfbane_incense"],
   },
 });
 
@@ -317,6 +318,7 @@ quests.define('blood_rites', {
     xp: { attack: 5000, prayer: 3000, defence: 2000 },
     items: [{ id: 101, name: 'Coins', count: 10000 }],
     questPoints: 3,
+    unlocks: ["prayer_unlock:protect_from_undead"],
   },
 });
 

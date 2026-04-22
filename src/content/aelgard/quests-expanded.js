@@ -30,6 +30,7 @@ quests.define('the_green_thumb', {
     xp: { farming: 500, herblore: 200, woodcutting: 200 },
     items: [{ id: 101, name: 'Coins', count: 500 }, { id: 12414, name: 'Ranarr seed', count: 3 }],
     questPoints: 1,
+    unlocks: ["recipe:elven_soil_restoration"],
   },
 });
 
@@ -53,6 +54,7 @@ quests.define('the_anglers_challenge', {
     xp: { fishing: 2500, cooking: 1000 },
     items: [{ id: 101, name: 'Coins', count: 3000 }, { id: 13004, name: 'Pearl fishing rod', count: 1 }],
     questPoints: 2,
+    unlocks: ["item_unlock:the_anglers_challenge_completion"],
   },
 });
 
@@ -76,6 +78,7 @@ quests.define('the_jewellers_eye', {
     xp: { crafting: 2000, mining: 1000, smithing: 800 },
     items: [{ id: 12542, name: 'Amulet of glory', count: 1 }],
     questPoints: 2,
+    unlocks: ["item_unlock:the_jewellers_eye_completion"],
   },
 });
 
@@ -99,6 +102,7 @@ quests.define('slayers_gauntlet', {
     items: [{ id: 101, name: 'Coins', count: 2000 }],
     questPoints: 2,
     // Unlocks: Varrek as slayer master (access to Moryskah slayer tasks)
+    unlocks: ["item_unlock:enchanted_gem", "npc:slayer_master_varrek", "item_unlock:slayers_gauntlet_varrek_as_slayer_master_access_to_moryskah_slaye"],
   },
 });
 
@@ -121,6 +125,7 @@ quests.define('into_the_wilds', {
     xp: { attack: 1000, defence: 1000, ranged: 500, agility: 500 },
     items: [{ id: 101, name: 'Coins', count: 3000 }],
     questPoints: 2,
+    unlocks: ["item_unlock:rangers_survival_kit", "training_method:wilderness_agility"],
   },
 });
 
@@ -148,6 +153,7 @@ quests.define('drifting_market_charter', {
     items: [{ id: 101, name: 'Coins', count: 10000 }],
     questPoints: 3,
     // Unlocks: Drifting Market — mobile trade hub that moves weekly
+    unlocks: ["shop:drifting_market_shops", "item_unlock:drifting_market_charter_drifting_market_mobile_trade_hub_that_moves_week"],
   },
 });
 
@@ -173,6 +179,7 @@ quests.define('the_werewolfs_dilemma', {
     xp: { herblore: 2000, prayer: 1500, magic: 1000 },
     items: [{ id: 101, name: 'Coins', count: 3000 }],
     questPoints: 2,
+    unlocks: ["npc:cured_werewolf_shopkeeper", "npc:werewolf_ally"],
   },
 });
 
@@ -199,6 +206,7 @@ quests.define('echoes_of_the_deep', {
     xp: { mining: 5000, magic: 3000, prayer: 2000, agility: 2000 },
     items: [{ id: 101, name: 'Coins', count: 15000 }],
     questPoints: 3,
+    unlocks: ["teleport:underground_tunnel_network", "training_method:crystal_mining"],
   },
 });
 
@@ -222,6 +230,7 @@ quests.define('the_fletchers_trial', {
     xp: { fletching: 2000, ranged: 1500, woodcutting: 500 },
     items: [{ id: 6006, name: 'Elven bow', count: 1 }, { id: 6007, name: 'Elven arrow', count: 100 }],
     questPoints: 2,
+    unlocks: ["item_unlock:the_fletchers_trial_completion"],
   },
 });
 
@@ -249,6 +258,7 @@ quests.define('the_last_light', {
     xp: { attack: 25000, magic: 20000, prayer: 15000, hitpoints: 10000, mining: 8000, herblore: 5000, crafting: 5000 },
     items: [{ id: 101, name: 'Coins', count: 100000 }],
     questPoints: 5,
+    unlocks: ["area:glass_desert_new_sun_zone", "boss:eclipse_guardian", "prayer_unlock:solar_blessing"],
   },
 });
 

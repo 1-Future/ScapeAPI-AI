@@ -91,6 +91,7 @@ quests.define('the_well_that_was', {
     xp: { mining: 2400, thieving: 1200, magic: 1400 },
     items: [{ id: 'pilgrims_token', name: "Pilgrim's Token (1 of 7 stations)", count: 1 }],
     questPoints: 1,
+    unlocks: ["item_unlock:confirmed_station_one", "item_unlock:pilgrims_token", "training_method:dry_well_meditation_prayer"],
   },
 });
 defineUnlock('the_well_that_was', {
@@ -132,6 +133,7 @@ quests.define('the_shadeless_cairn', {
     xp: { prayer: 5500, magic: 4500, agility: 3500, hunter: 3000 },
     items: [{ id: 'shade_held_in_trust', name: 'Shade Held In Trust', count: 1 }],
     questPoints: 2,
+    unlocks: ["item_unlock:pilgrim_token_two", "item_unlock:shade_held_in_trust", "npc:hermit_pilgrim_acknowledgement"],
   },
 });
 defineUnlock('the_shadeless_cairn', {
@@ -178,6 +180,7 @@ quests.define('the_weeping_glass_and_the_shard_that_sings', {
     xp: { magic: 12000, thieving: 9000, prayer: 8000, agility: 7500, crafting: 6000 },
     items: [{ id: 'desert_memory_oil_jar', name: 'Desert Memory-Oil (jarred)', count: 1 }, { id: 'singing_shard_tone_memory', name: 'Singing Shard (tone memorised)', count: 1 }],
     questPoints: 3,
+    unlocks: ["item_unlock:desert_memory_oil_jar", "item_unlock:pilgrim_token_four", "item_unlock:singing_shard_tone_memory", "training_method:mid_ring_runecrafting"],
   },
 });
 defineUnlock('the_weeping_glass_and_the_shard_that_sings', {
@@ -222,6 +225,7 @@ quests.define('the_mirrored_step', {
     xp: { magic: 11000, prayer: 8500, mining: 8000, agility: 7000, herblore: 5500 },
     items: [{ id: 'should_have_been_self_image', name: 'Should-Have-Been Self (imaged)', count: 1 }],
     questPoints: 3,
+    unlocks: ["area:spire_north_face_step", "item_unlock:pilgrim_token_five_committed", "item_unlock:should_have_been_self_image", "npc:pilgrim_echo_greets"],
   },
 });
 defineUnlock('the_mirrored_step', {
@@ -272,6 +276,7 @@ quests.define('the_spires_foot', {
     xp: { thieving: 26000, mining: 22000, magic: 18000, crafting: 11000, prayer: 9500, agility: 9000, herblore: 7500 },
     items: [{ id: 'companion_name_carved', name: "Companion's Name (under-glyph)", count: 1 }],
     questPoints: 4,
+    unlocks: ["area:spire_foot_chamber", "item_unlock:companion_name_carved", "item_unlock:pilgrim_token_six_private", "npc:zel_quiet_confidante"],
   },
 });
 defineUnlock('the_spires_foot', {
@@ -336,6 +341,7 @@ quests.define('the_shrine_below', {
     xp: { magic: 110000, prayer: 70000, agility: 55000, mining: 35000, hunter: 28000, herblore: 27000, thieving: 25000, crafting: 20000, runecrafting: 25000, hitpoints: 50000 },
     items: [{ id: 'pilgrims_cape', name: "Pilgrim's Cape", count: 1 }, { id: 'shrine_below_font_access', name: "Shrine Below Font Access (sigil)", count: 1 }],
     questPoints: 5,
+    unlocks: ["area:shrine_below_font", "item_unlock:completed_pilgrimage", "item_unlock:pilgrims_cape", "npc:pilgrim_echo_rested", "teleport:shrine_below_teleport", "training_method:pilgrims_draught_runecrafting"],
   },
 });
 defineUnlock('the_shrine_below', {

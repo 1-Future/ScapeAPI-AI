@@ -214,6 +214,7 @@ quests.define('the_glass_prophecy', {
     xp: { mining: 5000, magic: 4000 },
     items: [{ id: 101, name: 'Coins', count: 10000 }, { id: 10004, name: 'Refracted essence', count: 3 }],
     questPoints: 3,
+    unlocks: ["item_unlock:the_glass_prophecy_completion"],
   },
 });
 
@@ -234,6 +235,7 @@ quests.define('the_last_dragon_p1', {
     xp: { attack: 8000, smithing: 5000, prayer: 3000 },
     items: [{ id: 101, name: 'Coins', count: 15000 }],
     questPoints: 3,
+    unlocks: ["item_unlock:the_last_dragon_p1_completion"],
   },
 });
 
@@ -254,6 +256,7 @@ quests.define('the_last_dragon_p2', {
     xp: { hitpoints: 5000, prayer: 5000 },
     items: [{ id: 101, name: 'Coins', count: 20000 }],
     questPoints: 3,
+    unlocks: ["item_unlock:the_last_dragon_p2_completion"],
   },
 });
 
@@ -276,6 +279,7 @@ quests.define('the_last_dragon_p3', {
     xp: { attack: 20000, strength: 15000, defence: 10000, hitpoints: 10000, prayer: 5000, magic: 5000 },
     items: [{ id: 101, name: 'Coins', count: 50000 }],
     questPoints: 5,
+    unlocks: ["item_unlock:dragon_hunter_lance"],
   },
 });
 

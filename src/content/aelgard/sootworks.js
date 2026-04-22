@@ -232,6 +232,7 @@ quests.define('sootworks_rising', {
     xp: { mining: 3000, smithing: 4000, defence: 1500 },
     items: [{ id: 101, name: 'Coins', count: 8000 }, { id: 7002, name: 'Soot-iron bar', count: 10 }],
     questPoints: 3,
+    unlocks: ["recipe:deep_stone_alloy", "training_method:blast_furnace_smithing"],
   },
 });
 
@@ -254,6 +255,7 @@ quests.define('the_forge_beneath', {
     xp: { smithing: 8000, attack: 5000, strength: 3000 },
     items: [{ id: 101, name: 'Coins', count: 15000 }],
     questPoints: 3,
+    unlocks: ["item_unlock:the_forge_beneath_completion"],
   },
 });
 

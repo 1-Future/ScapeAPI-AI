@@ -128,6 +128,7 @@ quests.define('the_trawlers_call', {
     xp: { fishing: 2000, crafting: 500, agility: 500 },
     items: [{ id: 13001, name: 'Trawler net', count: 1 }],
     questPoints: 2,
+    unlocks: ["item_unlock:the_trawlers_call_completion"],
   },
 });
 
@@ -149,6 +150,7 @@ quests.define('stormwood_rite', {
     xp: { woodcutting: 3000, prayer: 1000, agility: 1000 },
     items: [{ id: 13101, name: 'Stormwood log', count: 5 }],
     questPoints: 2,
+    unlocks: ["item_unlock:stormwood_rite_completion"],
   },
 });
 

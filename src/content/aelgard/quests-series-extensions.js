@@ -67,6 +67,7 @@ quests.define('the_slayers_creed', {
     xp: { slayer: 9000, attack: 4000, prayer: 2000 },
     items: [{ id: 101, name: 'Coins', count: 9000 }],
     questPoints: 2,
+    unlocks: ["area:moryskah_slayer_tower_basement", "item_unlock:slayers_creed_ring", "training_method:creed_slayer_tasks"],
   },
 });
 
@@ -101,6 +102,7 @@ quests.define('slayers_grandmaster_trial', {
     xp: { slayer: 40000, attack: 10000, ranged: 8000, magic: 8000, prayer: 5000 },
     items: [{ id: 101, name: 'Coins', count: 50000 }],
     questPoints: 4,
+    unlocks: ["item_unlock:grandmaster_slayer_helmet", "npc:varrek_retired", "training_method:self_assigned_slayer"],
   },
 });
 
@@ -134,6 +136,7 @@ quests.define('the_bog_witchs_hunger', {
     xp: { herblore: 7000, farming: 4000, fishing: 2500, prayer: 2000 },
     items: [{ id: 101, name: 'Coins', count: 6000 }],
     questPoints: 2,
+    unlocks: ["npc:bog_witch_grandmaster", "recipe:witchs_long_broth", "training_method:moryskah_widdershins_herbing"],
   },
 });
 
@@ -164,6 +167,7 @@ quests.define('the_bog_witchs_final_curse', {
     xp: { herblore: 35000, prayer: 8000, magic: 8000, farming: 6000, attack: 6000 },
     items: [{ id: 101, name: 'Coins', count: 40000 }],
     questPoints: 4,
+    unlocks: ["area:moryskah_witchs_grove", "boss:the_swamp_made_flesh", "item_unlock:bog_witchs_hat"],
   },
 });
 
@@ -197,6 +201,7 @@ quests.define('the_werewolfs_lineage', {
     xp: { prayer: 6000, thieving: 4000, attack: 3000, herblore: 3000 },
     items: [{ id: 101, name: 'Coins', count: 7500 }],
     questPoints: 2,
+    unlocks: ["area:moryskah_werewolf_estate", "item_unlock:werewolf_family_token", "recipe:silvered_steel_alloy"],
   },
 });
 
@@ -227,6 +232,7 @@ quests.define('the_werewolfs_reckoning', {
     xp: { attack: 15000, prayer: 8000, thieving: 6000, magic: 5000, herblore: 5000 },
     items: [{ id: 101, name: 'Coins', count: 45000 }],
     questPoints: 4,
+    unlocks: ["boss:moryskah_tower_matriarch_spar", "item_unlock:werewolf_matriarchs_tooth", "prayer_unlock:marrow_right"],
   },
 });
 
@@ -260,6 +266,7 @@ quests.define('the_pirate_kings_gold', {
     xp: { thieving: 7000, mining: 6000, agility: 5000, magic: 3000 },
     items: [{ id: 101, name: 'Coins', count: 15000 }],
     questPoints: 2,
+    unlocks: ["item_unlock:broken_crown_charter", "shop:pirate_kings_quartermaster", "shortcut:saltbrine_smugglers_tunnel"],
   },
 });
 
@@ -289,6 +296,7 @@ quests.define('the_pirate_kings_throne', {
     xp: { attack: 10000, ranged: 8000, thieving: 8000, prayer: 4000, agility: 5000 },
     items: [{ id: 101, name: 'Coins', count: 30000 }],
     questPoints: 3,
+    unlocks: ["area:saltbrine_throne_rocks", "item_unlock:pirate_kings_crown", "npc:saltbrine_quartermaster_promoted"],
   },
 });
 
@@ -319,6 +327,7 @@ quests.define('admirals_last_voyage', {
     xp: { fishing: 40000, attack: 15000, ranged: 12000, prayer: 6000, hitpoints: 10000 },
     items: [{ id: 101, name: 'Coins', count: 70000 }],
     questPoints: 5,
+    unlocks: ["boss:deep_kraken_repeatable", "item_unlock:kraken_tentacle_whip", "training_method:admirals_deep_fishing"],
   },
 });
 
@@ -352,6 +361,7 @@ quests.define('the_druids_covenant', {
     xp: { farming: 8000, herblore: 5000, woodcutting: 4000, prayer: 3000 },
     items: [{ id: 101, name: 'Coins', count: 6500 }],
     questPoints: 2,
+    unlocks: ["item_unlock:druids_covenant_staff", "prayer_unlock:covenant_rest", "training_method:veilwood_covenant_patches"],
   },
 });
 
@@ -383,6 +393,7 @@ quests.define('the_veilwood_grandmaster_rite', {
     xp: { agility: 30000, construction: 30000, farming: 30000, herblore: 30000, hunter: 25000, mining: 25000, smithing: 25000, woodcutting: 30000 },
     items: [{ id: 101, name: 'Coins', count: 100000 }],
     questPoints: 5,
+    unlocks: ["area:veilwood_moonwell", "item_unlock:elder_crown", "training_method:seren_crystal_crafting"],
   },
 });
 
@@ -416,6 +427,7 @@ quests.define('the_inkweald_second_door', {
     xp: { magic: 15000, herblore: 6000, runecrafting: 4000, agility: 5000 },
     items: [{ id: 101, name: 'Coins', count: 20000 }],
     questPoints: 3,
+    unlocks: ["area:inkweald_second_door_chambers", "item_unlock:dreamers_sigil", "spell_unlock:lucid_spellbook"],
   },
 });
 
@@ -445,6 +457,7 @@ quests.define('the_inkweald_grandmaster_dream', {
     xp: { magic: 40000, herblore: 10000, runecrafting: 8000, agility: 5000, prayer: 6000 },
     items: [{ id: 101, name: 'Coins', count: 80000 }],
     questPoints: 5,
+    unlocks: ["boss:the_dreaming_one_repeatable", "item_unlock:dream_talisman", "item_unlock:lucid_staff"],
   },
 });
 
@@ -481,6 +494,7 @@ quests.define('prophecy_fragments', {
     xp: { thieving: 8000, magic: 5000, agility: 5000, prayer: 3000 },
     items: [{ id: 101, name: 'Coins', count: 18000 }],
     questPoints: 3,
+    unlocks: ["area:glass_desert_prophecy_chamber", "item_unlock:orins_spectacles", "teleport:orins_tower_teleport"],
   },
 });
 
@@ -510,6 +524,7 @@ quests.define('sandglass_sage_ascension', {
     xp: { magic: 50000, prayer: 20000, runecrafting: 15000, herblore: 12000, hitpoints: 15000 },
     items: [{ id: 101, name: 'Coins', count: 120000 }],
     questPoints: 5,
+    unlocks: ["area:glass_desert_sage_tower", "item_unlock:sandglass_staff", "spell_unlock:prophecy_magic"],
   },
 });
 
@@ -543,6 +558,7 @@ quests.define('foundations_of_flame', {
     xp: { mining: 8000, smithing: 7000, firemaking: 4000, construction: 4000 },
     items: [{ id: 101, name: 'Coins', count: 12000 }],
     questPoints: 2,
+    unlocks: ["area:sootworks_foundation_seam", "recipe:fire_iron_alloy", "training_method:foundation_furnace_smithing"],
   },
 });
 
@@ -573,6 +589,7 @@ quests.define('sootworks_grandmaster_titan', {
     xp: { smithing: 50000, construction: 25000, crafting: 20000, mining: 20000, attack: 15000 },
     items: [{ id: 101, name: 'Coins', count: 100000 }],
     questPoints: 5,
+    unlocks: ["area:sootworks_titan_floor", "item_unlock:steampunk_greataxe", "npc:sootworks_titan_companion"],
   },
 });
 
@@ -606,6 +623,7 @@ quests.define('the_cartographers_debt', {
     xp: { agility: 6000, thieving: 5000, firemaking: 3000, herblore: 2500 },
     items: [{ id: 101, name: 'Coins', count: 10000 }],
     questPoints: 2,
+    unlocks: ["item_unlock:nessas_new_map", "npc:cartographer_partnership", "training_method:singing_dunes_survey"],
   },
 });
 
@@ -636,6 +654,7 @@ quests.define('pharaohs_reckoning_prelude', {
     xp: { thieving: 50000, agility: 20000, magic: 15000, prayer: 10000, hitpoints: 10000 },
     items: [{ id: 101, name: 'Coins', count: 90000 }],
     questPoints: 5,
+    unlocks: ["boss:senekhet_repeatable", "item_unlock:ankh_of_rebirth", "item_unlock:pharaohs_crown"],
   },
 });
 
@@ -669,6 +688,7 @@ quests.define('the_revenant_oath', {
     xp: { attack: 8000, ranged: 6000, prayer: 4000, agility: 4000, hitpoints: 4000 },
     items: [{ id: 101, name: 'Coins', count: 20000 }],
     questPoints: 2,
+    unlocks: ["area:wilds_obelisk_safe_point", "item_unlock:revenant_oath_relic", "training_method:wilds_sworn_revenant_hunt"],
   },
 });
 
@@ -699,6 +719,7 @@ quests.define('the_wilds_grandmaster_crown', {
     xp: { attack: 40000, ranged: 20000, prayer: 15000, hitpoints: 20000, magic: 10000 },
     items: [{ id: 101, name: 'Coins', count: 120000 }],
     questPoints: 5,
+    unlocks: ["area:wilds_revenant_throne", "item_unlock:revenant_ether_mace", "item_unlock:wilderness_crown"],
   },
 });
 
@@ -732,6 +753,7 @@ quests.define('the_counterfeit_empire', {
     xp: { thieving: 20000, crafting: 10000, magic: 5000, attack: 8000 },
     items: [{ id: 101, name: 'Coins', count: 50000 }],
     questPoints: 3,
+    unlocks: ["area:saltbrine_counterfeit_vault", "item_unlock:mother_orelines_loupe", "shop:fence_network"],
   },
 });
 
@@ -765,6 +787,7 @@ quests.define('the_heartlands_uprising', {
     xp: { thieving: 5000, attack: 5000, prayer: 3000, agility: 2500 },
     items: [{ id: 101, name: 'Coins', count: 8000 }],
     questPoints: 2,
+    unlocks: ["item_unlock:aldens_patrol_cloak", "npc:alden_quartermaster", "training_method:heartlands_patrol_drills"],
   },
 });
 
@@ -796,6 +819,7 @@ quests.define('the_heartlands_grandmaster_feast', {
     xp: { cooking: 50000, farming: 20000, fishing: 15000, herblore: 10000, hunter: 8000 },
     items: [{ id: 101, name: 'Coins', count: 100000 }],
     questPoints: 5,
+    unlocks: ["area:heartlands_private_kitchen", "item_unlock:culinaromancer_gloves_pristine", "item_unlock:master_chef_apron"],
   },
 });
 
@@ -831,6 +855,7 @@ quests.define('the_comet_of_ash', {
     xp: { magic: 15000, herblore: 8000, prayer: 6000, agility: 6000, runecrafting: 5000 },
     items: [{ id: 101, name: 'Coins', count: 35000 }],
     questPoints: 4,
+    unlocks: ["item_unlock:comet_shard_pendant", "spell_unlock:comet_minor_prophecy", "training_method:comet_ash_runecrafting"],
   },
 });
 
@@ -861,6 +886,7 @@ quests.define('the_merchant_empires_fall', {
     xp: { thieving: 12000, crafting: 8000, magic: 5000, cooking: 4000 },
     items: [{ id: 101, name: 'Coins', count: 40000 }],
     questPoints: 4,
+    unlocks: ["item_unlock:market_charter_seal", "shop:drifting_market_private_shops", "teleport:market_ring_teleport"],
   },
 });
 
@@ -890,6 +916,7 @@ quests.define('the_wandering_plague', {
     xp: { herblore: 15000, prayer: 6000, thieving: 4000, agility: 4000 },
     items: [{ id: 101, name: 'Coins', count: 18000 }],
     questPoints: 3,
+    unlocks: ["item_unlock:plague_doctors_mask", "npc:plague_doctor_npc", "recipe:three_region_antidote"],
   },
 });
 
@@ -921,6 +948,7 @@ quests.define('the_lost_god_returns', {
     xp: { prayer: 40000, magic: 25000, attack: 15000, thieving: 12000, herblore: 12000 },
     items: [{ id: 101, name: 'Coins', count: 150000 }],
     questPoints: 5,
+    unlocks: ["area:lost_gods_crossroad_shrine", "item_unlock:lost_gods_sigil", "prayer_unlock:lost_gods_mercy"],
   },
 });
 
@@ -954,6 +982,7 @@ quests.define('the_boneyard_first_empire_rite', {
     xp: { prayer: 15000, mining: 8000, magic: 6000, thieving: 4000 },
     items: [{ id: 101, name: 'Coins', count: 25000 }],
     questPoints: 3,
+    unlocks: ["area:boneyard_first_empire_vault", "item_unlock:first_empire_signet", "prayer_unlock:first_empire_blessing"],
   },
 });
 
@@ -982,6 +1011,7 @@ quests.define('the_inkweald_mirror', {
     xp: { magic: 6000, herblore: 4000, prayer: 3000, thieving: 2500 },
     items: [{ id: 101, name: 'Coins', count: 8000 }],
     questPoints: 2,
+    unlocks: ["area:inkweald_third_grove", "item_unlock:inkweald_mirror_shard", "training_method:inkweald_mirror_meditation"],
   },
 });
 
@@ -1015,6 +1045,7 @@ quests.define('the_cartography_grandmaster', {
     xp: { agility: 40000, thieving: 15000, firemaking: 8000, herblore: 8000, fishing: 8000 },
     items: [{ id: 101, name: 'Coins', count: 75000 }],
     questPoints: 4,
+    unlocks: ["item_unlock:map_of_maps", "npc:nessa_retired", "training_method:border_running_agility"],
   },
 });
 
@@ -1043,6 +1074,7 @@ quests.define('the_last_prayer', {
     xp: { prayer: 40000, attack: 10000, magic: 8000, thieving: 6000, hitpoints: 10000 },
     items: [{ id: 101, name: 'Coins', count: 80000 }],
     questPoints: 4,
+    unlocks: ["area:heartlands_chapel_undercroft", "item_unlock:last_prayer_sigil", "prayer_unlock:last_prayer_unique"],
   },
 });
 

@@ -41,6 +41,7 @@ quests.define('walk_wide_guest', {
     xp: { agility: 6500, cooking: 2500, thieving: 2000, hunter: 3000 },
     items: [{ id: 'brothers_glass_marble', name: "Brother's Glass Marble", count: 1 }],
     questPoints: 2,
+    unlocks: ["area:boneyard_old_caravan_track", "item_unlock:brothers_glass_marble", "npc:razak_counts_you_in"],
   },
 });
 defineUnlock('walk_wide_guest', {
@@ -101,6 +102,7 @@ quests.define('the_second_question', {
     xp: { magic: 80000, prayer: 60000, agility: 25000, herblore: 20000, thieving: 15000, hunter: 10000, cooking: 5000, crafting: 5000, fishing: 5000 },
     items: [{ id: 'old_sun_sigil', name: "Old Sun Sigil", count: 1 }],
     questPoints: 5,
+    unlocks: ["area:old_sun_cavern", "item_unlock:knows_the_moon_was_the_sun", "item_unlock:old_sun_sigil", "prayer_unlock:second_question_prayer", "teleport:old_sun_lastlight_teleport"],
   },
 });
 defineUnlock('the_second_question', {
@@ -143,6 +145,7 @@ quests.define('the_draft_signature', {
     xp: { magic: 14000, herblore: 7000, crafting: 6000, prayer: 5000, thieving: 3500 },
     items: [{ id: 'live_ink_jar', name: 'Jar of Live Ink', count: 1 }],
     questPoints: 3,
+    unlocks: ["item_unlock:yaras_quill", "npc:the_muse_ended", "training_method:inkweald_live_ink_crafting"],
   },
 });
 defineUnlock('the_draft_signature', {
@@ -184,6 +187,7 @@ quests.define('the_charter_nobody_writes', {
     xp: { thieving: 11000, agility: 6000, crafting: 5000, magic: 4000 },
     items: [{ id: 'reeds_knot_thread', name: "Reed's Knot-Thread", count: 1 }],
     questPoints: 3,
+    unlocks: ["area:drifting_market_private_cabin", "item_unlock:cole_nessa_reed_quiet_trust", "item_unlock:reeds_knot_thread"],
   },
 });
 defineUnlock('the_charter_nobody_writes', {
@@ -223,6 +227,7 @@ quests.define('sessens_last_flight', {
     xp: { hunter: 6500, thieving: 3000, crafting: 2000 },
     items: [{ id: 'sessens_last_jess', name: "Sessen's Last Jess", count: 1 }],
     questPoints: 2,
+    unlocks: ["item_unlock:kin_rite_brass_bell", "item_unlock:respected_by_razak_cousin", "item_unlock:sessens_last_jess", "npc:aldwin_softened"],
   },
 });
 defineUnlock('sessens_last_flight', {
@@ -271,6 +276,7 @@ quests.define('the_soot_mouth_seven', {
     xp: { smithing: 30000, mining: 22000, firemaking: 15000, thieving: 10000, crafting: 8000, agility: 10000 },
     items: [{ id: 'crew_seven_tally_frame', name: 'Crew Seven Tally (framed copy)', count: 1 }],
     questPoints: 4,
+    unlocks: ["area:deep_sootworks_crew_seven_tunnel", "item_unlock:hald_loaned_hammer", "npc:sootworks_five_reconciled", "training_method:crew_seven_ventmining"],
   },
 });
 defineUnlock('the_soot_mouth_seven', {
@@ -317,6 +323,7 @@ quests.define('the_tide_that_did_not_rise', {
     xp: { fishing: 12000, magic: 8000, agility: 7000, prayer: 4000, crafting: 3500 },
     items: [{ id: 'tsunaras_wave_sigil', name: "Tsunara's Wave-Sigil", count: 1 }],
     questPoints: 3,
+    unlocks: ["item_unlock:tsunara_recognises_you", "item_unlock:tsunaras_wave_sigil", "npc:reed_takes_the_cargo", "teleport:stormcrown_reef_access"],
   },
 });
 defineUnlock('the_tide_that_did_not_rise', {

@@ -82,6 +82,7 @@ quests.define('the_priestess_who_does_not_speak', {
     xp: { fishing: 1600, prayer: 1000, crafting: 700 },
     items: [{ id: 'stormcrown_tide_mark', name: 'Stormcrown Tide-Mark', count: 1 }],
     questPoints: 1,
+    unlocks: ["item_unlock:elenne_acknowledged", "item_unlock:stormcrown_tide_mark", "npc:mara_tide_confidence"],
   },
 });
 defineUnlock('the_priestess_who_does_not_speak', {
@@ -124,6 +125,7 @@ quests.define('lennas_second_fold', {
     xp: { fishing: 6500, crafting: 4500, agility: 4000, thieving: 3000 },
     items: [{ id: 'brighs_fold_weight_copy', name: "Brigh's Fold-Weight (a copy)", count: 1 }],
     questPoints: 2,
+    unlocks: ["item_unlock:basin_rippled_once", "item_unlock:brighs_fold_weight_copy", "npc:lenna_third_fold_trust", "training_method:stormcrown_fold_practice"],
   },
 });
 defineUnlock('lennas_second_fold', {
@@ -168,6 +170,7 @@ quests.define('the_tide_that_did_not_break', {
     xp: { fishing: 9000, magic: 10000, agility: 8500, thieving: 6500, runecrafting: 5500 },
     items: [{ id: 'gailin_residue_shard', name: "Gailin's Residue Shard", count: 1 }],
     questPoints: 3,
+    unlocks: ["area:stormcrown_inner_spine_trail", "item_unlock:cole_second_chart_shared", "item_unlock:gailin_residue_shard", "npc:orin_tide_correspondence"],
   },
 });
 defineUnlock('the_tide_that_did_not_break', {
@@ -211,6 +214,7 @@ quests.define('gailins_last_residue', {
     xp: { magic: 13000, prayer: 9500, fishing: 8500, agility: 7500, hunter: 6000, thieving: 4500 },
     items: [{ id: 'reef_song_memory', name: 'Reef-Song (memorised)', count: 1 }],
     questPoints: 3,
+    unlocks: ["area:refraction_threshold_audience", "item_unlock:forgot_first_saltbrine_fish", "npc:wyrm_partial_ally", "spell_unlock:reef_song_memory"],
   },
 });
 defineUnlock('gailins_last_residue', {
@@ -260,6 +264,7 @@ quests.define('the_seven_names_on_the_inner_spine', {
     xp: { agility: 27000, fishing: 24000, prayer: 20000, magic: 15000, hunter: 10000, crafting: 7500, herblore: 8500 },
     items: [{ id: 'inner_spine_seven_names', name: 'Inner-Spine Seven Names (memorised)', count: 1 }],
     questPoints: 4,
+    unlocks: ["area:stormcrown_inner_spine_trail_freely", "item_unlock:elenne_speaks", "item_unlock:inner_spine_seven_names", "npc:mara_sister_confirmed"],
   },
 });
 defineUnlock('the_seven_names_on_the_inner_spine', {
@@ -321,6 +326,7 @@ quests.define('the_twin_tide_reconciled', {
     xp: { magic: 95000, prayer: 80000, fishing: 60000, agility: 45000, hunter: 30000, herblore: 25000, crafting: 22000, runecrafting: 22000, hitpoints: 45000 },
     items: [{ id: 'sea_foam_cup', name: 'Sea-Foam Cup (tide-reserve)', count: 1 }],
     questPoints: 5,
+    unlocks: ["item_unlock:chose_tide_reconciled", "item_unlock:sea_foam_cup", "npc:elenne_speaks_freely", "spell_unlock:reef_priest_spellbook", "teleport:stormcrown_shrine_teleport", "training_method:tide_walking"],
   },
 });
 defineUnlock('the_twin_tide_reconciled', {

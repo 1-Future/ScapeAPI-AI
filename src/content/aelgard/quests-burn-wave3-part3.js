@@ -42,6 +42,7 @@ quests.define('the_letter_unposted', {
     xp: { thieving: 8000, agility: 6000, crafting: 3500, fishing: 6000 },
     items: [{ id: 'reeds_trip_log', name: "Reed's Trip Log (hand copy)", count: 1 }],
     questPoints: 3,
+    unlocks: ["area:heartlands_reed_sister_cottage", "item_unlock:knows_the_bittern_is_failing", "item_unlock:reeds_trip_log", "npc:brigh_considers_you_family"],
   },
 });
 defineUnlock('the_letter_unposted', {
@@ -87,6 +88,7 @@ quests.define('the_cipher_we_lost', {
     xp: { thieving: 22000, magic: 18000, prayer: 10000, agility: 8000, crafting: 4000 },
     items: [{ id: 'third_cipher_final_crib', name: 'Third Cipher Final Crib', count: 1 }],
     questPoints: 4,
+    unlocks: ["item_unlock:read_the_poem", "item_unlock:third_cipher_final_crib", "npc:dorin_private_sermon", "training_method:deep_archive_thieving"],
   },
 });
 defineUnlock('the_cipher_we_lost', {
@@ -148,6 +150,7 @@ quests.define('the_alignment_beneath', {
     xp: { magic: 90000, attack: 35000, defence: 35000, prayer: 40000, ranged: 30000, agility: 15000, crafting: 10000, herblore: 12000, hitpoints: 40000 },
     items: [{ id: 'wyrm_scale_cape', name: 'Wyrm-Scale Cape', count: 1 }],
     questPoints: 5,
+    unlocks: ["area:inner_crystal_caverns", "item_unlock:saw_the_future_self", "item_unlock:wyrm_alignment_plus_one", "item_unlock:wyrm_scale_cape", "npc:orin_consulting"],
   },
 });
 defineUnlock('the_alignment_beneath', {
@@ -186,6 +189,7 @@ quests.define('the_margin_net_refolded', {
     xp: { fishing: 1000, agility: 700 },
     items: [{ id: 'lennas_smaller_net', name: "Lenna's Smaller Net", count: 1 }],
     questPoints: 1,
+    unlocks: ["item_unlock:lenna_said_thank_you", "item_unlock:lennas_smaller_net"],
   },
 });
 defineUnlock('the_margin_net_refolded', {
@@ -227,6 +231,7 @@ quests.define('the_map_that_was_never_drawn', {
     xp: { thieving: 26000, crafting: 8000, firemaking: 5000, agility: 9000, magic: 5000 },
     items: [{ id: 'decoy_makers_stamp', name: "Decoy-Maker's Stamp", count: 1 }],
     questPoints: 4,
+    unlocks: ["item_unlock:decoy_makers_stamp", "item_unlock:possess_the_maps", "npc:clerk_silent_ally", "training_method:forgery_crafting_desk"],
   },
 });
 defineUnlock('the_map_that_was_never_drawn', {
@@ -268,6 +273,7 @@ quests.define('the_fourth_name_on_the_stone', {
     xp: { prayer: 12000, smithing: 6000, crafting: 3500, thieving: 2500 },
     items: [{ id: 'longest_night_rite_token', name: 'Longest Night Rite Token', count: 1 }],
     questPoints: 3,
+    unlocks: ["area:heartlands_chapel_altar_key", "item_unlock:longest_night_rite_token", "item_unlock:wrote_the_captains_name", "npc:alden_dorin_kael_inner_circle"],
   },
 });
 defineUnlock('the_fourth_name_on_the_stone', {

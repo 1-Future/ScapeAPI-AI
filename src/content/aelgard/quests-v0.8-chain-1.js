@@ -76,6 +76,7 @@ quests.define('the_glyph_beneath_the_glyph', {
     xp: { magic: 1800, crafting: 1200, thieving: 600 },
     items: [{ id: 'under_glyph_rubbing', name: 'Under-Glyph Rubbing', count: 1 }],
     questPoints: 1,
+    unlocks: ["item_unlock:saw_the_pre_crown_date", "item_unlock:under_glyph_rubbing", "npc:veris_archival_trust"],
   },
 });
 defineUnlock('the_glyph_beneath_the_glyph', {
@@ -117,6 +118,7 @@ quests.define('the_month_that_was_omitted', {
     xp: { thieving: 5500, magic: 4500, prayer: 3000, agility: 2800 },
     items: [{ id: 'decree_rubbing_of_the_thirteenth', name: 'Decree-Rubbing of the Thirteenth', count: 1 }],
     questPoints: 2,
+    unlocks: ["item_unlock:decree_rubbing_of_the_thirteenth", "item_unlock:knows_the_month_name", "training_method:chancery_archive_thieving"],
   },
 });
 defineUnlock('the_month_that_was_omitted', {
@@ -159,6 +161,7 @@ quests.define('the_twelve_graves_that_do_not_match', {
     xp: { prayer: 11000, herblore: 9500, agility: 5500, crafting: 4000, mining: 3500 },
     items: [{ id: 'consecration_rubbing_of_the_seventh', name: 'Consecration Rubbing of the Seventh', count: 1 }],
     questPoints: 3,
+    unlocks: ["item_unlock:consecration_rubbing_of_the_seventh", "item_unlock:renewed_the_southern_wall", "npc:grael_private_counsel"],
   },
 });
 defineUnlock('the_twelve_graves_that_do_not_match', {
@@ -202,6 +205,7 @@ quests.define('razaks_monthly_parcel', {
     xp: { hunter: 10000, thieving: 9500, magic: 9000, agility: 6500, firemaking: 4500 },
     items: [{ id: 'pyramid_blue_pulse_pattern', name: 'Pyramid Blue-Pulse Pattern', count: 1 }],
     questPoints: 3,
+    unlocks: ["item_unlock:hermits_bronze_key", "item_unlock:pyramid_blue_pulse_pattern", "item_unlock:spoke_aureths_name", "npc:razak_inner_confidence"],
   },
 });
 defineUnlock('razaks_monthly_parcel', {
@@ -249,6 +253,7 @@ quests.define('the_calendar_before_the_calendar', {
     xp: { magic: 28000, thieving: 22000, crafting: 12000, agility: 11000, prayer: 9000, herblore: 8500, runecrafting: 7500 },
     items: [{ id: 'pre_crown_calendar_roll', name: 'Pre-Crown Calendar Roll', count: 1 }],
     questPoints: 4,
+    unlocks: ["item_unlock:holds_the_calendar", "item_unlock:pre_crown_calendar_roll", "npc:sand_prince_reading_audience", "training_method:shard_mirror_runecrafting"],
   },
 });
 defineUnlock('the_calendar_before_the_calendar', {
@@ -309,6 +314,7 @@ quests.define('keeper_aureths_seal', {
     xp: { magic: 95000, prayer: 55000, thieving: 30000, crafting: 22000, herblore: 25000, agility: 20000, runecrafting: 20000, mining: 15000, hitpoints: 40000 },
     items: [{ id: 'aureths_codex_trio', name: "Keeper Aureth's Codex Trio", count: 1 }],
     questPoints: 5,
+    unlocks: ["area:pyramid_sixth_level_archive", "item_unlock:archive_ending_chosen", "item_unlock:aureths_scribes_ring", "npc:aureth_successor_or_free", "spell_unlock:aureths_spellbook"],
   },
 });
 defineUnlock('keeper_aureths_seal', {
