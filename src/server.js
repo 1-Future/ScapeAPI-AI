@@ -5200,6 +5200,235 @@ try {
   console.warn('[server] hiscores/voting wire-up failed:', e.message);
 }
 
+// ── burn-wave0: Wire orphaned subsystems ────────────────────────────────────
+// These modules existed in src/engine/ but were never required from
+// server.js, so their /commands silently vanished at runtime. Each block is
+// try/catch-guarded so one broken module cannot abort the boot.
+
+// Accessibility — /access settings, colourblind palettes, TTS, keymap.
+try {
+  const accessibility        = require('./engine/accessibility');
+  const accessibilityCommands = require('./engine/accessibility-commands');
+  accessibilityCommands.register({
+    commands,
+    accessibility,
+    getTick: () => tick.getTick(),
+  });
+  console.log('[server] accessibility wired');
+} catch (err) {
+  console.warn('[server] accessibility wire-up failed:', err.message);
+}
+
+// Account management — /profile, /security, /save (snapshot system).
+try {
+  const account      = require('./engine/account');
+  const security     = require('./engine/account-security');
+  const saveStates   = require('./engine/save-states');
+  const accountCmds  = require('./engine/account-commands');
+  accountCmds.register({ commands, account, security, saveStates });
+  console.log('[server] account-management wired');
+} catch (err) {
+  console.warn('[server] account-management wire-up failed:', err.message);
+}
+
+// Bot-detection — /botpolicy + /honeypot admin tooling.
+try {
+  const botDetection     = require('./engine/bot-detection');
+  const botDetectionCmds = require('./engine/bot-detection-commands');
+  botDetectionCmds.register({
+    commands,
+    botDetection,
+    findPlayer,
+    getTick: () => tick.getTick(),
+  });
+  console.log('[server] bot-detection wired');
+} catch (err) {
+  console.warn('[server] bot-detection wire-up failed:', err.message);
+}
+
+// Channels + quickchat — /chan, /qc, /friend, /ignore, /mute.
+try {
+  const channels       = require('./engine/channels');
+  const channelsCmds   = require('./engine/channels-commands');
+  // quickchat bundle lives inside channels under CHANNELS.quickchat.
+  channelsCmds.register({
+    commands,
+    channels,
+    quickchat: channels.CHANNELS && channels.CHANNELS.quickchat
+      ? channels.CHANNELS.quickchat
+      : { id: 'quickchat' },
+    findPlayer,
+    listPlayers: () => [...playersByName.values()],
+    deliver: (player, msg) => {
+      for (const [ws, pl] of players) {
+        if (pl === player) { try { send(ws, msg); } catch (_) {} return; }
+      }
+    },
+  });
+  console.log('[server] channels + quickchat wired');
+} catch (err) {
+  console.warn('[server] channels wire-up failed:', err.message);
+}
+
+// Moderation — /report, /appeal, /rules, /admin.
+try {
+  const moderation = require('./engine/moderation');
+  const rules      = require('./engine/rules');
+  const modCmds    = require('./engine/mod-commands');
+  modCmds.register({
+    commands,
+    moderation,
+    rules,
+    findPlayer,
+    invAdd,
+    invRemove,
+    getTick: () => tick.getTick(),
+  });
+  console.log('[server] moderation wired');
+} catch (err) {
+  console.warn('[server] moderation wire-up failed:', err.message);
+}
+
+// Clue scrolls — /clue open/status/hint/dig/anagram/emote/place/complete.
+try {
+  const clueCmds = require('./engine/clue-commands');
+  clueCmds.register({ commands });
+  console.log('[server] clue-scrolls wired');
+} catch (err) {
+  console.warn('[server] clue-scrolls wire-up failed:', err.message);
+}
+
+// Housing — /house enter/leave/build/furniture/portal/sleep/status.
+try {
+  const housingCmds = require('./engine/housing-commands');
+  housingCmds.register({ commands });
+  console.log('[server] housing wired');
+} catch (err) {
+  console.warn('[server] housing wire-up failed:', err.message);
+}
+
+// Clan + clan-hall + clan-territory + clan-bingo — /clan <sub> family.
+try {
+  const clanCmds = require('./engine/clan-commands');
+  clanCmds.register({
+    commands,
+    findPlayer,
+    invAdd,
+    invRemove,
+  });
+  console.log('[server] clan-commands wired');
+} catch (err) {
+  console.warn('[server] clan-commands wire-up failed:', err.message);
+}
+
+// Random events + daily challenge — /event respond/list, /challenge status/claim/history.
+try {
+  const randomEvents    = require('./engine/random-events');
+  const dailyChallenge  = require('./engine/daily-challenge');
+  const randomCmds      = require('./engine/random-events-commands');
+  randomCmds.register({ commands });
+  // Tick hook so events spawn during the live loop.
+  if (typeof randomEvents.attachTickHook === 'function') {
+    randomEvents.attachTickHook({
+      getPlayers: () => {
+        const arr = [];
+        for (const [, pl] of players) if (pl) arr.push(pl);
+        return arr;
+      },
+    });
+  }
+  if (typeof dailyChallenge.attachTickHook === 'function') {
+    dailyChallenge.attachTickHook({
+      getPlayers: () => {
+        const arr = [];
+        for (const [, pl] of players) if (pl) arr.push(pl);
+        return arr;
+      },
+    });
+  }
+  console.log('[server] random-events + daily-challenge wired');
+} catch (err) {
+  console.warn('[server] random-events/daily-challenge wire-up failed:', err.message);
+}
+
+// Raid invocations — currently has no dedicated *-commands wrapper; ensure the
+// module is at least loaded and its init function (if any) runs. Treated as
+// best-effort so a missing piece does not abort boot.
+try {
+  const raidInv = require('./engine/raid-invocations');
+  if (typeof raidInv.register === 'function') raidInv.register({ commands, tick });
+  console.log('[server] raid-invocations loaded');
+} catch (err) {
+  console.warn('[server] raid-invocations load failed:', err.message);
+}
+
+// GE market-event emitter — listens for ge-runner events and feeds breakpoints.
+try {
+  const geEvents = require('./engine/ge-events');
+  if (typeof geEvents.attach === 'function') geEvents.attach({ ge: geRunner, events });
+  console.log('[server] ge-events attached');
+} catch (err) {
+  console.warn('[server] ge-events attach failed:', err.message);
+}
+
+// Collection log — self-registers via other modules, but ensure its snapshot
+// loader runs at boot so per-player logs exist before any drop is rolled.
+try {
+  const colLog = require('./engine/collection-log');
+  if (typeof colLog.load === 'function') colLog.load();
+} catch (err) {
+  console.warn('[server] collection-log load failed:', err.message);
+}
+
+// Diary — achievement diary subsystem.
+try {
+  const diary = require('./engine/diary');
+  if (typeof diary.load === 'function') diary.load();
+} catch (err) {
+  console.warn('[server] diary load failed:', err.message);
+}
+
+// ── Unified skill manifest ──────────────────────────────────────────────────
+// 23 OSRS-parity skill manifests with XP tables, actions, unlocks, capstones.
+// Read at runtime by the codex generator, RL env feature vector, and the
+// /skills command so clients can enumerate the full catalogue.
+try {
+  const skillManifests = require('./engine/skills');
+  commands.register('skills', {
+    category: 'Player',
+    help: 'Skills: skills [list | <skillId> | actions <skillId>]',
+    fn: (p, args) => {
+      const sub = (args && args[0] ? String(args[0]) : '').toLowerCase();
+      if (!sub || sub === 'list') {
+        return skillManifests.list()
+          .map(m => `  ${m.id.padEnd(13)} lvl ${p.skills[m.id]?.level ?? 1}/99  (${m.category})`)
+          .join('\n');
+      }
+      if (sub === 'actions') {
+        const sid = args[1] ? String(args[1]).toLowerCase() : null;
+        const m = sid ? skillManifests.get(sid) : null;
+        if (!m) return 'Usage: /skills actions <skillId>';
+        const level = p.skills[m.id]?.level || 1;
+        const avail = skillManifests.unlockedActions(m.id, level);
+        return avail.map(a => `  L${String(a.level).padStart(2)}  +${a.xpPer} XP  ${a.name}  (${a.region || '—'})`).join('\n');
+      }
+      const m = skillManifests.get(sub);
+      if (!m) return `Unknown skill "${sub}". Use /skills list.`;
+      const lvl = p.skills[m.id]?.level || 1;
+      const xp  = p.skills[m.id]?.xp || 0;
+      return [
+        `${m.name} (${m.category})  —  level ${lvl} / 99  (${xp} XP)`,
+        `Capstone: ${m.capstone?.name || '—'}`,
+        `${m.capstone?.description || ''}`,
+        `Actions unlocked: ${skillManifests.unlockedActions(m.id, lvl).length} / ${m.actions.length}`,
+      ].join('\n');
+    },
+  });
+  console.log(`[server] skill-manifest registry loaded: ${skillManifests.SKILL_IDS.length} skills`);
+} catch (err) {
+  console.warn('[server] skill-manifest registry failed:', err.message);
+}
+
 // Persistence
 persistence.onSave('chunks', () => tiles.saveChunks());
 persistence.onSave('areas', () => tiles.saveAreas());
