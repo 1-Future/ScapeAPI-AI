@@ -1,0 +1,35 @@
+{
+  "wiki": {
+    "quests": 109,
+    "monsters": 224,
+    "items": 891,
+    "minigames": 66
+  },
+  "scape": {
+    "quests": 220,
+    "bestiary": 120,
+    "equipment": 431,
+    "methods_total": 592,
+    "minigames": 45,
+    "diary_tasks": 540,
+    "cas": 581,
+    "coll_log_sources": 133,
+    "coll_log_items": 841,
+    "bosses_bibled": 25,
+    "bosses_registered": 67,
+    "teleports": 43,
+    "routes": 30
+  },
+  "osrs_real": {
+    "quests": 170,
+    "monsters": 1800,
+    "equipment": 1200,
+    "minigames": 49,
+    "diaries": 12,
+    "diary_tasks": 492,
+    "cas": 637,
+    "coll_log_entries": 1699,
+    "bosses": 80,
+    "teleports": 150
+  }
+}

@@ -1,0 +1,93 @@
+{
+  "quests": {
+    "scape_count": 220,
+    "wiki_count": 109,
+    "osrs_actual_total": 170,
+    "scape_by_difficulty": {
+      "Intermediate": 46,
+      "Experienced": 68,
+      "Master": 46,
+      "Grandmaster": 39,
+      "Novice": 21
+    },
+    "wiki_by_difficulty": {
+      "Intermediate": 38,
+      "Experienced": 22,
+      "Novice": 35,
+      "Master": 8,
+      "Grandmaster": 6
+    },
+    "scape_total_qp": 633,
+    "scape_total_steps": 1757,
+    "scape_avg_steps": 7.986363636363636
+  },
+  "monsters": {
+    "wiki_infobox_count": 224,
+    "wiki_unique_count": 208,
+    "osrs_actual_count": 1800,
+    "scape_bestiary_count": 120
+  },
+  "bosses": {
+    "wiki_boss_count": 125,
+    "osrs_actual_count": 80,
+    "scape_bibled_bosses": 25,
+    "scape_registered_bosses": 67,
+    "scape_raid_boss_refs": 214
+  },
+  "items": {
+    "scape_by_file": {
+      "consumables.json": 179,
+      "equipment.json": 431,
+      "quest-items.json": 51,
+      "reagents.json": 2,
+      "recipes.json": 322,
+      "resources.json": 354
+    },
+    "wiki_item_infoboxes": 891,
+    "wiki_equipment": 449,
+    "osrs_actual_unique": 15000,
+    "osrs_actual_equipment": 1200
+  },
+  "minigames": {
+    "wiki_count": 64,
+    "osrs_actual_count": 49,
+    "scape_count": 10,
+    "scape_total_cl_slots": 55
+  },
+  "diaries": {
+    "osrs_count": 12,
+    "osrs_tiers": 4,
+    "osrs_tasks_total": 492,
+    "scape_count": 9,
+    "scape_tiers": 4,
+    "scape_tasks_total": 540
+  },
+  "cas": {
+    "osrs_count": 637,
+    "scape_count": 581
+  },
+  "coll_log": {
+    "osrs_entries": 1699,
+    "osrs_sources": 190,
+    "scape_sources": 133,
+    "scape_items": 841
+  },
+  "transport": {
+    "scape_teleports": 43,
+    "scape_routes": 30,
+    "scape_total": 73,
+    "osrs_teleports": 150,
+    "osrs_spell_teleports_sample": 85
+  },
+  "methods": {
+    "scape_by_skill": {},
+    "scape_total": 0
+  },
+  "training_pages_osrs": {
+    "Mining": 100,
+    "Agility": 14,
+    "Cooking": 60,
+    "Ranged": 185,
+    "Magic": 222
+  }
+}

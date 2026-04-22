@@ -1,0 +1,1542 @@
+{
+  "the_trawlers_call": {
+    "name": "The Trawler",
+    "difficulty": "Intermediate",
+    "qp": 2,
+    "steps": 5,
+    "file": "active-gathering.js"
+  },
+  "stormwood_rite": {
+    "name": "Stormwood Rite",
+    "difficulty": "Experienced",
+    "qp": 2,
+    "steps": 6,
+    "file": "active-gathering.js"
+  },
+  "sand_and_secrets": {
+    "name": "Sand and Secrets",
+    "difficulty": "Intermediate",
+    "qp": 2,
+    "steps": 7,
+    "file": "boneyard-wastes.js"
+  },
+  "relics_of_the_old_world": {
+    "name": "Relics of the Old World",
+    "difficulty": "Experienced",
+    "qp": 2,
+    "steps": 6,
+    "file": "boneyard-wastes.js"
+  },
+  "the_glass_prophecy": {
+    "name": "The Glass Prophecy",
+    "difficulty": "Master",
+    "qp": 3,
+    "steps": 7,
+    "file": "glass-desert.js"
+  },
+  "the_last_dragon_p1": {
+    "name": "The Last Dragon \u2014 Part 1: Awakening",
+    "difficulty": "Grandmaster",
+    "qp": 3,
+    "steps": 5,
+    "file": "glass-desert.js"
+  },
+  "the_last_dragon_p2": {
+    "name": "The Last Dragon \u2014 Part 2: The Dragon Gate",
+    "difficulty": "Grandmaster",
+    "qp": 3,
+    "steps": 5,
+    "file": "glass-desert.js"
+  },
+  "the_last_dragon_p3": {
+    "name": "The Last Dragon \u2014 Part 3: Veldrak",
+    "difficulty": "Grandmaster",
+    "qp": 5,
+    "steps": 7,
+    "file": "glass-desert.js"
+  },
+  "heartlands_patrol": {
+    "name": "The Heartlands Patrol",
+    "difficulty": "Novice",
+    "qp": 1,
+    "steps": 4,
+    "file": "heartlands.js"
+  },
+  "the_missing_miner": {
+    "name": "The Missing Miner",
+    "difficulty": "Novice",
+    "qp": 1,
+    "steps": 5,
+    "file": "heartlands.js"
+  },
+  "forge_of_duran": {
+    "name": "Forge of Duran",
+    "difficulty": "Intermediate",
+    "qp": 2,
+    "steps": 4,
+    "file": "heartlands.js"
+  },
+  "the_inkweald_door": {
+    "name": "The Inkweald Door",
+    "difficulty": "Experienced",
+    "qp": 2,
+    "steps": 7,
+    "file": "inkweald.js"
+  },
+  "the_hollow_choirs_song": {
+    "name": "The Hollow Choir",
+    "difficulty": "Grandmaster",
+    "qp": 5,
+    "steps": 7,
+    "file": "inkweald.js"
+  },
+  "the_bog_witchs_bargain": {
+    "name": "The Bog Witch",
+    "difficulty": "Intermediate",
+    "qp": 2,
+    "steps": 6,
+    "file": "moryskah.js"
+  },
+  "blood_rites": {
+    "name": "Blood Rites",
+    "difficulty": "Experienced",
+    "qp": 3,
+    "steps": 10,
+    "file": "moryskah.js"
+  },
+  "roots_of_the_old_growth": {
+    "name": "Roots of the Old Growth",
+    "difficulty": "Intermediate",
+    "qp": 2,
+    "steps": 9,
+    "file": "quests-blitz.js"
+  },
+  "foundations_of_the_fallen": {
+    "name": "Foundations of the Fallen",
+    "difficulty": "Intermediate",
+    "qp": 2,
+    "steps": 10,
+    "file": "quests-blitz.js"
+  },
+  "the_silent_hunt": {
+    "name": "The Silent Hunt",
+    "difficulty": "Intermediate",
+    "qp": 2,
+    "steps": 8,
+    "file": "quests-blitz.js"
+  },
+  "the_essence_convergence": {
+    "name": "The Essence Convergence",
+    "difficulty": "Intermediate",
+    "qp": 2,
+    "steps": 9,
+    "file": "quests-blitz.js"
+  },
+  "the_eternal_pyre": {
+    "name": "The Eternal Pyre",
+    "difficulty": "Intermediate",
+    "qp": 2,
+    "steps": 9,
+    "file": "quests-blitz.js"
+  },
+  "the_kings_last_edict": {
+    "name": "The King",
+    "difficulty": "Experienced",
+    "qp": 3,
+    "steps": 10,
+    "file": "quests-blitz.js"
+  },
+  "bones_of_the_first_empire": {
+    "name": "Bones of the First Empire",
+    "difficulty": "Experienced",
+    "qp": 3,
+    "steps": 9,
+    "file": "quests-blitz.js"
+  },
+  "blood_beneath_the_boughs": {
+    "name": "Blood Beneath the Boughs",
+    "difficulty": "Experienced",
+    "qp": 3,
+    "steps": 9,
+    "file": "quests-blitz.js"
+  },
+  "the_song_before_words": {
+    "name": "The Song Before Words",
+    "difficulty": "Experienced",
+    "qp": 3,
+    "steps": 9,
+    "file": "quests-blitz.js"
+  },
+  "the_cogfathers_paradox": {
+    "name": "The Cogfather",
+    "difficulty": "Master",
+    "qp": 4,
+    "steps": 10,
+    "file": "quests-blitz.js"
+  },
+  "the_drowned_cartographer": {
+    "name": "The Drowned Cartographer",
+    "difficulty": "Experienced",
+    "qp": 3,
+    "steps": 9,
+    "file": "quests-blitz.js"
+  },
+  "the_dreamers_debt": {
+    "name": "The Dreamer",
+    "difficulty": "Master",
+    "qp": 4,
+    "steps": 10,
+    "file": "quests-blitz.js"
+  },
+  "the_prism_throne": {
+    "name": "The Prism Throne",
+    "difficulty": "Grandmaster",
+    "qp": 5,
+    "steps": 10,
+    "file": "quests-blitz.js"
+  },
+  "the_merchants_gambit": {
+    "name": "The Merchant",
+    "difficulty": "Experienced",
+    "qp": 3,
+    "steps": 9,
+    "file": "quests-blitz.js"
+  },
+  "the_plague_road": {
+    "name": "The Plague Road",
+    "difficulty": "Master",
+    "qp": 4,
+    "steps": 10,
+    "file": "quests-blitz.js"
+  },
+  "the_couriers_marathon": {
+    "name": "The Courier",
+    "difficulty": "Experienced",
+    "qp": 3,
+    "steps": 8,
+    "file": "quests-blitz.js"
+  },
+  "the_iron_pilgrimage": {
+    "name": "The Iron Pilgrimage",
+    "difficulty": "Master",
+    "qp": 4,
+    "steps": 10,
+    "file": "quests-blitz.js"
+  },
+  "threads_of_the_weave": {
+    "name": "Threads of the Weave",
+    "difficulty": "Master",
+    "qp": 4,
+    "steps": 9,
+    "file": "quests-blitz.js"
+  },
+  "the_aelgard_atlas": {
+    "name": "The Aelgard Atlas",
+    "difficulty": "Grandmaster",
+    "qp": 5,
+    "steps": 10,
+    "file": "quests-blitz.js"
+  },
+  "the_smugglers_web": {
+    "name": "The Smuggler",
+    "difficulty": "Master",
+    "qp": 4,
+    "steps": 10,
+    "file": "quests-blitz.js"
+  },
+  "the_lost_expedition": {
+    "name": "The Lost Expedition",
+    "difficulty": "Master",
+    "qp": 4,
+    "steps": 10,
+    "file": "quests-blitz.js"
+  },
+  "the_bone_colossus": {
+    "name": "The Bone Colossus",
+    "difficulty": "Master",
+    "qp": 4,
+    "steps": 10,
+    "file": "quests-blitz.js"
+  },
+  "the_siren_of_saltbrine": {
+    "name": "The Siren of Saltbrine",
+    "difficulty": "Master",
+    "qp": 4,
+    "steps": 9,
+    "file": "quests-blitz.js"
+  },
+  "the_clockwork_tyrant": {
+    "name": "The Clockwork Tyrant",
+    "difficulty": "Master",
+    "qp": 4,
+    "steps": 9,
+    "file": "quests-blitz.js"
+  },
+  "the_hollow_king": {
+    "name": "The Hollow King",
+    "difficulty": "Grandmaster",
+    "qp": 5,
+    "steps": 10,
+    "file": "quests-blitz.js"
+  },
+  "the_crystal_warden": {
+    "name": "The Crystal Warden",
+    "difficulty": "Grandmaster",
+    "qp": 5,
+    "steps": 10,
+    "file": "quests-blitz.js"
+  },
+  "the_great_aelgard_bakeoff": {
+    "name": "The Great Aelgard Bake-Off",
+    "difficulty": "Intermediate",
+    "qp": 2,
+    "steps": 9,
+    "file": "quests-blitz.js"
+  },
+  "the_sootworks_heist": {
+    "name": "The Sootworks Heist",
+    "difficulty": "Experienced",
+    "qp": 3,
+    "steps": 9,
+    "file": "quests-blitz.js"
+  },
+  "the_wilds_expedition": {
+    "name": "The Wilds Expedition",
+    "difficulty": "Master",
+    "qp": 4,
+    "steps": 9,
+    "file": "quests-blitz.js"
+  },
+  "the_tower_of_trials": {
+    "name": "The Tower of Trials",
+    "difficulty": "Experienced",
+    "qp": 3,
+    "steps": 9,
+    "file": "quests-blitz.js"
+  },
+  "walk_wide_guest": {
+    "name": "Walk Wide, Guest",
+    "difficulty": "Intermediate",
+    "qp": 2,
+    "steps": 9,
+    "file": "quests-burn-wave3-part2.js"
+  },
+  "the_second_question": {
+    "name": "The Second Question",
+    "difficulty": "Grandmaster",
+    "qp": 5,
+    "steps": 15,
+    "file": "quests-burn-wave3-part2.js"
+  },
+  "the_draft_signature": {
+    "name": "The Draft Signature",
+    "difficulty": "Experienced",
+    "qp": 3,
+    "steps": 9,
+    "file": "quests-burn-wave3-part2.js"
+  },
+  "the_charter_nobody_writes": {
+    "name": "The Charter Nobody Writes",
+    "difficulty": "Experienced",
+    "qp": 3,
+    "steps": 9,
+    "file": "quests-burn-wave3-part2.js"
+  },
+  "sessens_last_flight": {
+    "name": "Sessen",
+    "difficulty": "Intermediate",
+    "qp": 2,
+    "steps": 8,
+    "file": "quests-burn-wave3-part2.js"
+  },
+  "the_soot_mouth_seven": {
+    "name": "The Soot-Mouth Seven",
+    "difficulty": "Master",
+    "qp": 4,
+    "steps": 13,
+    "file": "quests-burn-wave3-part2.js"
+  },
+  "the_tide_that_did_not_rise": {
+    "name": "The Tide That Did Not Rise",
+    "difficulty": "Experienced",
+    "qp": 3,
+    "steps": 10,
+    "file": "quests-burn-wave3-part2.js"
+  },
+  "the_letter_unposted": {
+    "name": "The Letter Unposted",
+    "difficulty": "Experienced",
+    "qp": 3,
+    "steps": 9,
+    "file": "quests-burn-wave3-part3.js"
+  },
+  "the_cipher_we_lost": {
+    "name": "The Cipher We Lost",
+    "difficulty": "Master",
+    "qp": 4,
+    "steps": 9,
+    "file": "quests-burn-wave3-part3.js"
+  },
+  "the_alignment_beneath": {
+    "name": "The Alignment Beneath",
+    "difficulty": "Grandmaster",
+    "qp": 5,
+    "steps": 15,
+    "file": "quests-burn-wave3-part3.js"
+  },
+  "the_margin_net_refolded": {
+    "name": "The Margin-Net, Refolded",
+    "difficulty": "Novice",
+    "qp": 1,
+    "steps": 6,
+    "file": "quests-burn-wave3-part3.js"
+  },
+  "the_map_that_was_never_drawn": {
+    "name": "The Map That Was Never Drawn",
+    "difficulty": "Master",
+    "qp": 4,
+    "steps": 8,
+    "file": "quests-burn-wave3-part3.js"
+  },
+  "the_fourth_name_on_the_stone": {
+    "name": "The Fourth Name on the Stone",
+    "difficulty": "Experienced",
+    "qp": 3,
+    "steps": 9,
+    "file": "quests-burn-wave3-part3.js"
+  },
+  "the_falconers_quiet_debt": {
+    "name": "The Falconer",
+    "difficulty": "Novice",
+    "qp": 1,
+    "steps": 7,
+    "file": "quests-burn-wave3.js"
+  },
+  "the_ambassadors_soup": {
+    "name": "The Ambassador",
+    "difficulty": "Intermediate",
+    "qp": 2,
+    "steps": 9,
+    "file": "quests-burn-wave3.js"
+  },
+  "the_scholars_cipher": {
+    "name": "The Scholar",
+    "difficulty": "Intermediate",
+    "qp": 2,
+    "steps": 9,
+    "file": "quests-burn-wave3.js"
+  },
+  "the_counter_sung_salve": {
+    "name": "The Counter-Sung Salve",
+    "difficulty": "Experienced",
+    "qp": 3,
+    "steps": 9,
+    "file": "quests-burn-wave3.js"
+  },
+  "the_portrait_at_the_back_of_the_bar": {
+    "name": "The Portrait at the Back of the Bar",
+    "difficulty": "Experienced",
+    "qp": 3,
+    "steps": 10,
+    "file": "quests-burn-wave3.js"
+  },
+  "the_lamp_behind_the_desk": {
+    "name": "The Lamp Behind the Desk",
+    "difficulty": "Novice",
+    "qp": 1,
+    "steps": 6,
+    "file": "quests-burn-wave3.js"
+  },
+  "crew_six_after_the_pour": {
+    "name": "Crew Six, After the Pour",
+    "difficulty": "Master",
+    "qp": 4,
+    "steps": 10,
+    "file": "quests-burn-wave3.js"
+  },
+  "the_green_thumb": {
+    "name": "The Green Thumb",
+    "difficulty": "Novice",
+    "qp": 1,
+    "steps": 8,
+    "file": "quests-expanded.js"
+  },
+  "the_anglers_challenge": {
+    "name": "The Angler",
+    "difficulty": "Intermediate",
+    "qp": 2,
+    "steps": 6,
+    "file": "quests-expanded.js"
+  },
+  "the_jewellers_eye": {
+    "name": "The Jeweller",
+    "difficulty": "Intermediate",
+    "qp": 2,
+    "steps": 6,
+    "file": "quests-expanded.js"
+  },
+  "slayers_gauntlet": {
+    "name": "Slayer",
+    "difficulty": "Intermediate",
+    "qp": 2,
+    "steps": 5,
+    "file": "quests-expanded.js"
+  },
+  "into_the_wilds": {
+    "name": "Into the Wilds",
+    "difficulty": "Intermediate",
+    "qp": 2,
+    "steps": 5,
+    "file": "quests-expanded.js"
+  },
+  "drifting_market_charter": {
+    "name": "The Drifting Market Charter",
+    "difficulty": "Experienced",
+    "qp": 3,
+    "steps": 9,
+    "file": "quests-expanded.js"
+  },
+  "the_werewolfs_dilemma": {
+    "name": "The Werewolf",
+    "difficulty": "Experienced",
+    "qp": 2,
+    "steps": 6,
+    "file": "quests-expanded.js"
+  },
+  "echoes_of_the_deep": {
+    "name": "Echoes of the Deep",
+    "difficulty": "Master",
+    "qp": 3,
+    "steps": 9,
+    "file": "quests-expanded.js"
+  },
+  "the_fletchers_trial": {
+    "name": "The Fletcher",
+    "difficulty": "Intermediate",
+    "qp": 2,
+    "steps": 6,
+    "file": "quests-expanded.js"
+  },
+  "the_last_light": {
+    "name": "The Last Light of the Old Sun",
+    "difficulty": "Grandmaster",
+    "qp": 5,
+    "steps": 7,
+    "file": "quests-expanded.js"
+  },
+  "the_runaway_golem": {
+    "name": "The Runaway Golem",
+    "difficulty": "Novice",
+    "qp": 1,
+    "steps": 5,
+    "file": "quests-mega.js"
+  },
+  "the_tide_pool_collector": {
+    "name": "The Tide Pool Collector",
+    "difficulty": "Novice",
+    "qp": 1,
+    "steps": 5,
+    "file": "quests-mega.js"
+  },
+  "lamplighters_apprentice": {
+    "name": "Lamplighter",
+    "difficulty": "Novice",
+    "qp": 1,
+    "steps": 5,
+    "file": "quests-mega.js"
+  },
+  "the_apprentice_trapper": {
+    "name": "The Apprentice Trapper",
+    "difficulty": "Novice",
+    "qp": 1,
+    "steps": 5,
+    "file": "quests-mega.js"
+  },
+  "the_stolen_runes": {
+    "name": "The Stolen Runes",
+    "difficulty": "Novice",
+    "qp": 1,
+    "steps": 5,
+    "file": "quests-mega.js"
+  },
+  "the_fencepost_problem": {
+    "name": "The Fencepost Problem",
+    "difficulty": "Novice",
+    "qp": 1,
+    "steps": 5,
+    "file": "quests-mega.js"
+  },
+  "the_bog_witchs_errand": {
+    "name": "The Bog Witch",
+    "difficulty": "Novice",
+    "qp": 1,
+    "steps": 5,
+    "file": "quests-mega.js"
+  },
+  "target_practice": {
+    "name": "Target Practice",
+    "difficulty": "Novice",
+    "qp": 1,
+    "steps": 5,
+    "file": "quests-mega.js"
+  },
+  "the_boneyard_compass": {
+    "name": "The Boneyard Compass",
+    "difficulty": "Novice",
+    "qp": 1,
+    "steps": 5,
+    "file": "quests-mega.js"
+  },
+  "the_slayers_first_mark": {
+    "name": "The Slayer",
+    "difficulty": "Novice",
+    "qp": 1,
+    "steps": 5,
+    "file": "quests-mega.js"
+  },
+  "the_counterfeit_ring": {
+    "name": "The Counterfeit Ring",
+    "difficulty": "Intermediate",
+    "qp": 2,
+    "steps": 7,
+    "file": "quests-mega.js"
+  },
+  "the_haunted_lighthouse": {
+    "name": "The Haunted Lighthouse",
+    "difficulty": "Intermediate",
+    "qp": 2,
+    "steps": 7,
+    "file": "quests-mega.js"
+  },
+  "the_ink_smugglers": {
+    "name": "The Ink Smugglers",
+    "difficulty": "Intermediate",
+    "qp": 2,
+    "steps": 7,
+    "file": "quests-mega.js"
+  },
+  "the_bone_flute": {
+    "name": "The Bone Flute",
+    "difficulty": "Intermediate",
+    "qp": 2,
+    "steps": 7,
+    "file": "quests-mega.js"
+  },
+  "the_flooded_vault": {
+    "name": "The Flooded Vault",
+    "difficulty": "Intermediate",
+    "qp": 2,
+    "steps": 7,
+    "file": "quests-mega.js"
+  },
+  "the_werewolf_courier": {
+    "name": "The Werewolf Courier",
+    "difficulty": "Intermediate",
+    "qp": 2,
+    "steps": 7,
+    "file": "quests-mega.js"
+  },
+  "the_glass_cutters_challenge": {
+    "name": "The Glass Cutter",
+    "difficulty": "Intermediate",
+    "qp": 2,
+    "steps": 7,
+    "file": "quests-mega.js"
+  },
+  "the_tax_collectors_bodyguard": {
+    "name": "The Tax Collector",
+    "difficulty": "Intermediate",
+    "qp": 2,
+    "steps": 7,
+    "file": "quests-mega.js"
+  },
+  "the_clockwork_courier": {
+    "name": "The Clockwork Courier",
+    "difficulty": "Intermediate",
+    "qp": 2,
+    "steps": 7,
+    "file": "quests-mega.js"
+  },
+  "the_dream_cartographer": {
+    "name": "The Dream Cartographer",
+    "difficulty": "Intermediate",
+    "qp": 2,
+    "steps": 7,
+    "file": "quests-mega.js"
+  },
+  "the_veilwood_whittler": {
+    "name": "The Veilwood Whittler",
+    "difficulty": "Intermediate",
+    "qp": 2,
+    "steps": 7,
+    "file": "quests-mega.js"
+  },
+  "the_saltbrine_regatta": {
+    "name": "The Saltbrine Regatta",
+    "difficulty": "Intermediate",
+    "qp": 2,
+    "steps": 7,
+    "file": "quests-mega.js"
+  },
+  "the_runic_lock": {
+    "name": "The Runic Lock",
+    "difficulty": "Intermediate",
+    "qp": 2,
+    "steps": 7,
+    "file": "quests-mega.js"
+  },
+  "the_farmstead_siege": {
+    "name": "The Farmstead Siege",
+    "difficulty": "Intermediate",
+    "qp": 2,
+    "steps": 7,
+    "file": "quests-mega.js"
+  },
+  "the_wandering_chef": {
+    "name": "The Wandering Chef",
+    "difficulty": "Intermediate",
+    "qp": 2,
+    "steps": 6,
+    "file": "quests-mega.js"
+  },
+  "the_assassins_ledger": {
+    "name": "The Assassin",
+    "difficulty": "Experienced",
+    "qp": 3,
+    "steps": 8,
+    "file": "quests-mega.js"
+  },
+  "the_forge_of_four_fires": {
+    "name": "The Forge of Four Fires",
+    "difficulty": "Experienced",
+    "qp": 3,
+    "steps": 8,
+    "file": "quests-mega.js"
+  },
+  "the_silent_witness": {
+    "name": "The Silent Witness",
+    "difficulty": "Experienced",
+    "qp": 3,
+    "steps": 8,
+    "file": "quests-mega.js"
+  },
+  "the_canopy_war": {
+    "name": "The Canopy War",
+    "difficulty": "Experienced",
+    "qp": 3,
+    "steps": 8,
+    "file": "quests-mega.js"
+  },
+  "the_undertakers_burden": {
+    "name": "The Undertaker",
+    "difficulty": "Experienced",
+    "qp": 3,
+    "steps": 8,
+    "file": "quests-mega.js"
+  },
+  "the_spymasters_gambit": {
+    "name": "The Spymaster",
+    "difficulty": "Experienced",
+    "qp": 3,
+    "steps": 8,
+    "file": "quests-mega.js"
+  },
+  "the_crystal_plague": {
+    "name": "The Crystal Plague",
+    "difficulty": "Experienced",
+    "qp": 3,
+    "steps": 8,
+    "file": "quests-mega.js"
+  },
+  "the_colosseum_of_bones": {
+    "name": "The Colosseum of Bones",
+    "difficulty": "Experienced",
+    "qp": 3,
+    "steps": 8,
+    "file": "quests-mega.js"
+  },
+  "the_ink_painters_masterpiece": {
+    "name": "The Ink Painter",
+    "difficulty": "Experienced",
+    "qp": 3,
+    "steps": 8,
+    "file": "quests-mega.js"
+  },
+  "the_lighthouse_cipher": {
+    "name": "The Lighthouse Cipher",
+    "difficulty": "Experienced",
+    "qp": 3,
+    "steps": 8,
+    "file": "quests-mega.js"
+  },
+  "the_steamwrights_apprentice": {
+    "name": "The Steamwright",
+    "difficulty": "Experienced",
+    "qp": 3,
+    "steps": 8,
+    "file": "quests-mega.js"
+  },
+  "the_moonlit_duel": {
+    "name": "The Moonlit Duel",
+    "difficulty": "Experienced",
+    "qp": 3,
+    "steps": 8,
+    "file": "quests-mega.js"
+  },
+  "the_grand_heist": {
+    "name": "The Grand Heist",
+    "difficulty": "Master",
+    "qp": 4,
+    "steps": 10,
+    "file": "quests-mega.js"
+  },
+  "the_siege_of_hollow_mire": {
+    "name": "The Siege of Hollow Mire",
+    "difficulty": "Master",
+    "qp": 4,
+    "steps": 10,
+    "file": "quests-mega.js"
+  },
+  "the_god_forge": {
+    "name": "The God Forge",
+    "difficulty": "Master",
+    "qp": 4,
+    "steps": 10,
+    "file": "quests-mega.js"
+  },
+  "the_dream_eater": {
+    "name": "The Dream Eater",
+    "difficulty": "Master",
+    "qp": 4,
+    "steps": 10,
+    "file": "quests-mega.js"
+  },
+  "the_leviathans_wake": {
+    "name": "The Leviathan",
+    "difficulty": "Master",
+    "qp": 4,
+    "steps": 10,
+    "file": "quests-mega.js"
+  },
+  "the_runecasters_paradox": {
+    "name": "The Runecaster",
+    "difficulty": "Master",
+    "qp": 4,
+    "steps": 9,
+    "file": "quests-mega.js"
+  },
+  "the_hunt_for_the_wilds_king": {
+    "name": "The Hunt for the Wilds King",
+    "difficulty": "Master",
+    "qp": 4,
+    "steps": 10,
+    "file": "quests-mega.js"
+  },
+  "the_council_of_shadows": {
+    "name": "The Council of Shadows",
+    "difficulty": "Master",
+    "qp": 4,
+    "steps": 10,
+    "file": "quests-mega.js"
+  },
+  "the_shattered_covenant": {
+    "name": "The Shattered Covenant",
+    "difficulty": "Grandmaster",
+    "qp": 5,
+    "steps": 12,
+    "file": "quests-mega.js"
+  },
+  "the_architect_of_ruin": {
+    "name": "The Architect of Ruin",
+    "difficulty": "Grandmaster",
+    "qp": 5,
+    "steps": 12,
+    "file": "quests-mega.js"
+  },
+  "the_eternal_hunt": {
+    "name": "The Eternal Hunt",
+    "difficulty": "Grandmaster",
+    "qp": 5,
+    "steps": 12,
+    "file": "quests-mega.js"
+  },
+  "the_world_wound": {
+    "name": "The World Wound",
+    "difficulty": "Grandmaster",
+    "qp": 5,
+    "steps": 12,
+    "file": "quests-mega.js"
+  },
+  "the_last_adventurer": {
+    "name": "The Last Adventurer",
+    "difficulty": "Grandmaster",
+    "qp": 5,
+    "steps": 11,
+    "file": "quests-mega.js"
+  },
+  "the_slayers_creed": {
+    "name": "The Slayer",
+    "difficulty": "Experienced",
+    "qp": 2,
+    "steps": 6,
+    "file": "quests-series-extensions.js"
+  },
+  "slayers_grandmaster_trial": {
+    "name": "The Slayer",
+    "difficulty": "Grandmaster",
+    "qp": 4,
+    "steps": 11,
+    "file": "quests-series-extensions.js"
+  },
+  "the_bog_witchs_hunger": {
+    "name": "The Bog Witch",
+    "difficulty": "Experienced",
+    "qp": 2,
+    "steps": 6,
+    "file": "quests-series-extensions.js"
+  },
+  "the_bog_witchs_final_curse": {
+    "name": "The Bog Witch",
+    "difficulty": "Grandmaster",
+    "qp": 4,
+    "steps": 7,
+    "file": "quests-series-extensions.js"
+  },
+  "the_werewolfs_lineage": {
+    "name": "The Werewolf",
+    "difficulty": "Experienced",
+    "qp": 2,
+    "steps": 6,
+    "file": "quests-series-extensions.js"
+  },
+  "the_werewolfs_reckoning": {
+    "name": "The Werewolf",
+    "difficulty": "Grandmaster",
+    "qp": 4,
+    "steps": 7,
+    "file": "quests-series-extensions.js"
+  },
+  "the_pirate_kings_gold": {
+    "name": "The Pirate King",
+    "difficulty": "Experienced",
+    "qp": 2,
+    "steps": 6,
+    "file": "quests-series-extensions.js"
+  },
+  "the_pirate_kings_throne": {
+    "name": "The Pirate King",
+    "difficulty": "Master",
+    "qp": 3,
+    "steps": 6,
+    "file": "quests-series-extensions.js"
+  },
+  "admirals_last_voyage": {
+    "name": "Admiral",
+    "difficulty": "Grandmaster",
+    "qp": 5,
+    "steps": 7,
+    "file": "quests-series-extensions.js"
+  },
+  "the_druids_covenant": {
+    "name": "The Druid",
+    "difficulty": "Experienced",
+    "qp": 2,
+    "steps": 6,
+    "file": "quests-series-extensions.js"
+  },
+  "the_veilwood_grandmaster_rite": {
+    "name": "The Veilwood Grandmaster Rite",
+    "difficulty": "Grandmaster",
+    "qp": 5,
+    "steps": 8,
+    "file": "quests-series-extensions.js"
+  },
+  "the_inkweald_second_door": {
+    "name": "The Inkweald Second Door",
+    "difficulty": "Master",
+    "qp": 3,
+    "steps": 6,
+    "file": "quests-series-extensions.js"
+  },
+  "the_inkweald_grandmaster_dream": {
+    "name": "Waking the Dreaming One",
+    "difficulty": "Grandmaster",
+    "qp": 5,
+    "steps": 6,
+    "file": "quests-series-extensions.js"
+  },
+  "prophecy_fragments": {
+    "name": "Prophecy Fragments",
+    "difficulty": "Experienced",
+    "qp": 3,
+    "steps": 8,
+    "file": "quests-series-extensions.js"
+  },
+  "sandglass_sage_ascension": {
+    "name": "Sandglass Sage Ascension",
+    "difficulty": "Grandmaster",
+    "qp": 5,
+    "steps": 6,
+    "file": "quests-series-extensions.js"
+  },
+  "foundations_of_flame": {
+    "name": "Foundations of Flame",
+    "difficulty": "Experienced",
+    "qp": 2,
+    "steps": 6,
+    "file": "quests-series-extensions.js"
+  },
+  "sootworks_grandmaster_titan": {
+    "name": "The Clockwork Heart",
+    "difficulty": "Grandmaster",
+    "qp": 5,
+    "steps": 7,
+    "file": "quests-series-extensions.js"
+  },
+  "the_cartographers_debt": {
+    "name": "The Cartographer",
+    "difficulty": "Experienced",
+    "qp": 2,
+    "steps": 6,
+    "file": "quests-series-extensions.js"
+  },
+  "pharaohs_reckoning_prelude": {
+    "name": "The Pharaoh",
+    "difficulty": "Grandmaster",
+    "qp": 5,
+    "steps": 7,
+    "file": "quests-series-extensions.js"
+  },
+  "the_revenant_oath": {
+    "name": "The Revenant Oath",
+    "difficulty": "Experienced",
+    "qp": 2,
+    "steps": 6,
+    "file": "quests-series-extensions.js"
+  },
+  "the_wilds_grandmaster_crown": {
+    "name": "Coronation of the Revenant King",
+    "difficulty": "Grandmaster",
+    "qp": 5,
+    "steps": 7,
+    "file": "quests-series-extensions.js"
+  },
+  "the_counterfeit_empire": {
+    "name": "The Counterfeit Empire",
+    "difficulty": "Master",
+    "qp": 3,
+    "steps": 6,
+    "file": "quests-series-extensions.js"
+  },
+  "the_heartlands_uprising": {
+    "name": "The Heartlands Uprising",
+    "difficulty": "Experienced",
+    "qp": 2,
+    "steps": 6,
+    "file": "quests-series-extensions.js"
+  },
+  "the_heartlands_grandmaster_feast": {
+    "name": "The Grand Feast",
+    "difficulty": "Grandmaster",
+    "qp": 5,
+    "steps": 8,
+    "file": "quests-series-extensions.js"
+  },
+  "the_comet_of_ash": {
+    "name": "The Comet of Ash",
+    "difficulty": "Master",
+    "qp": 4,
+    "steps": 8,
+    "file": "quests-series-extensions.js"
+  },
+  "the_merchant_empires_fall": {
+    "name": "The Merchant Empire",
+    "difficulty": "Master",
+    "qp": 4,
+    "steps": 7,
+    "file": "quests-series-extensions.js"
+  },
+  "the_wandering_plague": {
+    "name": "The Wandering Plague",
+    "difficulty": "Experienced",
+    "qp": 3,
+    "steps": 6,
+    "file": "quests-series-extensions.js"
+  },
+  "the_lost_god_returns": {
+    "name": "The Lost God Returns",
+    "difficulty": "Grandmaster",
+    "qp": 5,
+    "steps": 8,
+    "file": "quests-series-extensions.js"
+  },
+  "the_boneyard_first_empire_rite": {
+    "name": "The First Empire Rite",
+    "difficulty": "Master",
+    "qp": 3,
+    "steps": 6,
+    "file": "quests-series-extensions.js"
+  },
+  "the_inkweald_mirror": {
+    "name": "The Inkweald Mirror",
+    "difficulty": "Experienced",
+    "qp": 2,
+    "steps": 5,
+    "file": "quests-series-extensions.js"
+  },
+  "the_cartography_grandmaster": {
+    "name": "The Cartography Grandmaster",
+    "difficulty": "Grandmaster",
+    "qp": 4,
+    "steps": 10,
+    "file": "quests-series-extensions.js"
+  },
+  "the_last_prayer": {
+    "name": "The Last Prayer",
+    "difficulty": "Grandmaster",
+    "qp": 4,
+    "steps": 5,
+    "file": "quests-series-extensions.js"
+  },
+  "rfd_start": {
+    "name": "Recipe for Disaster \u2014 Prologue",
+    "difficulty": "Intermediate",
+    "qp": 1,
+    "steps": 4,
+    "file": "quests-series.js"
+  },
+  "rfd_heartlands": {
+    "name": "Recipe for Disaster \u2014 The Captain",
+    "difficulty": "Intermediate",
+    "qp": 1,
+    "steps": 5,
+    "file": "quests-series.js"
+  },
+  "rfd_moryskah": {
+    "name": "Recipe for Disaster \u2014 The Priest",
+    "difficulty": "Experienced",
+    "qp": 1,
+    "steps": 5,
+    "file": "quests-series.js"
+  },
+  "rfd_sootworks": {
+    "name": "Recipe for Disaster \u2014 The Engineer",
+    "difficulty": "Experienced",
+    "qp": 1,
+    "steps": 6,
+    "file": "quests-series.js"
+  },
+  "rfd_finale": {
+    "name": "Recipe for Disaster \u2014 The Culinaromancer",
+    "difficulty": "Master",
+    "qp": 5,
+    "steps": 5,
+    "file": "quests-series.js"
+  },
+  "desert_treasure": {
+    "name": "Desert Treasure",
+    "difficulty": "Master",
+    "qp": 3,
+    "steps": 7,
+    "file": "quests-series.js"
+  },
+  "monkey_business": {
+    "name": "Monkey Business",
+    "difficulty": "Master",
+    "qp": 3,
+    "steps": 8,
+    "file": "quests-series.js"
+  },
+  "lunar_diplomacy": {
+    "name": "Lunar Diplomacy",
+    "difficulty": "Master",
+    "qp": 2,
+    "steps": 7,
+    "file": "quests-series.js"
+  },
+  "underground_pass": {
+    "name": "The Underground Pass",
+    "difficulty": "Experienced",
+    "qp": 3,
+    "steps": 9,
+    "file": "quests-series.js"
+  },
+  "the_fremennik_trials": {
+    "name": "Trials of the Frost",
+    "difficulty": "Intermediate",
+    "qp": 2,
+    "steps": 6,
+    "file": "quests-series.js"
+  },
+  "dragon_slayer_aelgard": {
+    "name": "Dragon Slayer of Aelgard",
+    "difficulty": "Experienced",
+    "qp": 2,
+    "steps": 6,
+    "file": "quests-series.js"
+  },
+  "poison_trail": {
+    "name": "The Poison Trail",
+    "difficulty": "Intermediate",
+    "qp": 2,
+    "steps": 8,
+    "file": "quests-series.js"
+  },
+  "barrows_brothers": {
+    "name": "The Barrows Brothers",
+    "difficulty": "Experienced",
+    "qp": 2,
+    "steps": 6,
+    "file": "quests-series.js"
+  },
+  "wilderness_sword": {
+    "name": "Blade of the Wilds",
+    "difficulty": "Experienced",
+    "qp": 0,
+    "steps": 4,
+    "file": "quests-series.js"
+  },
+  "herb_run_mastery": {
+    "name": "The Perfect Herb Run",
+    "difficulty": "Experienced",
+    "qp": 0,
+    "steps": 5,
+    "file": "quests-series.js"
+  },
+  "fight_caves": {
+    "name": "The Fight Caves",
+    "difficulty": "Grandmaster",
+    "qp": 1,
+    "steps": 4,
+    "file": "quests-series.js"
+  },
+  "infernal_challenge": {
+    "name": "The Infernal Challenge",
+    "difficulty": "Grandmaster",
+    "qp": 2,
+    "steps": 4,
+    "file": "quests-series.js"
+  },
+  "the_glyph_beneath_the_glyph": {
+    "name": "The Glyph Beneath the Glyph",
+    "difficulty": "Novice",
+    "qp": 1,
+    "steps": 8,
+    "file": "quests-v0.8-chain-1.js"
+  },
+  "the_month_that_was_omitted": {
+    "name": "The Month That Was Omitted",
+    "difficulty": "Intermediate",
+    "qp": 2,
+    "steps": 9,
+    "file": "quests-v0.8-chain-1.js"
+  },
+  "the_twelve_graves_that_do_not_match": {
+    "name": "The Twelve Graves That Do Not Match",
+    "difficulty": "Experienced",
+    "qp": 3,
+    "steps": 10,
+    "file": "quests-v0.8-chain-1.js"
+  },
+  "razaks_monthly_parcel": {
+    "name": "Razak",
+    "difficulty": "Experienced",
+    "qp": 3,
+    "steps": 11,
+    "file": "quests-v0.8-chain-1.js"
+  },
+  "the_calendar_before_the_calendar": {
+    "name": "The Calendar Before the Calendar",
+    "difficulty": "Master",
+    "qp": 4,
+    "steps": 11,
+    "file": "quests-v0.8-chain-1.js"
+  },
+  "keeper_aureths_seal": {
+    "name": "Keeper Aureth",
+    "difficulty": "Grandmaster",
+    "qp": 5,
+    "steps": 14,
+    "file": "quests-v0.8-chain-1.js"
+  },
+  "the_report_filed_twice": {
+    "name": "The Report Filed Twice",
+    "difficulty": "Novice",
+    "qp": 1,
+    "steps": 8,
+    "file": "quests-v0.8-chain-2.js"
+  },
+  "hildes_black_ledger": {
+    "name": "Hilde",
+    "difficulty": "Intermediate",
+    "qp": 2,
+    "steps": 8,
+    "file": "quests-v0.8-chain-2.js"
+  },
+  "the_bellows_wheels_second_name": {
+    "name": "The Bellows Wheel",
+    "difficulty": "Experienced",
+    "qp": 3,
+    "steps": 10,
+    "file": "quests-v0.8-chain-2.js"
+  },
+  "halds_letter_to_kael": {
+    "name": "Hald",
+    "difficulty": "Experienced",
+    "qp": 3,
+    "steps": 9,
+    "file": "quests-v0.8-chain-2.js"
+  },
+  "nine_days_to_pour_two_cold": {
+    "name": "Nine Days to Pour Two Cold",
+    "difficulty": "Master",
+    "qp": 4,
+    "steps": 11,
+    "file": "quests-v0.8-chain-2.js"
+  },
+  "the_oath_unwritten": {
+    "name": "The Oath Unwritten",
+    "difficulty": "Grandmaster",
+    "qp": 5,
+    "steps": 14,
+    "file": "quests-v0.8-chain-2.js"
+  },
+  "the_priestess_who_does_not_speak": {
+    "name": "The Priestess Who Does Not Speak",
+    "difficulty": "Novice",
+    "qp": 1,
+    "steps": 8,
+    "file": "quests-v0.8-chain-3.js"
+  },
+  "lennas_second_fold": {
+    "name": "Lenna",
+    "difficulty": "Intermediate",
+    "qp": 2,
+    "steps": 9,
+    "file": "quests-v0.8-chain-3.js"
+  },
+  "the_tide_that_did_not_break": {
+    "name": "The Tide That Did Not Break",
+    "difficulty": "Experienced",
+    "qp": 3,
+    "steps": 10,
+    "file": "quests-v0.8-chain-3.js"
+  },
+  "gailins_last_residue": {
+    "name": "Gailin",
+    "difficulty": "Experienced",
+    "qp": 3,
+    "steps": 10,
+    "file": "quests-v0.8-chain-3.js"
+  },
+  "the_seven_names_on_the_inner_spine": {
+    "name": "The Seven Names on the Inner Spine",
+    "difficulty": "Master",
+    "qp": 4,
+    "steps": 13,
+    "file": "quests-v0.8-chain-3.js"
+  },
+  "the_twin_tide_reconciled": {
+    "name": "The Twin-Tide Reconciled",
+    "difficulty": "Grandmaster",
+    "qp": 5,
+    "steps": 14,
+    "file": "quests-v0.8-chain-3.js"
+  },
+  "the_whittlers_silent_lute": {
+    "name": "The Whittler",
+    "difficulty": "Novice",
+    "qp": 1,
+    "steps": 8,
+    "file": "quests-v0.8-chain-4.js"
+  },
+  "the_badger_who_remembers": {
+    "name": "The Badger Who Remembers",
+    "difficulty": "Intermediate",
+    "qp": 2,
+    "steps": 8,
+    "file": "quests-v0.8-chain-4.js"
+  },
+  "the_burned_page_in_the_chapel": {
+    "name": "The Burned Page in the Chapel",
+    "difficulty": "Experienced",
+    "qp": 3,
+    "steps": 9,
+    "file": "quests-v0.8-chain-4.js"
+  },
+  "the_dream_of_the_fifth_moonsong": {
+    "name": "The Dream of the Fifth Moonsong",
+    "difficulty": "Experienced",
+    "qp": 3,
+    "steps": 10,
+    "file": "quests-v0.8-chain-4.js"
+  },
+  "aureths_fragment_score": {
+    "name": "Aureth",
+    "difficulty": "Master",
+    "qp": 4,
+    "steps": 10,
+    "file": "quests-v0.8-chain-4.js"
+  },
+  "the_seventh_moonsong_sung": {
+    "name": "The Seventh Moonsong, Sung",
+    "difficulty": "Grandmaster",
+    "qp": 5,
+    "steps": 14,
+    "file": "quests-v0.8-chain-4.js"
+  },
+  "the_well_that_was": {
+    "name": "The Well That Was",
+    "difficulty": "Novice",
+    "qp": 1,
+    "steps": 8,
+    "file": "quests-v0.8-chain-5.js"
+  },
+  "the_shadeless_cairn": {
+    "name": "The Shadeless Cairn",
+    "difficulty": "Intermediate",
+    "qp": 2,
+    "steps": 10,
+    "file": "quests-v0.8-chain-5.js"
+  },
+  "the_weeping_glass_and_the_shard_that_sings": {
+    "name": "The Weeping Glass and the Shard That Sings",
+    "difficulty": "Experienced",
+    "qp": 3,
+    "steps": 12,
+    "file": "quests-v0.8-chain-5.js"
+  },
+  "the_mirrored_step": {
+    "name": "The Mirrored Step",
+    "difficulty": "Experienced",
+    "qp": 3,
+    "steps": 10,
+    "file": "quests-v0.8-chain-5.js"
+  },
+  "the_spires_foot": {
+    "name": "The Spire",
+    "difficulty": "Master",
+    "qp": 4,
+    "steps": 13,
+    "file": "quests-v0.8-chain-5.js"
+  },
+  "the_shrine_below": {
+    "name": "The Shrine Below",
+    "difficulty": "Grandmaster",
+    "qp": 5,
+    "steps": 14,
+    "file": "quests-v0.8-chain-5.js"
+  },
+  "coa_key": {
+    "name": "The Crystal Key",
+    "difficulty": "Master",
+    "qp": 3,
+    "steps": 7,
+    "file": "raid-prerequisites.js"
+  },
+  "tos_key": {
+    "name": "A Taste of Hope",
+    "difficulty": "Master",
+    "qp": 3,
+    "steps": 7,
+    "file": "raid-prerequisites.js"
+  },
+  "toa_key": {
+    "name": "Beneath the Pyramid",
+    "difficulty": "Master",
+    "qp": 3,
+    "steps": 7,
+    "file": "raid-prerequisites.js"
+  },
+  "gauntlet_key": {
+    "name": "Song of the Elves",
+    "difficulty": "Grandmaster",
+    "qp": 4,
+    "steps": 7,
+    "file": "raid-prerequisites.js"
+  },
+  "kings_crypt_key": {
+    "name": "The Restless Dead",
+    "difficulty": "Intermediate",
+    "qp": 2,
+    "steps": 5,
+    "file": "raid-prerequisites.js"
+  },
+  "blood_sanctum_key": {
+    "name": "Sins of the Father",
+    "difficulty": "Master",
+    "qp": 3,
+    "steps": 6,
+    "file": "raid-prerequisites.js"
+  },
+  "crucible_key": {
+    "name": "The Forgemaster",
+    "difficulty": "Experienced",
+    "qp": 2,
+    "steps": 6,
+    "file": "raid-prerequisites.js"
+  },
+  "sunken_temple_key": {
+    "name": "Depths of Despair",
+    "difficulty": "Experienced",
+    "qp": 2,
+    "steps": 6,
+    "file": "raid-prerequisites.js"
+  },
+  "lucid_nightmare_key": {
+    "name": "Into the Deep Dream",
+    "difficulty": "Master",
+    "qp": 3,
+    "steps": 6,
+    "file": "raid-prerequisites.js"
+  },
+  "prism_labyrinth_key": {
+    "name": "Shattered Light",
+    "difficulty": "Experienced",
+    "qp": 2,
+    "steps": 6,
+    "file": "raid-prerequisites.js"
+  },
+  "exodus_key": {
+    "name": "The Final Threshold",
+    "difficulty": "Grandmaster",
+    "qp": 5,
+    "steps": 8,
+    "file": "raid-prerequisites.js"
+  },
+  "pirate_king": {
+    "name": "Pirate King",
+    "difficulty": "Intermediate",
+    "qp": 2,
+    "steps": 7,
+    "file": "saltbrine.js"
+  },
+  "whispers_from_the_depths": {
+    "name": "Whispers from the Depths",
+    "difficulty": "Experienced",
+    "qp": 3,
+    "steps": 11,
+    "file": "saltbrine.js"
+  },
+  "sootworks_rising": {
+    "name": "Sootworks Rising",
+    "difficulty": "Experienced",
+    "qp": 3,
+    "steps": 8,
+    "file": "sootworks.js"
+  },
+  "the_forge_beneath": {
+    "name": "The Forge Beneath the City",
+    "difficulty": "Master",
+    "qp": 3,
+    "steps": 7,
+    "file": "sootworks.js"
+  },
+  "the_veilwood_covenant": {
+    "name": "The Veilwood Covenant",
+    "difficulty": "Intermediate",
+    "qp": 2,
+    "steps": 9,
+    "file": "veilwood.js"
+  }
+}
