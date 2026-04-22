@@ -269,6 +269,20 @@
       "marstead_note": "Max Focus."
     },
     {
+      "id": "veilwood_sanctum_elder_hp",
+      "skill": "hitpoints",
+      "level_required": 92,
+      "name": "Elder Sanctum HP AFK",
+      "location": { "region": "veilwood", "spot": "Moonblade sanctum wardens" },
+      "intensity": 2,
+      "xp_per_hour": 31300,
+      "gp_per_hour": 185000,
+      "requires": { "quests": ["whisperwood_remembers"], "items": ["ghrazi_rapier"], "skills": {"hitpoints": 92} },
+      "description": "Sanctum HP passive.",
+      "produces": [{ "item": "elder_rune_fragment", "rate_per_hour": 8 }],
+      "marstead_note": "AFK-Multitask baseline."
+    },
+    {
       "id": "wilds_revenants_hp",
       "skill": "hitpoints",
       "level_required": 95,
@@ -307,6 +321,6 @@
     "60-70": { "count": 2, "intensities": [1, 6] },
     "70-80": { "count": 2, "intensities": [2, 3] },
     "80-90": { "count": 3, "intensities": [2, 1, 7] },
-    "90-99": { "count": 2, "intensities": [9, 6] }
+    "90-99": { "count": 3, "intensities": [2, 9, 6] }
   }
 }

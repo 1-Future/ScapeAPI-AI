@@ -283,6 +283,20 @@
       "marstead_note": "AFK baseline for 82+."
     },
     {
+      "id": "veilwood_shrine_pyre_afk",
+      "skill": "firemaking",
+      "level_required": 90,
+      "name": "Veilwood Shrine Pyre AFK",
+      "location": { "region": "veilwood", "spot": "Moonblade shrine pyre" },
+      "intensity": 2,
+      "xp_per_hour": 94000,
+      "gp_per_hour": 95000,
+      "requires": { "quests": ["whisperwood_remembers"], "items": ["tinderbox", "magic_logs"], "skills": {"firemaking": 90} },
+      "description": "Shrine pyre with +40% XP, AFK feed.",
+      "produces": [{ "item": "shrine_ash", "rate_per_hour": 240 }],
+      "marstead_note": "AFK-Multitask baseline for 90+."
+    },
+    {
       "id": "inkweald_dreamwood_bonfire",
       "skill": "firemaking",
       "level_required": 90,
@@ -307,6 +321,6 @@
     "60-70": { "count": 2, "intensities": [1, 3] },
     "70-80": { "count": 2, "intensities": [2, 6] },
     "80-90": { "count": 2, "intensities": [1, 2] },
-    "90-99": { "count": 2, "intensities": [4, 5] }
+    "90-99": { "count": 3, "intensities": [2, 4, 5] }
   }
 }

@@ -255,6 +255,20 @@
       "marstead_note": "Max Focus. Endgame smithing speed."
     },
     {
+      "id": "moryskah_adamant_platebody_afk",
+      "skill": "smithing",
+      "level_required": 88,
+      "name": "Adamant Platebody AFK",
+      "location": { "region": "moryskah", "spot": "Gravechill master anvil" },
+      "intensity": 1,
+      "xp_per_hour": 72700,
+      "gp_per_hour": 245000,
+      "requires": { "quests": [], "items": ["adamant_bar", "hammer"], "skills": {"smithing": 88} },
+      "description": "Adamant platebody for smithing reputation.",
+      "produces": [{ "item": "adamant_platebody", "rate_per_hour": 125 }],
+      "marstead_note": "AFK baseline for 88+."
+    },
+    {
       "id": "sootworks_blade_of_soot_forge",
       "skill": "smithing",
       "level_required": 90,
@@ -306,7 +320,7 @@
     "50-60": { "count": 2, "intensities": [1, 6] },
     "60-70": { "count": 2, "intensities": [1, 4] },
     "70-80": { "count": 2, "intensities": [6, 2] },
-    "80-90": { "count": 2, "intensities": [3, 7] },
+    "80-90": { "count": 3, "intensities": [3, 7, 1] },
     "90-99": { "count": 2, "intensities": [8, 1] }
   }
 }

@@ -283,6 +283,20 @@
       "marstead_note": "Active."
     },
     {
+      "id": "veilwood_sanctum_elder_def",
+      "skill": "defence",
+      "level_required": 92,
+      "name": "Elder Sanctum Defensive AFK",
+      "location": { "region": "veilwood", "spot": "Moonblade sanctum" },
+      "intensity": 2,
+      "xp_per_hour": 94000,
+      "gp_per_hour": 185000,
+      "requires": { "quests": ["whisperwood_remembers"], "items": ["ghrazi_rapier"], "skills": {"defence": 92} },
+      "description": "Sanctum wardens defensive AFK.",
+      "produces": [{ "item": "elder_rune_fragment", "rate_per_hour": 8 }],
+      "marstead_note": "AFK-Multitask for 90+."
+    },
+    {
       "id": "wilds_revenants_def",
       "skill": "defence",
       "level_required": 95,
@@ -307,6 +321,6 @@
     "60-70": { "count": 2, "intensities": [1, 6] },
     "70-80": { "count": 2, "intensities": [2, 3] },
     "80-90": { "count": 3, "intensities": [2, 1, 7] },
-    "90-99": { "count": 2, "intensities": [4, 9] }
+    "90-99": { "count": 3, "intensities": [4, 2, 9] }
   }
 }

@@ -311,6 +311,20 @@
       "marstead_note": "Active. Endgame tick rotation."
     },
     {
+      "id": "veilwood_extended_antifire_afk",
+      "skill": "herblore",
+      "level_required": 92,
+      "name": "Extended Antifire AFK",
+      "location": { "region": "veilwood", "spot": "Whisperthorn bench" },
+      "intensity": 1,
+      "xp_per_hour": 98500,
+      "gp_per_hour": 385000,
+      "requires": { "quests": [], "items": ["antifire_potion_4", "lava_scale_shard"], "skills": {"herblore": 92} },
+      "description": "Extended antifire AFK.",
+      "produces": [{ "item": "extended_antifire_4", "rate_per_hour": 580 }],
+      "marstead_note": "AFK baseline for 90+."
+    },
+    {
       "id": "veilwood_overload_brew",
       "skill": "herblore",
       "level_required": 95,
@@ -363,6 +377,6 @@
     "60-70": { "count": 2, "intensities": [5, 1] },
     "70-80": { "count": 3, "intensities": [5, 1, 1] },
     "80-90": { "count": 2, "intensities": [1, 5] },
-    "90-99": { "count": 2, "intensities": [6, 4] }
+    "90-99": { "count": 3, "intensities": [1, 6, 4] }
   }
 }
