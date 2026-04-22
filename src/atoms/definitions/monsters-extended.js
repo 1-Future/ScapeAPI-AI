@@ -130,12 +130,46 @@ const MONSTERS = [
 // src/content/aelgard/* inline drops and data/drop-tables.json.
 function buildLoot(m) {
   const cb = m.combat || 1;
-  const boneType = cb >= 250 ? 'Dragon bones' : cb >= 80 ? 'Big bones' : 'Bones';
+  const name = (m.name || '').toLowerCase();
+  const boneType = /dragon/.test(name) ? 'Dragon bones' : cb >= 250 ? 'Dragon bones' : cb >= 80 ? 'Big bones' : 'Bones';
   const table = [
     { name: boneType, weight: 1, min: 1, max: 1, always: true },
     { name: 'Coins', weight: 10, min: Math.max(1, Math.floor(cb * 0.5)), max: Math.max(5, cb * 3) },
     { name: 'Nothing', weight: 8, min: 0, max: 0 },
   ];
+  // Dragons drop dragonhide + extra runes (OSRS parity)
+  if (/dragon/.test(name) && !/baby/.test(name)) {
+    const hide = /blue/.test(name) ? 'Blue dragonhide'
+      : /red/.test(name) ? 'Red dragonhide'
+      : /black/.test(name) ? 'Black dragonhide'
+      : 'Green dragonhide';
+    table.push({ name: hide, weight: 10, min: 1, max: 1, always: true });
+  }
+  // Revenant tertiary shared-rare emblems
+  if (/revenant/.test(name)) {
+    table.push({ name: 'Revenant emblem', weight: 3, min: 1, max: 1 });
+    table.push({ name: 'Bracelet of ethereum', weight: 1, min: 1, max: 1 });
+  }
+  // Kalphite drops chitin
+  if (/kalphite/.test(name)) {
+    table.push({ name: 'Potato cactus', weight: 3, min: 1, max: 3 });
+  }
+  // Vyre + vampire holy drops
+  if (/vyre|vampir|lizard/.test(name)) {
+    table.push({ name: 'Blood rune', weight: 3, min: 3, max: 8 });
+  }
+  // Crab/yak hides
+  if (/crab|yak|bear/.test(name)) {
+    table.push({ name: 'Raw beef', weight: 6, min: 1, max: 2 });
+  }
+  // Brother (Barrows) special
+  if (/ahrim|dharok|guthan|karil|torag|verac/.test(name)) {
+    table.push({ name: 'Barrows key', weight: 2, min: 1, max: 1 });
+  }
+  // Troll / ice giant drops
+  if (/troll|ice/.test(name) && cb >= 50) {
+    table.push({ name: 'Mithril bar', weight: 2, min: 1, max: 1 });
+  }
   // Style-based flavour
   if (m.style === 'magic') {
     table.push({ name: 'Chaos rune', weight: 4, min: 2, max: Math.max(3, Math.ceil(cb / 20)) });

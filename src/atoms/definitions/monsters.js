@@ -69,12 +69,30 @@ const MONSTERS = [
 // src/content/aelgard/* inline drops and data/drop-tables.json.
 function buildLoot(m) {
   const cb = m.combat || 1;
-  const boneType = cb >= 250 ? 'Dragon bones' : cb >= 80 ? 'Big bones' : 'Bones';
+  const name = (m.name || '').toLowerCase();
+  const boneType = /dragon/.test(name) ? 'Dragon bones' : cb >= 250 ? 'Dragon bones' : cb >= 80 ? 'Big bones' : 'Bones';
   const table = [
     { name: boneType, weight: 1, min: 1, max: 1, always: true },
     { name: 'Coins', weight: 10, min: Math.max(1, Math.floor(cb * 0.5)), max: Math.max(5, cb * 3) },
     { name: 'Nothing', weight: 8, min: 0, max: 0 },
   ];
+  // Critter / livestock gather drops (chicken, cow, sheep, etc.)
+  if (/chicken/.test(name)) {
+    table.push({ name: 'Raw chicken', weight: 8, min: 1, max: 1 });
+    table.push({ name: 'Feather', weight: 8, min: 5, max: 15 });
+  }
+  if (/cow/.test(name)) {
+    table.push({ name: 'Cowhide', weight: 10, min: 1, max: 1, always: true });
+    table.push({ name: 'Raw beef', weight: 10, min: 1, max: 1 });
+  }
+  // Dragons drop dragonhide (OSRS parity)
+  if (/dragon/.test(name) && !/baby/.test(name)) {
+    const hide = /blue/.test(name) ? 'Blue dragonhide'
+      : /red/.test(name) ? 'Red dragonhide'
+      : /black/.test(name) ? 'Black dragonhide'
+      : 'Green dragonhide';
+    table.push({ name: hide, weight: 10, min: 1, max: 1, always: true });
+  }
   if (m.style === 'magic') {
     table.push({ name: 'Chaos rune', weight: 4, min: 2, max: Math.max(3, Math.ceil(cb / 20)) });
     if (cb >= 100) table.push({ name: 'Death rune', weight: 2, min: 1, max: 3 });
