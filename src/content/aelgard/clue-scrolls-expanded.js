@@ -130,6 +130,110 @@ defineClueStep({ id: 'ms28', tier: 'master', type: 'emote', description: 'Beckon
 defineClueStep({ id: 'ms29', tier: 'master', type: 'combat', description: 'Kill a double agent (level 400) at Scorpia\'s lair.', combatLevel: 400, region: 'Wilds' });
 defineClueStep({ id: 'ms30', tier: 'master', type: 'riddle', description: 'The last of its kind, it sleeps in crystal. What guards its tomb?', solution: 'Crystal Wyrm (Glass Desert)' });
 
+// ══════════════════════════════════════════════════════════════════════════════
+// v0.9-waveB4 M1 EXPANSION — add 20-30 new steps per tier (pushes Scape's 117
+// catalogued steps toward ~400 OSRS parity). The defineClueStep() calls below
+// register via the tier Map in treasure-trails.js; generateClue() picks from
+// the expanded pool.
+// ══════════════════════════════════════════════════════════════════════════════
+
+// ── MEDIUM (20 more → 43 total) ───────────────────────────────────────────
+
+defineClueStep({ id: 'm24', tier: 'medium', type: 'coordinate', description: 'Dig at 70, 140 on the Saltbrine-Heartlands border road.', region: 'Saltbrine' });
+defineClueStep({ id: 'm25', tier: 'medium', type: 'riddle', description: 'He records every ship in and out. Where does he work?', solution: 'Harbourmaster Kellen', region: 'Saltbrine' });
+defineClueStep({ id: 'm26', tier: 'medium', type: 'emote', description: 'Salute in front of the Sootworks watchtower.', region: 'Sootworks' });
+defineClueStep({ id: 'm27', tier: 'medium', type: 'coordinate', description: 'Dig at 155, 92 in the shallow Moryskah marshes.', region: 'Moryskah' });
+defineClueStep({ id: 'm28', tier: 'medium', type: 'combat', description: 'Kill a crypt howler (level 66) and search its remains.', combatLevel: 66, region: 'Moryskah' });
+defineClueStep({ id: 'm29', tier: 'medium', type: 'riddle', description: 'Crow-faced priest. Preaches in the bone temple.', solution: 'Bone priest', region: 'Moryskah' });
+defineClueStep({ id: 'm30', tier: 'medium', type: 'coordinate', description: 'Dig at 185, 160 in the Inkweald clearing with the ink pond.', region: 'Inkweald' });
+defineClueStep({ id: 'm31', tier: 'medium', type: 'emote', description: 'Bow at the Glass Desert sunrise obelisk.', region: 'Glass Desert' });
+defineClueStep({ id: 'm32', tier: 'medium', type: 'puzzle', description: 'Solve the 4x4 tile slide to unlock the next dig site.' });
+defineClueStep({ id: 'm33', tier: 'medium', type: 'coordinate', description: 'Dig at 210, 88 behind the Glass Desert caravanserai.', region: 'Glass Desert' });
+defineClueStep({ id: 'm34', tier: 'medium', type: 'riddle', description: 'She sells linen and keeps ledger of who trades what.', solution: 'Weaver Nessa', region: 'Heartlands' });
+defineClueStep({ id: 'm35', tier: 'medium', type: 'combat', description: 'Kill a hedge boar (level 28) and search its remains.', combatLevel: 28, region: 'Heartlands' });
+defineClueStep({ id: 'm36', tier: 'medium', type: 'emote', description: 'Panic while standing in the Boneyard quicksand zone safely.', region: 'Boneyard' });
+defineClueStep({ id: 'm37', tier: 'medium', type: 'coordinate', description: 'Dig at 58, 102 at the Heartlands grain silo.', region: 'Heartlands' });
+defineClueStep({ id: 'm38', tier: 'medium', type: 'riddle', description: 'His forge never cools. His son never returned.', solution: 'Forgemaster Brun', region: 'Sootworks' });
+defineClueStep({ id: 'm39', tier: 'medium', type: 'combat', description: 'Kill a church gargoyle (level 60) and search its remains.', combatLevel: 60, region: 'Heartlands' });
+defineClueStep({ id: 'm40', tier: 'medium', type: 'puzzle', description: 'Align four mirrors to direct light into the keystone slot.' });
+defineClueStep({ id: 'm41', tier: 'medium', type: 'coordinate', description: 'Dig at 78, 175 in the Saltbrine salt flats.', region: 'Saltbrine' });
+defineClueStep({ id: 'm42', tier: 'medium', type: 'emote', description: 'Cheer at the Moryskah chapel midnight service.', region: 'Moryskah' });
+defineClueStep({ id: 'm43', tier: 'medium', type: 'riddle', description: 'Woven from elvish bark. Sells the blue berries that stain.', solution: 'Bregan the Elven Vintner', region: 'Veilwood' });
+
+// ── HARD (25 more → 50 total) ─────────────────────────────────────────────
+
+defineClueStep({ id: 'h26', tier: 'hard', type: 'coordinate', description: 'Dig at 220, 118 in the Sootworks crucible annex.', region: 'Sootworks' });
+defineClueStep({ id: 'h27', tier: 'hard', type: 'combat', description: 'Kill a double agent (level 160) on the Saltbrine shipyard.', combatLevel: 160, region: 'Saltbrine' });
+defineClueStep({ id: 'h28', tier: 'hard', type: 'emote', description: 'Jig at the Tempoross fishing dock wearing full anglers outfit.', region: 'Saltbrine' });
+defineClueStep({ id: 'h29', tier: 'hard', type: 'riddle', description: 'A king buried beneath a pyramid — his name starts the desert.', solution: 'Azhmari', region: 'Boneyard' });
+defineClueStep({ id: 'h30', tier: 'hard', type: 'coordinate', description: 'Dig at 210, 140 at the Boneyard pyramid base.', region: 'Boneyard' });
+defineClueStep({ id: 'h31', tier: 'hard', type: 'puzzle', description: 'Solve the 5x5 Celtic knot with 4 crossings.' });
+defineClueStep({ id: 'h32', tier: 'hard', type: 'combat', description: 'Kill a double agent (level 130) at the Veilwood moonwell.', combatLevel: 130, region: 'Veilwood' });
+defineClueStep({ id: 'h33', tier: 'hard', type: 'emote', description: 'Laugh at the Veilmother\'s heartwood while wielding a steel hatchet.', region: 'Veilwood' });
+defineClueStep({ id: 'h34', tier: 'hard', type: 'riddle', description: 'It flies, it fishes, it speaks in sonic waves. What?', solution: "Kree'arra" });
+defineClueStep({ id: 'h35', tier: 'hard', type: 'coordinate', description: 'Dig at 252, 160 just inside Veldrak\'s domain gate.', region: 'Glass Desert' });
+defineClueStep({ id: 'h36', tier: 'hard', type: 'combat', description: 'Kill a double agent (level 145) at the Hollow Choir antechamber.', combatLevel: 145, region: 'Inkweald' });
+defineClueStep({ id: 'h37', tier: 'hard', type: 'emote', description: 'Spin at the Sootworks deep vein while holding a dragon warhammer.', region: 'Sootworks' });
+defineClueStep({ id: 'h38', tier: 'hard', type: 'puzzle', description: 'Navigate the light-beam maze in the Moryskah crypt.' });
+defineClueStep({ id: 'h39', tier: 'hard', type: 'coordinate', description: 'Dig at 12, 195 in the Moryskah far-swamp.', region: 'Moryskah' });
+defineClueStep({ id: 'h40', tier: 'hard', type: 'riddle', description: 'Shifts with the tide. Fishermen fear her song.', solution: 'Siren Matriarch', region: 'Saltbrine' });
+defineClueStep({ id: 'h41', tier: 'hard', type: 'combat', description: 'Kill a werewolf stalker (level 85) and search its remains.', combatLevel: 85, region: 'Moryskah' });
+defineClueStep({ id: 'h42', tier: 'hard', type: 'emote', description: 'Flap at Kree\'arra\'s shrine while wielding an armadyl crossbow.', region: 'Wilds' });
+defineClueStep({ id: 'h43', tier: 'hard', type: 'coordinate', description: 'Dig at 150, 82 between the Moryskah chapel and the catacomb entrance.', region: 'Moryskah' });
+defineClueStep({ id: 'h44', tier: 'hard', type: 'riddle', description: 'Three rings, three styles, three kings in one cave. Name the kings.', solution: 'Rex, Prime, Supreme', region: 'Saltbrine' });
+defineClueStep({ id: 'h45', tier: 'hard', type: 'puzzle', description: 'Decode the Aelgardian rune sentence carved into the dungeon lintel.' });
+defineClueStep({ id: 'h46', tier: 'hard', type: 'combat', description: 'Kill a nocturne lord (level 112) and search its remains.', combatLevel: 112, region: 'Moryskah' });
+defineClueStep({ id: 'h47', tier: 'hard', type: 'emote', description: 'Cry at the Corporeal Beast cave opening wearing full spirit shield.', region: 'Wilds' });
+defineClueStep({ id: 'h48', tier: 'hard', type: 'coordinate', description: 'Dig at 38, 15 at the wilderness rune ruins.', region: 'Wilds' });
+defineClueStep({ id: 'h49', tier: 'hard', type: 'riddle', description: 'His twin served the sky. Who served the war god?', solution: 'General Graardor' });
+defineClueStep({ id: 'h50', tier: 'hard', type: 'puzzle', description: 'Reassemble the shattered glyph tablet (9 pieces).' });
+
+// ── ELITE (20 more → 43 total) ────────────────────────────────────────────
+
+defineClueStep({ id: 'e24', tier: 'elite', type: 'coordinate', description: 'Dig at 245, 170 deep in the Wilds dragon graveyard.', region: 'Wilds' });
+defineClueStep({ id: 'e25', tier: 'elite', type: 'combat', description: 'Kill a double agent (level 210) at the Bryophyta shrine.', combatLevel: 210, region: 'Heartlands' });
+defineClueStep({ id: 'e26', tier: 'elite', type: 'emote', description: 'Dance at the ToA pyramid chamber wearing full Masori.', region: 'Boneyard' });
+defineClueStep({ id: 'e27', tier: 'elite', type: 'riddle', description: 'He carries four axes that rotate forever. Who is he?', solution: 'Vardorvis', region: 'Sootworks' });
+defineClueStep({ id: 'e28', tier: 'elite', type: 'coordinate', description: 'Dig at 258, 70 in the Glass Desert Colosseum arena sands.', region: 'Glass Desert' });
+defineClueStep({ id: 'e29', tier: 'elite', type: 'puzzle', description: 'Solve the 6x6 coloured glyph puzzle.' });
+defineClueStep({ id: 'e30', tier: 'elite', type: 'combat', description: 'Kill a double agent (level 260) inside the Whisperer dream arena.', combatLevel: 260, region: 'Inkweald' });
+defineClueStep({ id: 'e31', tier: 'elite', type: 'emote', description: 'Jump for joy at Nex\'s altar wearing a full Torva set.', region: 'Wilds' });
+defineClueStep({ id: 'e32', tier: 'elite', type: 'riddle', description: 'He stomped the duchy and left shockwave scars. Who is he?', solution: 'Duke Sucellus', region: 'Sootworks' });
+defineClueStep({ id: 'e33', tier: 'elite', type: 'coordinate', description: 'Dig at 30, 228 in the Inkweald deep chapel.', region: 'Inkweald' });
+defineClueStep({ id: 'e34', tier: 'elite', type: 'combat', description: 'Kill a double agent (level 240) at the Crystal Gauntlet entrance.', combatLevel: 240, region: 'Veilwood' });
+defineClueStep({ id: 'e35', tier: 'elite', type: 'emote', description: 'Yawn at Tempoross\'s shrine wearing full spirit angler.', region: 'Saltbrine' });
+defineClueStep({ id: 'e36', tier: 'elite', type: 'riddle', description: 'Her webs are steel. She wears her children as armour.', solution: 'Sarachnis', region: 'Moryskah' });
+defineClueStep({ id: 'e37', tier: 'elite', type: 'coordinate', description: 'Dig at 92, 225 at Skotizo\'s sealed dais.', region: 'Moryskah' });
+defineClueStep({ id: 'e38', tier: 'elite', type: 'puzzle', description: 'Light the 7 altars in the order the temple mural depicts.' });
+defineClueStep({ id: 'e39', tier: 'elite', type: 'combat', description: 'Kill a double agent (level 275) at the Leviathan\'s harbour.', combatLevel: 275, region: 'Saltbrine' });
+defineClueStep({ id: 'e40', tier: 'elite', type: 'emote', description: 'Salute at the Vardorvis forge wearing full Sunfire fanatic.', region: 'Sootworks' });
+defineClueStep({ id: 'e41', tier: 'elite', type: 'riddle', description: 'Two rings are BIS for accuracy, one for strength. Name the third.', solution: 'Ultor ring' });
+defineClueStep({ id: 'e42', tier: 'elite', type: 'coordinate', description: 'Dig at 180, 12 at the wilderness chaos altar.', region: 'Wilds' });
+defineClueStep({ id: 'e43', tier: 'elite', type: 'puzzle', description: 'Reconstruct the glass-sigil mosaic from 16 shards.' });
+
+// ── MASTER (20 more → 50 total) ───────────────────────────────────────────
+
+defineClueStep({ id: 'ms31', tier: 'master', type: 'coordinate', description: 'Dig at the dead-centre of the Colosseum arena on Sol Heredit\'s spawn tile.', region: 'Glass Desert' });
+defineClueStep({ id: 'ms32', tier: 'master', type: 'combat', description: 'Kill a double agent (level 380) at the Exodus capstone chamber.', combatLevel: 380 });
+defineClueStep({ id: 'ms33', tier: 'master', type: 'emote', description: 'Perform the "raise the roof" emote atop the Worldtree heartwood.', region: 'Veilwood' });
+defineClueStep({ id: 'ms34', tier: 'master', type: 'riddle', description: 'She has five phases and four minions. Name the final form.', solution: 'Zaros-phase Nex' });
+defineClueStep({ id: 'ms35', tier: 'master', type: 'puzzle', description: 'Solve a 9x9 sliding puzzle under a 30-tick time limit.' });
+defineClueStep({ id: 'ms36', tier: 'master', type: 'coordinate', description: 'Dig at 0, 0 — the origin of Aelgard\'s tile grid (Heartlands crossroads).', region: 'Heartlands' });
+defineClueStep({ id: 'ms37', tier: 'master', type: 'combat', description: 'Kill a double agent (level 420) at the Rift sovereign\'s throne.', combatLevel: 420, region: 'Inkweald' });
+defineClueStep({ id: 'ms38', tier: 'master', type: 'riddle', description: 'Rotates colours. Splits into three. Only one is real.', solution: 'The Refractor' });
+defineClueStep({ id: 'ms39', tier: 'master', type: 'emote', description: 'Meditate at Tumeken\'s altar wearing full ToA Masori.', region: 'Boneyard' });
+defineClueStep({ id: 'ms40', tier: 'master', type: 'coordinate', description: 'Dig at the exact centre of the Hollow Choir conductor\'s dais.', region: 'Inkweald' });
+defineClueStep({ id: 'ms41', tier: 'master', type: 'puzzle', description: 'Play the correct 8-note melody on the choir organ.' });
+defineClueStep({ id: 'ms42', tier: 'master', type: 'combat', description: 'Kill a double agent (level 370) at the Nightmare dream theatre.', combatLevel: 370, region: 'Inkweald' });
+defineClueStep({ id: 'ms43', tier: 'master', type: 'riddle', description: 'He carries no axe but his arena swings four. Solve.', solution: 'Vardorvis (arena has 4 rotating axes)' });
+defineClueStep({ id: 'ms44', tier: 'master', type: 'emote', description: 'Slow-clap at Sol Heredit\'s arena while wearing Dizana\'s quiver.', region: 'Glass Desert' });
+defineClueStep({ id: 'ms45', tier: 'master', type: 'coordinate', description: 'Dig at 128, 128 — the exact midpoint of the Aelgard map.' });
+defineClueStep({ id: 'ms46', tier: 'master', type: 'puzzle', description: 'Solve the master-tier cryptic crossword (11 across, 9 down).' });
+defineClueStep({ id: 'ms47', tier: 'master', type: 'combat', description: 'Kill a double agent (level 395) at the Wilderness Fortress gate.', combatLevel: 395, region: 'Wilds' });
+defineClueStep({ id: 'ms48', tier: 'master', type: 'riddle', description: 'Twelve waves of creatures, then a champion. Name the arena.', solution: 'Colosseum (Sol Heredit)' });
+defineClueStep({ id: 'ms49', tier: 'master', type: 'emote', description: 'Raise-the-roof atop the Volcanic Depths caldera rim.', region: 'Sootworks' });
+defineClueStep({ id: 'ms50', tier: 'master', type: 'coordinate', description: 'Dig at the exact tile Jal-nib-rek (pet) first spawned from Zuk\'s wave.', region: 'Glass Desert' });
+
 // ── MASTER REWARD TABLE ───────────────────────────────────────────────────
 
 defineRewardTable('master', {
@@ -152,5 +256,6 @@ defineRewardTable('master', {
   ],
 });
 
-const totalNewSteps = 10 + 15 + 15 + 15 + 30; // beginner + medium + hard + elite + master
-console.log(`[aelgard] Clue scroll expansion: ${totalNewSteps} new steps + master tier with rewards`);
+const totalNewSteps = 10 + 15 + 15 + 15 + 30; // beginner + medium + hard + elite + master (original expansion)
+const waveB4NewSteps = 20 + 25 + 20 + 20; // M1: medium+hard+elite+master additions
+console.log(`[aelgard] Clue scroll expansion: ${totalNewSteps + waveB4NewSteps} new steps (${waveB4NewSteps} added in waveB4 M1 sweep) + master tier with rewards`);
