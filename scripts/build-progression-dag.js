@@ -714,7 +714,83 @@ function lintRefs(nodeList) {
   return { driftErrors, wildsErrors, missingErrors };
 }
 
-// ── Run the lint pass now (no fixups applied yet — those land in C5/C6/C7) ──
+// ══════════════════════════════════════════════════════════════════════════════
+// C5 RENAMES (v0.9 Wave A2) — 21 ref-edits for prefix/semantic drift
+// ══════════════════════════════════════════════════════════════════════════════
+// Post-processing fix pass. Each entry rewrites any `requires` entry matching
+// `from` to the corresponding `to`. Pure data-level corrections traceable to
+// the section 6.2 patch table in reports/broken-dag-refs-plan.md.
+//
+// Covers: 3 Wilds area renames, 7 quest prefix renames (the_ drift), 6 quest
+// semantic renames. Duplicate-target dedup is handled by a later pass.
+
+const RENAMES = [
+  // Wilds convention drift (area prefix)
+  { from: 'area:the_wilds_resource_arena', to: 'area:wilds_resource_area' },
+  { from: 'area:the_wilds_throne',         to: 'area:wilds_revenant_throne' },
+  { from: 'area:the_wilds_revenant_caves', to: 'area:wilds_revenant_caves' },
+
+  // Quest prefix drift (the_ prefix missing)
+  { from: 'quest:last_dragon_p1',     to: 'quest:the_last_dragon_p1' },
+  { from: 'quest:glass_prophecy',     to: 'quest:the_glass_prophecy' },
+  { from: 'quest:missing_miner',      to: 'quest:the_missing_miner' },
+  { from: 'quest:inkweald_door',      to: 'quest:the_inkweald_door' },
+  { from: 'quest:forge_beneath',      to: 'quest:the_forge_beneath' },
+  { from: 'quest:veilwood_covenant',  to: 'quest:the_veilwood_covenant' },
+  { from: 'quest:shades_of_mortton',  to: 'quest:the_shades_of_mortton' },
+
+  // Quest semantic rename
+  { from: 'quest:bog_witch',             to: 'quest:the_bog_witchs_bargain' },
+  { from: 'quest:stormwood_rite',        to: 'quest:the_stag_shape_rite' },
+  { from: 'quest:sins_of_the_father',    to: 'quest:sins_of_malachar' },
+  { from: 'quest:mage_arena',            to: 'quest:the_mage_arena_trial' },
+  { from: 'quest:the_royal_commission',  to: 'quest:the_shipwrights_commission' },
+  { from: 'quest:druidic_ritual',        to: 'quest:the_ancient_tree_ritual' },
+];
+
+function applyRenames(nodeList) {
+  const byFrom = new Map(RENAMES.map(r => [r.from, r.to]));
+  let applied = 0;
+  for (const n of nodeList) {
+    if (!Array.isArray(n.requires)) continue;
+    for (let i = 0; i < n.requires.length; i++) {
+      const mapped = byFrom.get(n.requires[i]);
+      if (mapped) {
+        n.requires[i] = mapped;
+        applied++;
+      }
+    }
+  }
+  return applied;
+}
+
+// Dedupe pass — once renames collapse duplicate prereqs to the same id,
+// de-duplicate each node's `requires` array so the edge count doesn't
+// double-count and the lint pass stays accurate.
+function dedupRequires(nodeList) {
+  let removed = 0;
+  for (const n of nodeList) {
+    if (!Array.isArray(n.requires)) continue;
+    const seen = new Set();
+    const kept = [];
+    for (const r of n.requires) {
+      if (seen.has(r)) { removed++; continue; }
+      seen.add(r);
+      kept.push(r);
+    }
+    n.requires = kept;
+  }
+  return removed;
+}
+
+// ── Apply v0.9 Wave A2 fix pass in order ───────────────────────────────────
+
+const _renameCount = applyRenames([...nodes.values()]);
+const _dupsRemoved = dedupRequires([...nodes.values()]);
+
+// Lint pass after fixups — residual errors are drift the renames cannot
+// resolve (typically content-pending quests) plus any new refs added by
+// parallel agents' content.
 const _lintResult = lintRefs([...nodes.values()]);
 
 // ── Write out ──────────────────────────────────────────────────────────────
@@ -745,7 +821,8 @@ fs.writeFileSync(path.join(DATA_DIR, 'progression-dag.json'), JSON.stringify(dag
 console.log(`[progression-dag] Wrote ${nodeArray.length} nodes, ${edgeCount} edges`);
 console.log('[progression-dag] By type:', dag.metadata.by_type);
 
-// ── C15 lint summary ────────────────────────────────────────────────────────
+// ── C5 rename + lint summary ───────────────────────────────────────────────
+console.log(`[waveA2] Renames applied (C5): ${_renameCount} / duplicate requires removed: ${_dupsRemoved}`);
 console.log(`[lint] drift=${_lintResult.driftErrors.length} wilds=${_lintResult.wildsErrors.length} other-missing=${_lintResult.missingErrors.length}`);
 for (const e of _lintResult.driftErrors) {
   process.stderr.write(`[lint] DRIFT ${e.from} -> ${e.ref} (did you mean ${e.suggested}?)\n`);
@@ -1059,7 +1136,12 @@ for (const [t, c] of Object.entries(brokenByReferringType).sort((a, b) => b[1] -
 }
 push('');
 
-// ── C15 lint section in report ─────────────────────────────────────────────
+// ── C5/C15 lint section in report ─────────────────────────────────────────
+push('## v0.9 Wave A2 fix-pass summary');
+push('');
+push(`- **Renames applied (C5):** ${_renameCount}`);
+push(`- **Duplicate requires removed:** ${_dupsRemoved}`);
+push('');
 push('## DAG-builder lint (C15)');
 push('');
 push('Catches drift-style naming errors at build time. `drift` and `wilds` buckets should be zero after C5 renames land; `other-missing` drops as content-pending quests ship.');
