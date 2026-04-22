@@ -1,0 +1,70 @@
+{
+  "bestiary": {
+    "total": 120,
+    "withTable": 120
+  },
+  "atoms": {
+    "total": 158,
+    "withDrops": 158
+  },
+  "code": {
+    "total": 554,
+    "withDrops": 554,
+    "zeroDrop": 0
+  },
+  "byRegion": {
+    "boneyard": {
+      "total": 10,
+      "withDrops": 10
+    },
+    "unknown": {
+      "total": 193,
+      "withDrops": 193
+    },
+    "combat-challenge": {
+      "total": 5,
+      "withDrops": 5
+    },
+    "dungeon/multi-region": {
+      "total": 35,
+      "withDrops": 35
+    },
+    "glass_desert": {
+      "total": 7,
+      "withDrops": 7
+    },
+    "heartlands": {
+      "total": 11,
+      "withDrops": 11
+    },
+    "inkweald": {
+      "total": 6,
+      "withDrops": 6
+    },
+    "moryskah": {
+      "total": 9,
+      "withDrops": 9
+    },
+    "raid/multi-region": {
+      "total": 195,
+      "withDrops": 195
+    },
+    "saltbrine": {
+      "total": 8,
+      "withDrops": 8
+    },
+    "slayer": {
+      "total": 60,
+      "withDrops": 60
+    },
+    "sootworks": {
+      "total": 7,
+      "withDrops": 7
+    },
+    "veilwood": {
+      "total": 8,
+      "withDrops": 8
+    }
+  },
+  "zeroDropIds": []
+}

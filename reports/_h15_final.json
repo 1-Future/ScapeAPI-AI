@@ -1,0 +1,23 @@
+{
+  "combatMonsters": 712,
+  "withDrops": 712,
+  "zeroDrop": 0,
+  "dropsByRegion": {
+    "boneyard": 10,
+    "unknown": 193,
+    "combat-challenge": 5,
+    "dungeon": 35,
+    "glass_desert": 7,
+    "heartlands": 11,
+    "inkweald": 6,
+    "moryskah": 9,
+    "raid": 195,
+    "saltbrine": 8,
+    "slayer": 60,
+    "sootworks": 7,
+    "veilwood": 8,
+    "atoms": 158
+  },
+  "zeroDropByRegion": {},
+  "zeroDropIds": []
+}
