@@ -4,3 +4,5 @@ node_modules/
 .claude/
 .env
 osrs-data/
+# sim — raw JSONL diagnostic logs can be huge. Keep rendered HTML only.
+reports/diagnostic-*.jsonl
