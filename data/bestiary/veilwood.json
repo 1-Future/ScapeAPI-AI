@@ -24,7 +24,10 @@
         "The antler fragments retain the delay property when cut, which makes them valuable in reflection-based optical arts."
       ],
       "habitat": "moonlit glades, the Antler-Path rings, glass-deer herds in the northern wood",
-      "reagent_callout": "Mirror-deer antler (1/8) — reagent for Second-Thought helm (once per combat, resists a fatal hit and applies heal-over-time)."
+      "reagent_callout": "Mirror-deer antler (1/8) — reagent for Second-Thought helm (once per combat, resists a fatal hit and applies heal-over-time).",
+      "class_tags": [
+        "slayer"
+      ]
     },
     {
       "id": "mega_veil_glass_spider",
@@ -46,7 +49,12 @@
         "Silk harvested fresh winds onto a bow-tiller to make the Veilwood's best ranger strings."
       ],
       "habitat": "canopy webs, moonlight corridors, the Long Ride",
-      "reagent_callout": "Glass-spider silk (1/6) — reagent for glassprint bowstring (Veilwood ranger-tier)."
+      "reagent_callout": "Glass-spider silk (1/6) — reagent for glassprint bowstring (Veilwood ranger-tier).",
+      "class_tags": [
+        "ranged_user",
+        "beast",
+        "slayer"
+      ]
     },
     {
       "id": "mega_veil_veil_warden",
@@ -68,7 +76,12 @@
         "They accept diplomatic tokens — the Veilwood writ, available from the council-clerk in Glimwood — and will escort the holder safely through even contested zones."
       ],
       "habitat": "elven patrol-paths, the Long Ride, Glimwood approaches",
-      "anti_pattern_note": "Veilwood writ fully bypasses aggro. Encounters that spawn wardens on a writ-holding player are incorrect."
+      "anti_pattern_note": "Veilwood writ fully bypasses aggro. Encounters that spawn wardens on a writ-holding player are incorrect.",
+      "class_tags": [
+        "ranged_user",
+        "human",
+        "slayer"
+      ]
     },
     {
       "id": "mega_veil_moonlight_panther",
@@ -90,7 +103,11 @@
         "Their pelt is highly prized; a full moonlight pelt is the material for the Veilwood elven nobility's winter cloaks."
       ],
       "habitat": "glades at night, fog-filled valleys, moonrise-calling clearings",
-      "reagent_callout": "Moonlight pelt (1/24) — reagent for moonlit cloak (stealth rating + night-vision in Veilwood)."
+      "reagent_callout": "Moonlight pelt (1/24) — reagent for moonlit cloak (stealth rating + night-vision in Veilwood).",
+      "class_tags": [
+        "beast",
+        "slayer"
+      ]
     },
     {
       "id": "mega_veil_corrupted_dryad",
@@ -112,7 +129,11 @@
         "She can be put to rest only by planting a new tree — not just any tree, but a seedling from her original tree, which must have survived. Most have not."
       ],
       "habitat": "old-growth stumps, Sawmill Row, logging-camp outskirts",
-      "reagent_callout": "Corrupted acorn (1/12) — reagent for the 'Replant' one-shot consumable (removes a corrupted dryad from the world state for 30 days in-game)."
+      "reagent_callout": "Corrupted acorn (1/12) — reagent for the 'Replant' one-shot consumable (removes a corrupted dryad from the world state for 30 days in-game).",
+      "class_tags": [
+        "magic_user",
+        "slayer"
+      ]
     },
     {
       "id": "mega_veil_veilgrove_hag",
@@ -134,7 +155,11 @@
         "A hag will not chase beyond her cottage. The rule is old. It is etched inside the doorway."
       ],
       "habitat": "hollow-stump cottages, deep Veilwood interior off the patrol paths",
-      "anti_pattern_note": "hospitality phase is a real mechanic. First interaction = conversation, NOT combat. Combat only triggers if the player drinks three cups."
+      "anti_pattern_note": "hospitality phase is a real mechanic. First interaction = conversation, NOT combat. Combat only triggers if the player drinks three cups.",
+      "class_tags": [
+        "magic_user",
+        "slayer"
+      ]
     },
     {
       "id": "mega_veil_spore_drake",
@@ -156,7 +181,13 @@
         "A mask, ironically from the Sootworks air-quality program, fully blocks the spore effect. Cross-regional gear matters."
       ],
       "habitat": "deep Veilwood mycelium-ridden thickets, the Spore Ring",
-      "reagent_callout": "Spore-drake mycelium (1/20) — reagent for mycelium dust (thrown consumable, 30s confusion vs any magic-tag mob)."
+      "reagent_callout": "Spore-drake mycelium (1/20) — reagent for mycelium dust (thrown consumable, 30s confusion vs any magic-tag mob).",
+      "class_tags": [
+        "dragon",
+        "magic_user",
+        "plant",
+        "slayer"
+      ]
     },
     {
       "id": "mega_veil_fey_knight",
@@ -178,7 +209,11 @@
         "A knight's gauntlet is valuable as a diplomatic token in Heartlands-elven negotiations; every gauntlet is signed by the knight."
       ],
       "habitat": "equinox-road, solstice-tracks, the four ceremonial fey patrols",
-      "anti_pattern_note": "iron-carrier aggro is REAL. Player wearing iron gear in Veilwood during solstice window gets auto-aggro'd."
+      "anti_pattern_note": "iron-carrier aggro is REAL. Player wearing iron gear in Veilwood during solstice window gets auto-aggro'd.",
+      "class_tags": [
+        "human",
+        "slayer"
+      ]
     },
     {
       "id": "mega_veil_heartwood_treant",
@@ -200,7 +235,11 @@
         "Disturbing a treant is a crime in elven law. Killing one is an unresolved offence — the elves will not prosecute, but the Veilwood itself remembers, and the forest becomes hostile to the killer for a lunar cycle."
       ],
       "habitat": "the Old Grove interior, specifically six named sites (Oakfather, Second-Mother, etc.)",
-      "anti_pattern_note": "passive. Attacking a treant without quest authority triggers region-wide Veilwood aggro debuff for 30 days in-game."
+      "anti_pattern_note": "passive. Attacking a treant without quest authority triggers region-wide Veilwood aggro debuff for 30 days in-game.",
+      "class_tags": [
+        "plant",
+        "slayer"
+      ]
     },
     {
       "id": "mega_veil_pixie_swarm",
@@ -222,7 +261,11 @@
         "They cannot be bargained with, but they can be distracted: a handful of dropped copper coins will hold their attention for ten minutes, which is enough to pass through."
       ],
       "habitat": "any grievance-inducing act near Veilwood boundaries, especially the fence at Glimwood-edge",
-      "reagent_callout": "Moonpetal (1/4) — reagent for the minor restoration potion (25% HP, Veilwood variant)."
+      "reagent_callout": "Moonpetal (1/4) — reagent for the minor restoration potion (25% HP, Veilwood variant).",
+      "class_tags": [
+        "magic_user",
+        "slayer"
+      ]
     },
     {
       "id": "veil_glimstalker",
@@ -244,7 +287,10 @@
         "A player who goes still of mind — meditates, sits — becomes invisible to a glimstalker. This is a teachable technique; the elven council teaches it in a mid-game quest."
       ],
       "habitat": "twilight-band paths, specifically the Glimwood-Old Grove corridor",
-      "anti_pattern_note": "pre-commit intention detection is a real mechanic. Player in still-mode (no queued actions) is invisible."
+      "anti_pattern_note": "pre-commit intention detection is a real mechanic. Player in still-mode (no queued actions) is invisible.",
+      "class_tags": [
+        "slayer"
+      ]
     },
     {
       "id": "veil_grotto_nymph",
@@ -266,7 +312,11 @@
         "Nymphs communicate across springs by underground seepage; an insult at one pool carries to all pools by nightfall."
       ],
       "habitat": "every Veilwood spring (nine named springs), particularly the Moss-Ring, Lady's-Foot, and Second-Mother springs",
-      "anti_pattern_note": "passive. Killing a nymph bans the player from ALL Veilwood springs for 90 days in-game; quest failure cascades."
+      "anti_pattern_note": "passive. Killing a nymph bans the player from ALL Veilwood springs for 90 days in-game; quest failure cascades.",
+      "class_tags": [
+        "magic_user",
+        "slayer"
+      ]
     },
     {
       "id": "veil_old_wolf_queen",
@@ -288,7 +338,11 @@
         "Her pelt, hung in a home, is said to ward off all wolves for a generation — which is empirically true; wolves will detour the house miles out of their way."
       ],
       "habitat": "the North Ridge and Moon-Valley pack territories",
-      "reagent_callout": "Wolf queen pelt (1/48 collection-log) — reagent for the wolf-ward hearth charm (housing upgrade: -50% aggro from all wolf-tag within 20 tiles of player home)."
+      "reagent_callout": "Wolf queen pelt (1/48 collection-log) — reagent for the wolf-ward hearth charm (housing upgrade: -50% aggro from all wolf-tag within 20 tiles of player home).",
+      "class_tags": [
+        "beast",
+        "slayer"
+      ]
     }
   ],
   "region_flavor_drops": [

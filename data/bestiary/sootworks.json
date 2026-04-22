@@ -24,7 +24,11 @@
         "Killing a cinder golem fully extinguishes the bellow. The silence makes the night-shift slow for a week."
       ],
       "habitat": "Sootworks smelt-floor, forge-yards, abandoned blast-furnaces",
-      "anti_pattern_note": "every cinder golem has a NAME inherited from its foreman — encounters should reveal that name somehow."
+      "anti_pattern_note": "every cinder golem has a NAME inherited from its foreman — encounters should reveal that name somehow.",
+      "class_tags": [
+        "construct",
+        "slayer"
+      ]
     },
     {
       "id": "mega_soot_iron_dragon",
@@ -46,7 +50,12 @@
         "Sootworks management accepts iron dragons as an unavoidable overhead and has a standing order to bury dead ones at least a mile from any forge, to prevent heredity."
       ],
       "habitat": "deep Sootworks pits, ironworks caverns, the Blast Hollow",
-      "reagent_callout": "Drops Draconic visage shard (1/2048) — reagent for the Sootworks anti-dragon shield upgrade."
+      "reagent_callout": "Drops Draconic visage shard (1/2048) — reagent for the Sootworks anti-dragon shield upgrade.",
+      "class_tags": [
+        "dragon",
+        "ranged_user",
+        "slayer"
+      ]
     },
     {
       "id": "mega_soot_steel_dragon",
@@ -68,7 +77,12 @@
         "The last head-of-Sootworks to try taming one is a plaque on the Hollow's southern wall. The plaque is short."
       ],
       "habitat": "Steel Hollow below the main Sootworks, the secondary forges at night",
-      "reagent_callout": "Drops Draconic visage (1/5000) — reagent for the Anti-dragon shield endgame upgrade."
+      "reagent_callout": "Drops Draconic visage (1/5000) — reagent for the Anti-dragon shield endgame upgrade.",
+      "class_tags": [
+        "dragon",
+        "ranged_user",
+        "slayer"
+      ]
     },
     {
       "id": "mega_soot_forge_wraith",
@@ -90,7 +104,12 @@
         "Killing one requires rapid, concussive damage — the heat-shape can outrun any cutting edge but cannot reassemble from shattered halves."
       ],
       "habitat": "forge-houses whose fires have died, the abandoned Southrun workshops",
-      "anti_pattern_note": "door-threshold mechanic is core — do NOT let the wraith follow outside. The bait-out-and-shut is explicit in the encounter script."
+      "anti_pattern_note": "door-threshold mechanic is core — do NOT let the wraith follow outside. The bait-out-and-shut is explicit in the encounter script.",
+      "class_tags": [
+        "undead",
+        "magic_user",
+        "slayer"
+      ]
     },
     {
       "id": "mega_soot_clockwork_abomination",
@@ -112,7 +131,11 @@
         "A winding-key stop from a combatant can briefly silence one clock. Silence all three and the frame collapses."
       ],
       "habitat": "Sootworks apprentice workshops, the condemned east wing",
-      "reagent_callout": "Drops clockwork spring (reagent for tick-wound crossbow) and a winding key (slayer-niche tool vs construct-tag)."
+      "reagent_callout": "Drops clockwork spring (reagent for tick-wound crossbow) and a winding key (slayer-niche tool vs construct-tag).",
+      "class_tags": [
+        "construct",
+        "slayer"
+      ]
     },
     {
       "id": "mega_soot_dust_devil",
@@ -134,7 +157,10 @@
         "Sootworks foremen grudgingly issue face-masks for dust-devil-prone zones. The masks are older than some foremen."
       ],
       "habitat": "Sootworks blast-corridors, coal-dust storage, unventilated pits",
-      "anti_pattern_note": "face-mask item (regional reward) suppresses aggro within 3 tiles. Encounter design should not assume uncovered-face player."
+      "anti_pattern_note": "face-mask item (regional reward) suppresses aggro within 3 tiles. Encounter design should not assume uncovered-face player.",
+      "class_tags": [
+        "slayer"
+      ]
     },
     {
       "id": "mega_soot_crazed_engineer",
@@ -156,7 +182,10 @@
         "Killed, he drops a partial blueprint — one sheet of a larger design that may or may not be completable by combining sheets from other crazed engineers scattered across the Sootworks."
       ],
       "habitat": "workshop lofts, abandoned commission sites, coal-bunker interiors",
-      "reagent_callout": "Each engineer drops one unique blueprint sheet (1/64) — 12 collectible sheets combine into the Sootworks Automaton (pet follower, not combat)."
+      "reagent_callout": "Each engineer drops one unique blueprint sheet (1/64) — 12 collectible sheets combine into the Sootworks Automaton (pet follower, not combat).",
+      "class_tags": [
+        "slayer"
+      ]
     },
     {
       "id": "mega_soot_furnace_imp",
@@ -178,7 +207,11 @@
         "They do not attack first. If provoked they throw hot slag with uncomfortable aim."
       ],
       "habitat": "cold furnace interiors, tool-bench backs, abandoned coal scuttles",
-      "anti_pattern_note": "passive. Attacking an imp provokes ALL imps in line-of-sight."
+      "anti_pattern_note": "passive. Attacking an imp provokes ALL imps in line-of-sight.",
+      "class_tags": [
+        "demon",
+        "slayer"
+      ]
     },
     {
       "id": "mega_soot_rust_elemental",
@@ -200,7 +233,12 @@
         "A rust elemental cannot be killed by destruction; it can be separated. Spilling its contents across a wide enough area reduces it below critical mass, and the scattered flake is inert."
       ],
       "habitat": "flooded Sootworks vaults, century-rain-wet cellars, the drowned east cellar",
-      "anti_pattern_note": "weapon-degradation is durable debuff on iron/mithril gear for 30 minutes. Warn the player."
+      "anti_pattern_note": "weapon-degradation is durable debuff on iron/mithril gear for 30 minutes. Warn the player.",
+      "class_tags": [
+        "magic_user",
+        "elemental",
+        "slayer"
+      ]
     },
     {
       "id": "mega_soot_slag_troll",
@@ -222,7 +260,11 @@
         "The only reliable containment is a steel cage pre-cast with rune anchors. Sootworks management has three in storage. Two are cracked."
       ],
       "habitat": "slag pits, the East Trench, long-abandoned overflow pools",
-      "reagent_callout": "Drops slag-core (1/256) — reagent for the Sootworks endgame crush weapon 'The Overpour'."
+      "reagent_callout": "Drops slag-core (1/256) — reagent for the Sootworks endgame crush weapon 'The Overpour'.",
+      "class_tags": [
+        "giant",
+        "slayer"
+      ]
     },
     {
       "id": "soot_boiler_spectre",
@@ -244,7 +286,12 @@
         "The only way to free a spectre is to replace the boiler fully. This is expensive. Most foremen choose containment (lock the door, post a warning) over replacement."
       ],
       "habitat": "Sootworks boiler rooms, specifically rooms with recorded accidents",
-      "anti_pattern_note": "encounter constrained to the boiler room. Spectre CANNOT be kited out."
+      "anti_pattern_note": "encounter constrained to the boiler room. Spectre CANNOT be kited out.",
+      "class_tags": [
+        "undead",
+        "magic_user",
+        "slayer"
+      ]
     },
     {
       "id": "soot_valve_gremlin",
@@ -266,7 +313,10 @@
         "They drop a valve fitting that, accumulated, becomes a useful crafting stockpile for plumbing repair professions."
       ],
       "habitat": "steam-pipe junctions, valve-clusters, any long corridor with wall-mounted pressure gauges",
-      "reagent_callout": "Steam valve fittings stack — 10 fittings at the Sootworks plumbing bench = one steam-compression flask (consumable mid-combat)."
+      "reagent_callout": "Steam valve fittings stack — 10 fittings at the Sootworks plumbing bench = one steam-compression flask (consumable mid-combat).",
+      "class_tags": [
+        "slayer"
+      ]
     },
     {
       "id": "soot_smog_wraith",
@@ -288,7 +338,12 @@
         "A strong cross-wind disperses them temporarily. The wind goes with the weather; so does the wraith."
       ],
       "habitat": "smog-dense Sootworks corridors, the yellow-alert air days",
-      "anti_pattern_note": "mask item (regional reward) provides aggro suppression; smog wraiths are a mask-propaganda mechanic."
+      "anti_pattern_note": "mask item (regional reward) provides aggro suppression; smog wraiths are a mask-propaganda mechanic.",
+      "class_tags": [
+        "undead",
+        "magic_user",
+        "slayer"
+      ]
     }
   ],
   "region_flavor_drops": [

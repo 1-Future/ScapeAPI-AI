@@ -24,7 +24,11 @@
         "At dawn they lie down, sink into the soil, and the cycle begins again next dusk. Father Dorin's dawn broom-sweep of the churchyard is mostly symbolic, but the noise seems to help them find their graves."
       ],
       "habitat": "the four Moryskah churchyards, drifting inward from the boundary fence as the night deepens",
-      "reagent_callout": "Grave-spawn ichor is a Moryskah-wide crafting reagent; feeds into salted-blade combination."
+      "reagent_callout": "Grave-spawn ichor is a Moryskah-wide crafting reagent; feeds into salted-blade combination.",
+      "class_tags": [
+        "undead",
+        "slayer"
+      ]
     },
     {
       "id": "mega_mor_crypt_howler",
@@ -46,7 +50,11 @@
         "They can be outrun in open ground, but they do not chase; they pace. They wait for the tomb-door to be opened again. Time is on their side."
       ],
       "habitat": "family crypts, ossuaries, the old mausoleum quarter",
-      "anti_pattern_note": "do NOT let the howler run open ground. The mechanic is tomb-pacing — fight happens in a constrained crypt layout."
+      "anti_pattern_note": "do NOT let the howler run open ground. The mechanic is tomb-pacing — fight happens in a constrained crypt layout.",
+      "class_tags": [
+        "undead",
+        "slayer"
+      ]
     },
     {
       "id": "mega_mor_nocturne_lord",
@@ -68,7 +76,10 @@
         "The weakness to slash is not physical. It is that a Nocturne will not fight a blade it recognises as family silver."
       ],
       "habitat": "Moryskah opera house, notary offices after 11pm, first-floor drawing rooms with shuttered windows",
-      "reagent_callout": "Cursed signet + family silver blade = Nocturne-bane (slayer-niche vs all vampyre-tag mobs)."
+      "reagent_callout": "Cursed signet + family silver blade = Nocturne-bane (slayer-niche vs all vampyre-tag mobs).",
+      "class_tags": [
+        "slayer"
+      ]
     },
     {
       "id": "mega_mor_werewolf_stalker",
@@ -90,7 +101,11 @@
         "If you put the stalker down, you are expected to deliver the corpse to the family door before dawn, with your face uncovered, so the mourners can see who did it. This is the custom. Ignoring it is unwise."
       ],
       "habitat": "residential alleys after moonrise, the coaching-house roofs, bakery backyards",
-      "anti_pattern_note": "drop-off-the-corpse custom is real; skipping it is a named social debt that surfaces later."
+      "anti_pattern_note": "drop-off-the-corpse custom is real; skipping it is a named social debt that surfaces later.",
+      "class_tags": [
+        "beast",
+        "slayer"
+      ]
     },
     {
       "id": "mega_mor_bone_priest",
@@ -112,7 +127,13 @@
         "They carry a chapel-ash censer which, if salvaged, will cool any blade to a point a vampyre cannot ignore."
       ],
       "habitat": "ossuaries, abandoned chapels, the crypt level of the Moryskah cathedral",
-      "reagent_callout": "Chapel ash is a core Moryskah reagent; three chapel ash + any blade = salted blade (vampyre-effective)."
+      "reagent_callout": "Chapel ash is a core Moryskah reagent; three chapel ash + any blade = salted blade (vampyre-effective).",
+      "class_tags": [
+        "undead",
+        "magic_user",
+        "human",
+        "slayer"
+      ]
     },
     {
       "id": "mega_mor_salt_vampire",
@@ -134,7 +155,11 @@
         "Their fang, salted and treated, is one of the few vampyre-bane crafting reagents that functions outside Moryskah."
       ],
       "habitat": "Moryskah docklands, brine-reeking cellars, kitchens that stopped salting",
-      "reagent_callout": "Salt vampire fang + ordinary stake = brined stake (doubles damage vs ALL vampyre-tag across regions)."
+      "reagent_callout": "Salt vampire fang + ordinary stake = brined stake (doubles damage vs ALL vampyre-tag across regions).",
+      "class_tags": [
+        "vampyre",
+        "slayer"
+      ]
     },
     {
       "id": "mega_mor_coffin_crawler",
@@ -156,7 +181,10 @@
         "A crawler can be stopped cleanly with a crush to the spine. A slash simply creates two smaller crawlers. The junior gravediggers carry hammers for this reason."
       ],
       "habitat": "new-dug graves, undertaker yards, the three-month-old plots",
-      "anti_pattern_note": "slash split mechanic is real — NEVER equip a slash weapon if there are multiple crawlers."
+      "anti_pattern_note": "slash split mechanic is real — NEVER equip a slash weapon if there are multiple crawlers.",
+      "class_tags": [
+        "slayer"
+      ]
     },
     {
       "id": "mega_mor_fenbolter",
@@ -178,7 +206,11 @@
         "Country wisdom: if you see a heron standing still in the Moryskah fens, there is a fenbolter within forty paces. The heron is waiting to eat something the fenbolter takes down."
       ],
       "habitat": "Moryskah fens, reed-beds, bog edges at low tide",
-      "anti_pattern_note": "the throw range telegraph is the reed stillness. Do not reveal the mob until the player crosses the forty-pace line."
+      "anti_pattern_note": "the throw range telegraph is the reed stillness. Do not reveal the mob until the player crosses the forty-pace line.",
+      "class_tags": [
+        "ranged_user",
+        "slayer"
+      ]
     },
     {
       "id": "mega_mor_bog_witch_acolyte",
@@ -200,7 +232,11 @@
         "A killed acolyte draws Mirelda's attention without exception. She remembers names. She does not punish on the same day, but she does punish."
       ],
       "habitat": "the fens around Mirelda's cottage, the bog-path to the Heartlands border, riverbank herb patches",
-      "anti_pattern_note": "killing an acolyte is a durable social penalty — surfaces in quest dialogue with Mirelda for the rest of the account."
+      "anti_pattern_note": "killing an acolyte is a durable social penalty — surfaces in quest dialogue with Mirelda for the rest of the account.",
+      "class_tags": [
+        "magic_user",
+        "slayer"
+      ]
     },
     {
       "id": "mega_mor_hollow_hunter",
@@ -222,7 +258,11 @@
         "The only reliable way to talk to one is to approach with your hands open and say, 'I am carrying nothing.' He will listen for one question."
       ],
       "habitat": "Moryskah wilderness trails, deep forest ranger-paths, the foothills at dusk",
-      "reagent_callout": "Drops hollow-hunter bowstring (1/64) — reagent for Hollowstring shortbow (slayer-niche vs undead-tag)."
+      "reagent_callout": "Drops hollow-hunter bowstring (1/64) — reagent for Hollowstring shortbow (slayer-niche vs undead-tag).",
+      "class_tags": [
+        "ranged_user",
+        "slayer"
+      ]
     },
     {
       "id": "mega_mor_rust_wraith",
@@ -244,7 +284,12 @@
         "They can be compelled to a truce by offering them a single pristine iron ingot. The ingot rusts through in their grip; they are satisfied for a fortnight."
       ],
       "habitat": "marshy battlefield remnants, where a Sootworks detachment was lost",
-      "anti_pattern_note": "weapon degradation on hit is a REAL mechanic — surface the warning to the player before engage."
+      "anti_pattern_note": "weapon degradation on hit is a REAL mechanic — surface the warning to the player before engage.",
+      "class_tags": [
+        "undead",
+        "magic_user",
+        "slayer"
+      ]
     },
     {
       "id": "mor_tollhouse_ghoul",
@@ -266,7 +311,11 @@
         "Killing the ghoul permanently closes the tollhouse as a safe stop for travellers — the nephew will relocate the office within a week. This is a lose-lose outcome. The mourning merchants tell their children."
       ],
       "habitat": "the Moryskah-Heartlands border tollhouse cellar, emerging only for transactions",
-      "anti_pattern_note": "killing the ghoul has named world-state consequences; this is not a 'free' slayer kill."
+      "anti_pattern_note": "killing the ghoul has named world-state consequences; this is not a 'free' slayer kill.",
+      "class_tags": [
+        "undead",
+        "slayer"
+      ]
     },
     {
       "id": "mor_lantern_ghost",
@@ -288,7 +337,12 @@
         "They can be asked for directions once per night per traveller. They cannot be bribed, fed, or kept as pets."
       ],
       "habitat": "fog-crossings, the moors between Moryskah and the Wilds, the Moryskah fen at winter dusk",
-      "anti_pattern_note": "passive AND helpful. Slayer tasks on them are explicitly disallowed. If a Slayer Master gives this task, it is a test and should be refused."
+      "anti_pattern_note": "passive AND helpful. Slayer tasks on them are explicitly disallowed. If a Slayer Master gives this task, it is a test and should be refused.",
+      "class_tags": [
+        "undead",
+        "magic_user",
+        "slayer"
+      ]
     },
     {
       "id": "mor_mausoleum_scholar",
@@ -310,7 +364,11 @@
         "A scholar can be distracted by a citation argument. This requires the player to have read the relevant text, which requires the relevant text to still exist."
       ],
       "habitat": "Moryskah University mausoleum library, third basement and below",
-      "reagent_callout": "Drops vellum-voice scroll — reagent for the Scholar's Gambit spell (single-target silence, reagent-gated)."
+      "reagent_callout": "Drops vellum-voice scroll — reagent for the Scholar's Gambit spell (single-target silence, reagent-gated).",
+      "class_tags": [
+        "magic_user",
+        "slayer"
+      ]
     },
     {
       "id": "mor_bell_hag",
@@ -332,7 +390,11 @@
         "Killing a bell hag silences the bell. This is considered a mercy by the hag's family and a civic loss by everyone else; certain funeral customers will pay well for the bell to fall silent, so there is a grey-market trade."
       ],
       "habitat": "Moryskah mourning district, funeral homes, the bell-tower of the third chapel",
-      "anti_pattern_note": "grey-market bounty exists; completing it is lore-surfacing, not just XP."
+      "anti_pattern_note": "grey-market bounty exists; completing it is lore-surfacing, not just XP.",
+      "class_tags": [
+        "magic_user",
+        "slayer"
+      ]
     }
   ],
   "region_flavor_drops": [

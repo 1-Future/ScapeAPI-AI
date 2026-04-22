@@ -24,7 +24,11 @@
         "A leviathan's teeth are wedge-shaped and single-use; they shed constantly. The sheds wash up on Saltbrine beaches and are a minor trade good."
       ],
       "habitat": "tidal reefs, Saltbrine coastal shelf, rocks uncovered at low tide",
-      "reagent_callout": "Reef-leviathan tooth (1/6) — reagent for the Low-Tide cleaver (slayer-niche vs all aquatic-tag mobs)."
+      "reagent_callout": "Reef-leviathan tooth (1/6) — reagent for the Low-Tide cleaver (slayer-niche vs all aquatic-tag mobs).",
+      "class_tags": [
+        "beast",
+        "slayer"
+      ]
     },
     {
       "id": "mega_salt_drowned_crew",
@@ -46,7 +50,11 @@
         "Surviving crew in reports do not leave the wreck they died on. They can be kited to the wreck-boundary but not beyond."
       ],
       "habitat": "Saltbrine shipwrecks (twelve catalogued), underwater grid squares 8-15",
-      "anti_pattern_note": "wreck-boundary soft-leash is core. Crew aggro drops outside the wreck."
+      "anti_pattern_note": "wreck-boundary soft-leash is core. Crew aggro drops outside the wreck.",
+      "class_tags": [
+        "human",
+        "slayer"
+      ]
     },
     {
       "id": "mega_salt_kraken_scout",
@@ -68,7 +76,12 @@
         "Ship-crews respect scouts: sighting one is good reason to turn back, but not fast — flight triggers pursuit."
       ],
       "habitat": "Saltbrine open water, deep-grid from square 20 outward",
-      "reagent_callout": "Kraken ink-vial (1/12) — reagent for deep-scribe quill (writes messages that surface only underwater)."
+      "reagent_callout": "Kraken ink-vial (1/12) — reagent for deep-scribe quill (writes messages that surface only underwater).",
+      "class_tags": [
+        "magic_user",
+        "beast",
+        "slayer"
+      ]
     },
     {
       "id": "mega_salt_brine_wraith",
@@ -90,7 +103,12 @@
         "A Saltbrine priest can negotiate with a wraith for recited penance — the priest speaks the original offence on behalf of the accused, and the wraith can release its target. This works sometimes."
       ],
       "habitat": "coastal wrecks, pier-ends, the lighthouse approach",
-      "reagent_callout": "Brine wraith residue (1/18) — reagent for the Penance Gorget (rare bypass of wraith-aggro)."
+      "reagent_callout": "Brine wraith residue (1/18) — reagent for the Penance Gorget (rare bypass of wraith-aggro).",
+      "class_tags": [
+        "undead",
+        "magic_user",
+        "slayer"
+      ]
     },
     {
       "id": "mega_salt_tavern_enforcer",
@@ -112,7 +130,10 @@
         "Killed (which is an escalation well beyond reasonable), their signature knuckle-dusters become a mid-tier crafting material."
       ],
       "habitat": "every Saltbrine tavern (23 catalogued), dockside brothels, the second-floor fighting pits",
-      "anti_pattern_note": "enforcers should only aggro in response to player actions (unpaid tab, brawl); never on walk-in."
+      "anti_pattern_note": "enforcers should only aggro in response to player actions (unpaid tab, brawl); never on walk-in.",
+      "class_tags": [
+        "slayer"
+      ]
     },
     {
       "id": "mega_salt_deep_mother",
@@ -134,7 +155,12 @@
         "The Saltbrine guild formally rates Deep-Mothers as unkillable; the rating is a recommendation, not a law."
       ],
       "habitat": "the Trench and Far Banks, deep-grid 40+",
-      "reagent_callout": "Deep-Mother ambergris (1/256 collection-log) — reagent for the Saltbrine ultimate weapon 'Trench-Cleaver' (slayer-niche vs aquatic, stacks with Low-Tide cleaver effect)."
+      "reagent_callout": "Deep-Mother ambergris (1/256 collection-log) — reagent for the Saltbrine ultimate weapon 'Trench-Cleaver' (slayer-niche vs aquatic, stacks with Low-Tide cleaver effect).",
+      "class_tags": [
+        "magic_user",
+        "beast",
+        "slayer"
+      ]
     },
     {
       "id": "mega_salt_coral_golem",
@@ -156,7 +182,12 @@
         "Coral fragments harvested from a fallen golem retain living mycelium and can be cultivated in a home aquarium to grow a much smaller, decorative coral-friend."
       ],
       "habitat": "reefs with fouled-anchor ruins, the Old Reef specifically",
-      "anti_pattern_note": "core-anchor weakness is explicit. Combat should surface this via examine or dialogue from a Saltbrine NPC."
+      "anti_pattern_note": "core-anchor weakness is explicit. Combat should surface this via examine or dialogue from a Saltbrine NPC.",
+      "class_tags": [
+        "construct",
+        "armoured",
+        "slayer"
+      ]
     },
     {
       "id": "mega_salt_sharkfriend_swarm",
@@ -178,7 +209,11 @@
         "Killing a swarm drives the associated predator away from the area for one tide-cycle. This is a Saltbrine fishing guild tactic."
       ],
       "habitat": "mid-water around larger predator zones, specifically the leviathan-lanes",
-      "anti_pattern_note": "swarm removal reduces regional leviathan aggro for 1 tide. Encounter reward loop works."
+      "anti_pattern_note": "swarm removal reduces regional leviathan aggro for 1 tide. Encounter reward loop works.",
+      "class_tags": [
+        "ranged_user",
+        "slayer"
+      ]
     },
     {
       "id": "mega_salt_pier_gremlin",
@@ -200,7 +235,10 @@
         "They are not a threat in combat, but they are persistent. A gremlin infestation on a pier can become a multi-week problem if ignored."
       ],
       "habitat": "every pier and quay, rope-storage lockers, ship-galleys at night",
-      "drops_note": "pier gremlin tails (always drop) are the starter bounty currency; don't inflate the reward."
+      "drops_note": "pier gremlin tails (always drop) are the starter bounty currency; don't inflate the reward.",
+      "class_tags": [
+        "slayer"
+      ]
     },
     {
       "id": "mega_salt_ghost_galleon_captain",
@@ -222,7 +260,11 @@
         "The captain's hat is a valuable item: it reduces aggro from all drowned crew for a week in-game, for any player who wears it."
       ],
       "habitat": "the captain's quarters of wrecks, specifically the 'named' wrecks (five catalogued)",
-      "reagent_callout": "Captain's hat (1/160 collection-log, 1 per named wreck) — wearable aggro-reduction item for drowned crew."
+      "reagent_callout": "Captain's hat (1/160 collection-log, 1 per named wreck) — wearable aggro-reduction item for drowned crew.",
+      "class_tags": [
+        "undead",
+        "slayer"
+      ]
     },
     {
       "id": "salt_lighthouse_keeper_ghost",
@@ -244,7 +286,12 @@
         "The Saltbrine fishing guild formally thanks him every winter solstice in a ceremony he does not attend but clearly enjoys."
       ],
       "habitat": "the Saltbrine lighthouse, all levels, with rotating duty by floor",
-      "anti_pattern_note": "passive unless provoked. Dialogue choice 'mention the Gutter Night' triggers combat; all other choices are safe."
+      "anti_pattern_note": "passive unless provoked. Dialogue choice 'mention the Gutter Night' triggers combat; all other choices are safe.",
+      "class_tags": [
+        "undead",
+        "magic_user",
+        "slayer"
+      ]
     },
     {
       "id": "salt_merman_scout",
@@ -266,7 +313,11 @@
         "Killing a scout closes merman trade for all Saltbrine ports for two in-game months. This is a meaningful economic consequence."
       ],
       "habitat": "shallow reefs, pier-ends at low tide, the trade-rock rendezvous",
-      "anti_pattern_note": "passive. Kill = 2-month regional trade closure. Slayer tasks should not target mermen."
+      "anti_pattern_note": "passive. Kill = 2-month regional trade closure. Slayer tasks should not target mermen.",
+      "class_tags": [
+        "ranged_user",
+        "slayer"
+      ]
     }
   ],
   "region_flavor_drops": [

@@ -24,7 +24,13 @@
         "They fight with ranging magic, switch to melee only if cornered. Best engaged with a single heavy burst rather than prolonged exchange."
       ],
       "habitat": "the Wilds interior, the Forgotten Ride, deep-wilds level 30+",
-      "reagent_callout": "Ancient emblem (1/32, Wilds-unique) — tradable to the Revenant Exchange for ancient-tier items."
+      "reagent_callout": "Ancient emblem (1/32, Wilds-unique) — tradable to the Revenant Exchange for ancient-tier items.",
+      "class_tags": [
+        "undead",
+        "magic_user",
+        "human",
+        "slayer"
+      ]
     },
     {
       "id": "mega_wild_revenant_dragon",
@@ -46,7 +52,13 @@
         "Their loot pool includes the rarest revenant items — specifically, the ancient hilt, the ancient vestige, and the notorious ancient crystal."
       ],
       "habitat": "five fixed patrol-territories across deep-wilds level 40+",
-      "reagent_callout": "Ancient crystal (1/512 collection-log) — reagent for the endgame Wilds weapon 'Voidwaker'."
+      "reagent_callout": "Ancient crystal (1/512 collection-log) — reagent for the endgame Wilds weapon 'Voidwaker'.",
+      "class_tags": [
+        "undead",
+        "dragon",
+        "magic_user",
+        "slayer"
+      ]
     },
     {
       "id": "mega_wild_chaos_elemental",
@@ -68,7 +80,13 @@
         "Killing it is a formal in-game event; defeats are announced across the server. The Wilds fishermen have a tradition of naming their next catch after the killer."
       ],
       "habitat": "Chaos Elemental's lair, fixed, deep-eastern-wilds",
-      "reagent_callout": "Dragon 2h sword (1/256 from chaos elemental) — endgame crush weapon, classic wilderness unique."
+      "reagent_callout": "Dragon 2h sword (1/256 from chaos elemental) — endgame crush weapon, classic wilderness unique.",
+      "class_tags": [
+        "magic_user",
+        "elemental",
+        "slayer",
+        "boss"
+      ]
     },
     {
       "id": "mega_wild_lava_dragon",
@@ -90,7 +108,12 @@
         "Their bones, rare drops, are the only dragon-bones that maintain heat indefinitely. Lava-dragon bones buried in a forge raise its peak temperature by 300 degrees — a sought-after smithing upgrade."
       ],
       "habitat": "Lava Isle, deep-west wilds level 45+",
-      "reagent_callout": "Lava dragon bones (always drop) — buried into forge for a permanent +300C smithing station upgrade."
+      "reagent_callout": "Lava dragon bones (always drop) — buried into forge for a permanent +300C smithing station upgrade.",
+      "class_tags": [
+        "dragon",
+        "magic_user",
+        "slayer"
+      ]
     },
     {
       "id": "mega_wild_black_stone_warden",
@@ -112,7 +135,12 @@
         "Their loot includes a warden-seal, which is the only item that can open the Black-Stone's hidden gate to the Crown's emergency-evacuation quarter."
       ],
       "habitat": "the Black-Stone Wall perimeter, two fixed patrol arcs",
-      "reagent_callout": "Warden-seal (1/1 per warden, respawn 30 min) — key to Black-Stone hidden gate (lore content)."
+      "reagent_callout": "Warden-seal (1/1 per warden, respawn 30 min) — key to Black-Stone hidden gate (lore content).",
+      "class_tags": [
+        "human",
+        "slayer",
+        "boss"
+      ]
     },
     {
       "id": "mega_wild_rogue_magus",
@@ -134,7 +162,12 @@
         "They drop partially-used spellbooks — salvageable for the partial-unknown spells within. Each magus has a different book; there is a collection log."
       ],
       "habitat": "Wilds caves, abandoned towers, hidden magus-camps",
-      "reagent_callout": "Partial spellbook (variable drop) — 9 unique spellbook fragments (1 per magus-origin guild) complete the Wilds Spellbook collection."
+      "reagent_callout": "Partial spellbook (variable drop) — 9 unique spellbook fragments (1 per magus-origin guild) complete the Wilds Spellbook collection.",
+      "class_tags": [
+        "magic_user",
+        "human",
+        "slayer"
+      ]
     },
     {
       "id": "mega_wild_bone_thrower",
@@ -156,7 +189,11 @@
         "Killed, they drop a mix of rune-tier weapons (from players they've downed) and bone-weapon variants that are slightly better than their Moryskah equivalents."
       ],
       "habitat": "Wilds open ground, specifically the Bone-Scatter Fields",
-      "reagent_callout": "Wilderness bone (1/20) — reagent for the wilderness bone-throwing spear (niche vs armoured-tag)."
+      "reagent_callout": "Wilderness bone (1/20) — reagent for the wilderness bone-throwing spear (niche vs armoured-tag).",
+      "class_tags": [
+        "ranged_user",
+        "slayer"
+      ]
     },
     {
       "id": "mega_wild_venenatis_spider",
@@ -178,7 +215,12 @@
         "Their webbing is unbreakable by normal means. The only reliable way to cut through a venom-spider web is with a weapon whose reagent includes venom-spider silk — a loop that encourages repeated hunts."
       ],
       "habitat": "the Spider's Nest, level 35-40 wilderness",
-      "reagent_callout": "Treasonous ring (1/48 collection-log) — reagent for the Wilds ring of venom-resistance."
+      "reagent_callout": "Treasonous ring (1/48 collection-log) — reagent for the Wilds ring of venom-resistance.",
+      "class_tags": [
+        "magic_user",
+        "beast",
+        "slayer"
+      ]
     },
     {
       "id": "mega_wild_vetion",
@@ -200,7 +242,14 @@
         "Only killable with a skull on (PvP-flagged). This is a formal lore-mechanic enforcing the fight's wilderness-coded risk."
       ],
       "habitat": "Vet'ion's Rest, deep-wilderness level 40+, skull-required",
-      "reagent_callout": "Skull sceptre (1/128 collection-log) — PvP utility item (teleports player to Wilds edge once per day)."
+      "reagent_callout": "Skull sceptre (1/128 collection-log) — PvP utility item (teleports player to Wilds edge once per day).",
+      "class_tags": [
+        "demon",
+        "undead",
+        "magic_user",
+        "slayer",
+        "boss"
+      ]
     },
     {
       "id": "mega_wild_callisto",
@@ -222,7 +271,12 @@
         "She is treated by the Wilds fishermen as a folk-hero. Several songs about her exist; all of them warn the listener to stay south of the Wall."
       ],
       "habitat": "Carrallangar, deep-wilderness level 40+, skull-required",
-      "reagent_callout": "Dragon pickaxe (1/256 collection-log) — classic wilderness unique, fastest mining tool with special attack."
+      "reagent_callout": "Dragon pickaxe (1/256 collection-log) — classic wilderness unique, fastest mining tool with special attack.",
+      "class_tags": [
+        "beast",
+        "slayer",
+        "boss"
+      ]
     },
     {
       "id": "wild_frost_drake",
@@ -244,7 +298,12 @@
         "They hunt in pairs: a drake and its nesting-partner. Engaging one always draws the other within 20 seconds."
       ],
       "habitat": "the Frost-Touched Zones, northern wilderness level 35+",
-      "reagent_callout": "Frost-drake scale (1/16) — reagent for cold-resistance boots (Moryskah winter-crossing tier)."
+      "reagent_callout": "Frost-drake scale (1/16) — reagent for cold-resistance boots (Moryskah winter-crossing tier).",
+      "class_tags": [
+        "dragon",
+        "magic_user",
+        "slayer"
+      ]
     },
     {
       "id": "wild_pvp_hound",
@@ -266,7 +325,12 @@
         "They pack in threes, which makes them a useful training mob for small groups practicing coordinated combat."
       ],
       "habitat": "skull-flag territory, throughout Wilds levels 1-30",
-      "anti_pattern_note": "skull-priority aggro is real. Unflagged player should be safe in proximity."
+      "anti_pattern_note": "skull-priority aggro is real. Unflagged player should be safe in proximity.",
+      "class_tags": [
+        "undead",
+        "beast",
+        "slayer"
+      ]
     },
     {
       "id": "wild_chaos_fanatic",
@@ -288,7 +352,12 @@
         "Their drop pool is chaos-themed; ancient staffs, chaos-imprinted runes, and rarely the Odium charm."
       ],
       "habitat": "scattered Wilds ritual sites, specifically the six Chaos Shrines",
-      "reagent_callout": "Odium shard (1/96) — reagent for Odium Ward (magic defence shield)."
+      "reagent_callout": "Odium shard (1/96) — reagent for Odium Ward (magic defence shield).",
+      "class_tags": [
+        "magic_user",
+        "elemental",
+        "slayer"
+      ]
     },
     {
       "id": "wild_scorpia",
@@ -310,7 +379,12 @@
         "She drops the malediction shard; three malediction shards combine into the Malediction ward (magic-class offhand)."
       ],
       "habitat": "Scorpia's Cave, deep-western-wilderness level 55+",
-      "reagent_callout": "Malediction shard (1/12 always, 3 to complete Malediction ward)."
+      "reagent_callout": "Malediction shard (1/12 always, 3 to complete Malediction ward).",
+      "class_tags": [
+        "giant",
+        "beast",
+        "slayer"
+      ]
     }
   ],
   "region_flavor_drops": [

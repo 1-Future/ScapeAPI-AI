@@ -24,7 +24,13 @@
         "Killing a scarab is not a crime, but removing one from a sealed tomb triggers a Crypt Assembly inspection within the week."
       ],
       "habitat": "ribcages of the large dead, cracked sarcophagi, the Second Plot dunes",
-      "anti_pattern_note": "scarab-in-sarcophagus encounters are a 3-wave spawn; killing the queen scarab stops the waves."
+      "anti_pattern_note": "scarab-in-sarcophagus encounters are a 3-wave spawn; killing the queen scarab stops the waves.",
+      "class_tags": [
+        "undead",
+        "kalphite",
+        "armoured",
+        "slayer"
+      ]
     },
     {
       "id": "mega_bone_salt_stalker",
@@ -46,7 +52,12 @@
         "A mature salt stalker will trail a caravan for three nights before attacking on the fourth. Caravans that know the rhythm drop a sacrificial donkey on the third night."
       ],
       "habitat": "Boneyard dunes in shade-hours, caravan routes, oasis peripheries",
-      "reagent_callout": "Salt-stalker hide (1/12) crafts into sun-cloak (heat-resistance layer for Glass Desert deep travel)."
+      "reagent_callout": "Salt-stalker hide (1/12) crafts into sun-cloak (heat-resistance layer for Glass Desert deep travel).",
+      "class_tags": [
+        "beast",
+        "shadow",
+        "slayer"
+      ]
     },
     {
       "id": "mega_bone_dust_dweller",
@@ -68,7 +79,11 @@
         "Killed, their flat fangs are harvested as striking tools — they are harder than steel, lighter than stone, and they take a glass-edge well."
       ],
       "habitat": "open dune-tops, just below sand-surface, away from oases",
-      "reagent_callout": "Dust-dweller tooth (1/6) crafts into glass-edge chisel for Glass Desert crystal-cutting."
+      "reagent_callout": "Dust-dweller tooth (1/6) crafts into glass-edge chisel for Glass Desert crystal-cutting.",
+      "class_tags": [
+        "beast",
+        "slayer"
+      ]
     },
     {
       "id": "mega_bone_mummy_guardian",
@@ -90,7 +105,11 @@
         "They are not mindless. A guardian can be negotiated with if you carry a valid tomb-writ from the Crypt Assembly. The writs are expensive and the Assembly is not generous."
       ],
       "habitat": "tomb-corridors, sand-buried burial complexes, the Avenue of Names",
-      "anti_pattern_note": "tomb-writ item bypasses aggro. A player with the writ should never be attacked by a guardian. Designers, check your encounter gates."
+      "anti_pattern_note": "tomb-writ item bypasses aggro. A player with the writ should never be attacked by a guardian. Designers, check your encounter gates.",
+      "class_tags": [
+        "undead",
+        "slayer"
+      ]
     },
     {
       "id": "mega_bone_pharaoh_lich",
@@ -112,7 +131,12 @@
         "Killing a Pharaoh lich is a minor diplomatic crisis. The Assembly will deny responsibility, the dynasty's descendants will demand reparations, and the Sootworks ambassador will issue a strongly-worded note. Expect follow-up quests."
       ],
       "habitat": "failed-upkeep tombs, the Court of Sand, old-dynasty sarcophagus vaults",
-      "reagent_callout": "Pharaoh's seal (unique drop 1/192) — reagent for Sand-crown diadem (magic-boost + slayer-niche vs mummy-tag)."
+      "reagent_callout": "Pharaoh's seal (unique drop 1/192) — reagent for Sand-crown diadem (magic-boost + slayer-niche vs mummy-tag).",
+      "class_tags": [
+        "undead",
+        "magic_user",
+        "slayer"
+      ]
     },
     {
       "id": "mega_bone_sand_wyvern",
@@ -134,7 +158,12 @@
         "Their hide is thermal-insulating; harvested and cured, it forms the inner liner of the best Glass Desert survival suits."
       ],
       "habitat": "deep-dune territory beyond the Third Plot, the Wyvern Pass",
-      "reagent_callout": "Wyvern-scale liner (1/32) — reagent for the Glass Desert endgame survival suit (heat resistance + magic defence)."
+      "reagent_callout": "Wyvern-scale liner (1/32) — reagent for the Glass Desert endgame survival suit (heat resistance + magic defence).",
+      "class_tags": [
+        "dragon",
+        "ranged_user",
+        "slayer"
+      ]
     },
     {
       "id": "mega_bone_bone_servant",
@@ -156,7 +185,12 @@
         "They attack only if their master's tomb is desecrated. This is the only reason to fight them, and it is not a good one."
       ],
       "habitat": "noble-plot tombs, old servant-quarters, ritually-incomplete burials",
-      "anti_pattern_note": "NEVER attack an unprovoked servant. Combat triggers a tomb-desecration status effect (negative diary impact)."
+      "anti_pattern_note": "NEVER attack an unprovoked servant. Combat triggers a tomb-desecration status effect (negative diary impact).",
+      "class_tags": [
+        "undead",
+        "human",
+        "slayer"
+      ]
     },
     {
       "id": "mega_bone_glass_crawler",
@@ -178,7 +212,10 @@
         "Killed, the shell fractures into usable crystal shards — valuable for glass-smithing if taken fresh, before the shards re-fuse."
       ],
       "habitat": "the Boneyard-Glass Desert border, the Fused Flats",
-      "reagent_callout": "Fresh crystal shard (0/5, 30-min timer decay) — reagent for glass-sharp blade variants."
+      "reagent_callout": "Fresh crystal shard (0/5, 30-min timer decay) — reagent for glass-sharp blade variants.",
+      "class_tags": [
+        "slayer"
+      ]
     },
     {
       "id": "mega_bone_tomb_robber",
@@ -200,7 +237,11 @@
         "The Crypt Assembly pays a bounty of 500 coin per robber turned in alive. Most robbers know this. Most robbers therefore do not surrender."
       ],
       "habitat": "active tomb-complexes, specifically the Second Plot sector",
-      "anti_pattern_note": "bargaining branch (hand over 100gp) triggers a short trade interaction. Not every mob is a fight."
+      "anti_pattern_note": "bargaining branch (hand over 100gp) triggers a short trade interaction. Not every mob is a fight.",
+      "class_tags": [
+        "human",
+        "slayer"
+      ]
     },
     {
       "id": "bone_mirage_warrior",
@@ -222,7 +263,11 @@
         "Killed, they dissolve into a cloud of irrelevant memories — travellers frequently report knowing, briefly, the name of an uncle they never had."
       ],
       "habitat": "open Boneyard dunes, specifically the Long Mirage south of the Second Plot",
-      "anti_pattern_note": "visible-only-at-certain-distance is a real mechanic. Do not render the mob at melee range."
+      "anti_pattern_note": "visible-only-at-certain-distance is a real mechanic. Do not render the mob at melee range.",
+      "class_tags": [
+        "ranged_user",
+        "slayer"
+      ]
     },
     {
       "id": "bone_vulture_swarm",
@@ -244,7 +289,10 @@
         "Boneyard caravans set torches at sundown for this reason. Not for visibility."
       ],
       "habitat": "any open sand, concentrated along caravan routes at dusk",
-      "anti_pattern_note": "torch item (common regional) reduces aggro. Encounter design should assume the player may be mid-cast and torch-less."
+      "anti_pattern_note": "torch item (common regional) reduces aggro. Encounter design should assume the player may be mid-cast and torch-less.",
+      "class_tags": [
+        "slayer"
+      ]
     },
     {
       "id": "bone_oasis_grindworm",
@@ -266,7 +314,10 @@
         "The worm's grinding-plate is high-carbon; refined, it makes an exceptional heavy cleaver."
       ],
       "habitat": "active oases, the aquifer below, the Palm Retreat specifically",
-      "reagent_callout": "Grindworm plate (1/32) — reagent for the Boneyard endgame heavy cleaver 'Aquifer's End'."
+      "reagent_callout": "Grindworm plate (1/32) — reagent for the Boneyard endgame heavy cleaver 'Aquifer's End'.",
+      "class_tags": [
+        "slayer"
+      ]
     },
     {
       "id": "bone_nomad_warrior",
@@ -288,7 +339,12 @@
         "A warrior who receives no papers and no joke will first attempt to detain, not to kill. Resisting detention upgrades the encounter to combat. Killing a nomad warrior triggers tribal blood-debt the player carries for the rest of the account."
       ],
       "habitat": "nomad tribal territory — the First Plot and the Northern Dunes",
-      "anti_pattern_note": "DO NOT flag-kill. Killed-without-provocation nomads carry durable blood-debt. Only hostile-aggressed kills are safe."
+      "anti_pattern_note": "DO NOT flag-kill. Killed-without-provocation nomads carry durable blood-debt. Only hostile-aggressed kills are safe.",
+      "class_tags": [
+        "ranged_user",
+        "human",
+        "slayer"
+      ]
     },
     {
       "id": "bone_sand_genie",
@@ -310,7 +366,12 @@
         "A freed genie is dangerous until re-bound. Combat is their restraint protocol."
       ],
       "habitat": "ancient-bound objects, lamp-caves, the Well of the Third Plot",
-      "reagent_callout": "Genie-lamp fragment (1/128) — reagent for the Three-Wish Lamp (skilling-boost consumable, limited charges)."
+      "reagent_callout": "Genie-lamp fragment (1/128) — reagent for the Three-Wish Lamp (skilling-boost consumable, limited charges).",
+      "class_tags": [
+        "magic_user",
+        "elemental",
+        "slayer"
+      ]
     }
   ],
   "region_flavor_drops": [

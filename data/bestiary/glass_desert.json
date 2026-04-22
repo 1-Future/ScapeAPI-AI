@@ -24,7 +24,12 @@
         "Killing one releases the stored light in a brief, non-damaging flash that is readable from miles away. Glass Desert guides use prism-kills as signal flares."
       ],
       "habitat": "sun-trap crystal pockets, specifically the Refracted Flats and the Wall of Nine Angles",
-      "reagent_callout": "Refracted essence (1/10) — reagent for the mirror-cloak (light-damage immunity, Glass Desert-niche)."
+      "reagent_callout": "Refracted essence (1/10) — reagent for the mirror-cloak (light-damage immunity, Glass Desert-niche).",
+      "class_tags": [
+        "magic_user",
+        "elemental",
+        "slayer"
+      ]
     },
     {
       "id": "mega_glass_crystal_dragon",
@@ -46,7 +51,12 @@
         "Their breath is not fire but a sweeping beam of amplified light, which sets flammable materials alight at range."
       ],
       "habitat": "the Shard Spires, the Great Glass Flats, the deep interior beyond the sun-walkable zone",
-      "reagent_callout": "Crystal dragon scale (1/32 collection-log) — reagent for the Glass Desert ultimate shield 'The Ninth Angle' (magic-reflect back at attacker)."
+      "reagent_callout": "Crystal dragon scale (1/32 collection-log) — reagent for the Glass Desert ultimate shield 'The Ninth Angle' (magic-reflect back at attacker).",
+      "class_tags": [
+        "dragon",
+        "magic_user",
+        "slayer"
+      ]
     },
     {
       "id": "mega_glass_sand_wraith",
@@ -68,7 +78,13 @@
         "Appeased wraiths yield their grudge-fragment willingly and vanish. Combat kills yield a different, corrupted fragment."
       ],
       "habitat": "crossing-routes, old caravan-tracks, the Seventh Ridge",
-      "reagent_callout": "Sand-wraith grudge (1/16, appeasement yields pure, combat yields corrupted — different downstream recipes)."
+      "reagent_callout": "Sand-wraith grudge (1/16, appeasement yields pure, combat yields corrupted — different downstream recipes).",
+      "class_tags": [
+        "undead",
+        "magic_user",
+        "elemental",
+        "slayer"
+      ]
     },
     {
       "id": "mega_glass_sunking",
@@ -90,7 +106,12 @@
         "Killing the Sunking is a one-time event. Once defeated, he is gone. His decree remains legally contested in Crown archives."
       ],
       "habitat": "the Sunking's Pavilion, the exact centre of the Glass Desert, only at noon (game-clock)",
-      "reagent_callout": "Sunking's crown (1/1 one-shot drop) — reagent for a single unique 'Sun-claimed' crown (light-damage buff, once only; account-bound)."
+      "reagent_callout": "Sunking's crown (1/1 one-shot drop) — reagent for a single unique 'Sun-claimed' crown (light-damage buff, once only; account-bound).",
+      "class_tags": [
+        "undead",
+        "magic_user",
+        "slayer"
+      ]
     },
     {
       "id": "mega_glass_mirage_knight",
@@ -112,7 +133,11 @@
         "Engaged in melee by a player without dust, the knight will fight to death and leave behind a small quantity of desert-glass as residue."
       ],
       "habitat": "sun-angle zones, the Mirage Fields, the afternoon approaches to the Shard Spires",
-      "anti_pattern_note": "dust-bomb counter is a core counterplay. Encounter should not spawn knights in environments where dust is trivially available."
+      "anti_pattern_note": "dust-bomb counter is a core counterplay. Encounter should not spawn knights in environments where dust is trivially available.",
+      "class_tags": [
+        "human",
+        "slayer"
+      ]
     },
     {
       "id": "mega_glass_shard_crawler",
@@ -134,7 +159,12 @@
         "Veteran crossers kill shard crawlers by crushing, not cutting, because cutting makes more noise."
       ],
       "habitat": "silica rubble-fields, any broken-shard terrain, caravan-rest areas",
-      "anti_pattern_note": "sound-swarm mechanic. Slash weapons attract waves; crush weapons do not."
+      "anti_pattern_note": "sound-swarm mechanic. Slash weapons attract waves; crush weapons do not.",
+      "class_tags": [
+        "beast",
+        "armoured",
+        "slayer"
+      ]
     },
     {
       "id": "mega_glass_mirror_fiend",
@@ -156,7 +186,12 @@
         "Smashing the reflective object that hosts the fiend kills it. Smashing a mirror-fiend directly does nothing."
       ],
       "habitat": "polished surfaces, specifically the Mirror Market and the Scryer's Maze",
-      "reagent_callout": "Mirror-fiend glass (1/18, only obtained via mirror-break not combat) — reagent for the Mirror-Fiend Dagger (ignores magic reflection on crystal-tag enemies)."
+      "reagent_callout": "Mirror-fiend glass (1/18, only obtained via mirror-break not combat) — reagent for the Mirror-Fiend Dagger (ignores magic reflection on crystal-tag enemies).",
+      "class_tags": [
+        "demon",
+        "magic_user",
+        "slayer"
+      ]
     },
     {
       "id": "mega_glass_dune_scarab_queen",
@@ -178,7 +213,12 @@
         "Queen-shell is a prized Glass Desert material. Cut and polished, it refracts light in deliberate patterns, which is the basis for the Glass Desert's signalling lanterns."
       ],
       "habitat": "shard-crawler mega-nests, specifically the Broken Crescent and the Shardheart warren",
-      "reagent_callout": "Scarab queen shell (1/48 collection-log) — reagent for the Scarab-lantern (long-range signal device, used in several Glass Desert quests)."
+      "reagent_callout": "Scarab queen shell (1/48 collection-log) — reagent for the Scarab-lantern (long-range signal device, used in several Glass Desert quests).",
+      "class_tags": [
+        "kalphite",
+        "armoured",
+        "slayer"
+      ]
     },
     {
       "id": "glass_sunstalker_bird",
@@ -200,7 +240,11 @@
         "Their feathers, stripped, make exceptional fletching for arrows — sunstalker-fletched arrows fly noticeably faster than standard."
       ],
       "habitat": "high thermals above the desert, specifically 300+ paces above ground",
-      "reagent_callout": "Sunstalker feather (1/5) — reagent for fast-fletch arrow variant."
+      "reagent_callout": "Sunstalker feather (1/5) — reagent for fast-fletch arrow variant.",
+      "class_tags": [
+        "ranged_user",
+        "slayer"
+      ]
     },
     {
       "id": "glass_glasshand_golem",
@@ -222,7 +266,11 @@
         "Fragments of glasshand retain their animating thought weakly; a salvaged glasshand finger will, if held, point toward the nearest golem in any direction."
       ],
       "habitat": "the Hand-Fields, distributed across the southern Glass Desert",
-      "anti_pattern_note": "area-of-effect crush weapons are strongly preferred. Single-target attacks fail against reassembly."
+      "anti_pattern_note": "area-of-effect crush weapons are strongly preferred. Single-target attacks fail against reassembly.",
+      "class_tags": [
+        "construct",
+        "slayer"
+      ]
     },
     {
       "id": "glass_crystal_serpent",
@@ -244,7 +292,11 @@
         "Their skin, shed seasonally, is a durable crystalline leather. Veteran rangers collect shed skin in preference to combat — the shed is free and the serpent is still alive."
       ],
       "habitat": "sun-warmed rocks, predator-heaped dunes, the ambush zones along the Whistle Path",
-      "reagent_callout": "Crystal serpent shed (1/10) — reagent for crystal-scale boots (magic-defence footwear)."
+      "reagent_callout": "Crystal serpent shed (1/10) — reagent for crystal-scale boots (magic-defence footwear).",
+      "class_tags": [
+        "beast",
+        "slayer"
+      ]
     },
     {
       "id": "glass_nomad_glassmaker",
@@ -266,7 +318,12 @@
         "They know every route through the desert. A glassmaker-friend is one of the most valuable allies a Glass Desert adventurer can cultivate."
       ],
       "habitat": "nomad-cart routes, specifically the three main traderails between shard-fields",
-      "anti_pattern_note": "passive, valuable NPC-like interactions. NEVER auto-aggro. Slayer tasks on glassmakers should trigger abort flow."
+      "anti_pattern_note": "passive, valuable NPC-like interactions. NEVER auto-aggro. Slayer tasks on glassmakers should trigger abort flow.",
+      "class_tags": [
+        "magic_user",
+        "human",
+        "slayer"
+      ]
     }
   ],
   "region_flavor_drops": [

@@ -24,7 +24,12 @@
         "They disperse when exposed to strong sunlight for more than a minute. Most Inkweald encounters are indoors or under cloud."
       ],
       "habitat": "dream-bleed zones, specifically the 12 catalogued Weald-pockets",
-      "reagent_callout": "Inkblot fragment (1/5) — reagent for ink-seared letter (a consumable that lets the player send a dream-letter to any NPC)."
+      "reagent_callout": "Inkblot fragment (1/5) — reagent for ink-seared letter (a consumable that lets the player send a dream-letter to any NPC).",
+      "class_tags": [
+        "magic_user",
+        "beast",
+        "slayer"
+      ]
     },
     {
       "id": "mega_ink_nightmare_spawn",
@@ -46,7 +51,12 @@
         "The spawn retain residual memory of the dreamer's fears. A thoughtful adventurer can, over many kills, piece together the identity and therefore help the dreamer in person."
       ],
       "habitat": "the Nightmare Clearings, specifically the four haunted clearings in the deep Weald",
-      "reagent_callout": "Nightmare shard (1/24) — reagent for the Dreamwalker's Amulet (lets the player safely enter NPC dreams for quest purposes)."
+      "reagent_callout": "Nightmare shard (1/24) — reagent for the Dreamwalker's Amulet (lets the player safely enter NPC dreams for quest purposes).",
+      "class_tags": [
+        "magic_user",
+        "shadow",
+        "slayer"
+      ]
     },
     {
       "id": "mega_ink_lucid_crawler",
@@ -68,7 +78,11 @@
         "A crawler communicates by thought-impression. Killing one in the Weald sometimes blocks a distant dreamer's next lucid attempt."
       ],
       "habitat": "dream-trails, lucid-dreamer proximity zones, the Spiral Path",
-      "reagent_callout": "Lucid essence (1/14) — reagent for waking-serum (consumable that disrupts any ongoing NPC dialogue into blunt truth-telling)."
+      "reagent_callout": "Lucid essence (1/14) — reagent for waking-serum (consumable that disrupts any ongoing NPC dialogue into blunt truth-telling).",
+      "class_tags": [
+        "beast",
+        "slayer"
+      ]
     },
     {
       "id": "mega_ink_echo_wraith",
@@ -90,7 +104,12 @@
         "Retrieving the wraith's sentence and returning it to the wraith's physical body sometimes wakes the sleeper. Sometimes it does not. The Inkweald Dreamkeeper pays either way."
       ],
       "habitat": "dream-death zones, along the Path of Unfinished Words",
-      "reagent_callout": "Echo petal (1/8) — reagent for the Returning Scroll (consumable that carries a spoken sentence to any NPC in Aelgard)."
+      "reagent_callout": "Echo petal (1/8) — reagent for the Returning Scroll (consumable that carries a spoken sentence to any NPC in Aelgard).",
+      "class_tags": [
+        "undead",
+        "magic_user",
+        "slayer"
+      ]
     },
     {
       "id": "mega_ink_dream_knight",
@@ -112,7 +131,11 @@
         "A knight defeated in honourable single combat gives up his oath-blade willingly. A knight killed dishonourably does not; his blade dissolves."
       ],
       "habitat": "the Dream-Ride, the Deep Weald, the Queen's empty pavilion",
-      "reagent_callout": "Oath-blade (1/96 collection-log) — reagent for the Oathbound Sword (slayer-niche vs all dream-tag mobs and vs NPCs who have broken named oaths)."
+      "reagent_callout": "Oath-blade (1/96 collection-log) — reagent for the Oathbound Sword (slayer-niche vs all dream-tag mobs and vs NPCs who have broken named oaths).",
+      "class_tags": [
+        "human",
+        "slayer"
+      ]
     },
     {
       "id": "mega_ink_forgotten_name",
@@ -134,7 +157,11 @@
         "The Forgotten-Name is the Inkweald's endgame combat check. Its loot is one of the few items in the game whose NAME the player cannot speak aloud — it is read but not voiced, in dialogue appearing as blanks."
       ],
       "habitat": "the Third Deep Weald, specifically the unmarked clearing",
-      "reagent_callout": "Blank-Name ring (1/256 collection-log) — the game's only unnameable item; confers a prayer-pool bonus that stacks uniquely with all existing prayer gear."
+      "reagent_callout": "Blank-Name ring (1/256 collection-log) — the game's only unnameable item; confers a prayer-pool bonus that stacks uniquely with all existing prayer gear.",
+      "class_tags": [
+        "magic_user",
+        "slayer"
+      ]
     },
     {
       "id": "mega_ink_dreamer_imp",
@@ -156,7 +183,11 @@
         "They cannot be followed back to wherever they come from. Every imp that leaves a visible area is genuinely gone."
       ],
       "habitat": "Weald edges, the path-boundary pockets, the outer dreamline",
-      "anti_pattern_note": "trade is a core interaction. Encounter script should NOT auto-combat."
+      "anti_pattern_note": "trade is a core interaction. Encounter script should NOT auto-combat.",
+      "class_tags": [
+        "demon",
+        "slayer"
+      ]
     },
     {
       "id": "mega_ink_memory_hag",
@@ -178,7 +209,11 @@
         "She cannot be bargained with in the conventional sense, but she will accept a single specific memory as tribute: her preferred gift is the memory of a childhood meal, which she then eats."
       ],
       "habitat": "memory-crossings, the Backward Path, old-age homes adjacent to the Weald",
-      "reagent_callout": "Hag-memory locket (1/72 collection-log) — reagent for the Memoried Map (shows the Inkweald's shifting paths correctly for 10 minutes)."
+      "reagent_callout": "Hag-memory locket (1/72 collection-log) — reagent for the Memoried Map (shows the Inkweald's shifting paths correctly for 10 minutes).",
+      "class_tags": [
+        "magic_user",
+        "slayer"
+      ]
     },
     {
       "id": "mega_ink_inkblood_serpent",
@@ -200,7 +235,11 @@
         "A bitten spellbook can be repaired at any Inkweald scribe for a fee. A bitten quest-document often cannot; this is a mechanic."
       ],
       "habitat": "scribe-trails, literacy-dense paths, the Archive Approach",
-      "anti_pattern_note": "bite does permanent item-text corruption. Warn the player. Do not spring this without telegraph."
+      "anti_pattern_note": "bite does permanent item-text corruption. Warn the player. Do not spring this without telegraph.",
+      "class_tags": [
+        "beast",
+        "slayer"
+      ]
     },
     {
       "id": "ink_quill_wraith",
@@ -222,7 +261,12 @@
         "The completions are assessed by the Inkweald Archive. The Archive is pedantic."
       ],
       "habitat": "archives, scriptoriums, the abandoned Third Scribes' Hall",
-      "anti_pattern_note": "'finish the sentence' is a genuine minigame, not just a flavour line. Rewards: 2x drop-table roll."
+      "anti_pattern_note": "'finish the sentence' is a genuine minigame, not just a flavour line. Rewards: 2x drop-table roll.",
+      "class_tags": [
+        "undead",
+        "magic_user",
+        "slayer"
+      ]
     },
     {
       "id": "ink_dream_wolf",
@@ -244,7 +288,11 @@
         "Their fur, if harvested carefully without cutting, is black-to-gold iridescent and used in ceremonial Inkweald cloaks."
       ],
       "habitat": "the Seven-Wolf pack's fixed territory, the north Weald",
-      "reagent_callout": "Dream-wolf pelt (1/20) — reagent for the seven-seal ceremonial cloak (required for the Inkweald endgame quest)."
+      "reagent_callout": "Dream-wolf pelt (1/20) — reagent for the seven-seal ceremonial cloak (required for the Inkweald endgame quest).",
+      "class_tags": [
+        "beast",
+        "slayer"
+      ]
     },
     {
       "id": "ink_scholar_of_inkblot",
@@ -266,7 +314,11 @@
         "Killing a scholar is an academic crime with real consequences: the University issues research-embargoes against the offending player for 60 days in-game."
       ],
       "habitat": "university field-camps, annotated tree-trunks, the clearings with portable writing-desks",
-      "anti_pattern_note": "passive AND helpful. NEVER auto-aggro. Slayer tasks on scholars should trigger an 'abort task with master' flow."
+      "anti_pattern_note": "passive AND helpful. NEVER auto-aggro. Slayer tasks on scholars should trigger an 'abort task with master' flow.",
+      "class_tags": [
+        "magic_user",
+        "slayer"
+      ]
     }
   ],
   "region_flavor_drops": [

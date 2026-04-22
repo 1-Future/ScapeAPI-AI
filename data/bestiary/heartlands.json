@@ -24,7 +24,11 @@
         "If cornered, a brigand will often throw down and ask for water before he asks for mercy. If allowed to live, he will return to banditry within a fortnight. Alden knows all their names and writes none of them down."
       ],
       "habitat": "hedge-lined lanes, toll road, abandoned threshing sheds",
-      "anti_pattern_note": "do not reskin as a 'generic bandit.' The wrinkle is that each brigand has a farm of origin and a debt letter pinned inside his jerkin."
+      "anti_pattern_note": "do not reskin as a 'generic bandit.' The wrinkle is that each brigand has a farm of origin and a debt letter pinned inside his jerkin.",
+      "class_tags": [
+        "human",
+        "slayer"
+      ]
     },
     {
       "id": "mega_heart_corn_rat",
@@ -46,7 +50,11 @@
         "The Hedgelords put a bounty of two copper per tail. The corn rats, in response, learned to leave their tails behind when fleeing — a trick farmers still argue about in the pubs."
       ],
       "habitat": "grain silos, harvest sheds, field hedgerows",
-      "anti_pattern_note": "starter slayer task at level 1. The bible teaches ecology, not combat."
+      "anti_pattern_note": "starter slayer task at level 1. The bible teaches ecology, not combat.",
+      "class_tags": [
+        "beast",
+        "slayer"
+      ]
     },
     {
       "id": "mega_heart_hedge_boar",
@@ -68,7 +76,12 @@
         "Hunter-tradition says you stab, never slash — a slash rings off the thorn-plate. The hide, stripped and cured, makes a pelt that shrugs arrows."
       ],
       "habitat": "thorn hedgerows between long-standing field boundaries",
-      "reagent_callout": "Hedgerow pelt feeds into Ranger Cloak upgrade at the Veilwood fletcher (see drop table)."
+      "reagent_callout": "Hedgerow pelt feeds into Ranger Cloak upgrade at the Veilwood fletcher (see drop table).",
+      "class_tags": [
+        "beast",
+        "armoured",
+        "slayer"
+      ]
     },
     {
       "id": "mega_heart_hedgerow_stalker",
@@ -90,7 +103,11 @@
         "A stalker's heart is a hedgelord pin — a brass brooch passed down among the Hedgelord bandit fraternity, which each initiate swallows for reasons nobody sober remembers."
       ],
       "habitat": "long stretches of silent hedge, bird-absent lanes",
-      "anti_pattern_note": "this is a mid-tier predator; do not inflate its max_hit to turn it into a mini-boss. The scare is the ambush, not the stats."
+      "anti_pattern_note": "this is a mid-tier predator; do not inflate its max_hit to turn it into a mini-boss. The scare is the ambush, not the stats.",
+      "class_tags": [
+        "beast",
+        "slayer"
+      ]
     },
     {
       "id": "mega_heart_militia_captain",
@@ -112,7 +129,11 @@
         "Insignia are worth money in Moryskah and no money at all in the Heartlands. Alden refuses to count them as trophies."
       ],
       "habitat": "toll-roads, tax houses, the south gate at dusk",
-      "reagent_callout": "Militia insignia + Bronze kiteshield at Smith Kael = Heartlands watch-shield (modest ranged defence bonus)."
+      "reagent_callout": "Militia insignia + Bronze kiteshield at Smith Kael = Heartlands watch-shield (modest ranged defence bonus).",
+      "class_tags": [
+        "human",
+        "slayer"
+      ]
     },
     {
       "id": "mega_heart_plough_ghoul",
@@ -134,7 +155,11 @@
         "Father Dorin blesses the fields every Sowing Friday to reduce the count. His success rate is real but small."
       ],
       "habitat": "long-fallow fields, recently-ploughed winter soil, grave-adjacent farmland",
-      "anti_pattern_note": "NOT a generic undead. Killing one on the field without permission is a social crime."
+      "anti_pattern_note": "NOT a generic undead. Killing one on the field without permission is a social crime.",
+      "class_tags": [
+        "undead",
+        "slayer"
+      ]
     },
     {
       "id": "mega_heart_toll_highwayman",
@@ -156,7 +181,11 @@
         "The senior of the pair usually has a toll-ticket folded in his jerkin — a real one — in case a patrol catches him up-road. Half the patrol waves him through."
       ],
       "habitat": "the long toll-road, the Moryskah-side bridge, roadside inns after dark",
-      "drops_note": "Tinker lockpick drop is intentionally rare — do not pool it with the brigand table."
+      "drops_note": "Tinker lockpick drop is intentionally rare — do not pool it with the brigand table.",
+      "class_tags": [
+        "ranged_user",
+        "slayer"
+      ]
     },
     {
       "id": "mega_heart_rat_king",
@@ -178,7 +207,11 @@
         "Killing a rat king counts as a municipal service. The mayor pays in coin; Father Dorin pays in blessing. Both claim the other should pay more."
       ],
       "habitat": "abandoned silos, cellar warrens, the collapsed floor of the Heartlands granary",
-      "reagent_callout": "Rat king drops the first Heartlands encounter-unique: the Hedgelord pin at 1/512, which combines with an old brass-buckled belt to make the Hedgelord's belt (prayer-point bonus)."
+      "reagent_callout": "Rat king drops the first Heartlands encounter-unique: the Hedgelord pin at 1/512, which combines with an old brass-buckled belt to make the Hedgelord's belt (prayer-point bonus).",
+      "class_tags": [
+        "beast",
+        "slayer"
+      ]
     },
     {
       "id": "mega_heart_sow_witch",
@@ -200,7 +233,11 @@
         "Sow-witches keep grimy guam and marrentill in jars. The jars are for sale at fair prices. Shoplifters get named pigs set on them."
       ],
       "habitat": "woodland edges, one-room cottages with four muddy pigs",
-      "anti_pattern_note": "the pigs DO come help her — do not ignore the swarm mechanic on spawn."
+      "anti_pattern_note": "the pigs DO come help her — do not ignore the swarm mechanic on spawn.",
+      "class_tags": [
+        "magic_user",
+        "slayer"
+      ]
     },
     {
       "id": "mega_heart_church_gargoyle",
@@ -222,7 +259,12 @@
         "Father Dorin considers them parishioners and counts them in the midsummer census. He does not give them seats in the pew, however, because the floorboards will not bear it."
       ],
       "habitat": "Heartlands churchyard, belltower stonework",
-      "anti_pattern_note": "A church gargoyle is NEVER aggressed in the churchyard without provoking it via desecration. Slayer tasks on them take place AWAY from the churchyard."
+      "anti_pattern_note": "A church gargoyle is NEVER aggressed in the churchyard without provoking it via desecration. Slayer tasks on them take place AWAY from the churchyard.",
+      "class_tags": [
+        "construct",
+        "armoured",
+        "slayer"
+      ]
     },
     {
       "id": "heart_orchard_wight",
@@ -244,7 +286,11 @@
         "Killing a wight restores the tree to ordinary fruiting but costs the player a month of bad luck at any Heartlands fair-day game. This is not superstition. The fair stall-holders remember faces."
       ],
       "habitat": "old orchard trees at dusk, particularly the Greyling orchard north of town",
-      "reagent_callout": "Drops orchard-wight rope (hemp noose fragment) which combines with a normal whip to forge the 'unburdened whip' (+1 defensive reach, slayer-niche only)."
+      "reagent_callout": "Drops orchard-wight rope (hemp noose fragment) which combines with a normal whip to forge the 'unburdened whip' (+1 defensive reach, slayer-niche only).",
+      "class_tags": [
+        "human",
+        "slayer"
+      ]
     },
     {
       "id": "heart_marsh_ratler",
@@ -266,7 +312,11 @@
         "A country-cure for the bite is wormwood poultice and a stern scolding. Most farm kids know the cure by age seven, and enforce the scolding part on each other."
       ],
       "habitat": "drainage ditches, abandoned rice paddies, marshy field corners",
-      "anti_pattern_note": "the ratler is a one-step-up from the corn rat slayer task. Keep difficulty shallow but the lore specific."
+      "anti_pattern_note": "the ratler is a one-step-up from the corn rat slayer task. Keep difficulty shallow but the lore specific.",
+      "class_tags": [
+        "beast",
+        "slayer"
+      ]
     },
     {
       "id": "heart_bellman_shade",
@@ -288,7 +338,12 @@
         "The militia considers him a colleague. They do not shoo him. A brave and stupid recruit once tried to; he was found the next morning three streets over, with no memory of how he got there and a great fear of church bells."
       ],
       "habitat": "Heartlands town streets between midnight and four",
-      "anti_pattern_note": "curfew check is real. Players out after hours draw his aggro automatically."
+      "anti_pattern_note": "curfew check is real. Players out after hours draw his aggro automatically.",
+      "class_tags": [
+        "magic_user",
+        "shadow",
+        "slayer"
+      ]
     },
     {
       "id": "heart_thresher_golem",
@@ -310,7 +365,11 @@
         "Farmers leave it wheat piles on its known path as tribute. This works. It is a peaceful relationship, except for the dog."
       ],
       "habitat": "north Heartlands fields, a predictable three-week loop",
-      "reagent_callout": "Drops a thresher gear (reagent) that combines with the Sootworks 'sharp-iron strap' to produce the Thresher cleaver (slayer-niche vs plant-type monsters in Veilwood)."
+      "reagent_callout": "Drops a thresher gear (reagent) that combines with the Sootworks 'sharp-iron strap' to produce the Thresher cleaver (slayer-niche vs plant-type monsters in Veilwood).",
+      "class_tags": [
+        "construct",
+        "slayer"
+      ]
     },
     {
       "id": "heart_brickyard_hound",
@@ -332,7 +391,11 @@
         "Unlike wolves, they do not pack. Each brickyard hound considers itself a solo animal with a specific grudge. The grudge is roughly: 'you humans'."
       ],
       "habitat": "abandoned brickyards, kiln-warmed ruins, cold-ash lots",
-      "anti_pattern_note": "pairs with the brickyard wight in the same abandoned-yard encounter — but both are solo; do not pack them."
+      "anti_pattern_note": "pairs with the brickyard wight in the same abandoned-yard encounter — but both are solo; do not pack them.",
+      "class_tags": [
+        "beast",
+        "slayer"
+      ]
     }
   ],
   "region_flavor_drops": [
