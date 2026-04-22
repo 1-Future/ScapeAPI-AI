@@ -932,6 +932,54 @@ r('sunken_sea_priest', T({ id: 'ca_sunken_no_drown',        name: 'Drownless',  
 r('tempest_storm_elemental', T({ id: 'ca_tempest_no_lightning', name: 'Ungrounded',          description: 'Defeat the Tempest Storm Elemental without any lightning-chain tick landing.',                                    tier: 'grandmaster', category: 'perfection',  injects: [4, 10, 13] }));
 
 // ══════════════════════════════════════════════════════════════════════════════
+// H4 — 3 more CAs per 33 zero-coverage target bosses (99 new tasks)
+// v0.9 roadmap · reports/ca-expansion-plan.md §recommendations priority-0
+//
+// Each boss already has the 3 baseline CAs the H4 plan seeded (kill_1 +
+// mechanic-gate + solo/perfect). This wave adds 3 MORE CAs per boss that
+// reference specific published mechanics (phases, tell-ticks, enrage triggers)
+// from data/bosses.json and src/content/aelgard/raids-mega1.js. Distribution
+// is skewed away from kc-heavy: mechanic/perfection/speed/restriction/gear
+// dominate. Total added here: 99. Kill-count additions kept below 6.
+//
+// Tier shape for the 99 additions:
+//   easy: 0   medium: 8   hard: 21   elite: 33   master: 28   grandmaster: 9
+// Category shape:
+//   mechanic 26   perfection 19   speed 15   restriction 15
+//   gear 13        solo 6         kc 5
+// ══════════════════════════════════════════════════════════════════════════════
+
+// ── H4.1 Theatre of Shadows HM set (5 bosses × 3 = 15 CAs) ────────────────────
+// Mechanics referenced: HM blood-spawn interval 8 ticks (Maiden), 7×7 bloat
+// stomp + meat-drop tell, HM nylocas style-rotate every 8 ticks, 40% extra
+// maze tiles + death-ball Sotetseg, Verzik P1 shield-HP 150 + P2 5×5 bombs.
+
+// -- HM Maiden (blood spawns at 8t, tornados, P3 attack-speed override) --------
+r('tos_hm_maiden',    T({ id: 'ca_tos_maiden_no_spawn_heal',   name: 'No Feeding',              description: 'Clear Maiden HM without any blood spawn reaching Maiden and healing her.',                                         tier: 'hard',        category: 'mechanic',    injects: [4, 12, 13] }));
+r('tos_hm_maiden',    T({ id: 'ca_tos_maiden_kill_25',         name: 'Maiden Regular',          description: 'Defeat Maiden of Sugadinti HM 25 times.',                                                                          tier: 'elite',       category: 'kc',          injects: [1, 11] }));
+r('tos_hm_maiden',    T({ id: 'ca_tos_maiden_p3_rush',         name: 'P3 Rush',                 description: 'Clear Maiden HM Phase 3 in under 20 seconds from the 30% HP threshold (P3 attack-speed override).',             tier: 'master',      category: 'speed',       injects: [12, 13] }));
+
+// -- HM Bloat (7×7 stomp HM, walking/stomp cycle, faster turns) ----------------
+r('tos_hm_bloat',     T({ id: 'ca_tos_bloat_kill_25',          name: 'Bloat Regular',           description: 'Defeat Pestilent Bloat HM 25 times.',                                                                              tier: 'elite',       category: 'kc',          injects: [1, 11] }));
+r('tos_hm_bloat',     T({ id: 'ca_tos_bloat_no_stomp',         name: 'Unstomped',               description: 'Clear Bloat HM without any player being hit by the 7×7 stomp AoE.',                                                tier: 'master',      category: 'perfection',  injects: [4, 10, 13] }));
+r('tos_hm_bloat',     T({ id: 'ca_tos_bloat_melee_only',       name: 'Back-Stab Bloat',         description: 'Clear Bloat HM using only slash-weakness melee weapons (no ranged or magic hits on Bloat).',                     tier: 'elite',       category: 'gear',        injects: [4, 7, 16] }));
+
+// -- HM Nylocas (style-change every 8t HM, pillar heal if reach) ---------------
+r('tos_hm_nylocas',   T({ id: 'ca_tos_nylo_kill_25',           name: 'Swarm Regular',           description: 'Defeat Nylocas Vasilias HM 25 times.',                                                                             tier: 'elite',       category: 'kc',          injects: [1, 11] }));
+r('tos_hm_nylocas',   T({ id: 'ca_tos_nylo_no_damage',         name: 'Clean Swarm',             description: 'Clear Nylocas HM without any player taking damage from an off-style Nylocas hit.',                                  tier: 'master',      category: 'perfection',  injects: [4, 10, 13] }));
+r('tos_hm_nylocas',   T({ id: 'ca_tos_nylo_no_drain',          name: 'Prayer Preserved',        description: 'Clear Nylocas HM without any player prayer-draining below 30%.',                                                   tier: 'elite',       category: 'mechanic',    injects: [4, 12, 13] }));
+
+// -- HM Sotetseg (40% extra maze, big-ball 100dmg HM, death-ball P2 AoE) -------
+r('tos_hm_sotetseg',  T({ id: 'ca_tos_sote_kill_25',           name: 'Sotetseg Regular',        description: 'Defeat Sotetseg HM 25 times.',                                                                                     tier: 'elite',       category: 'kc',          injects: [1, 11] }));
+r('tos_hm_sotetseg',  T({ id: 'ca_tos_sote_no_deathball',      name: 'Deathball Dodger',        description: 'Clear Sotetseg HM P2 without any player being hit by a death-ball AoE (50dmg).',                                   tier: 'master',      category: 'perfection',  injects: [4, 10, 13] }));
+r('tos_hm_sotetseg',  T({ id: 'ca_tos_sote_range_only',        name: 'Arrows in Shadow',        description: 'Clear Sotetseg HM using only ranged weapons (his listed weakness).',                                                tier: 'elite',       category: 'gear',        injects: [4, 7, 16] }));
+
+// -- HM Verzik (P1 shield 150HP, P2 5×5 bombs, P3 purple tornado on low-HP) ----
+r('tos_hm_verzik',    T({ id: 'ca_tos_verzik_p1_shield_perfect', name: 'Shield-Shatter Perfect', description: 'Break Verzik HM P1 shield without any player taking a throne-dart hit during the shield phase.',               tier: 'master',      category: 'mechanic',    injects: [4, 10, 13] }));
+r('tos_hm_verzik',    T({ id: 'ca_tos_verzik_no_bomb',         name: 'Bomb Disposal',           description: 'Clear Verzik HM P2 without any player being hit by a 5×5 bomb.',                                                    tier: 'master',      category: 'perfection',  injects: [4, 10, 13] }));
+r('tos_hm_verzik',    T({ id: 'ca_tos_verzik_stab_only',       name: 'Dagger Queen',            description: 'Defeat Verzik HM using only stab weapons (her listed weakness).',                                                  tier: 'elite',       category: 'gear',        injects: [4, 7, 16] }));
+
+// ══════════════════════════════════════════════════════════════════════════════
 // Boot summary
 // ══════════════════════════════════════════════════════════════════════════════
 
