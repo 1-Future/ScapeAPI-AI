@@ -1,29 +1,29 @@
 # Progression DAG — v0.8 Burn Findings
 
-Generated: 2026-04-22T15:12:51.110Z
+Generated: 2026-04-22T17:20:04.990Z
 
 ## Totals
 
-- **Nodes:** 2698
-- **Edges:** 4945
+- **Nodes:** 2907
+- **Edges:** 4943
 
 ### Node counts by type
 
 | Type | Count |
 |------|-------|
-| training_method | 882 |
-| skill_level | 559 |
-| quest | 349 |
-| item_unlock | 216 |
-| achievement | 118 |
-| area | 116 |
-| spell_unlock | 74 |
+| training_method | 896 |
+| skill_level | 579 |
+| quest | 373 |
+| item_unlock | 262 |
+| area | 189 |
+| achievement | 122 |
+| spell_unlock | 78 |
 | recipe | 72 |
+| npc | 69 |
 | boss | 62 |
-| npc | 47 |
+| teleport | 48 |
 | prayer_unlock | 47 |
 | minigame | 47 |
-| teleport | 46 |
 | raid | 32 |
 | shop | 25 |
 | shortcut | 6 |
@@ -34,32 +34,32 @@ A breakpoint is a node whose completion unlocks 5 or more other nodes. These are
 
 | Rank | Node | Type | Downstream | Sample unlocks |
 |------|------|------|-----------:|----------------|
-| 1 | `area:the_wilds` — The Wilds | area | 91 | `training_method:agility_wilds_course`, `training_method:attack_wilds_revenants`, `training_method:construction_wilds_fortifications`, `training_method:cooking_wilds_campfire`, `training_method:crafting_wilds_dragonhide_tanning` |
-| 2 | `area:sootworks` — The Sootworks | area | 88 | `training_method:grandmaster_the_beggars_petition`, `training_method:grandmaster_the_cinder_kings_fall`, `training_method:grandmaster_the_deep_stone_charter`, `training_method:grandmaster_the_forgemaster_contract`, `training_method:grandmaster_the_organ_mass` |
-| 3 | `area:glass_desert` — The Glass Desert | area | 54 | `training_method:glass_desert_crystal_arrow_fletching`, `training_method:glass_desert_crystal_cored_plate`, `training_method:glass_desert_crystal_corn_master_farm`, `training_method:glass_desert_crystal_hunter_falconry`, `training_method:glass_desert_crystal_hunter_slayer` |
-| 4 | `area:saltbrine_reach` — Saltbrine Reach | area | 53 | `training_method:quirky_saltbrine_barnacle_scraping`, `training_method:quirky_saltbrine_bilge_pumping`, `training_method:quirky_saltbrine_knot_tying`, `training_method:quirky_saltbrine_lantern_carry`, `training_method:quirky_saltbrine_net_mending` |
-| 5 | `area:heartlands` — The Heartlands | area | 50 | `training_method:grandmaster_the_coronation_of_the_quiet_king`, `training_method:grandmaster_the_crown_courier_affair`, `training_method:grandmaster_the_dragons_tithe`, `training_method:grandmaster_the_hedge_wise_gift`, `training_method:grandmaster_the_lamplighters_compact` |
-| 6 | `area:moryskah` — Moryskah | area | 42 | `training_method:grandmaster_malachars_returned_correspondence`, `training_method:grandmaster_the_cabaret_season_ticket`, `training_method:grandmaster_the_coronation_of_the_quiet_count`, `training_method:grandmaster_the_ferrymans_rounds`, `training_method:grandmaster_the_hollow_choirs_descant` |
-| 7 | `quest:blood_rites` — Blood Rites | quest | 41 | `achievement:moryskah_diary_hard`, `area:moryskah_barrows`, `prayer_unlock:protect_from_undead`, `quest:barrows_brothers`, `quest:blood_sanctum_key` |
-| 8 | `area:inkweald` — The Inkweald | area | 33 | `training_method:inkweald_chime_markets_thieving`, `training_method:inkweald_dream_crafting`, `training_method:inkweald_dream_oak_pavilion`, `training_method:inkweald_dream_stalker_combat`, `training_method:inkweald_echo_vaults_rc` |
-| 9 | `skill:hitpoints:70` — Hitpoints 70 | skill_level | 30 | `minigame:marchlands`, `quest:fight_caves`, `quest:lucid_nightmare_key`, `quest:the_last_light`, `skill:hitpoints:75` |
-| 10 | `quest:desert_treasure` — Desert Treasure | quest | 27 | `achievement:boneyard_diary_elite`, `area:boneyard_pyramid`, `quest:pharaohs_reckoning_prelude`, `quest:sandglass_sage_ascension`, `quest:the_lost_god_returns` |
-| 11 | `area:boneyard_wastes` — The Boneyard Wastes | area | 27 | `training_method:boneyard_bone_jewelry_work`, `training_method:boneyard_chitin_armor_assembly`, `training_method:boneyard_deathstalker_traps`, `training_method:boneyard_desert_farming`, `training_method:boneyard_desert_temple_framing` |
-| 12 | `skill:attack:70` — Attack 70 | skill_level | 26 | `achievement:heartlands_diary_elite`, `achievement:moryskah_diary_elite`, `achievement:sootworks_diary_elite`, `area:moryskah_castle_malachar`, `item_unlock:abyssal_whip` |
-| 13 | `quest:the_bog_witchs_bargain` — The Bog Witch's Bargain | quest | 26 | `area:moryskah`, `npc:bog_witch`, `quest:blood_rites`, `quest:rfd_moryskah`, `quest:the_bog_witchs_hunger` |
+| 1 | `area:sootworks` — The Sootworks | area | 97 | `area:sootworks_beggars_gallery`, `area:sootworks_brass_choir`, `area:sootworks_deepwell`, `area:sootworks_feast_kitchen`, `area:sootworks_forge_cathedral` |
+| 2 | `area:the_wilds` — The Wilds | area | 93 | `area:the_wilds_kbd_lair`, `area:the_wilds_mithril_pocket`, `training_method:agility_wilds_course`, `training_method:attack_wilds_revenants`, `training_method:construction_wilds_fortifications` |
+| 3 | `area:heartlands` — The Heartlands | area | 59 | `area:heartlands_capital`, `area:heartlands_chapel`, `area:heartlands_fishing_guild`, `area:heartlands_grand_cathedral`, `area:heartlands_hedge_wise_cottage` |
+| 4 | `area:glass_desert` — The Glass Desert | area | 54 | `training_method:glass_desert_crystal_arrow_fletching`, `training_method:glass_desert_crystal_cored_plate`, `training_method:glass_desert_crystal_corn_master_farm`, `training_method:glass_desert_crystal_hunter_falconry`, `training_method:glass_desert_crystal_hunter_slayer` |
+| 5 | `area:saltbrine_reach` — Saltbrine Reach | area | 53 | `training_method:quirky_saltbrine_barnacle_scraping`, `training_method:quirky_saltbrine_bilge_pumping`, `training_method:quirky_saltbrine_knot_tying`, `training_method:quirky_saltbrine_lantern_carry`, `training_method:quirky_saltbrine_net_mending` |
+| 6 | `area:moryskah` — Moryskah | area | 52 | `area:moryskah_bog_witch_cottage`, `area:moryskah_cabaret`, `area:moryskah_deep_bog`, `area:moryskah_ferry`, `area:moryskah_forgotten_hamlet` |
+| 7 | `quest:blood_rites` — Blood Rites | quest | 44 | `achievement:moryskah_diary_hard`, `area:moryskah_barrows`, `area:moryskah_cabaret`, `area:moryskah_mausoleum_district`, `area:moryskah_silent_chapel` |
+| 8 | `area:inkweald` — The Inkweald | area | 39 | `area:inkweald_backseam_camps`, `area:inkweald_cradlewood`, `area:inkweald_dream_forge`, `area:inkweald_half_light_range`, `area:inkweald_mirror_glades` |
+| 9 | `area:boneyard_wastes` — The Boneyard Wastes | area | 36 | `area:boneyard_boil_pits`, `area:boneyard_burnt_library`, `area:boneyard_hyena_markets`, `area:boneyard_quarrymaster_camp`, `area:boneyard_salt_cisterns` |
+| 10 | `quest:the_bog_witchs_bargain` — The Bog Witch's Bargain | quest | 30 | `achievement:moryskah_diary_medium`, `area:moryskah`, `area:moryskah_bog_witch_cottage`, `area:moryskah_deep_bog`, `area:moryskah_wolfbane_distillery` |
+| 11 | `quest:desert_treasure` — Desert Treasure | quest | 27 | `achievement:boneyard_diary_elite`, `area:boneyard_pyramid`, `quest:pharaohs_reckoning_prelude`, `quest:sandglass_sage_ascension`, `quest:the_lost_god_returns` |
+| 12 | `skill:hitpoints:70` — Hitpoints 70 | skill_level | 27 | `minigame:marchlands`, `quest:fight_caves`, `quest:lucid_nightmare_key`, `quest:the_last_light`, `skill:hitpoints:75` |
+| 13 | `area:veilwood` — Veilwood | area | 26 | `area:veilwood_glass_leaf_glades`, `area:veilwood_hunters_grove`, `area:veilwood_mirror_shallow`, `area:veilwood_moonhawk_perch`, `area:veilwood_range` |
 | 14 | `quest:lunar_diplomacy` — Lunar Diplomacy | quest | 24 | `achievement:veilwood_diary_elite`, `area:inkweald_lunar_plane`, `quest:gauntlet_key`, `quest:the_lost_god_returns`, `quest:the_veilwood_grandmaster_rite` |
-| 15 | `skill:magic:70` — Magic 70 | skill_level | 22 | `minigame:glass_desert_shardforge`, `minigame:marchlands`, `quest:gauntlet_key`, `quest:lucid_nightmare_key`, `quest:pharaohs_reckoning_prelude` |
-| 16 | `skill:prayer:60` — Prayer 60 | skill_level | 20 | `achievement:inkweald_diary_elite`, `achievement:moryskah_diary_elite`, `area:moryskah_castle_malachar`, `minigame:moryskah_reliquary_defence`, `prayer_unlock:chivalry` |
-| 17 | `skill:magic:55` — Magic 55 | skill_level | 20 | `achievement:inkweald_diary_hard`, `quest:coa_key`, `quest:prism_labyrinth_key`, `quest:the_architect_of_ruin`, `quest:the_counterfeit_empire` |
-| 18 | `skill:magic:50` — Magic 50 | skill_level | 19 | `achievement:boneyard_diary_elite`, `area:moryskah_barrows`, `quest:barrows_brothers`, `quest:desert_treasure`, `quest:prophecy_fragments` |
-| 19 | `quest:shades_of_moryskah` — Shades of Moryskah | quest | 19 | `area:deadhold_keep`, `minigame:deadhold`, `training_method:moryskah_ferry_midnight_runecrafting`, `training_method:moryskah_ferry_runecrafting`, `training_method:moryskah_ferry_sunrise_fishing` |
-| 20 | `area:veilwood` — Veilwood | area | 19 | `training_method:quirky_veilwood_carp_asking`, `training_method:quirky_veilwood_lantern_light`, `training_method:quirky_veilwood_stag_bow_polish`, `training_method:quirky_veilwood_threshold_sweep`, `training_method:veilwood_canopy_house_construction` |
+| 15 | `skill:attack:70` — Attack 70 | skill_level | 23 | `achievement:heartlands_diary_elite`, `achievement:moryskah_diary_elite`, `achievement:sootworks_diary_elite`, `area:moryskah_castle_malachar`, `item_unlock:abyssal_whip` |
+| 16 | `skill:magic:55` — Magic 55 | skill_level | 23 | `achievement:inkweald_diary_hard`, `quest:coa_key`, `quest:halds_letter_to_kael`, `quest:nine_days_to_pour_two_cold`, `quest:prism_labyrinth_key` |
+| 17 | `skill:prayer:60` — Prayer 60 | skill_level | 21 | `achievement:inkweald_diary_elite`, `achievement:moryskah_diary_elite`, `area:moryskah_castle_malachar`, `area:sootworks_brass_choir`, `minigame:moryskah_reliquary_defence` |
+| 18 | `quest:shades_of_moryskah` — Shades of Moryskah | quest | 21 | `area:deadhold_keep`, `area:moryskah_ferry`, `area:moryskah_forgotten_island`, `minigame:deadhold`, `training_method:moryskah_ferry_midnight_runecrafting` |
+| 19 | `skill:agility:50` — Agility 50 | skill_level | 20 | `area:moryskah_castle_malachar`, `minigame:boneyard_rogue_warrens`, `quest:coa_key`, `quest:halds_letter_to_kael`, `quest:prophecy_fragments` |
+| 20 | `skill:magic:70` — Magic 70 | skill_level | 19 | `minigame:glass_desert_shardforge`, `minigame:marchlands`, `quest:gauntlet_key`, `quest:lucid_nightmare_key`, `quest:pharaohs_reckoning_prelude` |
 
 ## Clusters (connected components with 5+ nodes) — 8 found
 
 | # | Size | Top types | Top regions | Sample IDs |
 |---|-----:|-----------|-------------|------------|
-| 1 | 2442 | training_method(826), skill_level(559), quest(334) | Inkweald(10), Moryskah(10), Sootworks(9) | `achievement:boneyard_diary_easy`, `achievement:boneyard_diary_elite`, `achievement:boneyard_diary_hard`, `achievement:boneyard_diary_medium`, `achievement:glass_desert_diary_easy` |
+| 1 | 2680 | training_method(868), skill_level(579), quest(358) | Moryskah(24), Sootworks(22), Heartlands(19) | `achievement:boneyard_diary_easy`, `achievement:boneyard_diary_elite`, `achievement:boneyard_diary_hard`, `achievement:boneyard_diary_medium`, `achievement:glass_desert_diary_easy` |
 | 2 | 7 | achievement(6), boss(1) | — | `boss:vorkath`, `combat_achievement:ca_vorkath_1000`, `combat_achievement:ca_vorkath_200`, `combat_achievement:ca_vorkath_50`, `combat_achievement:ca_vorkath_fast` |
 | 3 | 7 | achievement(6), boss(1) | — | `boss:zulrah`, `combat_achievement:ca_zulrah_1000`, `combat_achievement:ca_zulrah_200`, `combat_achievement:ca_zulrah_50`, `combat_achievement:ca_zulrah_fast` |
 | 4 | 5 | achievement(4), boss(1) | — | `boss:all`, `combat_achievement:ca_all_bosses`, `combat_achievement:ca_all_pets`, `combat_achievement:ca_all_raids`, `combat_achievement:ca_speed_all` |
@@ -72,216 +72,37 @@ A breakpoint is a node whose completion unlocks 5 or more other nodes. These are
 
 No circular prerequisites detected.
 
-## Broken prereqs — 210 found
+## Broken prereqs — 23 found
 
 A node references a prerequisite id that does not exist in the DAG. Either the referenced content is missing, or the id has typoed.
 
 | Node | Missing prereq |
 |------|----------------|
-| `achievement:glass_desert_diary_hard` | `quest:last_dragon_p1` |
-| `achievement:glass_desert_diary_medium` | `quest:glass_prophecy` |
-| `achievement:heartlands_diary_medium` | `quest:missing_miner` |
-| `achievement:inkweald_diary_hard` | `quest:hollow_choir` |
-| `achievement:inkweald_diary_medium` | `quest:inkweald_door` |
-| `achievement:moryskah_diary_medium` | `quest:bog_witch` |
 | `achievement:saltbrine_diary_elite` | `quest:barbarian_assault` |
 | `achievement:saltbrine_diary_medium` | `quest:saltbrine_agility_course` |
 | `achievement:sootworks_diary_elite` | `quest:soot_king_raid` |
-| `achievement:sootworks_diary_hard` | `quest:forge_beneath` |
-| `achievement:veilwood_diary_hard` | `quest:stormwood_rite` |
-| `achievement:veilwood_diary_medium` | `quest:veilwood_covenant` |
+| `achievement:wilds_diary_elite` | `quest:wilderness_collection_log` |
+| `achievement:wilds_diary_hard` | `quest:wilderness_agility_course_perfectly` |
+| `achievement:wilds_diary_hard` | `quest:deeper_wilds` |
 | `minigame:deadhold` | `quest:priest_in_peril` |
 | `minigame:moryskah_burgh_ramble` | `quest:the_fen_pilgrimage` |
 | `minigame:veilwood_poacher_rounds` | `quest:the_rangers_trust` |
 | `quest:the_letter_unposted` | `quest:the_trawlers_call` |
-| `training_method:agility_hallowed_sepulchre` | `quest:sins_of_the_father` |
 | `training_method:agility_seers_course` | `quest:inkweald_archives` |
-| `training_method:boneyard_boil_pit_distillation` | `area:boneyard_boil_pits` |
-| `training_method:boneyard_bone_boomerang_carving` | `area:boneyard_the_splinter` |
-| `training_method:boneyard_bone_bound_iron_smithing` | `area:boneyard_smelters_bones` |
-| `training_method:boneyard_bone_broth_kitchen` | `area:boneyard_salted_cookery` |
-| `training_method:boneyard_burnt_library_reading` | `area:boneyard_burnt_library` |
-| `training_method:boneyard_dune_vault_run` | `area:boneyard_singing_dunes` |
 | `training_method:boneyard_fossil_prayer` | `quest:bone_voyage` |
-| `training_method:boneyard_hyena_market_gauntlet` | `area:boneyard_hyena_markets` |
-| `training_method:boneyard_prayer_binding_spellcasting` | `area:boneyard_burnt_library` |
-| `training_method:boneyard_quarrymaster_granite` | `area:boneyard_quarrymaster_camp` |
-| `training_method:boneyard_quarrymaster_sandstone` | `area:boneyard_quarrymaster_camp` |
-| `training_method:boneyard_rune_salt_binding` | `area:boneyard_salt_cisterns` |
-| `training_method:boneyard_salt_cistern_runecrafting` | `area:boneyard_salt_cisterns` |
-| `training_method:boneyard_salt_crystal_mining` | `area:boneyard_salt_cisterns` |
-| `training_method:boneyard_salt_cured_tincture` | `area:boneyard_boil_pits` |
-| `training_method:boneyard_salted_cookery_dry_cure` | `area:boneyard_salted_cookery` |
-| `training_method:boneyard_sand_cache_theft` | `area:boneyard_hyena_markets` |
-| `training_method:boneyard_scorpion_fletching` | `area:boneyard_the_splinter` |
-| `training_method:boneyard_singing_dunes_course` | `area:boneyard_singing_dunes` |
-| `training_method:boneyard_smelter_bones_forge` | `area:boneyard_smelters_bones` |
-| `training_method:boneyard_splinter_bone_shaft` | `area:boneyard_the_splinter` |
-| `training_method:boneyard_sun_fire_burning` | `area:boneyard_sun_bleach_pits` |
 | `training_method:cooking_karambwan_1tick` | `quest:tai_bwo_wannai_trio` |
 | `training_method:defence_chinchompa_stacking` | `quest:moryskah_requiem` |
-| `training_method:firemaking_shade_burning` | `quest:shades_of_mortton` |
 | `training_method:fishing_monkfish_chill` | `quest:swan_song` |
 | `training_method:heartlands_bell_tower_agility` | `quest:the_tiled_rooftops` |
-| `training_method:heartlands_bell_tower_agility` | `area:heartlands_bell_tower` |
 | `training_method:heartlands_capital_agility` | `quest:the_tiled_rooftops` |
-| `training_method:heartlands_capital_agility` | `area:heartlands_capital_rooftops` |
-| `training_method:heartlands_capital_longbow` | `area:heartlands_capital` |
-| `training_method:heartlands_cathedral_windows` | `area:heartlands_grand_cathedral` |
-| `training_method:heartlands_dawn_vigil` | `area:heartlands_chapel` |
-| `training_method:heartlands_fishing_guild` | `area:heartlands_fishing_guild` |
-| `training_method:heartlands_grand_cathedral` | `area:heartlands_grand_cathedral` |
-| `training_method:heartlands_hedge_runecrafting` | `area:heartlands_old_hedge` |
-| `training_method:heartlands_hedgewise_enchanting` | `area:heartlands_hedge_wise_cottage` |
-| `training_method:heartlands_master_huntsman` | `area:heartlands_royal_forest` |
-| `training_method:heartlands_master_thieves_circuit` | `area:heartlands_royal_district` |
-| `training_method:heartlands_midnight_runecraft` | `area:heartlands_old_hedge` |
-| `training_method:heartlands_noon_bell_chorus` | `area:heartlands_bell_tower` |
-| `training_method:heartlands_royal_armoury` | `quest:the_royal_commission` |
-| `training_method:heartlands_royal_armoury` | `area:heartlands_royal_district` |
-| `training_method:heartlands_royal_herbalist` | `area:heartlands_royal_district` |
-| `training_method:heartlands_royal_orchard` | `area:heartlands_royal_district` |
-| `training_method:heartlands_thursday_market_thieving` | `area:heartlands_market_square` |
-| `training_method:herblore_attack_potions` | `quest:druidic_ritual` |
-| `training_method:herblore_cleaning_herbs` | `quest:druidic_ritual` |
-| `training_method:inkweald_backseam_camp_construction` | `area:inkweald_backseam_camps` |
-| `training_method:inkweald_cradlewood_hauling_strength` | `area:inkweald_cradlewood` |
-| `training_method:inkweald_cradlewood_singing_soft_wc` | `area:inkweald_cradlewood` |
-| `training_method:inkweald_dream_arrow_volley` | `area:inkweald_half_light_range` |
-| `training_method:inkweald_dream_forge_smithing` | `area:inkweald_dream_forge` |
-| `training_method:inkweald_dream_iron_mining` | `area:inkweald_dream_forge` |
-| `training_method:inkweald_dream_oak_wc` | `area:inkweald_cradlewood` |
-| `training_method:inkweald_dreamless_rest_hp` | `area:inkweald_threshold_of_names` |
-| `training_method:inkweald_glass_iron_jewelry` | `area:inkweald_dream_forge` |
-| `training_method:inkweald_glass_iron_smithing` | `area:inkweald_dream_forge` |
-| `training_method:inkweald_half_light_range_basic` | `area:inkweald_half_light_range` |
-| `training_method:inkweald_mirror_glade_trial_attack` | `area:inkweald_mirror_glades` |
-| `training_method:inkweald_mirror_glade_trial_defence` | `area:inkweald_mirror_glades` |
-| `training_method:inkweald_mirror_glade_trial_hp` | `area:inkweald_mirror_glades` |
-| `training_method:inkweald_mirror_glade_trial_strength` | `area:inkweald_mirror_glades` |
-| `training_method:inkweald_threshold_prayer` | `area:inkweald_threshold_of_names` |
 | `training_method:magic_burst_spells` | `quest:moryskah_requiem` |
-| `training_method:magic_wilds_god_spells` | `quest:mage_arena` |
 | `training_method:mining_volcanic_mine` | `quest:bone_voyage` |
-| `training_method:moryskah_bog_charm_practice` | `area:moryskah_bog_witch_cottage` |
-| `training_method:moryskah_bog_first_fog_farming` | `area:moryskah_bog_witch_cottage` |
-| `training_method:moryskah_bog_witch_apprentice_hunter` | `area:moryskah_bog_witch_cottage` |
-| `training_method:moryskah_bog_witch_resurrection_farm` | `area:moryskah_bog_witch_cottage` |
-| `training_method:moryskah_cabaret_card_practice` | `area:moryskah_cabaret` |
-| `training_method:moryskah_cabaret_crafting` | `area:moryskah_cabaret` |
-| `training_method:moryskah_cabaret_hitpoints` | `area:moryskah_cabaret` |
-| `training_method:moryskah_cabaret_matinee_hitpoints` | `area:moryskah_cabaret` |
-| `training_method:moryskah_cabaret_stage_hunter` | `area:moryskah_cabaret_back_alley` |
-| `training_method:moryskah_cabaret_stage_ranged` | `area:moryskah_cabaret` |
-| `training_method:moryskah_chapel_construction` | `area:moryskah_silent_chapel` |
-| `training_method:moryskah_chapel_organist_magic` | `area:moryskah_silent_chapel` |
-| `training_method:moryskah_choir_magic` | `area:moryskah_silent_chapel` |
-| `training_method:moryskah_dawn_ossuary_prayer` | `area:moryskah_silent_chapel` |
-| `training_method:moryskah_director_cape_pilgrimage` | `area:moryskah_cabaret` |
-| `training_method:moryskah_distiller_badge_practice` | `area:moryskah_wolfbane_distillery` |
-| `training_method:moryskah_distiller_cape_pilgrimage` | `area:moryskah_wolfbane_distillery` |
-| `training_method:moryskah_distillery_cooking` | `area:moryskah_wolfbane_distillery` |
-| `training_method:moryskah_distillery_tax_thieving` | `area:moryskah_wolfbane_distillery` |
-| `training_method:moryskah_ferry_midnight_runecrafting` | `area:moryskah_ferry` |
-| `training_method:moryskah_ferry_runecrafting` | `area:moryskah_ferry` |
-| `training_method:moryskah_ferry_sunrise_fishing` | `area:moryskah_ferry` |
-| `training_method:moryskah_ferry_woodcutting` | `area:moryskah_forgotten_island` |
-| `training_method:moryskah_ferryman_weekly_woodcut` | `area:moryskah_forgotten_island` |
-| `training_method:moryskah_frostwyrm_slayer` | `area:moryskah_deep_bog` |
-| `training_method:moryskah_grael_fishing` | `area:moryskah_bog_witch_cottage` |
-| `training_method:moryskah_hamlet_construction` | `area:moryskah_forgotten_hamlet` |
-| `training_method:moryskah_hamlet_fire_watch` | `area:moryskah_forgotten_hamlet` |
-| `training_method:moryskah_hollow_choir_offerings` | `area:moryskah_silent_chapel` |
-| `training_method:moryskah_hollow_midnight_magic` | `area:moryskah_silent_chapel` |
-| `training_method:moryskah_immigration_thieving` | `area:moryskah_moonless_inn` |
-| `training_method:moryskah_mausoleum_agility` | `area:moryskah_mausoleum_rooftops` |
-| `training_method:moryskah_moonless_ledger_thieving` | `area:moryskah_moonless_inn` |
-| `training_method:moryskah_mortuary_cooking` | `area:moryskah_moonless_inn` |
-| `training_method:moryskah_reliquarist_badge_practice` | `area:moryskah_mausoleum_district` |
-| `training_method:moryskah_reliquary_mining` | `area:moryskah_mausoleum_district` |
-| `training_method:moryskah_rooftop_stormwalk_agility` | `area:moryskah_mausoleum_district` |
-| `training_method:moryskah_season_bell_toll_prayer` | `area:moryskah_silent_chapel` |
-| `training_method:moryskah_season_fog_walk` | `area:moryskah_mausoleum_district` |
-| `training_method:moryskah_sigil_chapel_practice` | `area:moryskah_silent_chapel` |
-| `training_method:moryskah_sigil_choir_practice` | `area:moryskah_silent_chapel` |
-| `training_method:moryskah_sigil_moonless_practice` | `area:moryskah_moonless_inn` |
-| `training_method:moryskah_silent_chapel_sanctum_magic` | `area:moryskah_silent_chapel_sanctum` |
-| `training_method:moryskah_silent_chapel_smithing` | `area:moryskah_silent_chapel` |
-| `training_method:moryskah_tallow_firemaking` | `area:moryskah_mausoleum_district` |
-| `training_method:moryskah_unremembered_cape_pilgrimage` | `area:moryskah_ferry` |
-| `training_method:moryskah_vampire_cabaret_performance_crafting` | `area:moryskah_cabaret` |
-| `training_method:moryskah_wake_night_cooking` | `area:moryskah_moonless_inn` |
-| `training_method:moryskah_wake_ranged` | `area:moryskah_mausoleum_district` |
-| `training_method:moryskah_werewolf_tracker_hunter` | `area:moryskah_howling_moors` |
-| `training_method:moryskah_wolfbane_distillery_herblore` | `area:moryskah_wolfbane_distillery` |
-| `training_method:moryskah_wolfbane_still_firemaking` | `area:moryskah_wolfbane_distillery` |
-| `training_method:moryskah_writer_cape_pilgrimage` | `area:moryskah_silent_chapel` |
 | `training_method:prayer_ectofuntus` | `quest:moryskah_haunting` |
-| `training_method:quirky_moryskah_cabaret_programme_signing` | `area:moryskah_cabaret` |
-| `training_method:quirky_moryskah_chapel_bell_toll` | `area:moryskah_silent_chapel` |
-| `training_method:quirky_moryskah_chapel_bellrope_pull` | `area:moryskah_silent_chapel` |
-| `training_method:quirky_moryskah_distillery_churn` | `area:moryskah_wolfbane_distillery` |
-| `training_method:quirky_moryskah_distillery_mash_taste` | `area:moryskah_wolfbane_distillery` |
-| `training_method:quirky_moryskah_distillery_nightwatch` | `area:moryskah_wolfbane_distillery` |
-| `training_method:quirky_moryskah_gate_rubbings` | `area:moryskah_mausoleum_district` |
-| `training_method:quirky_moryskah_graveyard_weed` | `area:moryskah_mausoleum_district` |
-| `training_method:quirky_moryskah_heron_ferryman` | `area:moryskah_ferry` |
-| `training_method:quirky_moryskah_inn_signboard_relight` | `area:moryskah_moonless_inn` |
-| `training_method:quirky_moryskah_inn_tankard_polish` | `area:moryskah_moonless_inn` |
-| `training_method:quirky_moryskah_lost_and_found` | `area:moryskah_ferry` |
-| `training_method:quirky_moryskah_thatcher_helper` | `area:moryskah_mausoleum_district` |
-| `training_method:quirky_moryskah_well_letter_retrieve` | `area:moryskah_forgotten_hamlet` |
 | `training_method:ranged_chinchompas` | `quest:moryskah_requiem` |
-| `training_method:runecrafting_daeyalt_essence` | `quest:sins_of_the_father` |
 | `training_method:smithing_cannonballs` | `quest:dwarf_cannon_quest` |
-| `training_method:sootworks_beggars_gallery_master_lift` | `area:sootworks_beggars_gallery` |
-| `training_method:sootworks_beggars_gallery_payday` | `area:sootworks_beggars_gallery` |
-| `training_method:sootworks_brass_choir_grand_sermon` | `area:sootworks_brass_choir` |
-| `training_method:sootworks_brass_choir_silent_hour` | `area:sootworks_brass_choir` |
-| `training_method:sootworks_cathedral_crafting_bench` | `area:sootworks_forge_cathedral` |
-| `training_method:sootworks_cathedral_quench_master` | `area:sootworks_forge_cathedral` |
-| `training_method:sootworks_clockbeetle_master_runs` | `area:sootworks_clockbeetle_warrens` |
-| `training_method:sootworks_deep_coal_dawn_fm` | `area:sootworks_deep_furnace` |
-| `training_method:sootworks_deep_coal_master_burn` | `area:sootworks_deep_furnace` |
-| `training_method:sootworks_deepwell_blood_moon_fishing` | `area:sootworks_deepwell` |
-| `training_method:sootworks_deepwell_harpoon_fishing` | `area:sootworks_deepwell` |
-| `training_method:sootworks_forge_apprentice_hitpoints` | `area:sootworks_forge_cathedral` |
-| `training_method:sootworks_forge_cathedral_commission` | `area:sootworks_forge_cathedral` |
-| `training_method:sootworks_heat_temper_master_defence` | `area:sootworks_forge_cathedral` |
-| `training_method:sootworks_heretic_shot_caster_range` | `area:sootworks_tinker_yards` |
-| `training_method:sootworks_imbue_hall_magic` | `area:sootworks_imbue_hall` |
-| `training_method:sootworks_imbue_hall_press_perfect` | `area:sootworks_imbue_hall` |
-| `training_method:sootworks_lantern_mine_master_seam` | `area:sootworks_lantern_mines` |
-| `training_method:sootworks_organ_mass_prayer` | `area:sootworks_brass_choir` |
-| `training_method:sootworks_pressure_pot_feast` | `area:sootworks_feast_kitchen` |
-| `training_method:sootworks_pressure_pot_feast_night` | `area:sootworks_feast_kitchen` |
-| `training_method:sootworks_pump_eight_elite` | `area:sootworks_pump_station` |
-| `training_method:sootworks_pump_eight_shift_change` | `area:sootworks_pump_station` |
-| `training_method:sootworks_rust_pits_master_still` | `area:sootworks_rust_pits` |
-| `training_method:sootworks_shift_bell_chorus` | `area:sootworks_forge_cathedral` |
-| `training_method:sootworks_steamfield_master_rotation` | `area:sootworks_steamfield` |
-| `training_method:sootworks_steamfield_new_moon_farming` | `area:sootworks_steamfield` |
-| `training_method:sootworks_tinker_master_dawn_fletching` | `area:sootworks_tinker_yards` |
-| `training_method:sootworks_tinker_master_fletching` | `area:sootworks_tinker_yards` |
-| `training_method:sootworks_tinker_workshop_attack` | `area:sootworks_tinker_yards` |
 | `training_method:thieving_blackjacking` | `quest:feud_quest` |
-| `training_method:veilwood_glass_cored_alloy_smithing` | `area:veilwood_glass_leaf_glades` |
-| `training_method:veilwood_glass_glade_smithing` | `area:veilwood_glass_leaf_glades` |
-| `training_method:veilwood_glass_leaf_knapping` | `area:veilwood_glass_leaf_glades` |
-| `training_method:veilwood_glass_spider_hp` | `area:veilwood_glass_spider_hollow` |
-| `training_method:veilwood_glass_stag_attack` | `area:veilwood_glass_stag_thicket` |
-| `training_method:veilwood_glass_stag_hunter` | `area:veilwood_glass_stag_thicket` |
-| `training_method:veilwood_hunters_grove_cooking` | `area:veilwood_hunters_grove` |
-| `training_method:veilwood_mirror_stag_defence` | `area:veilwood_mirror_shallow` |
-| `training_method:veilwood_mirror_stag_hp_parlay` | `area:veilwood_mirror_shallow` |
-| `training_method:veilwood_moonhawk_ranged` | `area:veilwood_moonhawk_perch` |
-| `training_method:veilwood_range_singing_arrows` | `area:veilwood_range` |
-| `training_method:veilwood_stag_stone_binding_magic` | `area:veilwood_stag_stone` |
-| `training_method:veilwood_threshold_bonfire` | `area:veilwood_threshold_wardens` |
 
-…10 more not shown
-
-## Dead-end islands — 1765 found
+## Dead-end islands — 1860 found
 
 Nodes that nothing depends on. Some are legitimate terminal rewards (endgame bosses, cosmetic pets, capstone achievements). Others may be orphaned content that nothing gates behind it — in which case the "key" exists but has no downstream "door."
 
@@ -289,17 +110,17 @@ Nodes that nothing depends on. Some are legitimate terminal rewards (endgame bos
 
 | Type | Dead-end count |
 |------|---------------:|
-| training_method | 882 |
-| item_unlock | 216 |
-| achievement | 118 |
-| spell_unlock | 74 |
+| training_method | 896 |
+| item_unlock | 262 |
+| achievement | 122 |
+| spell_unlock | 78 |
+| area | 76 |
 | recipe | 72 |
-| area | 71 |
-| quest | 59 |
+| npc | 69 |
+| quest | 57 |
+| teleport | 48 |
 | minigame | 47 |
-| npc | 47 |
 | prayer_unlock | 47 |
-| teleport | 46 |
 | raid | 32 |
 | shop | 25 |
 | boss | 23 |
@@ -344,8 +165,11 @@ Flag: `TERMINAL` = likely intended as a final reward (achievements, pets, raids)
 | `achievement:veilwood_diary_elite` | achievement | Veilwood Elite Diary | TERMINAL |
 | `achievement:veilwood_diary_hard` | achievement | Veilwood Hard Diary | TERMINAL |
 | `achievement:veilwood_diary_medium` | achievement | Veilwood Medium Diary | TERMINAL |
+| `achievement:wilds_diary_easy` | achievement | Wilds Easy Diary | TERMINAL |
+| `achievement:wilds_diary_elite` | achievement | Wilds Elite Diary | TERMINAL |
+| `achievement:wilds_diary_hard` | achievement | Wilds Hard Diary | TERMINAL |
+| `achievement:wilds_diary_medium` | achievement | Wilds Medium Diary | TERMINAL |
 | `area:ascendant_spire` | area | The spire atop the Inkweald dream | REVIEW |
-| `area:boneyard_deep_dunes` | area | Immunity to Boneyard sandstorm disorientation — access deep dunes | REVIEW |
 | `area:boneyard_first_empire_vault` | area | First Empire Vault — permanent bank access inside the ruins, rare relic respawns | REVIEW |
 | `area:boneyard_kings_crypt` | area | Crypt of Kings — advanced slayer + all 3 Bones of Fallen Kings trial rooms unlocked at once | REVIEW |
 | `area:boneyard_old_caravan_track` | area | Old Caravan Track — a pre-marked route with permanent respawn points for desert herbs and sand-wraiths. Only players who have walked the sister can navigate it without taking damage. | REVIEW |
@@ -355,6 +179,7 @@ Flag: `TERMINAL` = likely intended as a final reward (achievements, pets, raids)
 | `area:deep_sootworks_crew_seven_tunnel` | area | Crew Seven Tunnel — a permanently lit, permanently open deep-mine passage with unique ore (soot-vein copper) and a re-pressurable shortcut between Sootworks and Heartlands mines. | REVIEW |
 | `area:drifting_market` | area | The Drifting Market | REVIEW |
 | `area:drifting_market_private_cabin` | area | Nessa's private cabin — a second seat at the Drifting Market; access to off-charter goods that do not appear in the public stall. | REVIEW |
+| `area:furnace_two_inner_chamber` | area | Furnace Two Inner Chamber (Oath-Sworn forge) — accessible only to pact-walkers. Contains the Oath-Sworn alloys tier and Fizz's calibration bench. | REVIEW |
 | `area:glass_desert_edge_keeper_trials` | area | Edge-Keeper Trials — BiS endgame combat training hub | REVIEW |
 | `area:glass_desert_mirrored_spire_climb_area` | area | Mirrored Spire full agility course access | REVIEW |
 | `area:glass_desert_new_sun_zone` | area | New Sun Zone — unlocked only if player chose to forge a new sun | REVIEW |
@@ -393,6 +218,7 @@ Flag: `TERMINAL` = likely intended as a final reward (achievements, pets, raids)
 | `area:moryskah_wolfbane_distillery_back_vault` | area | Wolfbane Distillery back vault — deepest fermentation hall, only the foreman and the eldest distiller have ever set foot in it | REVIEW |
 | `area:old_sun_cavern` | area | Old Sun Cavern — accessible only via the waxed compass after this quest. Contains a daily refreshable herb patch that grows ingredients not found elsewhere. | REVIEW |
 | `area:pyramid_sixth_level_archive` | area | Pyramid Sixth-Level Archive — accessible only if the chain is complete. Each chosen ending grants a different entry cadence (never, monthly of Euthren, or permanent). | REVIEW |
+| `area:refraction_threshold_audience` | area | Refraction Threshold Audience — a ritual approach site at the Wyrm's outer ring, usable for future tide-song petitions. No combat; pure ritual. | REVIEW |
 | `area:saltbrine_counterfeit_vault` | area | Counterfeit Vault — a stash with three bank tabs that only you can access | REVIEW |
 | `area:saltbrine_crows_nest_range` | area | Crow's Nest Range — sniper-shot rigging range, high-tier ranged training with storm-sway mechanic | REVIEW |
 | `area:saltbrine_drifting_market` | area | The Drifting Market — floating bazaar that rotates between coastal ports; exclusive stock weekly | REVIEW |
@@ -402,23 +228,18 @@ Flag: `TERMINAL` = likely intended as a final reward (achievements, pets, raids)
 | `area:saltbrine_throne_rocks` | area | Throne Rocks — your seat, a private bank, and a balcony overlooking the open sea | REVIEW |
 | `area:saltbrine_tower_upper` | area | The battlements of Saltbrine Tower | REVIEW |
 | `area:saltbrine_wreck_coast` | area | The Wreck Coast — boat-only deep-water fishing grounds. Unique fish not found elsewhere. | REVIEW |
+| `area:shrine_below_font` | area | Shrine Below Font — accessible only to the chain's completer (and, if REVIVE ending, to future pilgrims). Produces a unique reagent (Pilgrim's Draught) used in late-game Prayer, Magic, and Runecrafting tiers that require pre-cataclysm material. | REVIEW |
 | `area:sootworks_forgotten_workshop` | area | Forgotten workshop — ancient smithing tools | REVIEW |
 | `area:sootworks_foundation_seam` | area | Foundation Seam — unique mining area with hot-vein ore, fire-wight respawns | REVIEW |
 | `area:sootworks_geyser_dock` | area | Geyser Dock — deepwell fishing spot + pressure-pot cooking station adjacent | REVIEW |
-| `area:sootworks_pilgrim_cloister` | area | Pilgrim cloister — rest + prayer restore spot, Brass Choir side chapel | REVIEW |
-| `area:sootworks_pump_eight_lower` | area | Lower Pump Eight — agility-exclusive sprint zone | REVIEW |
-| `area:sootworks_slag_tunnels` | area | Slag Tunnels access — golem-spawn, pipehounds, deep-foundry monsters | REVIEW |
-| `area:sootworks_titan_floor` | area | Titan Floor — a hangar deep below the Sootworks, your Titan rests here | REVIEW |
-| `area:the_wilds_ent_grove` | area | Ent grove — level-thirty wilderness farming hub | REVIEW |
-| `area:the_wilds_lava_maze` | area | Lava Maze runite cluster access — deep-wild mining node | REVIEW |
 
-…1665 more not shown (full list in `data/progression-dag.json`)
+…1760 more not shown (full list in `data/progression-dag.json`)
 
 ## Truly orphaned quests
 
 Quests that exist but nothing depends on their completion (no area gate, no downstream quest, no breakpoint chain). Candidates for review: either terminal rewards by design, or isolated content that needs a downstream tie-in.
 
-Count: 59
+Count: 57
 
 - `quest:cooks_assistant` — Cook's Assistant (Novice)
 - `quest:crucible_key` — The Forgemaster's Challenge (Experienced)
@@ -442,7 +263,6 @@ Count: 59
 - `quest:the_farmstead_siege` — The Farmstead Siege (Intermediate)
 - `quest:the_fletchers_trial` — The Fletcher's Trial (Intermediate)
 - `quest:the_flooded_vault` — The Flooded Vault (Intermediate)
-- `quest:the_forge_beneath` — The Forge Beneath the City (Master)
 - `quest:the_forge_of_four_fires` — The Forge of Four Fires (Experienced)
 - `quest:the_fremennik_trials` — Trials of the Frost (Intermediate)
 - `quest:the_glass_cutters_challenge` — The Glass Cutter's Challenge (Intermediate)
@@ -458,7 +278,6 @@ Count: 59
 - `quest:the_lighthouse_cipher` — The Lighthouse Cipher (Experienced)
 - `quest:the_lost_expedition` — The Lost Expedition (Master)
 - `quest:the_merchants_gambit` — The Merchant's Gambit (Experienced)
-- `quest:the_missing_miner` — The Missing Miner (Novice)
 - `quest:the_moonlit_duel` — The Moonlit Duel (Experienced)
 - `quest:the_plague_road` — The Plague Road (Master)
 - `quest:the_runecasters_paradox` — The Runecaster's Paradox (Master)
@@ -482,13 +301,13 @@ Count: 59
 
 ## Health verdict
 
-- **Largest connected component:** 2442 / 2698 nodes (90.5%)
-- **Breakpoint density:** 336 nodes unlock 5+ downstream (12.45%)
-- **Dead-end ratio:** 1765 / 2698 (65.4%)
+- **Largest connected component:** 2680 / 2907 nodes (92.2%)
+- **Breakpoint density:** 343 nodes unlock 5+ downstream (11.80%)
+- **Dead-end ratio:** 1860 / 2907 (64.0%)
 - **Cycle count:** 0
-- **Broken refs:** 210
+- **Broken refs:** 23
 
-**Verdict:** CONNECTED METROIDVANIA — the graph is a single dominant web (>=80% of nodes in one component) with no circular gates. The balance diagnostic can plan paths end-to-end. Broken-ref count (210) reflects unregistered areas/quests referenced by training methods — these are fillable gaps, not structural breaks.
+**Verdict:** CONNECTED METROIDVANIA — the graph is a single dominant web (>=80% of nodes in one component) with no circular gates. The balance diagnostic can plan paths end-to-end. Broken-ref count (23) reflects unregistered areas/quests referenced by training methods — these are fillable gaps, not structural breaks.
 
 ## Broken-ref breakdown
 
@@ -496,14 +315,28 @@ Count: 59
 
 | Target prefix | Count |
 |---------------|------:|
-| `area:` | 174 |
-| `quest:` | 36 |
+| `quest:` | 23 |
 
 ### Referring node by type
 
 | Referring type | Count |
 |----------------|------:|
-| training_method | 194 |
-| achievement | 12 |
+| training_method | 13 |
+| achievement | 6 |
 | minigame | 3 |
 | quest | 1 |
+
+## v0.9 Wave A2 fix-pass summary
+
+- **New area nodes added (C6):** 65 (skipped: 0)
+- **Renames applied (C5):** 20
+- **Retracts applied (C7):** 4
+- **Duplicate requires removed:** 403
+
+## DAG-builder lint (C15)
+
+Catches drift-style naming errors at build time. `drift` and `wilds` buckets should be zero after C5 renames land; `other-missing` drops as content-pending quests ship.
+
+- **Drift (`quest:<bare>` → `quest:the_<bare>`):** 0
+- **Wilds (`area:the_wilds_*` → `area:wilds_*`):** 0
+- **Other missing targets:** 23

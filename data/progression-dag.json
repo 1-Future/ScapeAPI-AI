@@ -80,7 +80,7 @@
       "requires": [
         "skill:attack:60",
         "skill:mining:50",
-        "quest:last_dragon_p1"
+        "quest:the_last_dragon_p1"
       ]
     },
     {
@@ -92,7 +92,7 @@
       "requires": [
         "skill:mining:40",
         "skill:magic:40",
-        "quest:glass_prophecy"
+        "quest:the_glass_prophecy"
       ]
     },
     {
@@ -151,7 +151,7 @@
         "skill:agility:1",
         "skill:herblore:3",
         "skill:thieving:1",
-        "quest:missing_miner"
+        "quest:the_missing_miner"
       ]
     },
     {
@@ -184,8 +184,7 @@
       "tier": "hard",
       "requires": [
         "skill:attack:60",
-        "skill:magic:55",
-        "quest:hollow_choir"
+        "skill:magic:55"
       ]
     },
     {
@@ -197,7 +196,7 @@
       "requires": [
         "skill:magic:35",
         "skill:agility:70",
-        "quest:inkweald_door"
+        "quest:the_inkweald_door"
       ]
     },
     {
@@ -253,7 +252,7 @@
       "requires": [
         "skill:herblore:15",
         "skill:thieving:45",
-        "quest:bog_witch"
+        "quest:the_bog_witchs_bargain"
       ]
     },
     {
@@ -337,7 +336,7 @@
       "requires": [
         "skill:smithing:70",
         "skill:attack:50",
-        "quest:forge_beneath"
+        "quest:the_forge_beneath"
       ]
     },
     {
@@ -384,7 +383,7 @@
       "requires": [
         "skill:woodcutting:50",
         "skill:hunter:63",
-        "quest:stormwood_rite"
+        "quest:the_stag_shape_rite"
       ]
     },
     {
@@ -396,7 +395,7 @@
       "requires": [
         "skill:woodcutting:20",
         "skill:fletching:15",
-        "quest:veilwood_covenant"
+        "quest:the_veilwood_covenant"
       ]
     },
     {
@@ -462,6 +461,16 @@
       ]
     },
     {
+      "id": "area:boneyard_boil_pits",
+      "type": "area",
+      "name": "Boil Pits",
+      "region": "Boneyard",
+      "requires": [
+        "area:boneyard_wastes"
+      ],
+      "created_by": "v0.9-waveA2-C6"
+    },
+    {
       "id": "area:boneyard_bone_pyramid",
       "type": "area",
       "name": "Bone Pyramid full slayer lodge access + four Pyramid tasks",
@@ -470,6 +479,16 @@
       "requires": [
         "quest:pyramid_of_the_salted_king"
       ]
+    },
+    {
+      "id": "area:boneyard_burnt_library",
+      "type": "area",
+      "name": "Burnt Library",
+      "region": "Boneyard",
+      "requires": [
+        "area:boneyard_wastes"
+      ],
+      "created_by": "v0.9-waveA2-C6"
     },
     {
       "id": "area:boneyard_deep_dunes",
@@ -490,6 +509,16 @@
       "requires": [
         "quest:the_boneyard_first_empire_rite"
       ]
+    },
+    {
+      "id": "area:boneyard_hyena_markets",
+      "type": "area",
+      "name": "Hyena Markets",
+      "region": "Boneyard",
+      "requires": [
+        "area:boneyard_wastes"
+      ],
+      "created_by": "v0.9-waveA2-C6"
     },
     {
       "id": "area:boneyard_kings_crypt",
@@ -523,6 +552,36 @@
       ]
     },
     {
+      "id": "area:boneyard_quarrymaster_camp",
+      "type": "area",
+      "name": "Quarrymaster Camp",
+      "region": "Boneyard",
+      "requires": [
+        "area:boneyard_wastes"
+      ],
+      "created_by": "v0.9-waveA2-C6"
+    },
+    {
+      "id": "area:boneyard_salt_cisterns",
+      "type": "area",
+      "name": "Salt Cisterns",
+      "region": "Boneyard",
+      "requires": [
+        "area:boneyard_wastes"
+      ],
+      "created_by": "v0.9-waveA2-C6"
+    },
+    {
+      "id": "area:boneyard_salted_cookery",
+      "type": "area",
+      "name": "Salted Cookery",
+      "region": "Boneyard",
+      "requires": [
+        "area:boneyard_wastes"
+      ],
+      "created_by": "v0.9-waveA2-C6"
+    },
+    {
       "id": "area:boneyard_sealed_tomb",
       "type": "area",
       "name": "Sealed Tomb of Senekhet",
@@ -531,6 +590,46 @@
       "requires": [
         "quest:pharaohs_reckoning"
       ]
+    },
+    {
+      "id": "area:boneyard_singing_dunes",
+      "type": "area",
+      "name": "Singing Dunes",
+      "region": "Boneyard",
+      "requires": [
+        "area:boneyard_deep_dunes"
+      ],
+      "created_by": "v0.9-waveA2-C6"
+    },
+    {
+      "id": "area:boneyard_smelters_bones",
+      "type": "area",
+      "name": "Smelter's Bones",
+      "region": "Boneyard",
+      "requires": [
+        "area:boneyard_wastes"
+      ],
+      "created_by": "v0.9-waveA2-C6"
+    },
+    {
+      "id": "area:boneyard_sun_bleach_pits",
+      "type": "area",
+      "name": "Sun-Bleach Pits",
+      "region": "Boneyard",
+      "requires": [
+        "area:boneyard_wastes"
+      ],
+      "created_by": "v0.9-waveA2-C6"
+    },
+    {
+      "id": "area:boneyard_the_splinter",
+      "type": "area",
+      "name": "The Splinter",
+      "region": "Boneyard",
+      "requires": [
+        "area:boneyard_wastes"
+      ],
+      "created_by": "v0.9-waveA2-C6"
     },
     {
       "id": "area:boneyard_veiled_grave",
@@ -601,6 +700,16 @@
       "source_quest": "the_charter_nobody_writes",
       "requires": [
         "quest:the_charter_nobody_writes"
+      ]
+    },
+    {
+      "id": "area:furnace_two_inner_chamber",
+      "type": "area",
+      "name": "Furnace Two Inner Chamber (Oath-Sworn forge) — accessible only to pact-walkers. Contains the Oath-Sworn alloys tier and Fizz's calibration bench.",
+      "region": null,
+      "source_quest": "the_oath_unwritten",
+      "requires": [
+        "quest:the_oath_unwritten"
       ]
     },
     {
@@ -743,11 +852,54 @@
       ]
     },
     {
+      "id": "area:heartlands_bell_tower",
+      "type": "area",
+      "name": "Bell Tower",
+      "region": "Heartlands",
+      "requires": [
+        "area:heartlands_capital_rooftops",
+        "skill:agility:80"
+      ],
+      "created_by": "v0.9-waveA2-C6"
+    },
+    {
+      "id": "area:heartlands_capital",
+      "type": "area",
+      "name": "Heartlands Capital",
+      "region": "Heartlands",
+      "requires": [
+        "area:heartlands"
+      ],
+      "created_by": "v0.9-waveA2-C6"
+    },
+    {
+      "id": "area:heartlands_capital_rooftops",
+      "type": "area",
+      "name": "Capital Rooftops",
+      "region": "Heartlands",
+      "requires": [
+        "area:heartlands_capital",
+        "skill:agility:75"
+      ],
+      "created_by": "v0.9-waveA2-C6"
+    },
+    {
       "id": "area:heartlands_champions_guild",
       "type": "area",
       "name": "Champions' Guild",
       "region": "heartlands",
       "requires": []
+    },
+    {
+      "id": "area:heartlands_chapel",
+      "type": "area",
+      "name": "Heartlands Chapel",
+      "region": "Heartlands",
+      "requires": [
+        "area:heartlands",
+        "quest:the_last_light_vigil"
+      ],
+      "created_by": "v0.9-waveA2-C6"
     },
     {
       "id": "area:heartlands_chapel_altar_key",
@@ -808,6 +960,28 @@
       ]
     },
     {
+      "id": "area:heartlands_fishing_guild",
+      "type": "area",
+      "name": "Fishing Guild",
+      "region": "Heartlands",
+      "requires": [
+        "area:heartlands",
+        "skill:fishing:68"
+      ],
+      "created_by": "v0.9-waveA2-C6"
+    },
+    {
+      "id": "area:heartlands_grand_cathedral",
+      "type": "area",
+      "name": "Grand Cathedral",
+      "region": "Heartlands",
+      "requires": [
+        "area:heartlands",
+        "quest:the_last_light_vigil"
+      ],
+      "created_by": "v0.9-waveA2-C6"
+    },
+    {
       "id": "area:heartlands_grand_hall",
       "type": "area",
       "name": "The Grand Hall — permanent Heartlands teleport hub with all 6 guild masters",
@@ -816,6 +990,17 @@
       "requires": [
         "quest:the_culinaromancers_curse"
       ]
+    },
+    {
+      "id": "area:heartlands_hedge_wise_cottage",
+      "type": "area",
+      "name": "Hedge Wise's Cottage",
+      "region": "Heartlands",
+      "requires": [
+        "area:heartlands",
+        "quest:the_hedge_wise_gift"
+      ],
+      "created_by": "v0.9-waveA2-C6"
     },
     {
       "id": "area:heartlands_hidden_crypt",
@@ -838,6 +1023,16 @@
       ]
     },
     {
+      "id": "area:heartlands_market_square",
+      "type": "area",
+      "name": "Market Square",
+      "region": "Heartlands",
+      "requires": [
+        "area:heartlands"
+      ],
+      "created_by": "v0.9-waveA2-C6"
+    },
+    {
       "id": "area:heartlands_mining_guild",
       "type": "area",
       "name": "Heartlands Mining Guild",
@@ -845,6 +1040,17 @@
       "requires": [
         "skill:mining:60"
       ]
+    },
+    {
+      "id": "area:heartlands_old_hedge",
+      "type": "area",
+      "name": "Old Hedge",
+      "region": "Heartlands",
+      "requires": [
+        "area:heartlands",
+        "quest:the_hedge_wise_gift"
+      ],
+      "created_by": "v0.9-waveA2-C6"
     },
     {
       "id": "area:heartlands_old_mill",
@@ -875,6 +1081,28 @@
       "requires": [
         "quest:the_letter_unposted"
       ]
+    },
+    {
+      "id": "area:heartlands_royal_district",
+      "type": "area",
+      "name": "Royal District",
+      "region": "Heartlands",
+      "requires": [
+        "area:heartlands",
+        "quest:the_royal_warrant"
+      ],
+      "created_by": "v0.9-waveA2-C6"
+    },
+    {
+      "id": "area:heartlands_royal_forest",
+      "type": "area",
+      "name": "Royal Forest",
+      "region": "Heartlands",
+      "requires": [
+        "area:heartlands",
+        "quest:the_royal_falconer"
+      ],
+      "created_by": "v0.9-waveA2-C6"
     },
     {
       "id": "area:heartlands_throne_room",
@@ -908,6 +1136,16 @@
       ]
     },
     {
+      "id": "area:inkweald_backseam_camps",
+      "type": "area",
+      "name": "Backseam Camps",
+      "region": "Inkweald",
+      "requires": [
+        "area:inkweald"
+      ],
+      "created_by": "v0.9-waveA2-C6"
+    },
+    {
       "id": "area:inkweald_backwards_garden",
       "type": "area",
       "name": "Backwards Garden herb patches (grow in reverse; harvest before planting)",
@@ -916,6 +1154,37 @@
       "requires": [
         "quest:the_backwards_garden"
       ]
+    },
+    {
+      "id": "area:inkweald_cradlewood",
+      "type": "area",
+      "name": "Cradlewood",
+      "region": "Inkweald",
+      "requires": [
+        "area:inkweald"
+      ],
+      "created_by": "v0.9-waveA2-C6"
+    },
+    {
+      "id": "area:inkweald_dream_forge",
+      "type": "area",
+      "name": "Dream Forge",
+      "region": "Inkweald",
+      "requires": [
+        "area:inkweald",
+        "quest:the_inkweald_door"
+      ],
+      "created_by": "v0.9-waveA2-C6"
+    },
+    {
+      "id": "area:inkweald_half_light_range",
+      "type": "area",
+      "name": "Half-Light Range",
+      "region": "Inkweald",
+      "requires": [
+        "area:inkweald"
+      ],
+      "created_by": "v0.9-waveA2-C6"
     },
     {
       "id": "area:inkweald_library_upper_stacks",
@@ -936,6 +1205,17 @@
       "requires": [
         "quest:lunar_diplomacy"
       ]
+    },
+    {
+      "id": "area:inkweald_mirror_glades",
+      "type": "area",
+      "name": "Mirror Glades",
+      "region": "Inkweald",
+      "requires": [
+        "area:inkweald",
+        "quest:the_inkweald_mirror"
+      ],
+      "created_by": "v0.9-waveA2-C6"
     },
     {
       "id": "area:inkweald_pageturn_court",
@@ -966,6 +1246,17 @@
       "requires": [
         "quest:the_inkweald_mirror"
       ]
+    },
+    {
+      "id": "area:inkweald_threshold_of_names",
+      "type": "area",
+      "name": "Threshold of Names",
+      "region": "Inkweald",
+      "requires": [
+        "area:inkweald",
+        "quest:the_inkweald_grandmaster_dream"
+      ],
+      "created_by": "v0.9-waveA2-C6"
     },
     {
       "id": "area:inner_crystal_caverns",
@@ -1031,6 +1322,38 @@
       ]
     },
     {
+      "id": "area:moryskah_bog_witch_cottage",
+      "type": "area",
+      "name": "Bog Witch's Cottage",
+      "region": "Moryskah",
+      "requires": [
+        "area:moryskah",
+        "quest:the_bog_witchs_bargain"
+      ],
+      "created_by": "v0.9-waveA2-C6"
+    },
+    {
+      "id": "area:moryskah_cabaret",
+      "type": "area",
+      "name": "Moryskah Cabaret",
+      "region": "Moryskah",
+      "requires": [
+        "area:moryskah",
+        "quest:blood_rites"
+      ],
+      "created_by": "v0.9-waveA2-C6"
+    },
+    {
+      "id": "area:moryskah_cabaret_back_alley",
+      "type": "area",
+      "name": "Cabaret Back Alley",
+      "region": "Moryskah",
+      "requires": [
+        "area:moryskah_cabaret"
+      ],
+      "created_by": "v0.9-waveA2-C6"
+    },
+    {
       "id": "area:moryskah_cabaret_royal_box",
       "type": "area",
       "name": "Vampire Cabaret Royal Box — the only seat the director trusts her understudy in; the champagne is warm and iron-y",
@@ -1073,6 +1396,49 @@
       ]
     },
     {
+      "id": "area:moryskah_deep_bog",
+      "type": "area",
+      "name": "Deep Bog",
+      "region": "Moryskah",
+      "requires": [
+        "area:moryskah",
+        "quest:the_bog_witchs_bargain"
+      ],
+      "created_by": "v0.9-waveA2-C6"
+    },
+    {
+      "id": "area:moryskah_ferry",
+      "type": "area",
+      "name": "Moryskah Ferry",
+      "region": "Moryskah",
+      "requires": [
+        "area:moryskah",
+        "quest:shades_of_moryskah"
+      ],
+      "created_by": "v0.9-waveA2-C6"
+    },
+    {
+      "id": "area:moryskah_forgotten_hamlet",
+      "type": "area",
+      "name": "Forgotten Hamlet",
+      "region": "Moryskah",
+      "requires": [
+        "area:moryskah"
+      ],
+      "created_by": "v0.9-waveA2-C6"
+    },
+    {
+      "id": "area:moryskah_forgotten_island",
+      "type": "area",
+      "name": "Forgotten Island",
+      "region": "Moryskah",
+      "requires": [
+        "area:moryskah_ferry",
+        "quest:shades_of_moryskah"
+      ],
+      "created_by": "v0.9-waveA2-C6"
+    },
+    {
       "id": "area:moryskah_hallowvale_district",
       "type": "area",
       "name": "Hallowvale — the vampire quarter, late-game Moryskah content",
@@ -1093,6 +1459,48 @@
       ]
     },
     {
+      "id": "area:moryskah_howling_moors",
+      "type": "area",
+      "name": "Howling Moors",
+      "region": "Moryskah",
+      "requires": [
+        "area:moryskah"
+      ],
+      "created_by": "v0.9-waveA2-C6"
+    },
+    {
+      "id": "area:moryskah_mausoleum_district",
+      "type": "area",
+      "name": "Mausoleum District",
+      "region": "Moryskah",
+      "requires": [
+        "area:moryskah",
+        "quest:blood_rites"
+      ],
+      "created_by": "v0.9-waveA2-C6"
+    },
+    {
+      "id": "area:moryskah_mausoleum_rooftops",
+      "type": "area",
+      "name": "Mausoleum Rooftops",
+      "region": "Moryskah",
+      "requires": [
+        "area:moryskah_mausoleum_district",
+        "skill:agility:60"
+      ],
+      "created_by": "v0.9-waveA2-C6"
+    },
+    {
+      "id": "area:moryskah_moonless_inn",
+      "type": "area",
+      "name": "Moonless Inn",
+      "region": "Moryskah",
+      "requires": [
+        "area:moryskah"
+      ],
+      "created_by": "v0.9-waveA2-C6"
+    },
+    {
       "id": "area:moryskah_mortton_temple",
       "type": "area",
       "name": "Mortton Temple — blessed pyre site, shade minigame",
@@ -1101,6 +1509,28 @@
       "requires": [
         "quest:the_shades_of_mortton"
       ]
+    },
+    {
+      "id": "area:moryskah_silent_chapel",
+      "type": "area",
+      "name": "Silent Chapel",
+      "region": "Moryskah",
+      "requires": [
+        "area:moryskah",
+        "quest:blood_rites"
+      ],
+      "created_by": "v0.9-waveA2-C6"
+    },
+    {
+      "id": "area:moryskah_silent_chapel_sanctum",
+      "type": "area",
+      "name": "Silent Chapel Sanctum",
+      "region": "Moryskah",
+      "requires": [
+        "area:moryskah_silent_chapel",
+        "quest:the_hollow_choirs_song"
+      ],
+      "created_by": "v0.9-waveA2-C6"
     },
     {
       "id": "area:moryskah_sisterhood_library",
@@ -1154,6 +1584,17 @@
       ]
     },
     {
+      "id": "area:moryskah_wolfbane_distillery",
+      "type": "area",
+      "name": "Wolfbane Distillery",
+      "region": "Moryskah",
+      "requires": [
+        "area:moryskah",
+        "quest:the_bog_witchs_bargain"
+      ],
+      "created_by": "v0.9-waveA2-C6"
+    },
+    {
       "id": "area:moryskah_wolfbane_distillery_back_vault",
       "type": "area",
       "name": "Wolfbane Distillery back vault — deepest fermentation hall, only the foreman and the eldest distiller have ever set foot in it",
@@ -1181,6 +1622,16 @@
       "source_quest": "keeper_aureths_seal",
       "requires": [
         "quest:keeper_aureths_seal"
+      ]
+    },
+    {
+      "id": "area:refraction_threshold_audience",
+      "type": "area",
+      "name": "Refraction Threshold Audience — a ritual approach site at the Wyrm's outer ring, usable for future tide-song petitions. No combat; pure ritual.",
+      "region": null,
+      "source_quest": "gailins_last_residue",
+      "requires": [
+        "quest:gailins_last_residue"
       ]
     },
     {
@@ -1296,6 +1747,16 @@
       ]
     },
     {
+      "id": "area:shrine_below_font",
+      "type": "area",
+      "name": "Shrine Below Font — accessible only to the chain's completer (and, if REVIVE ending, to future pilgrims). Produces a unique reagent (Pilgrim's Draught) used in late-game Prayer, Magic, and Runecrafting tiers that require pre-cataclysm material.",
+      "region": null,
+      "source_quest": "the_shrine_below",
+      "requires": [
+        "quest:the_shrine_below"
+      ]
+    },
+    {
       "id": "area:sootworks",
       "type": "area",
       "name": "The Sootworks",
@@ -1308,6 +1769,17 @@
       ]
     },
     {
+      "id": "area:sootworks_beggars_gallery",
+      "type": "area",
+      "name": "Beggar's Gallery",
+      "region": "Sootworks",
+      "requires": [
+        "area:sootworks",
+        "quest:the_beggars_petition"
+      ],
+      "created_by": "v0.9-waveA2-C6"
+    },
+    {
       "id": "area:sootworks_blast_furnace",
       "type": "area",
       "name": "Sootworks Blast Furnace",
@@ -1316,6 +1788,17 @@
         "skill:smithing:30",
         "quest:sootworks_rising"
       ]
+    },
+    {
+      "id": "area:sootworks_brass_choir",
+      "type": "area",
+      "name": "Brass Choir",
+      "region": "Sootworks",
+      "requires": [
+        "area:sootworks",
+        "skill:prayer:60"
+      ],
+      "created_by": "v0.9-waveA2-C6"
     },
     {
       "id": "area:sootworks_cinder_graveyard",
@@ -1338,6 +1821,26 @@
       ]
     },
     {
+      "id": "area:sootworks_clockbeetle_warrens",
+      "type": "area",
+      "name": "Clockbeetle Warrens",
+      "region": "Sootworks",
+      "requires": [
+        "area:sootworks_cinderhall_warrens"
+      ],
+      "created_by": "v0.9-waveA2-C6"
+    },
+    {
+      "id": "area:sootworks_deep_furnace",
+      "type": "area",
+      "name": "Deep Furnace",
+      "region": "Sootworks",
+      "requires": [
+        "area:sootworks_deep_mines"
+      ],
+      "created_by": "v0.9-waveA2-C6"
+    },
+    {
       "id": "area:sootworks_deep_mines",
       "type": "area",
       "name": "Sootworks Deep Mines",
@@ -1357,6 +1860,37 @@
       "requires": [
         "quest:the_deep_stone_charter"
       ]
+    },
+    {
+      "id": "area:sootworks_deepwell",
+      "type": "area",
+      "name": "Deepwell",
+      "region": "Sootworks",
+      "requires": [
+        "area:sootworks"
+      ],
+      "created_by": "v0.9-waveA2-C6"
+    },
+    {
+      "id": "area:sootworks_feast_kitchen",
+      "type": "area",
+      "name": "Feast Kitchen",
+      "region": "Sootworks",
+      "requires": [
+        "area:sootworks"
+      ],
+      "created_by": "v0.9-waveA2-C6"
+    },
+    {
+      "id": "area:sootworks_forge_cathedral",
+      "type": "area",
+      "name": "Forge Cathedral",
+      "region": "Sootworks",
+      "requires": [
+        "area:sootworks",
+        "quest:the_forgemaster_contract"
+      ],
+      "created_by": "v0.9-waveA2-C6"
     },
     {
       "id": "area:sootworks_forgotten_workshop",
@@ -1387,6 +1921,26 @@
       "requires": [
         "quest:geyser_bridge"
       ]
+    },
+    {
+      "id": "area:sootworks_imbue_hall",
+      "type": "area",
+      "name": "Imbue Hall",
+      "region": "Sootworks",
+      "requires": [
+        "area:sootworks_forge_cathedral"
+      ],
+      "created_by": "v0.9-waveA2-C6"
+    },
+    {
+      "id": "area:sootworks_lantern_mines",
+      "type": "area",
+      "name": "Lantern Mines",
+      "region": "Sootworks",
+      "requires": [
+        "area:sootworks_deep_mines"
+      ],
+      "created_by": "v0.9-waveA2-C6"
     },
     {
       "id": "area:sootworks_library_stacks",
@@ -1429,6 +1983,26 @@
       ]
     },
     {
+      "id": "area:sootworks_pump_station",
+      "type": "area",
+      "name": "Pump Station",
+      "region": "Sootworks",
+      "requires": [
+        "area:sootworks"
+      ],
+      "created_by": "v0.9-waveA2-C6"
+    },
+    {
+      "id": "area:sootworks_rust_pits",
+      "type": "area",
+      "name": "Rust Pits",
+      "region": "Sootworks",
+      "requires": [
+        "area:sootworks"
+      ],
+      "created_by": "v0.9-waveA2-C6"
+    },
+    {
       "id": "area:sootworks_slag_tunnels",
       "type": "area",
       "name": "Slag Tunnels access — golem-spawn, pipehounds, deep-foundry monsters",
@@ -1439,6 +2013,26 @@
       ]
     },
     {
+      "id": "area:sootworks_steamfield",
+      "type": "area",
+      "name": "Steamfield",
+      "region": "Sootworks",
+      "requires": [
+        "area:sootworks"
+      ],
+      "created_by": "v0.9-waveA2-C6"
+    },
+    {
+      "id": "area:sootworks_tinker_yards",
+      "type": "area",
+      "name": "Tinker Yards",
+      "region": "Sootworks",
+      "requires": [
+        "area:sootworks"
+      ],
+      "created_by": "v0.9-waveA2-C6"
+    },
+    {
       "id": "area:sootworks_titan_floor",
       "type": "area",
       "name": "Titan Floor — a hangar deep below the Sootworks, your Titan rests here",
@@ -1446,6 +2040,46 @@
       "source_quest": "sootworks_grandmaster_titan",
       "requires": [
         "quest:sootworks_grandmaster_titan"
+      ]
+    },
+    {
+      "id": "area:spire_foot_chamber",
+      "type": "area",
+      "name": "Spire's Foot Chamber — a small private meditation and storage nook under Zel's office. Zel's key permits once-per-day access. Chamber contains a safe-box that persists your unique chain items.",
+      "region": null,
+      "source_quest": "the_spires_foot",
+      "requires": [
+        "quest:the_spires_foot"
+      ]
+    },
+    {
+      "id": "area:spire_north_face_step",
+      "type": "area",
+      "name": "Crystal Spire North Face Step — a small private meditation spot at Station Five. Usable for a daily Should-Have-Been-Self prayer buff (+2% XP for 10 min, pilgrimage-only).",
+      "region": null,
+      "source_quest": "the_mirrored_step",
+      "requires": [
+        "quest:the_mirrored_step"
+      ]
+    },
+    {
+      "id": "area:stormcrown_inner_spine_trail",
+      "type": "area",
+      "name": "Stormcrown Inner Spine Trail — accessible only with the second chart; leads to Elenne's shrine. Trail risk: agility checks per section, no map markers.",
+      "region": null,
+      "source_quest": "the_tide_that_did_not_break",
+      "requires": [
+        "quest:the_tide_that_did_not_break"
+      ]
+    },
+    {
+      "id": "area:stormcrown_inner_spine_trail_freely",
+      "type": "area",
+      "name": "Stormcrown Inner-Spine Trail — now freely walkable by you (and only you) at any neap tide. Fishing here yields tide-priestess reagents unique to the chain.",
+      "region": null,
+      "source_quest": "the_seven_names_on_the_inner_spine",
+      "requires": [
+        "quest:the_seven_names_on_the_inner_spine"
       ]
     },
     {
@@ -1476,6 +2110,17 @@
       ]
     },
     {
+      "id": "area:the_wilds_kbd_lair",
+      "type": "area",
+      "name": "KBD Lair",
+      "region": "Wilds",
+      "requires": [
+        "area:the_wilds",
+        "skill:prayer:43"
+      ],
+      "created_by": "v0.9-waveA2-C6"
+    },
+    {
       "id": "area:the_wilds_lava_maze",
       "type": "area",
       "name": "Lava Maze runite cluster access — deep-wild mining node",
@@ -1484,6 +2129,17 @@
       "requires": [
         "quest:the_long_road_home"
       ]
+    },
+    {
+      "id": "area:the_wilds_mithril_pocket",
+      "type": "area",
+      "name": "Mithril Pocket",
+      "region": "Wilds",
+      "requires": [
+        "area:the_wilds",
+        "skill:mining:55"
+      ],
+      "created_by": "v0.9-waveA2-C6"
     },
     {
       "id": "area:the_wilds_third_ditch",
@@ -1518,6 +2174,16 @@
       ]
     },
     {
+      "id": "area:veilwood_canopy_outpost_sael_visits",
+      "type": "area",
+      "name": "The canopy outpost will, from this chain on, receive Sael once a year at winter solstice. He will sit with Lyris on the rail without speaking. The outpost gains a small ambient XP buff on that single day.",
+      "region": null,
+      "source_quest": "the_seventh_moonsong_sung",
+      "requires": [
+        "quest:the_seventh_moonsong_sung"
+      ]
+    },
+    {
       "id": "area:veilwood_druid_circle",
       "type": "area",
       "name": "Veilwood Druid Circle",
@@ -1529,6 +2195,37 @@
       ]
     },
     {
+      "id": "area:veilwood_glass_leaf_glades",
+      "type": "area",
+      "name": "Glass-Leaf Glades",
+      "region": "Veilwood",
+      "requires": [
+        "area:veilwood",
+        "quest:of_glass_and_antler"
+      ],
+      "created_by": "v0.9-waveA2-C6"
+    },
+    {
+      "id": "area:veilwood_glass_spider_hollow",
+      "type": "area",
+      "name": "Glass Spider Hollow",
+      "region": "Veilwood",
+      "requires": [
+        "area:veilwood_glass_leaf_glades"
+      ],
+      "created_by": "v0.9-waveA2-C6"
+    },
+    {
+      "id": "area:veilwood_glass_stag_thicket",
+      "type": "area",
+      "name": "Glass Stag Thicket",
+      "region": "Veilwood",
+      "requires": [
+        "area:veilwood_glass_leaf_glades"
+      ],
+      "created_by": "v0.9-waveA2-C6"
+    },
+    {
       "id": "area:veilwood_hidden_court",
       "type": "area",
       "name": "The Hidden Court — full treetop agility course + duelist arena",
@@ -1537,6 +2234,16 @@
       "requires": [
         "quest:by_third_moon_we_walked"
       ]
+    },
+    {
+      "id": "area:veilwood_hunters_grove",
+      "type": "area",
+      "name": "Hunters' Grove",
+      "region": "Veilwood",
+      "requires": [
+        "area:veilwood"
+      ],
+      "created_by": "v0.9-waveA2-C6"
     },
     {
       "id": "area:veilwood_inner_sanctum",
@@ -1566,6 +2273,17 @@
       ]
     },
     {
+      "id": "area:veilwood_mirror_shallow",
+      "type": "area",
+      "name": "Mirror Shallow",
+      "region": "Veilwood",
+      "requires": [
+        "area:veilwood",
+        "quest:the_stag_shape_rite"
+      ],
+      "created_by": "v0.9-waveA2-C6"
+    },
+    {
       "id": "area:veilwood_mooncourt",
       "type": "area",
       "name": "Mooncourt altar access — lunar dust sieve, moon-tide crystal shallows",
@@ -1576,6 +2294,17 @@
       ]
     },
     {
+      "id": "area:veilwood_moonhawk_perch",
+      "type": "area",
+      "name": "Moonhawk Perch",
+      "region": "Veilwood",
+      "requires": [
+        "area:veilwood",
+        "skill:ranged:75"
+      ],
+      "created_by": "v0.9-waveA2-C6"
+    },
+    {
       "id": "area:veilwood_moonwell",
       "type": "area",
       "name": "The Moonwell — only outsider-accessible spring in the Inner Sanctum, infinite prayer refill once per day",
@@ -1584,6 +2313,38 @@
       "requires": [
         "quest:the_veilwood_grandmaster_rite"
       ]
+    },
+    {
+      "id": "area:veilwood_range",
+      "type": "area",
+      "name": "Veilwood Range",
+      "region": "Veilwood",
+      "requires": [
+        "area:veilwood"
+      ],
+      "created_by": "v0.9-waveA2-C6"
+    },
+    {
+      "id": "area:veilwood_stag_stone",
+      "type": "area",
+      "name": "Stag Stone",
+      "region": "Veilwood",
+      "requires": [
+        "area:veilwood",
+        "quest:the_stag_shape_rite"
+      ],
+      "created_by": "v0.9-waveA2-C6"
+    },
+    {
+      "id": "area:veilwood_threshold_wardens",
+      "type": "area",
+      "name": "Threshold of the Wardens",
+      "region": "Veilwood",
+      "requires": [
+        "area:veilwood",
+        "quest:the_door_that_was_never_closed"
+      ],
+      "created_by": "v0.9-waveA2-C6"
     },
     {
       "id": "area:veilwood_whisper_glade",
@@ -3190,6 +3951,16 @@
       ]
     },
     {
+      "id": "item_unlock:basin_rippled_once",
+      "type": "item_unlock",
+      "name": "Elenne's basin has rippled for your offering. Future quests in this chain will use this as prerequisite dialogue.",
+      "region": null,
+      "source_quest": "lennas_second_fold",
+      "requires": [
+        "quest:lennas_second_fold"
+      ]
+    },
+    {
       "id": "item_unlock:beetlekeepers_signet",
       "type": "item_unlock",
       "name": "Beetlekeeper's signet",
@@ -3237,6 +4008,16 @@
       "source_quest": "the_hedge_wise_gift",
       "requires": [
         "quest:the_hedge_wise_gift"
+      ]
+    },
+    {
+      "id": "item_unlock:black_ledger_contributors_list",
+      "type": "item_unlock",
+      "name": "Black Ledger Contributors List — pocket, sealed; while held, any of the seven contributor NPCs will recognise you as a pact-friend and grant a one-time 20% price discount on their shop goods. List is lost forever if burned. Unique to this chain.",
+      "region": null,
+      "source_quest": "hildes_black_ledger",
+      "requires": [
+        "quest:hildes_black_ledger"
       ]
     },
     {
@@ -3297,6 +4078,16 @@
       "source_quest": "crew_six_after_the_pour",
       "requires": [
         "quest:crew_six_after_the_pour"
+      ]
+    },
+    {
+      "id": "item_unlock:brighs_fold_weight_copy",
+      "type": "item_unlock",
+      "name": "Brigh's Fold-Weight (a copy) — pocket; Brigh had a duplicate made for you by a Veilwood whittler. Keeps nets from unfolding in your pack (doubles carry capacity of any fishing-net item). Chain-gated.",
+      "region": null,
+      "source_quest": "lennas_second_fold",
+      "requires": [
+        "quest:lennas_second_fold"
       ]
     },
     {
@@ -3370,6 +4161,16 @@
       ]
     },
     {
+      "id": "item_unlock:carries_tarras_lute",
+      "type": "item_unlock",
+      "name": "You carry the lute. NPCs who knew Tarras will recognise it and, in rare exchanges, hum a fragment of a song at you.",
+      "region": null,
+      "source_quest": "the_whittlers_silent_lute",
+      "requires": [
+        "quest:the_whittlers_silent_lute"
+      ]
+    },
+    {
       "id": "item_unlock:charter_voucher_weekly",
       "type": "item_unlock",
       "name": "Weekly Charter Voucher — 3 free charter trips per week between any Charter House ports in Aelgard",
@@ -3377,6 +4178,16 @@
       "source_quest": "charter_the_drift",
       "requires": [
         "quest:charter_the_drift"
+      ]
+    },
+    {
+      "id": "item_unlock:chose_tide_reconciled",
+      "type": "item_unlock",
+      "name": "Your ending is permanent and affects downstream Saltbrine content forever. Restore, Preserve, and Walk each have distinct canon. Future Saltbrine/Wilds content uses this as a foundational branch point.",
+      "region": null,
+      "source_quest": "the_twin_tide_reconciled",
+      "requires": [
+        "quest:the_twin_tide_reconciled"
       ]
     },
     {
@@ -3400,6 +4211,16 @@
       ]
     },
     {
+      "id": "item_unlock:cole_second_chart_shared",
+      "type": "item_unlock",
+      "name": "Cole has, for the first time, shown you the second chart. Brigh knows. Mara knows. Reed does not yet know.",
+      "region": null,
+      "source_quest": "the_tide_that_did_not_break",
+      "requires": [
+        "quest:the_tide_that_did_not_break"
+      ]
+    },
+    {
       "id": "item_unlock:comet_shard_pendant",
       "type": "item_unlock",
       "name": "Comet Shard Pendant — amulet, +3 to magic/prayer, once per day sends a message to any player on the server",
@@ -3417,6 +4238,36 @@
       "source_quest": "the_lamplighters_compact",
       "requires": [
         "quest:the_lamplighters_compact"
+      ]
+    },
+    {
+      "id": "item_unlock:companion_name_carved",
+      "type": "item_unlock",
+      "name": "Companion's Name (under-glyph) — pocket; while carried, the Mirrored Step's Should-Have-Been-Self image gains a second self — your pilgrim-companion. The image pair grants a unique +2% XP buff in pairs of skills (mining+thieving, magic+prayer, etc.).",
+      "region": null,
+      "source_quest": "the_spires_foot",
+      "requires": [
+        "quest:the_spires_foot"
+      ]
+    },
+    {
+      "id": "item_unlock:completed_pilgrimage",
+      "type": "item_unlock",
+      "name": "You have walked the pilgrimage. NPCs across all nine regions will reference this. Razak, Veris, Orin, Zel, Azhmari, and the Hermit each offer a distinct private conversation locked behind this flag.",
+      "region": null,
+      "source_quest": "the_shrine_below",
+      "requires": [
+        "quest:the_shrine_below"
+      ]
+    },
+    {
+      "id": "item_unlock:confirmed_station_one",
+      "type": "item_unlock",
+      "name": "Veris and Razak both acknowledge your pilgrimage. Razak's water-gift is a lifetime courtesy; he will pour from his own skin once per real-time day henceforth.",
+      "region": null,
+      "source_quest": "the_well_that_was",
+      "requires": [
+        "quest:the_well_that_was"
       ]
     },
     {
@@ -3559,6 +4410,16 @@
       ]
     },
     {
+      "id": "item_unlock:desert_memory_oil_jar",
+      "type": "item_unlock",
+      "name": "Desert Memory-Oil — pocket; consumed once grants a single re-do of a failed skill check (pilgrimage-related only). Non-tradeable, unique to this chain.",
+      "region": null,
+      "source_quest": "the_weeping_glass_and_the_shard_that_sings",
+      "requires": [
+        "quest:the_weeping_glass_and_the_shard_that_sings"
+      ]
+    },
+    {
       "id": "item_unlock:dharoks_set",
       "type": "item_unlock",
       "name": "Full Dharok's: damage scales inversely with HP",
@@ -3680,6 +4541,26 @@
       ]
     },
     {
+      "id": "item_unlock:elenne_acknowledged",
+      "type": "item_unlock",
+      "name": "Elenne has registered you, non-verbally. She will, in future quests, continue not speaking until you reach the grandmaster. Her silence is not rudeness — it is tide-priestess mourning discipline.",
+      "region": null,
+      "source_quest": "the_priestess_who_does_not_speak",
+      "requires": [
+        "quest:the_priestess_who_does_not_speak"
+      ]
+    },
+    {
+      "id": "item_unlock:elenne_speaks",
+      "type": "item_unlock",
+      "name": "Elenne now speaks to you. Her dialogue is brief, precise, and tide-accurate. No other NPC hears her speak during this time period.",
+      "region": null,
+      "source_quest": "the_seven_names_on_the_inner_spine",
+      "requires": [
+        "quest:the_seven_names_on_the_inner_spine"
+      ]
+    },
+    {
       "id": "item_unlock:enchanted_gem",
       "type": "item_unlock",
       "name": "Enchanted gem — check slayer task remotely",
@@ -3710,6 +4591,16 @@
       ]
     },
     {
+      "id": "item_unlock:fifth_moonsong_dreamed",
+      "type": "item_unlock",
+      "name": "Fifth Moonsong — pocket; grants a Magic XP buff (+3% in Inkweald/Veilwood) while carried. State (dreamed vs transcribed) affects the grandmaster ending quality.",
+      "region": null,
+      "source_quest": "the_dream_of_the_fifth_moonsong",
+      "requires": [
+        "quest:the_dream_of_the_fifth_moonsong"
+      ]
+    },
+    {
       "id": "item_unlock:fire_cape",
       "type": "item_unlock",
       "name": "Fire Cape — BIS melee cape until Infernal Cape. The prestige item.",
@@ -3730,6 +4621,16 @@
       ]
     },
     {
+      "id": "item_unlock:first_moonsong_fragment",
+      "type": "item_unlock",
+      "name": "First Moonsong (opening bar) — pocket; grants a Prayer XP buff (+3% in the Heartlands) while carried. Combines with other moonsongs in the grandmaster.",
+      "region": null,
+      "source_quest": "the_burned_page_in_the_chapel",
+      "requires": [
+        "quest:the_burned_page_in_the_chapel"
+      ]
+    },
+    {
       "id": "item_unlock:first_torven_tally",
       "type": "item_unlock",
       "name": "First Torven Tally — pocket slot; Greta will now let you mine in her private seam (no competition) for one real-time hour per day.",
@@ -3737,6 +4638,16 @@
       "source_quest": "the_lamp_behind_the_desk",
       "requires": [
         "quest:the_lamp_behind_the_desk"
+      ]
+    },
+    {
+      "id": "item_unlock:fizzs_year_mark",
+      "type": "item_unlock",
+      "name": "Fizz's Year-Mark — pocket; lets you read the installation-year of any Sootworks part at a glance. Required for every subsequent quest in this chain.",
+      "region": null,
+      "source_quest": "the_report_filed_twice",
+      "requires": [
+        "quest:the_report_filed_twice"
       ]
     },
     {
@@ -3750,6 +4661,16 @@
       ]
     },
     {
+      "id": "item_unlock:forgot_first_saltbrine_fish",
+      "type": "item_unlock",
+      "name": "You have permanently forgotten your first Saltbrine fish catch. NPCs who remember it (Mara, Brigh) will, in rare dialogue, remind you it happened without naming the fish.",
+      "region": null,
+      "source_quest": "gailins_last_residue",
+      "requires": [
+        "quest:gailins_last_residue"
+      ]
+    },
+    {
       "id": "item_unlock:foundling_lantern",
       "type": "item_unlock",
       "name": "Foundling's Lantern — light source + passive hunter bonus in the dark",
@@ -3757,6 +4678,16 @@
       "source_quest": "the_lantern_that_found_you",
       "requires": [
         "quest:the_lantern_that_found_you"
+      ]
+    },
+    {
+      "id": "item_unlock:gailin_residue_shard",
+      "type": "item_unlock",
+      "name": "Gailin's Residue Shard — pocket; carries a single instant of reef-tide, usable once to calm a storm encounter anywhere in the world. Unique; consumed on use in this chain's grandmaster.",
+      "region": null,
+      "source_quest": "the_tide_that_did_not_break",
+      "requires": [
+        "quest:the_tide_that_did_not_break"
       ]
     },
     {
@@ -3886,6 +4817,16 @@
       ]
     },
     {
+      "id": "item_unlock:heard_fifth_moonsong",
+      "type": "item_unlock",
+      "name": "You have heard the fifth moonsong (in whichever form). This unlocks a unique Yara line and a unique Muse line in future chain content.",
+      "region": null,
+      "source_quest": "the_dream_of_the_fifth_moonsong",
+      "requires": [
+        "quest:the_dream_of_the_fifth_moonsong"
+      ]
+    },
+    {
       "id": "item_unlock:heretics_bellows",
       "type": "item_unlock",
       "name": "Heretic's Bellows — +8% firemaking XP in Sootworks permanently",
@@ -3903,6 +4844,16 @@
       "source_quest": "razaks_monthly_parcel",
       "requires": [
         "quest:razaks_monthly_parcel"
+      ]
+    },
+    {
+      "id": "item_unlock:hilde_knows_fizz_report",
+      "type": "item_unlock",
+      "name": "Hilde holds the report. This unlocks her 'black ledger' dialogue in chain-quest 2.",
+      "region": null,
+      "source_quest": "the_report_filed_twice",
+      "requires": [
+        "quest:the_report_filed_twice"
       ]
     },
     {
@@ -3955,6 +4906,16 @@
       ]
     },
     {
+      "id": "item_unlock:inner_spine_seven_names",
+      "type": "item_unlock",
+      "name": "Inner-Spine Seven Names (memorised) — pocket; while carried, Stormcrown-area tide tables read as one full extra tide per in-game day. Chain-gated.",
+      "region": null,
+      "source_quest": "the_seven_names_on_the_inner_spine",
+      "requires": [
+        "quest:the_seven_names_on_the_inner_spine"
+      ]
+    },
+    {
       "id": "item_unlock:inspectors_loupe",
       "type": "item_unlock",
       "name": "Inspector's Loupe — identify fake items, bonus thieving success",
@@ -4002,6 +4963,16 @@
       "source_quest": "sessens_last_flight",
       "requires": [
         "quest:sessens_last_flight"
+      ]
+    },
+    {
+      "id": "item_unlock:knows_seventh_is_with_sael",
+      "type": "item_unlock",
+      "name": "You know the seventh moonsong is with Sael. This line unlocks the grandmaster quest.",
+      "region": null,
+      "source_quest": "aureths_fragment_score",
+      "requires": [
+        "quest:aureths_fragment_score"
       ]
     },
     {
@@ -4276,6 +5247,16 @@
       ]
     },
     {
+      "id": "item_unlock:moonsong_lute_rendered",
+      "type": "item_unlock",
+      "name": "Moonsong Lute (Rendered) — off-hand; if you chose KEEP, bound to you. If GIFT, accessible at the whittler for any chain-completed player (including your alts). If BURY, absent but region-effect active. Unique to this chain, chosen ending.",
+      "region": null,
+      "source_quest": "the_seventh_moonsong_sung",
+      "requires": [
+        "quest:the_seventh_moonsong_sung"
+      ]
+    },
+    {
       "id": "item_unlock:mother_orelines_loupe",
       "type": "item_unlock",
       "name": "Mother Oreline's Loupe — upgraded Inspector's Loupe, identifies all fakes at a glance, +10% thieving",
@@ -4286,6 +5267,16 @@
       ]
     },
     {
+      "id": "item_unlock:named_the_wheelwright",
+      "type": "item_unlock",
+      "name": "You spoke the wheelwright's name (Rennid Wrightwheel) to Hald. Hald will now refer to his smithy as 'Rennid's line' in private. Kael does not use the name.",
+      "region": null,
+      "source_quest": "the_bellows_wheels_second_name",
+      "requires": [
+        "quest:the_bellows_wheels_second_name"
+      ]
+    },
+    {
       "id": "item_unlock:nessas_new_map",
       "type": "item_unlock",
       "name": "Nessa's New Map — right-click any Boneyard tile to teleport once per hour; updates when dunes move",
@@ -4293,6 +5284,36 @@
       "source_quest": "the_cartographers_debt",
       "requires": [
         "quest:the_cartographers_debt"
+      ]
+    },
+    {
+      "id": "item_unlock:nine_days_of_loaves",
+      "type": "item_unlock",
+      "name": "You have carried the phrase 'nine days' worth of loaves' to Hilde. This unlocks Vorath's receiving dialogue in chain-quest 6.",
+      "region": null,
+      "source_quest": "hildes_black_ledger",
+      "requires": [
+        "quest:hildes_black_ledger"
+      ]
+    },
+    {
+      "id": "item_unlock:nine_days_tally_stick",
+      "type": "item_unlock",
+      "name": "Nine Days Tally-Stick — pocket; while held, your player can treat any nine consecutive in-game days as a single tick for ration, skill-decay, and quest-timer purposes. Non-tradeable, unique to this chain.",
+      "region": null,
+      "source_quest": "nine_days_to_pour_two_cold",
+      "requires": [
+        "quest:nine_days_to_pour_two_cold"
+      ]
+    },
+    {
+      "id": "item_unlock:oath_ash_tin",
+      "type": "item_unlock",
+      "name": "Oath Ash Tin — pocket; the tin itself is a proof-of-oath and grants you the title \"Pact Walker\" visible to other players. Effect depends on your choice: (1) KEEP — permanent Furnace Two access and silent oath-keeper status; (2) BURY — Kael smithy gains a permanent Sootworks-alloy bench; (3) SCATTER — Oath-Sworn alloys available to you at any silent-pact contributor.",
+      "region": null,
+      "source_quest": "the_oath_unwritten",
+      "requires": [
+        "quest:the_oath_unwritten"
       ]
     },
     {
@@ -4313,6 +5334,16 @@
       "source_quest": "prophecy_fragments",
       "requires": [
         "quest:prophecy_fragments"
+      ]
+    },
+    {
+      "id": "item_unlock:pact_nine_day_held",
+      "type": "item_unlock",
+      "name": "The nine-day pour was held. The crews now regard you as 'pact-hands'. This unlocks the grandmaster quest.",
+      "region": null,
+      "source_quest": "nine_days_to_pour_two_cold",
+      "requires": [
+        "quest:nine_days_to_pour_two_cold"
       ]
     },
     {
@@ -4363,6 +5394,66 @@
       "source_quest": "the_paradox_philosopher",
       "requires": [
         "quest:the_paradox_philosopher"
+      ]
+    },
+    {
+      "id": "item_unlock:pilgrim_token_five_committed",
+      "type": "item_unlock",
+      "name": "If you said yes at the final step, you are committed to the grandmaster. The chain cannot be reset without a full character-level pilgrimage-forfeit (returns token but voids all station bindings).",
+      "region": null,
+      "source_quest": "the_mirrored_step",
+      "requires": [
+        "quest:the_mirrored_step"
+      ]
+    },
+    {
+      "id": "item_unlock:pilgrim_token_four",
+      "type": "item_unlock",
+      "name": "Four stations bound. Orin now refers to you as a pilgrim-scholar. Azhmari has granted court-pilgrim standing.",
+      "region": null,
+      "source_quest": "the_weeping_glass_and_the_shard_that_sings",
+      "requires": [
+        "quest:the_weeping_glass_and_the_shard_that_sings"
+      ]
+    },
+    {
+      "id": "item_unlock:pilgrim_token_six_private",
+      "type": "item_unlock",
+      "name": "Zel privately recognises your discipline. She will, from now on, give you a 25% trade discount on crystal equipment. No other NPC has this standing with Zel.",
+      "region": null,
+      "source_quest": "the_spires_foot",
+      "requires": [
+        "quest:the_spires_foot"
+      ]
+    },
+    {
+      "id": "item_unlock:pilgrim_token_two",
+      "type": "item_unlock",
+      "name": "Two stations bound to your token. Razak now refers to you as a pilgrim, which is distinct from guest.",
+      "region": null,
+      "source_quest": "the_shadeless_cairn",
+      "requires": [
+        "quest:the_shadeless_cairn"
+      ]
+    },
+    {
+      "id": "item_unlock:pilgrims_cape",
+      "type": "item_unlock",
+      "name": "Pilgrim's Cape — cape slot; UNIQUE bonus: grants a thirteenth-station meditation buff that slowly regenerates prayer points and stamina in any desert, shrine, or archive area. The cape's inscription records your chosen ending; REVIVE inscribes 'open'; CLOSE 'sealed'; DEDICATE 'given'. Non-interchangeable with any other cape.",
+      "region": null,
+      "source_quest": "the_shrine_below",
+      "requires": [
+        "quest:the_shrine_below"
+      ]
+    },
+    {
+      "id": "item_unlock:pilgrims_token",
+      "type": "item_unlock",
+      "name": "Pilgrim's Token — pocket; tracks your pilgrimage progress. At 1 station, functions as a minor shade-charm in the Boneyard (+2% stamina regen while in-region). Fully bound at 7 stations grants the grandmaster's eligibility.",
+      "region": null,
+      "source_quest": "the_well_that_was",
+      "requires": [
+        "quest:the_well_that_was"
       ]
     },
     {
@@ -4543,6 +5634,16 @@
       "source_quest": "into_the_wilds",
       "requires": [
         "quest:into_the_wilds"
+      ]
+    },
+    {
+      "id": "item_unlock:read_saels_burn_line",
+      "type": "item_unlock",
+      "name": "You know the line Sael wrote to Lyris. This line will be referenced in the grandmaster. If you pocketed the second fragment (betraying Dorin's trust), that also branches the ending.",
+      "region": null,
+      "source_quest": "the_burned_page_in_the_chapel",
+      "requires": [
+        "quest:the_burned_page_in_the_chapel"
       ]
     },
     {
@@ -4774,6 +5875,26 @@
       ]
     },
     {
+      "id": "item_unlock:sea_foam_cup",
+      "type": "item_unlock",
+      "name": "Sea-Foam Cup (tide-reserve) — pocket; one-time use, revives you from wilderness death with no item-loss. Refills only at Elenne's chapel at twin-moon tides after a multi-year cooldown. Unique.",
+      "region": null,
+      "source_quest": "the_twin_tide_reconciled",
+      "requires": [
+        "quest:the_twin_tide_reconciled"
+      ]
+    },
+    {
+      "id": "item_unlock:second_moonsong_melody",
+      "type": "item_unlock",
+      "name": "Second Moonsong (melody memorised) — pocket; grants a passive Herblore XP buff (+3% in Moryskah) while carried. Combines with other moonsongs in the grandmaster.",
+      "region": null,
+      "source_quest": "the_badger_who_remembers",
+      "requires": [
+        "quest:the_badger_who_remembers"
+      ]
+    },
+    {
       "id": "item_unlock:sessens_last_jess",
       "type": "item_unlock",
       "name": "Sessen's Last Jess — glove slot; bonds to the next bird you train (hunter) for a permanent +5 to hunter level while that specific bird is alive; non-tradeable.",
@@ -4781,6 +5902,36 @@
       "source_quest": "sessens_last_flight",
       "requires": [
         "quest:sessens_last_flight"
+      ]
+    },
+    {
+      "id": "item_unlock:seventh_moonsong_ending_chosen",
+      "type": "item_unlock",
+      "name": "Your ending (GIFT / KEEP / BURY) is permanent and affects future Veilwood/Inkweald content. All three are canon.",
+      "region": null,
+      "source_quest": "the_seventh_moonsong_sung",
+      "requires": [
+        "quest:the_seventh_moonsong_sung"
+      ]
+    },
+    {
+      "id": "item_unlock:shade_held_in_trust",
+      "type": "item_unlock",
+      "name": "Shade Held In Trust — pocket; once per in-game day, lets you move without casting a shadow for 30 seconds. NPCs who rely on shadow-detection (specific thieving targets) lose their awareness of you during this. Chain-gated.",
+      "region": null,
+      "source_quest": "the_shadeless_cairn",
+      "requires": [
+        "quest:the_shadeless_cairn"
+      ]
+    },
+    {
+      "id": "item_unlock:should_have_been_self_image",
+      "type": "item_unlock",
+      "name": "Should-Have-Been Self (imaged) — pocket; passive; grants +1% XP in every skill while carried, cumulative on pilgrimage-route only. The image ages naturally as your character ages.",
+      "region": null,
+      "source_quest": "the_mirrored_step",
+      "requires": [
+        "quest:the_mirrored_step"
       ]
     },
     {
@@ -4814,6 +5965,16 @@
       ]
     },
     {
+      "id": "item_unlock:singing_shard_tone_memory",
+      "type": "item_unlock",
+      "name": "Singing Shard (tone memorised) — pocket; lets you strike any crystal in Aelgard for a pilgrim-recognition tone. Certain hidden shrines respond to this tone.",
+      "region": null,
+      "source_quest": "the_weeping_glass_and_the_shard_that_sings",
+      "requires": [
+        "quest:the_weeping_glass_and_the_shard_that_sings"
+      ]
+    },
+    {
       "id": "item_unlock:sisterhood_sigil",
       "type": "item_unlock",
       "name": "Sisterhood Sigil — small permanent defensive bonus; only given after the youngest Sister reads your name aloud over the fourth brother",
@@ -4821,6 +5982,16 @@
       "source_quest": "the_sisterhoods_wills",
       "requires": [
         "quest:the_sisterhoods_wills"
+      ]
+    },
+    {
+      "id": "item_unlock:six_moonsong_lute",
+      "type": "item_unlock",
+      "name": "Six-Moonsong Lute (chain-bound) — Tarras's silent lute, now holding six of seven moonsongs. Passive buff: +3% XP in any of the six regions the moonsongs were found. Seventh moonsong required for full effect.",
+      "region": null,
+      "source_quest": "aureths_fragment_score",
+      "requires": [
+        "quest:aureths_fragment_score"
       ]
     },
     {
@@ -4882,12 +6053,32 @@
       ]
     },
     {
+      "id": "item_unlock:stormcrown_tide_mark",
+      "type": "item_unlock",
+      "name": "Stormcrown Tide-Mark — pocket; lets you read every tide-mark in Saltbrine. Tide-marks carry Saltbrine-born-only information: which shrines are tended, which boats are overdue, which crews are offshore. Chain-gated; unique to this chain.",
+      "region": null,
+      "source_quest": "the_priestess_who_does_not_speak",
+      "requires": [
+        "quest:the_priestess_who_does_not_speak"
+      ]
+    },
+    {
       "id": "item_unlock:strength_cape",
       "type": "item_unlock",
       "name": "Strength skillcape",
       "source_breakpoint": "strength_99",
       "requires": [
         "skill:strength:99"
+      ]
+    },
+    {
+      "id": "item_unlock:strip_silent_triangle",
+      "type": "item_unlock",
+      "name": "You have moved messages between Hald, Fizz, Vorath, and Kael without any of them acknowledging the messages in writing. This is the triangle of the silent pact.",
+      "region": null,
+      "source_quest": "halds_letter_to_kael",
+      "requires": [
+        "quest:halds_letter_to_kael"
       ]
     },
     {
@@ -4908,6 +6099,16 @@
       "source_quest": "the_salted_kings_last_name",
       "requires": [
         "quest:the_salted_kings_last_name"
+      ]
+    },
+    {
+      "id": "item_unlock:tarras_silent_lute",
+      "type": "item_unlock",
+      "name": "Tarras Veil's Silent Lute — off-hand / pocket; held only during this chain. As you recover moonsongs, the lute learns them. At chain's end it gains its voice permanently. Non-tradeable.",
+      "region": null,
+      "source_quest": "the_whittlers_silent_lute",
+      "requires": [
+        "quest:the_whittlers_silent_lute"
       ]
     },
     {
@@ -5040,6 +6241,16 @@
       ]
     },
     {
+      "id": "item_unlock:unread_pact_strip",
+      "type": "item_unlock",
+      "name": "Unread Pact Strip — pocket; a second strip you kept on your person. It cannot be read by anyone including you until the Grandmaster quest is initiated, at which point it becomes the Oath Strip of the pact. Non-tradeable.",
+      "region": null,
+      "source_quest": "halds_letter_to_kael",
+      "requires": [
+        "quest:halds_letter_to_kael"
+      ]
+    },
+    {
       "id": "item_unlock:vigil_stole",
       "type": "item_unlock",
       "name": "Vigil Stole — prayer bonus when dawn wax is in inventory",
@@ -5077,6 +6288,16 @@
       "source_quest": "the_werewolfs_reckoning",
       "requires": [
         "quest:the_werewolfs_reckoning"
+      ]
+    },
+    {
+      "id": "item_unlock:wheelwrights_mirror_charm",
+      "type": "item_unlock",
+      "name": "Wheelwright's Mirror-Charm — pocket; reveals the installation-engraving of any wheel, bellows, or bearing in Aelgard. Combined with Fizz's Year-Mark, reveals the full provenance of any Sootworks part.",
+      "region": null,
+      "source_quest": "the_bellows_wheels_second_name",
+      "requires": [
+        "quest:the_bellows_wheels_second_name"
       ]
     },
     {
@@ -5670,6 +6891,16 @@
       ]
     },
     {
+      "id": "npc:aureth_musical_confidante",
+      "type": "npc",
+      "name": "Aureth (or your loop-self, per chain-1 ending) will correspond with you on musical-archival matters, once per in-game month.",
+      "region": null,
+      "source_quest": "aureths_fragment_score",
+      "requires": [
+        "quest:aureths_fragment_score"
+      ]
+    },
+    {
       "id": "npc:aureth_successor_or_free",
       "type": "npc",
       "name": "If you freed her, Aureth will walk the world. She will appear, once per in-game month, at the Salt-Pickled Crow on Wednesday, to speak with Brigh and (separately) with you. If you sealed her, she corresponds via the archive monthly. If you took her place, your character is now an NPC to other players between play sessions, writing in the archive — a unique multiplayer-adjacent feature.",
@@ -5730,6 +6961,16 @@
       ]
     },
     {
+      "id": "npc:crown_inspector_blind",
+      "type": "npc",
+      "name": "The Crown inspector does not know what he did not see. He will return in seven in-game years. Until then you are clear to work unseen operations in the Sootworks.",
+      "region": null,
+      "source_quest": "nine_days_to_pour_two_cold",
+      "requires": [
+        "quest:nine_days_to_pour_two_cold"
+      ]
+    },
+    {
       "id": "npc:crystal_hunter_master",
       "type": "npc",
       "name": "Crystal-Hunter Master — issues crystal-hunter contracts",
@@ -5747,6 +6988,16 @@
       "source_quest": "the_werewolfs_dilemma",
       "requires": [
         "quest:the_werewolfs_dilemma"
+      ]
+    },
+    {
+      "id": "npc:dorin_ash_keeper_trust",
+      "type": "npc",
+      "name": "Dorin will now let you perform the blessing on any old bin in the chapel alone. No other NPC has this standing.",
+      "region": null,
+      "source_quest": "the_burned_page_in_the_chapel",
+      "requires": [
+        "quest:the_burned_page_in_the_chapel"
       ]
     },
     {
@@ -5770,6 +7021,26 @@
       ]
     },
     {
+      "id": "npc:durra_sister_of_vorath",
+      "type": "npc",
+      "name": "Durra, Vorath's elder sister, is now a named NPC in the world. Her status depends on your ending: (1) she remains in the Deep Vein as co-advisor; (2) she travels between regions as a neutral mediator; (3) she returns to the Glass Desert but writes monthly.",
+      "region": null,
+      "source_quest": "the_oath_unwritten",
+      "requires": [
+        "quest:the_oath_unwritten"
+      ]
+    },
+    {
+      "id": "npc:elenne_speaks_freely",
+      "type": "npc",
+      "name": "Elenne now speaks freely. She is, after the chain, no longer silent. Her presence is Saltbrine-permanent, no longer under mourning-discipline. Her role in future content depends on your chosen ending.",
+      "region": null,
+      "source_quest": "the_twin_tide_reconciled",
+      "requires": [
+        "quest:the_twin_tide_reconciled"
+      ]
+    },
+    {
       "id": "npc:evil_chef_ended",
       "type": "npc",
       "name": "The Chef will now either retire quietly (Publish), keep cooking alone (Bury), or begin teaching at Hilde's back door (Anonymous) — determines where he appears next.",
@@ -5787,6 +7058,16 @@
       "source_quest": "the_lycanthropy_cure",
       "requires": [
         "quest:the_lycanthropy_cure"
+      ]
+    },
+    {
+      "id": "npc:fizz_partial_trust",
+      "type": "npc",
+      "name": "Fizz now speaks to you at tolerances instead of greetings. She will, once per in-game week, tell you the year of any single item you hold up.",
+      "region": null,
+      "source_quest": "the_report_filed_twice",
+      "requires": [
+        "quest:the_report_filed_twice"
       ]
     },
     {
@@ -5830,6 +7111,36 @@
       ]
     },
     {
+      "id": "npc:hermit_pilgrim_acknowledgement",
+      "type": "npc",
+      "name": "The Hermit now offers you, without payment, one Old Sun ember per in-game month. The ember is a reagent for the grandmaster.",
+      "region": null,
+      "source_quest": "the_shadeless_cairn",
+      "requires": [
+        "quest:the_shadeless_cairn"
+      ]
+    },
+    {
+      "id": "npc:kael_hald_correspondence_formal",
+      "type": "npc",
+      "name": "Kael and Hald now write to each other by name. Their correspondence is, functionally, the foundation of the silent pact — a Heartlands smith and a Sootworks smith agreeing without a treaty.",
+      "region": null,
+      "source_quest": "the_bellows_wheels_second_name",
+      "requires": [
+        "quest:the_bellows_wheels_second_name"
+      ]
+    },
+    {
+      "id": "npc:lenna_third_fold_trust",
+      "type": "npc",
+      "name": "Lenna will now re-fold your nets for free when you visit. She will say one word: the direction of the wind.",
+      "region": null,
+      "source_quest": "lennas_second_fold",
+      "requires": [
+        "quest:lennas_second_fold"
+      ]
+    },
+    {
       "id": "npc:lens_cat_ally",
       "type": "npc",
       "name": "Lens-cat ally — follows the player, +3 hunter in Glass Desert, spots traps at 3 tiles",
@@ -5837,6 +7148,26 @@
       "source_quest": "what_the_dune_forgot",
       "requires": [
         "quest:what_the_dune_forgot"
+      ]
+    },
+    {
+      "id": "npc:mara_sister_confirmed",
+      "type": "npc",
+      "name": "Mara, by acknowledging the walk, has confirmed her Saltbrine-born heritage to you. She will no longer hide her Marigold connection in your presence.",
+      "region": null,
+      "source_quest": "the_seven_names_on_the_inner_spine",
+      "requires": [
+        "quest:the_seven_names_on_the_inner_spine"
+      ]
+    },
+    {
+      "id": "npc:mara_tide_confidence",
+      "type": "npc",
+      "name": "Mara will, from now on, share Saltbrine-specific news with you before Vash does. One rumour per in-game week.",
+      "region": null,
+      "source_quest": "the_priestess_who_does_not_speak",
+      "requires": [
+        "quest:the_priestess_who_does_not_speak"
       ]
     },
     {
@@ -5880,6 +7211,16 @@
       ]
     },
     {
+      "id": "npc:orin_tide_correspondence",
+      "type": "npc",
+      "name": "Crystal Sage Orin will write you monthly with refraction updates that affect Stormcrown. This is the first correspondence Orin has offered outside his scholarly circle.",
+      "region": null,
+      "source_quest": "the_tide_that_did_not_break",
+      "requires": [
+        "quest:the_tide_that_did_not_break"
+      ]
+    },
+    {
       "id": "npc:ossen_maps_published",
       "type": "npc",
       "name": "If you chose Tell Brun, Ossen now openly sells deep-tunnel maps in the Soot-Mouth. If you chose Tell Vorath, Ossen becomes a reluctant foundry consultant. If you chose Burn, Ossen still drinks alone but will give you a free stout once per in-game week.",
@@ -5897,6 +7238,26 @@
       "source_quest": "the_prophet_and_the_number",
       "requires": [
         "quest:the_prophet_and_the_number"
+      ]
+    },
+    {
+      "id": "npc:pilgrim_echo_greets",
+      "type": "npc",
+      "name": "The Pilgrim-Echo will, at Station Six, greet you silently. She is not an enemy; she is, in a sense, your co-pilgrim across nine centuries.",
+      "region": null,
+      "source_quest": "the_mirrored_step",
+      "requires": [
+        "quest:the_mirrored_step"
+      ]
+    },
+    {
+      "id": "npc:pilgrim_echo_rested",
+      "type": "npc",
+      "name": "The Pilgrim-Echo is at rest. Her companion (Zel's ancestor) is, by implication, also at rest. Zel, though not told, feels it — she is, subtly, less paranoid about her Heartlands file in subsequent dialogue.",
+      "region": null,
+      "source_quest": "the_shrine_below",
+      "requires": [
+        "quest:the_shrine_below"
       ]
     },
     {
@@ -5947,6 +7308,16 @@
       "source_quest": "the_falconers_quiet_debt",
       "requires": [
         "quest:the_falconers_quiet_debt"
+      ]
+    },
+    {
+      "id": "npc:sael_apology_delivered",
+      "type": "npc",
+      "name": "Elder Druid Sael has, by singing, apologised. Future Veilwood content will treat Sael and Lyris as reconciled. Sael's winter-solstice letter-burning will stop.",
+      "region": null,
+      "source_quest": "the_seventh_moonsong_sung",
+      "requires": [
+        "quest:the_seventh_moonsong_sung"
       ]
     },
     {
@@ -6040,6 +7411,16 @@
       ]
     },
     {
+      "id": "npc:stub_trusts_you",
+      "type": "npc",
+      "name": "Stub will, from now on, emerge at your arrival without waiting. He will lead you to other warrens if you bring mint-oil.",
+      "region": null,
+      "source_quest": "the_badger_who_remembers",
+      "requires": [
+        "quest:the_badger_who_remembers"
+      ]
+    },
+    {
       "id": "npc:the_muse_ended",
       "type": "npc",
       "name": "If you chose Sign, the Muse retires and becomes a pen-pal for any player with a live-ink jar. If you chose Leave, the Muse remains a boss respawn. If you chose Partial, the Muse appears as an NPC art-tutor at the Drifting Market once per week.",
@@ -6080,6 +7461,16 @@
       ]
     },
     {
+      "id": "npc:vash_back_room_access",
+      "type": "npc",
+      "name": "Innkeeper Vash will, from now on, seat you at the back-room table without your asking. You are the only adventurer in Aelgard with that standing seat.",
+      "region": null,
+      "source_quest": "hildes_black_ledger",
+      "requires": [
+        "quest:hildes_black_ledger"
+      ]
+    },
+    {
       "id": "npc:vash_trusts_you",
       "type": "npc",
       "name": "Vash will now let you sleep upstairs at the Crow without paying.",
@@ -6100,6 +7491,16 @@
       ]
     },
     {
+      "id": "npc:vorath_audience_direct",
+      "type": "npc",
+      "name": "Vorath will, from now on, accept your requests without the customary three months' paperwork. You are one of exactly three adventurers with this standing.",
+      "region": null,
+      "source_quest": "halds_letter_to_kael",
+      "requires": [
+        "quest:halds_letter_to_kael"
+      ]
+    },
+    {
       "id": "npc:werewolf_ally",
       "type": "npc",
       "name": "EMPOWER PATH: Werewolf combat ally for Moryskah bosses (summonable once/day)",
@@ -6107,6 +7508,46 @@
       "source_quest": "the_werewolfs_dilemma",
       "requires": [
         "quest:the_werewolfs_dilemma"
+      ]
+    },
+    {
+      "id": "npc:whittler_partial_trust",
+      "type": "npc",
+      "name": "The Veilwood whittler will, from this quest on, accept wood-trade at fair value. He previously accepted only by introduction.",
+      "region": null,
+      "source_quest": "the_whittlers_silent_lute",
+      "requires": [
+        "quest:the_whittlers_silent_lute"
+      ]
+    },
+    {
+      "id": "npc:wyrm_partial_ally",
+      "type": "npc",
+      "name": "The Crystal Wyrm will, in the chain's grandmaster, refract in your favour rather than against you. This is not combat avoidance — it is a specific boon the Wyrm grants to tide-petitioners.",
+      "region": null,
+      "source_quest": "gailins_last_residue",
+      "requires": [
+        "quest:gailins_last_residue"
+      ]
+    },
+    {
+      "id": "npc:yara_full_trust",
+      "type": "npc",
+      "name": "Yara will, from this quest on, teach you one dream-magic spell per in-game season. Her trust is earned permanently.",
+      "region": null,
+      "source_quest": "the_dream_of_the_fifth_moonsong",
+      "requires": [
+        "quest:the_dream_of_the_fifth_moonsong"
+      ]
+    },
+    {
+      "id": "npc:zel_quiet_confidante",
+      "type": "npc",
+      "name": "Zel now occasionally (once per in-game season) breaks ledger-silence to ask your counsel on a specific Spire matter. Her counsel is unique dialogue; no other player receives it.",
+      "region": null,
+      "source_quest": "the_spires_foot",
+      "requires": [
+        "quest:the_spires_foot"
       ]
     },
     {
@@ -6574,6 +8015,23 @@
       "orphan_definition": true
     },
     {
+      "id": "quest:aureths_fragment_score",
+      "type": "quest",
+      "name": "Aureth's Fragment Score",
+      "difficulty": "Master",
+      "questPoints": 4,
+      "requires": [
+        "skill:magic:75",
+        "skill:thieving:70",
+        "skill:prayer:65",
+        "skill:crafting:62",
+        "skill:herblore:60",
+        "skill:runecrafting:60",
+        "quest:the_dream_of_the_fifth_moonsong",
+        "quest:keeper_aureths_seal"
+      ]
+    },
+    {
       "id": "quest:bandit_camp_alliance",
       "type": "quest",
       "name": "Bandit Camp Alliance",
@@ -6585,7 +8043,7 @@
       "type": "quest",
       "name": "The Barrows Brothers",
       "difficulty": "Experienced",
-      "questPoints": 1,
+      "questPoints": 2,
       "requires": [
         "skill:attack:50",
         "skill:magic:50",
@@ -6935,6 +8393,22 @@
       ]
     },
     {
+      "id": "quest:gailins_last_residue",
+      "type": "quest",
+      "name": "Gailin's Last Residue",
+      "difficulty": "Experienced",
+      "questPoints": 3,
+      "requires": [
+        "skill:magic:62",
+        "skill:prayer:55",
+        "skill:fishing:55",
+        "skill:agility:55",
+        "skill:hunter:50",
+        "skill:thieving:45",
+        "quest:the_tide_that_did_not_break"
+      ]
+    },
+    {
       "id": "quest:gauntlet_key",
       "type": "quest",
       "name": "Song of the Elves",
@@ -6986,6 +8460,21 @@
       "orphan_definition": true
     },
     {
+      "id": "quest:halds_letter_to_kael",
+      "type": "quest",
+      "name": "Hald's Letter to Kael",
+      "difficulty": "Experienced",
+      "questPoints": 3,
+      "requires": [
+        "skill:thieving:58",
+        "skill:magic:55",
+        "skill:crafting:50",
+        "skill:agility:50",
+        "skill:runecrafting:45",
+        "quest:the_bellows_wheels_second_name"
+      ]
+    },
+    {
       "id": "quest:halflit_vigil",
       "type": "quest",
       "name": "Halflit Vigil",
@@ -7010,6 +8499,20 @@
         "skill:farming:50",
         "skill:herblore:40",
         "skill:agility:30"
+      ]
+    },
+    {
+      "id": "quest:hildes_black_ledger",
+      "type": "quest",
+      "name": "Hilde's Black Ledger",
+      "difficulty": "Intermediate",
+      "questPoints": 2,
+      "requires": [
+        "skill:thieving:45",
+        "skill:agility:40",
+        "skill:crafting:35",
+        "skill:fishing:30",
+        "quest:the_report_filed_twice"
       ]
     },
     {
@@ -7095,6 +8598,21 @@
       ]
     },
     {
+      "id": "quest:lennas_second_fold",
+      "type": "quest",
+      "name": "Lenna's Second Fold",
+      "difficulty": "Intermediate",
+      "questPoints": 2,
+      "requires": [
+        "skill:fishing:40",
+        "skill:crafting:35",
+        "skill:agility:35",
+        "skill:thieving:30",
+        "quest:the_priestess_who_does_not_speak",
+        "quest:the_tide_pool_collector"
+      ]
+    },
+    {
       "id": "quest:lighthouse_reignited",
       "type": "quest",
       "name": "Lighthouse Reignited",
@@ -7174,6 +8692,26 @@
       "name": "Moon-Cycle Apprentice",
       "requires": [],
       "orphan_definition": true
+    },
+    {
+      "id": "quest:nine_days_to_pour_two_cold",
+      "type": "quest",
+      "name": "Nine Days to Pour Two Cold",
+      "difficulty": "Master",
+      "questPoints": 4,
+      "requires": [
+        "skill:construction:70",
+        "skill:smithing:68",
+        "skill:thieving:65",
+        "skill:mining:65",
+        "skill:crafting:60",
+        "skill:agility:60",
+        "skill:firemaking:55",
+        "skill:magic:55",
+        "quest:halds_letter_to_kael",
+        "quest:the_map_that_was_never_drawn",
+        "quest:crew_six_after_the_pour"
+      ]
     },
     {
       "id": "quest:no_honor_ordeal",
@@ -7736,6 +9274,21 @@
       "orphan_definition": true
     },
     {
+      "id": "quest:the_badger_who_remembers",
+      "type": "quest",
+      "name": "The Badger Who Remembers",
+      "difficulty": "Intermediate",
+      "questPoints": 2,
+      "requires": [
+        "skill:hunter:45",
+        "skill:magic:40",
+        "skill:herblore:40",
+        "skill:agility:35",
+        "quest:the_whittlers_silent_lute",
+        "quest:the_bog_witchs_errand"
+      ]
+    },
+    {
       "id": "quest:the_beetlekeepers_signet",
       "type": "quest",
       "name": "The Beetlekeeper's Signet",
@@ -7748,6 +9301,21 @@
       "name": "The Beggars' Petition",
       "requires": [],
       "orphan_definition": true
+    },
+    {
+      "id": "quest:the_bellows_wheels_second_name",
+      "type": "quest",
+      "name": "The Bellows Wheel's Second Name",
+      "difficulty": "Experienced",
+      "questPoints": 3,
+      "requires": [
+        "skill:crafting:55",
+        "skill:thieving:50",
+        "skill:agility:50",
+        "skill:smithing:50",
+        "skill:magic:45",
+        "quest:hildes_black_ledger"
+      ]
     },
     {
       "id": "quest:the_blacksmiths_apprentice",
@@ -7867,6 +9435,21 @@
         "skill:thieving:55",
         "quest:bones_of_the_first_empire",
         "quest:the_architect_of_ruin"
+      ]
+    },
+    {
+      "id": "quest:the_burned_page_in_the_chapel",
+      "type": "quest",
+      "name": "The Burned Page in the Chapel",
+      "difficulty": "Experienced",
+      "questPoints": 3,
+      "requires": [
+        "skill:prayer:55",
+        "skill:magic:55",
+        "skill:thieving:45",
+        "skill:herblore:45",
+        "skill:crafting:40",
+        "quest:the_badger_who_remembers"
       ]
     },
     {
@@ -8294,6 +9877,23 @@
         "skill:slayer:40",
         "skill:hitpoints:50",
         "quest:the_dreamers_debt"
+      ]
+    },
+    {
+      "id": "quest:the_dream_of_the_fifth_moonsong",
+      "type": "quest",
+      "name": "The Dream of the Fifth Moonsong",
+      "difficulty": "Experienced",
+      "questPoints": 3,
+      "requires": [
+        "skill:magic:65",
+        "skill:prayer:58",
+        "skill:herblore:55",
+        "skill:crafting:50",
+        "skill:agility:50",
+        "quest:the_burned_page_in_the_chapel",
+        "quest:the_inkweald_door",
+        "quest:the_draft_signature"
       ]
     },
     {
@@ -9301,6 +10901,21 @@
       "orphan_definition": true
     },
     {
+      "id": "quest:the_mirrored_step",
+      "type": "quest",
+      "name": "The Mirrored Step",
+      "difficulty": "Experienced",
+      "questPoints": 3,
+      "requires": [
+        "skill:magic:65",
+        "skill:prayer:60",
+        "skill:mining:55",
+        "skill:agility:55",
+        "skill:herblore:50",
+        "quest:the_weeping_glass_and_the_shard_that_sings"
+      ]
+    },
+    {
       "id": "quest:the_missing_deeds",
       "type": "quest",
       "name": "The Missing Deeds",
@@ -9352,6 +10967,28 @@
       "name": "The New-Moon Rotation",
       "requires": [],
       "orphan_definition": true
+    },
+    {
+      "id": "quest:the_oath_unwritten",
+      "type": "quest",
+      "name": "The Oath Unwritten",
+      "difficulty": "Grandmaster",
+      "questPoints": 5,
+      "requires": [
+        "skill:construction:85",
+        "skill:smithing:85",
+        "skill:mining:80",
+        "skill:crafting:75",
+        "skill:agility:80",
+        "skill:firemaking:75",
+        "skill:magic:75",
+        "skill:prayer:70",
+        "skill:thieving:75",
+        "skill:hitpoints:90",
+        "quest:nine_days_to_pour_two_cold",
+        "quest:the_map_that_was_never_drawn",
+        "quest:the_last_dragon_p3"
+      ]
     },
     {
       "id": "quest:the_organ_mass",
@@ -9440,6 +11077,18 @@
       ]
     },
     {
+      "id": "quest:the_priestess_who_does_not_speak",
+      "type": "quest",
+      "name": "The Priestess Who Does Not Speak",
+      "difficulty": "Novice",
+      "questPoints": 1,
+      "requires": [
+        "skill:fishing:22",
+        "skill:prayer:20",
+        "skill:crafting:15"
+      ]
+    },
+    {
       "id": "quest:the_prism_throne",
       "type": "quest",
       "name": "The Prism Throne",
@@ -9486,6 +11135,18 @@
       "name": "The Reagent Road",
       "requires": [],
       "orphan_definition": true
+    },
+    {
+      "id": "quest:the_report_filed_twice",
+      "type": "quest",
+      "name": "The Report Filed Twice",
+      "difficulty": "Novice",
+      "questPoints": 1,
+      "requires": [
+        "skill:construction:20",
+        "skill:thieving:15",
+        "skill:crafting:15"
+      ]
     },
     {
       "id": "quest:the_revenant_oath",
@@ -9630,6 +11291,62 @@
       ]
     },
     {
+      "id": "quest:the_seven_names_on_the_inner_spine",
+      "type": "quest",
+      "name": "The Seven Names on the Inner Spine",
+      "difficulty": "Master",
+      "questPoints": 4,
+      "requires": [
+        "skill:agility:72",
+        "skill:fishing:70",
+        "skill:prayer:68",
+        "skill:magic:65",
+        "skill:hunter:60",
+        "skill:crafting:55",
+        "skill:herblore:55",
+        "quest:gailins_last_residue",
+        "quest:the_siren_of_saltbrine",
+        "quest:the_boneyard_compass"
+      ]
+    },
+    {
+      "id": "quest:the_seventh_moonsong_sung",
+      "type": "quest",
+      "name": "The Seventh Moonsong, Sung",
+      "difficulty": "Grandmaster",
+      "questPoints": 5,
+      "requires": [
+        "skill:magic:92",
+        "skill:prayer:85",
+        "skill:attack:78",
+        "skill:defence:78",
+        "skill:ranged:78",
+        "skill:agility:80",
+        "skill:crafting:75",
+        "skill:herblore:70",
+        "skill:fletching:70",
+        "skill:runecrafting:70",
+        "skill:hitpoints:92",
+        "quest:aureths_fragment_score",
+        "quest:the_draft_signature",
+        "quest:the_inkweald_grandmaster_dream"
+      ]
+    },
+    {
+      "id": "quest:the_shadeless_cairn",
+      "type": "quest",
+      "name": "The Shadeless Cairn",
+      "difficulty": "Intermediate",
+      "questPoints": 2,
+      "requires": [
+        "skill:prayer:40",
+        "skill:magic:40",
+        "skill:agility:35",
+        "skill:hunter:30",
+        "quest:the_well_that_was"
+      ]
+    },
+    {
       "id": "quest:the_shades_of_mortton",
       "type": "quest",
       "name": "The Shades of Mortton",
@@ -9668,6 +11385,28 @@
       "name": "The Shipwright's Commission",
       "requires": [],
       "orphan_definition": true
+    },
+    {
+      "id": "quest:the_shrine_below",
+      "type": "quest",
+      "name": "The Shrine Below",
+      "difficulty": "Grandmaster",
+      "questPoints": 5,
+      "requires": [
+        "skill:magic:90",
+        "skill:prayer:88",
+        "skill:agility:85",
+        "skill:mining:80",
+        "skill:hunter:75",
+        "skill:herblore:75",
+        "skill:thieving:75",
+        "skill:crafting:70",
+        "skill:runecrafting:70",
+        "skill:hitpoints:92",
+        "quest:the_spires_foot",
+        "quest:the_second_question",
+        "quest:keeper_aureths_seal"
+      ]
     },
     {
       "id": "quest:the_siege_of_hollow_mire",
@@ -9839,6 +11578,25 @@
       ]
     },
     {
+      "id": "quest:the_spires_foot",
+      "type": "quest",
+      "name": "The Spire's Foot",
+      "difficulty": "Master",
+      "questPoints": 4,
+      "requires": [
+        "skill:thieving:72",
+        "skill:mining:70",
+        "skill:magic:65",
+        "skill:crafting:62",
+        "skill:prayer:60",
+        "skill:agility:60",
+        "skill:herblore:55",
+        "quest:the_mirrored_step",
+        "quest:sand_and_secrets",
+        "quest:hildes_black_ledger"
+      ]
+    },
+    {
       "id": "quest:the_spymasters_gambit",
       "type": "quest",
       "name": "The Spymaster's Gambit",
@@ -9914,6 +11672,22 @@
       ]
     },
     {
+      "id": "quest:the_tide_that_did_not_break",
+      "type": "quest",
+      "name": "The Tide That Did Not Break",
+      "difficulty": "Experienced",
+      "questPoints": 3,
+      "requires": [
+        "skill:fishing:55",
+        "skill:magic:55",
+        "skill:agility:55",
+        "skill:thieving:50",
+        "skill:runecrafting:45",
+        "quest:lennas_second_fold",
+        "quest:echoes_of_the_deep"
+      ]
+    },
+    {
       "id": "quest:the_tide_that_did_not_rise",
       "type": "quest",
       "name": "The Tide That Did Not Rise",
@@ -9971,6 +11745,27 @@
         "skill:mining:40",
         "quest:the_month_that_was_omitted",
         "quest:the_bog_witchs_bargain"
+      ]
+    },
+    {
+      "id": "quest:the_twin_tide_reconciled",
+      "type": "quest",
+      "name": "The Twin-Tide Reconciled",
+      "difficulty": "Grandmaster",
+      "questPoints": 5,
+      "requires": [
+        "skill:magic:90",
+        "skill:prayer:88",
+        "skill:fishing:82",
+        "skill:agility:82",
+        "skill:hunter:75",
+        "skill:herblore:70",
+        "skill:crafting:70",
+        "skill:runecrafting:70",
+        "skill:hitpoints:92",
+        "quest:the_seven_names_on_the_inner_spine",
+        "quest:the_siren_of_saltbrine",
+        "quest:the_alignment_beneath"
       ]
     },
     {
@@ -10070,6 +11865,34 @@
       "orphan_definition": true
     },
     {
+      "id": "quest:the_weeping_glass_and_the_shard_that_sings",
+      "type": "quest",
+      "name": "The Weeping Glass and the Shard That Sings",
+      "difficulty": "Experienced",
+      "questPoints": 3,
+      "requires": [
+        "skill:magic:60",
+        "skill:thieving:55",
+        "skill:prayer:50",
+        "skill:agility:50",
+        "skill:crafting:48",
+        "quest:the_shadeless_cairn",
+        "quest:relics_of_the_old_world"
+      ]
+    },
+    {
+      "id": "quest:the_well_that_was",
+      "type": "quest",
+      "name": "The Well That Was",
+      "difficulty": "Novice",
+      "questPoints": 1,
+      "requires": [
+        "skill:mining:22",
+        "skill:thieving:18",
+        "skill:magic:18"
+      ]
+    },
+    {
       "id": "quest:the_werewolf_courier",
       "type": "quest",
       "name": "The Werewolf Courier",
@@ -10131,6 +11954,18 @@
       "name": "The Whistle and the Valve",
       "requires": [],
       "orphan_definition": true
+    },
+    {
+      "id": "quest:the_whittlers_silent_lute",
+      "type": "quest",
+      "name": "The Whittler's Silent Lute",
+      "difficulty": "Novice",
+      "questPoints": 1,
+      "requires": [
+        "skill:crafting:25",
+        "skill:magic:20",
+        "skill:fletching:18"
+      ]
     },
     {
       "id": "quest:the_wilds_expedition",
@@ -11790,13 +13625,23 @@
       ]
     },
     {
+      "id": "skill:agility:72",
+      "type": "skill_level",
+      "skill": "agility",
+      "level": 72,
+      "name": "Agility 72",
+      "requires": [
+        "skill:agility:70"
+      ]
+    },
+    {
       "id": "skill:agility:75",
       "type": "skill_level",
       "skill": "agility",
       "level": 75,
       "name": "Agility 75",
       "requires": [
-        "skill:agility:70"
+        "skill:agility:72"
       ]
     },
     {
@@ -11846,7 +13691,7 @@
       "level": 92,
       "name": "Agility 92",
       "requires": [
-        "skill:agility:80",
+        "skill:agility:85",
         "skill:agility:90"
       ]
     },
@@ -12010,13 +13855,23 @@
       ]
     },
     {
+      "id": "skill:attack:78",
+      "type": "skill_level",
+      "skill": "attack",
+      "level": 78,
+      "name": "Attack 78",
+      "requires": [
+        "skill:attack:75"
+      ]
+    },
+    {
       "id": "skill:attack:80",
       "type": "skill_level",
       "skill": "attack",
       "level": 80,
       "name": "Attack 80",
       "requires": [
-        "skill:attack:75"
+        "skill:attack:78"
       ]
     },
     {
@@ -12620,6 +14475,16 @@
       ]
     },
     {
+      "id": "skill:crafting:48",
+      "type": "skill_level",
+      "skill": "crafting",
+      "level": 48,
+      "name": "Crafting 48",
+      "requires": [
+        "skill:crafting:45"
+      ]
+    },
+    {
       "id": "skill:crafting:5",
       "type": "skill_level",
       "skill": "crafting",
@@ -12636,7 +14501,7 @@
       "level": 50,
       "name": "Crafting 50",
       "requires": [
-        "skill:crafting:45"
+        "skill:crafting:48"
       ]
     },
     {
@@ -12660,13 +14525,23 @@
       ]
     },
     {
+      "id": "skill:crafting:62",
+      "type": "skill_level",
+      "skill": "crafting",
+      "level": 62,
+      "name": "Crafting 62",
+      "requires": [
+        "skill:crafting:60"
+      ]
+    },
+    {
       "id": "skill:crafting:63",
       "type": "skill_level",
       "skill": "crafting",
       "level": 63,
       "name": "Crafting 63",
       "requires": [
-        "skill:crafting:60"
+        "skill:crafting:62"
       ]
     },
     {
@@ -12942,14 +14817,24 @@
       ]
     },
     {
+      "id": "skill:defence:78",
+      "type": "skill_level",
+      "skill": "defence",
+      "level": 78,
+      "name": "Defence 78",
+      "requires": [
+        "skill:defence:70",
+        "skill:defence:75"
+      ]
+    },
+    {
       "id": "skill:defence:80",
       "type": "skill_level",
       "skill": "defence",
       "level": 80,
       "name": "Defence 80",
       "requires": [
-        "skill:defence:70",
-        "skill:defence:75"
+        "skill:defence:78"
       ]
     },
     {
@@ -13349,6 +15234,7 @@
       "level": 75,
       "name": "Firemaking 75",
       "requires": [
+        "skill:firemaking:70",
         "skill:firemaking:72"
       ]
     },
@@ -13431,13 +15317,23 @@
       ]
     },
     {
+      "id": "skill:fishing:22",
+      "type": "skill_level",
+      "skill": "fishing",
+      "level": 22,
+      "name": "Fishing 22",
+      "requires": [
+        "skill:fishing:20"
+      ]
+    },
+    {
       "id": "skill:fishing:25",
       "type": "skill_level",
       "skill": "fishing",
       "level": 25,
       "name": "Fishing 25",
       "requires": [
-        "skill:fishing:20"
+        "skill:fishing:22"
       ]
     },
     {
@@ -13528,7 +15424,6 @@
       "level": 60,
       "name": "Fishing 60",
       "requires": [
-        "skill:fishing:50",
         "skill:fishing:55"
       ]
     },
@@ -13569,6 +15464,7 @@
       "level": 70,
       "name": "Fishing 70",
       "requires": [
+        "skill:fishing:65",
         "skill:fishing:68"
       ]
     },
@@ -13579,7 +15475,6 @@
       "level": 75,
       "name": "Fishing 75",
       "requires": [
-        "skill:fishing:65",
         "skill:fishing:70"
       ]
     },
@@ -13664,13 +15559,23 @@
       ]
     },
     {
+      "id": "skill:fletching:18",
+      "type": "skill_level",
+      "skill": "fletching",
+      "level": 18,
+      "name": "Fletching 18",
+      "requires": [
+        "skill:fletching:15"
+      ]
+    },
+    {
       "id": "skill:fletching:20",
       "type": "skill_level",
       "skill": "fletching",
       "level": 20,
       "name": "Fletching 20",
       "requires": [
-        "skill:fletching:15"
+        "skill:fletching:18"
       ]
     },
     {
@@ -13680,7 +15585,7 @@
       "level": 25,
       "name": "Fletching 25",
       "requires": [
-        "skill:fletching:15",
+        "skill:fletching:18",
         "skill:fletching:20"
       ]
     },
@@ -14291,13 +16196,23 @@
       ]
     },
     {
+      "id": "skill:hitpoints:92",
+      "type": "skill_level",
+      "skill": "hitpoints",
+      "level": 92,
+      "name": "Hitpoints 92",
+      "requires": [
+        "skill:hitpoints:90"
+      ]
+    },
+    {
       "id": "skill:hitpoints:99",
       "type": "skill_level",
       "skill": "hitpoints",
       "level": 99,
       "name": "Hitpoints 99",
       "requires": [
-        "skill:hitpoints:90"
+        "skill:hitpoints:92"
       ]
     },
     {
@@ -14416,7 +16331,6 @@
       "level": 53,
       "name": "Hunter 53",
       "requires": [
-        "skill:hunter:45",
         "skill:hunter:50"
       ]
     },
@@ -14431,13 +16345,23 @@
       ]
     },
     {
+      "id": "skill:hunter:60",
+      "type": "skill_level",
+      "skill": "hunter",
+      "level": 60,
+      "name": "Hunter 60",
+      "requires": [
+        "skill:hunter:55"
+      ]
+    },
+    {
       "id": "skill:hunter:63",
       "type": "skill_level",
       "skill": "hunter",
       "level": 63,
       "name": "Hunter 63",
       "requires": [
-        "skill:hunter:55"
+        "skill:hunter:60"
       ]
     },
     {
@@ -14447,7 +16371,7 @@
       "level": 65,
       "name": "Hunter 65",
       "requires": [
-        "skill:hunter:55",
+        "skill:hunter:60",
         "skill:hunter:63"
       ]
     },
@@ -14561,13 +16485,24 @@
       ]
     },
     {
+      "id": "skill:magic:18",
+      "type": "skill_level",
+      "skill": "magic",
+      "level": 18,
+      "name": "Magic 18",
+      "requires": [
+        "skill:magic:15",
+        "skill:magic:17"
+      ]
+    },
+    {
       "id": "skill:magic:19",
       "type": "skill_level",
       "skill": "magic",
       "level": 19,
       "name": "Magic 19",
       "requires": [
-        "skill:magic:17"
+        "skill:magic:18"
       ]
     },
     {
@@ -14577,7 +16512,7 @@
       "level": 20,
       "name": "Magic 20",
       "requires": [
-        "skill:magic:15",
+        "skill:magic:18",
         "skill:magic:19"
       ]
     },
@@ -14865,7 +16800,6 @@
       "level": 65,
       "name": "Magic 65",
       "requires": [
-        "skill:magic:60",
         "skill:magic:62"
       ]
     },
@@ -15093,7 +17027,7 @@
       "level": 94,
       "name": "Magic 94",
       "requires": [
-        "skill:magic:90",
+        "skill:magic:92",
         "skill:magic:93"
       ]
     },
@@ -15136,13 +17070,23 @@
       ]
     },
     {
+      "id": "skill:mining:22",
+      "type": "skill_level",
+      "skill": "mining",
+      "level": 22,
+      "name": "Mining 22",
+      "requires": [
+        "skill:mining:20"
+      ]
+    },
+    {
       "id": "skill:mining:25",
       "type": "skill_level",
       "skill": "mining",
       "level": 25,
       "name": "Mining 25",
       "requires": [
-        "skill:mining:20"
+        "skill:mining:22"
       ]
     },
     {
@@ -15604,13 +17548,23 @@
       ]
     },
     {
+      "id": "skill:prayer:58",
+      "type": "skill_level",
+      "skill": "prayer",
+      "level": 58,
+      "name": "Prayer 58",
+      "requires": [
+        "skill:prayer:55"
+      ]
+    },
+    {
       "id": "skill:prayer:60",
       "type": "skill_level",
       "skill": "prayer",
       "level": 60,
       "name": "Prayer 60",
       "requires": [
-        "skill:prayer:55"
+        "skill:prayer:58"
       ]
     },
     {
@@ -15621,6 +17575,16 @@
       "name": "Prayer 65",
       "requires": [
         "skill:prayer:60"
+      ]
+    },
+    {
+      "id": "skill:prayer:68",
+      "type": "skill_level",
+      "skill": "prayer",
+      "level": 68,
+      "name": "Prayer 68",
+      "requires": [
+        "skill:prayer:65"
       ]
     },
     {
@@ -15640,7 +17604,7 @@
       "level": 70,
       "name": "Prayer 70",
       "requires": [
-        "skill:prayer:65"
+        "skill:prayer:68"
       ]
     },
     {
@@ -15704,6 +17668,16 @@
       ]
     },
     {
+      "id": "skill:prayer:88",
+      "type": "skill_level",
+      "skill": "prayer",
+      "level": 88,
+      "name": "Prayer 88",
+      "requires": [
+        "skill:prayer:85"
+      ]
+    },
+    {
       "id": "skill:prayer:9",
       "type": "skill_level",
       "skill": "prayer",
@@ -15720,7 +17694,7 @@
       "level": 92,
       "name": "Prayer 92",
       "requires": [
-        "skill:prayer:85"
+        "skill:prayer:88"
       ]
     },
     {
@@ -15894,13 +17868,23 @@
       ]
     },
     {
+      "id": "skill:ranged:78",
+      "type": "skill_level",
+      "skill": "ranged",
+      "level": 78,
+      "name": "Ranged 78",
+      "requires": [
+        "skill:ranged:75"
+      ]
+    },
+    {
       "id": "skill:ranged:80",
       "type": "skill_level",
       "skill": "ranged",
       "level": 80,
       "name": "Ranged 80",
       "requires": [
-        "skill:ranged:75"
+        "skill:ranged:78"
       ]
     },
     {
@@ -16013,6 +17997,16 @@
       ]
     },
     {
+      "id": "skill:runecrafting:45",
+      "type": "skill_level",
+      "skill": "runecrafting",
+      "level": 45,
+      "name": "Runecrafting 45",
+      "requires": [
+        "skill:runecrafting:44"
+      ]
+    },
+    {
       "id": "skill:runecrafting:5",
       "type": "skill_level",
       "skill": "runecrafting",
@@ -16029,7 +18023,7 @@
       "level": 50,
       "name": "Runecrafting 50",
       "requires": [
-        "skill:runecrafting:44"
+        "skill:runecrafting:45"
       ]
     },
     {
@@ -16079,7 +18073,6 @@
       "level": 65,
       "name": "Runecrafting 65",
       "requires": [
-        "skill:runecrafting:55",
         "skill:runecrafting:60"
       ]
     },
@@ -16194,6 +18187,16 @@
       "name": "Runecrafting 95",
       "requires": [
         "skill:runecrafting:92"
+      ]
+    },
+    {
+      "id": "skill:runecrafting:99",
+      "type": "skill_level",
+      "skill": "runecrafting",
+      "level": 99,
+      "name": "Runecrafting 99",
+      "requires": [
+        "skill:runecrafting:95"
       ]
     },
     {
@@ -16557,13 +18560,23 @@
       ]
     },
     {
+      "id": "skill:smithing:68",
+      "type": "skill_level",
+      "skill": "smithing",
+      "level": 68,
+      "name": "Smithing 68",
+      "requires": [
+        "skill:smithing:65"
+      ]
+    },
+    {
       "id": "skill:smithing:70",
       "type": "skill_level",
       "skill": "smithing",
       "level": 70,
       "name": "Smithing 70",
       "requires": [
-        "skill:smithing:65"
+        "skill:smithing:68"
       ]
     },
     {
@@ -16839,13 +18852,23 @@
       ]
     },
     {
+      "id": "skill:thieving:18",
+      "type": "skill_level",
+      "skill": "thieving",
+      "level": 18,
+      "name": "Thieving 18",
+      "requires": [
+        "skill:thieving:15"
+      ]
+    },
+    {
       "id": "skill:thieving:20",
       "type": "skill_level",
       "skill": "thieving",
       "level": 20,
       "name": "Thieving 20",
       "requires": [
-        "skill:thieving:15"
+        "skill:thieving:18"
       ]
     },
     {
@@ -16949,13 +18972,23 @@
       ]
     },
     {
+      "id": "skill:thieving:58",
+      "type": "skill_level",
+      "skill": "thieving",
+      "level": 58,
+      "name": "Thieving 58",
+      "requires": [
+        "skill:thieving:55"
+      ]
+    },
+    {
       "id": "skill:thieving:60",
       "type": "skill_level",
       "skill": "thieving",
       "level": 60,
       "name": "Thieving 60",
       "requires": [
-        "skill:thieving:55"
+        "skill:thieving:58"
       ]
     },
     {
@@ -17696,6 +19729,16 @@
       ]
     },
     {
+      "id": "spell_unlock:moonsong_buff_system",
+      "type": "spell_unlock",
+      "name": "Moonsong Buff System — UNIQUE non-interchangeable buff set. Each of the seven moonsongs grants a distinct buff when the lute is struck at its native region: (1) First (Heartlands) — Prayer XP +5% for 30 min; (2) Second (Moryskah) — Herblore +5%; (3) Third (Sootworks) — Smithing +5%; (4) Fourth (Glass Desert) — Runecrafting +5%; (5) Fifth (Inkweald/Veilwood) — Magic +5%; (6) Sixth (Saltbrine) — Fishing +5%; (7) Seventh (Veilwood canopy) — grants a one-time 'apology heard' emote that only activates during the Veilwood/Inkweald grandmaster content. Stacks with moonsong-specific training methods.",
+      "region": null,
+      "source_quest": "the_seventh_moonsong_sung",
+      "requires": [
+        "quest:the_seventh_moonsong_sung"
+      ]
+    },
+    {
       "id": "spell_unlock:moryskah_teleport",
       "type": "spell_unlock",
       "name": "Moryskah Teleport",
@@ -17714,6 +19757,16 @@
       "requires": [
         "skill:magic:67",
         "quest:lunar_diplomacy"
+      ]
+    },
+    {
+      "id": "spell_unlock:pact_spellbook",
+      "type": "spell_unlock",
+      "name": "Pact Walker's Spellbook — three utility spells: Silent Route (walks unseen between Sootworks and Heartlands for 20 minutes, once per day), Oath-Sealed (locks one inventory slot against theft, permanent while the tin is held), and Bellows' Second Name (identifies any smithing-forged item's maker by region and year).",
+      "region": null,
+      "source_quest": "the_oath_unwritten",
+      "requires": [
+        "quest:the_oath_unwritten"
       ]
     },
     {
@@ -17755,6 +19808,26 @@
       "source_quest": "sandglass_sage_ascension",
       "requires": [
         "quest:sandglass_sage_ascension"
+      ]
+    },
+    {
+      "id": "spell_unlock:reef_priest_spellbook",
+      "type": "spell_unlock",
+      "name": "Reef Priest Spellbook — five spells: Stillwater (freeze surface-level water in a 5-tile radius for 20s), Tide-Signal (message any Saltbrine NPC instantly once per day), Storm-Parry (reduces storm-damage by 80% for one fight per week), Brine-Restore (heals hp equal to your prayer level from a tide-pool), Song-Echo (casts the reef-song's first verse for a defensive boss debuff). Non-interchangeable with any other spellbook.",
+      "region": null,
+      "source_quest": "the_twin_tide_reconciled",
+      "requires": [
+        "quest:the_twin_tide_reconciled"
+      ]
+    },
+    {
+      "id": "spell_unlock:reef_song_memory",
+      "type": "spell_unlock",
+      "name": "Reef-Song (memorised) — special memory item, not equipped; appears in your known-songs codex. Lets you sing, once per in-game month, a verse that will calm any tide-related storm boss for thirty seconds. Non-interchangeable.",
+      "region": null,
+      "source_quest": "gailins_last_residue",
+      "requires": [
+        "quest:gailins_last_residue"
       ]
     },
     {
@@ -18216,6 +20289,16 @@
       ]
     },
     {
+      "id": "teleport:shrine_below_teleport",
+      "type": "teleport",
+      "name": "Shrine Below Teleport — UNIQUE; lets you return to the Shrine Below after completion, bypassing the twelve-day walk. Cooldown is 24 real-time hours. Unique to this chain.",
+      "region": null,
+      "source_quest": "the_shrine_below",
+      "requires": [
+        "quest:the_shrine_below"
+      ]
+    },
+    {
       "id": "teleport:soot_road_network",
       "type": "teleport",
       "name": "Soot Road — 18 hidden industrial caches across every region",
@@ -18243,6 +20326,16 @@
       "source_quest": "the_tide_that_did_not_rise",
       "requires": [
         "quest:the_tide_that_did_not_rise"
+      ]
+    },
+    {
+      "id": "teleport:stormcrown_shrine_teleport",
+      "type": "teleport",
+      "name": "Stormcrown Shrine Teleport — UNIQUE; teleports you to the hidden inner-spine shrine. Usable only at neap tides and twin-moons. Non-interchangeable with any other teleport.",
+      "region": null,
+      "source_quest": "the_twin_tide_reconciled",
+      "requires": [
+        "quest:the_twin_tide_reconciled"
       ]
     },
     {
@@ -18487,7 +20580,6 @@
       ],
       "attention": "medium",
       "requires": [
-        "skill:agility:90",
         "skill:agility:90"
       ]
     },
@@ -18502,7 +20594,6 @@
       ],
       "attention": "low",
       "requires": [
-        "skill:agility:40",
         "skill:agility:40"
       ]
     },
@@ -18530,8 +20621,7 @@
       "attention": "maximum",
       "requires": [
         "skill:agility:52",
-        "quest:sins_of_the_father",
-        "skill:agility:52"
+        "quest:sins_of_malachar"
       ]
     },
     {
@@ -18546,8 +20636,7 @@
       "attention": "medium",
       "requires": [
         "skill:agility:60",
-        "quest:inkweald_archives",
-        "skill:agility:60"
+        "quest:inkweald_archives"
       ]
     },
     {
@@ -18562,8 +20651,7 @@
       "attention": "high",
       "requires": [
         "skill:agility:52",
-        "area:the_wilds",
-        "skill:agility:52"
+        "area:the_wilds"
       ]
     },
     {
@@ -18576,6 +20664,16 @@
       ]
     },
     {
+      "id": "training_method:annex_open_door_runecrafting",
+      "type": "training_method",
+      "name": "Annex at Third Shift — runecrafting method at Fizz's bench during third shift; attention level high, rate medium, grants strip-paper reagent unique to this chain.",
+      "region": null,
+      "source_quest": "halds_letter_to_kael",
+      "requires": [
+        "quest:halds_letter_to_kael"
+      ]
+    },
+    {
       "id": "training_method:archery_range_daily",
       "type": "training_method",
       "name": "Heartlands archery range — daily ranged XP bonus (low attention)",
@@ -18583,6 +20681,16 @@
       "source_quest": "target_practice",
       "requires": [
         "quest:target_practice"
+      ]
+    },
+    {
+      "id": "training_method:archive_cantorial_transcription",
+      "type": "training_method",
+      "name": "Archive Cantorial Transcription — magic training method in Aureth's archive, requires chain-1 completion. Grants manuscript reagents that feed into Runecrafting unique tiers.",
+      "region": null,
+      "source_quest": "aureths_fragment_score",
+      "requires": [
+        "quest:aureths_fragment_score"
       ]
     },
     {
@@ -18622,8 +20730,7 @@
       "requires": [
         "skill:attack:70",
         "quest:desert_treasure",
-        "quest:the_green_thumb",
-        "skill:attack:70"
+        "quest:the_green_thumb"
       ]
     },
     {
@@ -18637,7 +20744,6 @@
       ],
       "attention": "afk",
       "requires": [
-        "skill:attack:10",
         "skill:attack:10"
       ]
     },
@@ -18653,8 +20759,7 @@
       "attention": "medium",
       "requires": [
         "skill:attack:20",
-        "skill:slayer:15",
-        "skill:attack:20"
+        "skill:slayer:15"
       ]
     },
     {
@@ -18670,8 +20775,7 @@
       "requires": [
         "skill:attack:60",
         "skill:hitpoints:70",
-        "area:the_wilds",
-        "skill:attack:60"
+        "area:the_wilds"
       ]
     },
     {
@@ -18733,8 +20837,7 @@
       "attention": "medium",
       "requires": [
         "skill:herblore:10",
-        "area:boneyard_boil_pits",
-        "skill:herblore:10"
+        "area:boneyard_boil_pits"
       ]
     },
     {
@@ -18749,8 +20852,7 @@
       "attention": "medium",
       "requires": [
         "skill:fletching:55",
-        "area:boneyard_the_splinter",
-        "skill:fletching:55"
+        "area:boneyard_the_splinter"
       ]
     },
     {
@@ -18777,8 +20879,7 @@
       "attention": "medium",
       "requires": [
         "skill:cooking:30",
-        "area:boneyard_salted_cookery",
-        "skill:cooking:30"
+        "area:boneyard_salted_cookery"
       ]
     },
     {
@@ -18793,8 +20894,7 @@
       "attention": "medium",
       "requires": [
         "skill:crafting:20",
-        "area:boneyard_wastes",
-        "skill:crafting:20"
+        "area:boneyard_wastes"
       ]
     },
     {
@@ -18810,8 +20910,7 @@
       "requires": [
         "skill:slayer:30",
         "quest:pyramid_of_the_salted_king",
-        "area:boneyard_bone_pyramid",
-        "skill:slayer:30"
+        "area:boneyard_bone_pyramid"
       ]
     },
     {
@@ -18827,8 +20926,7 @@
       "requires": [
         "skill:defence:40",
         "quest:pyramid_of_the_salted_king",
-        "area:boneyard_bone_pyramid",
-        "skill:defence:40"
+        "area:boneyard_bone_pyramid"
       ]
     },
     {
@@ -18844,8 +20942,7 @@
       "requires": [
         "skill:hitpoints:30",
         "quest:pyramid_of_the_salted_king",
-        "area:boneyard_bone_pyramid",
-        "skill:hitpoints:30"
+        "area:boneyard_bone_pyramid"
       ]
     },
     {
@@ -18872,8 +20969,7 @@
       "attention": "medium",
       "requires": [
         "skill:crafting:45",
-        "area:boneyard_wastes",
-        "skill:crafting:45"
+        "area:boneyard_wastes"
       ]
     },
     {
@@ -18900,8 +20996,7 @@
       "attention": "low",
       "requires": [
         "skill:farming:20",
-        "area:boneyard_wastes",
-        "skill:farming:20"
+        "area:boneyard_wastes"
       ]
     },
     {
@@ -18942,8 +21037,7 @@
       "attention": "low",
       "requires": [
         "skill:farming:30",
-        "area:boneyard_wastes",
-        "skill:farming:30"
+        "area:boneyard_wastes"
       ]
     },
     {
@@ -18970,8 +21064,7 @@
       "attention": "low",
       "requires": [
         "skill:mining:20",
-        "area:boneyard_wastes",
-        "skill:mining:20"
+        "area:boneyard_wastes"
       ]
     },
     {
@@ -19023,8 +21116,7 @@
       "requires": [
         "skill:slayer:40",
         "quest:the_haunted_mine",
-        "area:boneyard_wastes",
-        "skill:slayer:40"
+        "area:boneyard_wastes"
       ]
     },
     {
@@ -19039,8 +21131,7 @@
       "attention": "afk",
       "requires": [
         "skill:fishing:25",
-        "area:boneyard_wastes",
-        "skill:fishing:25"
+        "area:boneyard_wastes"
       ]
     },
     {
@@ -19055,8 +21146,7 @@
       "attention": "medium",
       "requires": [
         "skill:woodcutting:60",
-        "area:boneyard_wastes",
-        "skill:woodcutting:60"
+        "area:boneyard_wastes"
       ]
     },
     {
@@ -19084,8 +21174,7 @@
       "attention": "medium",
       "requires": [
         "skill:agility:40",
-        "area:boneyard_pyramid",
-        "skill:agility:40"
+        "area:boneyard_pyramid"
       ]
     },
     {
@@ -19101,8 +21190,7 @@
       "requires": [
         "skill:thieving:30",
         "quest:desert_treasure",
-        "area:boneyard_pyramid",
-        "skill:thieving:30"
+        "area:boneyard_pyramid"
       ]
     },
     {
@@ -19119,8 +21207,7 @@
         "skill:firemaking:55",
         "skill:prayer:50",
         "quest:the_water_numbered_wind",
-        "area:boneyard_veiled_grave",
-        "skill:firemaking:55"
+        "area:boneyard_veiled_grave"
       ]
     },
     {
@@ -19135,8 +21222,7 @@
       "attention": "low",
       "requires": [
         "skill:mining:60",
-        "area:boneyard_quarrymaster_camp",
-        "skill:mining:60"
+        "area:boneyard_quarrymaster_camp"
       ]
     },
     {
@@ -19151,8 +21237,7 @@
       "attention": "low",
       "requires": [
         "skill:mining:30",
-        "area:boneyard_quarrymaster_camp",
-        "skill:mining:30"
+        "area:boneyard_quarrymaster_camp"
       ]
     },
     {
@@ -19193,8 +21278,7 @@
       "attention": "afk",
       "requires": [
         "skill:mining:15",
-        "area:boneyard_salt_cisterns",
-        "skill:mining:15"
+        "area:boneyard_salt_cisterns"
       ]
     },
     {
@@ -19209,8 +21293,7 @@
       "attention": "medium",
       "requires": [
         "skill:herblore:45",
-        "area:boneyard_boil_pits",
-        "skill:herblore:45"
+        "area:boneyard_boil_pits"
       ]
     },
     {
@@ -19225,8 +21308,7 @@
       "attention": "medium",
       "requires": [
         "skill:ranged:50",
-        "area:boneyard_wastes",
-        "skill:ranged:50"
+        "area:boneyard_wastes"
       ]
     },
     {
@@ -19257,8 +21339,7 @@
         "skill:attack:70",
         "skill:prayer:43",
         "quest:pyramid_of_the_salted_king",
-        "area:boneyard_bone_pyramid",
-        "skill:attack:70"
+        "area:boneyard_bone_pyramid"
       ]
     },
     {
@@ -19274,8 +21355,7 @@
       "requires": [
         "skill:thieving:50",
         "quest:hyena_market_apprentice",
-        "area:boneyard_hyena_markets",
-        "skill:thieving:50"
+        "area:boneyard_hyena_markets"
       ]
     },
     {
@@ -19304,8 +21384,7 @@
       "attention": "high",
       "requires": [
         "skill:construction:50",
-        "area:boneyard_wastes",
-        "skill:construction:50"
+        "area:boneyard_wastes"
       ]
     },
     {
@@ -19332,8 +21411,7 @@
       "attention": "low",
       "requires": [
         "skill:ranged:30",
-        "area:boneyard_wastes",
-        "skill:ranged:30"
+        "area:boneyard_wastes"
       ]
     },
     {
@@ -19377,8 +21455,7 @@
       "attention": "medium",
       "requires": [
         "skill:fletching:40",
-        "area:boneyard_the_splinter",
-        "skill:fletching:40"
+        "area:boneyard_the_splinter"
       ]
     },
     {
@@ -19474,8 +21551,7 @@
       "requires": [
         "skill:prayer:45",
         "quest:the_water_numbered_wind",
-        "area:boneyard_veiled_grave",
-        "skill:prayer:45"
+        "area:boneyard_veiled_grave"
       ]
     },
     {
@@ -19514,6 +21590,16 @@
       "source_quest": "the_month_that_was_omitted",
       "requires": [
         "quest:the_month_that_was_omitted"
+      ]
+    },
+    {
+      "id": "training_method:chapel_ash_sifting_herblore",
+      "type": "training_method",
+      "name": "Chapel Ash-Sifting — herblore method at the chapel bin, low yield, high theological reputation gain. Reputation matters for Prayer tier training.",
+      "region": null,
+      "source_quest": "the_burned_page_in_the_chapel",
+      "requires": [
+        "quest:the_burned_page_in_the_chapel"
       ]
     },
     {
@@ -19577,7 +21663,6 @@
       ],
       "attention": "high",
       "requires": [
-        "skill:construction:52",
         "skill:construction:52"
       ]
     },
@@ -19592,7 +21677,6 @@
       ],
       "attention": "high",
       "requires": [
-        "skill:construction:33",
         "skill:construction:33"
       ]
     },
@@ -19607,7 +21691,6 @@
       ],
       "attention": "low",
       "requires": [
-        "skill:construction:20",
         "skill:construction:20"
       ]
     },
@@ -19622,7 +21705,6 @@
       ],
       "attention": "medium",
       "requires": [
-        "skill:construction:66",
         "skill:construction:66"
       ]
     },
@@ -19638,8 +21720,7 @@
       "attention": "high",
       "requires": [
         "skill:construction:30",
-        "area:the_wilds",
-        "skill:construction:30"
+        "area:the_wilds"
       ]
     },
     {
@@ -19663,8 +21744,7 @@
       "attention": "maximum",
       "requires": [
         "skill:cooking:30",
-        "quest:tai_bwo_wannai_trio",
-        "skill:cooking:30"
+        "quest:tai_bwo_wannai_trio"
       ]
     },
     {
@@ -19678,7 +21758,6 @@
       ],
       "attention": "low",
       "requires": [
-        "skill:cooking:80",
         "skill:cooking:80"
       ]
     },
@@ -19719,7 +21798,6 @@
       ],
       "attention": "medium",
       "requires": [
-        "skill:cooking:35",
         "skill:cooking:35"
       ]
     },
@@ -19734,7 +21812,6 @@
       ],
       "attention": "medium",
       "requires": [
-        "skill:crafting:63",
         "skill:crafting:63"
       ]
     },
@@ -19761,7 +21838,6 @@
       ],
       "attention": "low",
       "requires": [
-        "skill:crafting:5",
         "skill:crafting:5"
       ]
     },
@@ -19789,8 +21865,7 @@
       "attention": "high",
       "requires": [
         "skill:crafting:40",
-        "area:the_wilds",
-        "skill:crafting:40"
+        "area:the_wilds"
       ]
     },
     {
@@ -19868,8 +21943,7 @@
       "requires": [
         "skill:defence:45",
         "skill:ranged:65",
-        "quest:moryskah_requiem",
-        "skill:defence:45"
+        "quest:moryskah_requiem"
       ]
     },
     {
@@ -19883,7 +21957,6 @@
       ],
       "attention": "medium",
       "requires": [
-        "skill:defence:40",
         "skill:defence:40"
       ]
     },
@@ -19911,8 +21984,7 @@
       "attention": "medium",
       "requires": [
         "skill:defence:20",
-        "skill:slayer:15",
-        "skill:defence:20"
+        "skill:slayer:15"
       ]
     },
     {
@@ -19928,8 +22000,17 @@
       "requires": [
         "skill:defence:60",
         "skill:hitpoints:60",
-        "area:the_wilds",
-        "skill:defence:60"
+        "area:the_wilds"
+      ]
+    },
+    {
+      "id": "training_method:dry_well_meditation_prayer",
+      "type": "training_method",
+      "name": "Dry Well Meditation — prayer training method at the well's rim; low XP but grants a pilgrim-specific prayer point used in later quests.",
+      "region": null,
+      "source_quest": "the_well_that_was",
+      "requires": [
+        "quest:the_well_that_was"
       ]
     },
     {
@@ -19955,7 +22036,6 @@
       ],
       "attention": "afk",
       "requires": [
-        "skill:farming:9",
         "skill:farming:9"
       ]
     },
@@ -19970,7 +22050,6 @@
       ],
       "attention": "medium",
       "requires": [
-        "skill:farming:65",
         "skill:farming:65"
       ]
     },
@@ -19985,7 +22064,6 @@
       ],
       "attention": "high",
       "requires": [
-        "skill:farming:34",
         "skill:farming:34"
       ]
     },
@@ -20000,7 +22078,6 @@
       ],
       "attention": "low",
       "requires": [
-        "skill:farming:15",
         "skill:farming:15"
       ]
     },
@@ -20016,8 +22093,7 @@
       "attention": "high",
       "requires": [
         "skill:farming:30",
-        "area:the_wilds",
-        "skill:farming:30"
+        "area:the_wilds"
       ]
     },
     {
@@ -20031,7 +22107,6 @@
       ],
       "attention": "low",
       "requires": [
-        "skill:firemaking:45",
         "skill:firemaking:45"
       ]
     },
@@ -20058,7 +22133,6 @@
       ],
       "attention": "low",
       "requires": [
-        "skill:firemaking:90",
         "skill:firemaking:90"
       ]
     },
@@ -20073,7 +22147,7 @@
       ],
       "attention": "medium",
       "requires": [
-        "quest:shades_of_mortton"
+        "quest:the_shades_of_mortton"
       ]
     },
     {
@@ -20088,8 +22162,7 @@
       "attention": "high",
       "requires": [
         "skill:firemaking:30",
-        "area:the_wilds",
-        "skill:firemaking:30"
+        "area:the_wilds"
       ]
     },
     {
@@ -20103,7 +22176,6 @@
       ],
       "attention": "medium",
       "requires": [
-        "skill:firemaking:50",
         "skill:firemaking:50"
       ]
     },
@@ -20120,8 +22192,7 @@
       "requires": [
         "skill:fishing:48",
         "skill:strength:15",
-        "skill:agility:15",
-        "skill:fishing:48"
+        "skill:agility:15"
       ]
     },
     {
@@ -20136,8 +22207,7 @@
       "attention": "low",
       "requires": [
         "skill:fishing:62",
-        "quest:swan_song",
-        "skill:fishing:62"
+        "quest:swan_song"
       ]
     },
     {
@@ -20163,7 +22233,6 @@
       ],
       "attention": "medium",
       "requires": [
-        "skill:fishing:35",
         "skill:fishing:35"
       ]
     },
@@ -20179,8 +22248,7 @@
       "attention": "high",
       "requires": [
         "skill:fishing:85",
-        "area:the_wilds",
-        "skill:fishing:85"
+        "area:the_wilds"
       ]
     },
     {
@@ -20207,8 +22275,7 @@
       "attention": "low",
       "requires": [
         "skill:fletching:55",
-        "skill:slayer:55",
-        "skill:fletching:55"
+        "skill:slayer:55"
       ]
     },
     {
@@ -20222,7 +22289,6 @@
       ],
       "attention": "medium",
       "requires": [
-        "skill:fletching:95",
         "skill:fletching:95"
       ]
     },
@@ -20238,8 +22304,7 @@
       "attention": "high",
       "requires": [
         "skill:fletching:35",
-        "area:the_wilds",
-        "skill:fletching:35"
+        "area:the_wilds"
       ]
     },
     {
@@ -20253,7 +22318,6 @@
       ],
       "attention": "low",
       "requires": [
-        "skill:fletching:70",
         "skill:fletching:70"
       ]
     },
@@ -20326,8 +22390,7 @@
       "attention": "medium",
       "requires": [
         "skill:fletching:75",
-        "area:glass_desert",
-        "skill:fletching:75"
+        "area:glass_desert"
       ]
     },
     {
@@ -20354,8 +22417,7 @@
       "attention": "low",
       "requires": [
         "skill:farming:90",
-        "area:glass_desert",
-        "skill:farming:90"
+        "area:glass_desert"
       ]
     },
     {
@@ -20429,8 +22491,7 @@
       "attention": "medium",
       "requires": [
         "skill:construction:70",
-        "area:glass_desert",
-        "skill:construction:70"
+        "area:glass_desert"
       ]
     },
     {
@@ -20507,8 +22568,7 @@
       "requires": [
         "skill:ranged:70",
         "skill:prayer:45",
-        "area:glass_desert_fight_caves",
-        "skill:ranged:70"
+        "area:glass_desert_fight_caves"
       ]
     },
     {
@@ -20535,8 +22595,7 @@
       "attention": "low",
       "requires": [
         "skill:woodcutting:80",
-        "area:glass_desert",
-        "skill:woodcutting:80"
+        "area:glass_desert"
       ]
     },
     {
@@ -20551,8 +22610,7 @@
       "attention": "medium",
       "requires": [
         "skill:fishing:80",
-        "area:glass_desert",
-        "skill:fishing:80"
+        "area:glass_desert"
       ]
     },
     {
@@ -20567,8 +22625,7 @@
       "attention": "medium",
       "requires": [
         "skill:defence:60",
-        "area:glass_desert",
-        "skill:defence:60"
+        "area:glass_desert"
       ]
     },
     {
@@ -20583,8 +22640,7 @@
       "attention": "medium",
       "requires": [
         "skill:herblore:70",
-        "area:glass_desert",
-        "skill:herblore:70"
+        "area:glass_desert"
       ]
     },
     {
@@ -20603,8 +22659,7 @@
         "skill:prayer:77",
         "skill:hitpoints:90",
         "quest:fight_caves",
-        "area:glass_desert_inferno",
-        "skill:ranged:90"
+        "area:glass_desert_inferno"
       ]
     },
     {
@@ -20619,8 +22674,7 @@
       "attention": "medium",
       "requires": [
         "skill:herblore:85",
-        "area:glass_desert",
-        "skill:herblore:85"
+        "area:glass_desert"
       ]
     },
     {
@@ -20647,8 +22701,7 @@
       "attention": "low",
       "requires": [
         "skill:cooking:82",
-        "area:glass_desert",
-        "skill:cooking:82"
+        "area:glass_desert"
       ]
     },
     {
@@ -20663,8 +22716,7 @@
       "attention": "low",
       "requires": [
         "skill:fishing:70",
-        "area:glass_desert",
-        "skill:fishing:70"
+        "area:glass_desert"
       ]
     },
     {
@@ -20691,8 +22743,7 @@
       "attention": "low",
       "requires": [
         "skill:farming:80",
-        "area:glass_desert",
-        "skill:farming:80"
+        "area:glass_desert"
       ]
     },
     {
@@ -20742,8 +22793,7 @@
       "attention": "high",
       "requires": [
         "skill:thieving:80",
-        "area:glass_desert",
-        "skill:thieving:80"
+        "area:glass_desert"
       ]
     },
     {
@@ -20772,8 +22822,7 @@
         "skill:magic:75",
         "skill:runecrafting:60",
         "quest:the_mirrored_spire_quest",
-        "area:glass_desert",
-        "skill:magic:75"
+        "area:glass_desert"
       ]
     },
     {
@@ -20800,8 +22849,7 @@
       "attention": "high",
       "requires": [
         "skill:fletching:88",
-        "area:glass_desert",
-        "skill:fletching:88"
+        "area:glass_desert"
       ]
     },
     {
@@ -20840,8 +22888,7 @@
       "attention": "medium",
       "requires": [
         "skill:woodcutting:90",
-        "area:glass_desert",
-        "skill:woodcutting:90"
+        "area:glass_desert"
       ]
     },
     {
@@ -20891,8 +22938,7 @@
       "attention": "medium",
       "requires": [
         "skill:firemaking:75",
-        "area:glass_desert",
-        "skill:firemaking:75"
+        "area:glass_desert"
       ]
     },
     {
@@ -20907,8 +22953,7 @@
       "attention": "medium",
       "requires": [
         "skill:cooking:88",
-        "area:glass_desert",
-        "skill:cooking:88"
+        "area:glass_desert"
       ]
     },
     {
@@ -20936,8 +22981,7 @@
       "attention": "medium",
       "requires": [
         "skill:smithing:60",
-        "area:glass_desert",
-        "skill:smithing:60"
+        "area:glass_desert"
       ]
     },
     {
@@ -20976,8 +23020,7 @@
       "attention": "high",
       "requires": [
         "skill:ranged:70",
-        "area:glass_desert",
-        "skill:ranged:70"
+        "area:glass_desert"
       ]
     },
     {
@@ -21006,8 +23049,7 @@
         "skill:attack:85",
         "skill:prayer:70",
         "quest:the_last_dragon_p3",
-        "area:glass_desert_crystal_caverns",
-        "skill:attack:85"
+        "area:glass_desert_crystal_caverns"
       ]
     },
     {
@@ -21024,8 +23066,7 @@
         "skill:slayer:90",
         "quest:slaying_the_crystal_wyrm",
         "quest:crystal_hunters_mark",
-        "area:glass_desert",
-        "skill:slayer:90"
+        "area:glass_desert"
       ]
     },
     {
@@ -21040,8 +23081,7 @@
       "attention": "medium",
       "requires": [
         "skill:strength:60",
-        "area:glass_desert",
-        "skill:strength:60"
+        "area:glass_desert"
       ]
     },
     {
@@ -21456,9 +23496,7 @@
       "requires": [
         "skill:agility:80",
         "skill:strength:70",
-        "quest:the_tiled_rooftops",
-        "area:heartlands_bell_tower",
-        "skill:agility:80"
+        "quest:the_tiled_rooftops"
       ]
     },
     {
@@ -21473,8 +23511,7 @@
       "attention": "afk",
       "requires": [
         "skill:fletching:10",
-        "area:heartlands",
-        "skill:fletching:10"
+        "area:heartlands"
       ]
     },
     {
@@ -21489,9 +23526,7 @@
       "attention": "high",
       "requires": [
         "skill:agility:75",
-        "quest:the_tiled_rooftops",
-        "area:heartlands_capital_rooftops",
-        "skill:agility:75"
+        "quest:the_tiled_rooftops"
       ]
     },
     {
@@ -21507,8 +23542,7 @@
       "requires": [
         "skill:fletching:85",
         "quest:the_royal_falconer",
-        "area:heartlands_capital",
-        "skill:fletching:85"
+        "area:heartlands_capital"
       ]
     },
     {
@@ -21539,8 +23573,7 @@
         "skill:construction:75",
         "skill:crafting:60",
         "quest:the_last_light_vigil",
-        "area:heartlands_grand_cathedral",
-        "skill:construction:75"
+        "area:heartlands_grand_cathedral"
       ]
     },
     {
@@ -21569,8 +23602,7 @@
       "requires": [
         "skill:prayer:60",
         "quest:the_last_light_vigil",
-        "area:heartlands_chapel",
-        "skill:prayer:60"
+        "area:heartlands_chapel"
       ]
     },
     {
@@ -21585,8 +23617,7 @@
       "attention": "low",
       "requires": [
         "skill:mining:45",
-        "area:heartlands_mining_guild",
-        "skill:mining:45"
+        "area:heartlands_mining_guild"
       ]
     },
     {
@@ -21639,8 +23670,7 @@
         "skill:farming:70",
         "quest:the_grain_rot",
         "quest:the_hedge_wise_gift",
-        "area:heartlands",
-        "skill:farming:70"
+        "area:heartlands"
       ]
     },
     {
@@ -21655,8 +23685,7 @@
       "attention": "low",
       "requires": [
         "skill:fishing:68",
-        "area:heartlands_fishing_guild",
-        "skill:fishing:68"
+        "area:heartlands_fishing_guild"
       ]
     },
     {
@@ -21710,8 +23739,7 @@
       "requires": [
         "skill:crafting:80",
         "quest:the_guild_trials",
-        "area:heartlands_all_guilds",
-        "skill:crafting:80"
+        "area:heartlands_all_guilds"
       ]
     },
     {
@@ -21739,8 +23767,7 @@
       "requires": [
         "skill:magic:85",
         "quest:the_hedge_wise_gift",
-        "area:heartlands_hedge_wise_cottage",
-        "skill:magic:85"
+        "area:heartlands_hedge_wise_cottage"
       ]
     },
     {
@@ -21771,8 +23798,7 @@
         "skill:firemaking:65",
         "skill:agility:50",
         "quest:lamplighters_apprentice",
-        "area:heartlands",
-        "skill:firemaking:65"
+        "area:heartlands"
       ]
     },
     {
@@ -21789,8 +23815,7 @@
         "skill:magic:82",
         "skill:prayer:60",
         "quest:the_last_light_vigil",
-        "area:heartlands_chapel_inner",
-        "skill:magic:82"
+        "area:heartlands_chapel_inner"
       ]
     },
     {
@@ -21830,8 +23855,7 @@
       "requires": [
         "skill:hunter:85",
         "quest:the_royal_falconer",
-        "area:heartlands_royal_forest",
-        "skill:hunter:85"
+        "area:heartlands_royal_forest"
       ]
     },
     {
@@ -21873,8 +23897,7 @@
       "requires": [
         "skill:defence:30",
         "quest:the_missing_deeds",
-        "area:heartlands",
-        "skill:defence:30"
+        "area:heartlands"
       ]
     },
     {
@@ -21890,8 +23913,7 @@
       "requires": [
         "skill:strength:70",
         "quest:the_fencepost_problem",
-        "area:heartlands_bell_tower",
-        "skill:strength:70"
+        "area:heartlands_bell_tower"
       ]
     },
     {
@@ -21952,8 +23974,7 @@
       "requires": [
         "skill:fishing:80",
         "quest:the_drowned_miller",
-        "area:heartlands_old_mill",
-        "skill:fishing:80"
+        "area:heartlands_old_mill"
       ]
     },
     {
@@ -21983,9 +24004,7 @@
       "requires": [
         "skill:smithing:85",
         "quest:the_blacksmiths_apprentice",
-        "quest:the_royal_commission",
-        "area:heartlands_royal_district",
-        "skill:smithing:85"
+        "quest:the_shipwrights_commission"
       ]
     },
     {
@@ -22052,8 +24071,7 @@
       "requires": [
         "skill:thieving:75",
         "quest:the_missing_deeds",
-        "area:heartlands_market_square",
-        "skill:thieving:75"
+        "area:heartlands_market_square"
       ]
     },
     {
@@ -22069,8 +24087,7 @@
       "requires": [
         "skill:firemaking:80",
         "quest:the_paper_forge",
-        "area:heartlands",
-        "skill:firemaking:80"
+        "area:heartlands"
       ]
     },
     {
@@ -22094,8 +24111,7 @@
       "attention": "low",
       "requires": [
         "skill:herblore:3",
-        "quest:druidic_ritual",
-        "skill:herblore:3"
+        "quest:the_ancient_tree_ritual"
       ]
     },
     {
@@ -22109,7 +24125,7 @@
       ],
       "attention": "afk",
       "requires": [
-        "quest:druidic_ritual"
+        "quest:the_ancient_tree_ritual"
       ]
     },
     {
@@ -22123,7 +24139,6 @@
       ],
       "attention": "low",
       "requires": [
-        "skill:herblore:38",
         "skill:herblore:38"
       ]
     },
@@ -22138,7 +24153,6 @@
       ],
       "attention": "medium",
       "requires": [
-        "skill:herblore:90",
         "skill:herblore:90"
       ]
     },
@@ -22155,8 +24169,7 @@
       "requires": [
         "skill:herblore:30",
         "skill:farming:30",
-        "area:the_wilds",
-        "skill:herblore:30"
+        "area:the_wilds"
       ]
     },
     {
@@ -22171,8 +24184,7 @@
       "attention": "low",
       "requires": [
         "skill:hitpoints:50",
-        "quest:desert_treasure",
-        "skill:hitpoints:50"
+        "quest:desert_treasure"
       ]
     },
     {
@@ -22200,8 +24212,7 @@
       "requires": [
         "skill:hitpoints:75",
         "skill:attack:80",
-        "skill:strength:80",
-        "skill:hitpoints:75"
+        "skill:strength:80"
       ]
     },
     {
@@ -22231,8 +24242,7 @@
       "attention": "high",
       "requires": [
         "skill:hitpoints:40",
-        "area:the_wilds",
-        "skill:hitpoints:40"
+        "area:the_wilds"
       ]
     },
     {
@@ -22247,8 +24257,7 @@
       "attention": "afk",
       "requires": [
         "skill:hunter:5",
-        "skill:crafting:5",
-        "skill:hunter:5"
+        "skill:crafting:5"
       ]
     },
     {
@@ -22275,8 +24284,7 @@
       "attention": "medium",
       "requires": [
         "skill:hunter:80",
-        "skill:herblore:31",
-        "skill:hunter:80"
+        "skill:herblore:31"
       ]
     },
     {
@@ -22290,7 +24298,6 @@
       ],
       "attention": "medium",
       "requires": [
-        "skill:hunter:63",
         "skill:hunter:63"
       ]
     },
@@ -22306,8 +24313,7 @@
       "attention": "maximum",
       "requires": [
         "skill:hunter:73",
-        "area:the_wilds",
-        "skill:hunter:73"
+        "area:the_wilds"
       ]
     },
     {
@@ -22357,8 +24363,7 @@
       "attention": "high",
       "requires": [
         "skill:thieving:35",
-        "area:inkweald",
-        "skill:thieving:35"
+        "area:inkweald"
       ]
     },
     {
@@ -22387,8 +24392,7 @@
       "attention": "afk",
       "requires": [
         "skill:woodcutting:15",
-        "area:inkweald_cradlewood",
-        "skill:woodcutting:15"
+        "area:inkweald_cradlewood"
       ]
     },
     {
@@ -22416,8 +24420,7 @@
         "skill:ranged:60",
         "skill:fletching:40",
         "quest:halflit_vigil",
-        "area:inkweald_half_light_range",
-        "skill:ranged:60"
+        "area:inkweald_half_light_range"
       ]
     },
     {
@@ -22433,8 +24436,7 @@
       "requires": [
         "skill:crafting:70",
         "quest:the_inkweald_door",
-        "area:inkweald",
-        "skill:crafting:70"
+        "area:inkweald"
       ]
     },
     {
@@ -22449,8 +24451,7 @@
       "attention": "medium",
       "requires": [
         "skill:smithing:30",
-        "area:inkweald_dream_forge",
-        "skill:smithing:30"
+        "area:inkweald_dream_forge"
       ]
     },
     {
@@ -22465,8 +24466,7 @@
       "attention": "low",
       "requires": [
         "skill:mining:30",
-        "area:inkweald_dream_forge",
-        "skill:mining:30"
+        "area:inkweald_dream_forge"
       ]
     },
     {
@@ -22483,8 +24483,7 @@
         "skill:construction:60",
         "skill:woodcutting:75",
         "quest:the_door_that_opens_last",
-        "area:inkweald",
-        "skill:construction:60"
+        "area:inkweald"
       ]
     },
     {
@@ -22500,8 +24499,7 @@
       "requires": [
         "skill:woodcutting:75",
         "quest:the_door_that_opens_last",
-        "area:inkweald_cradlewood",
-        "skill:woodcutting:75"
+        "area:inkweald_cradlewood"
       ]
     },
     {
@@ -22517,8 +24515,7 @@
       "requires": [
         "skill:magic:80",
         "quest:the_inkweald_door",
-        "area:inkweald",
-        "skill:magic:80"
+        "area:inkweald"
       ]
     },
     {
@@ -22547,8 +24544,7 @@
       "attention": "low",
       "requires": [
         "skill:runecrafting:55",
-        "area:inkweald",
-        "skill:runecrafting:55"
+        "area:inkweald"
       ]
     },
     {
@@ -22563,8 +24559,7 @@
       "attention": "low",
       "requires": [
         "skill:fletching:20",
-        "area:inkweald",
-        "skill:fletching:20"
+        "area:inkweald"
       ]
     },
     {
@@ -22580,8 +24575,7 @@
       "requires": [
         "skill:fishing:55",
         "quest:memory_brooks_apprentice",
-        "area:inkweald",
-        "skill:fishing:55"
+        "area:inkweald"
       ]
     },
     {
@@ -22596,8 +24590,7 @@
       "attention": "medium",
       "requires": [
         "skill:crafting:50",
-        "area:inkweald_dream_forge",
-        "skill:crafting:50"
+        "area:inkweald_dream_forge"
       ]
     },
     {
@@ -22652,8 +24645,7 @@
       "attention": "medium",
       "requires": [
         "skill:hunter:20",
-        "area:inkweald",
-        "skill:hunter:20"
+        "area:inkweald"
       ]
     },
     {
@@ -22681,8 +24673,7 @@
       "requires": [
         "skill:thieving:65",
         "quest:the_library_that_reads_back",
-        "area:inkweald",
-        "skill:thieving:65"
+        "area:inkweald"
       ]
     },
     {
@@ -22720,8 +24711,7 @@
       "requires": [
         "skill:herblore:50",
         "quest:the_paradox_philosopher",
-        "area:inkweald",
-        "skill:herblore:50"
+        "area:inkweald"
       ]
     },
     {
@@ -22737,8 +24727,7 @@
       "requires": [
         "skill:magic:65",
         "quest:lunar_diplomacy",
-        "area:inkweald_lunar_plane",
-        "skill:magic:65"
+        "area:inkweald_lunar_plane"
       ]
     },
     {
@@ -22753,8 +24742,7 @@
       "attention": "medium",
       "requires": [
         "skill:hunter:45",
-        "area:inkweald",
-        "skill:hunter:45"
+        "area:inkweald"
       ]
     },
     {
@@ -22781,8 +24769,7 @@
       "attention": "low",
       "requires": [
         "skill:cooking:35",
-        "area:inkweald",
-        "skill:cooking:35"
+        "area:inkweald"
       ]
     },
     {
@@ -22798,8 +24785,7 @@
       "requires": [
         "skill:fletching:55",
         "quest:mirror_stag",
-        "area:inkweald",
-        "skill:fletching:55"
+        "area:inkweald"
       ]
     },
     {
@@ -22827,8 +24813,7 @@
       "requires": [
         "skill:defence:40",
         "quest:mirror_stag",
-        "area:inkweald_mirror_glades",
-        "skill:defence:40"
+        "area:inkweald_mirror_glades"
       ]
     },
     {
@@ -22844,8 +24829,7 @@
       "requires": [
         "skill:hitpoints:40",
         "quest:mirror_stag",
-        "area:inkweald_mirror_glades",
-        "skill:hitpoints:40"
+        "area:inkweald_mirror_glades"
       ]
     },
     {
@@ -22861,8 +24845,7 @@
       "requires": [
         "skill:strength:40",
         "quest:mirror_stag",
-        "area:inkweald_mirror_glades",
-        "skill:strength:40"
+        "area:inkweald_mirror_glades"
       ]
     },
     {
@@ -22887,8 +24870,7 @@
       "attention": "low",
       "requires": [
         "skill:prayer:50",
-        "area:inkweald",
-        "skill:prayer:50"
+        "area:inkweald"
       ]
     },
     {
@@ -22941,8 +24923,7 @@
       "attention": "high",
       "requires": [
         "skill:thieving:60",
-        "area:inkweald",
-        "skill:thieving:60"
+        "area:inkweald"
       ]
     },
     {
@@ -23010,8 +24991,7 @@
       "requires": [
         "skill:prayer:40",
         "quest:by_page_by_margin_by_self",
-        "area:inkweald_threshold_of_names",
-        "skill:prayer:40"
+        "area:inkweald_threshold_of_names"
       ]
     },
     {
@@ -23055,12 +25035,32 @@
       ]
     },
     {
+      "id": "training_method:kael_hald_joint_smithing",
+      "type": "training_method",
+      "name": "Joint Smithing (Kael/Hald line) — if you are at either smithy and the other is on duty, XP rate is +10% while you work stock marked with the wheelwright symbol.",
+      "region": null,
+      "source_quest": "the_bellows_wheels_second_name",
+      "requires": [
+        "quest:the_bellows_wheels_second_name"
+      ]
+    },
+    {
       "id": "training_method:lobster_fishing",
       "type": "training_method",
       "name": "Lobster cage fishing",
       "source_breakpoint": "fishing_40",
       "requires": [
         "skill:fishing:40"
+      ]
+    },
+    {
+      "id": "training_method:lucid_dreaming_magic",
+      "type": "training_method",
+      "name": "Lucid Dreaming — magic method at the dream-shore; requires the ward amulet. High attention, mid-high XP, occasional dreamed reagent drops.",
+      "region": null,
+      "source_quest": "the_dream_of_the_fifth_moonsong",
+      "requires": [
+        "quest:the_dream_of_the_fifth_moonsong"
       ]
     },
     {
@@ -23075,8 +25075,7 @@
       "attention": "medium",
       "requires": [
         "skill:magic:29",
-        "skill:slayer:15",
-        "skill:magic:29"
+        "skill:slayer:15"
       ]
     },
     {
@@ -23091,8 +25090,7 @@
       "attention": "high",
       "requires": [
         "skill:magic:50",
-        "quest:moryskah_requiem",
-        "skill:magic:50"
+        "quest:moryskah_requiem"
       ]
     },
     {
@@ -23106,7 +25104,6 @@
       ],
       "attention": "low",
       "requires": [
-        "skill:magic:19",
         "skill:magic:19"
       ]
     },
@@ -23121,7 +25118,6 @@
       ],
       "attention": "medium",
       "requires": [
-        "skill:magic:7",
         "skill:magic:7"
       ]
     },
@@ -23136,7 +25132,6 @@
       ],
       "attention": "low",
       "requires": [
-        "skill:magic:55",
         "skill:magic:55"
       ]
     },
@@ -23161,9 +25156,8 @@
       "attention": "maximum",
       "requires": [
         "skill:magic:60",
-        "quest:mage_arena",
-        "area:the_wilds",
-        "skill:magic:60"
+        "quest:the_mage_arena_trial",
+        "area:the_wilds"
       ]
     },
     {
@@ -23185,6 +25179,16 @@
       "source_breakpoint": "thieving_91",
       "requires": [
         "skill:thieving:91"
+      ]
+    },
+    {
+      "id": "training_method:mid_ring_runecrafting",
+      "type": "training_method",
+      "name": "Mid-Ring Runecrafting — runecrafting method at the Shard That Sings, medium attention, produces pilgrim-grade rune-shards for the grandmaster.",
+      "region": null,
+      "source_quest": "the_weeping_glass_and_the_shard_that_sings",
+      "requires": [
+        "quest:the_weeping_glass_and_the_shard_that_sings"
       ]
     },
     {
@@ -23210,7 +25214,6 @@
       ],
       "attention": "maximum",
       "requires": [
-        "skill:mining:45",
         "skill:mining:45"
       ]
     },
@@ -23225,7 +25228,6 @@
       ],
       "attention": "high",
       "requires": [
-        "skill:mining:15",
         "skill:mining:15"
       ]
     },
@@ -23240,7 +25242,6 @@
       ],
       "attention": "afk",
       "requires": [
-        "skill:mining:30",
         "skill:mining:30"
       ]
     },
@@ -23256,8 +25257,7 @@
       "attention": "medium",
       "requires": [
         "skill:mining:50",
-        "quest:bone_voyage",
-        "skill:mining:50"
+        "quest:bone_voyage"
       ]
     },
     {
@@ -23272,8 +25272,7 @@
       "attention": "high",
       "requires": [
         "skill:mining:85",
-        "area:the_wilds",
-        "skill:mining:85"
+        "area:the_wilds"
       ]
     },
     {
@@ -23307,8 +25306,7 @@
       "requires": [
         "skill:magic:60",
         "skill:slayer:60",
-        "area:moryskah_slayer_tower",
-        "skill:magic:60"
+        "area:moryskah_slayer_tower"
       ]
     },
     {
@@ -23340,8 +25338,7 @@
         "skill:slayer:85",
         "skill:prayer:60",
         "quest:barrows_brothers_legend",
-        "area:moryskah_barrows",
-        "skill:slayer:85"
+        "area:moryskah_barrows"
       ]
     },
     {
@@ -23359,8 +25356,7 @@
         "skill:prayer:43",
         "skill:magic:50",
         "quest:barrows_brothers_legend",
-        "area:moryskah_barrows",
-        "skill:attack:70"
+        "area:moryskah_barrows"
       ]
     },
     {
@@ -23376,8 +25372,7 @@
       "requires": [
         "skill:fletching:85",
         "quest:barrows_brothers_legend",
-        "area:moryskah_barrows",
-        "skill:fletching:85"
+        "area:moryskah_barrows"
       ]
     },
     {
@@ -23392,8 +25387,7 @@
       "attention": "low",
       "requires": [
         "skill:hunter:20",
-        "area:moryskah",
-        "skill:hunter:20"
+        "area:moryskah"
       ]
     },
     {
@@ -23408,8 +25402,7 @@
       "attention": "afk",
       "requires": [
         "skill:woodcutting:30",
-        "area:moryskah",
-        "skill:woodcutting:30"
+        "area:moryskah"
       ]
     },
     {
@@ -23425,8 +25418,7 @@
       "requires": [
         "skill:farming:20",
         "quest:the_bog_witchs_errand",
-        "area:moryskah",
-        "skill:farming:20"
+        "area:moryskah"
       ]
     },
     {
@@ -23442,8 +25434,7 @@
       "requires": [
         "skill:crafting:50",
         "quest:blood_rites",
-        "area:moryskah",
-        "skill:crafting:50"
+        "area:moryskah"
       ]
     },
     {
@@ -23470,8 +25461,7 @@
       "requires": [
         "skill:herblore:86",
         "quest:the_bog_witchs_bargain",
-        "area:moryskah_bog_witch_cottage",
-        "skill:herblore:86"
+        "area:moryskah_bog_witch_cottage"
       ]
     },
     {
@@ -23487,8 +25477,7 @@
       "requires": [
         "skill:farming:70",
         "quest:the_bog_witchs_bargain",
-        "area:moryskah_bog_witch_cottage",
-        "skill:farming:70"
+        "area:moryskah_bog_witch_cottage"
       ]
     },
     {
@@ -23503,8 +25492,7 @@
       "attention": "afk",
       "requires": [
         "skill:fishing:15",
-        "area:moryskah",
-        "skill:fishing:15"
+        "area:moryskah"
       ]
     },
     {
@@ -23519,8 +25507,7 @@
       "attention": "low",
       "requires": [
         "skill:cooking:15",
-        "area:moryskah",
-        "skill:cooking:15"
+        "area:moryskah"
       ]
     },
     {
@@ -23536,8 +25523,7 @@
       "requires": [
         "skill:herblore:15",
         "quest:the_bog_witchs_bargain",
-        "area:moryskah",
-        "skill:herblore:15"
+        "area:moryskah"
       ]
     },
     {
@@ -23553,8 +25539,7 @@
       "requires": [
         "skill:hunter:75",
         "quest:the_bog_witchs_bargain",
-        "area:moryskah_bog_witch_cottage",
-        "skill:hunter:75"
+        "area:moryskah_bog_witch_cottage"
       ]
     },
     {
@@ -23571,8 +25556,7 @@
         "skill:farming:75",
         "skill:herblore:60",
         "quest:the_bog_witchs_bargain",
-        "area:moryskah_bog_witch_cottage",
-        "skill:farming:75"
+        "area:moryskah_bog_witch_cottage"
       ]
     },
     {
@@ -23588,8 +25572,7 @@
       "requires": [
         "skill:strength:82",
         "quest:blood_rites",
-        "area:moryskah_castle_malachar",
-        "skill:strength:82"
+        "area:moryskah_castle_malachar"
       ]
     },
     {
@@ -23605,8 +25588,7 @@
       "requires": [
         "skill:crafting:83",
         "quest:blood_rites",
-        "area:moryskah_cabaret",
-        "skill:crafting:83"
+        "area:moryskah_cabaret"
       ]
     },
     {
@@ -23635,8 +25617,7 @@
       "requires": [
         "skill:hitpoints:78",
         "quest:blood_rites",
-        "area:moryskah_cabaret",
-        "skill:hitpoints:78"
+        "area:moryskah_cabaret"
       ]
     },
     {
@@ -23652,8 +25633,7 @@
       "requires": [
         "skill:hitpoints:70",
         "quest:blood_rites",
-        "area:moryskah_cabaret",
-        "skill:hitpoints:70"
+        "area:moryskah_cabaret"
       ]
     },
     {
@@ -23669,8 +25649,7 @@
       "requires": [
         "skill:hunter:78",
         "quest:blood_rites",
-        "area:moryskah_cabaret_back_alley",
-        "skill:hunter:78"
+        "area:moryskah_cabaret_back_alley"
       ]
     },
     {
@@ -23686,8 +25665,7 @@
       "requires": [
         "skill:ranged:80",
         "quest:blood_rites",
-        "area:moryskah_cabaret",
-        "skill:ranged:80"
+        "area:moryskah_cabaret"
       ]
     },
     {
@@ -23703,8 +25681,7 @@
       "requires": [
         "skill:strength:80",
         "quest:blood_rites",
-        "area:moryskah_castle_malachar",
-        "skill:strength:80"
+        "area:moryskah_castle_malachar"
       ]
     },
     {
@@ -23735,8 +25712,7 @@
         "skill:construction:75",
         "skill:crafting:60",
         "quest:blood_rites",
-        "area:moryskah_silent_chapel",
-        "skill:construction:75"
+        "area:moryskah_silent_chapel"
       ]
     },
     {
@@ -23752,8 +25728,7 @@
       "requires": [
         "skill:magic:75",
         "quest:blood_rites",
-        "area:moryskah_silent_chapel",
-        "skill:magic:75"
+        "area:moryskah_silent_chapel"
       ]
     },
     {
@@ -23783,8 +25758,7 @@
       "requires": [
         "skill:strength:20",
         "quest:the_bog_witchs_bargain",
-        "area:moryskah",
-        "skill:strength:20"
+        "area:moryskah"
       ]
     },
     {
@@ -23812,8 +25786,7 @@
       "requires": [
         "skill:fletching:40",
         "quest:sins_of_malachar",
-        "area:moryskah",
-        "skill:fletching:40"
+        "area:moryskah"
       ]
     },
     {
@@ -23828,8 +25801,7 @@
       "attention": "medium",
       "requires": [
         "skill:defence:30",
-        "area:moryskah",
-        "skill:defence:30"
+        "area:moryskah"
       ]
     },
     {
@@ -23845,8 +25817,7 @@
       "requires": [
         "skill:prayer:60",
         "quest:blood_rites",
-        "area:moryskah_silent_chapel",
-        "skill:prayer:60"
+        "area:moryskah_silent_chapel"
       ]
     },
     {
@@ -23862,8 +25833,7 @@
       "requires": [
         "skill:crafting:82",
         "quest:blood_rites",
-        "area:moryskah_cabaret",
-        "skill:crafting:82"
+        "area:moryskah_cabaret"
       ]
     },
     {
@@ -23879,8 +25849,7 @@
       "requires": [
         "skill:herblore:82",
         "quest:the_bog_witchs_bargain",
-        "area:moryskah_wolfbane_distillery",
-        "skill:herblore:82"
+        "area:moryskah_wolfbane_distillery"
       ]
     },
     {
@@ -23896,8 +25865,7 @@
       "requires": [
         "skill:herblore:80",
         "quest:the_bog_witchs_bargain",
-        "area:moryskah_wolfbane_distillery",
-        "skill:herblore:80"
+        "area:moryskah_wolfbane_distillery"
       ]
     },
     {
@@ -23913,8 +25881,7 @@
       "requires": [
         "skill:cooking:82",
         "quest:the_bog_witchs_bargain",
-        "area:moryskah_wolfbane_distillery",
-        "skill:cooking:82"
+        "area:moryskah_wolfbane_distillery"
       ]
     },
     {
@@ -23930,8 +25897,7 @@
       "requires": [
         "skill:thieving:80",
         "quest:the_bog_witchs_bargain",
-        "area:moryskah_wolfbane_distillery",
-        "skill:thieving:80"
+        "area:moryskah_wolfbane_distillery"
       ]
     },
     {
@@ -23971,8 +25937,7 @@
       "requires": [
         "skill:runecrafting:77",
         "quest:shades_of_moryskah",
-        "area:moryskah_ferry",
-        "skill:runecrafting:77"
+        "area:moryskah_ferry"
       ]
     },
     {
@@ -23988,8 +25953,7 @@
       "requires": [
         "skill:fishing:80",
         "quest:shades_of_moryskah",
-        "area:moryskah_ferry",
-        "skill:fishing:80"
+        "area:moryskah_ferry"
       ]
     },
     {
@@ -24005,8 +25969,7 @@
       "requires": [
         "skill:woodcutting:75",
         "quest:shades_of_moryskah",
-        "area:moryskah_forgotten_island",
-        "skill:woodcutting:75"
+        "area:moryskah_forgotten_island"
       ]
     },
     {
@@ -24022,8 +25985,7 @@
       "requires": [
         "skill:woodcutting:80",
         "quest:shades_of_moryskah",
-        "area:moryskah_forgotten_island",
-        "skill:woodcutting:80"
+        "area:moryskah_forgotten_island"
       ]
     },
     {
@@ -24040,8 +26002,7 @@
         "skill:slayer:85",
         "skill:defence:80",
         "quest:the_darkness_of_hallowvale",
-        "area:moryskah_deep_bog",
-        "skill:slayer:85"
+        "area:moryskah_deep_bog"
       ]
     },
     {
@@ -24072,8 +26033,7 @@
       "requires": [
         "skill:fishing:80",
         "quest:the_bog_witchs_bargain",
-        "area:moryskah_bog_witch_cottage",
-        "skill:fishing:80"
+        "area:moryskah_bog_witch_cottage"
       ]
     },
     {
@@ -24089,8 +26049,7 @@
       "requires": [
         "skill:construction:80",
         "quest:shades_of_moryskah",
-        "area:moryskah_forgotten_hamlet",
-        "skill:construction:80"
+        "area:moryskah_forgotten_hamlet"
       ]
     },
     {
@@ -24106,8 +26065,7 @@
       "requires": [
         "skill:firemaking:75",
         "quest:shades_of_moryskah",
-        "area:moryskah_forgotten_hamlet",
-        "skill:firemaking:75"
+        "area:moryskah_forgotten_hamlet"
       ]
     },
     {
@@ -24171,8 +26129,7 @@
       "requires": [
         "skill:agility:75",
         "quest:shades_of_moryskah",
-        "area:moryskah_mausoleum_rooftops",
-        "skill:agility:75"
+        "area:moryskah_mausoleum_rooftops"
       ]
     },
     {
@@ -24187,8 +26144,7 @@
       "attention": "high",
       "requires": [
         "skill:construction:30",
-        "area:moryskah",
-        "skill:construction:30"
+        "area:moryskah"
       ]
     },
     {
@@ -24203,8 +26159,7 @@
       "attention": "medium",
       "requires": [
         "skill:agility:30",
-        "area:moryskah",
-        "skill:agility:30"
+        "area:moryskah"
       ]
     },
     {
@@ -24244,8 +26199,7 @@
       "attention": "medium",
       "requires": [
         "skill:firemaking:45",
-        "area:moryskah",
-        "skill:firemaking:45"
+        "area:moryskah"
       ]
     },
     {
@@ -24261,8 +26215,7 @@
       "requires": [
         "skill:smithing:85",
         "quest:shades_of_moryskah",
-        "area:moryskah_mausoleum_district",
-        "skill:smithing:85"
+        "area:moryskah_mausoleum_district"
       ]
     },
     {
@@ -24278,8 +26231,7 @@
       "requires": [
         "skill:mining:85",
         "quest:blood_rites",
-        "area:moryskah_mausoleum_district",
-        "skill:mining:85"
+        "area:moryskah_mausoleum_district"
       ]
     },
     {
@@ -24295,8 +26247,7 @@
       "requires": [
         "skill:crafting:88",
         "quest:barrows_brothers_legend",
-        "area:moryskah_barrows",
-        "skill:crafting:88"
+        "area:moryskah_barrows"
       ]
     },
     {
@@ -24313,8 +26264,7 @@
         "skill:agility:82",
         "skill:strength:70",
         "quest:shades_of_moryskah",
-        "area:moryskah_mausoleum_district",
-        "skill:agility:82"
+        "area:moryskah_mausoleum_district"
       ]
     },
     {
@@ -24330,8 +26280,7 @@
       "requires": [
         "skill:fishing:55",
         "quest:blood_rites",
-        "area:moryskah",
-        "skill:fishing:55"
+        "area:moryskah"
       ]
     },
     {
@@ -24347,8 +26296,7 @@
       "requires": [
         "skill:prayer:70",
         "quest:blood_rites",
-        "area:moryskah_silent_chapel",
-        "skill:prayer:70"
+        "area:moryskah_silent_chapel"
       ]
     },
     {
@@ -24364,8 +26312,7 @@
       "requires": [
         "skill:agility:70",
         "quest:shades_of_moryskah",
-        "area:moryskah_mausoleum_district",
-        "skill:agility:70"
+        "area:moryskah_mausoleum_district"
       ]
     },
     {
@@ -24393,8 +26340,7 @@
       "attention": "medium",
       "requires": [
         "skill:ranged:40",
-        "area:moryskah",
-        "skill:ranged:40"
+        "area:moryskah"
       ]
     },
     {
@@ -24410,8 +26356,7 @@
       "requires": [
         "skill:crafting:82",
         "quest:blood_rites",
-        "area:moryskah_silent_chapel",
-        "skill:crafting:82"
+        "area:moryskah_silent_chapel"
       ]
     },
     {
@@ -24427,8 +26372,7 @@
       "requires": [
         "skill:crafting:78",
         "quest:blood_rites",
-        "area:moryskah_silent_chapel",
-        "skill:crafting:78"
+        "area:moryskah_silent_chapel"
       ]
     },
     {
@@ -24444,8 +26388,7 @@
       "requires": [
         "skill:crafting:80",
         "quest:shades_of_moryskah",
-        "area:moryskah_moonless_inn",
-        "skill:crafting:80"
+        "area:moryskah_moonless_inn"
       ]
     },
     {
@@ -24463,8 +26406,7 @@
         "skill:prayer:70",
         "quest:blood_rites",
         "quest:barrows_brothers_legend",
-        "area:moryskah_silent_chapel_sanctum",
-        "skill:magic:90"
+        "area:moryskah_silent_chapel_sanctum"
       ]
     },
     {
@@ -24481,8 +26423,7 @@
         "skill:smithing:85",
         "skill:prayer:50",
         "quest:blood_rites",
-        "area:moryskah_silent_chapel",
-        "skill:smithing:85"
+        "area:moryskah_silent_chapel"
       ]
     },
     {
@@ -24497,8 +26438,7 @@
       "attention": "medium",
       "requires": [
         "skill:smithing:40",
-        "area:moryskah",
-        "skill:smithing:40"
+        "area:moryskah"
       ]
     },
     {
@@ -24513,8 +26453,7 @@
       "attention": "low",
       "requires": [
         "skill:mining:20",
-        "area:moryskah",
-        "skill:mining:20"
+        "area:moryskah"
       ]
     },
     {
@@ -24530,8 +26469,7 @@
       "requires": [
         "skill:defence:85",
         "quest:barrows_brothers_legend",
-        "area:moryskah_barrows",
-        "skill:defence:85"
+        "area:moryskah_barrows"
       ]
     },
     {
@@ -24560,8 +26498,7 @@
       "requires": [
         "skill:fletching:80",
         "quest:barrows_brothers_legend",
-        "area:moryskah_barrows",
-        "skill:fletching:80"
+        "area:moryskah_barrows"
       ]
     },
     {
@@ -24577,8 +26514,7 @@
       "requires": [
         "skill:slayer:40",
         "quest:slayers_gauntlet",
-        "area:moryskah_slayer_tower",
-        "skill:slayer:40"
+        "area:moryskah_slayer_tower"
       ]
     },
     {
@@ -24594,8 +26530,7 @@
       "requires": [
         "skill:firemaking:80",
         "quest:shades_of_moryskah",
-        "area:moryskah_mausoleum_district",
-        "skill:firemaking:80"
+        "area:moryskah_mausoleum_district"
       ]
     },
     {
@@ -24611,8 +26546,7 @@
       "requires": [
         "skill:runecrafting:77",
         "quest:shades_of_moryskah",
-        "area:moryskah_ferry",
-        "skill:runecrafting:77"
+        "area:moryskah_ferry"
       ]
     },
     {
@@ -24641,8 +26575,7 @@
       "requires": [
         "skill:attack:80",
         "quest:the_darkness_of_hallowvale",
-        "area:moryskah_castle_malachar",
-        "skill:attack:80"
+        "area:moryskah_castle_malachar"
       ]
     },
     {
@@ -24658,8 +26591,7 @@
       "requires": [
         "skill:attack:30",
         "quest:the_bog_witchs_bargain",
-        "area:moryskah",
-        "skill:attack:30"
+        "area:moryskah"
       ]
     },
     {
@@ -24675,8 +26607,7 @@
       "requires": [
         "skill:cooking:75",
         "quest:blood_rites",
-        "area:moryskah_moonless_inn",
-        "skill:cooking:75"
+        "area:moryskah_moonless_inn"
       ]
     },
     {
@@ -24692,8 +26623,7 @@
       "requires": [
         "skill:ranged:80",
         "quest:shades_of_moryskah",
-        "area:moryskah_mausoleum_district",
-        "skill:ranged:80"
+        "area:moryskah_mausoleum_district"
       ]
     },
     {
@@ -24709,8 +26639,7 @@
       "requires": [
         "skill:hunter:85",
         "quest:the_darkness_of_hallowvale",
-        "area:moryskah_howling_moors",
-        "skill:hunter:85"
+        "area:moryskah_howling_moors"
       ]
     },
     {
@@ -24763,8 +26692,7 @@
       "requires": [
         "skill:crafting:90",
         "quest:blood_rites",
-        "area:moryskah_castle_malachar",
-        "skill:crafting:90"
+        "area:moryskah_castle_malachar"
       ]
     },
     {
@@ -24780,8 +26708,7 @@
       "requires": [
         "skill:crafting:76",
         "quest:blood_rites",
-        "area:moryskah_castle_malachar",
-        "skill:crafting:76"
+        "area:moryskah_castle_malachar"
       ]
     },
     {
@@ -24797,8 +26724,7 @@
       "requires": [
         "skill:magic:70",
         "quest:blood_rites",
-        "area:moryskah_silent_chapel",
-        "skill:magic:70"
+        "area:moryskah_silent_chapel"
       ]
     },
     {
@@ -24814,8 +26740,7 @@
       "requires": [
         "skill:defence:85",
         "quest:barrows_brothers_legend",
-        "area:moryskah_barrows",
-        "skill:defence:85"
+        "area:moryskah_barrows"
       ]
     },
     {
@@ -24835,6 +26760,26 @@
       "source_breakpoint": "woodcutting_15",
       "requires": [
         "skill:woodcutting:15"
+      ]
+    },
+    {
+      "id": "training_method:oath_sworn_smithing",
+      "type": "training_method",
+      "name": "Oath-Sworn Smithing — smithing tier unique to the silent pact. Produces Oath-Sworn plate/chain/ring items that degrade but can be re-forged only here. Non-interchangeable with any other smithing tier. Ceiling: higher-tier XP per action than any other smithing method.",
+      "region": null,
+      "source_quest": "the_oath_unwritten",
+      "requires": [
+        "quest:the_oath_unwritten"
+      ]
+    },
+    {
+      "id": "training_method:pilgrims_draught_runecrafting",
+      "type": "training_method",
+      "name": "Pilgrim's Draught Runecrafting — runecrafting method at the Shrine Below's font. High attention, exceptional XP, requires the cape; reagent yield depends on ending.",
+      "region": null,
+      "source_quest": "the_shrine_below",
+      "requires": [
+        "quest:the_shrine_below"
       ]
     },
     {
@@ -24870,8 +26815,7 @@
       "attention": "medium",
       "requires": [
         "skill:prayer:30",
-        "skill:construction:50",
-        "skill:prayer:30"
+        "skill:construction:50"
       ]
     },
     {
@@ -24900,8 +26844,7 @@
       "attention": "medium",
       "requires": [
         "skill:prayer:20",
-        "skill:magic:40",
-        "skill:prayer:20"
+        "skill:magic:40"
       ]
     },
     {
@@ -26493,8 +28436,7 @@
       "attention": "high",
       "requires": [
         "skill:ranged:45",
-        "quest:moryskah_requiem",
-        "skill:ranged:45"
+        "quest:moryskah_requiem"
       ]
     },
     {
@@ -26509,8 +28451,7 @@
       "attention": "low",
       "requires": [
         "skill:ranged:60",
-        "quest:desert_treasure",
-        "skill:ranged:60"
+        "quest:desert_treasure"
       ]
     },
     {
@@ -26536,7 +28477,6 @@
       ],
       "attention": "afk",
       "requires": [
-        "skill:ranged:10",
         "skill:ranged:10"
       ]
     },
@@ -26552,8 +28492,7 @@
       "attention": "medium",
       "requires": [
         "skill:ranged:30",
-        "skill:slayer:20",
-        "skill:ranged:30"
+        "skill:slayer:20"
       ]
     },
     {
@@ -26569,8 +28508,7 @@
       "requires": [
         "skill:ranged:70",
         "skill:hunter:73",
-        "area:the_wilds",
-        "skill:ranged:70"
+        "area:the_wilds"
       ]
     },
     {
@@ -26580,6 +28518,16 @@
       "source_breakpoint": "construction_83",
       "requires": [
         "skill:construction:83"
+      ]
+    },
+    {
+      "id": "training_method:ring_replacement_construction",
+      "type": "training_method",
+      "name": "Ring Replacement (Furnace Two) — construction method that recurs every seven in-game years, requires full pact coordination. Grants triple XP but needs six other players or NPCs on schedule.",
+      "region": null,
+      "source_quest": "nine_days_to_pour_two_cold",
+      "requires": [
+        "quest:nine_days_to_pour_two_cold"
       ]
     },
     {
@@ -26618,8 +28566,7 @@
       "requires": [
         "skill:runecrafting:77",
         "skill:mining:38",
-        "skill:crafting:38",
-        "skill:runecrafting:77"
+        "skill:crafting:38"
       ]
     },
     {
@@ -26634,7 +28581,7 @@
       "attention": "medium",
       "requires": [
         "skill:mining:60",
-        "quest:sins_of_the_father"
+        "quest:sins_of_malachar"
       ]
     },
     {
@@ -26663,8 +28610,7 @@
       "attention": "maximum",
       "requires": [
         "skill:runecrafting:23",
-        "skill:magic:40",
-        "skill:runecrafting:23"
+        "skill:magic:40"
       ]
     },
     {
@@ -26703,8 +28649,7 @@
       "attention": "medium",
       "requires": [
         "skill:smithing:55",
-        "area:saltbrine_reach",
-        "skill:smithing:55"
+        "area:saltbrine_reach"
       ]
     },
     {
@@ -26730,8 +28675,7 @@
       "attention": "medium",
       "requires": [
         "skill:woodcutting:60",
-        "area:saltbrine_reach",
-        "skill:woodcutting:60"
+        "area:saltbrine_reach"
       ]
     },
     {
@@ -26796,8 +28740,7 @@
       "attention": "low",
       "requires": [
         "skill:thieving:25",
-        "area:saltbrine_reach",
-        "skill:thieving:25"
+        "area:saltbrine_reach"
       ]
     },
     {
@@ -26841,8 +28784,7 @@
       "requires": [
         "skill:hunter:35",
         "skill:fishing:40",
-        "area:saltbrine_reach",
-        "skill:hunter:35"
+        "area:saltbrine_reach"
       ]
     },
     {
@@ -26858,8 +28800,7 @@
       "requires": [
         "skill:ranged:50",
         "quest:gunners_test",
-        "area:saltbrine_reach",
-        "skill:ranged:50"
+        "area:saltbrine_reach"
       ]
     },
     {
@@ -26874,8 +28815,7 @@
       "attention": "afk",
       "requires": [
         "skill:fletching:20",
-        "area:saltbrine_reach",
-        "skill:fletching:20"
+        "area:saltbrine_reach"
       ]
     },
     {
@@ -26890,8 +28830,7 @@
       "attention": "low",
       "requires": [
         "skill:fishing:68",
-        "area:saltbrine_deep_waters",
-        "skill:fishing:68"
+        "area:saltbrine_deep_waters"
       ]
     },
     {
@@ -26906,8 +28845,7 @@
       "attention": "medium",
       "requires": [
         "skill:cooking:35",
-        "area:saltbrine_reach",
-        "skill:cooking:35"
+        "area:saltbrine_reach"
       ]
     },
     {
@@ -26936,8 +28874,7 @@
       "attention": "afk",
       "requires": [
         "skill:cooking:15",
-        "area:saltbrine_reach",
-        "skill:cooking:15"
+        "area:saltbrine_reach"
       ]
     },
     {
@@ -26952,8 +28889,7 @@
       "attention": "low",
       "requires": [
         "skill:farming:35",
-        "area:saltbrine_reach",
-        "skill:farming:35"
+        "area:saltbrine_reach"
       ]
     },
     {
@@ -26968,8 +28904,7 @@
       "attention": "medium",
       "requires": [
         "skill:herblore:35",
-        "area:saltbrine_reach",
-        "skill:herblore:35"
+        "area:saltbrine_reach"
       ]
     },
     {
@@ -26985,8 +28920,7 @@
       "requires": [
         "skill:prayer:30",
         "quest:the_drowned_king",
-        "area:saltbrine_reach",
-        "skill:prayer:30"
+        "area:saltbrine_reach"
       ]
     },
     {
@@ -27002,8 +28936,7 @@
       "requires": [
         "skill:construction:50",
         "quest:lighthouse_reignited",
-        "area:saltbrine_reach",
-        "skill:construction:50"
+        "area:saltbrine_reach"
       ]
     },
     {
@@ -27030,8 +28963,7 @@
       "attention": "medium",
       "requires": [
         "skill:strength:45",
-        "area:saltbrine_reach",
-        "skill:strength:45"
+        "area:saltbrine_reach"
       ]
     },
     {
@@ -27058,8 +28990,7 @@
       "attention": "medium",
       "requires": [
         "skill:thieving:40",
-        "area:saltbrine_reach",
-        "skill:thieving:40"
+        "area:saltbrine_reach"
       ]
     },
     {
@@ -27074,8 +29005,7 @@
       "attention": "medium",
       "requires": [
         "skill:crafting:40",
-        "area:saltbrine_reach",
-        "skill:crafting:40"
+        "area:saltbrine_reach"
       ]
     },
     {
@@ -27091,8 +29021,7 @@
       "requires": [
         "skill:attack:30",
         "quest:pirate_king",
-        "area:saltbrine_reach",
-        "skill:attack:30"
+        "area:saltbrine_reach"
       ]
     },
     {
@@ -27107,8 +29036,17 @@
       "attention": "medium",
       "requires": [
         "skill:agility:40",
-        "area:saltbrine_reach",
-        "skill:agility:40"
+        "area:saltbrine_reach"
+      ]
+    },
+    {
+      "id": "training_method:saltbrine_quay_fishing_pact",
+      "type": "training_method",
+      "name": "Mara's Quay (pact-price) — fishing method, Mara rents her pole for a non-monetary favour each use, grants double the tide-pool yield.",
+      "region": null,
+      "source_quest": "hildes_black_ledger",
+      "requires": [
+        "quest:hildes_black_ledger"
       ]
     },
     {
@@ -27123,8 +29061,7 @@
       "attention": "high",
       "requires": [
         "skill:agility:70",
-        "area:saltbrine_reach",
-        "skill:agility:70"
+        "area:saltbrine_reach"
       ]
     },
     {
@@ -27153,8 +29090,7 @@
       "attention": "medium",
       "requires": [
         "skill:agility:30",
-        "area:saltbrine_reach",
-        "skill:agility:30"
+        "area:saltbrine_reach"
       ]
     },
     {
@@ -27169,8 +29105,7 @@
       "attention": "low",
       "requires": [
         "skill:crafting:15",
-        "area:saltbrine_reach",
-        "skill:crafting:15"
+        "area:saltbrine_reach"
       ]
     },
     {
@@ -27212,8 +29147,7 @@
       "attention": "high",
       "requires": [
         "skill:slayer:65",
-        "area:saltbrine_reach",
-        "skill:slayer:65"
+        "area:saltbrine_reach"
       ]
     },
     {
@@ -27228,8 +29162,7 @@
       "attention": "low",
       "requires": [
         "skill:mining:40",
-        "area:saltbrine_reach",
-        "skill:mining:40"
+        "area:saltbrine_reach"
       ]
     },
     {
@@ -27245,8 +29178,7 @@
       "requires": [
         "skill:slayer:35",
         "quest:slayers_gauntlet",
-        "area:saltbrine_reach",
-        "skill:slayer:35"
+        "area:saltbrine_reach"
       ]
     },
     {
@@ -27261,8 +29193,7 @@
       "attention": "low",
       "requires": [
         "skill:hunter:15",
-        "area:saltbrine_reach",
-        "skill:hunter:15"
+        "area:saltbrine_reach"
       ]
     },
     {
@@ -27277,8 +29208,7 @@
       "attention": "afk",
       "requires": [
         "skill:fletching:40",
-        "area:saltbrine_reach",
-        "skill:fletching:40"
+        "area:saltbrine_reach"
       ]
     },
     {
@@ -27305,8 +29235,7 @@
       "attention": "high",
       "requires": [
         "skill:magic:40",
-        "area:saltbrine_reach",
-        "skill:magic:40"
+        "area:saltbrine_reach"
       ]
     },
     {
@@ -27321,8 +29250,7 @@
       "attention": "medium",
       "requires": [
         "skill:crafting:55",
-        "area:saltbrine_reach",
-        "skill:crafting:55"
+        "area:saltbrine_reach"
       ]
     },
     {
@@ -27349,8 +29277,7 @@
       "requires": [
         "skill:firemaking:50",
         "quest:lighthouse_reignited",
-        "area:saltbrine_reach",
-        "skill:firemaking:50"
+        "area:saltbrine_reach"
       ]
     },
     {
@@ -27365,8 +29292,7 @@
       "attention": "low",
       "requires": [
         "skill:hitpoints:40",
-        "area:saltbrine_reach",
-        "skill:hitpoints:40"
+        "area:saltbrine_reach"
       ]
     },
     {
@@ -27393,8 +29319,7 @@
       "attention": "medium",
       "requires": [
         "skill:runecrafting:66",
-        "area:saltbrine_reach",
-        "skill:runecrafting:66"
+        "area:saltbrine_reach"
       ]
     },
     {
@@ -27409,8 +29334,7 @@
       "attention": "low",
       "requires": [
         "skill:farming:15",
-        "area:saltbrine_reach",
-        "skill:farming:15"
+        "area:saltbrine_reach"
       ]
     },
     {
@@ -27513,7 +29437,6 @@
       ],
       "attention": "high",
       "requires": [
-        "skill:slayer:75",
         "skill:slayer:75"
       ]
     },
@@ -27528,7 +29451,6 @@
       ],
       "attention": "medium",
       "requires": [
-        "skill:slayer:20",
         "skill:slayer:20"
       ]
     },
@@ -27543,7 +29465,6 @@
       ],
       "attention": "medium",
       "requires": [
-        "skill:slayer:50",
         "skill:slayer:50"
       ]
     },
@@ -27615,8 +29536,7 @@
       "attention": "afk",
       "requires": [
         "skill:smithing:35",
-        "quest:dwarf_cannon_quest",
-        "skill:smithing:35"
+        "quest:dwarf_cannon_quest"
       ]
     },
     {
@@ -27630,7 +29550,6 @@
       ],
       "attention": "high",
       "requires": [
-        "skill:smithing:40",
         "skill:smithing:40"
       ]
     },
@@ -27645,7 +29564,6 @@
       ],
       "attention": "medium",
       "requires": [
-        "skill:smithing:33",
         "skill:smithing:33"
       ]
     },
@@ -27661,8 +29579,7 @@
       "attention": "high",
       "requires": [
         "skill:smithing:50",
-        "area:the_wilds",
-        "skill:smithing:50"
+        "area:the_wilds"
       ]
     },
     {
@@ -27687,8 +29604,7 @@
       "requires": [
         "skill:strength:85",
         "quest:the_deep_stone_charter",
-        "area:sootworks_deep_stone_works",
-        "skill:strength:85"
+        "area:sootworks_deep_stone_works"
       ]
     },
     {
@@ -27744,8 +29660,7 @@
       "attention": "low",
       "requires": [
         "skill:thieving:15",
-        "area:sootworks",
-        "skill:thieving:15"
+        "area:sootworks"
       ]
     },
     {
@@ -27760,8 +29675,7 @@
       "attention": "low",
       "requires": [
         "skill:woodcutting:55",
-        "area:sootworks",
-        "skill:woodcutting:55"
+        "area:sootworks"
       ]
     },
     {
@@ -27813,8 +29727,7 @@
       "attention": "low",
       "requires": [
         "skill:cooking:15",
-        "area:sootworks",
-        "skill:cooking:15"
+        "area:sootworks"
       ]
     },
     {
@@ -27882,8 +29795,7 @@
         "skill:smithing:85",
         "quest:the_quenchmasters_last_order",
         "quest:the_forgemaster_contract",
-        "area:sootworks_forge_cathedral",
-        "skill:smithing:85"
+        "area:sootworks_forge_cathedral"
       ]
     },
     {
@@ -27899,8 +29811,7 @@
       "requires": [
         "skill:defence:82",
         "quest:the_cinder_kings_fall",
-        "area:sootworks_cinder_graveyard",
-        "skill:defence:82"
+        "area:sootworks_cinder_graveyard"
       ]
     },
     {
@@ -27965,8 +29876,7 @@
       "attention": "low",
       "requires": [
         "skill:hunter:20",
-        "area:sootworks",
-        "skill:hunter:20"
+        "area:sootworks"
       ]
     },
     {
@@ -28021,8 +29931,7 @@
       "requires": [
         "skill:mining:85",
         "quest:the_quenchmasters_last_order",
-        "area:sootworks_deep_mines",
-        "skill:mining:85"
+        "area:sootworks_deep_mines"
       ]
     },
     {
@@ -28076,8 +29985,7 @@
       "requires": [
         "skill:fishing:75",
         "quest:geyser_bridge",
-        "area:sootworks",
-        "skill:fishing:75"
+        "area:sootworks"
       ]
     },
     {
@@ -28106,8 +30014,7 @@
       "requires": [
         "skill:hunter:70",
         "quest:geyser_bridge",
-        "area:sootworks",
-        "skill:hunter:70"
+        "area:sootworks"
       ]
     },
     {
@@ -28123,8 +30030,7 @@
       "requires": [
         "skill:attack:75",
         "quest:dragon_slayer_aelgard",
-        "area:sootworks_deep_mines",
-        "skill:attack:75"
+        "area:sootworks_deep_mines"
       ]
     },
     {
@@ -28139,8 +30045,7 @@
       "attention": "high",
       "requires": [
         "skill:construction:50",
-        "area:sootworks",
-        "skill:construction:50"
+        "area:sootworks"
       ]
     },
     {
@@ -28156,8 +30061,7 @@
       "requires": [
         "skill:hitpoints:75",
         "quest:the_forgemaster_contract",
-        "area:sootworks_forge_cathedral",
-        "skill:hitpoints:75"
+        "area:sootworks_forge_cathedral"
       ]
     },
     {
@@ -28212,8 +30116,7 @@
       "attention": "medium",
       "requires": [
         "skill:magic:30",
-        "area:sootworks",
-        "skill:magic:30"
+        "area:sootworks"
       ]
     },
     {
@@ -28239,8 +30142,7 @@
       "attention": "afk",
       "requires": [
         "skill:crafting:20",
-        "area:sootworks",
-        "skill:crafting:20"
+        "area:sootworks"
       ]
     },
     {
@@ -28256,8 +30158,7 @@
       "requires": [
         "skill:fishing:50",
         "quest:geyser_bridge",
-        "area:sootworks",
-        "skill:fishing:50"
+        "area:sootworks"
       ]
     },
     {
@@ -28272,8 +30173,7 @@
       "attention": "medium",
       "requires": [
         "skill:hunter:45",
-        "area:sootworks",
-        "skill:hunter:45"
+        "area:sootworks"
       ]
     },
     {
@@ -28289,8 +30189,7 @@
       "requires": [
         "skill:defence:40",
         "quest:the_foundling_in_the_slag",
-        "area:sootworks",
-        "skill:defence:40"
+        "area:sootworks"
       ]
     },
     {
@@ -28305,8 +30204,7 @@
       "attention": "low",
       "requires": [
         "skill:defence:10",
-        "area:sootworks",
-        "skill:defence:10"
+        "area:sootworks"
       ]
     },
     {
@@ -28322,8 +30220,7 @@
       "requires": [
         "skill:defence:80",
         "quest:the_forgemaster_contract",
-        "area:sootworks_forge_cathedral",
-        "skill:defence:80"
+        "area:sootworks_forge_cathedral"
       ]
     },
     {
@@ -28340,8 +30237,7 @@
         "skill:ranged:80",
         "skill:smithing:60",
         "quest:the_clockwork_heretic",
-        "area:sootworks_tinker_yards",
-        "skill:ranged:80"
+        "area:sootworks_tinker_yards"
       ]
     },
     {
@@ -28384,8 +30280,7 @@
       "attention": "afk",
       "requires": [
         "skill:fishing:15",
-        "area:sootworks",
-        "skill:fishing:15"
+        "area:sootworks"
       ]
     },
     {
@@ -28401,8 +30296,7 @@
       "requires": [
         "skill:farming:65",
         "quest:the_clockwork_heretic",
-        "area:sootworks",
-        "skill:farming:65"
+        "area:sootworks"
       ]
     },
     {
@@ -28418,8 +30312,7 @@
       "requires": [
         "skill:firemaking:40",
         "skill:mining:30",
-        "area:sootworks",
-        "skill:firemaking:40"
+        "area:sootworks"
       ]
     },
     {
@@ -28435,8 +30328,7 @@
       "requires": [
         "skill:mining:85",
         "quest:the_quenchmasters_last_order",
-        "area:sootworks_lantern_mines",
-        "skill:mining:85"
+        "area:sootworks_lantern_mines"
       ]
     },
     {
@@ -28454,8 +30346,7 @@
         "skill:magic:70",
         "quest:the_archivists_ledger",
         "quest:the_master_press_ledger",
-        "area:sootworks_library_stacks",
-        "skill:runecrafting:85"
+        "area:sootworks_library_stacks"
       ]
     },
     {
@@ -28495,8 +30386,7 @@
       "attention": "low",
       "requires": [
         "skill:hitpoints:30",
-        "area:sootworks",
-        "skill:hitpoints:30"
+        "area:sootworks"
       ]
     },
     {
@@ -28604,8 +30494,7 @@
       "attention": "low",
       "requires": [
         "skill:mining:85",
-        "area:sootworks_deep_mines",
-        "skill:mining:85"
+        "area:sootworks_deep_mines"
       ]
     },
     {
@@ -28620,8 +30509,7 @@
       "attention": "medium",
       "requires": [
         "skill:herblore:15",
-        "area:sootworks",
-        "skill:herblore:15"
+        "area:sootworks"
       ]
     },
     {
@@ -28649,8 +30537,7 @@
       "attention": "afk",
       "requires": [
         "skill:woodcutting:20",
-        "area:sootworks",
-        "skill:woodcutting:20"
+        "area:sootworks"
       ]
     },
     {
@@ -28680,8 +30567,7 @@
         "skill:ranged:60",
         "skill:smithing:45",
         "quest:pump_eight_stops",
-        "area:sootworks",
-        "skill:ranged:60"
+        "area:sootworks"
       ]
     },
     {
@@ -28697,8 +30583,7 @@
       "requires": [
         "skill:fletching:60",
         "skill:smithing:40",
-        "area:sootworks",
-        "skill:fletching:60"
+        "area:sootworks"
       ]
     },
     {
@@ -28713,8 +30598,7 @@
       "attention": "medium",
       "requires": [
         "skill:strength:30",
-        "area:sootworks",
-        "skill:strength:30"
+        "area:sootworks"
       ]
     },
     {
@@ -28766,8 +30650,7 @@
       "attention": "low",
       "requires": [
         "skill:farming:20",
-        "area:sootworks",
-        "skill:farming:20"
+        "area:sootworks"
       ]
     },
     {
@@ -28819,8 +30702,7 @@
       "attention": "afk",
       "requires": [
         "skill:fletching:10",
-        "area:sootworks",
-        "skill:fletching:10"
+        "area:sootworks"
       ]
     },
     {
@@ -28835,8 +30717,7 @@
       "attention": "medium",
       "requires": [
         "skill:ranged:20",
-        "area:sootworks",
-        "skill:ranged:20"
+        "area:sootworks"
       ]
     },
     {
@@ -28878,8 +30759,7 @@
       "requires": [
         "skill:attack:80",
         "quest:the_tinkers_charter",
-        "area:sootworks_tinker_yards",
-        "skill:attack:80"
+        "area:sootworks_tinker_yards"
       ]
     },
     {
@@ -28895,8 +30775,17 @@
       "requires": [
         "skill:herblore:70",
         "quest:the_clockwork_heretic",
-        "area:sootworks",
-        "skill:herblore:70"
+        "area:sootworks"
+      ]
+    },
+    {
+      "id": "training_method:stormcrown_fold_practice",
+      "type": "training_method",
+      "name": "Stormcrown Fold Practice — crafting method at the tide-pool shingle; low-attention, grants cloth-related XP plus a chance of a Stormcrown Pocket reagent used in later chain quests.",
+      "region": null,
+      "source_quest": "lennas_second_fold",
+      "requires": [
+        "quest:lennas_second_fold"
       ]
     },
     {
@@ -28911,8 +30800,7 @@
       "attention": "high",
       "requires": [
         "skill:strength:40",
-        "skill:attack:40",
-        "skill:strength:40"
+        "skill:attack:40"
       ]
     },
     {
@@ -28926,7 +30814,6 @@
       ],
       "attention": "low",
       "requires": [
-        "skill:strength:10",
         "skill:strength:10"
       ]
     },
@@ -28941,7 +30828,6 @@
       ],
       "attention": "low",
       "requires": [
-        "skill:strength:60",
         "skill:strength:60"
       ]
     },
@@ -28970,8 +30856,7 @@
       "requires": [
         "skill:strength:70",
         "skill:hitpoints:80",
-        "area:the_wilds",
-        "skill:strength:70"
+        "area:the_wilds"
       ]
     },
     {
@@ -28994,7 +30879,6 @@
       ],
       "attention": "low",
       "requires": [
-        "skill:thieving:55",
         "skill:thieving:55"
       ]
     },
@@ -29010,8 +30894,7 @@
       "attention": "maximum",
       "requires": [
         "skill:thieving:45",
-        "quest:feud_quest",
-        "skill:thieving:45"
+        "quest:feud_quest"
       ]
     },
     {
@@ -29025,7 +30908,6 @@
       ],
       "attention": "afk",
       "requires": [
-        "skill:thieving:25",
         "skill:thieving:25"
       ]
     },
@@ -29053,8 +30935,7 @@
       "attention": "high",
       "requires": [
         "skill:thieving:84",
-        "area:the_wilds",
-        "skill:thieving:84"
+        "area:the_wilds"
       ]
     },
     {
@@ -29065,6 +30946,16 @@
       "source_quest": "the_tide_pool_collector",
       "requires": [
         "quest:the_tide_pool_collector"
+      ]
+    },
+    {
+      "id": "training_method:tide_walking",
+      "type": "training_method",
+      "name": "Tide-Walking — traversal method that activates at full and new moons. Lets you walk offshore tiles (shallow sea only) without a boat. Does not carry into deep water, does not stop storms. Unique to this chain.",
+      "region": null,
+      "source_quest": "the_twin_tide_reconciled",
+      "requires": [
+        "quest:the_twin_tide_reconciled"
       ]
     },
     {
@@ -29088,8 +30979,7 @@
       "attention": "high",
       "requires": [
         "skill:construction:30",
-        "area:veilwood",
-        "skill:construction:30"
+        "area:veilwood"
       ]
     },
     {
@@ -29104,8 +30994,7 @@
       "attention": "medium",
       "requires": [
         "skill:slayer:50",
-        "area:veilwood",
-        "skill:slayer:50"
+        "area:veilwood"
       ]
     },
     {
@@ -29165,8 +31054,7 @@
       "attention": "medium",
       "requires": [
         "skill:mining:70",
-        "area:veilwood",
-        "skill:mining:70"
+        "area:veilwood"
       ]
     },
     {
@@ -29181,8 +31069,7 @@
       "attention": "medium",
       "requires": [
         "skill:magic:20",
-        "area:veilwood",
-        "skill:magic:20"
+        "area:veilwood"
       ]
     },
     {
@@ -29198,8 +31085,7 @@
       "requires": [
         "skill:agility:50",
         "quest:the_apprentice_trapper",
-        "area:veilwood_canopy",
-        "skill:agility:50"
+        "area:veilwood_canopy"
       ]
     },
     {
@@ -29215,8 +31101,7 @@
       "requires": [
         "skill:herblore:30",
         "quest:the_green_thumb",
-        "area:veilwood_druid_circle",
-        "skill:herblore:30"
+        "area:veilwood_druid_circle"
       ]
     },
     {
@@ -29243,8 +31128,7 @@
       "attention": "low",
       "requires": [
         "skill:farming:45",
-        "area:veilwood",
-        "skill:farming:45"
+        "area:veilwood"
       ]
     },
     {
@@ -29261,8 +31145,7 @@
         "skill:smithing:70",
         "skill:crafting:60",
         "quest:of_glass_and_antler",
-        "area:veilwood_glass_leaf_glades",
-        "skill:smithing:70"
+        "area:veilwood_glass_leaf_glades"
       ]
     },
     {
@@ -29277,8 +31160,7 @@
       "attention": "low",
       "requires": [
         "skill:fishing:55",
-        "area:veilwood_moonwell",
-        "skill:fishing:55"
+        "area:veilwood_moonwell"
       ]
     },
     {
@@ -29293,8 +31175,7 @@
       "attention": "medium",
       "requires": [
         "skill:smithing:40",
-        "area:veilwood_glass_leaf_glades",
-        "skill:smithing:40"
+        "area:veilwood_glass_leaf_glades"
       ]
     },
     {
@@ -29324,8 +31205,7 @@
       "requires": [
         "skill:hitpoints:40",
         "skill:slayer:40",
-        "area:veilwood_glass_spider_hollow",
-        "skill:hitpoints:40"
+        "area:veilwood_glass_spider_hollow"
       ]
     },
     {
@@ -29354,8 +31234,7 @@
       "requires": [
         "skill:hunter:70",
         "quest:of_glass_and_antler",
-        "area:veilwood_glass_stag_thicket",
-        "skill:hunter:70"
+        "area:veilwood_glass_stag_thicket"
       ]
     },
     {
@@ -29382,8 +31261,7 @@
       "attention": "low",
       "requires": [
         "skill:cooking:25",
-        "area:veilwood_hunters_grove",
-        "skill:cooking:25"
+        "area:veilwood_hunters_grove"
       ]
     },
     {
@@ -29399,8 +31277,7 @@
       "requires": [
         "skill:defence:80",
         "quest:song_of_the_elves_aelgard",
-        "area:veilwood_inner_sanctum",
-        "skill:defence:80"
+        "area:veilwood_inner_sanctum"
       ]
     },
     {
@@ -29416,8 +31293,7 @@
       "requires": [
         "skill:crafting:25",
         "quest:she_sang_to_the_loom",
-        "area:veilwood_loom_sanctum",
-        "skill:crafting:25"
+        "area:veilwood_loom_sanctum"
       ]
     },
     {
@@ -29446,8 +31322,7 @@
       "requires": [
         "skill:hitpoints:70",
         "quest:the_mirror_stag_pardon",
-        "area:veilwood_mirror_shallow",
-        "skill:hitpoints:70"
+        "area:veilwood_mirror_shallow"
       ]
     },
     {
@@ -29499,8 +31374,7 @@
       "attention": "afk",
       "requires": [
         "skill:fishing:20",
-        "area:veilwood_moonwell",
-        "skill:fishing:20"
+        "area:veilwood_moonwell"
       ]
     },
     {
@@ -29515,8 +31389,7 @@
       "attention": "low",
       "requires": [
         "skill:strength:30",
-        "area:veilwood",
-        "skill:strength:30"
+        "area:veilwood"
       ]
     },
     {
@@ -29545,8 +31418,7 @@
       "attention": "low",
       "requires": [
         "skill:firemaking:30",
-        "area:veilwood",
-        "skill:firemaking:30"
+        "area:veilwood"
       ]
     },
     {
@@ -29684,8 +31556,7 @@
       "requires": [
         "skill:strength:75",
         "quest:the_door_that_was_never_closed",
-        "area:veilwood_threshold_wardens",
-        "skill:strength:75"
+        "area:veilwood_threshold_wardens"
       ]
     },
     {
@@ -29712,6 +31583,16 @@
       "attention": "low",
       "requires": [
         "area:veilwood"
+      ]
+    },
+    {
+      "id": "training_method:warren_listening_hunter",
+      "type": "training_method",
+      "name": "Warren-Listening — hunter training method at the badger warren, observes rhythm-patterns. High attention, medium XP, produces warren-residue reagent for herblore.",
+      "region": null,
+      "source_quest": "the_badger_who_remembers",
+      "requires": [
+        "quest:the_badger_who_remembers"
       ]
     },
     {
@@ -29806,8 +31687,7 @@
       "attention": "medium",
       "requires": [
         "skill:hunter:73",
-        "area:the_wilds",
-        "skill:hunter:73"
+        "area:the_wilds"
       ]
     },
     {
@@ -29846,8 +31726,7 @@
       "attention": "medium",
       "requires": [
         "skill:herblore:72",
-        "area:the_wilds",
-        "skill:herblore:72"
+        "area:the_wilds"
       ]
     },
     {
@@ -29862,8 +31741,7 @@
       "attention": "medium",
       "requires": [
         "skill:runecrafting:77",
-        "area:the_wilds",
-        "skill:runecrafting:77"
+        "area:the_wilds"
       ]
     },
     {
@@ -29890,8 +31768,7 @@
       "attention": "high",
       "requires": [
         "skill:strength:80",
-        "area:the_wilds",
-        "skill:strength:80"
+        "area:the_wilds"
       ]
     },
     {
@@ -29942,8 +31819,7 @@
       "attention": "high",
       "requires": [
         "skill:magic:70",
-        "area:the_wilds",
-        "skill:magic:70"
+        "area:the_wilds"
       ]
     },
     {
@@ -29958,8 +31834,7 @@
       "attention": "medium",
       "requires": [
         "skill:strength:50",
-        "area:the_wilds",
-        "skill:strength:50"
+        "area:the_wilds"
       ]
     },
     {
@@ -29975,8 +31850,7 @@
       "requires": [
         "skill:construction:60",
         "quest:bandit_camp_alliance",
-        "area:the_wilds",
-        "skill:construction:60"
+        "area:the_wilds"
       ]
     },
     {
@@ -29991,8 +31865,7 @@
       "attention": "high",
       "requires": [
         "skill:ranged:60",
-        "area:the_wilds",
-        "skill:ranged:60"
+        "area:the_wilds"
       ]
     },
     {
@@ -30007,8 +31880,7 @@
       "attention": "medium",
       "requires": [
         "skill:ranged:45",
-        "area:the_wilds",
-        "skill:ranged:45"
+        "area:the_wilds"
       ]
     },
     {
@@ -30023,8 +31895,7 @@
       "attention": "medium",
       "requires": [
         "skill:fishing:85",
-        "area:the_wilds",
-        "skill:fishing:85"
+        "area:the_wilds"
       ]
     },
     {
@@ -30039,8 +31910,7 @@
       "attention": "medium",
       "requires": [
         "skill:defence:60",
-        "area:the_wilds",
-        "skill:defence:60"
+        "area:the_wilds"
       ]
     },
     {
@@ -30055,8 +31925,7 @@
       "attention": "medium",
       "requires": [
         "skill:runecrafting:65",
-        "area:the_wilds",
-        "skill:runecrafting:65"
+        "area:the_wilds"
       ]
     },
     {
@@ -30071,8 +31940,7 @@
       "attention": "low",
       "requires": [
         "skill:farming:50",
-        "area:the_wilds",
-        "skill:farming:50"
+        "area:the_wilds"
       ]
     },
     {
@@ -30088,8 +31956,7 @@
       "requires": [
         "skill:slayer:85",
         "quest:the_long_road_home",
-        "area:the_wilds",
-        "skill:slayer:85"
+        "area:the_wilds"
       ]
     },
     {
@@ -30104,8 +31971,7 @@
       "attention": "low",
       "requires": [
         "skill:prayer:35",
-        "area:the_wilds",
-        "skill:prayer:35"
+        "area:the_wilds"
       ]
     },
     {
@@ -30162,8 +32028,7 @@
       "requires": [
         "skill:strength:85",
         "quest:blade_of_the_wilds_second",
-        "area:the_wilds_exiled_camp",
-        "skill:strength:85"
+        "area:the_wilds_exiled_camp"
       ]
     },
     {
@@ -30178,8 +32043,7 @@
       "attention": "medium",
       "requires": [
         "skill:defence:55",
-        "area:the_wilds",
-        "skill:defence:55"
+        "area:the_wilds"
       ]
     },
     {
@@ -30194,8 +32058,7 @@
       "attention": "high",
       "requires": [
         "skill:slayer:80",
-        "area:the_wilds",
-        "skill:slayer:80"
+        "area:the_wilds"
       ]
     },
     {
@@ -30210,8 +32073,7 @@
       "attention": "low",
       "requires": [
         "skill:herblore:14",
-        "area:the_wilds",
-        "skill:herblore:14"
+        "area:the_wilds"
       ]
     },
     {
@@ -30226,8 +32088,7 @@
       "attention": "medium",
       "requires": [
         "skill:hunter:45",
-        "area:the_wilds",
-        "skill:hunter:45"
+        "area:the_wilds"
       ]
     },
     {
@@ -30254,8 +32115,7 @@
       "attention": "high",
       "requires": [
         "skill:slayer:40",
-        "area:the_wilds",
-        "skill:slayer:40"
+        "area:the_wilds"
       ]
     },
     {
@@ -30270,8 +32130,7 @@
       "attention": "high",
       "requires": [
         "skill:prayer:55",
-        "area:the_wilds",
-        "skill:prayer:55"
+        "area:the_wilds"
       ]
     },
     {
@@ -30287,8 +32146,7 @@
       "requires": [
         "skill:mining:85",
         "quest:the_long_road_home",
-        "area:the_wilds",
-        "skill:mining:85"
+        "area:the_wilds"
       ]
     },
     {
@@ -30315,8 +32173,7 @@
       "attention": "high",
       "requires": [
         "skill:magic:60",
-        "area:the_wilds",
-        "skill:magic:60"
+        "area:the_wilds"
       ]
     },
     {
@@ -30331,8 +32188,7 @@
       "attention": "medium",
       "requires": [
         "skill:firemaking:75",
-        "area:the_wilds",
-        "skill:firemaking:75"
+        "area:the_wilds"
       ]
     },
     {
@@ -30347,8 +32203,7 @@
       "attention": "low",
       "requires": [
         "skill:fletching:85",
-        "area:the_wilds",
-        "skill:fletching:85"
+        "area:the_wilds"
       ]
     },
     {
@@ -30363,8 +32218,7 @@
       "attention": "low",
       "requires": [
         "skill:woodcutting:75",
-        "area:the_wilds",
-        "skill:woodcutting:75"
+        "area:the_wilds"
       ]
     },
     {
@@ -30379,8 +32233,7 @@
       "attention": "low",
       "requires": [
         "skill:mining:70",
-        "area:the_wilds",
-        "skill:mining:70"
+        "area:the_wilds"
       ]
     },
     {
@@ -30395,8 +32248,7 @@
       "attention": "high",
       "requires": [
         "skill:attack:80",
-        "area:the_wilds_mithril_pocket",
-        "skill:attack:80"
+        "area:the_wilds_mithril_pocket"
       ]
     },
     {
@@ -30412,8 +32264,7 @@
       "requires": [
         "skill:fletching:85",
         "quest:no_honor_ordeal",
-        "area:the_wilds",
-        "skill:fletching:85"
+        "area:the_wilds"
       ]
     },
     {
@@ -30440,8 +32291,7 @@
       "attention": "medium",
       "requires": [
         "skill:crafting:85",
-        "area:the_wilds",
-        "skill:crafting:85"
+        "area:the_wilds"
       ]
     },
     {
@@ -30457,8 +32307,7 @@
       "requires": [
         "skill:firemaking:80",
         "skill:prayer:70",
-        "area:the_wilds",
-        "skill:firemaking:80"
+        "area:the_wilds"
       ]
     },
     {
@@ -30473,8 +32322,7 @@
       "attention": "high",
       "requires": [
         "skill:thieving:55",
-        "area:the_wilds",
-        "skill:thieving:55"
+        "area:the_wilds"
       ]
     },
     {
@@ -30489,8 +32337,7 @@
       "attention": "low",
       "requires": [
         "skill:fishing:76",
-        "area:the_wilds_resource_arena",
-        "skill:fishing:76"
+        "area:wilds_resource_area"
       ]
     },
     {
@@ -30505,8 +32352,7 @@
       "attention": "low",
       "requires": [
         "skill:mining:60",
-        "area:the_wilds_resource_arena",
-        "skill:mining:60"
+        "area:wilds_resource_area"
       ]
     },
     {
@@ -30521,8 +32367,7 @@
       "attention": "maximum",
       "requires": [
         "skill:attack:75",
-        "area:wilds_revenant_caves",
-        "skill:attack:75"
+        "area:wilds_revenant_caves"
       ]
     },
     {
@@ -30537,8 +32382,7 @@
       "attention": "high",
       "requires": [
         "skill:strength:70",
-        "area:the_wilds",
-        "skill:strength:70"
+        "area:the_wilds"
       ]
     },
     {
@@ -30553,8 +32397,7 @@
       "attention": "high",
       "requires": [
         "skill:attack:60",
-        "area:the_wilds",
-        "skill:attack:60"
+        "area:the_wilds"
       ]
     },
     {
@@ -30569,8 +32412,7 @@
       "attention": "high",
       "requires": [
         "skill:magic:70",
-        "area:the_wilds",
-        "skill:magic:70"
+        "area:the_wilds"
       ]
     },
     {
@@ -30585,8 +32427,7 @@
       "attention": "high",
       "requires": [
         "skill:ranged:73",
-        "area:the_wilds_revenant_caves",
-        "skill:ranged:73"
+        "area:wilds_revenant_caves"
       ]
     },
     {
@@ -30626,8 +32467,7 @@
       "requires": [
         "skill:fletching:79",
         "quest:the_wilds_forge",
-        "area:the_wilds",
-        "skill:fletching:79"
+        "area:the_wilds"
       ]
     },
     {
@@ -30642,8 +32482,7 @@
       "attention": "medium",
       "requires": [
         "skill:strength:65",
-        "area:the_wilds",
-        "skill:strength:65"
+        "area:the_wilds"
       ]
     },
     {
@@ -30671,8 +32510,7 @@
       "requires": [
         "skill:smithing:92",
         "quest:the_wilds_forge",
-        "area:the_wilds",
-        "skill:smithing:92"
+        "area:the_wilds"
       ]
     },
     {
@@ -30699,8 +32537,7 @@
         "skill:hitpoints:90",
         "skill:magic:85",
         "quest:blade_of_the_wilds_third",
-        "area:the_wilds_throne",
-        "skill:hitpoints:90"
+        "area:wilds_revenant_throne"
       ]
     },
     {
@@ -30715,8 +32552,7 @@
       "attention": "high",
       "requires": [
         "skill:magic:60",
-        "area:the_wilds",
-        "skill:magic:60"
+        "area:the_wilds"
       ]
     },
     {
@@ -30732,8 +32568,7 @@
       "requires": [
         "skill:hitpoints:70",
         "quest:third_ditch_ordeal",
-        "area:the_wilds",
-        "skill:hitpoints:70"
+        "area:the_wilds"
       ]
     },
     {
@@ -30762,8 +32597,7 @@
         "skill:attack:80",
         "skill:defence:75",
         "quest:third_ditch_ordeal",
-        "area:the_wilds",
-        "skill:attack:80"
+        "area:the_wilds"
       ]
     },
     {
@@ -30774,7 +32608,7 @@
       "requires": [
         "skill:runecrafting:95",
         "quest:the_long_road_home",
-        "area:the_wilds_throne"
+        "area:wilds_revenant_throne"
       ]
     },
     {
@@ -30789,8 +32623,7 @@
       "attention": "afk",
       "requires": [
         "skill:woodcutting:60",
-        "area:the_wilds",
-        "skill:woodcutting:60"
+        "area:the_wilds"
       ]
     },
     {
@@ -30805,8 +32638,7 @@
       "attention": "high",
       "requires": [
         "skill:magic:75",
-        "area:the_wilds",
-        "skill:magic:75"
+        "area:the_wilds"
       ]
     },
     {
@@ -30850,7 +32682,6 @@
       ],
       "attention": "afk",
       "requires": [
-        "skill:woodcutting:90",
         "skill:woodcutting:90"
       ]
     },
@@ -30865,7 +32696,6 @@
       ],
       "attention": "medium",
       "requires": [
-        "skill:woodcutting:65",
         "skill:woodcutting:65"
       ]
     },
@@ -30880,7 +32710,6 @@
       ],
       "attention": "maximum",
       "requires": [
-        "skill:woodcutting:35",
         "skill:woodcutting:35"
       ]
     },
@@ -30896,8 +32725,7 @@
       "attention": "high",
       "requires": [
         "skill:woodcutting:40",
-        "area:the_wilds",
-        "skill:woodcutting:40"
+        "area:the_wilds"
       ]
     },
     {
@@ -30911,7 +32739,6 @@
       ],
       "attention": "afk",
       "requires": [
-        "skill:woodcutting:30",
         "skill:woodcutting:30"
       ]
     },
@@ -31167,24 +32994,24 @@
   ],
   "metadata": {
     "generated_at": "2026-04-22",
-    "node_count": 2698,
-    "edge_count": 4945,
+    "node_count": 2907,
+    "edge_count": 4943,
     "by_type": {
-      "quest": 349,
-      "area": 116,
+      "quest": 373,
+      "area": 189,
       "shortcut": 6,
-      "item_unlock": 216,
-      "training_method": 882,
-      "teleport": 46,
+      "item_unlock": 262,
+      "training_method": 896,
+      "teleport": 48,
       "shop": 25,
       "recipe": 72,
-      "npc": 47,
-      "spell_unlock": 74,
+      "npc": 69,
+      "spell_unlock": 78,
       "prayer_unlock": 47,
       "boss": 62,
-      "achievement": 118,
+      "achievement": 122,
       "minigame": 47,
-      "skill_level": 559,
+      "skill_level": 579,
       "raid": 32
     }
   }
