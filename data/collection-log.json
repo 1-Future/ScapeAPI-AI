@@ -1,7 +1,7 @@
 {
   "$schema": "scape.collection-log.v1",
-  "generated": "2026-04-15",
-  "notes": "Static catalogue of unique drop sources. Player progress lives on player.collectionLog. Source ids are stable engine identifiers (boss def_ids, minigame ids, etc.). Items reference data/items.js by numeric id. Cross-referenced from src/content/aelgard/{bosses-expanded,raids-bosses-mega,raids-mega1,raids-mega2,clue-scrolls-expanded,treasure-trails,minigames,pets-collection,slayer-expansion}.js — port any new drops here.",
+  "generated": "2026-04-22",
+  "notes": "Static catalogue of unique drop sources. Player progress lives on player.collectionLog. Source ids are stable engine identifiers (boss def_ids, minigame ids, etc.). Items reference data/items.js by numeric id. Cross-referenced from src/content/aelgard/{bosses-expanded,raids-bosses-mega,raids-mega1,raids-mega2,clue-scrolls-expanded,treasure-trails,minigames,slayer-expansion}.js — port any new drops here. (v0.9-waveA2 C10: pets-collection.js reconciled into this file; its defineLogSection catalogue was orphan data. Pet definitions still live there for pets-extended.js consumers.)",
   "sources": [
     {
       "id": "forgefather_duran",
@@ -183,6 +183,7 @@
         { "id": 26004, "name": "Bandos tassets" },
         { "id": 91010, "name": "Bandos boots" },
         { "id": 91003, "name": "Bandos hilt" },
+        { "id": 26005, "name": "Bandos godsword" },
         { "id": 82002, "name": "General Graardor Jr." }
       ],
       "completionReward": { "cosmetic": "Bandos warlord's mantle", "title": "the Warlord", "log": "Graardor" }

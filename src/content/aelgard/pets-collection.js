@@ -1,16 +1,27 @@
 // ══════════════════════════════════════════════════════════════════════════════
-// Aelgard — Pet System + Collection Log
+// Aelgard — Pet Companion base registry
 //
-// PETS: Every boss has a 1/3000-1/5000 pet drop. Every skill has a skilling pet.
-// Minigames have pets too. ~45 pets total. Each pet is hundreds of hours to obtain.
+// HISTORY: This file formerly held TWO catalogues — pet item definitions AND a
+// parallel in-memory `collectionLog` Map built via defineLogSection(). The
+// collection-log half was ORPHAN DATA: the engine only reads
+// data/collection-log.json (via src/engine/collection-log.js), so nothing ever
+// consumed the Map built here. It silently disagreed with the JSON file.
 //
-// COLLECTION LOG: Tracks every unique item obtained from every source.
-// Filling the log IS the endgame. Thousands of hours.
+// v0.9-waveA2 (C10, 2026-04-22) reconciled the two catalogues:
+//   - every item in this file's former defineLogSection() calls is now in
+//     data/collection-log.json (one genuinely missing item, Bandos godsword /
+//     26005, was folded into general_graardor).
+//   - the defineLogSection() helper + in-memory Map have been removed.
+//   - this file is now ONLY a pet-item registry (id, name, rate) consumed by
+//     pets-extended.js (which drives src/engine/pets.js at runtime).
 //
-// These two systems alone multiply every piece of existing content by 10x hours.
-// A player who "completes" Forgefather Duran in 1 kill now has motivation to kill
-// it 3000+ times for the pet. A player who finishes all quests still has hundreds
-// of collection log slots to fill.
+// The `collectionLog` export is retained as a frozen empty Map for backward
+// compatibility with any importer that still destructures it; it now emits a
+// deprecation warning on first access via the getter below. New code MUST read
+// src/engine/collection-log.js + data/collection-log.json.
+//
+// Drop rates + source refs for pet unlocks live on the `pets` array below and
+// in data/droptables.js (authoritative).
 // ══════════════════════════════════════════════════════════════════════════════
 
 const items = require('../../data/items');
@@ -104,179 +115,41 @@ pet(80201, 'Lil creator', 'A tiny Void Knight.', 'Pest Control (1/5000 games)', 
 pet(80202, 'Bloodhound', 'A tracking dog from treasure trails.', 'Master clue scroll (1/1000)', '1/1000');
 
 // ══════════════════════════════════════════════════════════════════════════════
-// COLLECTION LOG — every unique drop source tracked
+// DEPRECATED: collectionLog Map
+//
+// Formerly this file built a second collection-log catalogue via
+// defineLogSection(). That catalogue was orphan — the engine only reads
+// data/collection-log.json. As of v0.9-waveA2 (C10) the data has been merged
+// into the JSON; the Map is now empty. Accessing it emits a deprecation
+// warning (once per process). Do not add new entries here — edit
+// data/collection-log.json instead.
 // ══════════════════════════════════════════════════════════════════════════════
 
 const collectionLog = new Map();
+let _warnedCollectionLog = false;
+function _warnDeprecated(op) {
+  if (_warnedCollectionLog) return;
+  _warnedCollectionLog = true;
+  console.warn(
+    '[pets-collection] DEPRECATED: pets-collection.js `collectionLog` Map is no longer '
+    + 'populated (reconciled into data/collection-log.json at v0.9-waveA2 C10). '
+    + 'Called .' + op + '(). Read the catalogue via src/engine/collection-log.js instead.'
+  );
+}
+// Wrap mutators so any stray consumer is flagged but doesn't crash.
+const origSet = collectionLog.set.bind(collectionLog);
+collectionLog.set = function (...args) { _warnDeprecated('set'); return origSet(...args); };
 
-function defineLogSection(opts) {
-  collectionLog.set(opts.id, {
-    id: opts.id,
-    name: opts.name,
-    category: opts.category, // 'bosses', 'clues', 'minigames', 'raids', 'other'
-    items: opts.items, // [{ id, name }] — items to track
-    killCount: opts.killCount || false, // track kill count?
-  });
+function defineLogSection(_opts) {
+  _warnDeprecated('defineLogSection');
+  // no-op — new entries must go into data/collection-log.json
 }
 
-// ── Boss Logs ──────────────────────────────────────────────────────────────
-
-defineLogSection({ id: 'log_duran', name: 'Forgefather Duran', category: 'bosses', killCount: true,
-  items: [{ id: 3010, name: "Duran's hammer" }, { id: 80001, name: 'Baby Duran' }] });
-
-defineLogSection({ id: 'log_azhmari', name: 'Azhmari', category: 'bosses', killCount: true,
-  items: [{ id: 4050, name: "Azhmari's crown" }, { id: 4051, name: 'Sandstorm staff' }, { id: 4052, name: 'Bone cleaver' }, { id: 80002, name: 'Sand Prince Jr.' }] });
-
-defineLogSection({ id: 'log_hydra', name: 'Bog Hydra', category: 'bosses', killCount: true,
-  items: [{ id: 4060, name: 'Hydra scale' }, { id: 4061, name: 'Hydra leather body' }, { id: 80003, name: 'Hydra cub' }] });
-
-defineLogSection({ id: 'log_malachar', name: 'Count Malachar', category: 'bosses', killCount: true,
-  items: [{ id: 5050, name: "Malachar's signet" }, { id: 5051, name: 'Sanguine cape' }, { id: 5052, name: 'Bloodwood staff' }, { id: 80004, name: 'Count Malachar Jr.' }] });
-
-defineLogSection({ id: 'log_veilmother', name: 'The Veilmother', category: 'bosses', killCount: true,
-  items: [{ id: 6050, name: "Veilmother's heartwood" }, { id: 6051, name: 'Verdant plate' }, { id: 6052, name: 'Root whip' }, { id: 80005, name: 'Veil sprout' }] });
-
-defineLogSection({ id: 'log_vorath', name: 'Vorath', category: 'bosses', killCount: true,
-  items: [{ id: 7050, name: "Vorath's anvil ring" }, { id: 7051, name: 'Molten maul' }, { id: 80006, name: 'Mini anvil' }] });
-
-defineLogSection({ id: 'log_soot_king', name: 'The Soot King', category: 'bosses', killCount: true,
-  items: [{ id: 7060, name: 'Soot King crown' }, { id: 80007, name: 'Soot golem' }] });
-
-defineLogSection({ id: 'log_kraken_saltbrine', name: 'Kraken of Saltbrine', category: 'bosses', killCount: true,
-  items: [{ id: 8050, name: 'Kraken tentacle' }, { id: 8051, name: 'Tidal amulet' }, { id: 8052, name: 'Abyssal trident' }, { id: 80008, name: 'Baby kraken' }] });
-
-defineLogSection({ id: 'log_muse', name: 'Inkweald Muse', category: 'bosses', killCount: true,
-  items: [{ id: 9050, name: "Muse's mask" }, { id: 9051, name: 'Dreamweaver staff' }, { id: 80009, name: 'Dream wisp pet' }] });
-
-defineLogSection({ id: 'log_choir', name: 'Hollow Choir', category: 'raids', killCount: true,
-  items: [{ id: 9060, name: 'Choir sigil' }, { id: 9061, name: 'Harmonic blade' }, { id: 9062, name: 'Silence bow' }, { id: 80010, name: 'Harmonic note' }] });
-
-defineLogSection({ id: 'log_glass_tyrant', name: 'Glass Tyrant', category: 'bosses', killCount: true,
-  items: [{ id: 10050, name: 'Glass crown' }, { id: 10051, name: 'Prismatic blade' }, { id: 80011, name: 'Glass shard pet' }] });
-
-defineLogSection({ id: 'log_veldrak', name: 'Veldrak', category: 'bosses', killCount: true,
-  items: [{ id: 10060, name: 'Dragon shard' }, { id: 10061, name: "Veldrak's talon" }, { id: 10062, name: "Veldrak's scale mail" }, { id: 80012, name: 'Veldrak hatchling' }] });
-
-defineLogSection({ id: 'log_crystal_wyrm', name: 'Crystal Wyrm', category: 'bosses', killCount: true,
-  items: [{ id: 2010, name: 'Wyrm scale platebody' }, { id: 2011, name: 'Wyrm scale platelegs' }, { id: 2012, name: 'Wyrm scale helm' }, { id: 2015, name: 'Crystal wyrm fang' }, { id: 80013, name: 'Wyrm scale pet' }] });
-
-// Wilderness bosses
-defineLogSection({ id: 'log_chaos_ele', name: 'Chaos Elemental', category: 'bosses', killCount: true,
-  items: [{ id: 80014, name: 'Chaos blob' }] });
-defineLogSection({ id: 'log_scorpia', name: 'Scorpia', category: 'bosses', killCount: true,
-  items: [{ id: 22007, name: 'Imbued heart' }, { id: 80015, name: 'Scorpia offspring' }] });
-defineLogSection({ id: 'log_vetion', name: "Vet'ion", category: 'bosses', killCount: true,
-  items: [{ id: 24001, name: 'Berserker ring' }, { id: 22008, name: 'Eternal gem' }, { id: 80016, name: "Vet'ion skull" }] });
-defineLogSection({ id: 'log_callisto', name: 'Callisto', category: 'bosses', killCount: true,
-  items: [{ id: 24004, name: 'Warrior ring' }, { id: 80017, name: 'Callisto cub' }] });
-defineLogSection({ id: 'log_venenatis', name: 'Venenatis', category: 'bosses', killCount: true,
-  items: [{ id: 24005, name: 'Ring of suffering' }, { id: 80018, name: 'Venenatis spiderling' }] });
-defineLogSection({ id: 'log_kbd', name: 'King Black Dragon', category: 'bosses', killCount: true,
-  items: [{ id: 20010, name: 'Dragon full helm' }, { id: 80027, name: 'Prince Black Dragon' }] });
-
-// Slayer bosses
-defineLogSection({ id: 'log_cerberus', name: 'Cerberus', category: 'bosses', killCount: true,
-  items: [{ id: 31020, name: 'Primordial crystal' }, { id: 31021, name: 'Pegasian crystal' }, { id: 31022, name: 'Eternal crystal' }, { id: 80021, name: 'Hellpuppy' }] });
-defineLogSection({ id: 'log_abyssal', name: 'Abyssal Sire/Demon', category: 'bosses', killCount: true,
-  items: [{ id: 22001, name: 'Abyssal whip' }, { id: 80020, name: 'Skotos' }] });
-defineLogSection({ id: 'log_cave_kraken', name: 'Cave Kraken', category: 'bosses', killCount: true,
-  items: [{ id: 22004, name: 'Trident of the seas' }, { id: 80022, name: 'Kraken pet' }] });
-
-// ── Clue Log ──────────────────────────────────────────────────────────────
-
-defineLogSection({ id: 'log_clue_beginner', name: 'Beginner Clues', category: 'clues',
-  items: [{ id: 12501, name: 'Uncut sapphire' }] });
-
-defineLogSection({ id: 'log_clue_medium', name: 'Medium Clues', category: 'clues',
-  items: [{ id: 23020, name: 'Ranger boots' }, { id: 23021, name: 'Wizard boots' }, { id: 23003, name: 'Black platebody (t)' }] });
-
-defineLogSection({ id: 'log_clue_hard', name: 'Hard Clues', category: 'clues',
-  items: [{ id: 23001, name: 'Rune platebody (t)' }, { id: 23002, name: 'Rune platebody (g)' }, { id: 23022, name: "Robin Hood hat" }, { id: 23010, name: 'Holy book' }, { id: 23011, name: 'Book of darkness' }] });
-
-defineLogSection({ id: 'log_clue_elite', name: 'Elite Clues', category: 'clues',
-  items: [{ id: 23030, name: 'Third-age platebody' }, { id: 23031, name: 'Third-age platelegs' }, { id: 23032, name: 'Third-age full helm' }, { id: 23033, name: 'Third-age range top' }, { id: 23034, name: 'Third-age mage hat' }] });
-
-// ── Barrows Log ───────────────────────────────────────────────────────────
-
-defineLogSection({ id: 'log_barrows', name: 'Barrows', category: 'bosses', killCount: true,
-  items: [
-    { id: 21001, name: "Dharok's greataxe" }, { id: 21002, name: "Dharok's helm" }, { id: 21003, name: "Dharok's platebody" }, { id: 21004, name: "Dharok's platelegs" },
-    { id: 21011, name: "Guthan's warspear" }, { id: 21012, name: "Guthan's helm" }, { id: 21013, name: "Guthan's platebody" }, { id: 21014, name: "Guthan's chainskirt" },
-    { id: 21021, name: "Verac's flail" }, { id: 21022, name: "Verac's helm" }, { id: 21023, name: "Verac's brassard" }, { id: 21024, name: "Verac's plateskirt" },
-    { id: 21031, name: "Ahrim's staff" }, { id: 21032, name: "Ahrim's hood" }, { id: 21033, name: "Ahrim's robe top" }, { id: 21034, name: "Ahrim's robe bottom" },
-    { id: 21041, name: "Karil's crossbow" }, { id: 21042, name: "Karil's coif" }, { id: 21043, name: "Karil's leathertop" }, { id: 21044, name: "Karil's leatherskirt" },
-    { id: 21051, name: "Torag's hammers" }, { id: 21052, name: "Torag's helm" }, { id: 21053, name: "Torag's platebody" }, { id: 21054, name: "Torag's platelegs" },
-  ]
-});
-
-// ── Minigame Logs ─────────────────────────────────────────────────────────
-
-defineLogSection({ id: 'log_pest_control', name: 'Pest Control', category: 'minigames',
-  items: [{ id: 30001, name: 'Void knight top' }, { id: 30004, name: 'Void melee helm' }, { id: 30005, name: 'Void ranger helm' }, { id: 30006, name: 'Void mage helm' }, { id: 80201, name: 'Lil creator' }] });
-
-defineLogSection({ id: 'log_barb_assault', name: 'Barbarian Assault', category: 'minigames',
-  items: [{ id: 30401, name: 'Fighter torso' }, { id: 30402, name: 'Penance skirt' }] });
-
-defineLogSection({ id: 'log_spirit_pyre', name: 'Spirit Pyre', category: 'minigames',
-  items: [{ id: 30101, name: 'Pyromancer hat' }, { id: 30102, name: 'Pyromancer top' }, { id: 30103, name: 'Pyromancer legs' }, { id: 30104, name: 'Pyromancer boots' }, { id: 30105, name: 'Bruma torch' }, { id: 80109, name: 'Phoenix' }] });
-
-defineLogSection({ id: 'log_gotr', name: 'Guardians of the Rift', category: 'minigames',
-  items: [{ id: 30301, name: 'Hat of the eye' }, { id: 30302, name: 'Robe top of the eye' }, { id: 30303, name: 'Robe bottom of the eye' }, { id: 30304, name: 'Boots of the eye' }, { id: 80107, name: 'Rift guardian' }] });
-
-// ── Skilling Pet Log ──────────────────────────────────────────────────────
-
-defineLogSection({ id: 'log_skilling_pets', name: 'Skilling Pets', category: 'other',
-  items: [
-    { id: 80101, name: 'Rock golem (pet)' }, { id: 80102, name: 'Heron' }, { id: 80103, name: 'Beaver' },
-    { id: 80104, name: 'Giant squirrel' }, { id: 80105, name: 'Tangleroot' }, { id: 80106, name: 'Rocky' },
-    { id: 80107, name: 'Rift guardian' }, { id: 80108, name: 'Herbi' }, { id: 80109, name: 'Phoenix' },
-    { id: 80110, name: 'Chompy chick' }, { id: 80111, name: 'Nexling' },
-  ]
-});
-
-// ── God Wars Log ──────────────────────────────────────────────────────────
-
-defineLogSection({ id: 'log_godwars', name: 'God Wars Dungeon', category: 'bosses', killCount: true,
-  items: [
-    { id: 26003, name: 'Bandos chestplate' }, { id: 26004, name: 'Bandos tassets' }, { id: 26005, name: 'Bandos godsword' },
-    { id: 26006, name: 'Armadyl chestplate' }, { id: 26007, name: 'Armadyl chainskirt' }, { id: 26008, name: 'Armadyl crossbow' },
-    { id: 26009, name: 'Ancestral hat' }, { id: 26010, name: 'Ancestral robe top' }, { id: 26011, name: 'Ancestral robe bottom' },
-    { id: 26012, name: 'Twisted bow' }, { id: 26013, name: 'Scythe of vitur' },
-  ]
-});
-
-// ══════════════════════════════════════════════════════════════════════════════
-// Hour estimates per collection log completion
-// ══════════════════════════════════════════════════════════════════════════════
-//
-// Each boss pet at 1/3000 × ~30 kills/hr = 100 hours average per pet
-// 27 boss pets × 100 hours = 2,700 hours just for boss pets
-// 11 skilling pets × ~250k actions / ~300 actions/hr = ~830 hours each = 9,130 hours
-// Barrows full log (24 items at 1/17 per chest, ~15 chests/hr) = ~40 hours
-// Clue log (hundreds of unique items across 4 tiers) = 500+ hours
-// God Wars log (rare drops across multiple bosses) = 500+ hours
-// Minigame logs = 200+ hours
-//
-// TOTAL COLLECTION LOG COMPLETION: ~13,000+ hours
-// + Max all skills (99 in 23 skills): ~2,000 hours
-// + 81 quests: ~200 hours
-// + Achievement diaries: ~300 hours
-// + All content explored: ~500 hours
-//
-// GRAND TOTAL MEANINGFUL CONTENT: ~16,000+ hours
-// With 200M XP all skills goal: ~50,000+ hours
-// With all pets + collection log + 200M + all achievements: ~100,000+ hours
-//
-// This is WITHOUT inflated drop rates or artificial grind.
-// Every hour is spent doing something with a purpose.
 // ══════════════════════════════════════════════════════════════════════════════
 
 // Count totals
 const totalPets = pets.length;
-const totalLogSlots = [...collectionLog.values()].reduce((s, section) => s + section.items.length, 0);
-const totalLogSections = collectionLog.size;
 
-console.log(`[aelgard] Pet system: ${totalPets} pets defined`);
-console.log(`[aelgard] Collection log: ${totalLogSections} sections, ${totalLogSlots} unique items tracked`);
+console.log(`[aelgard] Pet system: ${totalPets} pets defined (collection log → data/collection-log.json)`);
 
 module.exports = { pets, collectionLog, defineLogSection };
