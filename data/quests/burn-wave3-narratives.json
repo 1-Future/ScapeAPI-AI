@@ -1,0 +1,362 @@
+[
+  {
+    "id": "the_falconers_quiet_debt",
+    "title": "The Falconer's Quiet Debt",
+    "difficulty": "novice",
+    "length": "short",
+    "seed_npc": "royal_falconer",
+    "regions": ["heartlands", "veilwood"],
+    "synopsis": "Aldwin the retired Royal Falconer has quietly received an unsigned purse of coin every first Friday for nine years. His oldest bird Sessen will not settle this week; he thinks the sender has died, and is too proud to ask. He sends you — with specific, falconer-quiet instructions — to trace the coin without anyone knowing the question was asked. The sender is a widowed minor noblewoman whose falcon he refused, thirty years ago, to mistreat. The answer is a crocus left at dusk on a back-door sill. You return with the flower and Aldwin says nothing. It is the most tender transaction the mews has ever witnessed.",
+    "hook": "Heartlands. A falconer's mews behind the noble quarter. Aldwin the retired Royal Falconer has been receiving unsigned coin by post for nine years. He would like to know who — without letting them know he asked.",
+    "twist": "The sender is not dead. She is the noblewoman whose falcon Aldwin refused, thirty years ago, to mistreat. Her husband is dead. The crocus she leaves is his favourite flower.",
+    "resolution": "You deliver the flower without word. Sessen settles. Aldwin, for the first time in decades, watches a thing land on his own glove with a face close to peace.",
+    "unlocks_prose": "You carry a Jess of Quiet Thanks; hunter traps with it equipped no longer spook songbirds. Aldwin trusts you enough to send Sessen on messages across the Heartlands. You know the name of a noblewoman who pays a monthly stipend out of gratitude, and this knowledge unlocks a private line with Merchant Hilde.",
+    "dialogue_beats": [
+      { "speaker": "Aldwin", "line": "Visitor. The purse. Do not open. Quietly." },
+      { "speaker": "Post-carter", "line": "First Friday. Nine years. I have never read the sender. I never will. Do not ask me twice." },
+      { "speaker": "Aldwin (on return)", "line": "[silent; places flower on Sessen's perch]" }
+    ]
+  },
+  {
+    "id": "the_ambassadors_soup",
+    "title": "The Ambassador's Soup",
+    "difficulty": "intermediate",
+    "length": "medium",
+    "seed_npc": "evil_chef",
+    "regions": ["heartlands"],
+    "synopsis": "The Evil Chef, kitchen-tyrant of the Grand Hall basement, has been perfecting a three-course meal for thirty years that nobody has been willing to eat. You are the first. The meal is, in his own pedantic way, a disclosure: he was dismissed from court for refusing to poison a Moryskah ambassador on Crown orders, and the records have been expunged. Between courses you cross-reference ingredients with Bel, read the expunged ledger, and at the dessert you must decide — publish the story through the Heartlands herald, bury it by burning the recipe card in his own fire, or publish it anonymously through Hilde's back door. Every ending is permanent. Tell him your choice to his face.",
+    "hook": "Heartlands. The Grand Hall basement. A chef cooks for thirty years for an audience of one. You are the audience.",
+    "twist": "The third ingredient is not an ingredient. It is an ambassador's name. The Chef was fired for refusing to poison him. The Crown has expunged the record. The meal is the only remaining proof.",
+    "resolution": "You taste all three courses, read the expunged ledger, and commit to one of three endings. The Chef does not thank you. He does not speak at all for a long minute. He returns to work, or he retires, or he begins teaching at Hilde's back door, depending on what you chose.",
+    "unlocks_prose": "You carry a Palate of the Grand Hall cape — its inscription depends on your ending — and a unique three-course recipe. The Crown quietly blacklists you for truth-keeping; Hilde trusts you with her other secrets. A permanent fork in Aelgard's court-politics tree.",
+    "dialogue_beats": [
+      { "speaker": "the Chef", "line": "Palate. The soup. And the palate agrees." },
+      { "speaker": "Bel", "line": "Mm, yes. That name is in the ledger. You should not have it. Keep it quiet. Publish quietly." },
+      { "speaker": "the Chef (ending: publish)", "line": "[no words; he places the spoon on the counter and begins packing]" }
+    ]
+  },
+  {
+    "id": "the_scholars_cipher",
+    "title": "The Scholar's Cipher",
+    "difficulty": "intermediate",
+    "length": "medium",
+    "seed_npc": "wandering_scholar",
+    "regions": ["heartlands", "moryskah", "boneyard"],
+    "synopsis": "Bel has misplaced his latest letter to Veris at a border inn. The letter is written in a cipher based on Pyramid third-level glyphs Veris has not yet published. If the wrong reader gets it, her dig is in trouble. You trace the letter through an innkeeper, a scribbling boy, and a marked copper to a Moryskah smuggler's middleman. Decoded, the letter is Veris asking whether the glyphs spell her dead brother's name. Bel has already replied yes. You decide: burn it (Bel will never know you read it), return it unread (he burns it himself), or forward it to Veris directly.",
+    "hook": "A scholar has lost a love-letter-shaped thing at a border inn. It is not a love letter. It is worse.",
+    "twist": "Veris's dead brother's name is, in fact, spelt in the Pyramid glyphs. The Crown denies this. Bel has confirmed it in writing. The letter is the confirmation.",
+    "resolution": "Your handling of the letter determines whether Veris learns the glyph truth, whether Bel learns you read it, and whether the Crown finds out someone is reading the pre-publication mail.",
+    "unlocks_prose": "Bel's Cipher Crib becomes yours — the only way to read certain Crown dispatches, Moryskah smuggler contracts, and Drifting Market off-charter pages. A new magic training method (cipher-reading) opens to you at any inn table.",
+    "dialogue_beats": [
+      { "speaker": "Bel", "line": "Reader. I've been a fool. Not a large fool. A small one. Please." },
+      { "speaker": "innkeeper", "line": "The boy with ink on his fingers. Tuesday. Try the back door of the tanner's." },
+      { "speaker": "Veris (if forwarded)", "line": "I asked. Yes. No. I cannot say which." }
+    ]
+  },
+  {
+    "id": "the_counter_sung_salve",
+    "title": "The Counter-Sung Salve",
+    "difficulty": "experienced",
+    "length": "long",
+    "seed_npc": "apothecary_nira",
+    "regions": ["moryskah", "heartlands"],
+    "synopsis": "Apothecary Nira figured out Mirelda's swamp salve song on her own ten years ago and never told. Mirelda has been waiting to be asked. Nira has been waiting to be recognised. Father Dorin is the only person both will meet in a neutral room. You arrange the conversation that ends a decade of silence, by collecting three specific ingredients without Mirelda's patch noticing, brewing the salve at Dorin's altar, and delivering it in silence at dawn. On the way home you walk the patch widdershins and cross Grael. She knew.",
+    "hook": "A student has surpassed her teacher in secret. Both have been waiting ten years for the other to say something first. Somebody has to knock on the door.",
+    "twist": "Nira's version of the song is not identical to Mirelda's. Mirelda, when she hears it, recognises the improvements. This is the conversation she has been dreading and wanting in equal measure.",
+    "resolution": "A tea is had. You are not invited. You walk the patch widdershins. Grael nods once at the third turn. When you return, Nira has received a letter already. You carried no letter. The letter was already there.",
+    "unlocks_prose": "A unique no-slot Counter-Sung Salve recipe. Both witches treat you as family. Grael lowers prices by 20%. Nira now teaches the song openly.",
+    "dialogue_beats": [
+      { "speaker": "Nira", "line": "Love. New face. What hurts. No — what you want. Say plain." },
+      { "speaker": "Mirelda", "line": "Ah. The salve is — it is the same song. Nearly. Sit. Tea." },
+      { "speaker": "Grael", "line": "[at the third turn] — Knew." }
+    ]
+  },
+  {
+    "id": "the_portrait_at_the_back_of_the_bar",
+    "title": "The Portrait at the Back of the Bar",
+    "difficulty": "experienced",
+    "length": "long",
+    "seed_npc": "whisper_broker_nessa",
+    "regions": ["saltbrine", "drifting_market"],
+    "synopsis": "Two portraits, painted by the same hand from opposite sides of a quay eleven years ago, hang in two places: behind Mara's fish stall, and in Nessa's cabin on the Drifting Market. They are sisters. They have not been in the same room since the painting. Vash the innkeeper keeps the neutral ground. Cole the harbourmaster pays no rent but watches the door. You notice the portrait, refuse to ask, drink what Mara drinks when she is not paying, are taken to a back room whose rent is Nessa's, and carry — if you choose — a sealed letter between two women who have not written in eleven years. The meeting is in a place you will never be allowed to revisit.",
+    "hook": "Two walls. Two portraits. Same face. Two eleven-year silences.",
+    "twist": "Mara and Nessa are sisters, estranged over an outsider neither names. Vash pays no rent; her landlord is Nessa. Every regular in the Crow drinks on Nessa's money and has never asked why.",
+    "resolution": "You carry a single letter — or you refuse. If you carry, the meeting happens. The place of the meeting does not have a name you may remember. The dispute does not resolve; the silence does.",
+    "unlocks_prose": "Knife-Scar Sigil — a teleport between whichever sister last greeted you in person. Vash lets you sleep upstairs for free. Both sisters now treat you as family.",
+    "dialogue_beats": [
+      { "speaker": "Mara", "line": "Fish. Wrapped. Go." },
+      { "speaker": "Nessa", "line": "Friend. Charter or another arrangement. Do not look at the wall." },
+      { "speaker": "Vash", "line": "Love. Back room. One nod." }
+    ]
+  },
+  {
+    "id": "the_lamp_behind_the_desk",
+    "title": "The Lamp Behind the Desk",
+    "difficulty": "novice",
+    "length": "short",
+    "seed_npc": "overseer_greta",
+    "regions": ["heartlands"],
+    "synopsis": "Greta keeps an old lamp on a hook behind her desk. An apprentice borrowed it to light a passage the current lamps won't reach, and didn't come back to work. You find him underground, scared, unscathed. You bring the lamp back unlit and unbroken. Greta taps her cane twice — once in thanks, once in dismissal — and writes you onto her private seam.",
+    "hook": "A missing apprentice, a missing lamp. Same answer. Same shaft.",
+    "twist": "The lamp is Greta's first husband's. It has not been lit in nineteen years.",
+    "resolution": "The apprentice survives. The lamp returns to the hook. Greta trusts you enough to let you mine in her private seam.",
+    "unlocks_prose": "A First Torven Tally grants you exclusive-mine time once per day. Greta will accidentally call you by her first husband's nickname. Do not correct her.",
+    "dialogue_beats": [
+      { "speaker": "Greta", "line": "Pickaxe. Lamp's gone. Boy's gone. Same shaft. Go." },
+      { "speaker": "apprentice", "line": "I only needed to see. I only needed — it's old. I did not break it." },
+      { "speaker": "Greta (returned lamp)", "line": "[taps cane twice, writes on a tally card]" }
+    ]
+  },
+  {
+    "id": "crew_six_after_the_pour",
+    "title": "Crew Six, After the Pour",
+    "difficulty": "master",
+    "length": "epic",
+    "seed_npc": "forgemaster_brun",
+    "regions": ["sootworks"],
+    "synopsis": "Fourteen people died in Furnace Two eight years ago. The inquest blamed a pressure valve. Brun privately blames himself. Ossen kept the pre-accident maps in a drawer waiting to be asked. Fizz still walks the valves. You assemble what the Sootworks's three senior survivors each half-know into the actual cause — a brazed joint Brun signed off on that failed because of a coal-quality delivery Vorath's office rubber-stamped. You then choose to tell Brun, tell Vorath (triggering a foundry audit), or burn everything. Tell him to his face.",
+    "hook": "A survivor with maps. A valve-engineer who listens to metal. A forgemaster who carries a private verdict. None have ever been in the same room.",
+    "twist": "The accident's cause is distributed: Brun's signature, Vorath's rubber stamp, and an unsampled coal delivery. No single person was at fault. This is worse.",
+    "resolution": "You tell him, or you tell his boss, or you burn the truth. Brun returns to work. The world adjusts accordingly.",
+    "unlocks_prose": "The Furnace Two midnight shift becomes a unique smithing training method. You carry a Brazer's Guilty Apron whose inscription changes by ending. A small shrine appears in the foundry wall if you told somebody.",
+    "dialogue_beats": [
+      { "speaker": "Ossen", "line": "Stout-taker. Drawer's open. Don't take a page. Copy. I count them twice." },
+      { "speaker": "Fizz", "line": "Page seventy-two. The number. Read me the number on the valve I burned. Then I'll walk." },
+      { "speaker": "Brun (ending: tell)", "line": "[silence for one minute] Right, crew. Pour and out." }
+    ]
+  },
+  {
+    "id": "walk_wide_guest",
+    "title": "Walk Wide, Guest",
+    "difficulty": "intermediate",
+    "length": "medium",
+    "seed_npc": "razak",
+    "regions": ["boneyard", "heartlands"],
+    "synopsis": "The sister of a man lost on Razak's one lost caravan has arrived carrying a child's ribbon and a polite request to be taken to the place he died. Razak cannot walk it himself — the shame is too much. He sends you with an exact laundry list and a strict number of words he will allow you to say to her on the road. You walk the old track, mark cairns, refuse to speak at a sand-wraith, let the sister place the items in her own order, and return with a grain of glass that was her brother's pocket marble.",
+    "hook": "A woman with a ribbon. A guide who will not guide. A list of six items and a count of words.",
+    "twist": "The sand-wraith at the second crossing remembers the caravan. It will give up a grain of glass if you walk past without speaking. The grain is the brother's marble. Do not tell the sister.",
+    "resolution": "The sister whispers the ribbon's colour to the sand. You carry the marble to Razak. He counts his water-skins twice in front of you, twice again, and nods once.",
+    "unlocks_prose": "A Brother's Glass Marble halves desert/heat damage while held. The old caravan track becomes a pre-marked herb/slayer route. Razak sells wind-knowledge at fair prices, cutting your Boneyard travel time by 30%.",
+    "dialogue_beats": [
+      { "speaker": "Razak", "line": "Guest. Water-skin. Six items. Count the words you say to her. Walk wide." },
+      { "speaker": "the sister", "line": "[at the second crossing] My brother liked purple. The ribbon is purple." },
+      { "speaker": "Razak (on return)", "line": "[counts water-skins twice, twice again; nods once]" }
+    ]
+  },
+  {
+    "id": "the_second_question",
+    "title": "The Second Question",
+    "difficulty": "grandmaster",
+    "length": "epic",
+    "seed_npc": "hermit_of_the_old_sun",
+    "regions": ["boneyard", "glass_desert", "heartlands", "moryskah", "veilwood", "inkweald", "sootworks"],
+    "synopsis": "The Hermit of the Old Sun has waited forty-one years for a seeker to ask the right second question. If you have read enough, walked enough, lost enough, the second question arrives uninvited in your mouth at dusk, six days deeper than the Pyramid. Before you can ask it, you must visit the six edges of Aelgard in order, burn a salt wick at each, translate nine alcove tablets, feed a crystal-eyed fish to the Wyrm's refraction, and bring eight specific items. When the Hermit answers, the shrine's walls invert for seven minutes. You survive this by Prayer 80. At the end you can let the Old Sun rise (change Aelgard's perceived daylight forever), refuse it, or take its single unspoken offer to overwrite one future quest outcome.",
+    "hook": "A shrine six days deeper than the Pyramid. A hermit who has waited forty-one years for the right seeker. A question you will not know until you are holding eight specific objects in your pack.",
+    "twist": "The Old Sun is the moon. The Hermit is preparing to let it rise into its last resting place, where the Crystal Wyrm is waiting to give it back.",
+    "resolution": "Your choice rewrites Aelgard's canon time-of-day, or preserves its stillness, or lets the Old Sun give you one favour to use later.",
+    "unlocks_prose": "An Old Sun Sigil — a one-time quest-outcome overwrite. A unique Second Question Prayer lets you ask any NPC one otherwise-unanswerable question per in-game week. Access to the Old Sun Cavern, whose herb patch grows ingredients found nowhere else.",
+    "dialogue_beats": [
+      { "speaker": "the Hermit", "line": "Seeker. Your hands. Show me your hands. Close one eye. Wait." },
+      { "speaker": "the Crystal Wyrm (refraction)", "line": "Cleavage. The angle. The word." },
+      { "speaker": "the Hermit (answer received)", "line": "The Old Sun knows. Listen." }
+    ]
+  },
+  {
+    "id": "the_draft_signature",
+    "title": "The Draft Signature",
+    "difficulty": "experienced",
+    "length": "long",
+    "seed_npc": "the_inkweald_muse",
+    "regions": ["inkweald"],
+    "synopsis": "Yara the Lucid Keeper has judged you awake enough to walk past the dream-shore. In the third grove, the Muse — which is the Inkweald's accumulation of every unfinished work ever dreamed into it — waits to be signed. You carry Yara's quill, harvest three ink-seeds, grind them with Glass Desert shards into live ink, identify which of the Muse's four recited fragments is from a poet not yet born, and choose: sign the Muse (finish the accumulation), walk away (the Muse stays drafted), or sign one fragment and leave the rest.",
+    "hook": "A dream-keeper at a dream-shore. A muse in a third grove. A quill with an older owner's name still on it.",
+    "twist": "One of the four fragments the Muse recites is from an unborn Heartlands poet. That poet will, in a later wave of world events, actually exist.",
+    "resolution": "The Muse is signed, drafted, or partially signed. The Inkweald's residue changes permanently in each case.",
+    "unlocks_prose": "A Jar of Live Ink, a unique Inkweald crafting method, and Yara's Quill — a pocket item that writes one-hour skill-check wards.",
+    "dialogue_beats": [
+      { "speaker": "Yara", "line": "Dreamer. The quill. Its original owner was. Walk now." },
+      { "speaker": "the Muse (finishing your sentence)", "line": "[a different voice says your name's final syllable, wrong]" },
+      { "speaker": "Yara (on return)", "line": "Dreamer. The quill has weight. So the longer thought holds." }
+    ]
+  },
+  {
+    "id": "the_charter_nobody_writes",
+    "title": "The Charter Nobody Writes",
+    "difficulty": "experienced",
+    "length": "long",
+    "seed_npc": "whisper_broker_nessa",
+    "regions": ["drifting_market", "saltbrine", "heartlands"],
+    "synopsis": "The Drifting Market has no written charter. A Heartlands noble wants to revoke its implicit one. You collect Nessa's wax without her offering it, Cole's blank-sealed page on a third visit, and a Saltbrine sailor's knot from Reed — and forge a new-old charter none of the three admit they wanted. File it through the chancery. Attend the hearing silently. Win.",
+    "hook": "Three people who will not be in the same room. One document that does not exist. A noble who wants to erase the Market by erasing what it does not have.",
+    "twist": "You do not re-forge a real old charter. You forge a decoy that becomes canonical because the chancery clerk accepts it.",
+    "resolution": "The Drifting Market continues trading. None of the three ever thank you. Nessa raises your charter fee. Cole says 'Settled'.",
+    "unlocks_prose": "Reed's Knot-Thread re-ties if severed and makes player-made containers pickpocket-proof. Nessa's private cabin opens to you. All three patrons will trust you to carry silent letters between them.",
+    "dialogue_beats": [
+      { "speaker": "Nessa", "line": "Friend. Wax. Candle. Drink first." },
+      { "speaker": "Cole", "line": "[third visit, without looking up] Stamp. Blank. Goodbye." },
+      { "speaker": "Reed", "line": "Lass. A knot. One. Watch." }
+    ]
+  },
+  {
+    "id": "sessens_last_flight",
+    "title": "Sessen's Last Flight",
+    "difficulty": "intermediate",
+    "length": "medium",
+    "seed_npc": "royal_falconer",
+    "regions": ["heartlands", "boneyard"],
+    "synopsis": "Sessen is dying. Aldwin wants her to die in the mews. Hilde has been offered a staggering Boneyard sum for her first-moult feather. You travel to meet the Boneyard collector, learn the feather is wanted for a kin-rite Sessen's species can't satisfy, and decide: cancel the sale honestly, let it collapse without admitting it, or complete it and lose Aldwin forever. If honest, you attend Sessen's death in vigil, Aldwin silently gives you her first-moult jess, and you close the transaction ceremonially with the collector's kin-rite bell.",
+    "hook": "A dying bird. A grieving falconer. A trader who has misunderstood his own tradition. A middleman who will not ask.",
+    "twist": "The feather is wanted for a kin-rite specific to Boneyard species. Sessen, being a gyr, would not bind. Hilde did not know this. The collector did not know this either.",
+    "resolution": "Sessen dies regardless. The feather goes where you choose. Aldwin's silence is, if you chose well, an embrace.",
+    "unlocks_prose": "Sessen's Last Jess bonds permanently to your next hunter-trained bird for a level bonus. A Kin-Rite Brass Bell silences hunter-trap noise penalties. Aldwin softens his greeting word by one.",
+    "dialogue_beats": [
+      { "speaker": "Hilde", "line": "Friend. Quiet offer. Collector. No names." },
+      { "speaker": "Razak's cousin", "line": "Guest. The feather is wrong species. Your teacher is wise. Walk wide." },
+      { "speaker": "Aldwin", "line": "Mind the glove." }
+    ]
+  },
+  {
+    "id": "the_soot_mouth_seven",
+    "title": "The Soot-Mouth Seven",
+    "difficulty": "master",
+    "length": "epic",
+    "seed_npc": "drunken_dwarf_ossen",
+    "regions": ["sootworks", "heartlands"],
+    "synopsis": "Crew Seven does not exist yet. You will propose it silently on behalf of Ossen, Brun, Vorath, Fizz, and Hald without ever quoting them to each other. A page of Ossen's drunk-map, Fizz's valve certification, Hald's loaned hammer, Brun's signature, and Vorath's audit-pause — assemble them; assemble a six-person crew; fill the sixth chair (Vorath, Kael, a player-friend, or the ghost-seat); walk Furnace Three's auxiliary; find the Crew Six tally card; deliver it to Greta, then to Brun in the Crow's back room. The card will frame itself on the Crow's wall the next morning.",
+    "hook": "Five people who do not talk to each other. One tunnel nobody has re-opened in eight years. Six chairs — and the sixth one matters.",
+    "twist": "The tally card's handwriting is Greta's first husband's. The collapse that killed him was Crew Six, not her mine's second collapse. She did not know until you delivered the card.",
+    "resolution": "The foundry reconciles without ever holding a meeting. The Sootworks gains a permanently lit deep tunnel. You are the only player permitted to attend their annual Crow gathering.",
+    "unlocks_prose": "The Crew Seven Tunnel — permanent deep-mine shortcut between Sootworks and Heartlands with unique soot-vein copper and a Vent-Mining training method. Hald's Loaned Hammer grants +3 effective smithing at any anvil.",
+    "dialogue_beats": [
+      { "speaker": "Ossen", "line": "Stout-taker. Drawer's page seventy-two. The drunk one. Most accurate. Take." },
+      { "speaker": "Fizz", "line": "Furnace Three auxiliary. Fourteen years. My valve. I'll walk." },
+      { "speaker": "Brun (holding tally card)", "line": "[silence] Right. Crow. Back room." }
+    ]
+  },
+  {
+    "id": "the_tide_that_did_not_rise",
+    "title": "The Tide That Did Not Rise",
+    "difficulty": "experienced",
+    "length": "long",
+    "seed_npc": "tsunara_storm_twin",
+    "regions": ["saltbrine", "glass_desert"],
+    "synopsis": "The spring tide has failed to rise. Tsunara the storm-spirit grieves her twin Gailin, who is held inside the Crystal Wyrm's alignment. Reed's Bittern is the only hull shallow enough to reach the Stormcrown Reef. Pay in catch, not coin. Sail, dive the reef, collect a grain of Gailin's residue, wrap it in Veilwood shade-cloth, and leave it on the Crystal Caverns' outer threshold. The tide rises once, in front of you. The alignment moves a fraction.",
+    "hook": "A grieving storm. A failing ship. A reef that does not believe in dry land. A residue you must not look at directly.",
+    "twist": "Gailin is not gone. He is held by the Wyrm's geometry. Tsunara cannot cross to him. You can, barely.",
+    "resolution": "Tsunara's grief partially eases. The tide rises. The Wyrm acknowledges nothing, but the next dawn's colour is slightly different.",
+    "unlocks_prose": "Tsunara's Wave-Sigil grants underwater agility bonuses and a wave-trail dash. Stormcrown Reef access with unique dream-coral/ghost-sprat catches. Reed will carry you to any Saltbrine shoreline region once per week for free.",
+    "dialogue_beats": [
+      { "speaker": "Reed", "line": "Lass. The tide. Hmm. Pay in catch. Mind the soft board. We'll see." },
+      { "speaker": "Tsunara", "line": "Mariner. The swell. The wick. Hold." },
+      { "speaker": "Tsunara (on return)", "line": "Mariner. The tide. It rose. Once. Watch." }
+    ]
+  },
+  {
+    "id": "the_letter_unposted",
+    "title": "The Letter Unposted",
+    "difficulty": "experienced",
+    "length": "long",
+    "seed_npc": "captain_reed",
+    "regions": ["saltbrine", "heartlands"],
+    "synopsis": "Reed has written a 'when you read this' letter to his Heartlands sister and never posted it. Brigh knows. Mara doesn't. The Bittern has one bad winter left. You visit the sister, establish what she would and would not want, and return to Brigh with three options he has quietly weighed for months: deliver the letter in secret, convince Reed to post it himself, or burn it so Reed is forced to write a better one. Mara is left silent; she trades in silences.",
+    "hook": "A letter on a chart-table. A ship older than its captain. A sister who hasn't had word in four years.",
+    "twist": "The Bittern is salvaged from the Marigold's Mercy — a fact Reed has not told Cole, and which you still will not learn in this quest. That stays for later.",
+    "resolution": "The letter is posted, destroyed, or forces Reed to write a second. Mara accepts a silence in trade. Brigh will later consult you on his own boat-buying.",
+    "unlocks_prose": "Reed's Trip Log reveals Bittern-catchable species locations per-day. The sister's cottage becomes a private bank. A future Master quest about the Bittern's final voyage unlocks.",
+    "dialogue_beats": [
+      { "speaker": "Brigh", "line": "Mate. The letter. I've thought about it. Wednesday drink. Sit." },
+      { "speaker": "the sister", "line": "I would want word. I do not ask for it. Take this bread if you go." },
+      { "speaker": "Reed (ending: convinced)", "line": "[once] Right, lass. Posted." }
+    ]
+  },
+  {
+    "id": "the_cipher_we_lost",
+    "title": "The Cipher We Lost",
+    "difficulty": "master",
+    "length": "epic",
+    "seed_npc": "wandering_scholar",
+    "regions": ["heartlands", "moryskah", "boneyard"],
+    "synopsis": "A third cipher was taught quietly to senior academy fellows before Bel was exiled. Its three keys survive scattered: a Crown dispatch (infiltrate the chancery), Father Dorin's wife's gravestone (bring Mortton bread baked by a praying hand), a Pyramid glyph that does not look up (Veris and a steady-flame lantern). Assemble in the order the three keepers met in youth. Decode a single sealed letter from Dorin's wife to Veris's brother, sent via Bel, never delivered because the brother was dead before it arrived. The letter is a poem.",
+    "hook": "A cipher older than its last three living speakers. A sealed letter that has waited nineteen years to be read. A poem.",
+    "twist": "The three cipher-keepers of youth were Bel, Veris's brother, and Dorin's wife. Two are dead. The letter is between the last two. The poem is the letter.",
+    "resolution": "You give the letter to Dorin, to Veris, or burn it. Each ending changes the weight of the three names in Heartlands memory.",
+    "unlocks_prose": "The Third Cipher Final Crib — the ONLY way to read pre-current-Crown dispatches. A Deep Archive Thieving training method. Father Dorin's private three-sentence sermon once per in-game month.",
+    "dialogue_beats": [
+      { "speaker": "Bel", "line": "Reader. Three keys. Three moods. A room that locks twice. A stone that sings. A glyph that does not look up." },
+      { "speaker": "Father Dorin", "line": "Her grave. I have not — take the bread. Walk ahead. Read it alone." },
+      { "speaker": "Veris (glyph-ceiling)", "line": "Above. I knew it was not on the walls. I did not know it was above." }
+    ]
+  },
+  {
+    "id": "the_alignment_beneath",
+    "title": "The Alignment Beneath",
+    "difficulty": "grandmaster",
+    "length": "epic",
+    "seed_npc": "crystal_wyrm",
+    "regions": ["glass_desert", "boneyard", "veilwood", "inkweald"],
+    "synopsis": "The Wyrm wishes to be aligned. Veldrak does not know. Orin suspects. You know. You carry an ember, dragon bones, Veldrak's given scale, three refraction lenses, a lucid ward pendant, the First Empire Signet, a live-ink jar, and the Old Sun Sigil. Descend through Veldrak's cavern (offer the scale), a wall-touch cavern, a future-self cavern, a smoke-and-ink trace cavern, and into the Wyrm itself. Survive three alignment phases — prism, cleavage, alignment — and choose: align (permanent +1 stat, Old Sun rises), preserve (walk backwards, +2 prayer), refuse (Wyrm becomes respawn boss, unique cape drop).",
+    "hook": "A refraction-point not on any map. A future self you must walk past without acknowledging. A cavern that is not a chamber.",
+    "twist": "The Wyrm is, in one glyph-reading, the original sun. Veldrak is the current day. The Old Sun (the moon) has been waiting to be given back.",
+    "resolution": "Aelgard's canon changes. A permanent +1 stat or +2 prayer or a cape. The world's light adjusts by the colour of the next dawn.",
+    "unlocks_prose": "A Wyrm-Scale Cape with ending-dependent inscription. A stat-permanent +1 if aligned. Inner Crystal Caverns with unique herb patches and a mirror-forge. Orin as a permanent consultant.",
+    "dialogue_beats": [
+      { "speaker": "Orin", "line": "Cleavage. The angle. Memorise. Do not bring the Sigil to this meeting." },
+      { "speaker": "future-self refraction", "line": "Take this. [offering a weapon]" },
+      { "speaker": "the Wyrm", "line": "Cleavage. Align. The prism is yours. Or the cape. Or the silence." }
+    ]
+  },
+  {
+    "id": "the_margin_net_refolded",
+    "title": "The Margin-Net, Refolded",
+    "difficulty": "novice",
+    "length": "short",
+    "seed_npc": "fishmonger_mara",
+    "regions": ["saltbrine"],
+    "synopsis": "A newer margin-net is snagged on a reef-toe at low water. Lenna cannot bend. Mara mentions the weather while wrapping a fish. You wait out the tide, cross the wet rock, retrieve the net without tearing the loose middle, release the seacup inside, and fold the net in Lenna's exact fold. She says thank you. She has said thank you to exactly three people in her life.",
+    "hook": "A snagged net. A bent-backed weaver. A stallkeeper mentioning the weather.",
+    "twist": "Nothing dramatic. Lenna's exact fold is the test.",
+    "resolution": "You fold it right, or she re-folds it in front of you, which is worse than a scolding.",
+    "unlocks_prose": "Lenna's Smaller Net occasionally doubles a tide-pool catch and takes no slot in a sack.",
+    "dialogue_beats": [
+      { "speaker": "Mara", "line": "Slow. The net." },
+      { "speaker": "Lenna", "line": "Loose middle. The fold. Mind the seacup." },
+      { "speaker": "Lenna (net returned)", "line": "Thank you." }
+    ]
+  },
+  {
+    "id": "the_map_that_was_never_drawn",
+    "title": "The Map That Was Never Drawn",
+    "difficulty": "master",
+    "length": "epic",
+    "seed_npc": "drunken_dwarf_ossen",
+    "regions": ["sootworks", "heartlands"],
+    "synopsis": "A Heartlands noble wants to buy Ossen's drawer. Fizz wants it destroyed first. You copy the drawer's entire layout in one night, forge a convincing decoy (same fold, same smudge, same handwriting), slide the decoy in, hand the decoy to the agent at a border, and take payment under a false name. Then you decide with Fizz what to do with the real notes — burn, keep, or split. The noble is humiliated two weeks later when the decoy is revealed. A chancery clerk mails you a single unmarked coin.",
+    "hook": "A drawer. A decoy drawer. A noble who does not know the difference yet.",
+    "twist": "The noble is the same filer who tried to revoke the Drifting Market's charter. This quest quietly destroys his court standing.",
+    "resolution": "The real maps are burned, kept by you, or half and half. Ossen does not know yet. Fizz does. The clerk sends a coin.",
+    "unlocks_prose": "The Decoy-Maker's Stamp — one forgery per day, passes most NPC checks (not Father Dorin's). A Forgery Crafting Desk at the Drifting Market. Anonymous chancery dispatches forwarded monthly.",
+    "dialogue_beats": [
+      { "speaker": "Ossen", "line": "Stout-taker. Agent. Not tonight. Tomorrow. Focused, not focused." },
+      { "speaker": "Fizz", "line": "Burn the drawer. Please. Before tomorrow." },
+      { "speaker": "the agent", "line": "Payment. No names. Border at the hour." }
+    ]
+  },
+  {
+    "id": "the_fourth_name_on_the_stone",
+    "title": "The Fourth Name on the Stone",
+    "difficulty": "experienced",
+    "length": "long",
+    "seed_npc": "captain_alden",
+    "regions": ["heartlands"],
+    "synopsis": "On the longest in-game night of the year, Alden writes three names and burns them at the Heartlands chapel. This year there is a fourth name he cannot write himself. You visit Dorin, Kael, and Alden in order; arrive at dusk; receive the quill from Alden; hear the name spoken aloud for the first time in thirty-two years (Aldric, his captain at Bittermarsh); forge the name in Alden's hand as best you can mimic. Walk to the chapel in silence with all three. Burn the list (prayer-check). Kael has given Alden a cold iron bell that does not burn. Return it the next morning. Kael says 'right' once.",
+    "hook": "A longest night. A quill, waiting. A fourth line the captain cannot fill.",
+    "twist": "The name is the Bittermarsh captain's — Aldric. Alden has blamed himself for Aldric's loss for thirty-two years.",
+    "resolution": "The name is written, burned, and released. Friday drinks at the Crow now have four chairs. The cat attends.",
+    "unlocks_prose": "A Longest Night Rite Token — once per in-game year, reset a single grief/guilt dialogue flag. The chapel altar key is yours on future longest nights (the only player to hold it). A tiny dialogue flag unlocks with Mirelda about her two burned letters with Alden.",
+    "dialogue_beats": [
+      { "speaker": "Kael", "line": "Mm. Cold iron. Oval. Take." },
+      { "speaker": "Alden (aloud, once)", "line": "Aldric." },
+      { "speaker": "Kael (morning)", "line": "Right." }
+    ]
+  }
+]
