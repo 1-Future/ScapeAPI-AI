@@ -453,20 +453,448 @@
         ]
       },
       "counterplay": "ranged weakness; phase-timing (enter dream during fold-phase, burst DPS, retreat); the 'unknowable' mechanic is dialog-telegraphed via Inkweald NPC Daranda who describes the fight without naming."
+    },
+    {
+      "_bible_source": "[v0.9-waveC2] M3 — 10 most-fought bosses upgraded from stat-block to bible",
+      "id": "boss_vorkath_moryskah",
+      "name": "Vorkath",
+      "region": "moryskah",
+      "combat_level": 732,
+      "hp": 750,
+      "max_hit": 32,
+      "tags": ["boss", "dragon", "undead"],
+      "invocation_compatible": true,
+      "voice": "a long-dead dragon that no longer thinks — it remembers. Roars are syllables of an older draconic tongue and each acid-volley hisses a single word the player cannot quite hear. Its breath carries the cold of a grave that was buried in ash, then re-sealed.",
+      "drives": {
+        "wants": "to finish the sentence it started before the old king killed it",
+        "fears": "being forgotten completely (losing the last of its remembered self)",
+        "secret": "three of its scales are still tuned to the bells of Castle Malachar and ring faintly when a true heir approaches"
+      },
+      "ecology": "Vorkath sleeps inside a barrow cut into the northern cliffs of Moryskah. Soulfen gravediggers report its scales occasionally surfacing in the mire kilometers away. It drains no life when dormant; it drains the COLOUR from the surrounding grass in a 30m ring, which is why the approach is grey even in summer.",
+      "mechanic_summary": "Ice-and-fire undead dragon that cycles six special attacks on a loop (acid pools, fire dragonbreath, ice breath freeze, venom spit, zombie-spawn, and a fourth-wall-special: the 'Ascension Bomb' which requires prayer-flick or instant death). Arena floor accumulates acid pools that never despawn — a long fight strangles the player's footprint.",
+      "attack_rotation": [
+        "Tick 1: standard dragonbreath (pray mage)",
+        "Tick 4: standard dragonbreath OR ranged spike (pray ranged)",
+        "Every 6th special slot: ONE of [acid pool spawn, fire-wall pattern, freeze breath, venom volley, zombie-spawn]",
+        "Every 7th special: Ascension Bomb (big yellow orb — prayer-flick to opposite style on the tick it connects, or take 100+ damage)"
+      ],
+      "rotation_notes": "Specials cycle in a deterministic order and skip the last-used. Players learn the 5-special pattern, not RNG. Zombie-spawn phase requires either crumble-undead cast (magic) or a salve-tag ranged weapon — Pillar 11 plurality. Pool placement is fixed-random: first pool at 80% HP, then every ~45 seconds.",
+      "enrage_phase": {
+        "trigger": "HP <= 15%",
+        "changes": "Ascension Bomb frequency doubles; acid pools now spread 1 tile per tick; spawn-phase summons zombie-spawns at +1 per cycle"
+      },
+      "loot_uniqueness": {
+        "always": ["superior_dragon_bones", "vorkaths_head"],
+        "uniques": [
+          {"item": "vorkaths_head_trophy", "chance": 50, "note": "mountable in POH; ticks when a true heir is in the house"},
+          {"item": "jar_of_decay", "chance": 3000},
+          {"item": "skeletal_visage", "chance": 5000, "note": "reagent: visage + draconic anvil = Draconic Visage equivalent, unlocks Dragonfire Shield craft"},
+          {"item": "vorki_pet", "chance": 3000}
+        ]
+      },
+      "loot_philosophy": "Vorkath is the mid-game profit anchor — high GP/hr, no uniques required for progression, but the Skeletal Visage gates an endgame shield craft. Every kill leaves the player objectively richer; Pillar 9 (reward a finite game) hits because the visage roll is THE memorable moment, not the coin pile.",
+      "counterplay": "crumble-undead + ranged swap loadout is BiS; Zulrah-style prayer-flick on Ascension Bomb required; walking between acid pools matters more than DPS past 50% HP."
+    },
+    {
+      "id": "boss_zulrah_saltbrine",
+      "name": "Zulrah",
+      "region": "saltbrine",
+      "combat_level": 725,
+      "hp": 500,
+      "max_hit": 35,
+      "tags": ["boss", "snake", "shapeshifter"],
+      "invocation_compatible": true,
+      "voice": "speaks only in hiss-patterns that priestesses of the Tidemother claim are numbers. Never repeats a hiss-pattern in a single fight. The pattern-sequence is the ONLY language of the fight — and it is taught visually, not audibly: the player learns Zulrah by watching Zulrah, not by being told.",
+      "drives": {
+        "wants": "to be translated — not fought",
+        "fears": "being permanently understood (the moment a player knows every rotation, Zulrah is already planning the next mutation)",
+        "secret": "a fourth form exists that no player has triggered in recorded history; it requires all three existing forms to be killed without player-damage in a single fight"
+      },
+      "ecology": "Zulrah rises from a single swamp-poisoned saline well in Saltbrine's southern marsh. The well's water doesn't evaporate; frogs born in its radius are always the same three patterns of colour — green, red, blue. Saltbrine Reach fishers will not eat from the well's watershed. The well is stable; Zulrah's cycle is every 48 hours, without exception.",
+      "mechanic_summary": "Three-form phase boss: Green (range, poison clouds), Blue (magic, venom-storm), Red (melee + ranged, spawns snakelings). Each form locks out one combat style and demands two-item-slot switching. The player is doing two things simultaneously: reading the rotation AND switching gear faster than the tick cycle.",
+      "attack_rotation": [
+        "Green form: range attacks + toxic smoke clouds (pray range; avoid clouds)",
+        "Blue form: magic attacks + venom storm (pray magic; run through clear tile every 4 ticks)",
+        "Red form: range + melee + spawns snakelings (prioritize snakelings OR tank them with salve amulet)",
+        "Rotation: random seed per fight, but form-sequence is ALWAYS green->red->green->blue or green->blue->green->red etc — never two same-form in a row"
+      ],
+      "rotation_notes": "Fight duration is fixed: ~5 minutes at max efficiency, ~9 minutes at learner pace. Sub-3-minute kills exist but require 4-way switching under ticks. Pillar 8 roguelite modifier: Invocations can lock rotation to one-form-only for a +150% loot multiplier on that form's unique.",
+      "enrage_phase": {
+        "trigger": "HP <= 25%",
+        "changes": "phase-transition speed increases (was every 50 HP, now every 30); snakeling spawn increases by 1 per transition"
+      },
+      "loot_uniqueness": {
+        "always": ["zulrah_scales"],
+        "uniques": [
+          {"item": "tanzanite_mutagen", "chance": 13106, "note": "cosmetic — recolours Magic Fang; Pillar 2 prestige item"},
+          {"item": "magma_mutagen", "chance": 13106},
+          {"item": "magic_fang", "chance": 512, "note": "reagent: + toxic_trident_base = BiS mage off-hand"},
+          {"item": "tanzanite_fang", "chance": 1024, "note": "reagent: + blowpipe_base = toxic blowpipe"},
+          {"item": "serpentine_visage", "chance": 1024, "note": "reagent: + crafting work = serpentine helm (venom-proof)"},
+          {"item": "pet_snakeling", "chance": 4000}
+        ]
+      },
+      "loot_philosophy": "Zulrah is the scale economy. Every kill drips small profit; rare uniques gate mid-tier weapon crafts (blowpipe, trident, serpentine helm). The mutagens are cosmetic-only — Pillar 2 confirms that prestige-without-power is still a valid reward. Players farm Zulrah for the rotation mastery, not the coins.",
+      "counterplay": "3-style gear swap + prayer flick cycle; new players die most often to ignoring snakelings in red-phase; the well's location is quest-gated via the_trawlers_call."
+    },
+    {
+      "id": "boss_muspah_inkweald_shadow",
+      "name": "Shadow-Muspah",
+      "region": "inkweald",
+      "combat_level": 540,
+      "hp": 450,
+      "max_hit": 30,
+      "tags": ["boss", "shade", "dream"],
+      "invocation_compatible": true,
+      "voice": "entirely silent. Its signature 'sound' is the absence of the dream's ambient drone — when Shadow-Muspah steps onto the arena tile, the Inkweald ambient music stops and the player hears only their own character's footsteps. This silence IS the telegraph.",
+      "drives": {
+        "wants": "nothing (Shadow-Muspah does not want; it completes patterns)",
+        "fears": "incomplete patterns (will ignore its own enrage to finish a spawn cycle)",
+        "secret": "is not actually alive — is a residual echo left by a traveler who died mid-quest. The quest that traveler failed is findable in the Inkweald archives as an unfinished journal entry."
+      },
+      "ecology": "Shadow-Muspah manifests in a loop at the deep-dream Resonance Chamber. It does not hunt, eat, or sleep; it arrives, performs its four-phase pattern, despawns, and re-arrives exactly 17 minutes later. The wall of the chamber is carved with tally-marks left by everyone who has died to it; the tally is 2,404 marks deep.",
+      "mechanic_summary": "Four-phase encounter: (1) Ranged-shield phase — melee and mage immune; (2) Magic-shield phase — melee and ranged immune; (3) Melee-shield phase — mage and ranged immune; (4) Prayer-drain blitz phase — must use lunar ancestry to prevent drain. The wrong style does ZERO damage; players carry all three combat styles at once.",
+      "attack_rotation": [
+        "Phase 1 (range-shielded): basic ranged attacks from boss, player must mage/melee",
+        "Phase 2 (magic-shielded): basic magic attacks, player must range/melee",
+        "Phase 3 (melee-shielded): melee cleave + stomp, player must range/mage",
+        "Phase 4 (no shield, prayer-blitz): full damage taken from all styles; boss attacks drain prayer 5 pts per hit"
+      ],
+      "rotation_notes": "Phase transitions are HP-gated at 75/50/25% and a brief 'shroud sequence' separates phases — during shroud, boss is invulnerable and teleports to opposite side of arena. Pillar 1 multiple-optimal-actions: some teams clear shroud phases by pre-positioning instead of kiting.",
+      "enrage_phase": {
+        "trigger": "HP <= 10% (Phase 4)",
+        "changes": "prayer drain doubles to 10 pts/hit; adds a self-stomp that deals 15 damage to boss AND player every 4 ticks — race to kill"
+      },
+      "loot_uniqueness": {
+        "always": ["ancient_essence"],
+        "uniques": [
+          {"item": "ancient_icon", "chance": 500, "note": "reagent: 3 icons = ancient_sceptre; Pillar 10 — iconic weapon with ancient-magicks spec"},
+          {"item": "charged_ice", "chance": 50, "note": "consumable; grants 1 use of ice-barrage at half cost"},
+          {"item": "venator_shard", "chance": 384, "note": "reagent: 4 shards + crafting = venator bow (ranged BIS hybrid)"},
+          {"item": "muspah_pet", "chance": 3000}
+        ]
+      },
+      "loot_philosophy": "Muspah is a reagent boss. Every drop is a FRAGMENT; the player needs ~3-4 runs to assemble a complete upgrade. This pacing keeps the boss relevant for longer than a one-roll BiS fight. Pillar 13 — the journey of acquiring uniques is long and punctuated by small wins.",
+      "counterplay": "three-style gear swap (magic + ranged + melee in one kit); lunar prayer book recommended for Phase 4; wave-learn from NPC Daranda before first attempt."
+    },
+    {
+      "id": "boss_wake_warden_saltbrine",
+      "name": "The Wake-Warden (Kraken-analog)",
+      "region": "saltbrine",
+      "combat_level": 291,
+      "hp": 255,
+      "max_hit": 17,
+      "tags": ["boss", "tentacle", "leviathan"],
+      "invocation_compatible": true,
+      "voice": "does not speak above water. Under water, the arena audio is REPLACED by deep-sea whalesong that ocean-priestesses say is the Warden humming a forgotten harbour-song. The song has a verse and a chorus; the chorus coincides with its lethal whirlpool attack.",
+      "drives": {
+        "wants": "to remember the names of every ship it ever broke",
+        "fears": "rain (its tentacles retract when fresh water falls — it can be rained OUT of a fight by weather invocations)",
+        "secret": "a sunken bell at the bottom of the arena, if rung, will cause the Warden to surface willingly and not attack for 10 ticks — a secret mercy"
+      },
+      "ecology": "The Wake-Warden lives in Saltbrine's cursed waters, in a flooded subterranean temple connected to the harbour only by an underwater shortcut (60 agility). It feeds on sound, not flesh — every ship that has ever sunk in Saltbrine lost its bell to the Warden. Fisher-guild accountants have the manifest and know.",
+      "mechanic_summary": "Single-style magic boss, but the arena is submerged and the player has a 60-tick air-timer. Four tentacles emerge in a cross pattern; killing tentacles opens direct hits on the body. Tentacles regenerate every 25 ticks. Player rotates DPS between the body (slow) and tentacles (fast regen).",
+      "attack_rotation": [
+        "Tick 1-3: standard magic-burst attacks from body (pray magic)",
+        "Tick 4: whirlpool spawn — forces player to move, tentacles attack from new range",
+        "Tick 7: tentacle slam on lowest-HP player (bypasses protect)",
+        "Tick 10: harbour-song chorus — 4-tile arena-wide shockwave; must be behind a tentacle to avoid"
+      ],
+      "rotation_notes": "Pillar 11 plurality: AFK-magic-only kills work but take 3x longer; dedicated melee + tentacle-kiting runs in half the time. Players pick the style. Air-timer creates tension that single-style bosses lack.",
+      "enrage_phase": {
+        "trigger": "HP <= 33%",
+        "changes": "tentacle regen doubles; harbour-song chorus fires every 6 ticks instead of 10; whirlpools persist 4 ticks longer"
+      },
+      "loot_uniqueness": {
+        "always": ["wake_essence"],
+        "uniques": [
+          {"item": "kraken_tentacle", "chance": 300, "note": "reagent: + abyssal whip = whip-tentacle; Pillar 4 equipment continuity from pre-endgame"},
+          {"item": "trident_of_the_seas_base", "chance": 512, "note": "reagent: + fire staff + 20k coins + craft at magic guild = trident_of_the_seas; one of the starter endgame magic weapons"},
+          {"item": "pet_kraken", "chance": 3000},
+          {"item": "jar_of_dirt", "chance": 1500}
+        ]
+      },
+      "loot_philosophy": "Kraken is the 'first endgame' boss — low combat requirement but high reward. Tentacle drop pushes whip users to their next tier (whip-tentacle) without obsoleting the whip. Pillar 4 — old content upgrades are always combinations, never replacements.",
+      "counterplay": "air-management is THE skill (bring stamina + magic defense); the bell secret rewards exploration-minded players with a 10-tick free phase; agility shortcut at 60 saves 2 minutes per trip."
+    },
+    {
+      "id": "boss_hellwatch_hound_wilds",
+      "name": "The Hellwatch Hound (Cerberus-analog)",
+      "region": "wilds",
+      "combat_level": 318,
+      "hp": 600,
+      "max_hit": 23,
+      "tags": ["boss", "hellhound", "gatekeeper"],
+      "invocation_compatible": true,
+      "voice": "growls have words in them, but the words are names — names of everyone who has entered the gate and not come back. If the player listens at the approach without drawing weapons, they will hear their own name whispered once.",
+      "drives": {
+        "wants": "to complete its Watch (has been guarding the gate for longer than Aelgard has had a calendar)",
+        "fears": "being replaced by a younger hound (takes this very personally)",
+        "secret": "the gate it guards has been unlocked for 200 years — but it has never tried the door"
+      },
+      "ecology": "Lives at the Wilds level-40 gate to the catacombs-of-the-forgotten. Does not hunt; does not eat; does not sleep; does not leave its 8-tile patrol square. When slain, a lesser hellhound takes the Watch within 60 ticks. No boss in Aelgard has been slain as many times as this one.",
+      "mechanic_summary": "Three-headed hound with a core mechanic: each head uses a different combat style, and killing one head makes the boss enrage. Players must DPS all three heads simultaneously using a tri-style swap, OR bait each head into its own punish-phase using specific consumables (prayer potion, ranging potion, magic potion).",
+      "attack_rotation": [
+        "Head 1 (melee): lunge + bite every 4 ticks",
+        "Head 2 (ranged): ember-spit (max 20) every 4 ticks",
+        "Head 3 (magic): shadow-bolt (max 22) every 5 ticks",
+        "Every 10 ticks: SOUL FLAMES — three pillars rise at cardinal points; player must stand in the pillar that matches the last attack style to prevent heal-back (Pillar 5 compounding mistake)"
+      ],
+      "rotation_notes": "Soul-flame mistake is the compounding fail: miss pillar, boss heals 20 HP. Two consecutive misses resets boss to 100% HP. Pillar 5 exemplar — one mistake is OK, two is deadly. Pillar 1 plurality: tri-style gear kit vs single-style prayer-flick both work at different skill ceilings.",
+      "enrage_phase": {
+        "trigger": "HP <= 33%",
+        "changes": "pillar-flame interval drops to every 6 ticks; each head's attack speed drops by 1 tick; misplaced pillar now heals boss 40 HP"
+      },
+      "loot_uniqueness": {
+        "always": ["hellhound_bones", "hellwatch_essence"],
+        "uniques": [
+          {"item": "primordial_crystal", "chance": 512, "note": "reagent: + dragon_boots = primordial boots (melee BiS); Pillar 4 old-content upgrade"},
+          {"item": "pegasian_crystal", "chance": 512, "note": "reagent: + ranger_boots = pegasian boots (ranged BiS)"},
+          {"item": "eternal_crystal", "chance": 512, "note": "reagent: + infinity_boots = eternal boots (magic BiS)"},
+          {"item": "smouldering_stone", "chance": 256, "note": "reagent: imbues boot-tier for +2 prayer bonus"},
+          {"item": "hellwatch_pup", "chance": 3000}
+        ]
+      },
+      "loot_philosophy": "Hellwatch is the boot-tier gate. Three crystal types = three style BiS boots = three separate player-pursuit rewards. Pillar 11 strategic plurality: main-style players chase one crystal, hybrid players chase all three. Boot upgrades are incremental; the journey is the reward.",
+      "counterplay": "slayer level 91 required (gate mechanic); bring prayer potions heavily — pillar-flame punishment scales with mistakes; learn the sound of each head's wind-up (each has a different growl-pitch)."
+    },
+    {
+      "id": "boss_smouldering_priest_sootworks",
+      "name": "The Smouldering Priest (Thermonuclear-analog)",
+      "region": "sootworks",
+      "combat_level": 301,
+      "hp": 400,
+      "max_hit": 28,
+      "tags": ["boss", "demon", "smoke"],
+      "invocation_compatible": true,
+      "voice": "speaks through the forge-heat — voice carried on rising smoke, always in the second person, always in the player's native accent (the code reads ui_language_hint to localize the voice). Says only prophetic two-sentence pairs, never addresses the player by name.",
+      "drives": {
+        "wants": "to ascend (the smoke is its attempt to leave the forge bodily; it almost makes it every time)",
+        "fears": "the forge going cold (its corporeal form depends on ambient heat)",
+        "secret": "was the first forge-priest of Sootworks, cursed by the old deep-mine spirits; knows where the first vein is and will whisper it to any player who spares it after it reaches 5% HP (a secret mercy branch)"
+      },
+      "ecology": "The Priest haunts the upper-level forge hall after dusk. By day the area is a working smithy; by night the anvils move on their own. Sootworks management has blacklisted the area from unionized hours. The Priest does not feed; it consumes smoke, and the forge fires dim in a 15m radius around its arena.",
+      "mechanic_summary": "Magic-only boss that fills the arena with smoke clouds. Smoke degrades player visibility (sprites fade) and slowly burns (1 HP/tick while inside). Arena has 4 forge-vents that can be activated to CLEAR smoke for 10 ticks — but activating a vent also buffs the boss's magic damage by +5 for 20 ticks. Trade-off: visibility vs incoming damage.",
+      "attack_rotation": [
+        "Tick 1: shadow-flame magic burst (max 28)",
+        "Tick 4: smoke-volley (6 clouds spawn around arena, each 2-tile radius)",
+        "Tick 7: ash-rain (AoE from above, telegraphed 2 ticks in advance)",
+        "Tick 10: forge-slam (melee range stomp — hitting player in arena periphery)"
+      ],
+      "rotation_notes": "Pillar 4 threats interact: smoke clouds BLOCK visibility AND degrade accuracy, so DPS suffers in smoke; venting fixes visibility but makes hits harder. No free win. Pillar 1 optimal action is contextual: late-fight with low HP, you want smoke (tank vents), high HP you want vented arena.",
+      "enrage_phase": {
+        "trigger": "HP <= 20%",
+        "changes": "smoke-volley becomes constant (arena fully smoked until boss death); forge-slam now deals AoE 4 tiles"
+      },
+      "loot_uniqueness": {
+        "always": ["smouldering_essence", "ashes"],
+        "uniques": [
+          {"item": "occult_necklace", "chance": 350, "note": "magic damage +10%; BiS neck slot for mage until fang-neck crafts"},
+          {"item": "smoke_battlestaff", "chance": 512, "note": "reagent: + mystic_steam = smoke_battlestaff_mystic; unique to this boss, magic damage + fire/smoke spell autocast"},
+          {"item": "jar_of_smoke", "chance": 1500},
+          {"item": "smouldering_pet", "chance": 3000}
+        ]
+      },
+      "loot_philosophy": "Thermy is the magic-damage gate. Occult necklace roll feels like a promotion: one kill and your magic DPS jumps a tier. Pillar 9 finite-reward: the necklace will NEVER be obsoleted (endgame amulets stack on top, not replace).",
+      "counterplay": "85 slayer required; bring high magic defense; vent-management is a skill trained over many kills; the 'spare it' branch is missed by 90% of players first-try."
+    },
+    {
+      "id": "boss_iron_general_wilds",
+      "name": "General Ferrick (Graardor-analog)",
+      "region": "wilds",
+      "combat_level": 624,
+      "hp": 255,
+      "max_hit": 32,
+      "tags": ["boss", "ogre", "commander"],
+      "invocation_compatible": true,
+      "voice": "shouts orders in a pidgin soldier-tongue that's half Heartlands-barracks-slang and half ogre-roar. Names his three minions by role, never by name: 'Mace', 'Ranger', 'Mage'. If any minion is killed, the General mourns them for exactly one tick before resuming combat.",
+      "drives": {
+        "wants": "to find a general worth losing to (has defeated every challenger)",
+        "fears": "abandonment (his minions ARE his self-worth; if all three fall he enters a grief-berserk phase)",
+        "secret": "writes poetry in a notebook in the back of the throne room. The notebook is a readable object and one of the Wilds' hidden lore items."
+      },
+      "ecology": "Ferrick commands the Iron Company, a four-member war-retinue holed up in a fortified stronghold in the deep Wilds. The Iron Company does not raid; they fortify. The stronghold is sealed against all but bearers of the ogre-charter-key. Ferrick has occupied the stronghold for 34 in-game years.",
+      "mechanic_summary": "God-Wars style boss+3 minions fight. General hits hardest but minions cover 3 styles (melee mace, ranged bolts, magic bolts). Killing minions is punished by a grief-phase. The key insight: minions DO NOT respawn. Once killed, the General is ALONE and enrages massively.",
+      "attack_rotation": [
+        "Tick 1: General — heavy melee swing (max 32)",
+        "Tick 2: Mace minion — melee swing (max 18)",
+        "Tick 3: Ranger minion — crossbow bolt (max 15)",
+        "Tick 4: Mage minion — shadow bolt (max 19)",
+        "Every 8 ticks: General throws a boulder (4-tile AoE, max 28)"
+      ],
+      "rotation_notes": "Pillar 11 plurality: kill minions for a 'lonely general' burst phase (deadly but short), or leave them alive and bleed the General down slowly. Speed runners do the former; safe runners do the latter. Pillar 14 asymmetric escalation: when all 3 minions die, the General's attack speed drops from 6 to 4 AND max hit jumps to 45.",
+      "enrage_phase": {
+        "trigger": "all 3 minions killed (grief-berserk)",
+        "changes": "attack_speed 6 -> 4; max_hit 32 -> 45; gains an uninterruptible 'final charge' ability that deals 90 damage over 3 ticks in a line across the arena"
+      },
+      "loot_uniqueness": {
+        "always": ["big_bones"],
+        "uniques": [
+          {"item": "bandos_chestplate", "chance": 381, "note": "melee BiS body slot (equipped as Ferrick's surrendered plate)"},
+          {"item": "bandos_tassets", "chance": 381, "note": "melee BiS legs slot"},
+          {"item": "bandos_boots", "chance": 381, "note": "melee BiS boots"},
+          {"item": "bandos_hilt", "chance": 508, "note": "reagent: + godsword_blade = bandos_godsword; arena godsword special"},
+          {"item": "pet_general_ferrick", "chance": 5000}
+        ]
+      },
+      "loot_philosophy": "GWD tier is the melee progression wall — bandos chestplate/tassets are the first full-tier melee BiS pieces. The 1/381 drop rate is BRUTAL; grinding is the content, not the kill itself. Pillar 13 — the long roll IS the game-mode.",
+      "counterplay": "70 strength required (stronghold door); team setups of 4 divide attention across minions; solo players tank the General while killing minions in a set order (Mage -> Ranger -> Mace)."
+    },
+    {
+      "id": "boss_dawnspear_saint_wilds",
+      "name": "Saint Zilvara (Zilyana-analog)",
+      "region": "wilds",
+      "combat_level": 596,
+      "hp": 255,
+      "max_hit": 27,
+      "tags": ["boss", "saint", "commander"],
+      "invocation_compatible": true,
+      "voice": "preaches in Old Aelgardi throughout the fight, quoting scripture at each attack. Knows every player's canonical quest achievements and references specific completed quests aloud (uses event-log lookups to name-drop). Never cruel; always disappointed.",
+      "drives": {
+        "wants": "to convert the world back to the Dawnspear faith (believes she is losing)",
+        "fears": "being remembered as a warrior and not a saint",
+        "secret": "her three commanders are her actual biological children; the church marriage records are hidden in Heartlands archives"
+      },
+      "ecology": "Zilvara holds the Dawnspear chapel-fortress in the deep Wilds, inherited from her mother. The chapel houses the Tear-of-Light relic that powers Dawnspear miracles. Three of her commanders guard the entrance; she receives pilgrims daily but only fights challengers. In-game, her respawn is the shortest in the Wilds — 42 ticks.",
+      "mechanic_summary": "Fast hybrid boss with 3 minion-commanders. Each commander specializes: one in healing (heals Zilvara), one in ranged, one in magic. Zilvara hits both melee and magic. Critical trick: the healer commander MUST die first or the fight is unwinnable. But the healer is protected by the other two.",
+      "attack_rotation": [
+        "Tick 1: Zilvara — magic smite (max 19)",
+        "Tick 2: Zilvara — melee sword cut (max 27)",
+        "Tick 4: healer-commander — AoE heal on team (Zilvara + allies +15 HP)",
+        "Tick 5: ranger-commander — crossbow (max 14)",
+        "Tick 6: mage-commander — magic bolt (max 16)"
+      ],
+      "rotation_notes": "Pillar 1 plurality: rush-healer strategy requires a 2-item-slot switch kit; tank-everything strategy requires full magic-def armour. Team setups distribute the healer-kill, ranger-kill, mage-kill across members. Solo is HARD. Pillar 5 compounding: every extra second the healer survives = 15 HP of heal on Zilvara = fight extension.",
+      "enrage_phase": {
+        "trigger": "HP <= 20%",
+        "changes": "Zilvara gains +1 attack speed; if healer still alive, heals scale from 15 -> 35 HP per pulse"
+      },
+      "loot_uniqueness": {
+        "always": ["relic_bones"],
+        "uniques": [
+          {"item": "saradomin_chaps", "chance": 381, "note": "ranged BiS legs"},
+          {"item": "saradomin_plate", "chance": 381, "note": "ranged-def BiS body"},
+          {"item": "saint_hilt", "chance": 508, "note": "reagent: + godsword_blade = saradomin_godsword (heals on spec)"},
+          {"item": "armadyl_crossbow", "chance": 508, "note": "ranged BiS crossbow until zaryte-tier"},
+          {"item": "saint_pet", "chance": 5000}
+        ]
+      },
+      "loot_philosophy": "Dawnspear is the ranged progression wall. The saradomin godsword heals on spec — Pillar 9 reward: it IS a BiS, but it's a BiS with UTILITY (heals 50% of damage dealt on spec). Players keep it in their bank forever, even after zaryte unlocks.",
+      "counterplay": "70 agility required (chapel walls); bring ranged-def armour; healer-first strategy demands precision; crossbow drop keeps the boss worth farming even after saradomin-plate roll."
+    },
+    {
+      "id": "boss_dreadcommander_wilds",
+      "name": "K'ruul Deathmark (K'ril-analog)",
+      "region": "wilds",
+      "combat_level": 650,
+      "hp": 255,
+      "max_hit": 30,
+      "tags": ["boss", "demon", "commander"],
+      "invocation_compatible": true,
+      "voice": "speaks in demonic-grammar — subject-verb-object inverted. 'Your soul, I take' not 'I take your soul'. Addresses the player as 'little-mortal-with-god-inside'. Only boss in Aelgard who recognizes divine-tier invocations and changes dialogue for each.",
+      "drives": {
+        "wants": "to return to the primordial demon plane (has been trapped in Aelgard for centuries)",
+        "fears": "purification rituals (refuses to enter consecrated ground; this is a counter-play mechanic)",
+        "secret": "has a sibling who is a boss in Veilwood (future quest content will link them)"
+      },
+      "ecology": "K'ruul commands a deep-Wilds demon-legion outpost. Unlike Ferrick/Zilvara, his minions are bonded to him by blood-pact — if K'ruul dies, minions auto-despawn. This makes him the 'kill-the-head' boss of the Wilds GWD trio. His legion is 14 demons strong but only 3 are in the arena at a time.",
+      "mechanic_summary": "Fast hybrid boss with 3 demon-minions and a prayer-drain signature attack. K'ruul himself can hit 45 on a lucky poison-spec. Demons specialize in melee, magic, and 'soul-siphon' (prayer drain). The soul-siphon is THE fight: mages lose prayer points fast, and running out of prayer = melee-burst death.",
+      "attack_rotation": [
+        "Tick 1: K'ruul — demonic-melee (max 30)",
+        "Tick 2: K'ruul — shadow-magic (max 25)",
+        "Tick 4: melee-demon — cleave (max 22)",
+        "Tick 5: soul-siphon demon — drains 10 prayer pts",
+        "Tick 6: magic-demon — blood-bolt (max 20, heals K'ruul for 50% of damage dealt)"
+      ],
+      "rotation_notes": "Pillar 4 threats interact: soul-siphon forces low-prayer state, which removes your protect-from-melee, which lets K'ruul's 30-max-melee rip through. The 'right answer' is piety + smite on soul-demon first. But smite costs prayer. So the PRE-fight loadout is the test. Pillar 11 plurality: restore-prayer-flask builds vs smite-rush builds are both viable.",
+      "enrage_phase": {
+        "trigger": "HP <= 20%",
+        "changes": "K'ruul's attacks gain 30% lifesteal; soul-siphon doubles to 20 pts drain; blood-bolt heal scales to 75%"
+      },
+      "loot_uniqueness": {
+        "always": ["blood_crystal"],
+        "uniques": [
+          {"item": "zamorak_hilt", "chance": 508, "note": "reagent: + godsword_blade = zamorak_godsword (ice-barrage spec)"},
+          {"item": "staff_of_the_dead", "chance": 508, "note": "reagent: + magic_fang = toxic_staff_of_the_dead; Pillar 4 cross-boss upgrade chain"},
+          {"item": "steam_battlestaff", "chance": 512, "note": "fire + water combo staff"},
+          {"item": "zamorakian_spear", "chance": 508, "note": "stab-niche BiS for specific raid encounters"},
+          {"item": "kruul_pet", "chance": 5000}
+        ]
+      },
+      "loot_philosophy": "K'ruul is the MAGIC progression wall. Staff of the Dead + Magic Fang cross-boss combo (upgrade from Zulrah drop) is Pillar 4 in action — old content stays alive because its drops combine with this content's drops. Pillar 10 iconic — the SotD's name is known even to non-bossers.",
+      "counterplay": "70 hitpoints required (blood-pact door); smite-rush the soul-siphon demon first; prayer flasks are non-negotiable; consecrated weapons (from Dawnspear rep) deal +15% to K'ruul."
+    },
+    {
+      "id": "boss_oldwyrm_wilds",
+      "name": "The Oldwyrm (King Black Dragon-analog)",
+      "region": "wilds",
+      "combat_level": 276,
+      "hp": 240,
+      "max_hit": 25,
+      "tags": ["boss", "dragon", "ancient"],
+      "invocation_compatible": true,
+      "voice": "does not speak to the player directly; its 'voice' is the rumble of the mountain around it. When it awakens, the entire Wilds shakes — every player in the region sees a tremor animation. Its only vocal noise is a long inhale before each breath.",
+      "drives": {
+        "wants": "to sleep longer (has been awakened 40,000 times; is tired)",
+        "fears": "young dragons (scared they will eclipse it)",
+        "secret": "guards a hoard of letters — not treasure; a library of every letter ever sent through the Wilds, curated over millennia; some letters are readable lore items"
+      },
+      "ecology": "The Oldwyrm rules the deepest cave under the Wilds' western peaks. Its respawn timer is 30 ticks — it's the Wilds' 'farmable' boss, the entry-level dragon experience. Despite being farmable, it's geographically ancient: its cave predates recorded Aelgard history.",
+      "mechanic_summary": "Classic three-style dragonbreath boss. Standard attacks in melee range; dragonbreath at range requiring antifire potion. The skill check is simple: do you have antifire, super-antifire, or extended-antifire? The gear-tier check is the fight. Low combat reqs, accessible solo, first 'real' boss for most new players.",
+      "attack_rotation": [
+        "Tick 1: melee bite (if in melee range, max 14)",
+        "Tick 4: dragonbreath (ranged, max 65 WITHOUT antifire, max 10 WITH antifire)",
+        "Tick 7: tail-swipe (AoE 3 tiles around boss, max 20)",
+        "Tick 10: triple-breath (fire + ice + poison in sequence — requires full-antifire + venom-protection)"
+      ],
+      "rotation_notes": "Pillar 2 learnable: this is the 'textbook' dragon fight. Every subsequent dragon-style boss builds on this pattern. Triple-breath is the ONE exotic mechanic — teaches players about combined-style dragonbreath before they encounter Vorkath's Ascension Bomb later.",
+      "enrage_phase": {
+        "trigger": "HP <= 10%",
+        "changes": "dragonbreath frequency doubles; tail-swipe knocks back 2 tiles (disrupts melee DPS window)"
+      },
+      "loot_uniqueness": {
+        "always": ["dragon_bones"],
+        "uniques": [
+          {"item": "draconic_visage", "chance": 5000, "note": "reagent: + 250k coins + anvil work = dragonfire_shield; Pillar 4 shield upgrade path"},
+          {"item": "oldwyrm_heads_trophy", "chance": 128, "note": "mountable in POH; grants +1 prayer bonus when near"},
+          {"item": "oldwyrm_pet", "chance": 3000},
+          {"item": "prince_scroll", "chance": 400, "note": "lore item — readable, reveals a letter the Oldwyrm preserved"}
+        ]
+      },
+      "loot_philosophy": "KBD is the tutorial-boss. The draconic_visage is a 1/5000 chase item that CARRIES players through their first 500 kills. The true prize is the POH trophy — prestige reward (Pillar 2), not power. Players who farm this long enough get the shield; players who do it once leave with the story.",
+      "counterplay": "antifire mandatory (super-antifire ideal); melee + crush weapon works; solo-able from combat level 100+; triple-breath is the 'welcome to bosses' mechanic for intermediate players."
     }
   ],
   "principle_coverage_summary": {
-    "P01_multiple_optimal_actions": ["bryophyta_heartlands", "skotizo_moryskah", "phantom_muspah_inkweald", "nex_wilds_gwd", "sol_heredit_colosseum", "pharaoh_lich_boneyard", "crystal_wyrm_veilwood"],
+    "P01_multiple_optimal_actions": ["bryophyta_heartlands", "skotizo_moryskah", "phantom_muspah_inkweald", "nex_wilds_gwd", "sol_heredit_colosseum", "pharaoh_lich_boneyard", "crystal_wyrm_veilwood", "smouldering_priest_sootworks", "oldwyrm_wilds"],
     "P03_blitz_phase": ["all bosses — all have enrage phases defined"],
-    "P04_threats_interact": ["sarachnis_moryskah (spiderling-heal)", "skotizo_moryskah (altar-link)", "whisperer_inkweald (plane-shift)", "vardorvis_sootworks (axe + heal-pool)"],
-    "P05_mistakes_compound": ["sarachnis_moryskah (heal-loop)", "vardorvis_sootworks (heal-pool)", "pharaoh_lich_boneyard (decree-ignore)"],
-    "P08_context_modifiers": ["all invocation_compatible bosses (14 of 15)"],
-    "P11_strategic_plurality": ["skotizo_moryskah", "sol_heredit_colosseum", "nex_wilds_gwd", "phantom_muspah_inkweald"],
-    "P14_asymmetric_escalation": ["nex_wilds_gwd (x1.25 player / x2.0 boss at phase 5)"]
+    "P04_threats_interact": ["sarachnis_moryskah (spiderling-heal)", "skotizo_moryskah (altar-link)", "whisperer_inkweald (plane-shift)", "vardorvis_sootworks (axe + heal-pool)", "smouldering_priest_sootworks (smoke-vent tradeoff)", "dreadcommander_wilds (soul-siphon + melee-burst)"],
+    "P05_mistakes_compound": ["sarachnis_moryskah (heal-loop)", "vardorvis_sootworks (heal-pool)", "pharaoh_lich_boneyard (decree-ignore)", "hellwatch_hound_wilds (pillar-miss heal-back)", "dawnspear_saint_wilds (healer-alive extension)"],
+    "P08_context_modifiers": ["all invocation_compatible bosses (24 of 25)"],
+    "P11_strategic_plurality": ["skotizo_moryskah", "sol_heredit_colosseum", "nex_wilds_gwd", "phantom_muspah_inkweald", "wake_warden_saltbrine", "hellwatch_hound_wilds", "iron_general_wilds", "dawnspear_saint_wilds", "dreadcommander_wilds"],
+    "P14_asymmetric_escalation": ["nex_wilds_gwd (x1.25 player / x2.0 boss at phase 5)", "iron_general_wilds (minion-death grief-berserk)"]
   },
   "loot_uniqueness_verification": {
     "every_boss_drops_at_least_one_unique_not_shared": "verified — each boss's 'uniques' array has at least one entry unique to that boss",
     "reagent_keeps_old_content_alive": "verified — all reagent-upgrade uniques pair with items from EARLIER content (bronze, coif, oil_lamp, etc.)",
-    "encounter_specific_BiS_count": "12 encounter-specific BiS weapons across the 15 bosses (see data/drop-tables.json encounter_specific_BiS_list)"
+    "encounter_specific_BiS_count": "22 encounter-specific BiS weapons across the 25 bosses (see data/drop-tables.json encounter_specific_BiS_list)"
+  },
+  "_v0_9_waveC2_M3_additions": {
+    "added": [
+      "boss_vorkath_moryskah",
+      "boss_zulrah_saltbrine",
+      "boss_muspah_inkweald_shadow",
+      "boss_wake_warden_saltbrine (Kraken-analog)",
+      "boss_hellwatch_hound_wilds (Cerberus-analog)",
+      "boss_smouldering_priest_sootworks (Thermonuclear-analog)",
+      "boss_iron_general_wilds (Graardor-analog)",
+      "boss_dawnspear_saint_wilds (Zilyana-analog)",
+      "boss_dreadcommander_wilds (K'ril-analog)",
+      "boss_oldwyrm_wilds (King Black Dragon-analog)"
+    ],
+    "bible_fields_added_per_entry": ["voice", "drives (wants/fears/secret)", "ecology", "mechanic_summary", "attack_rotation", "rotation_notes", "enrage_phase", "loot_uniqueness", "loot_philosophy", "counterplay"],
+    "audit_gap_closed": "osrs-gap-analysis.md §2.5 (15 bibled -> 25 bibled; remaining ~62 stat-blocks tracked for v1.0)",
+    "naming_convention": "Scape-flavored names used for 7 of 10 (wake_warden, hellwatch_hound, smouldering_priest, iron_general (Ferrick), dawnspear_saint (Zilvara), dreadcommander (K'ruul), oldwyrm). Vorkath/Zulrah/Muspah retained as-is — canonical Scape monster names registered in bosses-expanded.js.",
+    "_source_task": "[v0.9-waveC2] M3 — roadmap MEDIUM pass"
   }
 }
