@@ -1,0 +1,880 @@
+{
+  "$schema": "scape.osrs-hiscores-snapshot.v1",
+  "generated": "2026-04-22T19:51:43.557Z",
+  "generatedFor": "real-commitment-calibration",
+  "sampleRanks": [
+    1,
+    50,
+    200,
+    1000,
+    5000,
+    25000,
+    100000
+  ],
+  "notes": "Per-boss KC at the 7 canonical sample ranks. KC = 0 or missing row means the rank does not exist for that boss (not enough players ranked).",
+  "bosses": {
+    "vorkath": {
+      "name": "Vorkath",
+      "tableId": 84,
+      "samples": {
+        "rank_1": {
+          "rank": 1,
+          "name": "Flos Carmeli",
+          "kc": 181887
+        },
+        "rank_50": {
+          "rank": 50,
+          "name": "Good Ol Bill",
+          "kc": 54626
+        },
+        "rank_200": {
+          "rank": 200,
+          "name": "Rune g",
+          "kc": 36100
+        },
+        "rank_1000": {
+          "rank": 1000,
+          "name": "Div Nineth",
+          "kc": 16993
+        },
+        "rank_5000": {
+          "rank": 5000,
+          "name": "Alt Obvi",
+          "kc": 6272
+        },
+        "rank_25000": {
+          "rank": 25000,
+          "name": "C0MMANDERLEY",
+          "kc": 2265
+        },
+        "rank_100000": {
+          "rank": 100000,
+          "name": "on54",
+          "kc": 920
+        }
+      }
+    },
+    "zulrah": {
+      "name": "Zulrah",
+      "tableId": 88,
+      "samples": {
+        "rank_1": {
+          "rank": 1,
+          "name": "Zulrah Goat",
+          "kc": 179842
+        },
+        "rank_50": {
+          "rank": 50,
+          "name": "Pickun",
+          "kc": 42756
+        },
+        "rank_200": {
+          "rank": 200,
+          "name": "Mizby",
+          "kc": 26743
+        },
+        "rank_1000": {
+          "rank": 1000,
+          "name": "shia_surpris",
+          "kc": 15023
+        },
+        "rank_5000": {
+          "rank": 5000,
+          "name": "1 Z E 7 E N",
+          "kc": 7600
+        },
+        "rank_25000": {
+          "rank": 25000,
+          "name": "k-rausee",
+          "kc": 3250
+        },
+        "rank_100000": {
+          "rank": 100000,
+          "name": "Beisori",
+          "kc": 1283
+        }
+      }
+    },
+    "phantom_muspah": {
+      "name": "Phantom Muspah",
+      "tableId": 59,
+      "samples": {
+        "rank_1": {
+          "rank": 1,
+          "name": "Ludioz",
+          "kc": 40342
+        },
+        "rank_50": {
+          "rank": 50,
+          "name": "thachoppster",
+          "kc": 8681
+        },
+        "rank_200": {
+          "rank": 200,
+          "name": "Obese Muspah",
+          "kc": 5489
+        },
+        "rank_1000": {
+          "rank": 1000,
+          "name": "Hultikon",
+          "kc": 2593
+        },
+        "rank_5000": {
+          "rank": 5000,
+          "name": "lord draven9",
+          "kc": 1081
+        },
+        "rank_25000": {
+          "rank": 25000,
+          "name": "Matt12050",
+          "kc": 513
+        },
+        "rank_100000": {
+          "rank": 100000,
+          "name": "In Song",
+          "kc": 156
+        }
+      }
+    },
+    "cerberus": {
+      "name": "Cerberus",
+      "tableId": 30,
+      "samples": {
+        "rank_1": {
+          "rank": 1,
+          "name": "Jacobs",
+          "kc": 123458
+        },
+        "rank_50": {
+          "rank": 50,
+          "name": "NoemMeJePapi",
+          "kc": 19679
+        },
+        "rank_200": {
+          "rank": 200,
+          "name": "C4SUALLY",
+          "kc": 12696
+        },
+        "rank_1000": {
+          "rank": 1000,
+          "name": "DoctorRex",
+          "kc": 7567
+        },
+        "rank_5000": {
+          "rank": 5000,
+          "name": "rr1",
+          "kc": 4228
+        },
+        "rank_25000": {
+          "rank": 25000,
+          "name": "Iron Garrote",
+          "kc": 2040
+        },
+        "rank_100000": {
+          "rank": 100000,
+          "name": "YumYumYow",
+          "kc": 868
+        }
+      }
+    },
+    "kraken": {
+      "name": "Kraken",
+      "tableId": 50,
+      "samples": {
+        "rank_1": {
+          "rank": 1,
+          "name": "Rooxe",
+          "kc": 144060
+        },
+        "rank_50": {
+          "rank": 50,
+          "name": "Le Pogo",
+          "kc": 40112
+        },
+        "rank_200": {
+          "rank": 200,
+          "name": "bonderoeven",
+          "kc": 22188
+        },
+        "rank_1000": {
+          "rank": 1000,
+          "name": "BuzzyD99",
+          "kc": 12382
+        },
+        "rank_5000": {
+          "rank": 5000,
+          "name": "Tea n Milk",
+          "kc": 7577
+        },
+        "rank_25000": {
+          "rank": 25000,
+          "name": "He so ka",
+          "kc": 4610
+        },
+        "rank_100000": {
+          "rank": 100000,
+          "name": "Benjyy",
+          "kc": 2558
+        }
+      }
+    },
+    "alchemical_hydra": {
+      "name": "Alchemical Hydra",
+      "tableId": 21,
+      "samples": {
+        "rank_1": {
+          "rank": 1,
+          "name": "Vit C",
+          "kc": 139910
+        },
+        "rank_50": {
+          "rank": 50,
+          "name": "TimnI2",
+          "kc": 19067
+        },
+        "rank_200": {
+          "rank": 200,
+          "name": "LuckyYou",
+          "kc": 12175
+        },
+        "rank_1000": {
+          "rank": 1000,
+          "name": "VastMain",
+          "kc": 7412
+        },
+        "rank_5000": {
+          "rank": 5000,
+          "name": "Idzie",
+          "kc": 4252
+        },
+        "rank_25000": {
+          "rank": 25000,
+          "name": "newzeuz",
+          "kc": 2154
+        },
+        "rank_100000": {
+          "rank": 100000,
+          "name": "Squinterella",
+          "kc": 837
+        }
+      }
+    },
+    "corporeal_beast": {
+      "name": "Corporeal Beast",
+      "tableId": 36,
+      "samples": {
+        "rank_1": {
+          "rank": 1,
+          "name": "parrotman50",
+          "kc": 100000
+        },
+        "rank_50": {
+          "rank": 50,
+          "name": "B0B The Cat",
+          "kc": 18627
+        },
+        "rank_200": {
+          "rank": 200,
+          "name": "Jettrider",
+          "kc": 10374
+        },
+        "rank_1000": {
+          "rank": 1000,
+          "name": "AfghanisDan",
+          "kc": 4814
+        },
+        "rank_5000": {
+          "rank": 5000,
+          "name": "srgynt",
+          "kc": 1558
+        },
+        "rank_25000": {
+          "rank": 25000,
+          "name": "Reaktor",
+          "kc": 402
+        },
+        "rank_100000": {
+          "rank": 100000,
+          "name": "EatThisSpec",
+          "kc": 76
+        }
+      }
+    },
+    "nightmare": {
+      "name": "Nightmare",
+      "tableId": 56,
+      "samples": {
+        "rank_1": {
+          "rank": 1,
+          "name": "Talons",
+          "kc": 20000
+        },
+        "rank_50": {
+          "rank": 50,
+          "name": "mintyale",
+          "kc": 7957
+        },
+        "rank_200": {
+          "rank": 200,
+          "name": "Vapah",
+          "kc": 4738
+        },
+        "rank_1000": {
+          "rank": 1000,
+          "name": "1000ur zunaj",
+          "kc": 2024
+        },
+        "rank_5000": {
+          "rank": 5000,
+          "name": "Kiwidude",
+          "kc": 666
+        },
+        "rank_25000": {
+          "rank": 25000,
+          "name": "aSaradomin",
+          "kc": 147
+        },
+        "rank_100000": {
+          "rank": 100000,
+          "name": "Adzz",
+          "kc": 13
+        }
+      }
+    },
+    "hespori": {
+      "name": "Hespori",
+      "tableId": 47,
+      "samples": {
+        "rank_1": {
+          "rank": 1,
+          "name": "Rohmu",
+          "kc": 2288
+        },
+        "rank_50": {
+          "rank": 50,
+          "name": "Badora II",
+          "kc": 1829
+        },
+        "rank_200": {
+          "rank": 200,
+          "name": "Bazbalplayr",
+          "kc": 1352
+        },
+        "rank_1000": {
+          "rank": 1000,
+          "name": "Bilie",
+          "kc": 800
+        },
+        "rank_5000": {
+          "rank": 5000,
+          "name": "Kouji Ibuki",
+          "kc": 415
+        },
+        "rank_25000": {
+          "rank": 25000,
+          "name": "IronParis",
+          "kc": 197
+        },
+        "rank_100000": {
+          "rank": 100000,
+          "name": "Iron Codec",
+          "kc": 100
+        }
+      }
+    },
+    "dagannoth_rex": {
+      "name": "Dagannoth Rex",
+      "tableId": 39,
+      "samples": {
+        "rank_1": {
+          "rank": 1,
+          "name": "R3DxRASTA",
+          "kc": 48290
+        },
+        "rank_50": {
+          "rank": 50,
+          "name": "sayyless",
+          "kc": 17811
+        },
+        "rank_200": {
+          "rank": 200,
+          "name": "Serenity Now",
+          "kc": 10839
+        },
+        "rank_1000": {
+          "rank": 1000,
+          "name": "On Tv",
+          "kc": 5825
+        },
+        "rank_5000": {
+          "rank": 5000,
+          "name": "iDH",
+          "kc": 2753
+        },
+        "rank_25000": {
+          "rank": 25000,
+          "name": "RappaKoss",
+          "kc": 1158
+        },
+        "rank_100000": {
+          "rank": 100000,
+          "name": "HandBones",
+          "kc": 465
+        }
+      }
+    },
+    "general_graardor": {
+      "name": "General Graardor",
+      "tableId": 44,
+      "samples": {
+        "rank_1": {
+          "rank": 1,
+          "name": "RANK1BANDOS",
+          "kc": 113214
+        },
+        "rank_50": {
+          "rank": 50,
+          "name": "R uuu",
+          "kc": 26018
+        },
+        "rank_200": {
+          "rank": 200,
+          "name": "sunlight6",
+          "kc": 14185
+        },
+        "rank_1000": {
+          "rank": 1000,
+          "name": "dogshitmain",
+          "kc": 6715
+        },
+        "rank_5000": {
+          "rank": 5000,
+          "name": "Incredragon",
+          "kc": 2872
+        },
+        "rank_25000": {
+          "rank": 25000,
+          "name": "FORD2",
+          "kc": 1251
+        },
+        "rank_100000": {
+          "rank": 100000,
+          "name": "Brother Iwo",
+          "kc": 489
+        }
+      }
+    },
+    "kril_tsutsaroth": {
+      "name": "K'ril Tsutsaroth",
+      "tableId": 52,
+      "samples": {
+        "rank_1": {
+          "rank": 1,
+          "name": "xl3g3ndg0dx",
+          "kc": 26870
+        },
+        "rank_50": {
+          "rank": 50,
+          "name": "Berserker",
+          "kc": 12005
+        },
+        "rank_200": {
+          "rank": 200,
+          "name": "iTmetzo",
+          "kc": 7110
+        },
+        "rank_1000": {
+          "rank": 1000,
+          "name": "Djahat",
+          "kc": 3066
+        },
+        "rank_5000": {
+          "rank": 5000,
+          "name": "TzKalZekWyl",
+          "kc": 1329
+        },
+        "rank_25000": {
+          "rank": 25000,
+          "name": "BTW Maastis",
+          "kc": 533
+        },
+        "rank_100000": {
+          "rank": 100000,
+          "name": "RhinoNuts",
+          "kc": 171
+        }
+      }
+    },
+    "commander_zilyana": {
+      "name": "Commander Zilyana",
+      "tableId": 35,
+      "samples": {
+        "rank_1": {
+          "rank": 1,
+          "name": "BooksAndMaps",
+          "kc": 42910
+        },
+        "rank_50": {
+          "rank": 50,
+          "name": "Kraaaw",
+          "kc": 13541
+        },
+        "rank_200": {
+          "rank": 200,
+          "name": "Mointrz",
+          "kc": 8262
+        },
+        "rank_1000": {
+          "rank": 1000,
+          "name": "Jay b1zzle",
+          "kc": 3809
+        },
+        "rank_5000": {
+          "rank": 5000,
+          "name": "B lud",
+          "kc": 1818
+        },
+        "rank_25000": {
+          "rank": 25000,
+          "name": "Mr No Rift",
+          "kc": 785
+        },
+        "rank_100000": {
+          "rank": 100000,
+          "name": "Vangelis",
+          "kc": 210
+        }
+      }
+    },
+    "kreearra": {
+      "name": "Kree'Arra",
+      "tableId": 51,
+      "samples": {
+        "rank_1": {
+          "rank": 1,
+          "name": "Farmrr",
+          "kc": 128504
+        },
+        "rank_50": {
+          "rank": 50,
+          "name": "DedWilson",
+          "kc": 17259
+        },
+        "rank_200": {
+          "rank": 200,
+          "name": "whiteclaws",
+          "kc": 10224
+        },
+        "rank_1000": {
+          "rank": 1000,
+          "name": "Vodurs",
+          "kc": 4697
+        },
+        "rank_5000": {
+          "rank": 5000,
+          "name": "Be Stoic",
+          "kc": 1877
+        },
+        "rank_25000": {
+          "rank": 25000,
+          "name": "LukLuk Fruit",
+          "kc": 697
+        },
+        "rank_100000": {
+          "rank": 100000,
+          "name": "native08",
+          "kc": 155
+        }
+      }
+    },
+    "king_black_dragon": {
+      "name": "King Black Dragon",
+      "tableId": 49,
+      "samples": {
+        "rank_1": {
+          "rank": 1,
+          "name": "2 Brothers",
+          "kc": 48501
+        },
+        "rank_50": {
+          "rank": 50,
+          "name": "Gorak",
+          "kc": 14329
+        },
+        "rank_200": {
+          "rank": 200,
+          "name": "Elf Stepdad",
+          "kc": 10601
+        },
+        "rank_1000": {
+          "rank": 1000,
+          "name": "Nasko Fiasco",
+          "kc": 6671
+        },
+        "rank_5000": {
+          "rank": 5000,
+          "name": "pipy279",
+          "kc": 3334
+        },
+        "rank_25000": {
+          "rank": 25000,
+          "name": "Neelepeel",
+          "kc": 1164
+        },
+        "rank_100000": {
+          "rank": 100000,
+          "name": "Ozayer",
+          "kc": 396
+        }
+      }
+    },
+    "sarachnis": {
+      "name": "Sarachnis",
+      "tableId": 60,
+      "samples": {
+        "rank_1": {
+          "rank": 1,
+          "name": "karibola",
+          "kc": 173948
+        },
+        "rank_50": {
+          "rank": 50,
+          "name": "Rjm0007",
+          "kc": 20656
+        },
+        "rank_200": {
+          "rank": 200,
+          "name": "JabbaU",
+          "kc": 11625
+        },
+        "rank_1000": {
+          "rank": 1000,
+          "name": "Fokkintomat",
+          "kc": 6751
+        },
+        "rank_5000": {
+          "rank": 5000,
+          "name": "de_Sneide",
+          "kc": 3131
+        },
+        "rank_25000": {
+          "rank": 25000,
+          "name": "Gelepeld",
+          "kc": 944
+        },
+        "rank_100000": {
+          "rank": 100000,
+          "name": "Ahmrahthar",
+          "kc": 188
+        }
+      }
+    },
+    "tempoross": {
+      "name": "Tempoross",
+      "tableId": 67,
+      "samples": {
+        "rank_1": {
+          "rank": 1,
+          "name": "Uncle Solo",
+          "kc": 28804
+        },
+        "rank_50": {
+          "rank": 50,
+          "name": "mefaxi",
+          "kc": 5329
+        },
+        "rank_200": {
+          "rank": 200,
+          "name": "DD 214",
+          "kc": 3150
+        },
+        "rank_1000": {
+          "rank": 1000,
+          "name": "Revs Farm",
+          "kc": 2055
+        },
+        "rank_5000": {
+          "rank": 5000,
+          "name": "Yourak Hunt",
+          "kc": 1344
+        },
+        "rank_25000": {
+          "rank": 25000,
+          "name": "SIMP4GIMP",
+          "kc": 556
+        },
+        "rank_100000": {
+          "rank": 100000,
+          "name": "NZ Neal",
+          "kc": 235
+        }
+      }
+    },
+    "wintertodt": {
+      "name": "Wintertodt",
+      "tableId": 85,
+      "samples": {
+        "rank_1": {
+          "rank": 1,
+          "name": "Pyromanimak",
+          "kc": 99471
+        },
+        "rank_50": {
+          "rank": 50,
+          "name": "F2Pker",
+          "kc": 9858
+        },
+        "rank_200": {
+          "rank": 200,
+          "name": "FNC92",
+          "kc": 8862
+        },
+        "rank_1000": {
+          "rank": 1000,
+          "name": "NY2",
+          "kc": 5916
+        },
+        "rank_5000": {
+          "rank": 5000,
+          "name": "Tiistia",
+          "kc": 1700
+        },
+        "rank_25000": {
+          "rank": 25000,
+          "name": "City Trout",
+          "kc": 751
+        },
+        "rank_100000": {
+          "rank": 100000,
+          "name": "GielinorBike",
+          "kc": 625
+        }
+      }
+    },
+    "phosanis_nightmare": {
+      "name": "Phosani's Nightmare",
+      "tableId": 57,
+      "samples": {
+        "rank_1": {
+          "rank": 1,
+          "name": "View Poll",
+          "kc": 21888
+        },
+        "rank_50": {
+          "rank": 50,
+          "name": "im pogging",
+          "kc": 6262
+        },
+        "rank_200": {
+          "rank": 200,
+          "name": "Plot",
+          "kc": 4100
+        },
+        "rank_1000": {
+          "rank": 1000,
+          "name": "Wategel",
+          "kc": 2068
+        },
+        "rank_5000": {
+          "rank": 5000,
+          "name": "SlutHouse",
+          "kc": 750
+        },
+        "rank_25000": {
+          "rank": 25000,
+          "name": "M3 c",
+          "kc": 120
+        },
+        "rank_100000": {
+          "rank": 25,
+          "name": "4get_me_knot",
+          "kc": 7480
+        }
+      }
+    },
+    "chambers_of_xeric": {
+      "name": "Chambers of Xeric",
+      "tableId": 31,
+      "samples": {
+        "rank_1": {
+          "rank": 1,
+          "name": "Carino",
+          "kc": 19761
+        },
+        "rank_50": {
+          "rank": 50,
+          "name": "flow states",
+          "kc": 7272
+        },
+        "rank_200": {
+          "rank": 200,
+          "name": "MrAlfinger",
+          "kc": 4890
+        },
+        "rank_1000": {
+          "rank": 1000,
+          "name": "Just Alt F4",
+          "kc": 3016
+        },
+        "rank_5000": {
+          "rank": 5000,
+          "name": "Little Jaxon",
+          "kc": 1737
+        },
+        "rank_25000": {
+          "rank": 25000,
+          "name": "BigMeatikus",
+          "kc": 810
+        },
+        "rank_100000": {
+          "rank": 100000,
+          "name": "Mark Zukberg",
+          "kc": 227
+        }
+      }
+    },
+    "theatre_of_blood": {
+      "name": "Theatre of Blood",
+      "tableId": 74,
+      "samples": {
+        "rank_1": {
+          "rank": 1,
+          "name": "incant",
+          "kc": 14077
+        },
+        "rank_50": {
+          "rank": 50,
+          "name": "Fladra",
+          "kc": 6320
+        },
+        "rank_200": {
+          "rank": 200,
+          "name": "b a g",
+          "kc": 4360
+        },
+        "rank_1000": {
+          "rank": 1000,
+          "name": "J4MES SK",
+          "kc": 2549
+        },
+        "rank_5000": {
+          "rank": 5000,
+          "name": "FinkyFink",
+          "kc": 1295
+        },
+        "rank_25000": {
+          "rank": 25000,
+          "name": "moeJ0",
+          "kc": 427
+        },
+        "rank_100000": {
+          "rank": 100000,
+          "name": "doricsanvil",
+          "kc": 15
+        }
+      }
+    }
+  },
+  "failures": [],
+  "totalFetches": 147
+}
