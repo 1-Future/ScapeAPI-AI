@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-04-22T15:30:41.134Z",
-  "total_activities": 2094,
+  "generated_at": "2026-04-22T15:31:33.488Z",
+  "total_activities": 2117,
   "intensity_taxonomy": {
     "1": "pure AFK (click every 30s+)",
     "2": "light interaction (click every 10-20s)",
@@ -9481,6 +9481,457 @@
       },
       "notes": "Quieter-world wrath AFK walking.",
       "source_file": "data/methods/runecrafting.json"
+    },
+    {
+      "activity_id": "heartlands_turael_cow",
+      "activity_type": "skill_method",
+      "skill": "slayer",
+      "intensity": 1,
+      "base_xp_per_hour": 8000,
+      "base_gp_per_hour": 6000,
+      "region": "heartlands",
+      "level_required": 1,
+      "gating": {
+        "quests": [],
+        "items": [
+          "bronze_scimitar"
+        ],
+        "areas": []
+      },
+      "notes": "Turael cow task. AFK.",
+      "source_file": "data/methods/slayer.json"
+    },
+    {
+      "activity_id": "heartlands_turael_spider_active",
+      "activity_type": "skill_method",
+      "skill": "slayer",
+      "intensity": 3,
+      "base_xp_per_hour": 19300,
+      "base_gp_per_hour": 8500,
+      "region": "heartlands",
+      "level_required": 3,
+      "gating": {
+        "quests": [],
+        "items": [
+          "bronze_scimitar"
+        ],
+        "areas": []
+      },
+      "notes": "Active spider task multi-pull.",
+      "source_file": "data/methods/slayer.json"
+    },
+    {
+      "activity_id": "heartlands_turael_bat_afk",
+      "activity_type": "skill_method",
+      "skill": "slayer",
+      "intensity": 1,
+      "base_xp_per_hour": 10900,
+      "base_gp_per_hour": 8000,
+      "region": "heartlands",
+      "level_required": 10,
+      "gating": {
+        "quests": [],
+        "items": [
+          "steel_scimitar"
+        ],
+        "areas": []
+      },
+      "notes": "Bat task safespot.",
+      "source_file": "data/methods/slayer.json"
+    },
+    {
+      "activity_id": "heartlands_banshee_rush",
+      "activity_type": "skill_method",
+      "skill": "slayer",
+      "intensity": 4,
+      "base_xp_per_hour": 29200,
+      "base_gp_per_hour": 35000,
+      "region": "heartlands",
+      "level_required": 15,
+      "gating": {
+        "quests": [],
+        "items": [
+          "earmuffs",
+          "steel_scimitar"
+        ],
+        "areas": []
+      },
+      "notes": "Banshee active multi-pull.",
+      "source_file": "data/methods/slayer.json"
+    },
+    {
+      "activity_id": "boneyard_mazchna_skeleton",
+      "activity_type": "skill_method",
+      "skill": "slayer",
+      "intensity": 1,
+      "base_xp_per_hour": 15400,
+      "base_gp_per_hour": 12000,
+      "region": "boneyard",
+      "level_required": 20,
+      "gating": {
+        "quests": [],
+        "items": [
+          "mithril_scimitar"
+        ],
+        "areas": []
+      },
+      "notes": "Skeleton task AFK.",
+      "source_file": "data/methods/slayer.json"
+    },
+    {
+      "activity_id": "boneyard_mazchna_crawler",
+      "activity_type": "skill_method",
+      "skill": "slayer",
+      "intensity": 5,
+      "base_xp_per_hour": 36200,
+      "base_gp_per_hour": 48000,
+      "region": "moryskah",
+      "level_required": 25,
+      "gating": {
+        "quests": [],
+        "items": [
+          "mithril_scimitar"
+        ],
+        "areas": []
+      },
+      "notes": "Flesh crawler multi-pull task.",
+      "source_file": "data/methods/slayer.json"
+    },
+    {
+      "activity_id": "saltbrine_vannaka_seagull",
+      "activity_type": "skill_method",
+      "skill": "slayer",
+      "intensity": 6,
+      "base_xp_per_hour": 60900,
+      "base_gp_per_hour": 42000,
+      "region": "saltbrine",
+      "level_required": 30,
+      "gating": {
+        "quests": [],
+        "items": [
+          "black_chinchompa"
+        ],
+        "areas": []
+      },
+      "notes": "Seagull chinchompa task.",
+      "source_file": "data/methods/slayer.json"
+    },
+    {
+      "activity_id": "heartlands_vannaka_pyrefiend",
+      "activity_type": "skill_method",
+      "skill": "slayer",
+      "intensity": 1,
+      "base_xp_per_hour": 19800,
+      "base_gp_per_hour": 18000,
+      "region": "sootworks",
+      "level_required": 30,
+      "gating": {
+        "quests": [],
+        "items": [
+          "adamant_scimitar",
+          "fire_cape_piece"
+        ],
+        "areas": []
+      },
+      "notes": "Pyrefiend slayer task AFK.",
+      "source_file": "data/methods/slayer.json"
+    },
+    {
+      "activity_id": "boneyard_vannaka_bloodveld",
+      "activity_type": "skill_method",
+      "skill": "slayer",
+      "intensity": 4,
+      "base_xp_per_hour": 42500,
+      "base_gp_per_hour": 75000,
+      "region": "moryskah",
+      "level_required": 50,
+      "gating": {
+        "quests": [],
+        "items": [
+          "rune_scimitar"
+        ],
+        "areas": []
+      },
+      "notes": "Bloodveld task — drops prayer charms.",
+      "source_file": "data/methods/slayer.json"
+    },
+    {
+      "activity_id": "moryskah_vannaka_bloodveld_afk",
+      "activity_type": "skill_method",
+      "skill": "slayer",
+      "intensity": 1,
+      "base_xp_per_hour": 30400,
+      "base_gp_per_hour": 48000,
+      "region": "moryskah",
+      "level_required": 50,
+      "gating": {
+        "quests": [],
+        "items": [
+          "rune_scimitar"
+        ],
+        "areas": []
+      },
+      "notes": "Bloodveld safespot AFK.",
+      "source_file": "data/methods/slayer.json"
+    },
+    {
+      "activity_id": "veilwood_chaeldar_gargoyle",
+      "activity_type": "skill_method",
+      "skill": "slayer",
+      "intensity": 2,
+      "base_xp_per_hour": 60000,
+      "base_gp_per_hour": 175000,
+      "region": "veilwood",
+      "level_required": 60,
+      "gating": {
+        "quests": [],
+        "items": [
+          "dragon_scimitar",
+          "rock_hammer"
+        ],
+        "areas": []
+      },
+      "notes": "Gargoyle task.",
+      "source_file": "data/methods/slayer.json"
+    },
+    {
+      "activity_id": "veilwood_chaeldar_nechryael",
+      "activity_type": "skill_method",
+      "skill": "slayer",
+      "intensity": 5,
+      "base_xp_per_hour": 76300,
+      "base_gp_per_hour": 145000,
+      "region": "veilwood",
+      "level_required": 65,
+      "gating": {
+        "quests": [],
+        "items": [
+          "abyssal_whip"
+        ],
+        "areas": []
+      },
+      "notes": "Nechryael task.",
+      "source_file": "data/methods/slayer.json"
+    },
+    {
+      "activity_id": "wilds_nieve_smoke_devil",
+      "activity_type": "skill_method",
+      "skill": "slayer",
+      "intensity": 6,
+      "base_xp_per_hour": 104800,
+      "base_gp_per_hour": 420000,
+      "region": "sootworks",
+      "level_required": 75,
+      "gating": {
+        "quests": [
+          "smoke_of_the_deeps"
+        ],
+        "items": [
+          "facemask"
+        ],
+        "areas": []
+      },
+      "notes": "Smoke devil task. Multi-combat, best slayer XP/hr 75+.",
+      "source_file": "data/methods/slayer.json"
+    },
+    {
+      "activity_id": "veilwood_nieve_kurask_afk",
+      "activity_type": "skill_method",
+      "skill": "slayer",
+      "intensity": 1,
+      "base_xp_per_hour": 54700,
+      "base_gp_per_hour": 185000,
+      "region": "veilwood",
+      "level_required": 70,
+      "gating": {
+        "quests": [],
+        "items": [
+          "leaf_bladed_battleaxe"
+        ],
+        "areas": []
+      },
+      "notes": "Kurask task AFK.",
+      "source_file": "data/methods/slayer.json"
+    },
+    {
+      "activity_id": "inkweald_nieve_abyssal",
+      "activity_type": "skill_method",
+      "skill": "slayer",
+      "intensity": 3,
+      "base_xp_per_hour": 82300,
+      "base_gp_per_hour": 285000,
+      "region": "inkweald",
+      "level_required": 85,
+      "gating": {
+        "quests": [],
+        "items": [
+          "abyssal_whip",
+          "slayer_helm"
+        ],
+        "areas": []
+      },
+      "notes": "Abyssal demon task.",
+      "source_file": "data/methods/slayer.json"
+    },
+    {
+      "activity_id": "inkweald_nieve_abyssal_afk",
+      "activity_type": "skill_method",
+      "skill": "slayer",
+      "intensity": 2,
+      "base_xp_per_hour": 61800,
+      "base_gp_per_hour": 185000,
+      "region": "inkweald",
+      "level_required": 85,
+      "gating": {
+        "quests": [],
+        "items": [
+          "abyssal_whip",
+          "slayer_helm"
+        ],
+        "areas": []
+      },
+      "notes": "Abyssal demon safespot.",
+      "source_file": "data/methods/slayer.json"
+    },
+    {
+      "activity_id": "inkweald_duradel_dark_beast",
+      "activity_type": "skill_method",
+      "skill": "slayer",
+      "intensity": 5,
+      "base_xp_per_hour": 128000,
+      "base_gp_per_hour": 420000,
+      "region": "inkweald",
+      "level_required": 90,
+      "gating": {
+        "quests": [
+          "unwake_the_dreamer"
+        ],
+        "items": [
+          "ghrazi_rapier"
+        ],
+        "areas": []
+      },
+      "notes": "Dark beast task.",
+      "source_file": "data/methods/slayer.json"
+    },
+    {
+      "activity_id": "wilds_duradel_demonic_gorilla",
+      "activity_type": "skill_method",
+      "skill": "slayer",
+      "intensity": 8,
+      "base_xp_per_hour": 165500,
+      "base_gp_per_hour": 620000,
+      "region": "wilds",
+      "level_required": 92,
+      "gating": {
+        "quests": [
+          "ape_madrigal"
+        ],
+        "items": [
+          "ghrazi_rapier",
+          "blowpipe"
+        ],
+        "areas": []
+      },
+      "notes": "Demonic gorilla prayer-switch task.",
+      "source_file": "data/methods/slayer.json"
+    },
+    {
+      "activity_id": "wilds_duradel_nightmare",
+      "activity_type": "skill_method",
+      "skill": "slayer",
+      "intensity": 4,
+      "base_xp_per_hour": 194500,
+      "base_gp_per_hour": 685000,
+      "region": "saltbrine",
+      "level_required": 96,
+      "gating": {
+        "quests": [
+          "the_krakenmaw"
+        ],
+        "items": [
+          "trident_of_the_seas"
+        ],
+        "areas": []
+      },
+      "notes": "Kraken instance.",
+      "source_file": "data/methods/slayer.json"
+    },
+    {
+      "activity_id": "heartlands_burthorpe_banshee",
+      "activity_type": "skill_method",
+      "skill": "slayer",
+      "intensity": 1,
+      "base_xp_per_hour": 13300,
+      "base_gp_per_hour": 12000,
+      "region": "heartlands",
+      "level_required": 15,
+      "gating": {
+        "quests": [],
+        "items": [
+          "earmuffs"
+        ],
+        "areas": []
+      },
+      "notes": "Banshee task with earmuffs. AFK.",
+      "source_file": "data/methods/slayer.json"
+    },
+    {
+      "activity_id": "moryskah_mazchna_ankou",
+      "activity_type": "skill_method",
+      "skill": "slayer",
+      "intensity": 1,
+      "base_xp_per_hour": 23800,
+      "base_gp_per_hour": 28000,
+      "region": "moryskah",
+      "level_required": 40,
+      "gating": {
+        "quests": [],
+        "items": [
+          "rune_scimitar"
+        ],
+        "areas": []
+      },
+      "notes": "Ankou task AFK.",
+      "source_file": "data/methods/slayer.json"
+    },
+    {
+      "activity_id": "moryskah_vannaka_hellhound",
+      "activity_type": "skill_method",
+      "skill": "slayer",
+      "intensity": 3,
+      "base_xp_per_hour": 38800,
+      "base_gp_per_hour": 95000,
+      "region": "moryskah",
+      "level_required": 45,
+      "gating": {
+        "quests": [],
+        "items": [
+          "rune_scimitar"
+        ],
+        "areas": []
+      },
+      "notes": "Hellhound task. Drops hard clue.",
+      "source_file": "data/methods/slayer.json"
+    },
+    {
+      "activity_id": "heartlands_turael_bear",
+      "activity_type": "skill_method",
+      "skill": "slayer",
+      "intensity": 1,
+      "base_xp_per_hour": 9400,
+      "base_gp_per_hour": 6500,
+      "region": "heartlands",
+      "level_required": 5,
+      "gating": {
+        "quests": [],
+        "items": [
+          "bronze_scimitar"
+        ],
+        "areas": []
+      },
+      "notes": "Black bear task. AFK.",
+      "source_file": "data/methods/slayer.json"
     },
     {
       "activity_id": "heartlands_bronze_smelt",
