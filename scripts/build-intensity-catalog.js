@@ -201,6 +201,8 @@ function collectMethodFiles(catalog) {
 const MOB_RE = /(?<![a-zA-Z_.])mob\(\s*'([a-z0-9_]+)'\s*,\s*\{([^}]*)\}/g;
 const BOSS_RE = /(?<![a-zA-Z_.])boss\(\s*'([a-z0-9_]+)'\s*,\s*\{([^}]*)\}/g;
 const DEFINE_NPC_RE = /npcs\.defineNpc\(\s*'([a-z0-9_]+)'\s*,\s*\{([^}]*)\}/gi;
+// monsters-mega.js format: mega({ id, name, level, hp, combat_style, max_hit, region, tags, ... })
+const MEGA_RE = /(?<![a-zA-Z_.])mega\(\s*\{/g;
 
 function parseMobBody(body) {
   const out = {};
@@ -566,6 +568,59 @@ function collectMonstersAndBosses(catalog) {
         });
         count++;
       }
+    }
+
+    // Pass A.5: mega({ id: ... }) — monsters-mega.js helper form.
+    MEGA_RE.lastIndex = 0;
+    let meg;
+    while ((meg = MEGA_RE.exec(src))) {
+      const bodyStart = src.indexOf('{', meg.index);
+      if (bodyStart === -1) continue;
+      let depth = 0; let end = bodyStart;
+      for (let i = bodyStart; i < src.length; i++) {
+        if (src[i] === '{') depth++;
+        else if (src[i] === '}') { depth--; if (depth === 0) { end = i; break; } }
+      }
+      const body = src.slice(bodyStart + 1, end);
+      const mId = valStr(body, 'id');
+      if (!mId) continue;
+      if (processedIds.has(mId)) continue;
+      processedIds.add(mId);
+      // Normalise to mob shape
+      const m = {
+        name: valStr(body, 'name'),
+        combat: Number((body.match(/\blevel:\s*(\d+)/) || [])[1]) || 0,
+        maxHp: Number((body.match(/\bhp:\s*(\d+)/) || [])[1]) || 0,
+        maxHit: Number((body.match(/\bmax_hit:\s*(\d+)/) || [])[1]) || 0,
+        attackStyle: valStr(body, 'combat_style') || 'melee',
+        weakness: valStr(body, 'weakness') || null,
+        tags: valArrStr(body, 'tags'),
+      };
+      const xpPerKill = Number((body.match(/\bxp_per_kill:\s*(\d+)/) || [])[1]) || 0;
+      const slayerLvl = Number((body.match(/\bslayer_level_required:\s*(\d+)/) || [])[1]) || 0;
+      const region = (valStr(body, 'region') || 'unknown').toLowerCase().replace(/\s+/g, '_');
+      const intensity = intensityForMonster(m, fname);
+      let { xp_per_hour, gp_per_hour } = combatPerHourFromStats(m);
+      if (xpPerKill > 0 && m.combat) {
+        // Use explicit xp_per_kill when available (monsters-mega.js always has it).
+        const kph = m.combat < 20 ? 500 : m.combat < 50 ? 350 : m.combat < 100 ? 220 : m.combat < 200 ? 150 : 80;
+        xp_per_hour = Math.round(xpPerKill * kph);
+      }
+      const isBoss = (m.tags || []).includes('boss') || (m.combat || 0) >= 300;
+      catalog.push({
+        activity_id: `kill_${mId}`,
+        activity_type: isBoss ? 'boss' : 'monster',
+        skill: slayerLvl > 0 ? 'slayer' : 'combat',
+        intensity,
+        base_xp_per_hour: xp_per_hour,
+        base_gp_per_hour: gp_per_hour,
+        region,
+        level_required: slayerLvl > 0 ? slayerLvl : (isBoss ? estimateBossLevelReq(m) : Math.max(1, Math.floor((m.combat || 1) / 3))),
+        gating: { quests: [], items: [], areas: [] },
+        notes: `${m.name || mId} — combat ${m.combat} hp ${m.maxHp} maxHit ${m.maxHit} ${(m.tags || []).length ? 'tags:' + m.tags.join('/') : ''}${slayerLvl > 0 ? ` slayerReq:${slayerLvl}` : ''}`,
+        source_file: `src/content/aelgard/${fname}`,
+      });
+      count++;
     }
 
     // Pass B: npcs.defineNpc('id', { ... }) — used by raids.js, some region files.

@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-04-22T15:20:11.582Z",
-  "total_activities": 1007,
+  "generated_at": "2026-04-22T15:23:40.028Z",
+  "total_activities": 1166,
   "intensity_taxonomy": {
     "1": "pure AFK (click every 30s+)",
     "2": "light interaction (click every 10-20s)",
@@ -3160,6 +3160,400 @@
       "source_file": "src/engine/skills/firemaking.js"
     },
     {
+      "activity_id": "heartlands_training_dummies_afk",
+      "activity_type": "skill_method",
+      "skill": "attack",
+      "intensity": 1,
+      "base_xp_per_hour": 8000,
+      "base_gp_per_hour": 0,
+      "region": "heartlands",
+      "level_required": 1,
+      "gating": {
+        "quests": [],
+        "items": [
+          "bronze_scimitar"
+        ],
+        "areas": []
+      },
+      "notes": "Hit the training dummy. Aggressive timer. AFK first 5 levels.",
+      "source_file": "data/methods/attack.json"
+    },
+    {
+      "activity_id": "heartlands_giant_rat_cave",
+      "activity_type": "skill_method",
+      "skill": "attack",
+      "intensity": 2,
+      "base_xp_per_hour": 13900,
+      "base_gp_per_hour": 2000,
+      "region": "heartlands",
+      "level_required": 3,
+      "gating": {
+        "quests": [],
+        "items": [
+          "bronze_scimitar"
+        ],
+        "areas": []
+      },
+      "notes": "Sewer rats, auto-aggressive, genuinely AFK.",
+      "source_file": "data/methods/attack.json"
+    },
+    {
+      "activity_id": "heartlands_cow_field_afk",
+      "activity_type": "skill_method",
+      "skill": "attack",
+      "intensity": 1,
+      "base_xp_per_hour": 10900,
+      "base_gp_per_hour": 6000,
+      "region": "heartlands",
+      "level_required": 10,
+      "gating": {
+        "quests": [],
+        "items": [
+          "steel_scimitar"
+        ],
+        "areas": []
+      },
+      "notes": "Aggressive cows. Pure AFK for 10-20.",
+      "source_file": "data/methods/attack.json"
+    },
+    {
+      "activity_id": "heartlands_man_pickpocket_hybrid",
+      "activity_type": "skill_method",
+      "skill": "attack",
+      "intensity": 4,
+      "base_xp_per_hour": 30200,
+      "base_gp_per_hour": 22000,
+      "region": "heartlands",
+      "level_required": 12,
+      "gating": {
+        "quests": [],
+        "items": [
+          "steel_scimitar"
+        ],
+        "areas": []
+      },
+      "notes": "Garrison men drop loot + allow thieving-hybrid. Active.",
+      "source_file": "data/methods/attack.json"
+    },
+    {
+      "activity_id": "boneyard_skeleton_safespot",
+      "activity_type": "skill_method",
+      "skill": "attack",
+      "intensity": 1,
+      "base_xp_per_hour": 15400,
+      "base_gp_per_hour": 12000,
+      "region": "boneyard",
+      "level_required": 20,
+      "gating": {
+        "quests": [],
+        "items": [
+          "mithril_scimitar"
+        ],
+        "areas": []
+      },
+      "notes": "Safespot skeletons from behind a tombstone. Deeply AFK.",
+      "source_file": "data/methods/attack.json"
+    },
+    {
+      "activity_id": "boneyard_skeleton_multi",
+      "activity_type": "skill_method",
+      "skill": "attack",
+      "intensity": 6,
+      "base_xp_per_hour": 50600,
+      "base_gp_per_hour": 45000,
+      "region": "boneyard",
+      "level_required": 25,
+      "gating": {
+        "quests": [],
+        "items": [
+          "mithril_scimitar"
+        ],
+        "areas": []
+      },
+      "notes": "Multi-pull skeletons with chinning/cleave. Attention-hungry.",
+      "source_file": "data/methods/attack.json"
+    },
+    {
+      "activity_id": "heartlands_sand_crab_afk",
+      "activity_type": "skill_method",
+      "skill": "attack",
+      "intensity": 1,
+      "base_xp_per_hour": 19800,
+      "base_gp_per_hour": 0,
+      "region": "heartlands",
+      "level_required": 30,
+      "gating": {
+        "quests": [],
+        "items": [
+          "adamant_scimitar"
+        ],
+        "areas": []
+      },
+      "notes": "Sand crabs. 10-minute aggro pulse. Deeply AFK.",
+      "source_file": "data/methods/attack.json"
+    },
+    {
+      "activity_id": "heartlands_experiments_basement",
+      "activity_type": "skill_method",
+      "skill": "attack",
+      "intensity": 5,
+      "base_xp_per_hour": 46700,
+      "base_gp_per_hour": 38000,
+      "region": "heartlands",
+      "level_required": 38,
+      "gating": {
+        "quests": [
+          "the_manor_below"
+        ],
+        "items": [
+          "adamant_scimitar"
+        ],
+        "areas": []
+      },
+      "notes": "Quest-locked multi-mob basement with special attacks.",
+      "source_file": "data/methods/attack.json"
+    },
+    {
+      "activity_id": "saltbrine_rock_crab_afk",
+      "activity_type": "skill_method",
+      "skill": "attack",
+      "intensity": 1,
+      "base_xp_per_hour": 23800,
+      "base_gp_per_hour": 0,
+      "region": "saltbrine",
+      "level_required": 40,
+      "gating": {
+        "quests": [],
+        "items": [
+          "rune_scimitar"
+        ],
+        "areas": []
+      },
+      "notes": "Rock crabs. 10-min aggro refresh cycle.",
+      "source_file": "data/methods/attack.json"
+    },
+    {
+      "activity_id": "moryskah_ankou_rotation",
+      "activity_type": "skill_method",
+      "skill": "attack",
+      "intensity": 4,
+      "base_xp_per_hour": 46700,
+      "base_gp_per_hour": 95000,
+      "region": "moryskah",
+      "level_required": 50,
+      "gating": {
+        "quests": [],
+        "items": [
+          "rune_scimitar"
+        ],
+        "areas": []
+      },
+      "notes": "Ankou multi-combat. Drop blighted casts.",
+      "source_file": "data/methods/attack.json"
+    },
+    {
+      "activity_id": "heartlands_ammonite_crab_afk",
+      "activity_type": "skill_method",
+      "skill": "attack",
+      "intensity": 1,
+      "base_xp_per_hour": 32000,
+      "base_gp_per_hour": 0,
+      "region": "heartlands",
+      "level_required": 50,
+      "gating": {
+        "quests": [],
+        "items": [
+          "rune_scimitar"
+        ],
+        "areas": []
+      },
+      "notes": "Ammonite crabs — 100 HP sand crab variant.",
+      "source_file": "data/methods/attack.json"
+    },
+    {
+      "activity_id": "veilwood_nightmare_trainer",
+      "activity_type": "skill_method",
+      "skill": "attack",
+      "intensity": 1,
+      "base_xp_per_hour": 40000,
+      "base_gp_per_hour": 0,
+      "region": "veilwood",
+      "level_required": 60,
+      "gating": {
+        "quests": [
+          "swan_song_of_veilwood"
+        ],
+        "items": [
+          "dragon_scimitar"
+        ],
+        "areas": []
+      },
+      "notes": "Grove NPCs fight you while you fight them. Pure AFK.",
+      "source_file": "data/methods/attack.json"
+    },
+    {
+      "activity_id": "saltbrine_gauntlet_crew",
+      "activity_type": "skill_method",
+      "skill": "attack",
+      "intensity": 6,
+      "base_xp_per_hour": 76300,
+      "base_gp_per_hour": 125000,
+      "region": "saltbrine",
+      "level_required": 65,
+      "gating": {
+        "quests": [],
+        "items": [
+          "dragon_scimitar"
+        ],
+        "areas": []
+      },
+      "notes": "Timed boarding event. Multi-pull raiders.",
+      "source_file": "data/methods/attack.json"
+    },
+    {
+      "activity_id": "moryskah_nightmare_chains",
+      "activity_type": "skill_method",
+      "skill": "attack",
+      "intensity": 2,
+      "base_xp_per_hour": 60000,
+      "base_gp_per_hour": 85000,
+      "region": "moryskah",
+      "level_required": 70,
+      "gating": {
+        "quests": [],
+        "items": [
+          "abyssal_whip"
+        ],
+        "areas": []
+      },
+      "notes": "Chained nightmares — aggressive AFK with low food cost.",
+      "source_file": "data/methods/attack.json"
+    },
+    {
+      "activity_id": "inkweald_abyssal_demon_task",
+      "activity_type": "skill_method",
+      "skill": "attack",
+      "intensity": 3,
+      "base_xp_per_hour": 74200,
+      "base_gp_per_hour": 185000,
+      "region": "inkweald",
+      "level_required": 75,
+      "gating": {
+        "quests": [
+          "slayer_ascension"
+        ],
+        "items": [
+          "abyssal_whip",
+          "slayer_helm"
+        ],
+        "areas": []
+      },
+      "notes": "Abyssal demons as a slayer task. Decent XP, great gp.",
+      "source_file": "data/methods/attack.json"
+    },
+    {
+      "activity_id": "wilds_lava_dragon_afk",
+      "activity_type": "skill_method",
+      "skill": "attack",
+      "intensity": 2,
+      "base_xp_per_hour": 72400,
+      "base_gp_per_hour": 285000,
+      "region": "wilds",
+      "level_required": 80,
+      "gating": {
+        "quests": [],
+        "items": [
+          "abyssal_whip"
+        ],
+        "areas": []
+      },
+      "notes": "Lava dragons in the Wilds. PK paranoia.",
+      "source_file": "data/methods/attack.json"
+    },
+    {
+      "activity_id": "wilds_demonic_chinning",
+      "activity_type": "skill_method",
+      "skill": "attack",
+      "intensity": 7,
+      "base_xp_per_hour": 100600,
+      "base_gp_per_hour": 485000,
+      "region": "wilds",
+      "level_required": 85,
+      "gating": {
+        "quests": [
+          "ape_madrigal"
+        ],
+        "items": [
+          "ghrazi_rapier"
+        ],
+        "areas": []
+      },
+      "notes": "Demonic gorillas with prayer-switching. Endgame attention.",
+      "source_file": "data/methods/attack.json"
+    },
+    {
+      "activity_id": "veilwood_gargoyle_afk",
+      "activity_type": "skill_method",
+      "skill": "attack",
+      "intensity": 1,
+      "base_xp_per_hour": 78200,
+      "base_gp_per_hour": 185000,
+      "region": "veilwood",
+      "level_required": 82,
+      "gating": {
+        "quests": [],
+        "items": [
+          "ghrazi_rapier",
+          "rock_hammer"
+        ],
+        "areas": []
+      },
+      "notes": "Gargoyle slayer tower. AFK with rock hammer on death.",
+      "source_file": "data/methods/attack.json"
+    },
+    {
+      "activity_id": "wilds_nechryael_task",
+      "activity_type": "skill_method",
+      "skill": "attack",
+      "intensity": 4,
+      "base_xp_per_hour": 128000,
+      "base_gp_per_hour": 320000,
+      "region": "inkweald",
+      "level_required": 90,
+      "gating": {
+        "quests": [
+          "slayer_ascension"
+        ],
+        "items": [
+          "ghrazi_rapier",
+          "slayer_helm"
+        ],
+        "areas": []
+      },
+      "notes": "Greater nechryael slayer task. Multi-combat.",
+      "source_file": "data/methods/attack.json"
+    },
+    {
+      "activity_id": "wilds_revenants_focus",
+      "activity_type": "skill_method",
+      "skill": "attack",
+      "intensity": 9,
+      "base_xp_per_hour": 194500,
+      "base_gp_per_hour": 1200000,
+      "region": "wilds",
+      "level_required": 95,
+      "gating": {
+        "quests": [],
+        "items": [
+          "bracelet_of_ethereum",
+          "ghrazi_rapier"
+        ],
+        "areas": []
+      },
+      "notes": "Revenants in deep Wilds. Prayer-switch + PK-defense. Extreme.",
+      "source_file": "data/methods/attack.json"
+    },
+    {
       "activity_id": "heartlands_range_meat_basic",
       "activity_type": "skill_method",
       "skill": "cooking",
@@ -5712,6 +6106,26 @@
       "source_file": "data/methods/herblore.json"
     },
     {
+      "activity_id": "moryskah_super_restore_afk",
+      "activity_type": "skill_method",
+      "skill": "herblore",
+      "intensity": 1,
+      "base_xp_per_hour": 44100,
+      "base_gp_per_hour": 180000,
+      "region": "moryskah",
+      "level_required": 63,
+      "gating": {
+        "quests": [],
+        "items": [
+          "clean_snapdragon",
+          "red_spiders_eggs"
+        ],
+        "areas": []
+      },
+      "notes": "Super restore single-inventory AFK.",
+      "source_file": "data/methods/herblore.json"
+    },
+    {
       "activity_id": "veilwood_saradomin_brew_rotation",
       "activity_type": "skill_method",
       "skill": "herblore",
@@ -5729,6 +6143,86 @@
         "areas": []
       },
       "notes": "Saradomin brew Make-X.",
+      "source_file": "data/methods/herblore.json"
+    },
+    {
+      "activity_id": "veilwood_saradomin_brew_afk",
+      "activity_type": "skill_method",
+      "skill": "herblore",
+      "intensity": 1,
+      "base_xp_per_hour": 56200,
+      "base_gp_per_hour": 210000,
+      "region": "veilwood",
+      "level_required": 72,
+      "gating": {
+        "quests": [],
+        "items": [
+          "clean_toadflax",
+          "crushed_nest"
+        ],
+        "areas": []
+      },
+      "notes": "Saradomin brew single-click AFK.",
+      "source_file": "data/methods/herblore.json"
+    },
+    {
+      "activity_id": "veilwood_stamina_potion_afk",
+      "activity_type": "skill_method",
+      "skill": "herblore",
+      "intensity": 1,
+      "base_xp_per_hour": 68500,
+      "base_gp_per_hour": 385000,
+      "region": "veilwood",
+      "level_required": 77,
+      "gating": {
+        "quests": [],
+        "items": [
+          "super_energy_4",
+          "amylase_crystal"
+        ],
+        "areas": []
+      },
+      "notes": "Stamina potion AFK. Peak profit.",
+      "source_file": "data/methods/herblore.json"
+    },
+    {
+      "activity_id": "veilwood_antipoison_plus_afk",
+      "activity_type": "skill_method",
+      "skill": "herblore",
+      "intensity": 1,
+      "base_xp_per_hour": 78600,
+      "base_gp_per_hour": 265000,
+      "region": "veilwood",
+      "level_required": 85,
+      "gating": {
+        "quests": [],
+        "items": [
+          "antipoison_4",
+          "toadflax"
+        ],
+        "areas": []
+      },
+      "notes": "Antipoison+ AFK.",
+      "source_file": "data/methods/herblore.json"
+    },
+    {
+      "activity_id": "veilwood_divine_potion",
+      "activity_type": "skill_method",
+      "skill": "herblore",
+      "intensity": 5,
+      "base_xp_per_hour": 152600,
+      "base_gp_per_hour": 385000,
+      "region": "veilwood",
+      "level_required": 85,
+      "gating": {
+        "quests": [],
+        "items": [
+          "super_combat_4",
+          "dreamwood_essence"
+        ],
+        "areas": []
+      },
+      "notes": "Divine super combat rotation. No drain-on-hit.",
       "source_file": "data/methods/herblore.json"
     },
     {
@@ -6306,6 +6800,497 @@
       },
       "notes": "A fallen star lands in the glade on a rotating timer. Ten minutes of intense multi-player gathering, shared XP, once-per-instance.",
       "source_file": "data/methods/mining.json"
+    },
+    {
+      "activity_id": "heartlands_air_altar_afk",
+      "activity_type": "skill_method",
+      "skill": "runecrafting",
+      "intensity": 2,
+      "base_xp_per_hour": 13900,
+      "base_gp_per_hour": 22000,
+      "region": "heartlands",
+      "level_required": 1,
+      "gating": {
+        "quests": [],
+        "items": [
+          "rune_essence"
+        ],
+        "areas": []
+      },
+      "notes": "Air rune altar single-essence run. Walk-craft-bank. AFK.",
+      "source_file": "data/methods/runecrafting.json"
+    },
+    {
+      "activity_id": "heartlands_air_altar_pouch_rush",
+      "activity_type": "skill_method",
+      "skill": "runecrafting",
+      "intensity": 5,
+      "base_xp_per_hour": 36200,
+      "base_gp_per_hour": 48000,
+      "region": "heartlands",
+      "level_required": 5,
+      "gating": {
+        "quests": [
+          "the_binding_scroll"
+        ],
+        "items": [
+          "rune_essence",
+          "small_pouch",
+          "med_pouch"
+        ],
+        "areas": []
+      },
+      "notes": "Pouch-backed air altar. 3-4 trips/min using fancy boots.",
+      "source_file": "data/methods/runecrafting.json"
+    },
+    {
+      "activity_id": "heartlands_mind_altar",
+      "activity_type": "skill_method",
+      "skill": "runecrafting",
+      "intensity": 1,
+      "base_xp_per_hour": 9500,
+      "base_gp_per_hour": 12000,
+      "region": "heartlands",
+      "level_required": 2,
+      "gating": {
+        "quests": [],
+        "items": [
+          "rune_essence"
+        ],
+        "areas": []
+      },
+      "notes": "Mind altar AFK.",
+      "source_file": "data/methods/runecrafting.json"
+    },
+    {
+      "activity_id": "saltbrine_water_altar_afk",
+      "activity_type": "skill_method",
+      "skill": "runecrafting",
+      "intensity": 1,
+      "base_xp_per_hour": 11500,
+      "base_gp_per_hour": 18000,
+      "region": "saltbrine",
+      "level_required": 9,
+      "gating": {
+        "quests": [],
+        "items": [
+          "rune_essence"
+        ],
+        "areas": []
+      },
+      "notes": "Water altar AFK.",
+      "source_file": "data/methods/runecrafting.json"
+    },
+    {
+      "activity_id": "saltbrine_water_altar_pouch_rush",
+      "activity_type": "skill_method",
+      "skill": "runecrafting",
+      "intensity": 5,
+      "base_xp_per_hour": 33600,
+      "base_gp_per_hour": 65000,
+      "region": "saltbrine",
+      "level_required": 9,
+      "gating": {
+        "quests": [
+          "the_binding_scroll"
+        ],
+        "items": [
+          "rune_essence",
+          "pouches"
+        ],
+        "areas": []
+      },
+      "notes": "Water altar pouch rush.",
+      "source_file": "data/methods/runecrafting.json"
+    },
+    {
+      "activity_id": "heartlands_earth_altar_afk",
+      "activity_type": "skill_method",
+      "skill": "runecrafting",
+      "intensity": 1,
+      "base_xp_per_hour": 12500,
+      "base_gp_per_hour": 22000,
+      "region": "heartlands",
+      "level_required": 14,
+      "gating": {
+        "quests": [],
+        "items": [
+          "rune_essence"
+        ],
+        "areas": []
+      },
+      "notes": "Earth altar AFK.",
+      "source_file": "data/methods/runecrafting.json"
+    },
+    {
+      "activity_id": "heartlands_earth_altar_tiara_rush",
+      "activity_type": "skill_method",
+      "skill": "runecrafting",
+      "intensity": 4,
+      "base_xp_per_hour": 29800,
+      "base_gp_per_hour": 48000,
+      "region": "heartlands",
+      "level_required": 14,
+      "gating": {
+        "quests": [],
+        "items": [
+          "rune_essence",
+          "earth_tiara",
+          "pouches"
+        ],
+        "areas": []
+      },
+      "notes": "Earth altar tiara rush.",
+      "source_file": "data/methods/runecrafting.json"
+    },
+    {
+      "activity_id": "sootworks_fire_altar_afk",
+      "activity_type": "skill_method",
+      "skill": "runecrafting",
+      "intensity": 2,
+      "base_xp_per_hour": 26800,
+      "base_gp_per_hour": 52000,
+      "region": "sootworks",
+      "level_required": 20,
+      "gating": {
+        "quests": [],
+        "items": [
+          "rune_essence"
+        ],
+        "areas": []
+      },
+      "notes": "Fire altar. Heat-hazard on afk too long.",
+      "source_file": "data/methods/runecrafting.json"
+    },
+    {
+      "activity_id": "sootworks_fire_altar_tiara_rush",
+      "activity_type": "skill_method",
+      "skill": "runecrafting",
+      "intensity": 5,
+      "base_xp_per_hour": 50600,
+      "base_gp_per_hour": 128000,
+      "region": "sootworks",
+      "level_required": 20,
+      "gating": {
+        "quests": [],
+        "items": [
+          "rune_essence",
+          "fire_tiara",
+          "pouches"
+        ],
+        "areas": []
+      },
+      "notes": "Fire altar with tiara bypass.",
+      "source_file": "data/methods/runecrafting.json"
+    },
+    {
+      "activity_id": "heartlands_body_altar_afk",
+      "activity_type": "skill_method",
+      "skill": "runecrafting",
+      "intensity": 1,
+      "base_xp_per_hour": 17400,
+      "base_gp_per_hour": 35000,
+      "region": "heartlands",
+      "level_required": 27,
+      "gating": {
+        "quests": [],
+        "items": [
+          "rune_essence"
+        ],
+        "areas": []
+      },
+      "notes": "Body altar AFK.",
+      "source_file": "data/methods/runecrafting.json"
+    },
+    {
+      "activity_id": "glass_desert_cosmic_altar_rush",
+      "activity_type": "skill_method",
+      "skill": "runecrafting",
+      "intensity": 4,
+      "base_xp_per_hour": 46900,
+      "base_gp_per_hour": 145000,
+      "region": "glass_desert",
+      "level_required": 35,
+      "gating": {
+        "quests": [
+          "the_mirror_labyrinth"
+        ],
+        "items": [
+          "rune_essence",
+          "pouches"
+        ],
+        "areas": []
+      },
+      "notes": "Cosmic altar through a mirror maze. Quest-gated attention.",
+      "source_file": "data/methods/runecrafting.json"
+    },
+    {
+      "activity_id": "glass_desert_cosmic_altar_afk",
+      "activity_type": "skill_method",
+      "skill": "runecrafting",
+      "intensity": 1,
+      "base_xp_per_hour": 23000,
+      "base_gp_per_hour": 95000,
+      "region": "glass_desert",
+      "level_required": 35,
+      "gating": {
+        "quests": [
+          "the_mirror_labyrinth"
+        ],
+        "items": [
+          "rune_essence"
+        ],
+        "areas": []
+      },
+      "notes": "AFK-walk cosmic altar.",
+      "source_file": "data/methods/runecrafting.json"
+    },
+    {
+      "activity_id": "wilds_chaos_altar_rush",
+      "activity_type": "skill_method",
+      "skill": "runecrafting",
+      "intensity": 5,
+      "base_xp_per_hour": 61900,
+      "base_gp_per_hour": 285000,
+      "region": "wilds",
+      "level_required": 44,
+      "gating": {
+        "quests": [],
+        "items": [
+          "rune_essence",
+          "pouches"
+        ],
+        "areas": []
+      },
+      "notes": "Chaos rune rush through shallow Wilds.",
+      "source_file": "data/methods/runecrafting.json"
+    },
+    {
+      "activity_id": "wilds_chaos_altar_afk",
+      "activity_type": "skill_method",
+      "skill": "runecrafting",
+      "intensity": 2,
+      "base_xp_per_hour": 36100,
+      "base_gp_per_hour": 160000,
+      "region": "wilds",
+      "level_required": 44,
+      "gating": {
+        "quests": [],
+        "items": [
+          "rune_essence"
+        ],
+        "areas": []
+      },
+      "notes": "AFK chaos altar in a dense world.",
+      "source_file": "data/methods/runecrafting.json"
+    },
+    {
+      "activity_id": "veilwood_nature_altar_rush",
+      "activity_type": "skill_method",
+      "skill": "runecrafting",
+      "intensity": 6,
+      "base_xp_per_hour": 83700,
+      "base_gp_per_hour": 425000,
+      "region": "veilwood",
+      "level_required": 54,
+      "gating": {
+        "quests": [],
+        "items": [
+          "rune_essence",
+          "pouches"
+        ],
+        "areas": []
+      },
+      "notes": "Nature altar. Long walking loop. Cash-cow.",
+      "source_file": "data/methods/runecrafting.json"
+    },
+    {
+      "activity_id": "veilwood_nature_altar_afk",
+      "activity_type": "skill_method",
+      "skill": "runecrafting",
+      "intensity": 1,
+      "base_xp_per_hour": 35500,
+      "base_gp_per_hour": 245000,
+      "region": "veilwood",
+      "level_required": 54,
+      "gating": {
+        "quests": [],
+        "items": [
+          "rune_essence"
+        ],
+        "areas": []
+      },
+      "notes": "Slow walk nature altar without pouches.",
+      "source_file": "data/methods/runecrafting.json"
+    },
+    {
+      "activity_id": "inkweald_law_altar_rush",
+      "activity_type": "skill_method",
+      "skill": "runecrafting",
+      "intensity": 6,
+      "base_xp_per_hour": 104800,
+      "base_gp_per_hour": 520000,
+      "region": "inkweald",
+      "level_required": 65,
+      "gating": {
+        "quests": [
+          "the_bound_covenant"
+        ],
+        "items": [
+          "rune_essence",
+          "pouches"
+        ],
+        "areas": []
+      },
+      "notes": "Law altar with dream-taxi teleport.",
+      "source_file": "data/methods/runecrafting.json"
+    },
+    {
+      "activity_id": "inkweald_law_altar_afk",
+      "activity_type": "skill_method",
+      "skill": "runecrafting",
+      "intensity": 1,
+      "base_xp_per_hour": 47300,
+      "base_gp_per_hour": 285000,
+      "region": "inkweald",
+      "level_required": 65,
+      "gating": {
+        "quests": [
+          "the_bound_covenant"
+        ],
+        "items": [
+          "rune_essence"
+        ],
+        "areas": []
+      },
+      "notes": "AFK law walk.",
+      "source_file": "data/methods/runecrafting.json"
+    },
+    {
+      "activity_id": "boneyard_death_altar_rush",
+      "activity_type": "skill_method",
+      "skill": "runecrafting",
+      "intensity": 6,
+      "base_xp_per_hour": 124500,
+      "base_gp_per_hour": 625000,
+      "region": "boneyard",
+      "level_required": 77,
+      "gating": {
+        "quests": [
+          "the_dead_want_their_due"
+        ],
+        "items": [
+          "rune_essence",
+          "pouches"
+        ],
+        "areas": []
+      },
+      "notes": "Death altar via Temple Trekking analog.",
+      "source_file": "data/methods/runecrafting.json"
+    },
+    {
+      "activity_id": "boneyard_death_altar_afk",
+      "activity_type": "skill_method",
+      "skill": "runecrafting",
+      "intensity": 2,
+      "base_xp_per_hour": 82300,
+      "base_gp_per_hour": 325000,
+      "region": "boneyard",
+      "level_required": 77,
+      "gating": {
+        "quests": [
+          "the_dead_want_their_due"
+        ],
+        "items": [
+          "rune_essence"
+        ],
+        "areas": []
+      },
+      "notes": "AFK-trek death altar without pouches.",
+      "source_file": "data/methods/runecrafting.json"
+    },
+    {
+      "activity_id": "moryskah_blood_altar_rush",
+      "activity_type": "skill_method",
+      "skill": "runecrafting",
+      "intensity": 7,
+      "base_xp_per_hour": 158100,
+      "base_gp_per_hour": 685000,
+      "region": "moryskah",
+      "level_required": 85,
+      "gating": {
+        "quests": [
+          "the_blooded_pick"
+        ],
+        "items": [
+          "rune_essence",
+          "pouches",
+          "dark_manuscript"
+        ],
+        "areas": []
+      },
+      "notes": "Blood rune altar. Tick-perfect chamber path.",
+      "source_file": "data/methods/runecrafting.json"
+    },
+    {
+      "activity_id": "moryskah_blood_altar_afk",
+      "activity_type": "skill_method",
+      "skill": "runecrafting",
+      "intensity": 2,
+      "base_xp_per_hour": 91700,
+      "base_gp_per_hour": 385000,
+      "region": "moryskah",
+      "level_required": 85,
+      "gating": {
+        "quests": [
+          "the_blooded_pick"
+        ],
+        "items": [
+          "rune_essence"
+        ],
+        "areas": []
+      },
+      "notes": "Blood rune AFK walk variant.",
+      "source_file": "data/methods/runecrafting.json"
+    },
+    {
+      "activity_id": "wilds_wrath_altar_rush",
+      "activity_type": "skill_method",
+      "skill": "runecrafting",
+      "intensity": 8,
+      "base_xp_per_hour": 222300,
+      "base_gp_per_hour": 860000,
+      "region": "wilds",
+      "level_required": 95,
+      "gating": {
+        "quests": [],
+        "items": [
+          "rune_essence",
+          "pouches"
+        ],
+        "areas": []
+      },
+      "notes": "Deep Wilds wrath altar. Tick-perfect + PK defense.",
+      "source_file": "data/methods/runecrafting.json"
+    },
+    {
+      "activity_id": "wilds_wrath_altar_afk",
+      "activity_type": "skill_method",
+      "skill": "runecrafting",
+      "intensity": 3,
+      "base_xp_per_hour": 128400,
+      "base_gp_per_hour": 420000,
+      "region": "wilds",
+      "level_required": 95,
+      "gating": {
+        "quests": [],
+        "items": [
+          "rune_essence"
+        ],
+        "areas": []
+      },
+      "notes": "Quieter-world wrath AFK walking.",
+      "source_file": "data/methods/runecrafting.json"
     },
     {
       "activity_id": "heartlands_bronze_smelt",
@@ -11712,6 +12697,1876 @@
       },
       "notes": "Lava dragon — combat 252 hp 230 maxHit 25 tags:dragon",
       "source_file": "src/content/aelgard/monsters-expanded.js"
+    },
+    {
+      "activity_id": "kill_mega_heart_farmhand_brigand",
+      "activity_type": "monster",
+      "skill": "combat",
+      "intensity": 2,
+      "base_xp_per_hour": 12000,
+      "base_gp_per_hour": 84000,
+      "region": "heartlands",
+      "level_required": 4,
+      "gating": {
+        "quests": [],
+        "items": [],
+        "areas": []
+      },
+      "notes": "Farmhand brigand — combat 14 hp 18 maxHit 3 tags:human",
+      "source_file": "src/content/aelgard/monsters-mega.js"
+    },
+    {
+      "activity_id": "kill_mega_heart_corn_rat",
+      "activity_type": "monster",
+      "skill": "slayer",
+      "intensity": 1,
+      "base_xp_per_hour": 6000,
+      "base_gp_per_hour": 30000,
+      "region": "heartlands",
+      "level_required": 1,
+      "gating": {
+        "quests": [],
+        "items": [],
+        "areas": []
+      },
+      "notes": "Corn rat — combat 5 hp 9 maxHit 2 tags:beast slayerReq:1",
+      "source_file": "src/content/aelgard/monsters-mega.js"
+    },
+    {
+      "activity_id": "kill_mega_heart_hedge_boar",
+      "activity_type": "monster",
+      "skill": "slayer",
+      "intensity": 3,
+      "base_xp_per_hour": 20300,
+      "base_gp_per_hour": 117600,
+      "region": "heartlands",
+      "level_required": 5,
+      "gating": {
+        "quests": [],
+        "items": [],
+        "areas": []
+      },
+      "notes": "Hedge boar — combat 28 hp 42 maxHit 6 tags:beast slayerReq:5",
+      "source_file": "src/content/aelgard/monsters-mega.js"
+    },
+    {
+      "activity_id": "kill_mega_heart_hedgerow_stalker",
+      "activity_type": "monster",
+      "skill": "slayer",
+      "intensity": 4,
+      "base_xp_per_hour": 28700,
+      "base_gp_per_hour": 168000,
+      "region": "heartlands",
+      "level_required": 20,
+      "gating": {
+        "quests": [],
+        "items": [],
+        "areas": []
+      },
+      "notes": "Hedgerow stalker — combat 40 hp 55 maxHit 7 tags:beast slayerReq:20",
+      "source_file": "src/content/aelgard/monsters-mega.js"
+    },
+    {
+      "activity_id": "kill_mega_heart_militia_captain",
+      "activity_type": "monster",
+      "skill": "combat",
+      "intensity": 4,
+      "base_xp_per_hour": 33250,
+      "base_gp_per_hour": 201600,
+      "region": "heartlands",
+      "level_required": 16,
+      "gating": {
+        "quests": [],
+        "items": [],
+        "areas": []
+      },
+      "notes": "Militia captain — combat 48 hp 60 maxHit 8 tags:human/armoured",
+      "source_file": "src/content/aelgard/monsters-mega.js"
+    },
+    {
+      "activity_id": "kill_mega_heart_plough_ghoul",
+      "activity_type": "monster",
+      "skill": "slayer",
+      "intensity": 3,
+      "base_xp_per_hour": 24500,
+      "base_gp_per_hour": 147000,
+      "region": "heartlands",
+      "level_required": 15,
+      "gating": {
+        "quests": [],
+        "items": [],
+        "areas": []
+      },
+      "notes": "Plough ghoul — combat 35 hp 45 maxHit 6 tags:undead slayerReq:15",
+      "source_file": "src/content/aelgard/monsters-mega.js"
+    },
+    {
+      "activity_id": "kill_mega_heart_toll_highwayman",
+      "activity_type": "monster",
+      "skill": "combat",
+      "intensity": 3,
+      "base_xp_per_hour": 15400,
+      "base_gp_per_hour": 92400,
+      "region": "heartlands",
+      "level_required": 7,
+      "gating": {
+        "quests": [],
+        "items": [],
+        "areas": []
+      },
+      "notes": "Toll-road highwayman — combat 22 hp 28 maxHit 5 tags:human",
+      "source_file": "src/content/aelgard/monsters-mega.js"
+    },
+    {
+      "activity_id": "kill_mega_heart_rat_king",
+      "activity_type": "monster",
+      "skill": "slayer",
+      "intensity": 4,
+      "base_xp_per_hour": 26400,
+      "base_gp_per_hour": 145200,
+      "region": "heartlands",
+      "level_required": 30,
+      "gating": {
+        "quests": [],
+        "items": [],
+        "areas": []
+      },
+      "notes": "Rat king — combat 55 hp 80 maxHit 9 tags:beast slayerReq:30",
+      "source_file": "src/content/aelgard/monsters-mega.js"
+    },
+    {
+      "activity_id": "kill_mega_heart_sow_witch",
+      "activity_type": "monster",
+      "skill": "slayer",
+      "intensity": 3,
+      "base_xp_per_hour": 23800,
+      "base_gp_per_hour": 134400,
+      "region": "heartlands",
+      "level_required": 10,
+      "gating": {
+        "quests": [],
+        "items": [],
+        "areas": []
+      },
+      "notes": "Sow-witch — combat 32 hp 36 maxHit 7 tags:human slayerReq:10",
+      "source_file": "src/content/aelgard/monsters-mega.js"
+    },
+    {
+      "activity_id": "kill_mega_heart_church_gargoyle",
+      "activity_type": "monster",
+      "skill": "slayer",
+      "intensity": 7,
+      "base_xp_per_hour": 30800,
+      "base_gp_per_hour": 158400,
+      "region": "heartlands",
+      "level_required": 35,
+      "gating": {
+        "quests": [],
+        "items": [],
+        "areas": []
+      },
+      "notes": "Church gargoyle — combat 60 hp 85 maxHit 10 tags:construct/armoured slayerReq:35",
+      "source_file": "src/content/aelgard/monsters-mega.js"
+    },
+    {
+      "activity_id": "kill_mega_mor_grave_spawn",
+      "activity_type": "monster",
+      "skill": "slayer",
+      "intensity": 3,
+      "base_xp_per_hour": 27300,
+      "base_gp_per_hour": 159600,
+      "region": "moryskah",
+      "level_required": 18,
+      "gating": {
+        "quests": [],
+        "items": [],
+        "areas": []
+      },
+      "notes": "Grave-spawn — combat 38 hp 42 maxHit 6 tags:undead slayerReq:18",
+      "source_file": "src/content/aelgard/monsters-mega.js"
+    },
+    {
+      "activity_id": "kill_mega_mor_crypt_howler",
+      "activity_type": "monster",
+      "skill": "slayer",
+      "intensity": 4,
+      "base_xp_per_hour": 33000,
+      "base_gp_per_hour": 174240,
+      "region": "moryskah",
+      "level_required": 40,
+      "gating": {
+        "quests": [],
+        "items": [],
+        "areas": []
+      },
+      "notes": "Crypt howler — combat 66 hp 78 maxHit 11 tags:beast/undead slayerReq:40",
+      "source_file": "src/content/aelgard/monsters-mega.js"
+    },
+    {
+      "activity_id": "kill_mega_mor_nocturne_lord",
+      "activity_type": "monster",
+      "skill": "slayer",
+      "intensity": 5,
+      "base_xp_per_hour": 36000,
+      "base_gp_per_hour": 201600,
+      "region": "moryskah",
+      "level_required": 70,
+      "gating": {
+        "quests": [],
+        "items": [],
+        "areas": []
+      },
+      "notes": "Nocturne lord — combat 112 hp 140 maxHit 16 tags:vampyre/undead slayerReq:70",
+      "source_file": "src/content/aelgard/monsters-mega.js"
+    },
+    {
+      "activity_id": "kill_mega_mor_werewolf_stalker",
+      "activity_type": "monster",
+      "skill": "slayer",
+      "intensity": 5,
+      "base_xp_per_hour": 39600,
+      "base_gp_per_hour": 224400,
+      "region": "moryskah",
+      "level_required": 55,
+      "gating": {
+        "quests": [],
+        "items": [],
+        "areas": []
+      },
+      "notes": "Werewolf stalker — combat 85 hp 100 maxHit 13 tags:beast/werewolf slayerReq:55",
+      "source_file": "src/content/aelgard/monsters-mega.js"
+    },
+    {
+      "activity_id": "kill_mega_mor_bone_priest",
+      "activity_type": "monster",
+      "skill": "slayer",
+      "intensity": 4,
+      "base_xp_per_hour": 25300,
+      "base_gp_per_hour": 153120,
+      "region": "moryskah",
+      "level_required": 25,
+      "gating": {
+        "quests": [],
+        "items": [],
+        "areas": []
+      },
+      "notes": "Bone priest — combat 58 hp 70 maxHit 10 tags:undead slayerReq:25",
+      "source_file": "src/content/aelgard/monsters-mega.js"
+    },
+    {
+      "activity_id": "kill_mega_mor_salt_vampire",
+      "activity_type": "monster",
+      "skill": "slayer",
+      "intensity": 5,
+      "base_xp_per_hour": 45100,
+      "base_gp_per_hour": 258720,
+      "region": "moryskah",
+      "level_required": 62,
+      "gating": {
+        "quests": [],
+        "items": [],
+        "areas": []
+      },
+      "notes": "Salt vampire — combat 98 hp 125 maxHit 14 tags:vampyre/undead slayerReq:62",
+      "source_file": "src/content/aelgard/monsters-mega.js"
+    },
+    {
+      "activity_id": "kill_mega_mor_coffin_crawler",
+      "activity_type": "monster",
+      "skill": "slayer",
+      "intensity": 3,
+      "base_xp_per_hour": 16800,
+      "base_gp_per_hour": 100800,
+      "region": "moryskah",
+      "level_required": 8,
+      "gating": {
+        "quests": [],
+        "items": [],
+        "areas": []
+      },
+      "notes": "Coffin crawler — combat 24 hp 30 maxHit 4 tags:undead slayerReq:8",
+      "source_file": "src/content/aelgard/monsters-mega.js"
+    },
+    {
+      "activity_id": "kill_mega_mor_mourner",
+      "activity_type": "monster",
+      "skill": "combat",
+      "intensity": 4,
+      "base_xp_per_hour": 30800,
+      "base_gp_per_hour": 189000,
+      "region": "moryskah",
+      "level_required": 15,
+      "gating": {
+        "quests": [],
+        "items": [],
+        "areas": []
+      },
+      "notes": "Mourner — combat 45 hp 50 maxHit 7 tags:human",
+      "source_file": "src/content/aelgard/monsters-mega.js"
+    },
+    {
+      "activity_id": "kill_mega_mor_chapel_revenant",
+      "activity_type": "monster",
+      "skill": "slayer",
+      "intensity": 6,
+      "base_xp_per_hour": 34760,
+      "base_gp_per_hour": 195360,
+      "region": "moryskah",
+      "level_required": 48,
+      "gating": {
+        "quests": [],
+        "items": [],
+        "areas": []
+      },
+      "notes": "Chapel revenant — combat 74 hp 95 maxHit 12 tags:undead/spirit slayerReq:48",
+      "source_file": "src/content/aelgard/monsters-mega.js"
+    },
+    {
+      "activity_id": "kill_mega_mor_blood_bat",
+      "activity_type": "monster",
+      "skill": "slayer",
+      "intensity": 2,
+      "base_xp_per_hour": 18000,
+      "base_gp_per_hour": 114000,
+      "region": "moryskah",
+      "level_required": 3,
+      "gating": {
+        "quests": [],
+        "items": [],
+        "areas": []
+      },
+      "notes": "Blood bat — combat 19 hp 22 maxHit 3 tags:beast slayerReq:3",
+      "source_file": "src/content/aelgard/monsters-mega.js"
+    },
+    {
+      "activity_id": "kill_mega_mor_marrow_wight",
+      "activity_type": "monster",
+      "skill": "slayer",
+      "intensity": 5,
+      "base_xp_per_hour": 42900,
+      "base_gp_per_hour": 242880,
+      "region": "moryskah",
+      "level_required": 58,
+      "gating": {
+        "quests": [],
+        "items": [],
+        "areas": []
+      },
+      "notes": "Marrow wight — combat 92 hp 115 maxHit 13 tags:undead slayerReq:58",
+      "source_file": "src/content/aelgard/monsters-mega.js"
+    },
+    {
+      "activity_id": "kill_mega_mor_lamplighter_ghost",
+      "activity_type": "monster",
+      "skill": "slayer",
+      "intensity": 3,
+      "base_xp_per_hour": 19250,
+      "base_gp_per_hour": 121800,
+      "region": "moryskah",
+      "level_required": 12,
+      "gating": {
+        "quests": [],
+        "items": [],
+        "areas": []
+      },
+      "notes": "Lamplighter ghost — combat 29 hp 28 maxHit 4 tags:undead/spirit slayerReq:12",
+      "source_file": "src/content/aelgard/monsters-mega.js"
+    },
+    {
+      "activity_id": "kill_mega_mor_moon_cultist",
+      "activity_type": "monster",
+      "skill": "combat",
+      "intensity": 4,
+      "base_xp_per_hour": 23100,
+      "base_gp_per_hour": 137280,
+      "region": "moryskah",
+      "level_required": 17,
+      "gating": {
+        "quests": [],
+        "items": [],
+        "areas": []
+      },
+      "notes": "Moon cultist — combat 52 hp 62 maxHit 9 tags:human",
+      "source_file": "src/content/aelgard/monsters-mega.js"
+    },
+    {
+      "activity_id": "kill_mega_mor_black_carriage_driver",
+      "activity_type": "monster",
+      "skill": "combat",
+      "intensity": 5,
+      "base_xp_per_hour": 37400,
+      "base_gp_per_hour": 216480,
+      "region": "moryskah",
+      "level_required": 27,
+      "gating": {
+        "quests": [],
+        "items": [],
+        "areas": []
+      },
+      "notes": "Black-carriage driver — combat 82 hp 95 maxHit 12 tags:human/undead",
+      "source_file": "src/content/aelgard/monsters-mega.js"
+    },
+    {
+      "activity_id": "kill_mega_mor_whispering_skull",
+      "activity_type": "monster",
+      "skill": "slayer",
+      "intensity": 3,
+      "base_xp_per_hour": 25200,
+      "base_gp_per_hour": 159600,
+      "region": "moryskah",
+      "level_required": 15,
+      "gating": {
+        "quests": [],
+        "items": [],
+        "areas": []
+      },
+      "notes": "Whispering skull — combat 38 hp 35 maxHit 6 tags:undead slayerReq:15",
+      "source_file": "src/content/aelgard/monsters-mega.js"
+    },
+    {
+      "activity_id": "kill_mega_bone_minor_mummy",
+      "activity_type": "monster",
+      "skill": "slayer",
+      "intensity": 3,
+      "base_xp_per_hour": 23800,
+      "base_gp_per_hour": 142800,
+      "region": "boneyard",
+      "level_required": 14,
+      "gating": {
+        "quests": [],
+        "items": [],
+        "areas": []
+      },
+      "notes": "Minor mummy — combat 34 hp 40 maxHit 5 tags:undead slayerReq:14",
+      "source_file": "src/content/aelgard/monsters-mega.js"
+    },
+    {
+      "activity_id": "kill_mega_bone_greater_mummy",
+      "activity_type": "monster",
+      "skill": "slayer",
+      "intensity": 5,
+      "base_xp_per_hour": 35640,
+      "base_gp_per_hour": 205920,
+      "region": "boneyard",
+      "level_required": 50,
+      "gating": {
+        "quests": [],
+        "items": [],
+        "areas": []
+      },
+      "notes": "Greater mummy — combat 78 hp 95 maxHit 12 tags:undead/armoured slayerReq:50",
+      "source_file": "src/content/aelgard/monsters-mega.js"
+    },
+    {
+      "activity_id": "kill_mega_bone_pharaoh_lich",
+      "activity_type": "boss",
+      "skill": "slayer",
+      "intensity": 7,
+      "base_xp_per_hour": 43500,
+      "base_gp_per_hour": 15600000,
+      "region": "boneyard",
+      "level_required": 82,
+      "gating": {
+        "quests": [],
+        "items": [],
+        "areas": []
+      },
+      "notes": "Pharaoh lich — combat 130 hp 180 maxHit 18 tags:undead/boss slayerReq:82",
+      "source_file": "src/content/aelgard/monsters-mega.js"
+    },
+    {
+      "activity_id": "kill_mega_bone_shield_scarab",
+      "activity_type": "monster",
+      "skill": "slayer",
+      "intensity": 4,
+      "base_xp_per_hour": 29750,
+      "base_gp_per_hour": 176400,
+      "region": "boneyard",
+      "level_required": 22,
+      "gating": {
+        "quests": [],
+        "items": [],
+        "areas": []
+      },
+      "notes": "Shield scarab — combat 42 hp 58 maxHit 7 tags:beast/armoured slayerReq:22",
+      "source_file": "src/content/aelgard/monsters-mega.js"
+    },
+    {
+      "activity_id": "kill_mega_bone_biter_scarab",
+      "activity_type": "monster",
+      "skill": "slayer",
+      "intensity": 4,
+      "base_xp_per_hour": 25960,
+      "base_gp_per_hour": 153120,
+      "region": "boneyard",
+      "level_required": 32,
+      "gating": {
+        "quests": [],
+        "items": [],
+        "areas": []
+      },
+      "notes": "Biter scarab — combat 58 hp 65 maxHit 9 tags:beast slayerReq:32",
+      "source_file": "src/content/aelgard/monsters-mega.js"
+    },
+    {
+      "activity_id": "kill_mega_bone_salt_stalker",
+      "activity_type": "monster",
+      "skill": "slayer",
+      "intensity": 5,
+      "base_xp_per_hour": 32560,
+      "base_gp_per_hour": 184800,
+      "region": "boneyard",
+      "level_required": 45,
+      "gating": {
+        "quests": [],
+        "items": [],
+        "areas": []
+      },
+      "notes": "Salt-stalker — combat 70 hp 85 maxHit 11 tags:beast slayerReq:45",
+      "source_file": "src/content/aelgard/monsters-mega.js"
+    },
+    {
+      "activity_id": "kill_mega_bone_dust_dweller",
+      "activity_type": "monster",
+      "skill": "slayer",
+      "intensity": 4,
+      "base_xp_per_hour": 33600,
+      "base_gp_per_hour": 201600,
+      "region": "boneyard",
+      "level_required": 26,
+      "gating": {
+        "quests": [],
+        "items": [],
+        "areas": []
+      },
+      "notes": "Dust-dweller — combat 48 hp 52 maxHit 8 tags:elemental/spirit slayerReq:26",
+      "source_file": "src/content/aelgard/monsters-mega.js"
+    },
+    {
+      "activity_id": "kill_mega_bone_dust_tyrant",
+      "activity_type": "boss",
+      "skill": "slayer",
+      "intensity": 7,
+      "base_xp_per_hour": 43560,
+      "base_gp_per_hour": 16720000,
+      "region": "boneyard",
+      "level_required": 62,
+      "gating": {
+        "quests": [],
+        "items": [],
+        "areas": []
+      },
+      "notes": "Dust tyrant — combat 95 hp 120 maxHit 15 tags:elemental/boss slayerReq:62",
+      "source_file": "src/content/aelgard/monsters-mega.js"
+    },
+    {
+      "activity_id": "kill_mega_bone_sand_djinn",
+      "activity_type": "monster",
+      "skill": "slayer",
+      "intensity": 5,
+      "base_xp_per_hour": 40040,
+      "base_gp_per_hour": 232320,
+      "region": "boneyard",
+      "level_required": 55,
+      "gating": {
+        "quests": [],
+        "items": [],
+        "areas": []
+      },
+      "notes": "Sand djinn — combat 88 hp 105 maxHit 14 tags:elemental/spirit slayerReq:55",
+      "source_file": "src/content/aelgard/monsters-mega.js"
+    },
+    {
+      "activity_id": "kill_mega_bone_canopic_guardian",
+      "activity_type": "monster",
+      "skill": "combat",
+      "intensity": 4,
+      "base_xp_per_hour": 29700,
+      "base_gp_per_hour": 171600,
+      "region": "boneyard",
+      "level_required": 21,
+      "gating": {
+        "quests": [],
+        "items": [],
+        "areas": []
+      },
+      "notes": "Canopic guardian — combat 65 hp 80 maxHit 10 tags:construct/armoured",
+      "source_file": "src/content/aelgard/monsters-mega.js"
+    },
+    {
+      "activity_id": "kill_mega_bone_glass_cobra",
+      "activity_type": "monster",
+      "skill": "slayer",
+      "intensity": 3,
+      "base_xp_per_hour": 21700,
+      "base_gp_per_hour": 134400,
+      "region": "boneyard",
+      "level_required": 12,
+      "gating": {
+        "quests": [],
+        "items": [],
+        "areas": []
+      },
+      "notes": "Glass cobra — combat 32 hp 36 maxHit 5 tags:beast slayerReq:12",
+      "source_file": "src/content/aelgard/monsters-mega.js"
+    },
+    {
+      "activity_id": "kill_mega_bone_tomb_raider",
+      "activity_type": "monster",
+      "skill": "combat",
+      "intensity": 3,
+      "base_xp_per_hour": 25900,
+      "base_gp_per_hour": 159600,
+      "region": "boneyard",
+      "level_required": 12,
+      "gating": {
+        "quests": [],
+        "items": [],
+        "areas": []
+      },
+      "notes": "Tomb raider — combat 38 hp 46 maxHit 6 tags:human",
+      "source_file": "src/content/aelgard/monsters-mega.js"
+    },
+    {
+      "activity_id": "kill_mega_veil_mirror_deer",
+      "activity_type": "monster",
+      "skill": "slayer",
+      "intensity": 4,
+      "base_xp_per_hour": 30800,
+      "base_gp_per_hour": 184800,
+      "region": "veilwood",
+      "level_required": 24,
+      "gating": {
+        "quests": [],
+        "items": [],
+        "areas": []
+      },
+      "notes": "Mirror-deer — combat 44 hp 48 maxHit 7 tags:beast slayerReq:24",
+      "source_file": "src/content/aelgard/monsters-mega.js"
+    },
+    {
+      "activity_id": "kill_mega_veil_glass_spider",
+      "activity_type": "monster",
+      "skill": "slayer",
+      "intensity": 4,
+      "base_xp_per_hour": 25080,
+      "base_gp_per_hour": 142560,
+      "region": "veilwood",
+      "level_required": 30,
+      "gating": {
+        "quests": [],
+        "items": [],
+        "areas": []
+      },
+      "notes": "Glass-spider — combat 54 hp 60 maxHit 9 tags:beast slayerReq:30",
+      "source_file": "src/content/aelgard/monsters-mega.js"
+    },
+    {
+      "activity_id": "kill_mega_veil_corrupted_dryad",
+      "activity_type": "monster",
+      "skill": "slayer",
+      "intensity": 4,
+      "base_xp_per_hour": 31240,
+      "base_gp_per_hour": 179520,
+      "region": "veilwood",
+      "level_required": 42,
+      "gating": {
+        "quests": [],
+        "items": [],
+        "areas": []
+      },
+      "notes": "Corrupted dryad — combat 68 hp 80 maxHit 11 tags:plant/spirit slayerReq:42",
+      "source_file": "src/content/aelgard/monsters-mega.js"
+    },
+    {
+      "activity_id": "kill_mega_veil_thornback_elk",
+      "activity_type": "monster",
+      "skill": "slayer",
+      "intensity": 4,
+      "base_xp_per_hour": 23100,
+      "base_gp_per_hour": 134640,
+      "region": "veilwood",
+      "level_required": 28,
+      "gating": {
+        "quests": [],
+        "items": [],
+        "areas": []
+      },
+      "notes": "Thornback elk — combat 51 hp 62 maxHit 8 tags:beast/plant slayerReq:28",
+      "source_file": "src/content/aelgard/monsters-mega.js"
+    },
+    {
+      "activity_id": "kill_mega_veil_fey_archer",
+      "activity_type": "monster",
+      "skill": "combat",
+      "intensity": 5,
+      "base_xp_per_hour": 35200,
+      "base_gp_per_hour": 200640,
+      "region": "veilwood",
+      "level_required": 25,
+      "gating": {
+        "quests": [],
+        "items": [],
+        "areas": []
+      },
+      "notes": "Fey archer — combat 76 hp 88 maxHit 12 tags:spirit",
+      "source_file": "src/content/aelgard/monsters-mega.js"
+    },
+    {
+      "activity_id": "kill_mega_veil_moonglass_warden",
+      "activity_type": "monster",
+      "skill": "slayer",
+      "intensity": 5,
+      "base_xp_per_hour": 41360,
+      "base_gp_per_hour": 237600,
+      "region": "veilwood",
+      "level_required": 58,
+      "gating": {
+        "quests": [],
+        "items": [],
+        "areas": []
+      },
+      "notes": "Moonglass warden — combat 90 hp 110 maxHit 14 tags:construct slayerReq:58",
+      "source_file": "src/content/aelgard/monsters-mega.js"
+    },
+    {
+      "activity_id": "kill_mega_veil_root_stalker",
+      "activity_type": "monster",
+      "skill": "slayer",
+      "intensity": 3,
+      "base_xp_per_hour": 25900,
+      "base_gp_per_hour": 151200,
+      "region": "veilwood",
+      "level_required": 18,
+      "gating": {
+        "quests": [],
+        "items": [],
+        "areas": []
+      },
+      "notes": "Root stalker — combat 36 hp 42 maxHit 6 tags:plant slayerReq:18",
+      "source_file": "src/content/aelgard/monsters-mega.js"
+    },
+    {
+      "activity_id": "kill_mega_veil_hollow_huntsman",
+      "activity_type": "monster",
+      "skill": "slayer",
+      "intensity": 4,
+      "base_xp_per_hour": 28160,
+      "base_gp_per_hour": 163680,
+      "region": "veilwood",
+      "level_required": 38,
+      "gating": {
+        "quests": [],
+        "items": [],
+        "areas": []
+      },
+      "notes": "Hollow huntsman — combat 62 hp 72 maxHit 10 tags:undead slayerReq:38",
+      "source_file": "src/content/aelgard/monsters-mega.js"
+    },
+    {
+      "activity_id": "kill_mega_veil_ink_cap_fungus",
+      "activity_type": "monster",
+      "skill": "slayer",
+      "intensity": 3,
+      "base_xp_per_hour": 18200,
+      "base_gp_per_hour": 117600,
+      "region": "veilwood",
+      "level_required": 10,
+      "gating": {
+        "quests": [],
+        "items": [],
+        "areas": []
+      },
+      "notes": "Ink-cap fungus — combat 28 hp 30 maxHit 5 tags:plant slayerReq:10",
+      "source_file": "src/content/aelgard/monsters-mega.js"
+    },
+    {
+      "activity_id": "kill_mega_veil_clockwork_owl",
+      "activity_type": "monster",
+      "skill": "slayer",
+      "intensity": 4,
+      "base_xp_per_hour": 28700,
+      "base_gp_per_hour": 172200,
+      "region": "veilwood",
+      "level_required": 20,
+      "gating": {
+        "quests": [],
+        "items": [],
+        "areas": []
+      },
+      "notes": "Clockwork owl — combat 41 hp 38 maxHit 6 tags:construct slayerReq:20",
+      "source_file": "src/content/aelgard/monsters-mega.js"
+    },
+    {
+      "activity_id": "kill_mega_veil_glass_wolf",
+      "activity_type": "monster",
+      "skill": "slayer",
+      "intensity": 5,
+      "base_xp_per_hour": 33000,
+      "base_gp_per_hour": 190080,
+      "region": "veilwood",
+      "level_required": 45,
+      "gating": {
+        "quests": [],
+        "items": [],
+        "areas": []
+      },
+      "notes": "Glass wolf — combat 72 hp 85 maxHit 11 tags:beast slayerReq:45",
+      "source_file": "src/content/aelgard/monsters-mega.js"
+    },
+    {
+      "activity_id": "kill_mega_veil_king_of_the_wood",
+      "activity_type": "boss",
+      "skill": "slayer",
+      "intensity": 7,
+      "base_xp_per_hour": 48000,
+      "base_gp_per_hour": 15840000,
+      "region": "veilwood",
+      "level_required": 85,
+      "gating": {
+        "quests": [],
+        "items": [],
+        "areas": []
+      },
+      "notes": "King of the Wood — combat 132 hp 200 maxHit 19 tags:plant/boss slayerReq:85",
+      "source_file": "src/content/aelgard/monsters-mega.js"
+    },
+    {
+      "activity_id": "kill_mega_soot_rust_golem",
+      "activity_type": "monster",
+      "skill": "slayer",
+      "intensity": 4,
+      "base_xp_per_hour": 28600,
+      "base_gp_per_hour": 163680,
+      "region": "sootworks",
+      "level_required": 36,
+      "gating": {
+        "quests": [],
+        "items": [],
+        "areas": []
+      },
+      "notes": "Rust-golem — combat 62 hp 90 maxHit 10 tags:construct/armoured slayerReq:36",
+      "source_file": "src/content/aelgard/monsters-mega.js"
+    },
+    {
+      "activity_id": "kill_mega_soot_clockwork_sentinel",
+      "activity_type": "monster",
+      "skill": "slayer",
+      "intensity": 5,
+      "base_xp_per_hour": 35640,
+      "base_gp_per_hour": 205920,
+      "region": "sootworks",
+      "level_required": 48,
+      "gating": {
+        "quests": [],
+        "items": [],
+        "areas": []
+      },
+      "notes": "Clockwork sentinel — combat 78 hp 100 maxHit 12 tags:construct/armoured slayerReq:48",
+      "source_file": "src/content/aelgard/monsters-mega.js"
+    },
+    {
+      "activity_id": "kill_mega_soot_forge_wraith",
+      "activity_type": "monster",
+      "skill": "slayer",
+      "intensity": 5,
+      "base_xp_per_hour": 39160,
+      "base_gp_per_hour": 221760,
+      "region": "sootworks",
+      "level_required": 52,
+      "gating": {
+        "quests": [],
+        "items": [],
+        "areas": []
+      },
+      "notes": "Forge-wraith — combat 84 hp 95 maxHit 13 tags:spirit/elemental slayerReq:52",
+      "source_file": "src/content/aelgard/monsters-mega.js"
+    },
+    {
+      "activity_id": "kill_mega_soot_soot_sprite",
+      "activity_type": "monster",
+      "skill": "slayer",
+      "intensity": 2,
+      "base_xp_per_hour": 16000,
+      "base_gp_per_hour": 108000,
+      "region": "sootworks",
+      "level_required": 2,
+      "gating": {
+        "quests": [],
+        "items": [],
+        "areas": []
+      },
+      "notes": "Soot sprite — combat 18 hp 20 maxHit 3 tags:spirit/elemental slayerReq:2",
+      "source_file": "src/content/aelgard/monsters-mega.js"
+    },
+    {
+      "activity_id": "kill_mega_soot_gearbeast",
+      "activity_type": "monster",
+      "skill": "slayer",
+      "intensity": 4,
+      "base_xp_per_hour": 33250,
+      "base_gp_per_hour": 193200,
+      "region": "sootworks",
+      "level_required": 24,
+      "gating": {
+        "quests": [],
+        "items": [],
+        "areas": []
+      },
+      "notes": "Gearbeast — combat 46 hp 70 maxHit 7 tags:construct slayerReq:24",
+      "source_file": "src/content/aelgard/monsters-mega.js"
+    },
+    {
+      "activity_id": "kill_mega_soot_bellows_imp",
+      "activity_type": "monster",
+      "skill": "combat",
+      "intensity": 3,
+      "base_xp_per_hour": 14000,
+      "base_gp_per_hour": 92400,
+      "region": "sootworks",
+      "level_required": 7,
+      "gating": {
+        "quests": [],
+        "items": [],
+        "areas": []
+      },
+      "notes": "Bellows imp — combat 22 hp 22 maxHit 4 tags:demon/elemental",
+      "source_file": "src/content/aelgard/monsters-mega.js"
+    },
+    {
+      "activity_id": "kill_mega_soot_smoker_dwarf",
+      "activity_type": "monster",
+      "skill": "combat",
+      "intensity": 4,
+      "base_xp_per_hour": 29400,
+      "base_gp_per_hour": 168000,
+      "region": "sootworks",
+      "level_required": 13,
+      "gating": {
+        "quests": [],
+        "items": [],
+        "areas": []
+      },
+      "notes": "Smoker dwarf — combat 40 hp 50 maxHit 7 tags:human/dwarf",
+      "source_file": "src/content/aelgard/monsters-mega.js"
+    },
+    {
+      "activity_id": "kill_mega_soot_furnace_horror",
+      "activity_type": "monster",
+      "skill": "slayer",
+      "intensity": 5,
+      "base_xp_per_hour": 34200,
+      "base_gp_per_hour": 194400,
+      "region": "sootworks",
+      "level_required": 68,
+      "gating": {
+        "quests": [],
+        "items": [],
+        "areas": []
+      },
+      "notes": "Furnace horror — combat 108 hp 150 maxHit 16 tags:demon/elemental/armoured slayerReq:68",
+      "source_file": "src/content/aelgard/monsters-mega.js"
+    },
+    {
+      "activity_id": "kill_mega_soot_iron_wight",
+      "activity_type": "monster",
+      "skill": "slayer",
+      "intensity": 4,
+      "base_xp_per_hour": 25300,
+      "base_gp_per_hour": 145200,
+      "region": "sootworks",
+      "level_required": 32,
+      "gating": {
+        "quests": [],
+        "items": [],
+        "areas": []
+      },
+      "notes": "Iron wight — combat 55 hp 72 maxHit 9 tags:undead/armoured slayerReq:32",
+      "source_file": "src/content/aelgard/monsters-mega.js"
+    },
+    {
+      "activity_id": "kill_mega_soot_anvil_ogre",
+      "activity_type": "monster",
+      "skill": "slayer",
+      "intensity": 5,
+      "base_xp_per_hour": 31900,
+      "base_gp_per_hour": 190080,
+      "region": "sootworks",
+      "level_required": 44,
+      "gating": {
+        "quests": [],
+        "items": [],
+        "areas": []
+      },
+      "notes": "Anvil ogre — combat 72 hp 110 maxHit 13 tags:beast/armoured slayerReq:44",
+      "source_file": "src/content/aelgard/monsters-mega.js"
+    },
+    {
+      "activity_id": "kill_mega_soot_steam_houndling",
+      "activity_type": "monster",
+      "skill": "slayer",
+      "intensity": 3,
+      "base_xp_per_hour": 23100,
+      "base_gp_per_hour": 138600,
+      "region": "sootworks",
+      "level_required": 14,
+      "gating": {
+        "quests": [],
+        "items": [],
+        "areas": []
+      },
+      "notes": "Steam houndling — combat 33 hp 38 maxHit 5 tags:construct slayerReq:14",
+      "source_file": "src/content/aelgard/monsters-mega.js"
+    },
+    {
+      "activity_id": "kill_mega_soot_slag_elemental",
+      "activity_type": "monster",
+      "skill": "slayer",
+      "intensity": 4,
+      "base_xp_per_hour": 27500,
+      "base_gp_per_hour": 158400,
+      "region": "sootworks",
+      "level_required": 38,
+      "gating": {
+        "quests": [],
+        "items": [],
+        "areas": []
+      },
+      "notes": "Slag elemental — combat 60 hp 80 maxHit 10 tags:elemental slayerReq:38",
+      "source_file": "src/content/aelgard/monsters-mega.js"
+    },
+    {
+      "activity_id": "kill_mega_salt_brine_troll",
+      "activity_type": "monster",
+      "skill": "slayer",
+      "intensity": 4,
+      "base_xp_per_hour": 25960,
+      "base_gp_per_hour": 153120,
+      "region": "saltbrine",
+      "level_required": 30,
+      "gating": {
+        "quests": [],
+        "items": [],
+        "areas": []
+      },
+      "notes": "Brine troll — combat 58 hp 82 maxHit 10 tags:beast slayerReq:30",
+      "source_file": "src/content/aelgard/monsters-mega.js"
+    },
+    {
+      "activity_id": "kill_mega_salt_kraken_spawn",
+      "activity_type": "monster",
+      "skill": "slayer",
+      "intensity": 4,
+      "base_xp_per_hour": 31240,
+      "base_gp_per_hour": 179520,
+      "region": "saltbrine",
+      "level_required": 42,
+      "gating": {
+        "quests": [],
+        "items": [],
+        "areas": []
+      },
+      "notes": "Kraken-spawn — combat 68 hp 85 maxHit 11 tags:beast slayerReq:42",
+      "source_file": "src/content/aelgard/monsters-mega.js"
+    },
+    {
+      "activity_id": "kill_mega_salt_drowner",
+      "activity_type": "monster",
+      "skill": "slayer",
+      "intensity": 4,
+      "base_xp_per_hour": 23320,
+      "base_gp_per_hour": 137280,
+      "region": "saltbrine",
+      "level_required": 28,
+      "gating": {
+        "quests": [],
+        "items": [],
+        "areas": []
+      },
+      "notes": "Drowner — combat 52 hp 65 maxHit 9 tags:undead slayerReq:28",
+      "source_file": "src/content/aelgard/monsters-mega.js"
+    },
+    {
+      "activity_id": "kill_mega_salt_salt_vampire_spawn",
+      "activity_type": "monster",
+      "skill": "slayer",
+      "intensity": 4,
+      "base_xp_per_hour": 30800,
+      "base_gp_per_hour": 176400,
+      "region": "saltbrine",
+      "level_required": 22,
+      "gating": {
+        "quests": [],
+        "items": [],
+        "areas": []
+      },
+      "notes": "Salt-vampire spawn — combat 42 hp 48 maxHit 7 tags:vampyre/undead slayerReq:22",
+      "source_file": "src/content/aelgard/monsters-mega.js"
+    },
+    {
+      "activity_id": "kill_mega_salt_tidewalker",
+      "activity_type": "monster",
+      "skill": "slayer",
+      "intensity": 5,
+      "base_xp_per_hour": 36960,
+      "base_gp_per_hour": 211200,
+      "region": "saltbrine",
+      "level_required": 50,
+      "gating": {
+        "quests": [],
+        "items": [],
+        "areas": []
+      },
+      "notes": "Tidewalker — combat 80 hp 105 maxHit 12 tags:beast slayerReq:50",
+      "source_file": "src/content/aelgard/monsters-mega.js"
+    },
+    {
+      "activity_id": "kill_mega_salt_kraken_matriarch",
+      "activity_type": "boss",
+      "skill": "slayer",
+      "intensity": 7,
+      "base_xp_per_hour": 48000,
+      "base_gp_per_hour": 16800000,
+      "region": "saltbrine",
+      "level_required": 88,
+      "gating": {
+        "quests": [],
+        "items": [],
+        "areas": []
+      },
+      "notes": "Kraken matriarch — combat 140 hp 240 maxHit 20 tags:beast/boss slayerReq:88",
+      "source_file": "src/content/aelgard/monsters-mega.js"
+    },
+    {
+      "activity_id": "kill_mega_salt_reefdog",
+      "activity_type": "monster",
+      "skill": "slayer",
+      "intensity": 3,
+      "base_xp_per_hour": 25200,
+      "base_gp_per_hour": 151200,
+      "region": "saltbrine",
+      "level_required": 16,
+      "gating": {
+        "quests": [],
+        "items": [],
+        "areas": []
+      },
+      "notes": "Reefdog — combat 36 hp 44 maxHit 6 tags:beast slayerReq:16",
+      "source_file": "src/content/aelgard/monsters-mega.js"
+    },
+    {
+      "activity_id": "kill_mega_salt_coral_lancer",
+      "activity_type": "monster",
+      "skill": "slayer",
+      "intensity": 4,
+      "base_xp_per_hour": 33600,
+      "base_gp_per_hour": 197400,
+      "region": "saltbrine",
+      "level_required": 26,
+      "gating": {
+        "quests": [],
+        "items": [],
+        "areas": []
+      },
+      "notes": "Coral lancer — combat 47 hp 55 maxHit 7 tags:beast slayerReq:26",
+      "source_file": "src/content/aelgard/monsters-mega.js"
+    },
+    {
+      "activity_id": "kill_mega_salt_wreckmarrow",
+      "activity_type": "monster",
+      "skill": "slayer",
+      "intensity": 4,
+      "base_xp_per_hour": 29040,
+      "base_gp_per_hour": 168960,
+      "region": "saltbrine",
+      "level_required": 36,
+      "gating": {
+        "quests": [],
+        "items": [],
+        "areas": []
+      },
+      "notes": "Wreckmarrow — combat 64 hp 78 maxHit 10 tags:undead slayerReq:36",
+      "source_file": "src/content/aelgard/monsters-mega.js"
+    },
+    {
+      "activity_id": "kill_mega_salt_ashpool_drinker",
+      "activity_type": "monster",
+      "skill": "slayer",
+      "intensity": 4,
+      "base_xp_per_hour": 23760,
+      "base_gp_per_hour": 142560,
+      "region": "saltbrine",
+      "level_required": 30,
+      "gating": {
+        "quests": [],
+        "items": [],
+        "areas": []
+      },
+      "notes": "Ashpool drinker — combat 54 hp 64 maxHit 9 tags:beast slayerReq:30",
+      "source_file": "src/content/aelgard/monsters-mega.js"
+    },
+    {
+      "activity_id": "kill_mega_salt_lamprey_rider",
+      "activity_type": "monster",
+      "skill": "combat",
+      "intensity": 3,
+      "base_xp_per_hour": 18900,
+      "base_gp_per_hour": 117600,
+      "region": "saltbrine",
+      "level_required": 9,
+      "gating": {
+        "quests": [],
+        "items": [],
+        "areas": []
+      },
+      "notes": "Lamprey rider — combat 28 hp 30 maxHit 4 tags:human",
+      "source_file": "src/content/aelgard/monsters-mega.js"
+    },
+    {
+      "activity_id": "kill_mega_salt_sea_hag",
+      "activity_type": "monster",
+      "skill": "slayer",
+      "intensity": 5,
+      "base_xp_per_hour": 46200,
+      "base_gp_per_hour": 258720,
+      "region": "saltbrine",
+      "level_required": 65,
+      "gating": {
+        "quests": [],
+        "items": [],
+        "areas": []
+      },
+      "notes": "Sea hag — combat 98 hp 120 maxHit 15 tags:human/spirit slayerReq:65",
+      "source_file": "src/content/aelgard/monsters-mega.js"
+    },
+    {
+      "activity_id": "kill_mega_ink_page_spawn",
+      "activity_type": "monster",
+      "skill": "slayer",
+      "intensity": 3,
+      "base_xp_per_hour": 20300,
+      "base_gp_per_hour": 126000,
+      "region": "inkweald",
+      "level_required": 12,
+      "gating": {
+        "quests": [],
+        "items": [],
+        "areas": []
+      },
+      "notes": "Page-spawn — combat 30 hp 35 maxHit 5 tags:spirit slayerReq:12",
+      "source_file": "src/content/aelgard/monsters-mega.js"
+    },
+    {
+      "activity_id": "kill_mega_ink_mirror_stalker",
+      "activity_type": "monster",
+      "skill": "slayer",
+      "intensity": 4,
+      "base_xp_per_hour": 28160,
+      "base_gp_per_hour": 163680,
+      "region": "inkweald",
+      "level_required": 38,
+      "gating": {
+        "quests": [],
+        "items": [],
+        "areas": []
+      },
+      "notes": "Mirror-stalker — combat 62 hp 72 maxHit 10 tags:spirit slayerReq:38",
+      "source_file": "src/content/aelgard/monsters-mega.js"
+    },
+    {
+      "activity_id": "kill_mega_ink_shaped",
+      "activity_type": "monster",
+      "skill": "slayer",
+      "intensity": 5,
+      "base_xp_per_hour": 40700,
+      "base_gp_per_hour": 232320,
+      "region": "inkweald",
+      "level_required": 56,
+      "gating": {
+        "quests": [],
+        "items": [],
+        "areas": []
+      },
+      "notes": "Ink-shaped — combat 88 hp 110 maxHit 13 tags:spirit slayerReq:56",
+      "source_file": "src/content/aelgard/monsters-mega.js"
+    },
+    {
+      "activity_id": "kill_mega_ink_forgotten_name",
+      "activity_type": "boss",
+      "skill": "slayer",
+      "intensity": 7,
+      "base_xp_per_hour": 39000,
+      "base_gp_per_hour": 14400000,
+      "region": "inkweald",
+      "level_required": 78,
+      "gating": {
+        "quests": [],
+        "items": [],
+        "areas": []
+      },
+      "notes": "Forgotten-name — combat 120 hp 160 maxHit 17 tags:spirit/boss slayerReq:78",
+      "source_file": "src/content/aelgard/monsters-mega.js"
+    },
+    {
+      "activity_id": "kill_mega_ink_footnote_fiend",
+      "activity_type": "monster",
+      "skill": "slayer",
+      "intensity": 3,
+      "base_xp_per_hour": 11900,
+      "base_gp_per_hour": 84000,
+      "region": "inkweald",
+      "level_required": 5,
+      "gating": {
+        "quests": [],
+        "items": [],
+        "areas": []
+      },
+      "notes": "Footnote fiend — combat 20 hp 22 maxHit 3 tags:spirit slayerReq:5",
+      "source_file": "src/content/aelgard/monsters-mega.js"
+    },
+    {
+      "activity_id": "kill_mega_ink_chapter_hound",
+      "activity_type": "monster",
+      "skill": "slayer",
+      "intensity": 4,
+      "base_xp_per_hour": 25520,
+      "base_gp_per_hour": 153120,
+      "region": "inkweald",
+      "level_required": 32,
+      "gating": {
+        "quests": [],
+        "items": [],
+        "areas": []
+      },
+      "notes": "Chapter-hound — combat 58 hp 70 maxHit 9 tags:beast/spirit slayerReq:32",
+      "source_file": "src/content/aelgard/monsters-mega.js"
+    },
+    {
+      "activity_id": "kill_mega_ink_editor_wraith",
+      "activity_type": "monster",
+      "skill": "slayer",
+      "intensity": 5,
+      "base_xp_per_hour": 36520,
+      "base_gp_per_hour": 211200,
+      "region": "inkweald",
+      "level_required": 48,
+      "gating": {
+        "quests": [],
+        "items": [],
+        "areas": []
+      },
+      "notes": "Editor wraith — combat 80 hp 92 maxHit 12 tags:spirit/undead slayerReq:48",
+      "source_file": "src/content/aelgard/monsters-mega.js"
+    },
+    {
+      "activity_id": "kill_mega_ink_spine_serpent",
+      "activity_type": "monster",
+      "skill": "slayer",
+      "intensity": 4,
+      "base_xp_per_hour": 22000,
+      "base_gp_per_hour": 132000,
+      "region": "inkweald",
+      "level_required": 28,
+      "gating": {
+        "quests": [],
+        "items": [],
+        "areas": []
+      },
+      "notes": "Spine-serpent — combat 50 hp 58 maxHit 8 tags:beast slayerReq:28",
+      "source_file": "src/content/aelgard/monsters-mega.js"
+    },
+    {
+      "activity_id": "kill_mega_ink_glossary_ogre",
+      "activity_type": "monster",
+      "skill": "slayer",
+      "intensity": 5,
+      "base_xp_per_hour": 32560,
+      "base_gp_per_hour": 184800,
+      "region": "inkweald",
+      "level_required": 42,
+      "gating": {
+        "quests": [],
+        "items": [],
+        "areas": []
+      },
+      "notes": "Glossary ogre — combat 70 hp 95 maxHit 12 tags:beast slayerReq:42",
+      "source_file": "src/content/aelgard/monsters-mega.js"
+    },
+    {
+      "activity_id": "kill_mega_ink_margin_spider",
+      "activity_type": "monster",
+      "skill": "slayer",
+      "intensity": 3,
+      "base_xp_per_hour": 14700,
+      "base_gp_per_hour": 100800,
+      "region": "inkweald",
+      "level_required": 6,
+      "gating": {
+        "quests": [],
+        "items": [],
+        "areas": []
+      },
+      "notes": "Margin spider — combat 24 hp 26 maxHit 4 tags:beast slayerReq:6",
+      "source_file": "src/content/aelgard/monsters-mega.js"
+    },
+    {
+      "activity_id": "kill_mega_ink_librarian_shade",
+      "activity_type": "monster",
+      "skill": "slayer",
+      "intensity": 4,
+      "base_xp_per_hour": 30800,
+      "base_gp_per_hour": 179520,
+      "region": "inkweald",
+      "level_required": 40,
+      "gating": {
+        "quests": [],
+        "items": [],
+        "areas": []
+      },
+      "notes": "Librarian shade — combat 68 hp 80 maxHit 10 tags:undead/spirit slayerReq:40",
+      "source_file": "src/content/aelgard/monsters-mega.js"
+    },
+    {
+      "activity_id": "kill_mega_ink_printer_demon",
+      "activity_type": "monster",
+      "skill": "slayer",
+      "intensity": 5,
+      "base_xp_per_hour": 32700,
+      "base_gp_per_hour": 183600,
+      "region": "inkweald",
+      "level_required": 64,
+      "gating": {
+        "quests": [],
+        "items": [],
+        "areas": []
+      },
+      "notes": "Printer demon — combat 102 hp 130 maxHit 14 tags:demon slayerReq:64",
+      "source_file": "src/content/aelgard/monsters-mega.js"
+    },
+    {
+      "activity_id": "kill_mega_glass_lens_cat",
+      "activity_type": "monster",
+      "skill": "slayer",
+      "intensity": 4,
+      "base_xp_per_hour": 28160,
+      "base_gp_per_hour": 163680,
+      "region": "glass_desert",
+      "level_required": 36,
+      "gating": {
+        "quests": [],
+        "items": [],
+        "areas": []
+      },
+      "notes": "Lens-cat — combat 62 hp 70 maxHit 10 tags:beast slayerReq:36",
+      "source_file": "src/content/aelgard/monsters-mega.js"
+    },
+    {
+      "activity_id": "kill_mega_glass_prism_stalker",
+      "activity_type": "monster",
+      "skill": "slayer",
+      "intensity": 5,
+      "base_xp_per_hour": 36080,
+      "base_gp_per_hour": 205920,
+      "region": "glass_desert",
+      "level_required": 48,
+      "gating": {
+        "quests": [],
+        "items": [],
+        "areas": []
+      },
+      "notes": "Prism stalker — combat 78 hp 92 maxHit 13 tags:beast slayerReq:48",
+      "source_file": "src/content/aelgard/monsters-mega.js"
+    },
+    {
+      "activity_id": "kill_mega_glass_crystal_hunter",
+      "activity_type": "monster",
+      "skill": "slayer",
+      "intensity": 5,
+      "base_xp_per_hour": 42680,
+      "base_gp_per_hour": 242880,
+      "region": "glass_desert",
+      "level_required": 60,
+      "gating": {
+        "quests": [],
+        "items": [],
+        "areas": []
+      },
+      "notes": "Crystal hunter — combat 92 hp 110 maxHit 14 tags:human/armoured slayerReq:60",
+      "source_file": "src/content/aelgard/monsters-mega.js"
+    },
+    {
+      "activity_id": "kill_mega_glass_glass_djinn",
+      "activity_type": "monster",
+      "skill": "slayer",
+      "intensity": 5,
+      "base_xp_per_hour": 34800,
+      "base_gp_per_hour": 198000,
+      "region": "glass_desert",
+      "level_required": 72,
+      "gating": {
+        "quests": [],
+        "items": [],
+        "areas": []
+      },
+      "notes": "Glass djinn — combat 110 hp 140 maxHit 16 tags:spirit/elemental slayerReq:72",
+      "source_file": "src/content/aelgard/monsters-mega.js"
+    },
+    {
+      "activity_id": "kill_mega_glass_shard_lizard",
+      "activity_type": "monster",
+      "skill": "slayer",
+      "intensity": 3,
+      "base_xp_per_hour": 23100,
+      "base_gp_per_hour": 142800,
+      "region": "glass_desert",
+      "level_required": 16,
+      "gating": {
+        "quests": [],
+        "items": [],
+        "areas": []
+      },
+      "notes": "Shard lizard — combat 34 hp 40 maxHit 5 tags:beast slayerReq:16",
+      "source_file": "src/content/aelgard/monsters-mega.js"
+    },
+    {
+      "activity_id": "kill_mega_glass_mirage_leopard",
+      "activity_type": "monster",
+      "skill": "slayer",
+      "intensity": 5,
+      "base_xp_per_hour": 32120,
+      "base_gp_per_hour": 184800,
+      "region": "glass_desert",
+      "level_required": 42,
+      "gating": {
+        "quests": [],
+        "items": [],
+        "areas": []
+      },
+      "notes": "Mirage leopard — combat 70 hp 80 maxHit 11 tags:beast slayerReq:42",
+      "source_file": "src/content/aelgard/monsters-mega.js"
+    },
+    {
+      "activity_id": "kill_mega_glass_sunburst_camel",
+      "activity_type": "monster",
+      "skill": "combat",
+      "intensity": 4,
+      "base_xp_per_hour": 28700,
+      "base_gp_per_hour": 168000,
+      "region": "glass_desert",
+      "level_required": 13,
+      "gating": {
+        "quests": [],
+        "items": [],
+        "areas": []
+      },
+      "notes": "Sunburst camel — combat 40 hp 58 maxHit 7 tags:beast",
+      "source_file": "src/content/aelgard/monsters-mega.js"
+    },
+    {
+      "activity_id": "kill_mega_glass_crystal_wraith",
+      "activity_type": "monster",
+      "skill": "slayer",
+      "intensity": 5,
+      "base_xp_per_hour": 39600,
+      "base_gp_per_hour": 227040,
+      "region": "glass_desert",
+      "level_required": 56,
+      "gating": {
+        "quests": [],
+        "items": [],
+        "areas": []
+      },
+      "notes": "Crystal wraith — combat 86 hp 100 maxHit 13 tags:spirit/undead slayerReq:56",
+      "source_file": "src/content/aelgard/monsters-mega.js"
+    },
+    {
+      "activity_id": "kill_mega_glass_shard_falcon",
+      "activity_type": "monster",
+      "skill": "slayer",
+      "intensity": 4,
+      "base_xp_per_hour": 24200,
+      "base_gp_per_hour": 142560,
+      "region": "glass_desert",
+      "level_required": 28,
+      "gating": {
+        "quests": [],
+        "items": [],
+        "areas": []
+      },
+      "notes": "Shard falcon — combat 54 hp 58 maxHit 8 tags:beast slayerReq:28",
+      "source_file": "src/content/aelgard/monsters-mega.js"
+    },
+    {
+      "activity_id": "kill_mega_glass_sunking",
+      "activity_type": "boss",
+      "skill": "slayer",
+      "intensity": 7,
+      "base_xp_per_hour": 49500,
+      "base_gp_per_hour": 16320000,
+      "region": "glass_desert",
+      "level_required": 90,
+      "gating": {
+        "quests": [],
+        "items": [],
+        "areas": []
+      },
+      "notes": "Sunking — combat 136 hp 200 maxHit 20 tags:spirit/boss slayerReq:90",
+      "source_file": "src/content/aelgard/monsters-mega.js"
+    },
+    {
+      "activity_id": "kill_mega_wild_revenant_knight",
+      "activity_type": "monster",
+      "skill": "slayer",
+      "intensity": 6,
+      "base_xp_per_hour": 39000,
+      "base_gp_per_hour": 216000,
+      "region": "wilds",
+      "level_required": 75,
+      "gating": {
+        "quests": [],
+        "items": [],
+        "areas": []
+      },
+      "notes": "Revenant knight — combat 120 hp 170 maxHit 17 tags:undead/armoured slayerReq:75",
+      "source_file": "src/content/aelgard/monsters-mega.js"
+    },
+    {
+      "activity_id": "kill_mega_wild_revenant_dragon",
+      "activity_type": "monster",
+      "skill": "slayer",
+      "intensity": 6,
+      "base_xp_per_hour": 46500,
+      "base_gp_per_hour": 273600,
+      "region": "wilds",
+      "level_required": 85,
+      "gating": {
+        "quests": [],
+        "items": [],
+        "areas": []
+      },
+      "notes": "Revenant dragon — combat 152 hp 210 maxHit 20 tags:undead/dragon slayerReq:85",
+      "source_file": "src/content/aelgard/monsters-mega.js"
+    },
+    {
+      "activity_id": "kill_mega_wild_chaos_demon",
+      "activity_type": "monster",
+      "skill": "slayer",
+      "intensity": 5,
+      "base_xp_per_hour": 37200,
+      "base_gp_per_hour": 212400,
+      "region": "wilds",
+      "level_required": 70,
+      "gating": {
+        "quests": [],
+        "items": [],
+        "areas": []
+      },
+      "notes": "Chaos demon — combat 118 hp 150 maxHit 16 tags:demon slayerReq:70",
+      "source_file": "src/content/aelgard/monsters-mega.js"
+    },
+    {
+      "activity_id": "kill_mega_wild_greater_chaos_demon",
+      "activity_type": "boss",
+      "skill": "slayer",
+      "intensity": 7,
+      "base_xp_per_hour": 45750,
+      "base_gp_per_hour": 17760000,
+      "region": "wilds",
+      "level_required": 85,
+      "gating": {
+        "quests": [],
+        "items": [],
+        "areas": []
+      },
+      "notes": "Greater chaos demon — combat 148 hp 200 maxHit 19 tags:demon/boss slayerReq:85",
+      "source_file": "src/content/aelgard/monsters-mega.js"
+    },
+    {
+      "activity_id": "kill_mega_wild_blood_reaper",
+      "activity_type": "monster",
+      "skill": "slayer",
+      "intensity": 6,
+      "base_xp_per_hour": 43500,
+      "base_gp_per_hour": 243000,
+      "region": "wilds",
+      "level_required": 78,
+      "gating": {
+        "quests": [],
+        "items": [],
+        "areas": []
+      },
+      "notes": "Blood reaper — combat 135 hp 180 maxHit 18 tags:undead slayerReq:78",
+      "source_file": "src/content/aelgard/monsters-mega.js"
+    },
+    {
+      "activity_id": "kill_mega_wild_chaos_touched_troll",
+      "activity_type": "monster",
+      "skill": "slayer",
+      "intensity": 5,
+      "base_xp_per_hour": 44000,
+      "base_gp_per_hour": 253440,
+      "region": "wilds",
+      "level_required": 55,
+      "gating": {
+        "quests": [],
+        "items": [],
+        "areas": []
+      },
+      "notes": "Chaos-touched troll — combat 96 hp 140 maxHit 15 tags:beast slayerReq:55",
+      "source_file": "src/content/aelgard/monsters-mega.js"
+    },
+    {
+      "activity_id": "kill_mega_wild_chaos_touched_giant",
+      "activity_type": "boss",
+      "skill": "slayer",
+      "intensity": 7,
+      "base_xp_per_hour": 36000,
+      "base_gp_per_hour": 13440000,
+      "region": "wilds",
+      "level_required": 62,
+      "gating": {
+        "quests": [],
+        "items": [],
+        "areas": []
+      },
+      "notes": "Chaos-touched giant — combat 112 hp 170 maxHit 17 tags:beast/boss slayerReq:62",
+      "source_file": "src/content/aelgard/monsters-mega.js"
+    },
+    {
+      "activity_id": "kill_mega_wild_pker_ghost",
+      "activity_type": "monster",
+      "skill": "slayer",
+      "intensity": 5,
+      "base_xp_per_hour": 39160,
+      "base_gp_per_hour": 224400,
+      "region": "wilds",
+      "level_required": 48,
+      "gating": {
+        "quests": [],
+        "items": [],
+        "areas": []
+      },
+      "notes": "PKer ghost — combat 85 hp 100 maxHit 13 tags:undead/human slayerReq:48",
+      "source_file": "src/content/aelgard/monsters-mega.js"
+    },
+    {
+      "activity_id": "kill_mega_wild_imbued_imp",
+      "activity_type": "monster",
+      "skill": "combat",
+      "intensity": 4,
+      "base_xp_per_hour": 30800,
+      "base_gp_per_hour": 189000,
+      "region": "wilds",
+      "level_required": 15,
+      "gating": {
+        "quests": [],
+        "items": [],
+        "areas": []
+      },
+      "notes": "Imbued imp — combat 45 hp 50 maxHit 7 tags:demon",
+      "source_file": "src/content/aelgard/monsters-mega.js"
+    },
+    {
+      "activity_id": "kill_mega_wild_wilderness_wyrm",
+      "activity_type": "boss",
+      "skill": "slayer",
+      "intensity": 7,
+      "base_xp_per_hour": 51000,
+      "base_gp_per_hour": 19200000,
+      "region": "wilds",
+      "level_required": 88,
+      "gating": {
+        "quests": [],
+        "items": [],
+        "areas": []
+      },
+      "notes": "Wilderness wyrm — combat 160 hp 230 maxHit 22 tags:beast/dragon/boss slayerReq:88",
+      "source_file": "src/content/aelgard/monsters-mega.js"
+    },
+    {
+      "activity_id": "kill_mega_wild_fallen_paladin",
+      "activity_type": "monster",
+      "skill": "combat",
+      "intensity": 5,
+      "base_xp_per_hour": 41360,
+      "base_gp_per_hour": 232320,
+      "region": "wilds",
+      "level_required": 29,
+      "gating": {
+        "quests": [],
+        "items": [],
+        "areas": []
+      },
+      "notes": "Fallen paladin — combat 88 hp 110 maxHit 13 tags:human/undead",
+      "source_file": "src/content/aelgard/monsters-mega.js"
+    },
+    {
+      "activity_id": "kill_mega_wild_skull_priestess",
+      "activity_type": "monster",
+      "skill": "slayer",
+      "intensity": 6,
+      "base_xp_per_hour": 39000,
+      "base_gp_per_hour": 225000,
+      "region": "wilds",
+      "level_required": 72,
+      "gating": {
+        "quests": [],
+        "items": [],
+        "areas": []
+      },
+      "notes": "Skull priestess — combat 125 hp 150 maxHit 16 tags:human/undead slayerReq:72",
+      "source_file": "src/content/aelgard/monsters-mega.js"
+    },
+    {
+      "activity_id": "kill_mega_wild_tainted_nymph",
+      "activity_type": "monster",
+      "skill": "slayer",
+      "intensity": 5,
+      "base_xp_per_hour": 34320,
+      "base_gp_per_hour": 198000,
+      "region": "wilds",
+      "level_required": 40,
+      "gating": {
+        "quests": [],
+        "items": [],
+        "areas": []
+      },
+      "notes": "Tainted nymph — combat 75 hp 88 maxHit 11 tags:spirit slayerReq:40",
+      "source_file": "src/content/aelgard/monsters-mega.js"
+    },
+    {
+      "activity_id": "kill_mega_wild_bone_colossus",
+      "activity_type": "boss",
+      "skill": "slayer",
+      "intensity": 7,
+      "base_xp_per_hour": 54000,
+      "base_gp_per_hour": 20400000,
+      "region": "wilds",
+      "level_required": 92,
+      "gating": {
+        "quests": [],
+        "items": [],
+        "areas": []
+      },
+      "notes": "Bone colossus — combat 170 hp 260 maxHit 24 tags:undead/boss/armoured slayerReq:92",
+      "source_file": "src/content/aelgard/monsters-mega.js"
+    },
+    {
+      "activity_id": "kill_mega_wild_black_stone_warden",
+      "activity_type": "boss",
+      "skill": "slayer",
+      "intensity": 7,
+      "base_xp_per_hour": 60000,
+      "base_gp_per_hour": 21600000,
+      "region": "wilds",
+      "level_required": 95,
+      "gating": {
+        "quests": [],
+        "items": [],
+        "areas": []
+      },
+      "notes": "Black-stone warden — combat 180 hp 280 maxHit 26 tags:construct/boss slayerReq:95",
+      "source_file": "src/content/aelgard/monsters-mega.js"
     },
     {
       "activity_id": "kill_ghast",
