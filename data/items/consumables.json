@@ -1,0 +1,2937 @@
+[
+  {
+    "id": "heartlands_field_loaf",
+    "name": "Field loaf",
+    "region": "heartlands",
+    "heal": 5,
+    "value": 10,
+    "flavor": "Crusty rye loaf from Heartlands farms.",
+    "category": "food",
+    "stackable": false,
+    "weight": 0.4,
+    "tradeable": true,
+    "heal_amount": 5,
+    "bites": 1,
+    "examine": "Crusty rye loaf from Heartlands farms."
+  },
+  {
+    "id": "heartlands_farmers_stew",
+    "name": "Farmer's stew",
+    "region": "heartlands",
+    "heal": 11,
+    "value": 25,
+    "flavor": "Thick barley stew with pork and root veg.",
+    "category": "food",
+    "stackable": false,
+    "weight": 0.4,
+    "tradeable": true,
+    "heal_amount": 11,
+    "bites": 1,
+    "examine": "Thick barley stew with pork and root veg."
+  },
+  {
+    "id": "heartlands_honey_cake",
+    "name": "Honey cake",
+    "region": "heartlands",
+    "heal": 8,
+    "value": 40,
+    "flavor": "Sweet cake with wildflower honey. 3 bites.",
+    "bites": 3,
+    "category": "food",
+    "stackable": false,
+    "weight": 0.4,
+    "tradeable": true,
+    "heal_amount": 8,
+    "examine": "Sweet cake with wildflower honey. 3 bites."
+  },
+  {
+    "id": "heartlands_apple",
+    "name": "Orchard apple",
+    "region": "heartlands",
+    "heal": 2,
+    "value": 3,
+    "category": "food",
+    "stackable": false,
+    "weight": 0.4,
+    "tradeable": true,
+    "heal_amount": 2,
+    "bites": 1,
+    "examine": "A orchard apple."
+  },
+  {
+    "id": "heartlands_roast_pheasant",
+    "name": "Roast pheasant",
+    "region": "heartlands",
+    "heal": 14,
+    "value": 80,
+    "category": "food",
+    "stackable": false,
+    "weight": 0.4,
+    "tradeable": true,
+    "heal_amount": 14,
+    "bites": 1,
+    "examine": "A roast pheasant."
+  },
+  {
+    "id": "heartlands_cream_cheese_roll",
+    "name": "Cream cheese roll",
+    "region": "heartlands",
+    "heal": 9,
+    "value": 45,
+    "category": "food",
+    "stackable": false,
+    "weight": 0.4,
+    "tradeable": true,
+    "heal_amount": 9,
+    "bites": 1,
+    "examine": "A cream cheese roll."
+  },
+  {
+    "id": "sootworks_coal_bread",
+    "name": "Coal-oven bread",
+    "region": "sootworks",
+    "heal": 6,
+    "value": 15,
+    "flavor": "Dense black-crust bread from Sootworks ovens.",
+    "category": "food",
+    "stackable": false,
+    "weight": 0.4,
+    "tradeable": true,
+    "heal_amount": 6,
+    "bites": 1,
+    "examine": "Dense black-crust bread from Sootworks ovens."
+  },
+  {
+    "id": "sootworks_smoked_sausage",
+    "name": "Smoked sausage",
+    "region": "sootworks",
+    "heal": 10,
+    "value": 50,
+    "category": "food",
+    "stackable": false,
+    "weight": 0.4,
+    "tradeable": true,
+    "heal_amount": 10,
+    "bites": 1,
+    "examine": "A smoked sausage."
+  },
+  {
+    "id": "sootworks_forgeman_pie",
+    "name": "Forgeman's pie",
+    "region": "sootworks",
+    "heal": 12,
+    "value": 60,
+    "bites": 2,
+    "category": "food",
+    "stackable": false,
+    "weight": 0.4,
+    "tradeable": true,
+    "heal_amount": 12,
+    "examine": "A forgeman's pie."
+  },
+  {
+    "id": "sootworks_iron_ale",
+    "name": "Iron ale",
+    "region": "sootworks",
+    "heal": 5,
+    "value": 30,
+    "flavor": "Dark ale. +1 str for 3 min, -1 atk.",
+    "effect": "str_up_1",
+    "category": "food",
+    "stackable": false,
+    "weight": 0.4,
+    "tradeable": true,
+    "heal_amount": 5,
+    "bites": 1,
+    "examine": "Dark ale. +1 str for 3 min, -1 atk."
+  },
+  {
+    "id": "sootworks_spiced_ribs",
+    "name": "Spiced ribs",
+    "region": "sootworks",
+    "heal": 17,
+    "value": 150,
+    "category": "food",
+    "stackable": false,
+    "weight": 0.4,
+    "tradeable": true,
+    "heal_amount": 17,
+    "bites": 1,
+    "examine": "A spiced ribs."
+  },
+  {
+    "id": "moryskah_black_pudding",
+    "name": "Black pudding",
+    "region": "moryskah",
+    "heal": 13,
+    "value": 75,
+    "flavor": "Thick blood pudding. Unsettling texture.",
+    "category": "food",
+    "stackable": false,
+    "weight": 0.4,
+    "tradeable": true,
+    "heal_amount": 13,
+    "bites": 1,
+    "examine": "Thick blood pudding. Unsettling texture."
+  },
+  {
+    "id": "moryskah_crypt_mushroom_soup",
+    "name": "Crypt mushroom soup",
+    "region": "moryskah",
+    "heal": 11,
+    "value": 60,
+    "category": "food",
+    "stackable": false,
+    "weight": 0.4,
+    "tradeable": true,
+    "heal_amount": 11,
+    "bites": 1,
+    "examine": "A crypt mushroom soup."
+  },
+  {
+    "id": "moryskah_gothic_wine",
+    "name": "Gothic red wine",
+    "region": "moryskah",
+    "heal": 4,
+    "value": 120,
+    "effect": "prayer_restore_5",
+    "category": "food",
+    "stackable": false,
+    "weight": 0.4,
+    "tradeable": true,
+    "heal_amount": 4,
+    "bites": 1,
+    "examine": "A gothic red wine."
+  },
+  {
+    "id": "moryskah_salted_venison",
+    "name": "Salted venison",
+    "region": "moryskah",
+    "heal": 16,
+    "value": 140,
+    "category": "food",
+    "stackable": false,
+    "weight": 0.4,
+    "tradeable": true,
+    "heal_amount": 16,
+    "bites": 1,
+    "examine": "A salted venison."
+  },
+  {
+    "id": "moryskah_graveside_tea",
+    "name": "Graveside tea",
+    "region": "moryskah",
+    "heal": 3,
+    "value": 50,
+    "effect": "restore_all_stats_1",
+    "category": "food",
+    "stackable": false,
+    "weight": 0.4,
+    "tradeable": true,
+    "heal_amount": 3,
+    "bites": 1,
+    "examine": "A graveside tea."
+  },
+  {
+    "id": "boneyard_cactus_water",
+    "name": "Cactus water",
+    "region": "boneyard",
+    "heal": 2,
+    "value": 5,
+    "flavor": "Bitter cactus sap. Restores run energy too.",
+    "effect": "run_energy_20",
+    "category": "food",
+    "stackable": false,
+    "weight": 0.4,
+    "tradeable": true,
+    "heal_amount": 2,
+    "bites": 1,
+    "examine": "Bitter cactus sap. Restores run energy too."
+  },
+  {
+    "id": "boneyard_sand_biscuit",
+    "name": "Sand biscuit",
+    "region": "boneyard",
+    "heal": 4,
+    "value": 8,
+    "category": "food",
+    "stackable": false,
+    "weight": 0.4,
+    "tradeable": true,
+    "heal_amount": 4,
+    "bites": 1,
+    "examine": "A sand biscuit."
+  },
+  {
+    "id": "boneyard_date_cluster",
+    "name": "Date cluster",
+    "region": "boneyard",
+    "heal": 6,
+    "value": 18,
+    "bites": 4,
+    "category": "food",
+    "stackable": false,
+    "weight": 0.4,
+    "tradeable": true,
+    "heal_amount": 6,
+    "examine": "A date cluster."
+  },
+  {
+    "id": "boneyard_scarab_skewer",
+    "name": "Scarab skewer",
+    "region": "boneyard",
+    "heal": 12,
+    "value": 90,
+    "category": "food",
+    "stackable": false,
+    "weight": 0.4,
+    "tradeable": true,
+    "heal_amount": 12,
+    "bites": 1,
+    "examine": "A scarab skewer."
+  },
+  {
+    "id": "boneyard_pharaohs_loaf",
+    "name": "Pharaoh's loaf",
+    "region": "boneyard",
+    "heal": 18,
+    "value": 220,
+    "category": "food",
+    "stackable": false,
+    "weight": 0.4,
+    "tradeable": true,
+    "heal_amount": 18,
+    "bites": 1,
+    "examine": "A pharaoh's loaf."
+  },
+  {
+    "id": "glass_prism_fruit",
+    "name": "Prism fruit",
+    "region": "glass_desert",
+    "heal": 10,
+    "value": 80,
+    "category": "food",
+    "stackable": false,
+    "weight": 0.4,
+    "tradeable": true,
+    "heal_amount": 10,
+    "bites": 1,
+    "examine": "A prism fruit."
+  },
+  {
+    "id": "glass_crystal_honey",
+    "name": "Crystal honeycomb",
+    "region": "glass_desert",
+    "heal": 14,
+    "value": 180,
+    "bites": 2,
+    "category": "food",
+    "stackable": false,
+    "weight": 0.4,
+    "tradeable": true,
+    "heal_amount": 14,
+    "examine": "A crystal honeycomb."
+  },
+  {
+    "id": "glass_sunburst_loaf",
+    "name": "Sunburst loaf",
+    "region": "glass_desert",
+    "heal": 19,
+    "value": 260,
+    "flavor": "Glows faintly. +5 magic-defence for 60s when eaten.",
+    "effect": "magic_def_5",
+    "category": "food",
+    "stackable": false,
+    "weight": 0.4,
+    "tradeable": true,
+    "heal_amount": 19,
+    "bites": 1,
+    "examine": "Glows faintly. +5 magic-defence for 60s when eaten."
+  },
+  {
+    "id": "glass_mirage_fish",
+    "name": "Mirage fish",
+    "region": "glass_desert",
+    "heal": 15,
+    "value": 190,
+    "category": "food",
+    "stackable": false,
+    "weight": 0.4,
+    "tradeable": true,
+    "heal_amount": 15,
+    "bites": 1,
+    "examine": "A mirage fish."
+  },
+  {
+    "id": "saltbrine_brined_cod",
+    "name": "Brined cod",
+    "region": "saltbrine",
+    "heal": 9,
+    "value": 55,
+    "category": "food",
+    "stackable": false,
+    "weight": 0.4,
+    "tradeable": true,
+    "heal_amount": 9,
+    "bites": 1,
+    "examine": "A brined cod."
+  },
+  {
+    "id": "saltbrine_brined_mackerel",
+    "name": "Brined mackerel",
+    "region": "saltbrine",
+    "heal": 7,
+    "value": 35,
+    "category": "food",
+    "stackable": false,
+    "weight": 0.4,
+    "tradeable": true,
+    "heal_amount": 7,
+    "bites": 1,
+    "examine": "A brined mackerel."
+  },
+  {
+    "id": "saltbrine_kraken_chowder",
+    "name": "Kraken chowder",
+    "region": "saltbrine",
+    "heal": 18,
+    "value": 260,
+    "flavor": "Seafood chowder with kraken tentacle. +2 fishing for 5m.",
+    "effect": "fishing_boost_2",
+    "category": "food",
+    "stackable": false,
+    "weight": 0.4,
+    "tradeable": true,
+    "heal_amount": 18,
+    "bites": 1,
+    "examine": "Seafood chowder with kraken tentacle. +2 fishing for 5m."
+  },
+  {
+    "id": "saltbrine_seaweed_roll",
+    "name": "Seaweed roll",
+    "region": "saltbrine",
+    "heal": 6,
+    "value": 30,
+    "category": "food",
+    "stackable": false,
+    "weight": 0.4,
+    "tradeable": true,
+    "heal_amount": 6,
+    "bites": 1,
+    "examine": "A seaweed roll."
+  },
+  {
+    "id": "saltbrine_deep_crab_claw",
+    "name": "Deep-crab claw",
+    "region": "saltbrine",
+    "heal": 20,
+    "value": 440,
+    "category": "food",
+    "stackable": false,
+    "weight": 0.4,
+    "tradeable": true,
+    "heal_amount": 20,
+    "bites": 1,
+    "examine": "A deep-crab claw."
+  },
+  {
+    "id": "saltbrine_pirate_rum",
+    "name": "Pirate rum",
+    "region": "saltbrine",
+    "heal": 5,
+    "value": 90,
+    "effect": "all_combat_minus_1",
+    "category": "food",
+    "stackable": false,
+    "weight": 0.4,
+    "tradeable": true,
+    "heal_amount": 5,
+    "bites": 1,
+    "examine": "A pirate rum."
+  },
+  {
+    "id": "veilwood_forest_game_pie",
+    "name": "Forest game pie",
+    "region": "veilwood",
+    "heal": 13,
+    "value": 110,
+    "bites": 2,
+    "category": "food",
+    "stackable": false,
+    "weight": 0.4,
+    "tradeable": true,
+    "heal_amount": 13,
+    "examine": "A forest game pie."
+  },
+  {
+    "id": "veilwood_moonberry_jam_toast",
+    "name": "Moonberry jam toast",
+    "region": "veilwood",
+    "heal": 9,
+    "value": 70,
+    "category": "food",
+    "stackable": false,
+    "weight": 0.4,
+    "tradeable": true,
+    "heal_amount": 9,
+    "bites": 1,
+    "examine": "A moonberry jam toast."
+  },
+  {
+    "id": "veilwood_fey_tea",
+    "name": "Fey tea",
+    "region": "veilwood",
+    "heal": 4,
+    "value": 60,
+    "effect": "restore_all_stats_3",
+    "category": "food",
+    "stackable": false,
+    "weight": 0.4,
+    "tradeable": true,
+    "heal_amount": 4,
+    "bites": 1,
+    "examine": "A fey tea."
+  },
+  {
+    "id": "veilwood_thistledown_broth",
+    "name": "Thistledown broth",
+    "region": "veilwood",
+    "heal": 17,
+    "value": 200,
+    "category": "food",
+    "stackable": false,
+    "weight": 0.4,
+    "tradeable": true,
+    "heal_amount": 17,
+    "bites": 1,
+    "examine": "A thistledown broth."
+  },
+  {
+    "id": "veilwood_stag_heart_roast",
+    "name": "Stag heart roast",
+    "region": "veilwood",
+    "heal": 21,
+    "value": 380,
+    "category": "food",
+    "stackable": false,
+    "weight": 0.4,
+    "tradeable": true,
+    "heal_amount": 21,
+    "bites": 1,
+    "examine": "A stag heart roast."
+  },
+  {
+    "id": "inkweald_inksoaked_biscuits",
+    "name": "Ink-soaked biscuits",
+    "region": "inkweald",
+    "heal": 5,
+    "value": 25,
+    "flavor": "Tastes faintly of pages. +1 magic for 5 min.",
+    "effect": "magic_boost_1",
+    "category": "food",
+    "stackable": false,
+    "weight": 0.4,
+    "tradeable": true,
+    "heal_amount": 5,
+    "bites": 1,
+    "examine": "Tastes faintly of pages. +1 magic for 5 min."
+  },
+  {
+    "id": "inkweald_scribes_gruel",
+    "name": "Scribe's gruel",
+    "region": "inkweald",
+    "heal": 8,
+    "value": 40,
+    "category": "food",
+    "stackable": false,
+    "weight": 0.4,
+    "tradeable": true,
+    "heal_amount": 8,
+    "bites": 1,
+    "examine": "A scribe's gruel."
+  },
+  {
+    "id": "inkweald_margin_pickles",
+    "name": "Margin pickles",
+    "region": "inkweald",
+    "heal": 3,
+    "value": 20,
+    "bites": 3,
+    "category": "food",
+    "stackable": false,
+    "weight": 0.4,
+    "tradeable": true,
+    "heal_amount": 3,
+    "examine": "A margin pickles."
+  },
+  {
+    "id": "inkweald_chapter_wine",
+    "name": "Chapter wine",
+    "region": "inkweald",
+    "heal": 4,
+    "value": 180,
+    "effect": "magic_boost_3",
+    "category": "food",
+    "stackable": false,
+    "weight": 0.4,
+    "tradeable": true,
+    "heal_amount": 4,
+    "bites": 1,
+    "examine": "A chapter wine."
+  },
+  {
+    "id": "inkweald_parchment_bread",
+    "name": "Parchment bread",
+    "region": "inkweald",
+    "heal": 7,
+    "value": 35,
+    "category": "food",
+    "stackable": false,
+    "weight": 0.4,
+    "tradeable": true,
+    "heal_amount": 7,
+    "bites": 1,
+    "examine": "A parchment bread."
+  },
+  {
+    "id": "wilds_jerky",
+    "name": "Wilds jerky",
+    "region": "wilds",
+    "heal": 8,
+    "value": 65,
+    "flavor": "Stackable to 100. Kept on death in PvP.",
+    "tags": [
+      "stackable",
+      "kept_on_death_wilds"
+    ],
+    "category": "food",
+    "stackable": true,
+    "weight": 0.4,
+    "tradeable": true,
+    "heal_amount": 8,
+    "bites": 1,
+    "examine": "Stackable to 100. Kept on death in PvP."
+  },
+  {
+    "id": "wilds_bone_broth",
+    "name": "Bone broth",
+    "region": "wilds",
+    "heal": 16,
+    "value": 120,
+    "category": "food",
+    "stackable": false,
+    "weight": 0.4,
+    "tradeable": true,
+    "heal_amount": 16,
+    "bites": 1,
+    "examine": "A bone broth."
+  },
+  {
+    "id": "wilds_revenant_heart",
+    "name": "Revenant heart",
+    "region": "wilds",
+    "heal": 22,
+    "value": 800,
+    "flavor": "From revenants. Rarest food in the Wilds.",
+    "category": "food",
+    "stackable": false,
+    "weight": 0.4,
+    "tradeable": true,
+    "heal_amount": 22,
+    "bites": 1,
+    "examine": "From revenants. Rarest food in the Wilds."
+  },
+  {
+    "id": "wilds_blackbread",
+    "name": "Blackbread",
+    "region": "wilds",
+    "heal": 6,
+    "value": 25,
+    "category": "food",
+    "stackable": false,
+    "weight": 0.4,
+    "tradeable": true,
+    "heal_amount": 6,
+    "bites": 1,
+    "examine": "A blackbread."
+  },
+  {
+    "id": "attack_potion_4",
+    "name": "Attack potion(4)",
+    "category": "potion",
+    "sub_category": "attack",
+    "doses": 4,
+    "effect_summary": "+3 attack for 5 min",
+    "stackable": false,
+    "weight": 0.3,
+    "value": 50,
+    "tradeable": true,
+    "tags": [
+      "potion",
+      "4_dose"
+    ],
+    "examine": "A (4)-dose attack potion. +3 attack for 5 min."
+  },
+  {
+    "id": "attack_potion_3",
+    "name": "Attack potion(3)",
+    "category": "potion",
+    "sub_category": "attack",
+    "doses": 3,
+    "effect_summary": "+3 attack for 5 min",
+    "stackable": false,
+    "weight": 0.3,
+    "value": 38,
+    "tradeable": true,
+    "tags": [
+      "potion",
+      "3_dose"
+    ],
+    "examine": "A (3)-dose attack potion. +3 attack for 5 min."
+  },
+  {
+    "id": "attack_potion_2",
+    "name": "Attack potion(2)",
+    "category": "potion",
+    "sub_category": "attack",
+    "doses": 2,
+    "effect_summary": "+3 attack for 5 min",
+    "stackable": false,
+    "weight": 0.3,
+    "value": 25,
+    "tradeable": true,
+    "tags": [
+      "potion",
+      "2_dose"
+    ],
+    "examine": "A (2)-dose attack potion. +3 attack for 5 min."
+  },
+  {
+    "id": "attack_potion_1",
+    "name": "Attack potion(1)",
+    "category": "potion",
+    "sub_category": "attack",
+    "doses": 1,
+    "effect_summary": "+3 attack for 5 min",
+    "stackable": false,
+    "weight": 0.3,
+    "value": 13,
+    "tradeable": true,
+    "tags": [
+      "potion",
+      "1_dose"
+    ],
+    "examine": "A (1)-dose attack potion. +3 attack for 5 min."
+  },
+  {
+    "id": "strength_potion_4",
+    "name": "Strength potion(4)",
+    "category": "potion",
+    "sub_category": "strength",
+    "doses": 4,
+    "effect_summary": "+3 strength for 5 min",
+    "stackable": false,
+    "weight": 0.3,
+    "value": 70,
+    "tradeable": true,
+    "tags": [
+      "potion",
+      "4_dose"
+    ],
+    "examine": "A (4)-dose strength potion. +3 strength for 5 min."
+  },
+  {
+    "id": "strength_potion_3",
+    "name": "Strength potion(3)",
+    "category": "potion",
+    "sub_category": "strength",
+    "doses": 3,
+    "effect_summary": "+3 strength for 5 min",
+    "stackable": false,
+    "weight": 0.3,
+    "value": 53,
+    "tradeable": true,
+    "tags": [
+      "potion",
+      "3_dose"
+    ],
+    "examine": "A (3)-dose strength potion. +3 strength for 5 min."
+  },
+  {
+    "id": "strength_potion_2",
+    "name": "Strength potion(2)",
+    "category": "potion",
+    "sub_category": "strength",
+    "doses": 2,
+    "effect_summary": "+3 strength for 5 min",
+    "stackable": false,
+    "weight": 0.3,
+    "value": 35,
+    "tradeable": true,
+    "tags": [
+      "potion",
+      "2_dose"
+    ],
+    "examine": "A (2)-dose strength potion. +3 strength for 5 min."
+  },
+  {
+    "id": "strength_potion_1",
+    "name": "Strength potion(1)",
+    "category": "potion",
+    "sub_category": "strength",
+    "doses": 1,
+    "effect_summary": "+3 strength for 5 min",
+    "stackable": false,
+    "weight": 0.3,
+    "value": 18,
+    "tradeable": true,
+    "tags": [
+      "potion",
+      "1_dose"
+    ],
+    "examine": "A (1)-dose strength potion. +3 strength for 5 min."
+  },
+  {
+    "id": "defence_potion_4",
+    "name": "Defence potion(4)",
+    "category": "potion",
+    "sub_category": "defence",
+    "doses": 4,
+    "effect_summary": "+3 defence for 5 min",
+    "stackable": false,
+    "weight": 0.3,
+    "value": 80,
+    "tradeable": true,
+    "tags": [
+      "potion",
+      "4_dose"
+    ],
+    "examine": "A (4)-dose defence potion. +3 defence for 5 min."
+  },
+  {
+    "id": "defence_potion_3",
+    "name": "Defence potion(3)",
+    "category": "potion",
+    "sub_category": "defence",
+    "doses": 3,
+    "effect_summary": "+3 defence for 5 min",
+    "stackable": false,
+    "weight": 0.3,
+    "value": 60,
+    "tradeable": true,
+    "tags": [
+      "potion",
+      "3_dose"
+    ],
+    "examine": "A (3)-dose defence potion. +3 defence for 5 min."
+  },
+  {
+    "id": "defence_potion_2",
+    "name": "Defence potion(2)",
+    "category": "potion",
+    "sub_category": "defence",
+    "doses": 2,
+    "effect_summary": "+3 defence for 5 min",
+    "stackable": false,
+    "weight": 0.3,
+    "value": 40,
+    "tradeable": true,
+    "tags": [
+      "potion",
+      "2_dose"
+    ],
+    "examine": "A (2)-dose defence potion. +3 defence for 5 min."
+  },
+  {
+    "id": "defence_potion_1",
+    "name": "Defence potion(1)",
+    "category": "potion",
+    "sub_category": "defence",
+    "doses": 1,
+    "effect_summary": "+3 defence for 5 min",
+    "stackable": false,
+    "weight": 0.3,
+    "value": 20,
+    "tradeable": true,
+    "tags": [
+      "potion",
+      "1_dose"
+    ],
+    "examine": "A (1)-dose defence potion. +3 defence for 5 min."
+  },
+  {
+    "id": "super_attack_potion_4",
+    "name": "Super attack potion(4)",
+    "category": "potion",
+    "sub_category": "super_attack",
+    "doses": 4,
+    "effect_summary": "+5+15% attack for 5 min",
+    "stackable": false,
+    "weight": 0.3,
+    "value": 220,
+    "tradeable": true,
+    "tags": [
+      "potion",
+      "4_dose"
+    ],
+    "examine": "A (4)-dose super attack potion. +5+15% attack for 5 min."
+  },
+  {
+    "id": "super_attack_potion_3",
+    "name": "Super attack potion(3)",
+    "category": "potion",
+    "sub_category": "super_attack",
+    "doses": 3,
+    "effect_summary": "+5+15% attack for 5 min",
+    "stackable": false,
+    "weight": 0.3,
+    "value": 165,
+    "tradeable": true,
+    "tags": [
+      "potion",
+      "3_dose"
+    ],
+    "examine": "A (3)-dose super attack potion. +5+15% attack for 5 min."
+  },
+  {
+    "id": "super_attack_potion_2",
+    "name": "Super attack potion(2)",
+    "category": "potion",
+    "sub_category": "super_attack",
+    "doses": 2,
+    "effect_summary": "+5+15% attack for 5 min",
+    "stackable": false,
+    "weight": 0.3,
+    "value": 110,
+    "tradeable": true,
+    "tags": [
+      "potion",
+      "2_dose"
+    ],
+    "examine": "A (2)-dose super attack potion. +5+15% attack for 5 min."
+  },
+  {
+    "id": "super_attack_potion_1",
+    "name": "Super attack potion(1)",
+    "category": "potion",
+    "sub_category": "super_attack",
+    "doses": 1,
+    "effect_summary": "+5+15% attack for 5 min",
+    "stackable": false,
+    "weight": 0.3,
+    "value": 55,
+    "tradeable": true,
+    "tags": [
+      "potion",
+      "1_dose"
+    ],
+    "examine": "A (1)-dose super attack potion. +5+15% attack for 5 min."
+  },
+  {
+    "id": "super_strength_potion_4",
+    "name": "Super strength potion(4)",
+    "category": "potion",
+    "sub_category": "super_strength",
+    "doses": 4,
+    "effect_summary": "+5+15% strength for 5 min",
+    "stackable": false,
+    "weight": 0.3,
+    "value": 300,
+    "tradeable": true,
+    "tags": [
+      "potion",
+      "4_dose"
+    ],
+    "examine": "A (4)-dose super strength potion. +5+15% strength for 5 min."
+  },
+  {
+    "id": "super_strength_potion_3",
+    "name": "Super strength potion(3)",
+    "category": "potion",
+    "sub_category": "super_strength",
+    "doses": 3,
+    "effect_summary": "+5+15% strength for 5 min",
+    "stackable": false,
+    "weight": 0.3,
+    "value": 225,
+    "tradeable": true,
+    "tags": [
+      "potion",
+      "3_dose"
+    ],
+    "examine": "A (3)-dose super strength potion. +5+15% strength for 5 min."
+  },
+  {
+    "id": "super_strength_potion_2",
+    "name": "Super strength potion(2)",
+    "category": "potion",
+    "sub_category": "super_strength",
+    "doses": 2,
+    "effect_summary": "+5+15% strength for 5 min",
+    "stackable": false,
+    "weight": 0.3,
+    "value": 150,
+    "tradeable": true,
+    "tags": [
+      "potion",
+      "2_dose"
+    ],
+    "examine": "A (2)-dose super strength potion. +5+15% strength for 5 min."
+  },
+  {
+    "id": "super_strength_potion_1",
+    "name": "Super strength potion(1)",
+    "category": "potion",
+    "sub_category": "super_strength",
+    "doses": 1,
+    "effect_summary": "+5+15% strength for 5 min",
+    "stackable": false,
+    "weight": 0.3,
+    "value": 75,
+    "tradeable": true,
+    "tags": [
+      "potion",
+      "1_dose"
+    ],
+    "examine": "A (1)-dose super strength potion. +5+15% strength for 5 min."
+  },
+  {
+    "id": "super_defence_potion_4",
+    "name": "Super defence potion(4)",
+    "category": "potion",
+    "sub_category": "super_defence",
+    "doses": 4,
+    "effect_summary": "+5+15% defence for 5 min",
+    "stackable": false,
+    "weight": 0.3,
+    "value": 320,
+    "tradeable": true,
+    "tags": [
+      "potion",
+      "4_dose"
+    ],
+    "examine": "A (4)-dose super defence potion. +5+15% defence for 5 min."
+  },
+  {
+    "id": "super_defence_potion_3",
+    "name": "Super defence potion(3)",
+    "category": "potion",
+    "sub_category": "super_defence",
+    "doses": 3,
+    "effect_summary": "+5+15% defence for 5 min",
+    "stackable": false,
+    "weight": 0.3,
+    "value": 240,
+    "tradeable": true,
+    "tags": [
+      "potion",
+      "3_dose"
+    ],
+    "examine": "A (3)-dose super defence potion. +5+15% defence for 5 min."
+  },
+  {
+    "id": "super_defence_potion_2",
+    "name": "Super defence potion(2)",
+    "category": "potion",
+    "sub_category": "super_defence",
+    "doses": 2,
+    "effect_summary": "+5+15% defence for 5 min",
+    "stackable": false,
+    "weight": 0.3,
+    "value": 160,
+    "tradeable": true,
+    "tags": [
+      "potion",
+      "2_dose"
+    ],
+    "examine": "A (2)-dose super defence potion. +5+15% defence for 5 min."
+  },
+  {
+    "id": "super_defence_potion_1",
+    "name": "Super defence potion(1)",
+    "category": "potion",
+    "sub_category": "super_defence",
+    "doses": 1,
+    "effect_summary": "+5+15% defence for 5 min",
+    "stackable": false,
+    "weight": 0.3,
+    "value": 80,
+    "tradeable": true,
+    "tags": [
+      "potion",
+      "1_dose"
+    ],
+    "examine": "A (1)-dose super defence potion. +5+15% defence for 5 min."
+  },
+  {
+    "id": "ranging_potion_4",
+    "name": "Ranging potion(4)",
+    "category": "potion",
+    "sub_category": "ranging",
+    "doses": 4,
+    "effect_summary": "+4+10% ranged for 5 min",
+    "stackable": false,
+    "weight": 0.3,
+    "value": 380,
+    "tradeable": true,
+    "tags": [
+      "potion",
+      "4_dose"
+    ],
+    "examine": "A (4)-dose ranging potion. +4+10% ranged for 5 min."
+  },
+  {
+    "id": "ranging_potion_3",
+    "name": "Ranging potion(3)",
+    "category": "potion",
+    "sub_category": "ranging",
+    "doses": 3,
+    "effect_summary": "+4+10% ranged for 5 min",
+    "stackable": false,
+    "weight": 0.3,
+    "value": 285,
+    "tradeable": true,
+    "tags": [
+      "potion",
+      "3_dose"
+    ],
+    "examine": "A (3)-dose ranging potion. +4+10% ranged for 5 min."
+  },
+  {
+    "id": "ranging_potion_2",
+    "name": "Ranging potion(2)",
+    "category": "potion",
+    "sub_category": "ranging",
+    "doses": 2,
+    "effect_summary": "+4+10% ranged for 5 min",
+    "stackable": false,
+    "weight": 0.3,
+    "value": 190,
+    "tradeable": true,
+    "tags": [
+      "potion",
+      "2_dose"
+    ],
+    "examine": "A (2)-dose ranging potion. +4+10% ranged for 5 min."
+  },
+  {
+    "id": "ranging_potion_1",
+    "name": "Ranging potion(1)",
+    "category": "potion",
+    "sub_category": "ranging",
+    "doses": 1,
+    "effect_summary": "+4+10% ranged for 5 min",
+    "stackable": false,
+    "weight": 0.3,
+    "value": 95,
+    "tradeable": true,
+    "tags": [
+      "potion",
+      "1_dose"
+    ],
+    "examine": "A (1)-dose ranging potion. +4+10% ranged for 5 min."
+  },
+  {
+    "id": "magic_potion_4",
+    "name": "Magic potion(4)",
+    "category": "potion",
+    "sub_category": "magic",
+    "doses": 4,
+    "effect_summary": "+4 magic for 5 min",
+    "stackable": false,
+    "weight": 0.3,
+    "value": 360,
+    "tradeable": true,
+    "tags": [
+      "potion",
+      "4_dose"
+    ],
+    "examine": "A (4)-dose magic potion. +4 magic for 5 min."
+  },
+  {
+    "id": "magic_potion_3",
+    "name": "Magic potion(3)",
+    "category": "potion",
+    "sub_category": "magic",
+    "doses": 3,
+    "effect_summary": "+4 magic for 5 min",
+    "stackable": false,
+    "weight": 0.3,
+    "value": 270,
+    "tradeable": true,
+    "tags": [
+      "potion",
+      "3_dose"
+    ],
+    "examine": "A (3)-dose magic potion. +4 magic for 5 min."
+  },
+  {
+    "id": "magic_potion_2",
+    "name": "Magic potion(2)",
+    "category": "potion",
+    "sub_category": "magic",
+    "doses": 2,
+    "effect_summary": "+4 magic for 5 min",
+    "stackable": false,
+    "weight": 0.3,
+    "value": 180,
+    "tradeable": true,
+    "tags": [
+      "potion",
+      "2_dose"
+    ],
+    "examine": "A (2)-dose magic potion. +4 magic for 5 min."
+  },
+  {
+    "id": "magic_potion_1",
+    "name": "Magic potion(1)",
+    "category": "potion",
+    "sub_category": "magic",
+    "doses": 1,
+    "effect_summary": "+4 magic for 5 min",
+    "stackable": false,
+    "weight": 0.3,
+    "value": 90,
+    "tradeable": true,
+    "tags": [
+      "potion",
+      "1_dose"
+    ],
+    "examine": "A (1)-dose magic potion. +4 magic for 5 min."
+  },
+  {
+    "id": "prayer_potion_4",
+    "name": "Prayer potion(4)",
+    "category": "potion",
+    "sub_category": "prayer",
+    "doses": 4,
+    "effect_summary": "restore 7+level/4 prayer",
+    "stackable": false,
+    "weight": 0.3,
+    "value": 320,
+    "tradeable": true,
+    "tags": [
+      "potion",
+      "4_dose"
+    ],
+    "examine": "A (4)-dose prayer potion. restore 7+level/4 prayer."
+  },
+  {
+    "id": "prayer_potion_3",
+    "name": "Prayer potion(3)",
+    "category": "potion",
+    "sub_category": "prayer",
+    "doses": 3,
+    "effect_summary": "restore 7+level/4 prayer",
+    "stackable": false,
+    "weight": 0.3,
+    "value": 240,
+    "tradeable": true,
+    "tags": [
+      "potion",
+      "3_dose"
+    ],
+    "examine": "A (3)-dose prayer potion. restore 7+level/4 prayer."
+  },
+  {
+    "id": "prayer_potion_2",
+    "name": "Prayer potion(2)",
+    "category": "potion",
+    "sub_category": "prayer",
+    "doses": 2,
+    "effect_summary": "restore 7+level/4 prayer",
+    "stackable": false,
+    "weight": 0.3,
+    "value": 160,
+    "tradeable": true,
+    "tags": [
+      "potion",
+      "2_dose"
+    ],
+    "examine": "A (2)-dose prayer potion. restore 7+level/4 prayer."
+  },
+  {
+    "id": "prayer_potion_1",
+    "name": "Prayer potion(1)",
+    "category": "potion",
+    "sub_category": "prayer",
+    "doses": 1,
+    "effect_summary": "restore 7+level/4 prayer",
+    "stackable": false,
+    "weight": 0.3,
+    "value": 80,
+    "tradeable": true,
+    "tags": [
+      "potion",
+      "1_dose"
+    ],
+    "examine": "A (1)-dose prayer potion. restore 7+level/4 prayer."
+  },
+  {
+    "id": "super_restore_potion_4",
+    "name": "Super restore(4)",
+    "category": "potion",
+    "sub_category": "super_restore",
+    "doses": 4,
+    "effect_summary": "restore 8+level/4 all stats + prayer",
+    "stackable": false,
+    "weight": 0.3,
+    "value": 950,
+    "tradeable": true,
+    "tags": [
+      "potion",
+      "4_dose"
+    ],
+    "examine": "A (4)-dose super restore. restore 8+level/4 all stats + prayer."
+  },
+  {
+    "id": "super_restore_potion_3",
+    "name": "Super restore(3)",
+    "category": "potion",
+    "sub_category": "super_restore",
+    "doses": 3,
+    "effect_summary": "restore 8+level/4 all stats + prayer",
+    "stackable": false,
+    "weight": 0.3,
+    "value": 713,
+    "tradeable": true,
+    "tags": [
+      "potion",
+      "3_dose"
+    ],
+    "examine": "A (3)-dose super restore. restore 8+level/4 all stats + prayer."
+  },
+  {
+    "id": "super_restore_potion_2",
+    "name": "Super restore(2)",
+    "category": "potion",
+    "sub_category": "super_restore",
+    "doses": 2,
+    "effect_summary": "restore 8+level/4 all stats + prayer",
+    "stackable": false,
+    "weight": 0.3,
+    "value": 475,
+    "tradeable": true,
+    "tags": [
+      "potion",
+      "2_dose"
+    ],
+    "examine": "A (2)-dose super restore. restore 8+level/4 all stats + prayer."
+  },
+  {
+    "id": "super_restore_potion_1",
+    "name": "Super restore(1)",
+    "category": "potion",
+    "sub_category": "super_restore",
+    "doses": 1,
+    "effect_summary": "restore 8+level/4 all stats + prayer",
+    "stackable": false,
+    "weight": 0.3,
+    "value": 238,
+    "tradeable": true,
+    "tags": [
+      "potion",
+      "1_dose"
+    ],
+    "examine": "A (1)-dose super restore. restore 8+level/4 all stats + prayer."
+  },
+  {
+    "id": "saradomin_brew_potion_4",
+    "name": "Saradomin brew(4)",
+    "category": "potion",
+    "sub_category": "saradomin_brew",
+    "doses": 4,
+    "effect_summary": "heal +15 HP, +20% def, -10% offensive stats",
+    "stackable": false,
+    "weight": 0.3,
+    "value": 1400,
+    "tradeable": true,
+    "tags": [
+      "potion",
+      "4_dose"
+    ],
+    "examine": "A (4)-dose saradomin brew. heal +15 HP, +20% def, -10% offensive stats."
+  },
+  {
+    "id": "saradomin_brew_potion_3",
+    "name": "Saradomin brew(3)",
+    "category": "potion",
+    "sub_category": "saradomin_brew",
+    "doses": 3,
+    "effect_summary": "heal +15 HP, +20% def, -10% offensive stats",
+    "stackable": false,
+    "weight": 0.3,
+    "value": 1050,
+    "tradeable": true,
+    "tags": [
+      "potion",
+      "3_dose"
+    ],
+    "examine": "A (3)-dose saradomin brew. heal +15 HP, +20% def, -10% offensive stats."
+  },
+  {
+    "id": "saradomin_brew_potion_2",
+    "name": "Saradomin brew(2)",
+    "category": "potion",
+    "sub_category": "saradomin_brew",
+    "doses": 2,
+    "effect_summary": "heal +15 HP, +20% def, -10% offensive stats",
+    "stackable": false,
+    "weight": 0.3,
+    "value": 700,
+    "tradeable": true,
+    "tags": [
+      "potion",
+      "2_dose"
+    ],
+    "examine": "A (2)-dose saradomin brew. heal +15 HP, +20% def, -10% offensive stats."
+  },
+  {
+    "id": "saradomin_brew_potion_1",
+    "name": "Saradomin brew(1)",
+    "category": "potion",
+    "sub_category": "saradomin_brew",
+    "doses": 1,
+    "effect_summary": "heal +15 HP, +20% def, -10% offensive stats",
+    "stackable": false,
+    "weight": 0.3,
+    "value": 350,
+    "tradeable": true,
+    "tags": [
+      "potion",
+      "1_dose"
+    ],
+    "examine": "A (1)-dose saradomin brew. heal +15 HP, +20% def, -10% offensive stats."
+  },
+  {
+    "id": "antipoison_potion_4",
+    "name": "Antipoison(4)",
+    "category": "potion",
+    "sub_category": "antipoison",
+    "doses": 4,
+    "effect_summary": "cure + immunity 90s",
+    "stackable": false,
+    "weight": 0.3,
+    "value": 60,
+    "tradeable": true,
+    "tags": [
+      "potion",
+      "4_dose"
+    ],
+    "examine": "A (4)-dose antipoison. cure + immunity 90s."
+  },
+  {
+    "id": "antipoison_potion_3",
+    "name": "Antipoison(3)",
+    "category": "potion",
+    "sub_category": "antipoison",
+    "doses": 3,
+    "effect_summary": "cure + immunity 90s",
+    "stackable": false,
+    "weight": 0.3,
+    "value": 45,
+    "tradeable": true,
+    "tags": [
+      "potion",
+      "3_dose"
+    ],
+    "examine": "A (3)-dose antipoison. cure + immunity 90s."
+  },
+  {
+    "id": "antipoison_potion_2",
+    "name": "Antipoison(2)",
+    "category": "potion",
+    "sub_category": "antipoison",
+    "doses": 2,
+    "effect_summary": "cure + immunity 90s",
+    "stackable": false,
+    "weight": 0.3,
+    "value": 30,
+    "tradeable": true,
+    "tags": [
+      "potion",
+      "2_dose"
+    ],
+    "examine": "A (2)-dose antipoison. cure + immunity 90s."
+  },
+  {
+    "id": "antipoison_potion_1",
+    "name": "Antipoison(1)",
+    "category": "potion",
+    "sub_category": "antipoison",
+    "doses": 1,
+    "effect_summary": "cure + immunity 90s",
+    "stackable": false,
+    "weight": 0.3,
+    "value": 15,
+    "tradeable": true,
+    "tags": [
+      "potion",
+      "1_dose"
+    ],
+    "examine": "A (1)-dose antipoison. cure + immunity 90s."
+  },
+  {
+    "id": "super_antipoison_potion_4",
+    "name": "Super antipoison(4)",
+    "category": "potion",
+    "sub_category": "super_antipoison",
+    "doses": 4,
+    "effect_summary": "cure + immunity 6 min",
+    "stackable": false,
+    "weight": 0.3,
+    "value": 160,
+    "tradeable": true,
+    "tags": [
+      "potion",
+      "4_dose"
+    ],
+    "examine": "A (4)-dose super antipoison. cure + immunity 6 min."
+  },
+  {
+    "id": "super_antipoison_potion_3",
+    "name": "Super antipoison(3)",
+    "category": "potion",
+    "sub_category": "super_antipoison",
+    "doses": 3,
+    "effect_summary": "cure + immunity 6 min",
+    "stackable": false,
+    "weight": 0.3,
+    "value": 120,
+    "tradeable": true,
+    "tags": [
+      "potion",
+      "3_dose"
+    ],
+    "examine": "A (3)-dose super antipoison. cure + immunity 6 min."
+  },
+  {
+    "id": "super_antipoison_potion_2",
+    "name": "Super antipoison(2)",
+    "category": "potion",
+    "sub_category": "super_antipoison",
+    "doses": 2,
+    "effect_summary": "cure + immunity 6 min",
+    "stackable": false,
+    "weight": 0.3,
+    "value": 80,
+    "tradeable": true,
+    "tags": [
+      "potion",
+      "2_dose"
+    ],
+    "examine": "A (2)-dose super antipoison. cure + immunity 6 min."
+  },
+  {
+    "id": "super_antipoison_potion_1",
+    "name": "Super antipoison(1)",
+    "category": "potion",
+    "sub_category": "super_antipoison",
+    "doses": 1,
+    "effect_summary": "cure + immunity 6 min",
+    "stackable": false,
+    "weight": 0.3,
+    "value": 40,
+    "tradeable": true,
+    "tags": [
+      "potion",
+      "1_dose"
+    ],
+    "examine": "A (1)-dose super antipoison. cure + immunity 6 min."
+  },
+  {
+    "id": "antivenom_potion_4",
+    "name": "Antivenom(4)",
+    "category": "potion",
+    "sub_category": "antivenom",
+    "doses": 4,
+    "effect_summary": "cure venom + immunity 3 min",
+    "stackable": false,
+    "weight": 0.3,
+    "value": 3200,
+    "tradeable": true,
+    "tags": [
+      "potion",
+      "4_dose"
+    ],
+    "examine": "A (4)-dose antivenom. cure venom + immunity 3 min."
+  },
+  {
+    "id": "antivenom_potion_3",
+    "name": "Antivenom(3)",
+    "category": "potion",
+    "sub_category": "antivenom",
+    "doses": 3,
+    "effect_summary": "cure venom + immunity 3 min",
+    "stackable": false,
+    "weight": 0.3,
+    "value": 2400,
+    "tradeable": true,
+    "tags": [
+      "potion",
+      "3_dose"
+    ],
+    "examine": "A (3)-dose antivenom. cure venom + immunity 3 min."
+  },
+  {
+    "id": "antivenom_potion_2",
+    "name": "Antivenom(2)",
+    "category": "potion",
+    "sub_category": "antivenom",
+    "doses": 2,
+    "effect_summary": "cure venom + immunity 3 min",
+    "stackable": false,
+    "weight": 0.3,
+    "value": 1600,
+    "tradeable": true,
+    "tags": [
+      "potion",
+      "2_dose"
+    ],
+    "examine": "A (2)-dose antivenom. cure venom + immunity 3 min."
+  },
+  {
+    "id": "antivenom_potion_1",
+    "name": "Antivenom(1)",
+    "category": "potion",
+    "sub_category": "antivenom",
+    "doses": 1,
+    "effect_summary": "cure venom + immunity 3 min",
+    "stackable": false,
+    "weight": 0.3,
+    "value": 800,
+    "tradeable": true,
+    "tags": [
+      "potion",
+      "1_dose"
+    ],
+    "examine": "A (1)-dose antivenom. cure venom + immunity 3 min."
+  },
+  {
+    "id": "antifire_potion_4",
+    "name": "Antifire potion(4)",
+    "category": "potion",
+    "sub_category": "antifire",
+    "doses": 4,
+    "effect_summary": "halve dragonfire 6 min",
+    "stackable": false,
+    "weight": 0.3,
+    "value": 1200,
+    "tradeable": true,
+    "tags": [
+      "potion",
+      "4_dose"
+    ],
+    "examine": "A (4)-dose antifire potion. halve dragonfire 6 min."
+  },
+  {
+    "id": "antifire_potion_3",
+    "name": "Antifire potion(3)",
+    "category": "potion",
+    "sub_category": "antifire",
+    "doses": 3,
+    "effect_summary": "halve dragonfire 6 min",
+    "stackable": false,
+    "weight": 0.3,
+    "value": 900,
+    "tradeable": true,
+    "tags": [
+      "potion",
+      "3_dose"
+    ],
+    "examine": "A (3)-dose antifire potion. halve dragonfire 6 min."
+  },
+  {
+    "id": "antifire_potion_2",
+    "name": "Antifire potion(2)",
+    "category": "potion",
+    "sub_category": "antifire",
+    "doses": 2,
+    "effect_summary": "halve dragonfire 6 min",
+    "stackable": false,
+    "weight": 0.3,
+    "value": 600,
+    "tradeable": true,
+    "tags": [
+      "potion",
+      "2_dose"
+    ],
+    "examine": "A (2)-dose antifire potion. halve dragonfire 6 min."
+  },
+  {
+    "id": "antifire_potion_1",
+    "name": "Antifire potion(1)",
+    "category": "potion",
+    "sub_category": "antifire",
+    "doses": 1,
+    "effect_summary": "halve dragonfire 6 min",
+    "stackable": false,
+    "weight": 0.3,
+    "value": 300,
+    "tradeable": true,
+    "tags": [
+      "potion",
+      "1_dose"
+    ],
+    "examine": "A (1)-dose antifire potion. halve dragonfire 6 min."
+  },
+  {
+    "id": "super_antifire_potion_4",
+    "name": "Super antifire potion(4)",
+    "category": "potion",
+    "sub_category": "super_antifire",
+    "doses": 4,
+    "effect_summary": "immune to dragonfire 3 min",
+    "stackable": false,
+    "weight": 0.3,
+    "value": 4500,
+    "tradeable": true,
+    "tags": [
+      "potion",
+      "4_dose"
+    ],
+    "examine": "A (4)-dose super antifire potion. immune to dragonfire 3 min."
+  },
+  {
+    "id": "super_antifire_potion_3",
+    "name": "Super antifire potion(3)",
+    "category": "potion",
+    "sub_category": "super_antifire",
+    "doses": 3,
+    "effect_summary": "immune to dragonfire 3 min",
+    "stackable": false,
+    "weight": 0.3,
+    "value": 3375,
+    "tradeable": true,
+    "tags": [
+      "potion",
+      "3_dose"
+    ],
+    "examine": "A (3)-dose super antifire potion. immune to dragonfire 3 min."
+  },
+  {
+    "id": "super_antifire_potion_2",
+    "name": "Super antifire potion(2)",
+    "category": "potion",
+    "sub_category": "super_antifire",
+    "doses": 2,
+    "effect_summary": "immune to dragonfire 3 min",
+    "stackable": false,
+    "weight": 0.3,
+    "value": 2250,
+    "tradeable": true,
+    "tags": [
+      "potion",
+      "2_dose"
+    ],
+    "examine": "A (2)-dose super antifire potion. immune to dragonfire 3 min."
+  },
+  {
+    "id": "super_antifire_potion_1",
+    "name": "Super antifire potion(1)",
+    "category": "potion",
+    "sub_category": "super_antifire",
+    "doses": 1,
+    "effect_summary": "immune to dragonfire 3 min",
+    "stackable": false,
+    "weight": 0.3,
+    "value": 1125,
+    "tradeable": true,
+    "tags": [
+      "potion",
+      "1_dose"
+    ],
+    "examine": "A (1)-dose super antifire potion. immune to dragonfire 3 min."
+  },
+  {
+    "id": "stamina_potion_4",
+    "name": "Stamina potion(4)",
+    "category": "potion",
+    "sub_category": "stamina",
+    "doses": 4,
+    "effect_summary": "20% run energy, slower drain 2 min",
+    "stackable": false,
+    "weight": 0.3,
+    "value": 1800,
+    "tradeable": true,
+    "tags": [
+      "potion",
+      "4_dose"
+    ],
+    "examine": "A (4)-dose stamina potion. 20% run energy, slower drain 2 min."
+  },
+  {
+    "id": "stamina_potion_3",
+    "name": "Stamina potion(3)",
+    "category": "potion",
+    "sub_category": "stamina",
+    "doses": 3,
+    "effect_summary": "20% run energy, slower drain 2 min",
+    "stackable": false,
+    "weight": 0.3,
+    "value": 1350,
+    "tradeable": true,
+    "tags": [
+      "potion",
+      "3_dose"
+    ],
+    "examine": "A (3)-dose stamina potion. 20% run energy, slower drain 2 min."
+  },
+  {
+    "id": "stamina_potion_2",
+    "name": "Stamina potion(2)",
+    "category": "potion",
+    "sub_category": "stamina",
+    "doses": 2,
+    "effect_summary": "20% run energy, slower drain 2 min",
+    "stackable": false,
+    "weight": 0.3,
+    "value": 900,
+    "tradeable": true,
+    "tags": [
+      "potion",
+      "2_dose"
+    ],
+    "examine": "A (2)-dose stamina potion. 20% run energy, slower drain 2 min."
+  },
+  {
+    "id": "stamina_potion_1",
+    "name": "Stamina potion(1)",
+    "category": "potion",
+    "sub_category": "stamina",
+    "doses": 1,
+    "effect_summary": "20% run energy, slower drain 2 min",
+    "stackable": false,
+    "weight": 0.3,
+    "value": 450,
+    "tradeable": true,
+    "tags": [
+      "potion",
+      "1_dose"
+    ],
+    "examine": "A (1)-dose stamina potion. 20% run energy, slower drain 2 min."
+  },
+  {
+    "id": "energy_potion_4",
+    "name": "Energy potion(4)",
+    "category": "potion",
+    "sub_category": "energy",
+    "doses": 4,
+    "effect_summary": "10% run energy",
+    "stackable": false,
+    "weight": 0.3,
+    "value": 180,
+    "tradeable": true,
+    "tags": [
+      "potion",
+      "4_dose"
+    ],
+    "examine": "A (4)-dose energy potion. 10% run energy."
+  },
+  {
+    "id": "energy_potion_3",
+    "name": "Energy potion(3)",
+    "category": "potion",
+    "sub_category": "energy",
+    "doses": 3,
+    "effect_summary": "10% run energy",
+    "stackable": false,
+    "weight": 0.3,
+    "value": 135,
+    "tradeable": true,
+    "tags": [
+      "potion",
+      "3_dose"
+    ],
+    "examine": "A (3)-dose energy potion. 10% run energy."
+  },
+  {
+    "id": "energy_potion_2",
+    "name": "Energy potion(2)",
+    "category": "potion",
+    "sub_category": "energy",
+    "doses": 2,
+    "effect_summary": "10% run energy",
+    "stackable": false,
+    "weight": 0.3,
+    "value": 90,
+    "tradeable": true,
+    "tags": [
+      "potion",
+      "2_dose"
+    ],
+    "examine": "A (2)-dose energy potion. 10% run energy."
+  },
+  {
+    "id": "energy_potion_1",
+    "name": "Energy potion(1)",
+    "category": "potion",
+    "sub_category": "energy",
+    "doses": 1,
+    "effect_summary": "10% run energy",
+    "stackable": false,
+    "weight": 0.3,
+    "value": 45,
+    "tradeable": true,
+    "tags": [
+      "potion",
+      "1_dose"
+    ],
+    "examine": "A (1)-dose energy potion. 10% run energy."
+  },
+  {
+    "id": "super_energy_potion_4",
+    "name": "Super energy potion(4)",
+    "category": "potion",
+    "sub_category": "super_energy",
+    "doses": 4,
+    "effect_summary": "20% run energy",
+    "stackable": false,
+    "weight": 0.3,
+    "value": 420,
+    "tradeable": true,
+    "tags": [
+      "potion",
+      "4_dose"
+    ],
+    "examine": "A (4)-dose super energy potion. 20% run energy."
+  },
+  {
+    "id": "super_energy_potion_3",
+    "name": "Super energy potion(3)",
+    "category": "potion",
+    "sub_category": "super_energy",
+    "doses": 3,
+    "effect_summary": "20% run energy",
+    "stackable": false,
+    "weight": 0.3,
+    "value": 315,
+    "tradeable": true,
+    "tags": [
+      "potion",
+      "3_dose"
+    ],
+    "examine": "A (3)-dose super energy potion. 20% run energy."
+  },
+  {
+    "id": "super_energy_potion_2",
+    "name": "Super energy potion(2)",
+    "category": "potion",
+    "sub_category": "super_energy",
+    "doses": 2,
+    "effect_summary": "20% run energy",
+    "stackable": false,
+    "weight": 0.3,
+    "value": 210,
+    "tradeable": true,
+    "tags": [
+      "potion",
+      "2_dose"
+    ],
+    "examine": "A (2)-dose super energy potion. 20% run energy."
+  },
+  {
+    "id": "super_energy_potion_1",
+    "name": "Super energy potion(1)",
+    "category": "potion",
+    "sub_category": "super_energy",
+    "doses": 1,
+    "effect_summary": "20% run energy",
+    "stackable": false,
+    "weight": 0.3,
+    "value": 105,
+    "tradeable": true,
+    "tags": [
+      "potion",
+      "1_dose"
+    ],
+    "examine": "A (1)-dose super energy potion. 20% run energy."
+  },
+  {
+    "id": "overload_potion_4",
+    "name": "Overload(4)",
+    "category": "potion",
+    "sub_category": "overload",
+    "doses": 4,
+    "effect_summary": "+5+15% all combat for 5 min, drain HP",
+    "stackable": false,
+    "weight": 0.3,
+    "value": 9500,
+    "tradeable": true,
+    "tags": [
+      "potion",
+      "4_dose"
+    ],
+    "examine": "A (4)-dose overload. +5+15% all combat for 5 min, drain HP."
+  },
+  {
+    "id": "overload_potion_3",
+    "name": "Overload(3)",
+    "category": "potion",
+    "sub_category": "overload",
+    "doses": 3,
+    "effect_summary": "+5+15% all combat for 5 min, drain HP",
+    "stackable": false,
+    "weight": 0.3,
+    "value": 7125,
+    "tradeable": true,
+    "tags": [
+      "potion",
+      "3_dose"
+    ],
+    "examine": "A (3)-dose overload. +5+15% all combat for 5 min, drain HP."
+  },
+  {
+    "id": "overload_potion_2",
+    "name": "Overload(2)",
+    "category": "potion",
+    "sub_category": "overload",
+    "doses": 2,
+    "effect_summary": "+5+15% all combat for 5 min, drain HP",
+    "stackable": false,
+    "weight": 0.3,
+    "value": 4750,
+    "tradeable": true,
+    "tags": [
+      "potion",
+      "2_dose"
+    ],
+    "examine": "A (2)-dose overload. +5+15% all combat for 5 min, drain HP."
+  },
+  {
+    "id": "overload_potion_1",
+    "name": "Overload(1)",
+    "category": "potion",
+    "sub_category": "overload",
+    "doses": 1,
+    "effect_summary": "+5+15% all combat for 5 min, drain HP",
+    "stackable": false,
+    "weight": 0.3,
+    "value": 2375,
+    "tradeable": true,
+    "tags": [
+      "potion",
+      "1_dose"
+    ],
+    "examine": "A (1)-dose overload. +5+15% all combat for 5 min, drain HP."
+  },
+  {
+    "id": "stat_freeze_potion_4",
+    "name": "Stat-freeze potion(4)",
+    "category": "potion",
+    "sub_category": "stat_freeze",
+    "doses": 4,
+    "effect_summary": "freeze stats at current level 2 min",
+    "stackable": false,
+    "weight": 0.3,
+    "value": 8500,
+    "tradeable": true,
+    "tags": [
+      "potion",
+      "4_dose"
+    ],
+    "examine": "A (4)-dose stat-freeze potion. freeze stats at current level 2 min."
+  },
+  {
+    "id": "stat_freeze_potion_3",
+    "name": "Stat-freeze potion(3)",
+    "category": "potion",
+    "sub_category": "stat_freeze",
+    "doses": 3,
+    "effect_summary": "freeze stats at current level 2 min",
+    "stackable": false,
+    "weight": 0.3,
+    "value": 6375,
+    "tradeable": true,
+    "tags": [
+      "potion",
+      "3_dose"
+    ],
+    "examine": "A (3)-dose stat-freeze potion. freeze stats at current level 2 min."
+  },
+  {
+    "id": "stat_freeze_potion_2",
+    "name": "Stat-freeze potion(2)",
+    "category": "potion",
+    "sub_category": "stat_freeze",
+    "doses": 2,
+    "effect_summary": "freeze stats at current level 2 min",
+    "stackable": false,
+    "weight": 0.3,
+    "value": 4250,
+    "tradeable": true,
+    "tags": [
+      "potion",
+      "2_dose"
+    ],
+    "examine": "A (2)-dose stat-freeze potion. freeze stats at current level 2 min."
+  },
+  {
+    "id": "stat_freeze_potion_1",
+    "name": "Stat-freeze potion(1)",
+    "category": "potion",
+    "sub_category": "stat_freeze",
+    "doses": 1,
+    "effect_summary": "freeze stats at current level 2 min",
+    "stackable": false,
+    "weight": 0.3,
+    "value": 2125,
+    "tradeable": true,
+    "tags": [
+      "potion",
+      "1_dose"
+    ],
+    "examine": "A (1)-dose stat-freeze potion. freeze stats at current level 2 min."
+  },
+  {
+    "id": "zamorak_brew_potion_4",
+    "name": "Zamorak brew(4)",
+    "category": "potion",
+    "sub_category": "zamorak_brew",
+    "doses": 4,
+    "effect_summary": "+20% atk/str, -10% def/HP",
+    "stackable": false,
+    "weight": 0.3,
+    "value": 2400,
+    "tradeable": true,
+    "tags": [
+      "potion",
+      "4_dose"
+    ],
+    "examine": "A (4)-dose zamorak brew. +20% atk/str, -10% def/HP."
+  },
+  {
+    "id": "zamorak_brew_potion_3",
+    "name": "Zamorak brew(3)",
+    "category": "potion",
+    "sub_category": "zamorak_brew",
+    "doses": 3,
+    "effect_summary": "+20% atk/str, -10% def/HP",
+    "stackable": false,
+    "weight": 0.3,
+    "value": 1800,
+    "tradeable": true,
+    "tags": [
+      "potion",
+      "3_dose"
+    ],
+    "examine": "A (3)-dose zamorak brew. +20% atk/str, -10% def/HP."
+  },
+  {
+    "id": "zamorak_brew_potion_2",
+    "name": "Zamorak brew(2)",
+    "category": "potion",
+    "sub_category": "zamorak_brew",
+    "doses": 2,
+    "effect_summary": "+20% atk/str, -10% def/HP",
+    "stackable": false,
+    "weight": 0.3,
+    "value": 1200,
+    "tradeable": true,
+    "tags": [
+      "potion",
+      "2_dose"
+    ],
+    "examine": "A (2)-dose zamorak brew. +20% atk/str, -10% def/HP."
+  },
+  {
+    "id": "zamorak_brew_potion_1",
+    "name": "Zamorak brew(1)",
+    "category": "potion",
+    "sub_category": "zamorak_brew",
+    "doses": 1,
+    "effect_summary": "+20% atk/str, -10% def/HP",
+    "stackable": false,
+    "weight": 0.3,
+    "value": 600,
+    "tradeable": true,
+    "tags": [
+      "potion",
+      "1_dose"
+    ],
+    "examine": "A (1)-dose zamorak brew. +20% atk/str, -10% def/HP."
+  },
+  {
+    "id": "divine_super_combat_potion_4",
+    "name": "Divine super combat potion(4)",
+    "category": "potion",
+    "sub_category": "divine_super_combat",
+    "doses": 4,
+    "effect_summary": "super atk/str/def, doesn't tick down",
+    "stackable": false,
+    "weight": 0.3,
+    "value": 15000,
+    "tradeable": true,
+    "tags": [
+      "potion",
+      "4_dose"
+    ],
+    "examine": "A (4)-dose divine super combat potion. super atk/str/def, doesn't tick down."
+  },
+  {
+    "id": "divine_super_combat_potion_3",
+    "name": "Divine super combat potion(3)",
+    "category": "potion",
+    "sub_category": "divine_super_combat",
+    "doses": 3,
+    "effect_summary": "super atk/str/def, doesn't tick down",
+    "stackable": false,
+    "weight": 0.3,
+    "value": 11250,
+    "tradeable": true,
+    "tags": [
+      "potion",
+      "3_dose"
+    ],
+    "examine": "A (3)-dose divine super combat potion. super atk/str/def, doesn't tick down."
+  },
+  {
+    "id": "divine_super_combat_potion_2",
+    "name": "Divine super combat potion(2)",
+    "category": "potion",
+    "sub_category": "divine_super_combat",
+    "doses": 2,
+    "effect_summary": "super atk/str/def, doesn't tick down",
+    "stackable": false,
+    "weight": 0.3,
+    "value": 7500,
+    "tradeable": true,
+    "tags": [
+      "potion",
+      "2_dose"
+    ],
+    "examine": "A (2)-dose divine super combat potion. super atk/str/def, doesn't tick down."
+  },
+  {
+    "id": "divine_super_combat_potion_1",
+    "name": "Divine super combat potion(1)",
+    "category": "potion",
+    "sub_category": "divine_super_combat",
+    "doses": 1,
+    "effect_summary": "super atk/str/def, doesn't tick down",
+    "stackable": false,
+    "weight": 0.3,
+    "value": 3750,
+    "tradeable": true,
+    "tags": [
+      "potion",
+      "1_dose"
+    ],
+    "examine": "A (1)-dose divine super combat potion. super atk/str/def, doesn't tick down."
+  },
+  {
+    "id": "sanfew_serum_potion_4",
+    "name": "Sanfew serum(4)",
+    "category": "potion",
+    "sub_category": "sanfew_serum",
+    "doses": 4,
+    "effect_summary": "super restore + disease cure + anti-poison",
+    "stackable": false,
+    "weight": 0.3,
+    "value": 2100,
+    "tradeable": true,
+    "tags": [
+      "potion",
+      "4_dose"
+    ],
+    "examine": "A (4)-dose sanfew serum. super restore + disease cure + anti-poison."
+  },
+  {
+    "id": "sanfew_serum_potion_3",
+    "name": "Sanfew serum(3)",
+    "category": "potion",
+    "sub_category": "sanfew_serum",
+    "doses": 3,
+    "effect_summary": "super restore + disease cure + anti-poison",
+    "stackable": false,
+    "weight": 0.3,
+    "value": 1575,
+    "tradeable": true,
+    "tags": [
+      "potion",
+      "3_dose"
+    ],
+    "examine": "A (3)-dose sanfew serum. super restore + disease cure + anti-poison."
+  },
+  {
+    "id": "sanfew_serum_potion_2",
+    "name": "Sanfew serum(2)",
+    "category": "potion",
+    "sub_category": "sanfew_serum",
+    "doses": 2,
+    "effect_summary": "super restore + disease cure + anti-poison",
+    "stackable": false,
+    "weight": 0.3,
+    "value": 1050,
+    "tradeable": true,
+    "tags": [
+      "potion",
+      "2_dose"
+    ],
+    "examine": "A (2)-dose sanfew serum. super restore + disease cure + anti-poison."
+  },
+  {
+    "id": "sanfew_serum_potion_1",
+    "name": "Sanfew serum(1)",
+    "category": "potion",
+    "sub_category": "sanfew_serum",
+    "doses": 1,
+    "effect_summary": "super restore + disease cure + anti-poison",
+    "stackable": false,
+    "weight": 0.3,
+    "value": 525,
+    "tradeable": true,
+    "tags": [
+      "potion",
+      "1_dose"
+    ],
+    "examine": "A (1)-dose sanfew serum. super restore + disease cure + anti-poison."
+  },
+  {
+    "id": "bastion_potion_4",
+    "name": "Bastion potion(4)",
+    "category": "potion",
+    "sub_category": "bastion",
+    "doses": 4,
+    "effect_summary": "+4+10% ranged, +5+15% def",
+    "stackable": false,
+    "weight": 0.3,
+    "value": 2800,
+    "tradeable": true,
+    "tags": [
+      "potion",
+      "4_dose"
+    ],
+    "examine": "A (4)-dose bastion potion. +4+10% ranged, +5+15% def."
+  },
+  {
+    "id": "bastion_potion_3",
+    "name": "Bastion potion(3)",
+    "category": "potion",
+    "sub_category": "bastion",
+    "doses": 3,
+    "effect_summary": "+4+10% ranged, +5+15% def",
+    "stackable": false,
+    "weight": 0.3,
+    "value": 2100,
+    "tradeable": true,
+    "tags": [
+      "potion",
+      "3_dose"
+    ],
+    "examine": "A (3)-dose bastion potion. +4+10% ranged, +5+15% def."
+  },
+  {
+    "id": "bastion_potion_2",
+    "name": "Bastion potion(2)",
+    "category": "potion",
+    "sub_category": "bastion",
+    "doses": 2,
+    "effect_summary": "+4+10% ranged, +5+15% def",
+    "stackable": false,
+    "weight": 0.3,
+    "value": 1400,
+    "tradeable": true,
+    "tags": [
+      "potion",
+      "2_dose"
+    ],
+    "examine": "A (2)-dose bastion potion. +4+10% ranged, +5+15% def."
+  },
+  {
+    "id": "bastion_potion_1",
+    "name": "Bastion potion(1)",
+    "category": "potion",
+    "sub_category": "bastion",
+    "doses": 1,
+    "effect_summary": "+4+10% ranged, +5+15% def",
+    "stackable": false,
+    "weight": 0.3,
+    "value": 700,
+    "tradeable": true,
+    "tags": [
+      "potion",
+      "1_dose"
+    ],
+    "examine": "A (1)-dose bastion potion. +4+10% ranged, +5+15% def."
+  },
+  {
+    "id": "battlemage_potion_4",
+    "name": "Battlemage potion(4)",
+    "category": "potion",
+    "sub_category": "battlemage",
+    "doses": 4,
+    "effect_summary": "+4 magic, +5+15% def",
+    "stackable": false,
+    "weight": 0.3,
+    "value": 2600,
+    "tradeable": true,
+    "tags": [
+      "potion",
+      "4_dose"
+    ],
+    "examine": "A (4)-dose battlemage potion. +4 magic, +5+15% def."
+  },
+  {
+    "id": "battlemage_potion_3",
+    "name": "Battlemage potion(3)",
+    "category": "potion",
+    "sub_category": "battlemage",
+    "doses": 3,
+    "effect_summary": "+4 magic, +5+15% def",
+    "stackable": false,
+    "weight": 0.3,
+    "value": 1950,
+    "tradeable": true,
+    "tags": [
+      "potion",
+      "3_dose"
+    ],
+    "examine": "A (3)-dose battlemage potion. +4 magic, +5+15% def."
+  },
+  {
+    "id": "battlemage_potion_2",
+    "name": "Battlemage potion(2)",
+    "category": "potion",
+    "sub_category": "battlemage",
+    "doses": 2,
+    "effect_summary": "+4 magic, +5+15% def",
+    "stackable": false,
+    "weight": 0.3,
+    "value": 1300,
+    "tradeable": true,
+    "tags": [
+      "potion",
+      "2_dose"
+    ],
+    "examine": "A (2)-dose battlemage potion. +4 magic, +5+15% def."
+  },
+  {
+    "id": "battlemage_potion_1",
+    "name": "Battlemage potion(1)",
+    "category": "potion",
+    "sub_category": "battlemage",
+    "doses": 1,
+    "effect_summary": "+4 magic, +5+15% def",
+    "stackable": false,
+    "weight": 0.3,
+    "value": 650,
+    "tradeable": true,
+    "tags": [
+      "potion",
+      "1_dose"
+    ],
+    "examine": "A (1)-dose battlemage potion. +4 magic, +5+15% def."
+  },
+  {
+    "id": "candle",
+    "name": "Candle",
+    "category": "light_source",
+    "stackable": false,
+    "weight": 0.5,
+    "value": 3,
+    "tradeable": true,
+    "tags": [
+      "light_source"
+    ],
+    "duration": "5 min",
+    "extinguishes_in": "water",
+    "requirements": {
+      "firemaking": 1
+    },
+    "examine": "Candle. Lasts 5 min, extinguished by water."
+  },
+  {
+    "id": "torch_unlit",
+    "name": "Torch (unlit)",
+    "category": "light_source",
+    "stackable": false,
+    "weight": 0.5,
+    "value": 5,
+    "tradeable": true,
+    "tags": [
+      "light_source"
+    ],
+    "duration": "—",
+    "extinguishes_in": "—",
+    "requirements": {
+      "firemaking": 1
+    },
+    "examine": "Torch (unlit). Lasts —, extinguished by —."
+  },
+  {
+    "id": "torch_lit",
+    "name": "Lit torch",
+    "category": "light_source",
+    "stackable": false,
+    "weight": 0.5,
+    "value": 5,
+    "tradeable": true,
+    "tags": [
+      "light_source"
+    ],
+    "duration": "15 min",
+    "extinguishes_in": "wind",
+    "requirements": {
+      "firemaking": 1
+    },
+    "examine": "Lit torch. Lasts 15 min, extinguished by wind."
+  },
+  {
+    "id": "oil_lantern_empty",
+    "name": "Oil lantern (empty)",
+    "category": "light_source",
+    "stackable": false,
+    "weight": 0.5,
+    "value": 30,
+    "tradeable": true,
+    "tags": [
+      "light_source"
+    ],
+    "duration": "—",
+    "extinguishes_in": "—",
+    "requirements": {
+      "firemaking": 26
+    },
+    "examine": "Oil lantern (empty). Lasts —, extinguished by —."
+  },
+  {
+    "id": "oil_lantern_lit",
+    "name": "Lit oil lantern",
+    "category": "light_source",
+    "stackable": false,
+    "weight": 0.5,
+    "value": 30,
+    "tradeable": true,
+    "tags": [
+      "light_source"
+    ],
+    "duration": "45 min",
+    "extinguishes_in": "wind",
+    "requirements": {
+      "firemaking": 26
+    },
+    "examine": "Lit oil lantern. Lasts 45 min, extinguished by wind."
+  },
+  {
+    "id": "bullseye_lantern_lit",
+    "name": "Bullseye lantern",
+    "category": "light_source",
+    "stackable": false,
+    "weight": 0.5,
+    "value": 250,
+    "tradeable": true,
+    "tags": [
+      "light_source"
+    ],
+    "duration": "90 min",
+    "extinguishes_in": "none",
+    "requirements": {
+      "firemaking": 49
+    },
+    "examine": "Bullseye lantern. Lasts 90 min, extinguished by none."
+  },
+  {
+    "id": "sapphire_lantern",
+    "name": "Sapphire lantern",
+    "category": "light_source",
+    "stackable": false,
+    "weight": 0.5,
+    "value": 2000,
+    "tradeable": true,
+    "tags": [
+      "light_source"
+    ],
+    "duration": "6 hr",
+    "extinguishes_in": "none",
+    "requirements": {
+      "firemaking": 70
+    },
+    "examine": "Sapphire lantern. Lasts 6 hr, extinguished by none."
+  },
+  {
+    "id": "crystal_lantern",
+    "name": "Crystal lantern",
+    "category": "light_source",
+    "stackable": false,
+    "weight": 0.5,
+    "value": 8000,
+    "tradeable": true,
+    "tags": [
+      "light_source"
+    ],
+    "duration": "—",
+    "extinguishes_in": "none",
+    "requirements": {
+      "firemaking": 80
+    },
+    "examine": "Crystal lantern. Lasts —, extinguished by none."
+  },
+  {
+    "id": "mining_helm",
+    "name": "Mining helmet",
+    "category": "light_source",
+    "stackable": false,
+    "weight": 0.5,
+    "value": 120,
+    "tradeable": true,
+    "tags": [
+      "light_source"
+    ],
+    "duration": "—",
+    "extinguishes_in": "none",
+    "requirements": {
+      "firemaking": 25
+    },
+    "slot": "head",
+    "examine": "Mining helmet. Lasts —, extinguished by none."
+  },
+  {
+    "id": "heartlands_teleport_tablet",
+    "name": "Heartlands teleport",
+    "category": "teleport",
+    "stackable": true,
+    "weight": 0,
+    "value": 1200,
+    "tradeable": true,
+    "tags": [
+      "teleport",
+      "stackable"
+    ],
+    "destination": "Heartlands town square",
+    "requirements": {
+      "magic": 27
+    },
+    "examine": "Breaks to teleport you to Heartlands town square. Requires magic 27."
+  },
+  {
+    "id": "sootworks_teleport_tablet",
+    "name": "Sootworks teleport",
+    "category": "teleport",
+    "stackable": true,
+    "weight": 0,
+    "value": 2100,
+    "tradeable": true,
+    "tags": [
+      "teleport",
+      "stackable"
+    ],
+    "destination": "Sootworks foundry",
+    "requirements": {
+      "magic": 37
+    },
+    "examine": "Breaks to teleport you to Sootworks foundry. Requires magic 37."
+  },
+  {
+    "id": "moryskah_teleport_tablet",
+    "name": "Moryskah teleport",
+    "category": "teleport",
+    "stackable": true,
+    "weight": 0,
+    "value": 2400,
+    "tradeable": true,
+    "tags": [
+      "teleport",
+      "stackable"
+    ],
+    "destination": "Moryskah gates",
+    "requirements": {
+      "magic": 40
+    },
+    "examine": "Breaks to teleport you to Moryskah gates. Requires magic 40."
+  },
+  {
+    "id": "boneyard_teleport_tablet",
+    "name": "Boneyard teleport",
+    "category": "teleport",
+    "stackable": true,
+    "weight": 0,
+    "value": 2700,
+    "tradeable": true,
+    "tags": [
+      "teleport",
+      "stackable"
+    ],
+    "destination": "Boneyard cenotaph",
+    "requirements": {
+      "magic": 45
+    },
+    "examine": "Breaks to teleport you to Boneyard cenotaph. Requires magic 45."
+  },
+  {
+    "id": "glass_desert_teleport_tablet",
+    "name": "Glass Desert teleport",
+    "category": "teleport",
+    "stackable": true,
+    "weight": 0,
+    "value": 3000,
+    "tradeable": true,
+    "tags": [
+      "teleport",
+      "stackable"
+    ],
+    "destination": "Glass Desert oasis",
+    "requirements": {
+      "magic": 50
+    },
+    "examine": "Breaks to teleport you to Glass Desert oasis. Requires magic 50."
+  },
+  {
+    "id": "saltbrine_teleport_tablet",
+    "name": "Saltbrine teleport",
+    "category": "teleport",
+    "stackable": true,
+    "weight": 0,
+    "value": 3200,
+    "tradeable": true,
+    "tags": [
+      "teleport",
+      "stackable"
+    ],
+    "destination": "Saltbrine harbor",
+    "requirements": {
+      "magic": 55
+    },
+    "examine": "Breaks to teleport you to Saltbrine harbor. Requires magic 55."
+  },
+  {
+    "id": "veilwood_teleport_tablet",
+    "name": "Veilwood teleport",
+    "category": "teleport",
+    "stackable": true,
+    "weight": 0,
+    "value": 3600,
+    "tradeable": true,
+    "tags": [
+      "teleport",
+      "stackable"
+    ],
+    "destination": "Veilwood grove",
+    "requirements": {
+      "magic": 60
+    },
+    "examine": "Breaks to teleport you to Veilwood grove. Requires magic 60."
+  },
+  {
+    "id": "inkweald_teleport_tablet",
+    "name": "Inkweald teleport",
+    "category": "teleport",
+    "stackable": true,
+    "weight": 0,
+    "value": 3900,
+    "tradeable": true,
+    "tags": [
+      "teleport",
+      "stackable"
+    ],
+    "destination": "Inkweald library gate",
+    "requirements": {
+      "magic": 65
+    },
+    "examine": "Breaks to teleport you to Inkweald library gate. Requires magic 65."
+  },
+  {
+    "id": "wilds_lvl10_teleport_tablet",
+    "name": "Wilds level 10 tele",
+    "category": "teleport",
+    "stackable": true,
+    "weight": 0,
+    "value": 1800,
+    "tradeable": true,
+    "tags": [
+      "teleport",
+      "stackable"
+    ],
+    "destination": "Wilds tier-10 altar",
+    "requirements": {
+      "magic": 33
+    },
+    "examine": "Breaks to teleport you to Wilds tier-10 altar. Requires magic 33."
+  },
+  {
+    "id": "wilds_lvl30_teleport_tablet",
+    "name": "Wilds level 30 tele",
+    "category": "teleport",
+    "stackable": true,
+    "weight": 0,
+    "value": 5500,
+    "tradeable": true,
+    "tags": [
+      "teleport",
+      "stackable"
+    ],
+    "destination": "Wilds tier-30 altar",
+    "requirements": {
+      "magic": 47
+    },
+    "examine": "Breaks to teleport you to Wilds tier-30 altar. Requires magic 47."
+  },
+  {
+    "id": "ring_of_passage_8",
+    "name": "Ring of passage(8)",
+    "category": "teleport",
+    "slot": "ring",
+    "charges": 8,
+    "stackable": false,
+    "weight": 0.05,
+    "value": 6000,
+    "tradeable": true,
+    "tags": [
+      "teleport",
+      "degrades",
+      "jewellery"
+    ],
+    "destinations": "Heartlands, Sootworks, Moryskah",
+    "examine": "Teleport jewellery. 8 charges. Heartlands, Sootworks, Moryskah."
+  },
+  {
+    "id": "amulet_of_ports_5",
+    "name": "Amulet of ports(5)",
+    "category": "teleport",
+    "slot": "neck",
+    "charges": 5,
+    "stackable": false,
+    "weight": 0.05,
+    "value": 12000,
+    "tradeable": true,
+    "tags": [
+      "teleport",
+      "degrades",
+      "jewellery"
+    ],
+    "destinations": "Saltbrine harbors and 3 islands",
+    "examine": "Teleport jewellery. 5 charges. Saltbrine harbors and 3 islands."
+  },
+  {
+    "id": "skill_bracelet_4",
+    "name": "Skill bracelet(4)",
+    "category": "teleport",
+    "slot": "hands",
+    "charges": 4,
+    "stackable": false,
+    "weight": 0.05,
+    "value": 8000,
+    "tradeable": true,
+    "tags": [
+      "teleport",
+      "degrades",
+      "jewellery"
+    ],
+    "destinations": "Farming patches + rune altars",
+    "examine": "Teleport jewellery. 4 charges. Farming patches + rune altars."
+  },
+  {
+    "id": "moon_earring_3",
+    "name": "Moon earring(3)",
+    "category": "teleport",
+    "slot": "neck",
+    "charges": 3,
+    "stackable": false,
+    "weight": 0.05,
+    "value": 14000,
+    "tradeable": true,
+    "tags": [
+      "teleport",
+      "degrades",
+      "jewellery"
+    ],
+    "destinations": "Veilwood 3 grove patches",
+    "examine": "Teleport jewellery. 3 charges. Veilwood 3 grove patches."
+  },
+  {
+    "id": "wilds_sigil_ring_5",
+    "name": "Wilds sigil ring(5)",
+    "category": "teleport",
+    "slot": "ring",
+    "charges": 5,
+    "stackable": false,
+    "weight": 0.05,
+    "value": 22000,
+    "tradeable": true,
+    "tags": [
+      "teleport",
+      "degrades",
+      "jewellery"
+    ],
+    "destinations": "Wilds altars at lvl 10/20/30/40/50",
+    "examine": "Teleport jewellery. 5 charges. Wilds altars at lvl 10/20/30/40/50."
+  },
+  {
+    "id": "antidote_salve",
+    "name": "Antidote salve",
+    "category": "cure",
+    "stackable": true,
+    "weight": 0.1,
+    "value": 80,
+    "tradeable": true,
+    "tags": [
+      "consumable"
+    ],
+    "examine": "Cures poison. Instant."
+  },
+  {
+    "id": "ghast_warding_rune",
+    "name": "Ghast warding rune",
+    "category": "cure",
+    "stackable": true,
+    "weight": 0.1,
+    "value": 500,
+    "tradeable": true,
+    "tags": [
+      "consumable"
+    ],
+    "examine": "Single-use. Prevents Moryskah ghasts from rotting food for 10 min."
+  },
+  {
+    "id": "disease_tonic",
+    "name": "Disease tonic",
+    "category": "cure",
+    "stackable": true,
+    "weight": 0.1,
+    "value": 350,
+    "tradeable": true,
+    "tags": [
+      "consumable"
+    ],
+    "examine": "Cures all farming diseases; one-use."
+  },
+  {
+    "id": "curse_unbinder",
+    "name": "Curse unbinder",
+    "category": "cure",
+    "stackable": true,
+    "weight": 0.1,
+    "value": 1200,
+    "tradeable": true,
+    "tags": [
+      "consumable"
+    ],
+    "examine": "Removes a Moryskah curse debuff."
+  },
+  {
+    "id": "phoenix_feather",
+    "name": "Phoenix feather",
+    "category": "cure",
+    "stackable": true,
+    "weight": 0.1,
+    "value": 8000,
+    "tradeable": true,
+    "tags": [
+      "death_revive"
+    ],
+    "examine": "Revives once on death (1 use, keeps inventory)."
+  },
+  {
+    "id": "saradomin_godbrew_crystal",
+    "name": "Sarad godbrew crystal",
+    "category": "cure",
+    "stackable": true,
+    "weight": 0.1,
+    "value": 12000,
+    "tradeable": true,
+    "tags": [
+      "consumable"
+    ],
+    "examine": "Adds +2 doses to any brew potion when crushed into it."
+  }
+]
