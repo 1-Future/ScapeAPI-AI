@@ -123,6 +123,39 @@ const MONSTERS = [
   { id: 'mob-vyre-sentinel',  name: 'Vyrewatch Sentinel',     combat: 151, hp: 175, maxHit: 13, speed: 4, style: 'melee', def: 80 },
 ];
 
+// H15: Build tier-appropriate loot tables from combat level. Atoms monsters
+// previously only dropped Bones — now they drop coins scaled to combat, plus
+// category-appropriate flavour items. Keeps Pillar-4 non-degenerate: generic
+// runes/herbs are common fills, not rares; truly unique rares live in
+// src/content/aelgard/* inline drops and data/drop-tables.json.
+function buildLoot(m) {
+  const cb = m.combat || 1;
+  const boneType = cb >= 250 ? 'Dragon bones' : cb >= 80 ? 'Big bones' : 'Bones';
+  const table = [
+    { name: boneType, weight: 1, min: 1, max: 1, always: true },
+    { name: 'Coins', weight: 10, min: Math.max(1, Math.floor(cb * 0.5)), max: Math.max(5, cb * 3) },
+    { name: 'Nothing', weight: 8, min: 0, max: 0 },
+  ];
+  // Style-based flavour
+  if (m.style === 'magic') {
+    table.push({ name: 'Chaos rune', weight: 4, min: 2, max: Math.max(3, Math.ceil(cb / 20)) });
+    if (cb >= 100) table.push({ name: 'Death rune', weight: 2, min: 1, max: 3 });
+    if (cb >= 180) table.push({ name: 'Blood rune', weight: 2, min: 1, max: 3 });
+  }
+  if (m.style === 'ranged') {
+    table.push({ name: 'Feather', weight: 4, min: 5, max: 15 });
+    if (cb >= 60) table.push({ name: 'Adamant arrow', weight: 2, min: 2, max: 6 });
+  }
+  if (m.style === 'melee' && cb >= 40) {
+    table.push({ name: 'Iron dagger', weight: 2, min: 1, max: 1 });
+    if (cb >= 100) table.push({ name: 'Steel longsword', weight: 1, min: 1, max: 1 });
+  }
+  // High-tier flavour
+  if (cb >= 150) table.push({ name: 'Uncut sapphire', weight: 1, min: 1, max: 1 });
+  if (cb >= 200) table.push({ name: 'Runite bar', weight: 1, min: 1, max: 1 });
+  return table;
+}
+
 for (const m of MONSTERS) {
   define({
     id: m.id, name: m.name, type: 'monster',
@@ -131,7 +164,7 @@ for (const m of MONSTERS) {
       cooldown: { duration: m.speed },
       hitCheck: { maxHit: m.maxHit, style: m.style, bonus: m.def },
       flinch: { attackSpeed: m.speed },
-      lootDrop: { table: [{ name: 'Bones', weight: 1, min: 1, max: 1, always: true }] },
+      lootDrop: { table: buildLoot(m) },
     }
   });
 }
