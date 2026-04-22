@@ -3697,6 +3697,11 @@ function createDefaultContent() {
   require('./content/aelgard/quests-burn-wave3');       // 7 NPC-bible-seeded Marstead quests (burn wave 3, part 1/3)
   require('./content/aelgard/quests-burn-wave3-part2'); // 7 more (quests 8-14)
   require('./content/aelgard/quests-burn-wave3-part3'); // 6 more (quests 15-20), inc. 2 grandmaster 5+hr arcs
+  require('./content/aelgard/quests-v0.8-chain-1');     // Boneyard Archivist (6 quests; Keeper Aureth's sealed library wing)
+  require('./content/aelgard/quests-v0.8-chain-2');     // Sootworks Silent Pact (6 quests; Oath-Sworn alloy tier)
+  require('./content/aelgard/quests-v0.8-chain-3');     // Saltbrine Twin-Tide (6 quests; Stormcrown shrine teleport + tide-walking)
+  require('./content/aelgard/quests-v0.8-chain-4');     // Veilwood Moonsong (6 quests; moonsong buff spellbook)
+  require('./content/aelgard/quests-v0.8-chain-5');     // Glass Desert Pilgrimage (6 quests; Pilgrim's Cape + Shrine Below font)
   require('./content/aelgard/combat-achievements');   // 100+ combat achievements across 6 tiers (Easy→Grandmaster)
   require('./content/aelgard/clue-scrolls-expanded'); // 85 more clue steps + master tier with 3rd age druidic rewards
   require('./content/aelgard/random-events-daily');   // 10 random events + 10 daily/weekly activities
