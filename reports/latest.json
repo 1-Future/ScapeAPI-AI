@@ -1,8 +1,8 @@
 {
-  "timestamp": "2026-04-15T14:06:24.785Z",
+  "timestamp": "2026-06-24T11:03:00.069Z",
   "git": {
-    "commit": "4449580a18b40334d41f1deaaf450e68fcf16613",
-    "branch": "main"
+    "commit": "dd5b40d90cb118abad0c740175aa03b733a8b0d0",
+    "branch": "claude/loving-turing-k4twcl"
   },
   "relationship_stats": {
     "areaGates": 31,
@@ -106,26 +106,13 @@
   },
   "sim": {
     "verdict": "non-degenerate",
-    "avgSim": 25.4,
+    "avgSim": 25.2,
     "mostSimilar": 56.6,
-    "mostDifferent": 8
+    "mostDifferent": 7.4
   },
   "diff": {
-    "previous_file": "2026-04-15T13-41-58-373Z_1be21ea.json",
+    "previous_file": "2026-04-15T14-06-24-829Z_4449580.json",
     "regressions": [],
-    "improvements": [
-      {
-        "region": "Sootworks",
-        "from": 93,
-        "to": 98,
-        "delta": 5
-      },
-      {
-        "region": "Moryskah",
-        "from": 84,
-        "to": 89,
-        "delta": 5
-      }
-    ]
+    "improvements": []
   }
 }
