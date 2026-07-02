@@ -1,0 +1,118 @@
+{
+  "timestamp": "2026-07-02T11:07:42.062Z",
+  "git": {
+    "commit": "dd5b40d90cb118abad0c740175aa03b733a8b0d0",
+    "branch": "claude/loving-turing-okg6vf"
+  },
+  "relationship_stats": {
+    "areaGates": 31,
+    "questUnlocks": 69,
+    "trainingMethods": 262,
+    "combinations": 69,
+    "degradableItems": 7,
+    "encounterBisTables": 4,
+    "breakpoints": 142,
+    "itemSources": 456,
+    "itemUses": 80,
+    "minigames": 0
+  },
+  "regions": {
+    "Heartlands": {
+      "methods": 146,
+      "items": 93,
+      "recipes": 21,
+      "skills": "23/23",
+      "selfSuff": "21/23",
+      "goal": "+ OK",
+      "score": 98
+    },
+    "Sootworks": {
+      "methods": 139,
+      "items": 128,
+      "recipes": 27,
+      "skills": "23/23",
+      "selfSuff": "21/23",
+      "goal": "+ OK",
+      "score": 98
+    },
+    "Glass Desert": {
+      "methods": 61,
+      "items": 138,
+      "recipes": 24,
+      "skills": "23/23",
+      "selfSuff": "19/23",
+      "goal": "+ OK",
+      "score": 97
+    },
+    "The Wilds": {
+      "methods": 102,
+      "items": 95,
+      "recipes": 15,
+      "skills": "23/23",
+      "selfSuff": "18/23",
+      "goal": "+ OK",
+      "score": 96
+    },
+    "Boneyard Wastes": {
+      "methods": 62,
+      "items": 91,
+      "recipes": 25,
+      "skills": "23/23",
+      "selfSuff": "15/23",
+      "goal": "+ OK",
+      "score": 93
+    },
+    "Inkweald": {
+      "methods": 59,
+      "items": 80,
+      "recipes": 14,
+      "skills": "23/23",
+      "selfSuff": "16/23",
+      "goal": "+ OK",
+      "score": 93
+    },
+    "Veilwood": {
+      "methods": 60,
+      "items": 95,
+      "recipes": 15,
+      "skills": "23/23",
+      "selfSuff": "14/23",
+      "goal": "+ OK",
+      "score": 92
+    },
+    "Saltbrine Reach": {
+      "methods": 65,
+      "items": 104,
+      "recipes": 17,
+      "skills": "23/23",
+      "selfSuff": "14/23",
+      "goal": "+ OK",
+      "score": 92
+    },
+    "Moryskah": {
+      "methods": 141,
+      "items": 108,
+      "recipes": 9,
+      "skills": "23/23",
+      "selfSuff": "17/23",
+      "goal": "+ OK",
+      "score": 89
+    }
+  },
+  "summary": {
+    "avg": 94,
+    "best": 98,
+    "worst": 89
+  },
+  "sim": {
+    "verdict": "non-degenerate",
+    "avgSim": 25.1,
+    "mostSimilar": 56.6,
+    "mostDifferent": 7.7
+  },
+  "diff": {
+    "previous_file": "2026-04-15T14-06-24-829Z_4449580.json",
+    "regressions": [],
+    "improvements": []
+  }
+}
